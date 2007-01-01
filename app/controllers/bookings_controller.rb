@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(params[:booking])
     if @booking.save
       flash[:notice] = 'Booking was successfully created.'
-      redirect_to :action => 'list'
+      redirect_to :action => 'new'
     else
       render :action => 'new'
     end
