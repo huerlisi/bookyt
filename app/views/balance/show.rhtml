@@ -104,4 +104,8 @@ td {
       </table>
     </td>
   </tr>
+  <tr style="background-color: #000000; color: #FFFFFF">
+    <td>Total: <%= @client.saldo(:current_assets) + @client.saldo(:capital_assets) %></td>
+    <td>Total: <%= -(@client.saldo(:outside_capital) + @client.saldo(:equity_capital)) %></td>
+  </tr>
 </table>
