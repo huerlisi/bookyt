@@ -5,6 +5,8 @@ class Client < ActiveRecord::Base
   has_many :capital_assets, :class_name => 'Account', :conditions => 'account_type_id = 2'
   has_many :outside_capital, :class_name => 'Account', :conditions => 'account_type_id = 3'
   has_many :equity_capital, :class_name => 'Account', :conditions => 'account_type_id = 4'
+  has_many :expenses, :class_name => 'Account', :conditions => 'account_type_id = 5'
+  has_many :earnings, :class_name => 'Account', :conditions => 'account_type_id = 6'
 
   def saldo(type)
     new_saldo = 0

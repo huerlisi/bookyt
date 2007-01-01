@@ -1,0 +1,62 @@
+<h1>Erfolgrechnung f&uuml;r <%= @client.name %> <%= @year %></h1>
+
+<style>
+.currency {
+  text-align: right;
+}
+
+td {
+  vertical-align: top;
+}
+
+</style>
+
+<table>
+  <tr>
+    <th>Aufwand</th>
+    <th>Ertrag</th>
+  </tr>
+  <tr>
+    <td style="background-color: #00FF00">
+      <table width="100%">
+        <tr>
+          <th>Konto</th>
+          <th>Saldo</th>
+        </tr>
+      
+        <% for account in @client.expenses %>
+        <tr>
+          <td><%= link_to account.title, :controller => 'accounts', :action => 'show', :id => account %></th>
+          <td class="currency"><%= account.saldo %></th>
+        <tr>
+        <% end %>
+      
+        <tr style="background-color: #000000; color: #FFFFFF">
+          <td>Total</th>
+          <td class="currency"><%= @client.saldo(:expenses) %></th>
+        <tr>
+      </table>
+    </td>
+    <td style="background-color: #FF0000">
+      <table width="100%">
+        <tr>
+          <th>Konto</th>
+          <th>Saldo</th>
+        </tr>
+      
+        <% for account in @client.earnings %>
+        <tr>
+          <td><%= link_to account.title, :controller => 'accounts', :action => 'show', :id => account %></th>
+          <td class="currency"><%= -account.saldo %></th>
+        <tr>
+        <% end %>
+      
+        <tr style="background-color: #000000; color: #FFFFFF">
+          <td>Total</th>
+          <td class="currency"><%= -@client.saldo(:earnings) %></th>
+        <tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+</table>
