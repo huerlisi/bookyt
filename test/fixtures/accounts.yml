@@ -1,0 +1,12 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+postfinance:
+  id: 1
+  saldo: 1111
+
+ubs:
+  id: 2
+  saldo: -1222
+
+empty:
+  id: 3
+  saldo: 0

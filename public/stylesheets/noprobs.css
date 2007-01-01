@@ -1,0 +1,312 @@
+/*Style sheet for NoProbs must be included to with HTML.*/
+/*Styles for body.*/
+body
+{
+	margin: 0 auto;
+	padding: 0;
+	font: 90% Verdana, Helvetica, Tahoma, Arial, sans-serif;
+	background: #F3F3F3 top center repeat-y;
+	color: #494949;
+}
+
+/*Styles for main content which will be wrapped to centere. */
+#MainWrapper
+{
+/*	background: #ffffff;
+*/	color: #303030;
+	margin: 0 auto;
+	width: 100%;
+}
+
+/*Styles for the main header at the top. */
+#Header
+{
+	color:#ffffff;
+	background-color: #F3F3F3;
+}
+
+#Header a
+{
+	font-weight:normal;
+	font-size:27px;
+	text-decoration:none;
+	background-color: #79A3C1;
+	color:#ffffff;
+}
+
+#header
+{
+	display:none;
+}
+
+/*Styles for the main header menus. */
+#HeaderMenus, #mainnav
+{
+	color:#000000;
+	height:1.2em;
+	line-height:1.2em;
+	padding-left:11px;
+	margin:0 0 10px 0;
+	background-color: #dcdcdc;
+	border-bottom:solid 2px #a9a9a9;
+}
+#HeaderMenus ul, #mainnav ul
+{
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+}
+#HeaderMenus li, #mainnav li
+{
+	float:left;
+	list-style-type:none;
+}
+#HeaderMenus li a, #mainnav li a
+{
+	display:block;
+	padding:0 10px;
+	font-size: 0.9em;
+	font-family: Verdana, Helvetica, Tahoma, Arial, sans-serif;
+	text-decoration:none;
+	background-color:inherit;
+	color:#000000;
+}
+#HeaderMenus .selected, #mainnav .selected
+{
+	color: #ffffff;
+	text-decoration: none;
+	background-color: #1D517C;
+}
+#HeaderMenus a:hover, #mainnav a:hover
+{
+	color: #336699;
+	text-decoration: none;
+	background-color:#AEB9CF;
+}
+
+/*Styles for the contens that are displayes in side column. */
+#SideContents, #metanav
+{
+	float:right;
+	width:170px;
+	color: #333300;
+	padding:0 6px 0 7px;
+	line-height:1.4em;
+/*	background-color:#ffffff;
+*/
+}
+#SideContents h3, #metanav h2
+{
+	color: #4D6E8F;
+	font-size: 1.1em;
+	margin: 0 auto;
+	padding: 0.8em 0 0.2em 0;
+	background-color:inherit;
+}
+#SideContents p, #metanav p
+{
+	font-size: 80%;
+	text-align: justify;
+	background-color:inherit;
+	color: #333300;
+	margin: 0 0 12px 0;
+}
+#SideContents a, #metanav a
+{
+        font-size: 90%;
+	text-decoration: none;
+	background-color:inherit;
+	color: #660000;
+}
+
+/*Styles for the main contets in the page. */
+#MainContent, #main
+{
+        font-size: 100%;
+	margin: 0 10px 0px 0px;
+	padding: 0 12px 0 10px;
+/*	border-right: 1px solid #DDD; */
+	line-height: 1.6em;
+	min-height: 550px;
+}
+#MainContent h2, #main h2
+{
+	color:#000000;
+	font-size: 1.5em;
+	margin: 0.8em 0 0.8em 0;
+	background-color:inherit;
+	text-align: left;
+}
+#MainContent p, #main p
+{
+	color:#494949;
+	text-align: justify;
+	background-color:inherit;
+}
+#MainContent a, #main a
+{
+	text-decoration: none;
+	background-color:inherit;
+	color: #660000;
+}
+#MainContent img, #main img
+{
+	display:inline;
+	color: inherit;
+	background-color:inherit;
+#	border: 2px solid #79A3C1;
+}
+
+/*Styles for the page footer. */
+#Footer 
+{	
+	margin: 0 auto;
+	padding: 8px 0 2px 0;
+	border-top: 1px solid #ddd;
+	width: 760px;
+	text-align: center;
+	font-size: 0.9em;
+	line-height: 1.6em;
+}
+#Footer a 
+{
+	color: #000099;
+	background-color: inherit;
+	text-decoration: none;
+}
+#Footer a:hover 
+{
+	text-decoration: underline;
+}
+
+/*Styles for other classes. */
+.AlignLeft
+{
+	margin: 10px 10px 5px 0;
+	float: left;
+}
+.AlignRight
+{
+	margin: 10px 0 0 10px;
+	float: right;
+}
+
+/* histo.css */
+.note, .dfv_errors {
+	background-color: #ffffff;
+	color: #990000;
+	font-weight: bold;
+	text-align: center;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.PAP_2A {color: black; background-color: yellow; }
+.PAP_2-3 {color: black; background-color: yellow; }
+.PAP_3L {color: black; background-color: #0066FF; }
+.PAP_3M {color: black; background-color: #0066FF; }
+.PAP_3S {color: black; background-color: #0066FF; }
+.PAP_4 {color: black; background-color: red; }
+.PAP_5 {color: black; background-color: red; }
+.PAP_hpv {color: black; background-color: #00CC00; }
+.PAP_mam {color: black; background-color: #00CC00; }
+
+
+
+/* Trac */
+
+
+/* Forms */
+input, textarea, select { margin: 2px }
+input, select { vertical-align: middle }
+select {
+ border: 1px solid #d7d7d7;
+}
+input[type=submit], input[type=reset] {
+ background: #eee;
+ color: #222;
+ border: 1px outset #ccc;
+ padding: .1em .5em;
+}
+input[type=submit]:hover, input[type=reset]:hover { background: #ccb }
+input[type=text], input.textwidget, textarea {
+ background: #fff;
+ color: #000;
+ border: 1px solid #d7d7d7;
+}
+input[type=text], input.textwidget { padding: .25em .5em }
+input[type=text]:focus, textarea:focus { border: 1px solid #886 }
+option { border-bottom: 1px dotted #d7d7d7 }
+fieldset { border: 1px solid #d7d7d7; padding: .5em; margin: 0 }
+fieldset.iefix { border: none; padding: 0; margin: 0 }
+* html fieldset.iefix { width: 98% }
+fieldset.iefix p { margin: 0 }
+legend { color: #999; padding: 0 .25em; font-size: 90%; font-weight: bold }
+label.disabled { color: #d7d7d7 }
+.buttons { margin: .5em .5em .5em 0 }
+.buttons form, .buttons form div { display: inline }
+.buttons input { margin: 1em .5em .1em 0 }
+
+
+
+#properties { white-space: nowrap; line-height: 160%; padding: .5em }
+#properties .main { margin-bottom: 1em }
+#properties .col1 {
+ border-right: 1px dotted #d7d7d7;
+ float: left;
+ margin-bottom: 1em;
+ width: 45%;
+}
+#properties .col2 { margin-left: 40% }
+#properties .main label, #properties .col1 label, #properties .col2 label {
+ float:left;
+ width: 7em;
+ text-align: right;
+ margin-right: .5em;
+}
+
+
+/* Styles for tabular listings such as those used for displaying directory
+   contents and report results. */
+table.listing {
+ clear: both;
+ border-bottom: 1px solid #d7d7d7;
+ border-collapse: collapse;
+ border-spacing: 0;
+ margin-top: 1em;
+ width: 100%;
+}
+table.listing th { text-align: left; padding: 0 1em .1em 0; font-size: 12px }
+table.listing thead { background: #f7f7f0 }
+table.listing thead th {
+ border: 1px solid #d7d7d7;
+ border-bottom-color: #999;
+ font-size: 11px;
+ font-weight: bold;
+ padding: 2px .5em;
+ vertical-align: bottom;
+}
+table.listing thead th :link:hover, table.listing thead th :visited:hover {
+ background-color: transparent;
+}
+table.listing thead th a { border: none; padding-right: 12px }
+table.listing th.asc a, table.listing th.desc a { font-weight: bold }
+table.listing th.asc a, table.listing th.desc a {
+ background-position: 100% 50%;
+ background-repeat: no-repeat;
+}
+/*table.listing th.asc a { background-image: url(../asc.png) }
+table.listing th.desc a { background-image: url(../desc.png) }
+*/
+table.listing tbody td, table.listing tbody th {
+ border: 1px dotted #ddd;
+ padding: .33em .5em;
+ vertical-align: top;
+}
+table.listing tbody td a:hover, table.listing tbody th a:hover {
+ background-color: transparent;
+}
+table.listing tbody tr { border-top: 1px solid #ddd }
+table.listing tbody tr.even { background-color: #fcfcfc }
+table.listing tbody tr.odd { background-color: #f7f7f7 }
+table.listing tbody tr:hover { background: #eed !important }
+

@@ -1,0 +1,30 @@
+<h1>Listing bookings</h1>
+
+<table>
+  <tr>
+    <th>Value Date</th>
+    <th>Credit Account</th>
+    <th>Debit Account</th>
+    <th>Amount</th>
+  </tr>
+  
+<% for booking in @bookings %>
+  <tr>
+    <td><%=h booking.value_date %></td>
+    <td><%=link_to h(booking.credit_account.title), :controller => :accounts, :action => :show, :id => booking.credit_account unless booking.credit_account.nil? %></td>
+    <td><%=link_to h(booking.debit_account.title), :controller => :accounts, :action => :show, :id => booking.debit_account unless booking.debit_account.nil? %></td>
+    <td><%=h booking.amount %></td>
+    
+    <td><%= link_to 'Show', :action => 'show', :id => booking %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => booking %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => booking }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @booking_pages.current.previous } if @booking_pages.current.previous %>
+<%= link_to 'Next page', { :page => @booking_pages.current.next } if @booking_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New booking', :action => 'new' %>

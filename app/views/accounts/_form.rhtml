@@ -1,0 +1,16 @@
+<%= error_messages_for 'account' %>
+
+<!--[form:account]-->
+<p><label for="account_number">Number</label><br/>
+<%= text_field 'account', 'number'  %></p>
+
+<p><label for="account_title">Title</label><br/>
+<%= text_field 'account', 'title'  %></p>
+
+<p><label for="account_type">Type</label><br/>
+<%= select("account", "account_type_id", AccountType.find_all.collect {|type| [ type.title, type.id ] }, { :include_blank => true } )  %></p>
+
+<p><label for="account_client">Client</label><br/>
+<%= select("account", "client_id", Client.find_all.collect {|client| [ client.name, client.id ] })  %></p>
+<!--[eoform:account]-->
+

@@ -1,0 +1,9 @@
+<h1>Editing booking</h1>
+
+<% form_tag( {:action => 'update', :id => @booking}, { :multipart => true } ) do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<% end %>
+
+<%= link_to 'Show', :action => 'show', :id => @booking %> |
+<%= link_to 'Back', :action => 'list' %>

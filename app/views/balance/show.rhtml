@@ -1,0 +1,107 @@
+<h1>Bilanz f&uuml;r <%= @client.name %> <%= @year %></h1>
+
+<style>
+.currency {
+  text-align: right;
+}
+
+td {
+  vertical-align: top;
+}
+
+</style>
+
+<table>
+  <tr>
+    <th>Umlaufverm&ouml;gen</th>
+    <th>Fremdkapital</th>
+  </tr>
+  <tr>
+    <td style="background-color: #00FF00">
+      <table width="100%">
+        <tr>
+          <th>Konto</th>
+          <th>Saldo</th>
+        </tr>
+      
+        <% for account in @client.current_assets %>
+        <tr>
+          <td><%= account.title %></th>
+          <td class="currency"><%= account.saldo %></th>
+        <tr>
+        <% end %>
+      
+        <tr style="background-color: #000000; color: #FFFFFF">
+          <td>Total</th>
+          <td class="currency"><%= @client.saldo(:current_assets) %></th>
+        <tr>
+      </table>
+    </td>
+    <td style="background-color: #FF0000">
+      <table width="100%">
+        <tr>
+          <th>Konto</th>
+          <th>Saldo</th>
+        </tr>
+      
+        <% for account in @client.outside_capital %>
+        <tr>
+          <td><%= account.title %></th>
+          <td class="currency"><%= -account.saldo %></th>
+        <tr>
+        <% end %>
+      
+        <tr style="background-color: #000000; color: #FFFFFF">
+          <td>Total</th>
+          <td class="currency"><%= -@client.saldo(:outside_capital) %></th>
+        <tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <th>Anlagevermögen</th>
+    <th>Eigenkapital</th>
+  </tr>
+  <tr>
+    <td style="background-color: #00AA00">
+      <table width="100%">
+        <tr>
+          <th>Konto</th>
+          <th>Saldo</th>
+        </tr>
+      
+        <% for account in @client.capital_assets %>
+        <tr>
+          <td><%= account.title %></th>
+          <td class="currency"><%= account.saldo %></th>
+        <tr>
+        <% end %>
+      
+        <tr style="background-color: #000000; color: #FFFFFF">
+          <td>Total</th>
+          <td class="currency"><%= @client.saldo(:capital_assets) %></th>
+        <tr>
+      </table>
+    </td>
+    <td style="background-color: #AA0000">
+      <table width="100%">
+        <tr>
+          <th>Konto</th>
+          <th>Saldo</th>
+        </tr>
+      
+        <% for account in @client.equity_capital %>
+        <tr>
+          <td><%= account.title %></th>
+          <td class="currency"><%= -account.saldo %></th>
+        <tr>
+        <% end %>
+      
+        <tr style="background-color: #000000; color: #FFFFFF">
+          <td>Total</th>
+          <td class="currency"><%= -@client.saldo(:equity_capital) %></th>
+        <tr>
+      </table>
+    </td>
+  </tr>
+</table>
