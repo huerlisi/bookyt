@@ -26,7 +26,7 @@ td {
       
         <% for account in @client.current_assets %>
         <tr>
-          <td><%= account.title %></th>
+          <td><%= link_to account.title, :controller => 'accounts', :action => 'show', :id => account %></th>
           <td class="currency"><%= account.saldo %></th>
         <tr>
         <% end %>
@@ -46,7 +46,7 @@ td {
       
         <% for account in @client.outside_capital %>
         <tr>
-          <td><%= account.title %></th>
+          <td><%= link_to account.title, :controller => 'accounts', :action => 'show', :id => account %></th>
           <td class="currency"><%= -account.saldo %></th>
         <tr>
         <% end %>
@@ -72,7 +72,7 @@ td {
       
         <% for account in @client.capital_assets %>
         <tr>
-          <td><%= account.title %></th>
+          <td><%= link_to account.title, :controller => 'accounts', :action => 'show', :id => account %></th>
           <td class="currency"><%= account.saldo %></th>
         <tr>
         <% end %>
@@ -92,7 +92,7 @@ td {
       
         <% for account in @client.equity_capital %>
         <tr>
-          <td><%= account.title %></th>
+          <td><%= link_to account.title, :controller => 'accounts', :action => 'show', :id => account %></th>
           <td class="currency"><%= -account.saldo %></th>
         <tr>
         <% end %>
