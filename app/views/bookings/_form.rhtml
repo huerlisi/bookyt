@@ -14,7 +14,7 @@
 <%= select 'booking', 'credit_account_id', Account.find_all.collect {|a| [ a.title, a.id ] }  %></p>
 
 <p><label for="booking_value_date">Value date</label><br/>
-<%= date_select 'booking', 'value_date'  %></p>
+<%= text_field 'booking', 'value_date'  %></p>
 
 <p><label for="booking_comments">Comments</label><br/>
 <%= text_area 'booking', 'comments', :cols => 40, :rows => 5  %></p>
