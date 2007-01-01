@@ -2,10 +2,10 @@
 
 <table>
   <tr>
-    <th>Value Date</th>
-    <th>Credit Account</th>
-    <th>Debit Account</th>
-    <th>Amount</th>
+    <%= sort_header 'value_date' %>
+    <%= sort_header 'credit_account_id' %>
+    <%= sort_header 'debit_account_id' %>
+    <%= sort_header 'amount' %>
   </tr>
   
 <% for booking in @bookings %>
