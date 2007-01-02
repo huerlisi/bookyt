@@ -15,7 +15,7 @@
     <td><%=h booking.value_date %></td>
     <td><%=link_to h(booking.credit_account.title), :controller => :accounts, :action => :show, :id => booking.credit_account unless booking.credit_account.nil? %></td>
     <td><%=link_to h(booking.debit_account.title), :controller => :accounts, :action => :show, :id => booking.debit_account unless booking.debit_account.nil? %></td>
-    <td><%=h booking.amount %></td>
+    <td><%=h sprintf('%0.2f', booking.rounded_amount) %></td>
     
     <td><%= link_to 'Show', :action => 'show', :id => booking %></td>
     <td><%= link_to 'Edit', :action => 'edit', :id => booking %></td>
