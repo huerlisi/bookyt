@@ -4,6 +4,7 @@
   <tr>
     <th>Number</th>
     <th>Title</th>
+    <th>Type</th>
     <th>Saldo</th>
   </tr>
   
@@ -11,6 +12,7 @@
   <tr>
     <td><%=h account.number %></td>
     <td><%= link_to h(account.title), :action => 'show', :id => account %></td>
+    <td><%=h account.account_type.title unless account.account_type.nil? %></td>
     <td><%=h account.saldo.abs %></td>
     <td><%= link_to 'Edit', :action => 'edit', :id => account %></td>
     <td><%= link_to 'Destroy', { :action => 'destroy', :id => account }, :confirm => 'Are you sure?', :post => true %></td>
