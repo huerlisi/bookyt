@@ -15,7 +15,7 @@
     <td><%=h booking.value_date.strftime('%d.%m.%Y') unless booking.value_date.nil?%></td>
     <td><%=link_to h(booking.credit_account.title), :controller => :accounts, :action => :show, :id => booking.credit_account unless booking.credit_account.nil? %></td>
     <td><%=link_to h(booking.debit_account.title), :controller => :accounts, :action => :show, :id => booking.debit_account unless booking.debit_account.nil? %></td>
-    <td><%=h sprintf('%0.2f', booking.rounded_amount) %></td>
+    <td style="text-align: right"><%=h number_to_currency(booking.rounded_amount, :unit => "CHF ")  %></td>
     
     <td><%= link_to 'Show', :action => 'show', :id => booking %></td>
     <td><%= link_to 'Edit', :action => 'edit', :id => booking %></td>
