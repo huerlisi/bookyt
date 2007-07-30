@@ -5,6 +5,6 @@ class Booking < ActiveRecord::Base
   file_column :scan
 
   def rounded_amount
-    (amount * 20).ceil / 20.0
+    (amount * 20).round / 20.0
   end
 end
