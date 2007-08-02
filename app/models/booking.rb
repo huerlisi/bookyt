@@ -5,6 +5,23 @@ class Booking < ActiveRecord::Base
   file_column :scan
 
   def rounded_amount
-    (amount * 20).round / 20.0
+    if amount.nil?
+    	return 0
+    else
+    	return (amount * 20).round / 20.0
+    end
+  end
+
+  def value_date=(value)
+    if value.is_a?(String)
+      day, month, year = value.split('.')
+      month ||= Date.today.month
+      year ||= Date.today.year
+      year = 2000 + year.to_i if year.to_i < 100
+
+      write_attribute(:value_date, "#{year}-#{month}-#{day}")
+    else
+      write_attribute(:value_date, value)
+    end
   end
 end
