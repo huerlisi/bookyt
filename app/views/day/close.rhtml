@@ -1,0 +1,28 @@
+<h1>Abrechnung</h1>
+<% form_for :day, @day, :url => { :action => 'update', :id => @day } do |f| %>
+<table>
+	<tr>
+		<th>Tag</th>
+		<td><%= f.text_field 'date', :label => 'Tag' %></td>
+	</tr>
+	<tr>
+		<th>Bar</th>
+		<td><%= f.text_field 'cash', :label => 'Bar' %></td>
+	</tr>
+	<tr>
+		<th>Karten</th>
+		<td><%= f.text_field 'cards', :label => 'Karten' %></td>
+	</tr>
+	<tr>
+		<th>Trinkgeld</th>
+		<td><%= f.text_field 'tip', :label => 'Trinkgeld' %></td>
+	</tr>
+	<tr>
+		<th>Abweichung</th>
+		<td><%= f.text_field 'error', :label => 'Abweichung' %></td>
+	</tr>
+	<tr>
+		<td colspan="2"><%= submit_tag 'Abschliessen' %></td>
+	</tr>
+</table>
+<% end %>
