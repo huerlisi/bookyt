@@ -5,7 +5,7 @@ class DayController < ApplicationController
     @day.save
   end
 
-  def close
+  def cash_up
     # Create Day object for today unless called for specific day
     if params[:id]
       @day = Day.find(params[:id])
@@ -20,7 +20,7 @@ class DayController < ApplicationController
     if @day.update_attributes(params[:day])
       redirect_to :action => 'list'
     else
-      render :action => 'close'
+      render :action => 'cash_up'
     end
   end
 
