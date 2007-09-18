@@ -32,4 +32,10 @@ class DayController < ApplicationController
     list
     render :action => 'list'
   end
+
+  # AJAX methods
+  def calculate_cash
+    cash = params[:cash_register].values.map {|a| a.to_f }.sum
+    render :text => "<td>#{cash}</td>"
+  end
 end

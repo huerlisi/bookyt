@@ -1,4 +1,22 @@
 <h1>Abrechnung</h1>
+<% form_remote_for :cash_register, @register, :update => 'cash', :url => { :action => 'calculate_cash' } do |f| %>
+<table>
+	<% for i in [ 200, 100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05 ] %>
+	<tr>
+		<th style="text-align: right"><%=h i %>:</th>
+		<td><%= f.text_field "cash_#{i}", :size => 4 %></td>
+	</tr>
+	<% end %>
+	<tr>
+		<th>Total:</th>
+		<td id="cash"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><%= submit_tag 'Ausrechnen' %></td>
+	</tr>
+</table>
+<% end %>
+
 <% form_for :day, @day, :url => { :action => 'update', :id => @day } do |f| %>
 <table>
 	<tr>
