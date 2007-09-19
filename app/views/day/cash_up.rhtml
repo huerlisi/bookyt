@@ -1,32 +1,41 @@
-<h1>Abrechnung</h1>
+<h1>Abrechnung vom <%=h @day.date.strftime "%d.%m.%Y" %></h1>
+<% form_remote_for :cash_register, @register, :update => 'cash', :url => { :action =>
+'calculate_cash' } do |f| %>
 <table>
 	<tr>
 		<td style="vertical-align: top">
-<% form_remote_for :cash_register, @register, :update => 'cash', :url => { :action => 'calculate_cash' } do |f| %>
-<table>
-	<% for i in [ 200, 100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05 ] %>
-	<tr>
-		<th style="text-align: right"><%=h i %>:</th>
-		<td><%= f.text_field "cash_#{i}", :size => 4, :style => "text-align: right" %></td>
+			<table>
+				<% for i in [ 200, 100, 50, 20, 10 ] %>
+				<tr>
+					<th style="text-align: right"><%=h i %> x </th>
+					<td><%= f.text_field i, :size => 4, :style => "text-align: right" %></td>
+				</tr>
+				<% end %>
+			</table>
+		</td>
+		<td style="vertical-align: top">
+			<table>
+				<% for i in [ 5, 2, 1, 0.5, 0.2, 0.1, 0.05 ] %>
+				<tr>
+					<th style="text-align: right"><%=h i %> = </th>
+					<td><%= f.text_field i, :size => 4, :style => "text-align: right" %></td>
+				</tr>
+				<% end %>
+				<tr>
+					<th>Total:</th>
+					<td id="cash"></td>
+				</tr>
+			</table>
+		</td>
 	</tr>
-	<% end %>
 	<tr>
-		<th>Total:</th>
-		<td id="cash"></td>
-	</tr>
-	<tr>
-		<td colspan="2"><%= submit_tag 'Ausrechnen' %></td>
+		<td colspan="4"><%= submit_tag 'Ausrechnen' %></td>
 	</tr>
 </table>
 <% end %>
-		</td>
-		<td style="vertical-align: top">
+
 <% form_for :day, @day, :url => { :action => 'update', :id => @day } do |f| %>
 <table>
-	<tr>
-		<th>Tag</th>
-		<td><%= f.text_field 'date', :label => 'Tag' %></td>
-	</tr>
 	<tr>
 		<th>Bar</th>
 		<td><%= f.text_field 'cash', :label => 'Bar' %></td>
@@ -48,7 +57,3 @@
 	</tr>
 </table>
 <% end %>
-
-		</td>
-	</tr>
-</table>

@@ -35,7 +35,12 @@ class DayController < ApplicationController
 
   # AJAX methods
   def calculate_cash
-    cash = params[:cash_register].values.map {|a| a.to_f }.sum
-    render :text => "<td>#{cash}</td>"
+    bills = params[:cash_register].select { |a| a[0].to_f > 5 }
+    mint = params[:cash_register].select { |a| a[0].to_f <= 5 }
+    
+    cash = bills.map { |a| a[0].to_f * a[1].to_f }.sum
+    cash += mint.map { |a| a[1].to_f }.sum
+    
+    render :inline => "<td style='font-weight: bolder'>#{cash}</td>"
   end
 end
