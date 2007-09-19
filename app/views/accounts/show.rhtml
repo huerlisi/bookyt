@@ -7,7 +7,7 @@
 
 </style>
 
-<table border="1">
+<table class="listing">
   <tr>
     <th>Title</th>
     <th>Value Date</th>
@@ -17,7 +17,7 @@
   <% for booking in @account.bookings %>
   <tr>
     <td><%= booking.title%></td>
-    <td><%= link_to h(booking.value_date), :controller => :bookings, :action => :show, :id => booking %></td>
+    <td><%= link_to h(booking.value_date.strftime("%d.%m.%Y")), :controller => :bookings, :action => :show, :id => booking  unless booking.value_date.nil? %></td>
     <td><%= booking.amount if booking.credit_account == @account %></td>
     <td><%= booking.amount if booking.debit_account == @account %></td>
   </tr>
