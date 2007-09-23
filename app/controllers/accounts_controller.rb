@@ -1,4 +1,9 @@
 class AccountsController < ApplicationController
+  # inplace editor declarations
+  in_place_edit_for :booking, :title
+  in_place_edit_for :booking, :comments
+  in_place_edit_for :booking, :in_place_amount
+  
   def index
     list
     render :action => 'list'

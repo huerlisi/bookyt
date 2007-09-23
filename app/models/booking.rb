@@ -12,6 +12,14 @@ class Booking < ActiveRecord::Base
     end
   end
 
+  def in_place_amount
+    sprintf("%.2f", self.amount)
+  end
+  
+  def in_place_amount=(value)
+    self.amount=value
+  end
+  
   def value_date=(value)
     if value.is_a?(String)
       day, month, year = value.split('.')
