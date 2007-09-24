@@ -36,8 +36,8 @@
     <td style="border: 0 none; border-top: 2px solid"><%=h booking.value_date.strftime('%d.%m.%Y') unless booking.value_date.nil? %></td>
     <td style="border: 0 none; border-top: 2px solid">
       <%= in_place_editor_field :booking, :title %>
-      <%= "<hr/>" unless booking.comments.empty? %>
-      <%= in_place_editor_field :booking, :comments %>
+      <%= '<hr style="height: 0px; margin: 0"/>' unless booking.comments.empty? %>
+      <i><%= in_place_editor_field :booking, :comments %></i>
     </td>
     <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= in_place_editor_field :booking, :in_place_amount if booking.debit_account == @account %></td>
     <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= in_place_editor_field :booking, :in_place_amount if booking.credit_account == @account %></td>
