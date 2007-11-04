@@ -1,0 +1,16 @@
+<h1>Lieferung erfassen</h1>
+<% form_remote_for :purchase, @purchase, :update => 'selling_price', :url => { :action => 'calculate_selling_price' } do |f| %>
+<table class="listing">
+  <tr>
+    <th>Gesamtpreis EUR</th>
+    <th>Anzahl</th>
+    <th>Marge</th>
+    <th>Verkaufspreis CHF</th>
+  </tr>
+  <tr>
+    <td><%= f.text_field 'purchase_price_eur', :size => 4, :style => 'text-align: right' %></td>
+    <td><%= f.text_field 'amount', :size => 4, :style => 'text-align: right' %></td>
+    <td><%= f.text_field 'purchase_price_eur', :size => 4, :style => 'text-align: right' %></td>
+  </tr>
+</table>
+<% end %>
