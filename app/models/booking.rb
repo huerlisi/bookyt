@@ -32,4 +32,8 @@ class Booking < ActiveRecord::Base
       write_attribute(:value_date, value)
     end
   end
+
+  def value_date_before_type_cast
+    read_attribute(:value_date).strftime("%d.%m.%Y") unless read_attribute(:value_date).nil?
+  end
 end
