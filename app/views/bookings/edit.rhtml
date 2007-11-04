@@ -6,4 +6,5 @@
 <% end %>
 
 <%= link_to 'Show', :action => 'show', :id => @booking %> |
-<%= link_to 'Back', :action => 'list' %>
+<%= link_to 'Back', :action => 'list' %> |
+<%= link_to 'Destroy', { :action => 'destroy', :id => @booking }, :confirm => 'Are you sure?', :method => :post %>
