@@ -6,7 +6,6 @@ class BalanceController < ApplicationController
   end
 
   def show
-    client_id = params[:id] || session[:client_id]
-    @client = Client.find(client_id)
+    @client = Client.find(:first)
   end
 end
