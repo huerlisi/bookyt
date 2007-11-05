@@ -51,15 +51,15 @@
   <tr style="border-top: double 2px black; background-color: grey">
     <td style="border: 0 none; border-top: 2px solid">Umsatz</td>
     <td style="border: 0 none; border-top: 2px solid" />
-    <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= total_credit %></td>
-    <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= total_debit %></td>
+    <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= currency_fmt(total_credit) %></td>
+    <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= currency_fmt(total_debit) %></td>
     <td style="border: 0 none; border-top: 2px solid" />
     <td style="border: 0 none; border-top: 2px solid" />  </tr>
   <tr style="border-top: double 2px black; background-color: grey">
     <td colspan="2" style="border: 0 none; border-top: 2px solid">Aktueller Kontostand (per <%= DateTime.now.strftime("%d.%m.%Y %H:%M") %>)</td>
     <td style="border: 0 none; border-top: 2px solid" />
     <td style="border: 0 none; border-top: 2px solid" />
-    <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= total_credit - total_debit %></td>
+    <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= currency_fmt(total_credit - total_debit) %></td>
     <td style="border: 0 none; border-top: 2px solid" />
   </tr>
 </table>
