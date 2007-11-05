@@ -20,6 +20,7 @@ class Booking < ActiveRecord::Base
     self.amount=value
   end
   
+
   def value_date=(value)
     if value.is_a?(String)
       day, month, year = value.split('.')
@@ -33,6 +34,14 @@ class Booking < ActiveRecord::Base
     end
   end
 
+  def in_place_value_date
+    (value_date.nil?) ? ("&nbsp" * 5) : value_date.strftime("%d.%m.%Y")
+  end
+        
+  def in_place_value_date=(value)
+    self.value_date = value #write_attribute(:value_date, value)
+  end
+  
   def value_date_before_type_cast
     read_attribute(:value_date).strftime("%d.%m.%Y") unless read_attribute(:value_date).nil?
   end

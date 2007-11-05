@@ -33,7 +33,7 @@
   <% total_debit += booking.amount if booking.debit_account == @account %>
   <% total_credit += booking.amount if booking.credit_account == @account %>
   <tr style="border-top: 2px">
-    <td style="border: 0 none; border-top: 2px solid"><%=h booking.value_date.strftime('%d.%m.%Y') unless booking.value_date.nil? %></td>
+    <td style="border: 0 none; border-top: 2px solid"><%= in_place_editor_field :booking, :in_place_value_date %></td>
     <td style="border: 0 none; border-top: 2px solid">
       <%= in_place_editor_field :booking, :title %>
       <%= '<hr style="height: 0px; margin: 0"/>' unless booking.comments.empty? %>
@@ -43,7 +43,7 @@
     <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= in_place_editor_field :booking, :in_place_amount if booking.credit_account == @account %></td>
     <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= currency_fmt(total_credit - total_debit) %></td>
     <td style="border: 0 none; border-top: 2px solid">
-      <%= link_to h(booking.value_date.strftime("%d.%m.%Y")), :controller => :bookings, :action => :show, :id => booking  unless booking.value_date.nil? %>
+      <%= link_to h(booking.in_place_value_date), :controller => :bookings, :action => :show, :id => booking %>
       <%= link_to image_tag('insert_booking.png'), :controller => :bookings, :action => :new %>
     </td>
   </tr>
