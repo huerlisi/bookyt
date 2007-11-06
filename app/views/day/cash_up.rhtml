@@ -37,20 +37,32 @@
 <% form_for :day, @day, :url => { :action => 'update', :id => @day } do |f| %>
 <table>
 	<tr>
-		<th>Bar</th>
-		<td><%= f.text_field 'cash', :label => 'Bar' %></td>
+		<th>Bruttoumsatz</th>
+		<td><%= f.text_field 'product_count', :label => 'Bruttoumsatz', :size => 4, :style => "text-align: right" %></td>
 	</tr>
 	<tr>
-		<th>Karten</th>
-		<td><%= f.text_field 'cards', :label => 'Karten' %></td>
+		<th/>
+		<td><%= f.text_field 'gross_turnover', :label => 'Bruttoumsatz', :size => 4, :style => "text-align: right" %></td>
 	</tr>
 	<tr>
-		<th>Trinkgeld</th>
-		<td><%= f.text_field 'tip', :label => 'Trinkgeld' %></td>
+		<th>Nettoumsatz</th>
+		<td><%= f.text_field 'client_count', :label => 'Nettoumsatz', :size => 4, :style => "text-align: right" %></td>
 	</tr>
 	<tr>
-		<th>Abweichung</th>
-		<td><%= f.text_field 'error', :label => 'Abweichung' %></td>
+		<th/>
+		<td><%= f.text_field 'net_turnover', :label => 'Nettoumsatz', :size => 4, :style => "text-align: right" %></td>
+	</tr>
+	<tr>
+		<th>Bar-Soll</th>
+		<td><%= f.text_field 'cash', :label => 'Bar-Soll', :size => 4, :style => "text-align: right" %></td>
+	</tr>
+	<tr>
+		<th>Ausgabe</th>
+		<td><%= f.text_field 'expenses', :label => 'Ausgabe', :size => 4, :style => "text-align: right" %></td>
+	</tr>
+	<tr>
+		<th>EFT/Karte</th>
+		<td><%= f.text_field 'card_turnover', :label => 'Bar-Soll', :size => 4, :style => "text-align: right" %></td>
 	</tr>
 	<tr>
 		<td colspan="2"><%= submit_tag 'Abschliessen' %></td>
