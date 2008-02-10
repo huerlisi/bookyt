@@ -1,24 +1,6 @@
 <h1>Account <%= @account.title %></h1>
 
-<style>
-.account, .account td {
-  border: solid 1px;
-}
-
-.listing tr td {
-  background-color: white;
-  border-left: 0px none;
-  border-right: 0px none;
-}
-
-.listing tr {
-  border-left: 0px none;
-  border-right: 0px none;
-}
-
-</style>
-
-<table class="listing">
+<table class="listing booking_list">
   <tr>
     <%= sort_header('value_date', 'Datum') %>
     <th>Text</th>
@@ -32,17 +14,17 @@
   <% @booking = booking %>
   <% total_debit += booking.amount if booking.debit_account == @account %>
   <% total_credit += booking.amount if booking.credit_account == @account %>
-  <tr style="border-top: 2px">
-    <td style="border: 0 none; border-top: 2px solid"><%= in_place_editor_field :booking, :in_place_value_date %></td>
-    <td style="border: 0 none; border-top: 2px solid">
+  <tr>
+    <td style="border: 0 none"><%= in_place_editor_field :booking, :in_place_value_date %></td>
+    <td style="border: 0 none">
       <%= in_place_editor_field :booking, :title %>
       <%= '<hr style="height: 0px; margin: 0"/>' unless booking.comments.empty? %>
       <i><%= in_place_editor_field :booking, :comments %></i>
     </td>
-    <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= in_place_editor_field :booking, :in_place_amount if booking.debit_account == @account %></td>
-    <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= in_place_editor_field :booking, :in_place_amount if booking.credit_account == @account %></td>
-    <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= currency_fmt(total_credit - total_debit) %></td>
-    <td style="border: 0 none; border-top: 2px solid">
+    <td style="border: 0 none; text-align: right"><%= in_place_editor_field :booking, :in_place_amount if booking.debit_account == @account %></td>
+    <td style="border: 0 none; text-align: right"><%= in_place_editor_field :booking, :in_place_amount if booking.credit_account == @account %></td>
+    <td style="border: 0 none; text-align: right"><%= currency_fmt(total_credit - total_debit) %></td>
+    <td style="border: 0 none">
       <%= link_to h(booking.in_place_value_date), :controller => :bookings, :action => :show, :id => booking %>
       <%= link_to 'Edit', { :controller => :bookings, :action => :edit, :id => booking }, :method => :post %>
       <%= link_to image_tag('insert_booking.png'), :controller => :bookings, :action => :new %>
@@ -51,18 +33,18 @@
   </tr>
   <% end %>
   <tr style="border-top: double 2px black; background-color: grey">
-    <td style="border: 0 none; border-top: 2px solid">Umsatz</td>
-    <td style="border: 0 none; border-top: 2px solid" />
-    <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= currency_fmt(total_credit) %></td>
-    <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= currency_fmt(total_debit) %></td>
-    <td style="border: 0 none; border-top: 2px solid" />
-    <td style="border: 0 none; border-top: 2px solid" />  </tr>
+    <td style="border: 0 none">Umsatz</td>
+    <td style="border: 0 none" />
+    <td style="border: 0 none; text-align: right"><%= currency_fmt(total_credit) %></td>
+    <td style="border: 0 none; text-align: right"><%= currency_fmt(total_debit) %></td>
+    <td style="border: 0 none" />
+    <td style="border: 0 none" />  </tr>
   <tr style="border-top: double 2px black; background-color: grey">
-    <td colspan="2" style="border: 0 none; border-top: 2px solid">Aktueller Kontostand (per <%= DateTime.now.strftime("%d.%m.%Y %H:%M") %>)</td>
-    <td style="border: 0 none; border-top: 2px solid" />
-    <td style="border: 0 none; border-top: 2px solid" />
-    <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= currency_fmt(total_credit - total_debit) %></td>
-    <td style="border: 0 none; border-top: 2px solid" />
+    <td colspan="2" style="border: 0 none">Aktueller Kontostand (per <%= DateTime.now.strftime("%d.%m.%Y %H:%M") %>)</td>
+    <td style="border: 0 none" />
+    <td style="border: 0 none" />
+    <td style="border: 0 none; text-align: right"><%= currency_fmt(total_credit - total_debit) %></td>
+    <td style="border: 0 none" />
   </tr>
 </table>
 
