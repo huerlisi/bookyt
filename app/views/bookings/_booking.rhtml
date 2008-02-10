@@ -1,4 +1,5 @@
 <% @booking = booking %>
+  <tr id="booking_<%=h @booking.id %>">
     <td style="border: 0 none; border-top: 2px solid"><%= in_place_editor_field :booking, :in_place_value_date %></td>
     <td>
       <%= in_place_editor_field :booking, :title %>
@@ -11,4 +12,5 @@
     
     <td><%= link_to 'Edit', { :action => 'edit', :id => booking }, :method => :post %></td>
     <td><%= link_to 'Destroy', { :action => 'destroy', :id => booking }, :confirm => 'Are you sure?', :method => :post %></td>
-    <td><%= link_to 'Copy', { :action => 'copy', :id => booking }, :method => :post %></td>
+    <td><%= link_to_remote 'Copy', :url => { :action => 'copy', :id => booking }, :position => :after, :update => "booking_#{booking.id}" %></td>
+  </tr>

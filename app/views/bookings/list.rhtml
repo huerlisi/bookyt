@@ -11,9 +11,7 @@
   </tr>
   
 <% for booking in @bookings %>
-  <tr>
-    <%= render :partial => 'booking', :object => booking %>
-  </tr>
+  <%= render :partial => 'booking', :object => booking %>
 <% end %>
 </table>
 
