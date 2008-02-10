@@ -2,21 +2,19 @@
 
 <table class="listing">
   <tr>
-    <%= sort_header 'title' %>
     <%= sort_header 'value_date' %>
-    <%= sort_header 'debit_account_id' %>
-    <th/>
-    <%= sort_header 'credit_account_id' %>
+    <%= sort_header 'title' %>
+    <%= sort_header 'debit_account_id', 'Soll' %>
+    <%= sort_header 'credit_account_id', 'Haben' %>
     <%= sort_header 'amount' %>
   </tr>
   
 <% for booking in @bookings %>
   <tr>
-    <td><%= link_to h(booking.title), :action => 'edit', :id => booking %></td>
     <td><span id="time_ago_in_words_<%=booking.id %>" style="display: none"><%= link_to_function time_ago_in_words(booking.value_date), "toggle('time_ago_in_words_#{booking.id}', 'date_#{booking.id}')" unless booking.value_date.nil?%></span><span id="date_<%=booking.id %>"><%= link_to_function booking.value_date.strftime('%d.%m.%Y'), "toggle('date_#{booking.id}', 'time_ago_in_words_#{booking.id}')"  unless booking.value_date.nil? %></span></td>
-    <td style="text-align: right; border-right: none"><%= link_to h(booking.debit_account.title), :controller => :accounts, :action => :show, :id => booking.debit_account unless booking.debit_account.nil? %></td>
-    <td style="border-left: none; border-right: none"><%= image_tag 'arrow-right.png' %></td>
-    <td style="border-left: none"><%= link_to h(booking.credit_account.title), :controller => :accounts, :action => :show, :id => booking.credit_account unless booking.credit_account.nil? %></td>
+    <td><%= link_to h(booking.title), :action => 'edit', :id => booking %></td>
+    <td style="text-align: right; border-left: none"><%= link_to h(booking.credit_account.title), :controller => :accounts, :action => :show, :id => booking.credit_account unless booking.credit_account.nil? %></td>
+    <td style="text-align: left; border-right: none"><%= link_to h(booking.debit_account.title), :controller => :accounts, :action => :show, :id => booking.debit_account unless booking.debit_account.nil? %></td>
     <td style="text-align: right"><%=h number_to_currency(booking.rounded_amount, :unit => "CHF ")  %></td>
     
     <td><%= link_to 'Destroy', { :action => 'destroy', :id => booking }, :confirm => 'Are you sure?', :method => :post %></td>
