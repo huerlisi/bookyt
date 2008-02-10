@@ -49,7 +49,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     if @booking.update_attributes(params[:booking])
       flash[:notice] = 'Booking was successfully updated.'
-      redirect_to :action => 'show', :id => @booking
+      redirect_to :action => 'list'
     else
       render :action => 'edit'
     end
