@@ -35,6 +35,13 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def copy
+    @booking = Booking.find(params[:id])
+    new_booking = @booking.clone
+    new_booking.save
+    render :action => 'list'
+  end
+  
   def update
     @booking = Booking.find(params[:id])
     if @booking.update_attributes(params[:booking])

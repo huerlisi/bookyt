@@ -18,6 +18,7 @@
     <td style="text-align: right"><%= cu_to_s(booking.rounded_amount) %></td>
     
     <td><%= link_to 'Destroy', { :action => 'destroy', :id => booking }, :confirm => 'Are you sure?', :method => :post %></td>
+    <td><%= link_to 'Copy', { :action => 'copy', :id => booking }, :method => :post %></td>
   </tr>
 <% end %>
 </table>
