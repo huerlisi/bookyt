@@ -1,4 +1,7 @@
 class BookingsController < ApplicationController
+  in_place_edit_for :booking, :title
+  in_place_edit_for :booking, :comments
+
   def index
     list
     render :action => 'list'
