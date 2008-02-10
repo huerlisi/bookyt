@@ -44,7 +44,7 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
     if @account.update_attributes(params[:account])
       flash[:notice] = 'Account was successfully updated.'
-      redirect_to :action => 'show', :id => @account
+      redirect_to :action => 'list'
     else
       render :action => 'edit'
     end
