@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    order_by = params[:order] || 'value_date DESC'
+    order_by = params[:order] || 'value_date'
     @booking_pages, @bookings = paginate :bookings, :per_page => 100, :order => order_by
   end
 
