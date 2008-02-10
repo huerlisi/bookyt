@@ -42,7 +42,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     new_booking = @booking.clone
     new_booking.save
-    render :action => 'list'
+    redirect_to :action => 'list'
   end
   
   def update
