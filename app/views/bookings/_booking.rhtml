@@ -1,5 +1,5 @@
 <% @booking = booking %>
-    <td><span id="time_ago_in_words_<%=booking.id %>" style="display: none"><%= link_to_function time_ago_in_words(booking.value_date), "toggle('time_ago_in_words_#{booking.id}', 'date_#{booking.id}')" unless booking.value_date.nil?%></span><span id="date_<%=booking.id %>"><%= link_to_function booking.value_date.strftime('%d.%m.%Y'), "toggle('date_#{booking.id}', 'time_ago_in_words_#{booking.id}')"  unless booking.value_date.nil? %></span></td>
+    <td style="border: 0 none; border-top: 2px solid"><%= in_place_editor_field :booking, :in_place_value_date %></td>
     <td>
       <%= in_place_editor_field :booking, :title %>
       <%= '<hr style="height: 0px; margin: 0"/>' unless booking.comments.empty? %>
