@@ -1,8 +1,7 @@
 class ProfitController < ApplicationController
 
   def index
-    show
-    render :action => 'show'
+    redirect_to :action => 'show'
   end
 
   def show
