@@ -8,4 +8,8 @@ module ApplicationHelper
   def currency_fmt(value)
     sprintf("%.2f", value)
   end
+
+  def cu_to_s(value)
+    '<span style="float: left">CHF&nbsp;</span>' + number_to_currency(value, :unit => '')
+  end
 end

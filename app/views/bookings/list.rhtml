@@ -15,7 +15,7 @@
     <td><%= link_to h(booking.title), :action => 'edit', :id => booking %></td>
     <td style="text-align: right; border-left: none"><%= link_to h(booking.credit_account.title), :controller => :accounts, :action => :show, :id => booking.credit_account unless booking.credit_account.nil? %></td>
     <td style="text-align: left; border-right: none"><%= link_to h(booking.debit_account.title), :controller => :accounts, :action => :show, :id => booking.debit_account unless booking.debit_account.nil? %></td>
-    <td style="text-align: right"><%=h number_to_currency(booking.rounded_amount, :unit => "CHF ")  %></td>
+    <td style="text-align: right"><%= cu_to_s(booking.rounded_amount) %></td>
     
     <td><%= link_to 'Destroy', { :action => 'destroy', :id => booking }, :confirm => 'Are you sure?', :method => :post %></td>
   </tr>
