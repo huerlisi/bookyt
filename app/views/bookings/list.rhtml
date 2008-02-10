@@ -3,11 +3,11 @@
 <%= link_to 'New booking', :action => 'new' %>
 <table class="listing booking_list">
   <tr>
-    <%= sort_header 'value_date' %>
-    <%= sort_header 'title' %>
+    <%= sort_header 'value_date', 'Valuta' %>
+    <%= sort_header 'title', 'Titel' %>
     <%= sort_header 'debit_account_id', 'Soll' %>
     <%= sort_header 'credit_account_id', 'Haben' %>
-    <%= sort_header 'amount' %>
+    <%= sort_header 'amount', 'Wert' %>
   </tr>
   
 <% for booking in @bookings %>
