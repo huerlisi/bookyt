@@ -44,6 +44,7 @@
     <td style="border: 0 none; border-top: 2px solid; text-align: right"><%= currency_fmt(total_credit - total_debit) %></td>
     <td style="border: 0 none; border-top: 2px solid">
       <%= link_to h(booking.in_place_value_date), :controller => :bookings, :action => :show, :id => booking %>
+      <%= link_to 'Edit', { :controller => :bookings, :action => :edit, :id => booking }, :method => :post %>
       <%= link_to image_tag('insert_booking.png'), :controller => :bookings, :action => :new %>
       <%= link_to image_tag('delete.png'), { :controller => :bookings, :action => 'destroy', :id => booking }, :confirm => 'Sicher?', :method => :post %>
     </td>
