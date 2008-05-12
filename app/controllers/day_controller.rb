@@ -25,7 +25,7 @@ class DayController < ApplicationController
   end
 
   def list
-    @days = Day.find :all
+    @days = Day.find :all, :order => 'date'
   end
 
   def index

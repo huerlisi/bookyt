@@ -37,6 +37,10 @@
 <% form_for :day, @day, :url => { :action => 'update', :id => @day } do |f| %>
 <table>
 	<tr>
+		<th>Datum</th>
+		<td><%= f.text_field 'date', :label => 'Datum', :size => 10, :style => "text-align: right" %></td>
+	</tr>
+	<tr>
 		<th>Bruttoumsatz</th>
 		<td><%= f.text_field 'product_count', :label => 'Bruttoumsatz', :size => 4, :style => "text-align: right" %></td>
 	</tr>
