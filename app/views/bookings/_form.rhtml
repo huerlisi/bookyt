@@ -11,10 +11,10 @@
 <%= text_field 'booking', 'title'  %></p>
 
 <p><label for="booking_credit_account_id">Soll</label><br/>
-<%= select 'booking', 'credit_account_id', Account.find_all.collect {|a| [ a.title, a.id ] }  %></p>
+<%= select 'booking', 'credit_account_id', Account.find(:all).collect {|a| [ a.title, a.id ] }  %></p>
 
 <p><label for="booking_debit_account_id">Haben</label><br/>
-<%= select 'booking', 'debit_account_id', Account.find_all.collect {|a| [ a.title, a.id ] }  %></p>
+<%= select 'booking', 'debit_account_id', Account.find(:all).collect {|a| [ a.title, a.id ] }  %></p>
 
 <p><label for="booking_comments">Comments</label><br/>
 <%= text_area 'booking', 'comments', :cols => 40, :rows => 5  %></p>

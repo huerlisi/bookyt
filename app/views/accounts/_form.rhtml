@@ -8,9 +8,9 @@
 <%= text_field 'account', 'title'  %></p>
 
 <p><label for="account_type">Type</label><br/>
-<%= select("account", "account_type_id", AccountType.find_all.collect {|type| [ type.title, type.id ] }, { :include_blank => true } )  %></p>
+<%= select("account", "account_type_id", AccountType.find(:all).collect {|type| [ type.title, type.id ] }, { :include_blank => true } )  %></p>
 
 <p><label for="account_client">Client</label><br/>
-<%= select("account", "client_id", Client.find_all.collect {|client| [ client.name, client.id ] })  %></p>
+<%= select("account", "client_id", Client.find(:all).collect {|client| [ client.name, client.id ] })  %></p>
 <!--[eoform:account]-->
 
