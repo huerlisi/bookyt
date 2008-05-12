@@ -11,7 +11,7 @@ class ProfitController < ApplicationController
     @end_date ||= Date.today
     @start_date ||= Date.today - 365
     @client = Client.find(:first)
-    Booking.with_scope(:find => {:conditions => ['value_date BETWEEN ? AND ?', @start_date, @end_date]}) do
+    Booking.send(:with_scope, :find => {:conditions => ['value_date BETWEEN ? AND ?', @start_date, @end_date]}) do
       render :action => :show
     end
   end

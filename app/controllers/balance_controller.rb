@@ -9,7 +9,7 @@ class BalanceController < ApplicationController
     # use current date if not specified otherwise
     @date ||= Date.today
     @client = Client.find(:first)
-    Booking.with_scope(:find => {:conditions => ['value_date <= ?', @date]}) do
+    Booking.send(:with_scope, :find => {:conditions => ['value_date <= ?', @date]}) do
       render :action => :show
     end
   end
