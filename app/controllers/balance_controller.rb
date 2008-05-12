@@ -5,10 +5,15 @@ class BalanceController < ApplicationController
   end
 
   def show
+    # Client
+    unless @client = Client.find(:first)
+      redirect_to :controller => 'clients', :action => 'new'
+      return
+    end
+    
     @date = params[:balance][:date] unless params[:balance].nil?
     # use current date if not specified otherwise
     @date ||= Date.today
-    @client = Client.find(:first)
     Booking.send(:with_scope, :find => {:conditions => ['value_date <= ?', @date]}) do
       render :action => :show
     end
