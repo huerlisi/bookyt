@@ -18,7 +18,7 @@ class DayController < ApplicationController
   def update
     @day = Day.find(params[:id])
     if @day.update_attributes(params[:day])
-      redirect_to :action => 'list'
+      redirect_to :action => 'cash_up'
     else
       render :action => 'cash_up'
     end
