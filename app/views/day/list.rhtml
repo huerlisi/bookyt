@@ -18,6 +18,10 @@
     <td><%=h day.cash + day.card_turnover %></td>
     <td><%=h "" %></td>
     <td><%=h "" %></td>
+    <td>
+      <%= link_to(image_tag('remove.png'), :action => 'remove', :id => day) %>
+      <%= link_to(image_tag('edit.png'), :action => 'cash_up', :id => day) %>
+    </td>
   </tr>
   <% end %>
 </table>

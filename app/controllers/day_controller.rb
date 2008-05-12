@@ -24,6 +24,12 @@ class DayController < ApplicationController
     end
   end
 
+  def remove
+    @day = Day.find(params[:id])
+    @day.destroy
+    redirect_to :action => 'list'
+  end
+  
   def list
     @days = Day.find :all, :order => 'date'
   end
