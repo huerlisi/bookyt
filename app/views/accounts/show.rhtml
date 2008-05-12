@@ -18,7 +18,7 @@
     <td style="border: 0 none"><%= in_place_editor_field :booking, :in_place_value_date %></td>
     <td style="border: 0 none">
       <%= in_place_editor_field :booking, :title %>
-      <%= '<hr style="height: 0px; margin: 0"/>' unless booking.comments.empty? %>
+      <%= '<hr style="height: 0px; margin: 0"/>' unless (booking.comments.nil? or booking.comments.empty?) %>
       <i><%= in_place_editor_field :booking, :comments %></i>
     </td>
     <td style="border: 0 none; text-align: right"><%= (booking.debit_account == @account) ? "<b>#{in_place_editor_field(:booking, :in_place_amount)}</b>&nbsp;#{h(booking.debit_currency)}" : "<i>#{link_to(h(booking.debit_account.number), {:controller => 'accounts', :action => :show, :id => booking.debit_account}, :title => h(booking.debit_account.title))}</i>" %></td>
