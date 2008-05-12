@@ -32,13 +32,13 @@ td {
         <% for account in @client.current_assets %>
         <tr>
           <td><%= link_to account.title, :controller => 'accounts', :action => 'show', :id => account %></th>
-          <td class="currency"><%= account.saldo %></th>
+          <td class="currency"><%= currency_fmt(account.saldo) %></th>
         <tr>
         <% end %>
       
         <tr style="background-color: #000000; color: #FFFFFF">
           <td>Total</th>
-          <td class="currency"><%= @client.saldo(:current_assets) %></th>
+          <td class="currency"><%= currency_fmt(@client.saldo(:current_assets)) %></th>
         <tr>
       </table>
     </td>
@@ -52,13 +52,13 @@ td {
         <% for account in @client.outside_capital %>
         <tr>
           <td><%= link_to account.title, :controller => 'accounts', :action => 'show', :id => account %></th>
-          <td class="currency"><%= -account.saldo %></th>
+          <td class="currency"><%= currency_fmt(-account.saldo) %></th>
         <tr>
         <% end %>
       
         <tr style="background-color: #000000; color: #FFFFFF">
           <td>Total</th>
-          <td class="currency"><%= -@client.saldo(:outside_capital) %></th>
+          <td class="currency"><%= currency_fmt(-@client.saldo(:outside_capital)) %></th>
         <tr>
       </table>
     </td>
@@ -78,13 +78,13 @@ td {
         <% for account in @client.capital_assets %>
         <tr>
           <td><%= link_to account.title, :controller => 'accounts', :action => 'show', :id => account %></th>
-          <td class="currency"><%= account.saldo %></th>
+          <td class="currency"><%= currency_fmt(account.saldo) %></th>
         <tr>
         <% end %>
       
         <tr style="background-color: #000000; color: #FFFFFF">
           <td>Total</th>
-          <td class="currency"><%= @client.saldo(:capital_assets) %></th>
+          <td class="currency"><%= currency_fmt(@client.saldo(:capital_assets)) %></th>
         <tr>
       </table>
     </td>
@@ -104,13 +104,13 @@ td {
       
         <tr style="background-color: #000000; color: #FFFFFF">
           <td>Total</th>
-          <td class="currency"><%= -@client.saldo(:equity_capital) %></th>
+          <td class="currency"><%= currency_fmt(-@client.saldo(:equity_capital)) %></th>
         <tr>
       </table>
     </td>
   </tr>
   <tr style="background-color: #000000; color: #FFFFFF">
-    <td>Total: <%= @client.saldo(:current_assets) + @client.saldo(:capital_assets) %></td>
-    <td>Total: <%= -(@client.saldo(:outside_capital) + @client.saldo(:equity_capital)) %></td>
+    <td>Total: <%= currency_fmt(@client.saldo(:current_assets) + @client.saldo(:capital_assets)) %></td>
+    <td>Total: <%= currency_fmt(-(@client.saldo(:outside_capital) + @client.saldo(:equity_capital))) %></td>
   </tr>
 </table>
