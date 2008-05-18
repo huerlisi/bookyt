@@ -9,7 +9,7 @@ module ApplicationHelper
     sprintf("%.2f", value)
   end
 
-  def cu_to_s(value)
-    '<span style="float: left">CHF&nbsp;</span>' + number_to_currency(value, :unit => '')
+  def cu_to_s(value, unit = 'CHF')
+    "<span style=\"float: left\">#{unit}&nbsp;</span>" + number_to_currency(value, :unit => '')
   end
 end
