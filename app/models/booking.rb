@@ -23,12 +23,16 @@ class Booking < ActiveRecord::Base
 
   def value_date=(value)
     if value.is_a?(String)
-      day, month, year = value.split('.')
-      month ||= Date.today.month
-      year ||= Date.today.year
-      year = 2000 + year.to_i if year.to_i < 100
+      if value =~ /....-..-../
+        write_attribute(:value_date, value)
+      else
+        day, month, year = value.split('.')
+        month ||= Date.today.month
+        year ||= Date.today.year
+        year = 2000 + year.to_i if year.to_i < 100
 
-      write_attribute(:value_date, "#{year}-#{month}-#{day}")
+        write_attribute(:value_date, "#{year}-#{month}-#{day}")
+      end
     else
       write_attribute(:value_date, value)
     end
