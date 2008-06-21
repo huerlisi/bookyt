@@ -12,14 +12,14 @@
 
 <p><label for="booking_credit_account_id">Soll</label><br/>
 <%= select 'booking', 'credit_account_id', Account.find(:all, :order => :number).collect {|a| [ a.title, a.id ] } %>
-<%= text_field '', 'credit_amount_foreign_currency', :size => 6 %>
-<%= text_field 'booking', 'credit_currency', :size => 3 %>
+<%= text_field '', 'credit_amount_foreign_currency', :size => 6, :tabindex => 20 %>
+<%= text_field 'booking', 'credit_currency', :size => 3, :tabindex => 21 %>
 </p>
 
 <p><label for="booking_debit_account_id">Haben</label><br/>
 <%= select 'booking', 'debit_account_id', Account.find(:all, :order => :number).collect {|a| [ a.title, a.id ] } %>
-<%= text_field '', 'debit_amount_foreign_currency', :size => 6 %>
-<%= text_field 'booking', 'debit_currency', :size => 3 %>
+<%= text_field '', 'debit_amount_foreign_currency', :size => 6, :tabindex => 22 %>
+<%= text_field 'booking', 'debit_currency', :size => 3, :tabindex => 23 %>
 </p>
 
 <p><label for="booking_comments">Comments</label><br/>
