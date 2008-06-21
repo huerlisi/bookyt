@@ -22,10 +22,11 @@
 <%= text_field 'booking', 'debit_currency', :size => 3, :tabindex => 23 %>
 </p>
 
+<p><label for="booking_scan">Scan</label><br/>
+<%= file_column_field "booking", "scan" %></p>
+
 <p><label for="booking_comments">Comments</label><br/>
 <%= text_area 'booking', 'comments', :cols => 40, :rows => 5  %></p>
 
-<p><label for="booking_scan">Scan</label><br/>
-<%= file_column_field "booking", "scan" %></p>
 <!--[eoform:booking]-->
 
