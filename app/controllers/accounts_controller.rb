@@ -52,6 +52,6 @@ class AccountsController < ApplicationController
 
   def destroy
     Account.find(params[:id]).destroy
-    redirect_to :action => 'list'
+    redirect_to :action => 'show'
   end
 end
