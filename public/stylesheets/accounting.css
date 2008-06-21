@@ -13,3 +13,21 @@
   border-left: 0px none;
   border-right: 0px none;
 }
+
+img {
+  border: 0px none;
+}
+
+@media print {
+  body {
+    font-size: 50%;
+  }
+
+  #Header, #HeaderMenus {
+    display: none;
+  }
+
+  .edit_controls {
+    display: none;
+  }
+}

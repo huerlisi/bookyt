@@ -2,7 +2,7 @@
 module ApplicationHelper
   def sort_header(column, label = nil)
     label ||= column.humanize
-    content_tag('th', label + ' ' + link_to(image_tag('up.png'), :order => column) + link_to(image_tag('down.png'), :order => column + ' DESC'))
+    content_tag('th', label + ' ' + link_to(image_tag('up.png', :class => 'edit_controls'), :order => column) + link_to(image_tag('down.png', :class => 'edit_controls'), :order => column + ' DESC'))
   end
 
   def currency_fmt(value)
