@@ -3,7 +3,7 @@
     <td style="border: 0 none; border-top: 2px solid"><%= in_place_editor_field :booking, :in_place_value_date %></td>
     <td>
       <%= in_place_editor_field :booking, :title %>
-      <%= '<hr style="height: 0px; margin: 0"/>' unless booking.comments.empty? %>
+      <%= '<hr style="height: 0px; margin: 0"/>' unless booking.comments.nil? or booking.comments.empty? %>
       <i><%= in_place_editor_field :booking, :comments %></i>
     </td>
     <td style="text-align: right; border-left: none"><%= link_to h(booking.credit_account.title), :controller => :accounts, :action => :show, :id => booking.credit_account unless booking.credit_account.nil? %></td>
