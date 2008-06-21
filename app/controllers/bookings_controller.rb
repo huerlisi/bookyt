@@ -61,4 +61,9 @@ class BookingsController < ApplicationController
     Booking.find(params[:id]).destroy
     redirect_to :action => 'list'
   end
+
+  def destroy_inline
+    Booking.find(params[:id]).destroy
+    render_text ""
+  end
 end
