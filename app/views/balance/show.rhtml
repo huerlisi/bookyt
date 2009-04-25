@@ -41,8 +41,8 @@ td {
       
         <% for account in @client.current_assets.select{|a| a.saldo != 0.0} %>
         <tr>
-          <td><%= link_to account.title, :controller => 'accounts', :action => 'show', :id => account %></th>
-          <td class="currency"><%= currency_fmt(account.saldo) %></th>
+          <td><%= link_to "#{account.number} - #{account.title}", :controller => 'accounts', :action => 'show', :id => account %></td>
+          <td class="currency"><%= currency_fmt(account.saldo) %></td>
         <tr>
         <% end %>
       
