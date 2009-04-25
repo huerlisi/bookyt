@@ -47,8 +47,8 @@ td {
         <% end %>
       
         <tr style="background-color: #000000; color: #FFFFFF">
-          <td>Total</th>
-          <td class="currency"><%= currency_fmt(@client.saldo(:current_assets)) %></th>
+          <th>Total</th>
+          <th class="currency"><%= currency_fmt(@client.saldo(:current_assets)) %></th>
         <tr>
       </table>
     </td>
@@ -59,16 +59,16 @@ td {
           <th>Saldo</th>
         </tr>
       
-        <% for account in @client.outside_capital %>
+        <% for account in @client.outside_capital.select{|a| a.saldo != 0.0} %>
         <tr>
-          <td><%= link_to account.title, :controller => 'accounts', :action => 'show', :id => account %></th>
-          <td class="currency"><%= currency_fmt(-account.saldo) %></th>
+          <td><%= link_to "#{account.number} - #{account.title}", :controller => 'accounts', :action => 'show', :id => account %></td>
+          <td class="currency"><%= currency_fmt(-account.saldo) %></td>
         <tr>
         <% end %>
       
         <tr style="background-color: #000000; color: #FFFFFF">
-          <td>Total</th>
-          <td class="currency"><%= currency_fmt(-@client.saldo(:outside_capital)) %></th>
+          <th>Total</th>
+          <th class="currency"><%= currency_fmt(-@client.saldo(:outside_capital)) %></th>
         <tr>
       </table>
     </td>
@@ -85,16 +85,16 @@ td {
           <th>Saldo</th>
         </tr>
       
-        <% for account in @client.capital_assets %>
+        <% for account in @client.capital_assets.select{|a| a.saldo != 0.0} %>
         <tr>
-          <td><%= link_to account.title, :controller => 'accounts', :action => 'show', :id => account %></th>
-          <td class="currency"><%= currency_fmt(account.saldo) %></th>
+          <td><%= link_to "#{account.number} - #{account.title}", :controller => 'accounts', :action => 'show', :id => account %></td>
+          <td class="currency"><%= currency_fmt(account.saldo) %></td>
         <tr>
         <% end %>
       
         <tr style="background-color: #000000; color: #FFFFFF">
-          <td>Total</th>
-          <td class="currency"><%= currency_fmt(@client.saldo(:capital_assets)) %></th>
+          <th>Total</th>
+          <th class="currency"><%= currency_fmt(@client.saldo(:capital_assets)) %></th>
         <tr>
       </table>
     </td>
@@ -105,16 +105,16 @@ td {
           <th>Saldo</th>
         </tr>
       
-        <% for account in @client.equity_capital %>
+        <% for account in @client.equity_capital.select{|a| a.saldo != 0.0} %>
         <tr>
-          <td><%= link_to account.title, :controller => 'accounts', :action => 'show', :id => account %></th>
-          <td class="currency"><%= -account.saldo %></th>
+          <td><%= link_to "#{account.number} - #{account.title}", :controller => 'accounts', :action => 'show', :id => account %></td>
+          <td class="currency"><%= -account.saldo %></td>
         <tr>
         <% end %>
       
         <tr style="background-color: #000000; color: #FFFFFF">
-          <td>Total</th>
-          <td class="currency"><%= currency_fmt(-@client.saldo(:equity_capital)) %></th>
+          <th>Total</th>
+          <th class="currency"><%= currency_fmt(-@client.saldo(:equity_capital)) %></th>
         <tr>
       </table>
     </td>

@@ -6,6 +6,16 @@
 <% end %>
 
 <style>
+@media print {
+  form {
+    display: none;
+  }
+  body {
+    background: white;
+  }
+
+}
+
 .currency {
   text-align: right;
 }
@@ -29,17 +39,17 @@ td {
           <th>Saldo</th>
         </tr>
       
-        <% for account in @client.expenses %>
+        <% for account in @client.expenses.select{|e| e.saldo != 0.0} %>
         <tr>
-          <td><%= link_to account.title, :controller => 'accounts', :action => 'show', :id => account %></th>
-          <td class="currency"><%= account.saldo %></th>
-        <tr>
+          <td><%= link_to "#{account.number} - #{account.title}", :controller => 'accounts', :action => 'show', :id => account %></td>
+          <td class="currency"><%= currency_fmt(account.saldo) %></td>
+        </tr>
         <% end %>
       
         <tr style="background-color: #000000; color: #FFFFFF">
-          <td>Total</th>
-          <td class="currency"><%= @client.saldo(:expenses) %></th>
-        <tr>
+          <th>Total</th>
+          <th class="currency"><%= currency_fmt(@client.saldo(:expenses)) %></th>
+        </tr>
       </table>
     </td>
     <td style="background-color: #FF0000">
@@ -49,17 +59,17 @@ td {
           <th>Saldo</th>
         </tr>
       
-        <% for account in @client.earnings %>
+        <% for account in @client.earnings.select{|e| e.saldo != 0.0} %>
         <tr>
-          <td><%= link_to account.title, :controller => 'accounts', :action => 'show', :id => account %></th>
-          <td class="currency"><%= -account.saldo %></th>
-        <tr>
+          <td><%= link_to "#{account.number} - #{account.title}", :controller => 'accounts', :action => 'show', :id => account %></td>
+          <td class="currency"><%= currency_fmt(-account.saldo) %></td>
+        </tr>
         <% end %>
       
         <tr style="background-color: #000000; color: #FFFFFF">
-          <td>Total</th>
-          <td class="currency"><%= -@client.saldo(:earnings) %></th>
-        <tr>
+          <th>Total</th>
+          <th class="currency"><%= currency_fmt(-@client.saldo(:earnings)) %></th>
+        </tr>
       </table>
     </td>
   </tr>
