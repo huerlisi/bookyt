@@ -1,4 +1,5 @@
 class Booking < ActiveRecord::Base
+  include ApplicationHelper
   belongs_to :debit_account, :foreign_key => 'debit_account_id', :class_name => "Account"
   belongs_to :credit_account, :foreign_key => 'credit_account_id', :class_name => "Account"
   
@@ -13,7 +14,7 @@ class Booking < ActiveRecord::Base
   end
 
   def in_place_amount
-    sprintf("%.2f", self.amount)
+    currency_fmt(self.rounded_amount)
   end
   
   def in_place_amount=(value)
