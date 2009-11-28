@@ -1,6 +1,6 @@
 <h1>Bilanz f&uuml;r <%= @client.name %> <%= @year %></h1>
 <% form_tag(:action=> :show) do %>
-  Stichdatum: <%= text_field 'balance', 'date' %>
+  Stichdatum: <%= text_field 'balance', 'date', {:value => @date} %>
   <%= submit_tag 'Los' %>
 <% end %>
 

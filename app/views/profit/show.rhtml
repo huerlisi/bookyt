@@ -1,7 +1,7 @@
 <h1>Erfolgsrechnung f&uuml;r <%= @client.name %> <%= @year %></h1>
 <% form_tag(:action=> :show) do %>
-  Von: <%= text_field 'balance', 'start_date' %>
-  Bis: <%= text_field 'balance', 'end_date' %>
+  Von: <%= text_field 'balance', 'start_date', {:value => @start_date} %>
+  Bis: <%= text_field 'balance', 'end_date', {:value => @end_date} %>
   <%= submit_tag 'Los' %>
 <% end %>
 
