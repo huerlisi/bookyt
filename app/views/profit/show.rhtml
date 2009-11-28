@@ -73,5 +73,8 @@ td {
       </table>
     </td>
   </tr>
-  <tr>
+  <tr style="background-color: black; color: white">
+    <th>Differenz</th>
+    <td class="currency"><%= currency_fmt(@client.saldo(:expenses) + @client.saldo(:earnings)) %></td>
+  </tr>
 </table>
