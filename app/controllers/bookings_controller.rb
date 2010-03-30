@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
 
   def list
     order_by = params[:order] || 'value_date'
-    @booking_pages, @bookings = paginate :bookings, :per_page => 100, :order => order_by
+    @bookings = Booking.paginate :page => params[:page], :per_page => 100, :order => order_by
   end
 
   def show
