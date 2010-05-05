@@ -9,12 +9,11 @@ CyBook is a web application implementing double-entry bookkeeping providing:
 * Earnings report
 * Balance sheet
 
-CyBook is built on "Ruby On Rails":http://www.rubyonrails.org and released
-as "Open Source":http://www.opensource.org.
+CyBook is built on "Ruby On Rails":http://www.rubyonrails.org and released as "Open Source":http://www.opensource.org.
 
 h2. License
 
-See http://creativecommons.org/licenses/GPL/2.0 for a human-readable summary
+Read the "human-readable summary":http://creativecommons.org/licenses/GPL/2.0 to get an idea
 of your right to use this software.
 
 Copyright 2007-2010 Simon Hürlimann <simon.huerlimann@cyt.ch>
