@@ -1,0 +1,32 @@
+# Boring files
+# ============
+*~
+.#*
+_darcs
+DEADJOE
+
+# Rails
+# =====
+# Vendor
+vendor/
+
+# Volatile
+log/
+tmp/
+db/*.sqlite3
+doc/api
+public/stylesheets/all.css
+
+# Backup
+db/backup
+
+# Local
+config/database.yml
+
+# Volatile
+log/
+tmp/
+db/*.sqlite3
+doc/api
+public/stylesheets/all.css
+
