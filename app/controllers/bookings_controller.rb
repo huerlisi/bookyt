@@ -64,6 +64,6 @@ class BookingsController < ApplicationController
 
   def destroy_inline
     Booking.find(params[:id]).destroy
-    render_text ""
+    render :text => ""
   end
 end
