@@ -1,0 +1,60 @@
+/*** CyT ***/
+#header { background-color: #AEB9CF; }
+
+table th { text-align: left; font-size:90%}
+
+h3 {
+  padding-top: 0.2em;
+  padding-bottom: 0.1em;
+}
+
+h4 {
+  margin-top: 0;
+}
+
+/* Welcome */
+.welcome { margin: 2em; margin-bottom: 3.5em; }
+.welcome p { width: 100%; font-size: 13pt; font-variant:italic }
+.welcome p img { margin-right: 0.5em; float: left; }
+
+/* Forms */
+.fieldWithErrors { display: inline}
+.fieldWithErrors input { border-color:#dd0000}
+form.box {background:#ffffdd; padding:6px; margin-bottom:6px;border: 1px solid #d7d7d7;}
+form { display: block; }
+
+/* Icons */
+.contextual48 {float:right; white-space: nowrap; line-height:1.4em;margin-top:30px; padding-left: 10px; font-size:0.9em;}
+
+.icon48 {
+  background-position: 0% 40%;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  line-height: 48px;
+  vertical-align: middle;
+}
+
+/* restful-authentication */
+#right-menu { float:right; }
+#right-menu div { margin: 0.2em; }
+#user-bar-greeting, #user-bar-action { display:inline; }
+#user-bar-greeting a, #user-bar-action a { font-weight:bold; }
+
+/* Navigation */
+.navigation_section {
+  margin:          2em;
+  margin-bottom:   3.5em;
+}
+.navigation_section img {
+  margin-right:    1em;
+  float:           left;
+}
+
+.navigation_section ul {
+  list-style-type: none;
+}
+.navigation_section li {
+  text-align:      left;
+  font-weight:     bold;
+  font-style:      italic
+}
