@@ -14,8 +14,17 @@
   border-right: 0px none;
 }
 
+.currency {
+  text-align: right;
+}
+
 img {
   border: 0px none;
+}
+
+/* Balance Sheet */
+.balance-sheet td {
+  vertical-align: top;
 }
 
 @media print {
