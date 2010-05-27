@@ -7,13 +7,15 @@ DEADJOE
 
 # Rails
 # =====
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*
+
 # Vendor
 vendor/
 
 # Volatile
-log/
-tmp/
-db/*.sqlite3
 doc/api
 public/stylesheets/all.css
 
@@ -22,11 +24,3 @@ db/backup
 
 # Local
 config/database.yml
-
-# Volatile
-log/
-tmp/
-db/*.sqlite3
-doc/api
-public/stylesheets/all.css
-
