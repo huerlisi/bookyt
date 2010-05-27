@@ -44,3 +44,6 @@ module Cybook
     config.filter_parameters += [:password]
   end
 end
+
+# Include your application configuration below
+require 'float.rb'
