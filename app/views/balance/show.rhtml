@@ -99,7 +99,7 @@
         <% for account in @client.equity_capital.select{|a| a.saldo != 0.0} %>
         <tr>
           <td><%= link_to "#{account.number} - #{account.title}", :controller => 'accounts', :action => 'show', :id => account %></td>
-          <td class="currency"><%= -account.saldo %></td>
+          <td class="currency"><%= currency_fmt(-account.saldo) %></td>
         <tr>
         <% end %>
       

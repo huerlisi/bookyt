@@ -17,11 +17,11 @@
     <td style="border: 0 none"><%= in_place_editor_field :booking, :in_place_value_date %></td>
     <td style="border: 0 none">
       <%= in_place_editor_field :booking, :title %>
-      <%= '<hr style="height: 0px; margin: 0"/>' unless (booking.comments.nil? or booking.comments.empty?) %>
+      <%= '<hr style="height: 0px; margin: 0"/>'.html_safe unless (booking.comments.nil? or booking.comments.empty?) %>
       <i><%= in_place_editor_field :booking, :comments %></i>
     </td>
-    <td style="border: 0 none; text-align: right"><%= (booking.credit_account == @account) ? "<b>#{in_place_editor_field(:booking, :in_place_amount)}</b>&nbsp;#{h(booking.credit_currency)}" : "<i>#{link_to(h(booking.credit_account.number), {:controller => 'accounts', :action => :show, :id => booking.credit_account}, :title => h(booking.credit_account.title))}</i>" %></td>
-    <td style="border: 0 none; text-align: right"><%= (booking.debit_account == @account) ? "<b>#{in_place_editor_field(:booking, :in_place_amount)}</b>&nbsp;#{h(booking.debit_currency)}" : "<i>#{link_to(h(booking.debit_account.number), {:controller => 'accounts', :action => :show, :id => booking.debit_account}, :title => h(booking.debit_account.title))}</i>" %></td>
+    <td style="border: 0 none; text-align: right"><%= (booking.credit_account == @account) ? "<b>#{in_place_editor_field(:booking, :in_place_amount)}</b>&nbsp;#{h(booking.credit_currency)}".html_safe : "<i>#{link_to(h(booking.credit_account.number), {:controller => 'accounts', :action => :show, :id => booking.credit_account}, :title => h(booking.credit_account.title))}</i>".html_safe %></td>
+    <td style="border: 0 none; text-align: right"><%= (booking.debit_account == @account) ? "<b>#{in_place_editor_field(:booking, :in_place_amount)}</b>&nbsp;#{h(booking.debit_currency)}".html_safe : "<i>#{link_to(h(booking.debit_account.number), {:controller => 'accounts', :action => :show, :id => booking.debit_account}, :title => h(booking.debit_account.title))}</i>".html_safe %></td>
     <td style="border: 0 none; text-align: right"><%= currency_fmt(total_credit - total_debit) %></td>
     <td style="border: 0 none">
       <%= link_to image_tag('edit_22.png'), { :controller => :bookings, :action => :edit, :id => booking }, :class => 'edit_controls' %>
