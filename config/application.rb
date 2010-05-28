@@ -46,4 +46,4 @@ module Cybook
 end
 
 # Include your application configuration below
-require 'float.rb'
+#require 'float.rb'
