@@ -24,3 +24,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # group :test do
 #   gem 'webrat'
 # end
+
+# CyBook
+# ======
+gem 'will_paginate', :git => 'http://github.com/mislav/will_paginate.git', :branch => 'rails3'
