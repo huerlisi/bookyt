@@ -26,8 +26,8 @@
               <li><%= link_to "Neue Buchung", :controller => "bookings", :action => :new %></li>
               <li><%= link_to "Balance Sheet", :controller => "balance"%></li>
               <li><%= link_to "Profit Sheet", :controller => "profit"%></li>
-              <li><%= link_to "Konten", :controller => "accounts"%></li>
-              <li><%= link_to "Buchungen", :controller => "bookings"%></li>
+              <li><%= link_to "Konten", accounts_path %></li>
+              <li><%= link_to "Buchungen", bookings_path %></li>
             </ul>
           </div>
         </div>
