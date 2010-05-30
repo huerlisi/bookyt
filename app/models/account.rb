@@ -7,6 +7,9 @@ class Account < ActiveRecord::Base
 
   has_many :bookings, :class_name => "Booking", :finder_sql => 'SELECT * FROM bookings WHERE credit_account_id = #{id} OR debit_account_id = #{id} ORDER BY value_date'
   
+  # Scope
+  default_scope :order => 'code'
+  
   def saldo
     credit_amount = credit_bookings.sum(:amount)
     debit_amount = debit_bookings.sum(:amount)
