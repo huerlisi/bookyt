@@ -1,3 +1,4 @@
+/*** Accounting ***/
 .account, .account td {
   border: solid 1px;
 }
@@ -13,3 +14,22 @@
   border-left: 0px none;
   border-right: 0px none;
 }
+
+.currency {
+  text-align: right;
+}
+
+/* Balance and Profit Sheet */
+#balance-sheet td, #profit-sheet td {
+  vertical-align: top;
+}
+
+@media print {
+  #balance-sheet .form, #profit-sheet .form {
+    display: none;
+  }
+  #balance-sheet, #profit-sheet {
+    background: white;
+  }
+}
+
