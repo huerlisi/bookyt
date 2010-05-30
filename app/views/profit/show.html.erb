@@ -20,7 +20,7 @@
       
         <% for account in @client.expenses.select{|e| e.saldo != 0.0} %>
         <tr>
-          <td><%= link_to "#{account.number} - #{account.title}", :controller => 'accounts', :action => 'show', :id => account %></td>
+          <td><%= link_to "#{account.number} - #{account.title}", account %></td>
           <td class="currency"><%= currency_fmt(account.saldo) %></td>
         </tr>
         <% end %>
@@ -40,7 +40,7 @@
       
         <% for account in @client.earnings.select{|e| e.saldo != 0.0} %>
         <tr>
-          <td><%= link_to "#{account.number} - #{account.title}", :controller => 'accounts', :action => 'show', :id => account %></td>
+          <td><%= link_to "#{account.number} - #{account.title}", account %></td>
           <td class="currency"><%= currency_fmt(-account.saldo) %></td>
         </tr>
         <% end %>
