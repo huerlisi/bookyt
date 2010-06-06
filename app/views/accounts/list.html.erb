@@ -1,8 +1,8 @@
 <h2>Konten</h2>
 
 <table class="list">
-  <%= render :partial => 'accounts/list_header' %>
-  <%= render :partial => 'accounts/item', :collection => @accounts %>
-  <%= render :partial => 'accounts/list_footer' %>
+  <%= render 'list_header' %>
+  <%= render @accounts %>
+  <%= render 'list_footer' %>
 </table>
 

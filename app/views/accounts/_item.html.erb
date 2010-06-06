@@ -1,5 +1,0 @@
-<tr>
-  <td><%=h item.code %></td>
-  <td><%= link_to h(item.title), :action => 'show', :id => item %></td>
-  <td style="text-align: right"><%=h currency_fmt(item.saldo.abs) %></td>
-</tr>
