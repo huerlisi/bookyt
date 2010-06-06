@@ -6,7 +6,7 @@ module ApplicationHelper
   end
 
   def currency_fmt(value)
-    sprintf("%.2f", value)
+    number_with_precision(value, :precision => 2, :separator => '.', :delimiter => "'")
   end
 
   def cu_to_s(value, unit = 'CHF')
