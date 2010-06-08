@@ -34,6 +34,9 @@ form { display: block; }
   vertical-align: middle;
 }
 
+.icon-add { background-image: url(../images/add.png); }
+.icon-delete { background-image: url(../images/delete.png); }
+
 /* restful-authentication */
 #right-menu { float:right; }
 #right-menu div { margin: 0.2em; }
