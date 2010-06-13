@@ -1,9 +1,13 @@
 class Account < ActiveRecord::Base
+  # Associations
   belongs_to :client
   belongs_to :account_type
   
   has_many :credit_bookings, :class_name => "Booking", :foreign_key => "credit_account_id"
   has_many :debit_bookings, :class_name => "Booking", :foreign_key => "debit_account_id"
+
+  # Scoping
+  default_scope :order => 'code'
 
   def bookings
     Booking.by_account(id)
@@ -52,6 +56,4 @@ class Account < ActiveRecord::Base
 
     return credit_amount - debit_amount
   end
-  # Scope
-  default_scope :order => 'code'
 end
