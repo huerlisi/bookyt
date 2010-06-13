@@ -3,11 +3,14 @@
 
   <%= f.inputs do %>
     <%= f.input :value_date %>
-    <%= f.input :amount %>
+    <%= f.input :amount, :input_html => {:size => 12, :style => 'text-align: right'} %>
     <%= f.input :title %>
-    <%= f.input :value_date %>
     <%= f.input :credit_account %>
     <%= f.input :debit_account %>
-    <%= f.input :comments %>
+    <%= f.input :comments, :input_html => {:rows => 5} %>
+  <% end %>
+
+  <%= f.buttons do %>
+    <%= f.commit_button %>
   <% end %>
 <% end %>
