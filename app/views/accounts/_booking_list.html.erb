@@ -1,0 +1,12 @@
+<table id="booking_list" class="list booking_list">
+  <%= render :partial => 'accounts/booking_list_header' %>
+
+  <% @saldo = @account.saldo(@bookings.first, false) %>
+  <% for @booking in @bookings %>
+    <% @saldo -= @booking.amount if @booking.debit_account == @account %>
+    <% @saldo += @booking.amount if @booking.credit_account == @account %>
+    <%= render :partial => 'accounts/booking_item' %>
+  <% end %>
+
+  <%= render :partial => 'accounts/booking_list_footer' unless @bookings.empty? %>
+</table>
