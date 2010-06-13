@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100530221605) do
+ActiveRecord::Schema.define(:version => 20100613213927) do
 
   create_table "account_types", :force => true do |t|
     t.string "name",  :limit => 100
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20100530221605) do
     t.integer "credit_account_id"
     t.integer "debit_account_id"
     t.date    "value_date"
-    t.string  "comments",          :limit => 1000, :default => ""
+    t.text    "comments",          :limit => 1000, :default => ""
     t.string  "scan"
     t.string  "debit_currency",                    :default => "CHF"
     t.string  "credit_currency",                   :default => "CHF"
