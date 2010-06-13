@@ -27,5 +27,6 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # CyBook
 # ======
+gem 'formtastic', :git => 'git://github.com/justinfrench/formtastic.git', :branch => 'rails3'
 gem 'will_paginate', :git => 'http://github.com/mislav/will_paginate.git', :branch => 'rails3'
 gem 'inherited_resources'
