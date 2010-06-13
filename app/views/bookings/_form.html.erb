@@ -1,32 +1,27 @@
-<%= error_messages_for 'booking' %>
+<%= form_for @booking do |form| %>
+  <%= error_messages_for 'booking' %>
 
-<!--[form:booking]-->
-<p><label for="booking_value_date">Value date</label><br/>
-<%= text_field 'booking', 'value_date'  %></p>
+  <p><label for="booking_value_date">Value date</label><br/>
+  <%= text_field 'booking', 'value_date'  %></p>
 
-<p><label for="booking_amount">Amount</label><br/>
-<%= text_field 'booking', 'amount'  %></p>
+  <p><label for="booking_amount">Amount</label><br/>
+  <%= text_field 'booking', 'amount'  %></p>
 
-<p><label for="booking_title">Title</label><br/>
-<%= text_field 'booking', 'title'  %></p>
+  <p><label for="booking_title">Title</label><br/>
+  <%= text_field 'booking', 'title'  %></p>
 
-<p><label for="booking_credit_account_id">Soll</label><br/>
-<%= select 'booking', 'credit_account_id', Account.find(:all, :order => :title).collect {|a| [ a.title, a.id ] } %>
-<%= text_field '', 'credit_amount_foreign_currency', :size => 6, :tabindex => 20 %>
-<%= text_field 'booking', 'credit_currency', :size => 3, :tabindex => 21 %>
-</p>
+  <p><label for="booking_credit_account_id">Soll</label><br/>
+  <%= select 'booking', 'credit_account_id', Account.find(:all, :order => :title).collect {|a| [ a.title, a.id ] } %>
+  <%= text_field '', 'credit_amount_foreign_currency', :size => 6, :tabindex => 20 %>
+  <%= text_field 'booking', 'credit_currency', :size => 3, :tabindex => 21 %>
+  </p>
 
-<p><label for="booking_debit_account_id">Haben</label><br/>
-<%= select 'booking', 'debit_account_id', Account.find(:all, :order => :title).collect {|a| [ a.title, a.id ] } %>
-<%= text_field '', 'debit_amount_foreign_currency', :size => 6, :tabindex => 22 %>
-<%= text_field 'booking', 'debit_currency', :size => 3, :tabindex => 23 %>
-</p>
+  <p><label for="booking_debit_account_id">Haben</label><br/>
+  <%= select 'booking', 'debit_account_id', Account.find(:all, :order => :title).collect {|a| [ a.title, a.id ] } %>
+  <%= text_field '', 'debit_amount_foreign_currency', :size => 6, :tabindex => 22 %>
+  <%= text_field 'booking', 'debit_currency', :size => 3, :tabindex => 23 %>
+  </p>
 
-<p><label for="booking_scan">Scan</label><br/>
-<%= file_column_field "booking", "scan" %></p>
-
-<p><label for="booking_comments">Comments</label><br/>
-<%= text_area 'booking', 'comments', :cols => 40, :rows => 5  %></p>
-
-<!--[eoform:booking]-->
-
+  <p><label for="booking_comments">Comments</label><br/>
+  <%= text_area 'booking', 'comments', :cols => 40, :rows => 5  %></p>
+<% end %>

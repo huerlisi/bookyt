@@ -3,9 +3,6 @@
   <b><%= column.human_name %>:</b> <%=h @booking.send(column.name) %>
 </p>
 <% end %>
-<p>
-  <%= image_tag url_for_file_column("booking", "scan") if url_for_file_column("booking", "scan") %>
-</p>
 
 <%= link_to 'Edit', :action => 'edit', :id => @booking %> |
 <%= link_to 'Back', :action => 'list' %> |

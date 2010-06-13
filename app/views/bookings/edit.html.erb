@@ -1,10 +1,9 @@
-<h1>Editing booking</h1>
+<div class="contextual">
+  <%= link_to 'Show', @booking %>
+  <%= link_to 'Back', bookings_path %>
+  <%= link_to 'Destroy', @booking, :confirm => 'Are you sure?', :method => :post %>
+</div>
+<h2>Editing booking</h2>
 
-<% form_tag( {:action => 'update', :id => @booking}, { :multipart => true } ) do %>
-  <%= render :partial => 'form' %>
-  <%= submit_tag 'Edit' %>
-<% end %>
-
-<%= link_to 'Show', :action => 'show', :id => @booking %> |
-<%= link_to 'Back', :action => 'list' %> |
-<%= link_to 'Destroy', { :action => 'destroy', :id => @booking }, :confirm => 'Are you sure?', :method => :post %>
+<%= render :partial => 'form' %>
+<%= submit_tag 'Edit' %>
