@@ -9,6 +9,17 @@ form.formtastic fieldset ol li p.inline-hints { color:#333; }
 
 --------------------------------------------------------------------------------------------------*/
 
+/* FORMS
+--------------------------------------------------------------------------------------------------*/
+form.formtastic {
+padding:6px;
+margin-bottom: 10px;
+background-color:#f6f6f6;
+color:#505050;
+line-height:1.5em;
+border: 1px solid #e4e4e4;
+}
+
 /* BOOLEAN OVERRIDES
 --------------------------------------------------------------------------------------------------*/
 form.formtastic fieldset > ol > li.boolean label { padding-left:15%; }
@@ -26,11 +37,11 @@ form.formtastic ul.errors { color:#cc0000; margin:0.5em 0 1.5em 15%; list-style:
 
 /* LABELS
 --------------------------------------------------------------------------------------------------*/
-form.formtastic fieldset ol li label { width: 15%; }
-form.formtastic fieldset ol li label:after { content: ":"; }
+form.formtastic fieldset ol li label { width: 15%; margin-right:0.5em; text-align: right; }
+form.formtastic fieldset > ol > li label { font-weight: bold; }
 
 form.formtastic fieldset > ol > li.required { color:#484848; }
-form.formtastic fieldset > ol > li.required label { font-weight: bold; }
+form.formtastic fieldset > ol > li.required abbr { color:#bb0000; }
 
 /* NESTED FIELDSETS AND LEGENDS (radio, check boxes and date/time inputs use nested fieldsets)
 --------------------------------------------------------------------------------------------------*/
@@ -52,5 +63,7 @@ form.formtastic fieldset ol li { margin-bottom:0.5em; }
 
 /* BUTTONS
 --------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset.buttons { padding-left: 15%; }
+form.formtastic fieldset.buttons ol { margin-left: 0.5em;}
 form.formtastic fieldset.buttons ol input.icon { background-position: 3px 3px; padding: 3px; padding-left: 20px;}
 
