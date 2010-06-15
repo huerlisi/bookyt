@@ -26,6 +26,22 @@ form { display: block; }
 /* Icons */
 .contextual48 {float:right; white-space: nowrap; line-height:1.4em;margin-top:30px; padding-left: 10px; font-size:0.9em;}
 
+.icon {
+background-position: 0% 40%;
+background-repeat: no-repeat;
+padding-left: 20px;
+padding-top: 2px;
+padding-bottom: 3px;
+}
+
+.icon22 {
+background-position: 0% 40%;
+background-repeat: no-repeat;
+padding-left: 26px;
+line-height: 22px;
+vertical-align: middle;
+}
+
 .icon48 {
   background-position: 0% 40%;
   background-repeat: no-repeat;
@@ -34,8 +50,10 @@ form { display: block; }
   vertical-align: middle;
 }
 
-.icon-add { background-image: url(../images/add.png); }
-.icon-delete { background-image: url(../images/delete.png); }
+.icon-add { background-image: url(../images/16x16/add.png); }
+.icon-delete { background-image: url(../images/16x16/delete.png); }
+.icon-edit { background-image: url(../images/16x16/edit.png); }
+.icon-index  { background-image: url(../images/16x16/index.png); }
 
 /* restful-authentication */
 #right-menu { float:right; }
