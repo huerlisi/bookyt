@@ -1,5 +1,5 @@
 <%= semantic_form_for @booking do |f| %>
-  <%= error_messages_for 'booking' %>
+  <%= f.semantic_errors %>
 
   <%= f.inputs do %>
     <%= f.input :value_date %>
