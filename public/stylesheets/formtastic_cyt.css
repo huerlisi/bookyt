@@ -1,0 +1,56 @@
+/* -------------------------------------------------------------------------------------------------
+
+Load this stylesheet after formtastic.css in your layouts to override the CSS to suit your needs.
+This will allow you to update formtastic.css with new releases without clobbering your own changes.
+
+For example, to make the inline hint paragraphs a little darker in color than the standard #666:
+
+form.formtastic fieldset ol li p.inline-hints { color:#333; }
+
+--------------------------------------------------------------------------------------------------*/
+
+/* BOOLEAN OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset > ol > li.boolean label { padding-left:15%; }
+
+
+/* SEMANTIC ERRORS
+--------------------------------------------------------------------------------------------------*/
+form.formtastic ul.errors { color:#cc0000; margin:0.5em 0 1.5em 15%; list-style:square; }
+
+/* FIELDSETS & LISTS
+--------------------------------------------------------------------------------------------------*/
+#recall_form form.formtastic fieldset { border: 2px groove #d7d7d7; padding: 0.2em;}
+#recall_form form.formtastic fieldset.buttons { border: 0; }
+#recall_form form.formtastic fieldset.buttons { padding-left:15%; }
+
+/* LABELS
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset ol li label { width: 15%; }
+form.formtastic fieldset ol li label:after { content: ":"; }
+
+form.formtastic fieldset > ol > li.required { color:#484848; }
+form.formtastic fieldset > ol > li.required label { font-weight: bold; }
+
+/* NESTED FIELDSETS AND LEGENDS (radio, check boxes and date/time inputs use nested fieldsets)
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset > ol > li fieldset ol { float:left; width:74%; margin:0; padding:0 0 0 15%; }
+
+/* INLINE HINTS
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset > ol > li p.inline-hints { margin:0.5em 0 0 15%; }
+
+
+/* INLINE ERRORS
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset > ol > li p.inline-errors { margin:0.5em 0 0 15%; }
+form.formtastic fieldset > ol > li ul.errors { margin:0.5em 0 0 15%; }
+
+/* INPUT LIs
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset ol li { margin-bottom:0.5em; }
+
+/* BUTTONS
+--------------------------------------------------------------------------------------------------*/
+form.formtastic fieldset.buttons ol input.icon { background-position: 3px 3px; padding: 3px; padding-left: 20px;}
+
