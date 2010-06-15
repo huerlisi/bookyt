@@ -1,8 +1,4 @@
 /*** Accounting ***/
-.account, .account td {
-  border: solid 1px;
-}
-
 .booking_list tr td {
   background-color: white;
   border-left: 0px none;
