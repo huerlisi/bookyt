@@ -9,6 +9,9 @@ class Account < ActiveRecord::Base
   # Scoping
   default_scope :order => 'code'
 
+  # Validation
+  validates_presence_of :number, :title
+  
   def bookings
     Booking.by_account(id)
   end
