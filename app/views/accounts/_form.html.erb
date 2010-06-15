@@ -1,16 +1,14 @@
-<%= error_messages_for 'account' %>
+<%= semantic_form_for @account do |f| %>
+  <%= f.semantic_errors %>
 
-<!--[form:account]-->
-<p><label for="account_number">Number</label><br/>
-<%= text_field 'account', 'number'  %></p>
+  <%= f.inputs do %>
+    <%= f.input :number, :input_html => {:size => 6} %>
+    <%= f.input :title %>
+    <%= f.input :account_type %>
+    <%= f.input :client %>
+  <% end %>
 
-<p><label for="account_title">Title</label><br/>
-<%= text_field 'account', 'title'  %></p>
-
-<p><label for="account_type">Type</label><br/>
-<%= select("account", "account_type_id", AccountType.find(:all).collect {|type| [ type.title, type.id ] }, { :include_blank => true } )  %></p>
-
-<p><label for="account_client">Client</label><br/>
-<%= select("account", "client_id", Client.find(:all).collect {|client| [ client.name, client.id ] })  %></p>
-<!--[eoform:account]-->
-
+  <%= f.buttons do %>
+    <%= f.commit_button %>
+  <% end %>
+<% end %>
