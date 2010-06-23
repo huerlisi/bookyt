@@ -13,40 +13,22 @@
   <tr>
     <td style="background-color: #00FF00">
       <table width="100%">
-        <tr>
-          <th>Konto</th>
-          <th>Saldo</th>
-        </tr>
-      
-        <% for account in Account.expenses.all.select{|e| e.saldo != 0.0} %>
-        <tr>
-          <td><%= link_to "#{account.code} - #{account.title}", account %></td>
-          <td class="currency"><%= currency_fmt(account.saldo) %></td>
-        </tr>
-        <% end %>
+        <%= render 'accounts/list_header' %>
+        <%= render Account.expenses.all.select{|a| a.saldo(@date) != 0.0} %>
       
         <tr style="background-color: #000000; color: #FFFFFF">
-          <th>Total</th>
+          <th colspan="2">Total</th>
           <th class="currency"><%= currency_fmt(@client.saldo(:expenses)) %></th>
         </tr>
       </table>
     </td>
     <td style="background-color: #FF0000">
       <table width="100%">
-        <tr>
-          <th>Konto</th>
-          <th>Saldo</th>
-        </tr>
-      
-        <% for account in Account.earnings.all.select{|e| e.saldo != 0.0} %>
-        <tr>
-          <td><%= link_to "#{account.code} - #{account.title}", account %></td>
-          <td class="currency"><%= currency_fmt(-account.saldo) %></td>
-        </tr>
-        <% end %>
+        <%= render 'accounts/list_header' %>
+        <%= render Account.earnings.all.select{|a| a.saldo(@date) != 0.0} %>
       
         <tr style="background-color: #000000; color: #FFFFFF">
-          <th>Total</th>
+          <th colspan="2">Total</th>
           <th class="currency"><%= currency_fmt(-@client.saldo(:earnings)) %></th>
         </tr>
       </table>
