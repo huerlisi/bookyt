@@ -18,6 +18,10 @@ class Account < ActiveRecord::Base
   has_many :credit_bookings, :class_name => "Booking", :foreign_key => "credit_account_id"
   has_many :debit_bookings, :class_name => "Booking", :foreign_key => "debit_account_id"
 
+  def bookings
+    Booking.by_account(id)
+  end
+
   # Scoping
   default_scope :order => 'code'
   
@@ -43,10 +47,7 @@ class Account < ActiveRecord::Base
   # Validation
   validates_presence_of :number, :title
   
-  def bookings
-    Booking.by_account(id)
-  end
-  
+  # Calculations
   def turnover(selector = Date.today, inclusive = true)
     if selector.is_a? Range or selector.is_a? Array
       if selector.first.is_a? Booking
