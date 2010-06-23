@@ -18,7 +18,7 @@
         </tr>
         <% for account in Account.current_assets.all.select{|a| a.saldo(@date) != 0.0} %>
         <tr>
-          <td><%= link_to "#{account.number} - #{account.title}", account %></td>
+          <td><%= link_to "#{account.code} - #{account.title}", account %></td>
           <td class="currency"><%= currency_fmt(account.saldo(@date)) %></td>
         <tr>
         <% end %>
@@ -38,7 +38,7 @@
       
         <% for account in Account.outside_capital.all.select{|a| a.saldo(@date) != 0.0} %>
         <tr>
-          <td><%= link_to "#{account.number} - #{account.title}", account %></td>
+          <td><%= link_to "#{account.code} - #{account.title}", account %></td>
           <td class="currency"><%= currency_fmt(-account.saldo(@date)) %></td>
         <tr>
         <% end %>
@@ -64,7 +64,7 @@
       
         <% for account in Account.capital_assets.all.select{|a| a.saldo(@date) != 0.0} %>
         <tr>
-          <td><%= link_to "#{account.number} - #{account.title}", account %></td>
+          <td><%= link_to "#{account.code} - #{account.title}", account %></td>
           <td class="currency"><%= currency_fmt(account.saldo(@date)) %></td>
         <tr>
         <% end %>
@@ -84,7 +84,7 @@
       
         <% for account in Account.equity_capital.all.select{|a| a.saldo(@date) != 0.0} %>
         <tr>
-          <td><%= link_to "#{account.number} - #{account.title}", account %></td>
+          <td><%= link_to "#{account.code} - #{account.title}", account %></td>
           <td class="currency"><%= currency_fmt(-account.saldo(@date)) %></td>
         <tr>
         <% end %>
