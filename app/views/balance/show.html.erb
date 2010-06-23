@@ -16,10 +16,10 @@
           <th>Konto</th>
           <th>Saldo</th>
         </tr>
-        <% for account in @client.current_assets.all.select{|a| a.saldo != 0.0} %>
+        <% for account in Account.current_assets.all.select{|a| a.saldo(@date) != 0.0} %>
         <tr>
           <td><%= link_to "#{account.number} - #{account.title}", account %></td>
-          <td class="currency"><%= currency_fmt(account.saldo) %></td>
+          <td class="currency"><%= currency_fmt(account.saldo(@date)) %></td>
         <tr>
         <% end %>
       
@@ -36,10 +36,10 @@
           <th>Saldo</th>
         </tr>
       
-        <% for account in @client.outside_capital.all.select{|a| a.saldo != 0.0} %>
+        <% for account in Account.outside_capital.all.select{|a| a.saldo(@date) != 0.0} %>
         <tr>
           <td><%= link_to "#{account.number} - #{account.title}", account %></td>
-          <td class="currency"><%= currency_fmt(-account.saldo) %></td>
+          <td class="currency"><%= currency_fmt(-account.saldo(@date)) %></td>
         <tr>
         <% end %>
       
@@ -62,10 +62,10 @@
           <th>Saldo</th>
         </tr>
       
-        <% for account in @client.capital_assets.all.select{|a| a.saldo != 0.0} %>
+        <% for account in Account.capital_assets.all.select{|a| a.saldo(@date) != 0.0} %>
         <tr>
           <td><%= link_to "#{account.number} - #{account.title}", account %></td>
-          <td class="currency"><%= currency_fmt(account.saldo) %></td>
+          <td class="currency"><%= currency_fmt(account.saldo(@date)) %></td>
         <tr>
         <% end %>
       
@@ -82,10 +82,10 @@
           <th>Saldo</th>
         </tr>
       
-        <% for account in @client.equity_capital.all.select{|a| a.saldo != 0.0} %>
+        <% for account in Account.equity_capital.all.select{|a| a.saldo(@date) != 0.0} %>
         <tr>
           <td><%= link_to "#{account.number} - #{account.title}", account %></td>
-          <td class="currency"><%= currency_fmt(-account.saldo) %></td>
+          <td class="currency"><%= currency_fmt(-account.saldo(@date)) %></td>
         <tr>
         <% end %>
       

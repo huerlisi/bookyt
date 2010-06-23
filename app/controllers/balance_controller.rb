@@ -14,8 +14,6 @@ class BalanceController < ApplicationController
     @date = params[:balance][:date] unless params[:balance].nil?
     # use current date if not specified otherwise
     @date ||= Date.today
-    Booking.send(:with_scope, :find => {:conditions => ['value_date <= ?', @date]}) do
-      render :action => :show
-    end
+    render :action => :show
   end
 end

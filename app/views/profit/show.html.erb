@@ -18,7 +18,7 @@
           <th>Saldo</th>
         </tr>
       
-        <% for account in @client.expenses.all.select{|e| e.saldo != 0.0} %>
+        <% for account in Account.expenses.all.select{|e| e.saldo != 0.0} %>
         <tr>
           <td><%= link_to "#{account.number} - #{account.title}", account %></td>
           <td class="currency"><%= currency_fmt(account.saldo) %></td>
@@ -38,7 +38,7 @@
           <th>Saldo</th>
         </tr>
       
-        <% for account in @client.earnings.all.select{|e| e.saldo != 0.0} %>
+        <% for account in Account.earnings.all.select{|e| e.saldo != 0.0} %>
         <tr>
           <td><%= link_to "#{account.number} - #{account.title}", account %></td>
           <td class="currency"><%= currency_fmt(-account.saldo) %></td>
