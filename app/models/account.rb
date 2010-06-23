@@ -1,3 +1,15 @@
+module AccountScopeExtension
+    def saldo(selector = Date.today, inclusive = true)
+      new_saldo = 0
+
+      for account in all
+        new_saldo += account.saldo(selector, inclusive)
+      end
+
+      return new_saldo
+    end
+end
+
 class Account < ActiveRecord::Base
   # Associations
   belongs_to :client
@@ -9,12 +21,24 @@ class Account < ActiveRecord::Base
   # Scoping
   default_scope :order => 'code'
   
-  scope :current_assets, where('account_type_id = 1')
-  scope :capital_assets, where('account_type_id = 2')
-  scope :outside_capital, where('account_type_id = 3')
-  scope :equity_capital, where('account_type_id = 4')
-  scope :expenses, where('account_type_id = 5')
-  scope :earnings, where('account_type_id = 6')
+  scope :current_assets, where('account_type_id = 1') do
+    include AccountScopeExtension
+  end
+  scope :capital_assets, where('account_type_id = 2') do
+    include AccountScopeExtension
+  end
+  scope :outside_capital, where('account_type_id = 3') do
+    include AccountScopeExtension
+  end
+  scope :equity_capital, where('account_type_id = 4') do
+    include AccountScopeExtension
+  end
+  scope :expenses, where('account_type_id = 5') do
+    include AccountScopeExtension
+  end
+  scope :earnings, where('account_type_id = 6') do
+    include AccountScopeExtension
+  end
 
   # Validation
   validates_presence_of :number, :title

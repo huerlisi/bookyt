@@ -16,8 +16,8 @@ class ProfitController < ApplicationController
     # use current date if not specified otherwise
     @end_date ||= Date.today
     @start_date ||= @end_date.to_time.advance(:years => -1, :days => 1).to_date
-    Booking.send(:with_scope, :find => {:conditions => ['value_date BETWEEN ? AND ?', @start_date, @end_date]}) do
-      render :action => :show
-    end
+
+    @date = @start_date..@end_date
+    render :action => :show
   end
 end
