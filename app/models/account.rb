@@ -48,8 +48,8 @@ class Account < ActiveRecord::Base
       end
     end
 
-    credit_amount = credit_bookings.sum(:amount, :conditions => condition)
-    debit_amount = debit_bookings.sum(:amount, :conditions => condition)
+    credit_amount = credit_bookings.where(condition).sum(:amount)
+    debit_amount = debit_bookings.where(condition).sum(:amount)
     
     [credit_amount || 0.0, debit_amount || 0.0]
   end

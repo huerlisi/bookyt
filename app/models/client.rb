@@ -11,7 +11,7 @@ class Client < ActiveRecord::Base
   def saldo(type)
     new_saldo = 0
 
-    for account in send(type)
+    for account in send(type).all
       new_saldo += account.saldo
     end
 
