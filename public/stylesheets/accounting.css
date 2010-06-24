@@ -16,12 +16,25 @@
 }
 
 /* Balance and Profit Sheet */
+#balance-sheet table table, #profit-sheet table table {
+  border-spacing: 0;
+}
+
+#balance-sheet table table td, #profit-sheet table table td{
+  padding: 0.4em;
+}
+
 #balance-sheet td, #profit-sheet td {
   vertical-align: top;
+  color: black;
+}
+
+#balance-sheet a, #profit-sheet a {
+  color: black;
 }
 
 @media print {
-  #balance-sheet .form, #profit-sheet .form {
+  #balance-sheet form, #profit-sheet form {
     display: none;
   }
   #balance-sheet, #profit-sheet {
