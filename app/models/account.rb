@@ -45,7 +45,16 @@ class Account < ActiveRecord::Base
   end
 
   # Validation
-  validates_presence_of :number, :title
+  validates_presence_of :code, :title
+  
+  # Type support
+  def is_asset_account?
+    [1, 2, 5].include? account_type_id
+  end
+  
+  def is_liability_account?
+    [3, 4, 6].include? account_type_id
+  end
   
   # Calculations
   def turnover(selector = Date.today, inclusive = true)
@@ -89,6 +98,8 @@ class Account < ActiveRecord::Base
   def saldo(selector = Date.today, inclusive = true)
     credit_amount, debit_amount = turnover(selector, inclusive)
 
-    return credit_amount - debit_amount
+    amount = credit_amount - debit_amount
+    
+    return is_asset_account? ? amount : -amount
   end
 end

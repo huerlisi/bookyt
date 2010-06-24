@@ -28,7 +28,7 @@
       
         <tr style="background-color: #000000; color: #FFFFFF">
           <th colspan="2">Total</th>
-          <th class="currency"><%= currency_fmt(-Account.outside_capital.saldo(@date)) %></th>
+          <th class="currency"><%= currency_fmt(Account.outside_capital.saldo(@date)) %></th>
         <tr>
       </table>
     </td>
@@ -56,17 +56,17 @@
       
         <tr style="background-color: #000000; color: #FFFFFF">
           <th colspan="2">Total</th>
-          <th class="currency"><%= currency_fmt(-Account.equity_capital.saldo(@date)) %></th>
+          <th class="currency"><%= currency_fmt(Account.equity_capital.saldo(@date)) %></th>
         <tr>
       </table>
     </td>
   </tr>
   <tr style="background-color: #000000; color: #FFFFFF">
     <td>Total: <%= currency_fmt(Account.current_assets.saldo(@date) + Account.capital_assets.saldo(@date)) %></td>
-    <td>Total: <%= currency_fmt(-(Account.outside_capital.saldo(@date) + Account.equity_capital.saldo(@date))) %></td>
+    <td>Total: <%= currency_fmt(Account.outside_capital.saldo(@date) + Account.equity_capital.saldo(@date)) %></td>
   </tr>
   <tr style="background-color: black; color: white">
     <th>Differenz</th>
-    <td class="currency"><%= currency_fmt(Account.current_assets.saldo(@date) + Account.capital_assets.saldo(@date) + Account.outside_capital.saldo(@date) + Account.equity_capital.saldo(@date)) %></td>
+    <td class="currency"><%= currency_fmt((Account.current_assets.saldo(@date) + Account.capital_assets.saldo(@date)) - (Account.outside_capital.saldo(@date) + Account.equity_capital.saldo(@date))) %></td>
   </tr>
 </table>
