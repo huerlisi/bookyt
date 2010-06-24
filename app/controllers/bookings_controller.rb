@@ -8,6 +8,7 @@ class BookingsController < InheritedResources::Base
     order_by = params[:order] || 'value_date'
     @bookings = Booking.paginate :page => params[:page], :per_page => 100, :order => order_by
     index!
+  end
 
   def copy
     @booking = Booking.find(params[:id])
