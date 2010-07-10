@@ -1,12 +1,6 @@
-<h1>Neue Buchung</h1>
+<div class="contextual">
+  <%= link_to 'Back', bookings_path %>
+</div>
+<h2>New booking</h2>
 
-<script type="text/javascript">
-  Event.observe(window, 'load', function() {$('booking_value_date').focus()}, false);
-</script>
-
-<% form_tag( {:action => 'create'}, { :multipart => true } ) do %>
-  <%= render :partial => 'form' %>
-  <%= submit_tag "Create" %>
-<% end %>
-
-<%= link_to 'Back', :action => 'list' %>
+<%= render :partial => 'form' %>
