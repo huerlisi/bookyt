@@ -17,7 +17,7 @@
           <%= render 'accounts/list_header' %>
           <%= render Account.expenses.all.select{|a| a.saldo(@date) != 0.0} %>
         
-          <tr style="background-color: black; color: white">
+          <tr class="total">
             <th colspan="2">Total</th>
             <th class="currency"><%= currency_fmt(Account.expenses.saldo(@date)) %></th>
           </tr>
@@ -28,7 +28,7 @@
           <%= render 'accounts/list_header' %>
           <%= render Account.earnings.all.select{|a| a.saldo(@date) != 0.0} %>
         
-          <tr style="background-color: black; color: white">
+          <tr class="total">
             <th colspan="2">Total</th>
             <th class="currency"><%= currency_fmt(Account.earnings.saldo(@date)) %></th>
           </tr>
@@ -37,7 +37,7 @@
     </tr>
     <% difference = Account.expenses.saldo(@date) - Account.earnings.saldo(@date)%>
     <% if difference != 0 %>
-    <tr style="background-color: black; color: white">
+    <tr class="total">
       <th>Differenz</th>
       <td class="currency"><%= currency_fmt(difference) %></td>
     </tr>

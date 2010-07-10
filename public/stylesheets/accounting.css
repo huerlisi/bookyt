@@ -33,6 +33,12 @@
   color: black;
 }
 
+#balance-sheet tr.total td, #balance-sheet tr.total th,
+#profit-sheet tr.total td, #profit-sheet tr.total th {
+  color: white;
+  background-color: black;
+}
+
 @media print {
   #balance-sheet form, #profit-sheet form {
     display: none;

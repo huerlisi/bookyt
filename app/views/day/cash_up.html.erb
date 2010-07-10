@@ -1,6 +1,5 @@
 <h1>Abrechnung vom <%=h @day.date.strftime "%d.%m.%Y" %></h1>
-<% form_remote_for :cash_register, @register, :update => 'cash', :url => { :action =>
-'calculate_cash' } do |f| %>
+<%= form_for :cash_register, @register, :action => 'calculate_cash' do |f| %>
 <table>
 	<tr>
 		<td style="vertical-align: top">
