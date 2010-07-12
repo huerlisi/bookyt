@@ -13,6 +13,6 @@
   <td style="text-align: right"><%= currency_fmt(@saldo) %></td>
   <td style="border: none 0px">
     <%= link_to image_tag('edit_22.png', :title => 'Edit'), edit_account_booking_path(@account, @booking, :page => params['page']), :method => :get  %>
-    <%= link_to image_tag('remove_22.png', :title => 'Destroy'), account_booking_path(@account, @booking, :page => params['page']), :remote => true, :method => :delete, :confirm => "Buchung #{@booking.to_s} löschen?" %>
+    <%= link_to image_tag('remove_22.png', :title => 'Destroy'), account_booking_path(@account, @booking, :page => params['page']), :remote => true, :method => :delete, :confirm => t_confirm_delete(@booking) %>
   </td>
 </tr>
