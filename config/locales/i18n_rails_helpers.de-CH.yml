@@ -1,0 +1,9 @@
+de-CH:
+  messages:
+    confirm_delete: "%{model} %{record} löschen?"
+
+  crud:
+    edit: "%{model} bearbeiten"
+    show: "%{model} anzeigen"
+    new:  "%{model} anlegen"
+    back: "zurück"

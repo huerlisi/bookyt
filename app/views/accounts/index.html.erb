@@ -1,5 +1,5 @@
 <div class="contextual">
-  <%= link_to "Neues Konto", new_account_path, :class => "icon icon-add" %>
+  <%= link_to t_crud('new'), new_account_path, :class => "icon icon-add" %>
 </div>
 <h2>Konten</h2>
 
@@ -8,4 +8,3 @@
   <%= render @accounts %>
   <%= render 'list_footer' %>
 </table>
-
