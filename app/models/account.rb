@@ -22,7 +22,7 @@ class Account < ActiveRecord::Base
     Booking.by_account(id)
   end
 
-  # Scoping
+  # Scopes
   default_scope :order => 'code'
   
   scope :current_assets, where('account_type_id = 1') do
@@ -46,6 +46,11 @@ class Account < ActiveRecord::Base
 
   # Validation
   validates_presence_of :code, :title
+  
+  # Helpers
+  def to_s
+    "#{code} - #{title}"
+  end
   
   # Type support
   def is_asset_account?
