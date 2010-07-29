@@ -52,7 +52,7 @@ GEM
       abstract (>= 1.0.0)
     has_scope (0.5.0)
     i18n (0.4.1)
-    i18n_rails_helpers (0.5.7)
+    i18n_rails_helpers (0.7.0)
       activemodel
       i18n
     inherited_resources (1.1.2)
@@ -95,7 +95,7 @@ PLATFORMS
 
 DEPENDENCIES
   formtastic!
-  i18n_rails_helpers
+  i18n_rails_helpers (>= 0.7.0)
   inherited_resources
   rails (= 3.0.0.rc)
   sqlite3-ruby

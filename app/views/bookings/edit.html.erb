@@ -1,8 +1,8 @@
 <div class="contextual">
-  <%= link_to 'Show', @booking %>
-  <%= link_to 'Back', bookings_path %>
-  <%= link_to 'Destroy', @booking, :confirm => 'Are you sure?', :method => :post %>
+  <%= link_to t_action('show'), @booking %>
+  <%= link_to t_action('back'), bookings_path %>
+  <%= link_to t_action('delete'), @booking, :confirm => t_confirm_delete(@booking), :method => :delete %>
 </div>
-<h2>Editing booking</h2>
+<h2><%= t_title %></h2>
 
 <%= render :partial => 'form' %>
