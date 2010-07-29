@@ -1,6 +1,8 @@
-<h1>Listing bookings</h1>
+<div class="contextual">
+  <%= link_to t_crud('new'), new_booking_path, :class => "icon icon-add" %>
+</div>
+<h2><%= t_crud %></h2>
 
-<%= link_to 'New booking', :action => 'new' %>
 <table class="listing booking_list">
   <tr>
     <%= sort_header 'value_date', 'Valuta' %>
@@ -10,9 +12,7 @@
     <%= sort_header 'amount', 'Wert' %>
   </tr>
   
-<% for booking in @bookings %>
-  <%= render :partial => 'booking', :object => booking %>
-<% end %>
+  <%= render @bookings %>
 </table>
 
 <%= will_paginate @bookings %>
