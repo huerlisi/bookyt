@@ -1,0 +1,11 @@
+= error_messages_for 'account_type'
+/ [form:account_type]
+%p
+  %label{:for => "account_type_name"} Name
+  %br/
+  = text_field 'account_type', 'name'
+%p
+  %label{:for => "account_type_title"} Titel
+  %br/
+  = text_field 'account_type', 'title'
+/ [eoform:account_type]

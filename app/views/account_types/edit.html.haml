@@ -1,0 +1,7 @@
+%h1 Editing account_type
+- form_tag :action => 'update', :id => @account_type do
+  = render :partial => 'form'
+  = submit_tag 'Edit'
+= link_to 'Show', :action => 'show', :id => @account_type
+|
+\#{link_to 'Back', :action => 'list'}
