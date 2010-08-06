@@ -27,3 +27,6 @@ config/database.yml
 
 # RVM
 .rvmrc
+
+# Rubymine
+.idea/*
