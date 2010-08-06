@@ -10,10 +10,9 @@ class BalanceController < ApplicationController
       redirect_to :controller => 'clients', :action => 'new'
       return
     end
-    
+
     @date = params[:balance][:date] unless params[:balance].nil?
     # use current date if not specified otherwise
     @date ||= Date.today
-    render :action => :show
   end
 end
