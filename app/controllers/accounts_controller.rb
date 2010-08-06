@@ -7,6 +7,7 @@ class AccountsController < InheritedResources::Base
   
   def index
     @accounts = Account.paginate :page => params[:page], :per_page => 50, :order => 'number'
+    
     index!
   end
   
