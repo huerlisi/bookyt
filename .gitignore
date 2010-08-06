@@ -24,3 +24,9 @@ db/backup
 
 # Local
 config/database.yml
+
+# RVM
+.rvmrc
+
+# Rubymine
+.idea/*
