@@ -1,0 +1,9 @@
+= semantic_form_for @account do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = f.input :code, :input_html => {:size => 6}
+    = f.input :title
+    = f.input :account_type
+    = f.input :client
+  = f.buttons do
+    = f.commit_button

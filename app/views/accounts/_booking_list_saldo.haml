@@ -1,0 +1,8 @@
+%tr#booking_list_saldo{:style => "border-top: double 2px black; background-color: grey"}
+  %td{:colspan => "2"}
+    Kontostand (per #{@bookings.last.value_date})
+  %td
+  %td
+  %td
+  %td{:style => "text-align: right"}= currency_fmt(@account.saldo(@bookings.last))
+  %td

@@ -1,0 +1,7 @@
+.contextual
+  = link_to t_action('new'), new_account_path, :class => "icon icon-add"
+%h2= t_title
+%table.list
+  = render 'list_header'
+  = render @accounts
+  = render 'list_footer'

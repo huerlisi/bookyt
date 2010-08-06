@@ -1,0 +1,3 @@
+= render :partial => 'accounts/booking_list_turnover'
+= render :partial => 'accounts/booking_list_saldo'
+= render :partial => 'accounts/booking_list_paginate' if @bookings.respond_to?(:total_pages)
