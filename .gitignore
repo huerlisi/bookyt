@@ -24,3 +24,6 @@ db/backup
 
 # Local
 config/database.yml
+
+# RVM
+.rvmrc
