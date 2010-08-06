@@ -1,0 +1,21 @@
+%table.listing
+  %tr
+    %th Datum
+    %th Bar
+    %th Karte
+    %th Soll
+    %th Kasse
+    %th Differenz
+    %th Trinkgeld
+  - for day in @days
+  %tr
+    %td= h day.date
+    %td= h day.cash
+    %td= h day.card_turnover
+    %td= h day.cash + day.card_turnover
+    %td= h day.cash + day.card_turnover
+    %td= h ""
+    %td= h ""
+    %td
+      = link_to(image_tag('remove.png'), :action => 'remove', :id => day)
+      = link_to(image_tag('edit.png'), :action => 'cash_up', :id => day)
