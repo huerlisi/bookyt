@@ -1,0 +1,57 @@
+%h1
+  Bilanz f&uuml;r #{@client.name} #{@year}
+#balance-sheet
+  - form_tag(:action=> :show) do
+    Stichdatum: #{text_field 'balance', 'date', {:value => @date}}
+    \#{submit_tag 'Los'}
+  %table
+    %tr
+      %th Umlaufverm&ouml;gen
+      %th Fremdkapital
+    %tr
+      %td.current-assets{:style => "background-color: #00FF00"}
+        %table{:width => "100%"}
+          = render 'accounts/list_header'
+          = render Account.current_assets.all.select{|a| a.saldo(@date) != 0.0}
+          %tr.total
+            %th{:colspan => "2"} Total
+            %th.currency= currency_fmt(Account.current_assets.saldo(@date))
+          %tr
+      %td{:style => "background-color: #FF0000"}
+        %table{:width => "100%"}
+          = render 'accounts/list_header'
+          = render Account.outside_capital.all.select{|a| a.saldo(@date) != 0.0}
+          %tr.total
+            %th{:colspan => "2"} Total
+            %th.currency= currency_fmt(Account.outside_capital.saldo(@date))
+          %tr
+    %tr
+      %th Anlagevermögen
+      %th Eigenkapital
+    %tr
+      %td{:style => "background-color: #00AA00"}
+        %table{:width => "100%"}
+          = render 'accounts/list_header'
+          = render Account.capital_assets.all.select{|a| a.saldo(@date) != 0.0}
+          %tr.total
+            %th{:colspan => "2"} Total
+            %th.currency= currency_fmt(Account.capital_assets.saldo(@date))
+          %tr
+      %td{:style => "background-color: #AA0000"}
+        %table{:width => "100%"}
+          = render 'accounts/list_header'
+          = render Account.equity_capital.all.select{|a| a.saldo(@date) != 0.0}
+          %tr.total
+            %th{:colspan => "2"} Total
+            %th.currency= currency_fmt(Account.equity_capital.saldo(@date))
+          %tr
+    %tr.total
+      %td
+        Total: #{currency_fmt(Account.current_assets.saldo(@date) + Account.capital_assets.saldo(@date))}
+      %td
+        Total: #{currency_fmt(Account.outside_capital.saldo(@date) + Account.equity_capital.saldo(@date))}
+    - difference = (Account.current_assets.saldo(@date) + Account.capital_assets.saldo(@date)) - (Account.outside_capital.saldo(@date) + Account.equity_capital.saldo(@date))
+    - if difference != 0
+    %tr.total
+      %th Differenz
+      %td.currency= currency_fmt(difference)
