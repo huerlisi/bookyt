@@ -10,8 +10,7 @@
 <% end %>
 </table>
 
-<%= link_to 'Previous page', { :page => @client_pages.current.previous } if @client_pages.current.previous %>
-<%= link_to 'Next page', { :page => @client_pages.current.next } if @client_pages.current.next %> 
+<%= will_paginate @clients %>
 
 <br />
 
