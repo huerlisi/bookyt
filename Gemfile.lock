@@ -50,6 +50,7 @@ GEM
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    haml (3.0.15)
     has_scope (0.5.0)
     i18n (0.4.1)
     i18n_rails_helpers (0.7.0)
@@ -95,6 +96,7 @@ PLATFORMS
 
 DEPENDENCIES
   formtastic!
+  haml
   i18n_rails_helpers (>= 0.7.0)
   inherited_resources
   rails (= 3.0.0.rc)

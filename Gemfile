@@ -7,6 +7,9 @@ gem 'rails', '3.0.0.rc'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
+# Use haml for templates
+gem "haml"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
