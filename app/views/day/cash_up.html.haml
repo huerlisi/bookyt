@@ -6,24 +6,25 @@
       %td{:style => "vertical-align: top"}
         %table
           - for i in [ 200, 100, 50, 20, 10 ]
+            %tr
+              %th{:style => "text-align: right"}
+                = h i
+                x
+              %td
+                = f.text_field i, :size => 4, :style => "text-align: right"
+      %td{:style => "vertical-align: top"}
+        %table
+          - for i in [ 5, 2, 1, 0.5, 0.2, 0.1, 0.05 ]
+            %tr
+              %th{:style => "text-align: right"}
+                = h i
+              %td= f.text_field i, :size => 4, :style => "text-align: right"
           %tr
-            %th{:style => "text-align: right"}
-              = h i
-              x
-            %td= f.text_field i, :size => 4, :style => "text-align: right"
-            %td{:style => "vertical-align: top"}
-              %table
-                - for i in [ 5, 2, 1, 0.5, 0.2, 0.1, 0.05 ]
-                %tr
-                  %th{:style => "text-align: right"}
-                    = h i
-                  %td= f.text_field i, :size => 4, :style => "text-align: right"
-                %tr
-                  %th Total:
-                  %td#cash
-          %tr
-            %td{:colspan => "4"}
-              = submit_tag 'Ausrechnen'
+            %th Total:
+            %td#cash
+    %tr
+      %td{:colspan => "4"}
+        = submit_tag 'Ausrechnen'
 
 = form_for :day, @day, :url => { :action => 'update', :id => @day } do |f|
   %table
