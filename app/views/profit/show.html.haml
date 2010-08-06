@@ -1,0 +1,31 @@
+%h1
+  Erfolgsrechnung f&uuml;r #{@client.name} #{@year}
+#profit-sheet
+  - form_tag(:action=> :show) do
+    Von: #{text_field 'balance', 'start_date', {:value => @start_date}}
+    Bis: #{text_field 'balance', 'end_date', {:value => @end_date}}
+    \#{submit_tag 'Los'}
+  %table
+    %tr
+      %th Aufwand
+      %th Ertrag
+    %tr
+      %td{:style => "background-color: #00FF00"}
+        %table{:width => "100%"}
+          = render 'accounts/list_header'
+          = render Account.expenses.all.select{|a| a.saldo(@date) != 0.0}
+          %tr.total
+            %th{:colspan => "2"} Total
+            %th.currency= currency_fmt(Account.expenses.saldo(@date))
+      %td{:style => "background-color: #FF0000"}
+        %table{:style => "border-spacing:0", :width => "100%"}
+          = render 'accounts/list_header'
+          = render Account.earnings.all.select{|a| a.saldo(@date) != 0.0}
+          %tr.total
+            %th{:colspan => "2"} Total
+            %th.currency= currency_fmt(Account.earnings.saldo(@date))
+    - difference = Account.expenses.saldo(@date) - Account.earnings.saldo(@date)
+    - if difference != 0
+    %tr.total
+      %th Differenz
+      %td.currency= currency_fmt(difference)
