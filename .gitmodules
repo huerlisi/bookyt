@@ -1,0 +1,9 @@
+[submodule "vendor/plugins/prototype_legacy_helper"]
+	path = vendor/plugins/prototype_legacy_helper
+	url = http://github.com/rails/prototype_legacy_helper.git
+[submodule "vendor/plugins/in_place_editing"]
+	path = vendor/plugins/in_place_editing
+	url = http://github.com/rails/in_place_editing.git
+[submodule "vendor/plugins/verification"]
+	path = vendor/plugins/verification
+	url = http://github.com/rails/verification.git

@@ -13,7 +13,7 @@ log/*.log
 tmp/**/*
 
 # Vendor
-vendor/
+vendor/cache
 
 # Volatile
 doc/api
