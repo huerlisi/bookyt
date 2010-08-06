@@ -19,8 +19,7 @@
 <% end %>
 </table>
 
-<%= link_to 'Previous page', { :page => @account_type_pages.current.previous } if @account_type_pages.current.previous %>
-<%= link_to 'Next page', { :page => @account_type_pages.current.next } if @account_type_pages.current.next %> 
+<%= will_paginate @account_types %> 
 
 <br />
 
