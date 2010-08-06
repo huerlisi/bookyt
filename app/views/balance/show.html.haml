@@ -1,7 +1,7 @@
 %h1
   Bilanz f&uuml;r #{@client.name} #{@year}
 #balance-sheet
-  - form_tag(:action=> :show) do
+  = form_tag(:action=> :show) do
     Stichdatum: #{text_field 'balance', 'date', {:value => @date}}
     \#{submit_tag 'Los'}
   %table

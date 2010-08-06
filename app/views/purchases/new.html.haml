@@ -1,5 +1,5 @@
 %h1 Lieferung erfassen
-- form_remote_for :purchase, @purchase, :update => 'selling_price', :url => { :action => 'calculate_selling_price' } do |f|
+&= form_remote_for :purchase, @purchase, :update => 'selling_price', :url => { :action => 'calculate_selling_price' } do |f|
   %table.listing
     %tr
       %th Gesamtpreis EUR
