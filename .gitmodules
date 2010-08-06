@@ -7,3 +7,6 @@
 [submodule "vendor/plugins/verification"]
 	path = vendor/plugins/verification
 	url = http://github.com/rails/verification.git
+[submodule "vendor/plugins/dynamic_form"]
+	path = vendor/plugins/dynamic_form
+	url = git://github.com/rails/dynamic_form.git
