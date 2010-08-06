@@ -39,6 +39,9 @@ module Cybook
     #   g.test_framework  :test_unit, :fixture => true
     # end
 
+    # Configure to log the deprecation notices
+    config.active_support.deprecation = :log
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
