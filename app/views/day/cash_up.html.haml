@@ -1,6 +1,6 @@
 %h1
   = "Abrechnung vom #{h @day.date.strftime "%d.%m.%Y"}"
-= form_for :cash_register, @register, :action => 'calculate_cash' do |f|
+= form_for @register, :as =>:cash_register, :url => {:action => 'calculate_cash'} do |f|
   %table
     %tr
       %td{:style => "vertical-align: top"}
@@ -26,7 +26,7 @@
       %td{:colspan => "4"}
         = submit_tag 'Ausrechnen'
 
-= form_for :day, @day, :url => { :action => 'update', :id => @day } do |f|
+= form_for @day, :as => :day, :url => { :action => 'update', :id => @day } do |f|
   %table
     %tr
       %th Datum
