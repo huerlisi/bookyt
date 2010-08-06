@@ -1,0 +1,10 @@
+%h1 Select client
+%table
+  - for client in @clients
+  %tr
+    %td= link_to h(client.name), :action => 'show', :id => client
+    %td= link_to 'Edit', :action => 'edit', :id => client
+    %td= link_to 'Destroy', { :action => 'destroy', :id => client }, :confirm => 'Are you sure?', :post => true
+= will_paginate @clients
+%br/
+= link_to 'New client', :action => 'new'
