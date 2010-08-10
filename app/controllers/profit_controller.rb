@@ -11,11 +11,14 @@ class ProfitController < ApplicationController
       return
     end
     
-    @start_date = params[:balance][:start_date] unless params[:balance].nil? or params[:balance][:start_date].empty?
-    @end_date = params[:balance][:end_date] unless params[:balance].nil? or params[:balance][:end_date].empty?
     # use current date if not specified otherwise
-    @end_date ||= Date.today
-    @start_date ||= @end_date.to_time.advance(:years => -1, :days => 1).to_date
+    params[:profit] ||= {}
+    
+    # use current date if not specified otherwise
+    params[:profit][:end_date] ||= Date.today.to_s
+    @end_date = Date.parse(params[:profit][:end_date])
+    
+    @start_date = @end_date.to_time.advance(:years => -1, :days => 1).to_date
 
     @date = @start_date..@end_date
     render :action => :show

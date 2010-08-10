@@ -1,10 +1,11 @@
 %h1
   Erfolgsrechnung f&uuml;r #{@client.name} #{@year}
 #profit-sheet
-  - form_tag(:action=> :show) do
-    Von: #{text_field 'balance', 'start_date', {:value => @start_date}}
-    Bis: #{text_field 'balance', 'end_date', {:value => @end_date}}
-    \#{submit_tag 'Los'}
+  = semantic_form_for :profit do |f|
+    = f.inputs do
+      = f.input :end_date, :as => :date_field, :input_html => {:size => 10, :style => 'text-align: right'}
+    = f.buttons do
+      = f.commit_button 'Anzeigen'
   %table
     %tr
       %th Aufwand
