@@ -10,3 +10,6 @@
 [submodule "vendor/plugins/dynamic_form"]
 	path = vendor/plugins/dynamic_form
 	url = git://github.com/rails/dynamic_form.git
+[submodule "vendor/plugins/validates_timeliness"]
+	path = vendor/plugins/validates_timeliness
+	url = git://github.com/adzap/validates_timeliness.git
