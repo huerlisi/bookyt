@@ -1,5 +1,8 @@
 class Day < ActiveRecord::Base
-  def after_update
+  after_update :create_bookings
+  
+  private
+  def create_bookings
     cash_booking = Booking.new(:title => 'Bareinnahmen', :debit_account_id => 21, :credit_account_id => 1, :amount => cash, :value_date => date)
     cash_booking.save
 
