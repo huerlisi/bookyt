@@ -11,8 +11,10 @@ class BalanceController < ApplicationController
       return
     end
 
-    @date = params[:balance][:date] unless params[:balance].nil?
     # use current date if not specified otherwise
-    @date ||= Date.today
+    params[:balance] ||= {}
+    params[:balance][:date] ||= Date.today.to_s
+
+    @date = Date.parse(params[:balance][:date])
   end
 end
