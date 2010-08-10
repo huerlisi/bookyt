@@ -1,4 +1,8 @@
 class BookingsController < InheritedResources::Base
+  # Responders
+  respond_to :html, :js
+ 
+  # Inplace Editing
   in_place_edit_for :booking, :title
   in_place_edit_for :booking, :comments
   in_place_edit_for :booking, :in_place_amount
