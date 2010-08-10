@@ -1,5 +1,5 @@
 %h1
-  = "Abrechnung vom #{h @day.date.strftime "%d.%m.%Y"}"
+  = "Abrechnung von #{h @day.date}"
 = form_for @register, :as =>:cash_register, :url => {:action => 'calculate_cash'} do |f|
   %table
     %tr

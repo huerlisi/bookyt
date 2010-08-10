@@ -35,9 +35,9 @@ class Booking < ActiveRecord::Base
   def to_s(format = :default)
     case format
     when :short
-      "#{value_date.strftime('%d.%m.%Y')}: #{credit_account.code} / #{debit_account.code} CHF #{amount_as_string} "
+      "#{value_date}: #{credit_account.code} / #{debit_account.code} CHF #{amount_as_string} "
     else
-      "#{value_date.strftime('%d.%m.%Y')}: #{credit_account.title} (#{credit_account.code}) an #{debit_account.title} (#{debit_account.code}) CHF #{amount_as_string}, #{title} " +
+      "#{value_date}: #{credit_account.title} (#{credit_account.code}) an #{debit_account.title} (#{debit_account.code}) CHF #{amount_as_string}, #{title} " +
         (comments.blank? ? "" :"(#{comments})")
     end
   end
@@ -96,14 +96,10 @@ class Booking < ActiveRecord::Base
   end
 
   def in_place_value_date
-    (value_date.nil?) ? ("&nbsp" * 5) : value_date.strftime("%d.%m.%Y")
+    (value_date.nil?) ? ("&nbsp" * 5) : value_date
   end
         
   def in_place_value_date=(value)
     self.value_date = value #write_attribute(:value_date, value)
-  end
-  
-  def value_date_before_type_cast
-    read_attribute(:value_date).strftime("%d.%m.%Y") unless read_attribute(:value_date).nil?
   end
 end
