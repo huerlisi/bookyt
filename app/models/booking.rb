@@ -50,7 +50,7 @@ class Booking < ActiveRecord::Base
   end
 
   def amount_as_string
-    '%0.2f' % amount
+    '%0.2f' % (amount || 0.0)
   end
   
   def amount_as_string=(value)
