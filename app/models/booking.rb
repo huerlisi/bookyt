@@ -5,6 +5,10 @@ class Booking < ActiveRecord::Base
   belongs_to :debit_account, :foreign_key => 'debit_account_id', :class_name => "Account"
   belongs_to :credit_account, :foreign_key => 'credit_account_id', :class_name => "Account"
   
+  # Validations
+  validates_presence_of :debit_account, :credit_account, :title, :amount
+  validates_date :value_date
+  
   # Scoping
   scope :by_value_date, lambda {|value_date| { :conditions => { :value_date => value_date } } }
   scope :by_value_period, lambda {|from, to| { :conditions => { :value_date => from..to } } }
