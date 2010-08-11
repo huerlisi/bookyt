@@ -6,8 +6,12 @@ class BookingsController < InheritedResources::Base
   in_place_edit_for :booking, :title
   in_place_edit_for :booking, :comments
   in_place_edit_for :booking, :in_place_amount
-  in_place_edit_for :booking, :in_place_value_date
+  in_place_edit_for :booking, :value_date
 
+  def create
+    create! { new_booking_path }
+  end
+  
   def index
     order_by = params[:order] || 'value_date'
     @bookings = Booking.paginate :page => params[:page], :per_page => 100, :order => order_by
