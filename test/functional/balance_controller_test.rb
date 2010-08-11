@@ -3,9 +3,6 @@ require 'test_helper'
 
 class BalanceControllerTest < ActionController::TestCase
   def setup
-    @controller = BalanceController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
   end
 
   # Replace this with your real tests.

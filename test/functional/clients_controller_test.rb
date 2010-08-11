@@ -5,9 +5,6 @@ class ClientsControllerTest < ActionController::TestCase
   fixtures :clients
 
   def setup
-    @controller = ClientsController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
   end
 
   def test_index
