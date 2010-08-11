@@ -9,7 +9,7 @@
   %td{:style => "text-align: right"}= link_to booking.credit_account.code, account_path(booking.credit_account), :title => booking.credit_account.title unless booking.credit_account.nil?
   %td{:style => "text-align: right"}= link_to booking.debit_account.code, account_path(booking.debit_account), :title => booking.debit_account.title unless booking.debit_account.nil?
   %td{:style => "text-align: right"}= in_place_editor_field :booking, :in_place_amount
-  %td{:style => "border: none 0px"}
-    = link_to image_tag('22x22/edit.png', :title => 'Edit'), edit_booking_path(@booking), :method => :get
-    = link_to image_tag('22x22/remove.png', :title => 'Destroy'), booking_path(@booking), :remote => true, :method => :delete, :confirm => t_confirm_delete(@booking)
-    =# link_to image_tag('22x22/copy.png', :title => 'Copy'), copy_booking_path(@booking), :remote => true
+  %td.action-links
+    = link_to image_tag('16x16/edit.png', :title => 'Edit'), edit_booking_path(@booking), :method => :get
+    = link_to image_tag('16x16/remove.png', :title => 'Destroy'), booking_path(@booking), :remote => true, :method => :delete, :confirm => t_confirm_delete(@booking)
+    =# link_to image_tag('16x16/copy.png', :title => 'Copy'), copy_booking_path(@booking), :remote => true

@@ -8,7 +8,7 @@
     = sort_header 'debit_account_id', 'Soll'
     = sort_header 'credit_account_id', 'Haben'
     = sort_header 'amount', 'Wert'
-    %th{:style => "width: 48px"}
+    %th.action-links
   = render @bookings
   %tr
     %th{:colspan => "5", :style => "text-align: right"}= will_paginate @bookings

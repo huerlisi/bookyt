@@ -24,6 +24,14 @@ form.box {background:#ffffdd; padding:6px; margin-bottom:6px;border: 1px solid #
 form { display: block; }
 
 /* Icons */
+td.action-links {
+  border: none 0px;
+}
+
+th.action-links {
+  width: 40px;
+}
+
 .contextual48 {float:right; white-space: nowrap; line-height:1.4em;margin-top:30px; padding-left: 10px; font-size:0.9em;}
 
 .icon {
