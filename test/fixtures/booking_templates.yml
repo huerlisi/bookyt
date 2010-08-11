@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  amount: 9.99
+  credit_account_id: 1
+  debit_account_id: 1
+  value_date: 2010-08-11
+  comments: MyText
+
+two:
+  title: MyString
+  amount: 9.99
+  credit_account_id: 1
+  debit_account_id: 1
+  value_date: 2010-08-11
+  comments: MyText

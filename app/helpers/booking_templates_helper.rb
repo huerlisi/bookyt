@@ -1,0 +1,2 @@
+module BookingTemplatesHelper
+end

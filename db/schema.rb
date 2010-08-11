@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100613213927) do
+ActiveRecord::Schema.define(:version => 20100811211450) do
 
   create_table "account_types", :force => true do |t|
     t.string "name",  :limit => 100
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(:version => 20100613213927) do
   add_index "accounts", ["code"], :name => "index_accounts_on_code"
   add_index "accounts", ["holder_id", "holder_type"], :name => "index_accounts_on_holder_id_and_holder_type"
   add_index "accounts", ["type"], :name => "index_accounts_on_type"
+
+  create_table "booking_templates", :force => true do |t|
+    t.string   "title"
+    t.decimal  "amount"
+    t.integer  "credit_account_id"
+    t.integer  "debit_account_id"
+    t.date     "value_date"
+    t.text     "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "bookings", :force => true do |t|
     t.string  "title",             :limit => 100
