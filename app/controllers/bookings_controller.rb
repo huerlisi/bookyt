@@ -9,7 +9,8 @@ class BookingsController < InheritedResources::Base
   in_place_edit_for :booking, :value_date
 
   def create
-    create! { new_booking_path }
+    @booking = Booking.new(params[:booking])
+    create!(:notice => @booking.to_s) { new_booking_path }
   end
   
   def index
