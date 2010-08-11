@@ -1,85 +1,51 @@
 require 'test_helper'
 
-
 class AccountsControllerTest < ActionController::TestCase
   fixtures :accounts
 
   def setup
-    @controller = AccountsController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
+    @account = accounts(:ubs)
   end
 
-  def test_index
+  test "should get index" do
     get :index
     assert_response :success
-    assert_template 'list'
-  end
-
-  def test_list
-    get :list
-
-    assert_response :success
-    assert_template 'list'
-
     assert_not_nil assigns(:accounts)
   end
 
-  def test_show
-    get :show, :id => 1
-
-    assert_response :success
-    assert_template 'show'
-
-    assert_not_nil assigns(:account)
-    assert assigns(:account).valid?
-  end
-
-  def test_new
+  test "should get new" do
     get :new
-
     assert_response :success
-    assert_template 'new'
-
-    assert_not_nil assigns(:account)
   end
 
-  def test_create
-    num_accounts = Account.count
+  test "should create account" do
+    assert_difference('Account.count') do
+      post :create, :account => @account.attributes
+    end
 
-    post :create, :account => {}
-
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
-
-    assert_equal num_accounts + 1, Account.count
+    assert_redirected_to account_path(assigns(:account))
   end
 
-  def test_edit
-    get :edit, :id => 1
-
+  test "should show account" do
+    get :show, :id => @account.to_param
     assert_response :success
-    assert_template 'edit'
-
-    assert_not_nil assigns(:account)
-    assert assigns(:account).valid?
   end
 
-  def test_update
-    post :update, :id => 1
-    assert_response :redirect
-    assert_redirected_to :action => 'show', :id => 1
+  test "should get edit" do
+    get :edit, :id => @account.to_param
+    assert_response :success
   end
 
-  def test_destroy
-    assert_not_nil Account.find(1)
+  test "should update account" do
+    put :update, :id => @account.to_param, :account => @account.attributes
+    assert_redirected_to account_path(assigns(:account))
+  end
 
-    post :destroy, :id => 1
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
+  test "should destroy account" do
+    assert_difference('Account.count', -1) do
+      delete :destroy, :id => @account.to_param
+    end
 
-    assert_raise(ActiveRecord::RecordNotFound) {
-      Account.find(1)
-    }
+    assert_redirected_to accounts_path
   end
 end

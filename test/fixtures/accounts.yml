@@ -1,12 +1,12 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 postfinance:
-  id: 1
-  saldo: 1111
+  code: "1001"
+  title: "Postfinance"
 
 ubs:
-  id: 2
-  saldo: -1222
+  code: "1002"
+  title: "UBS"
 
 empty:
-  id: 3
-  saldo: 0
+  code: "1000"
+  title: "Leer"
