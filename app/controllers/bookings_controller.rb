@@ -10,7 +10,8 @@ class BookingsController < InheritedResources::Base
 
   def create
     @booking = Booking.new(params[:booking])
-    create!(:notice => @booking.to_s) { new_booking_path }
+    @booking.save
+    create!(:notice => render_to_string(:partial => 'layouts/flash_new', :locals => {:object => @booking})) { new_booking_path }
   end
   
   def index
