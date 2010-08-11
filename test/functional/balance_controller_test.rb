@@ -1,10 +1,7 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'balance_controller'
+require 'test_helper'
 
-# Re-raise errors caught by the controller.
-class BalanceController; def rescue_action(e) raise e end; end
 
-class BalanceControllerTest < Test::Unit::TestCase
+class BalanceControllerTest < ActionController::TestCase
   def setup
     @controller = BalanceController.new
     @request    = ActionController::TestRequest.new

@@ -1,10 +1,7 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'day_controller'
+require 'test_helper'
 
-# Re-raise errors caught by the controller.
-class DayController; def rescue_action(e) raise e end; end
 
-class DayControllerTest < Test::Unit::TestCase
+class DayControllerTest < ActionController::TestCase
   def setup
     @controller = DayController.new
     @request    = ActionController::TestRequest.new

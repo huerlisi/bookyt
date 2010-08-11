@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + '/../test_helper'
+require 'test_helper'
 
-class BalanceTest < Test::Unit::TestCase
+class BalanceTest < ActiveSupport::TestCase
   fixtures :clients
 
   def setup

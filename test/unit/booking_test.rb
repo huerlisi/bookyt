@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + '/../test_helper'
+require 'test_helper'
 
-class BookingTest < Test::Unit::TestCase
+class BookingTest < ActiveSupport::TestCase
   fixtures :bookings
 
   # Replace this with your real tests.

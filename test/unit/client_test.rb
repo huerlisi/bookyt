@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + '/../test_helper'
+require 'test_helper'
 
-class ClientTest < Test::Unit::TestCase
+class ClientTest < ActiveSupport::TestCase
   fixtures :clients, :accounts
 
   def setup

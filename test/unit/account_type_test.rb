@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + '/../test_helper'
+require 'test_helper'
 
-class AccountTypeTest < Test::Unit::TestCase
+class AccountTypeTest < ActiveSupport::TestCase
   fixtures :account_types
 
   # Replace this with your real tests.
