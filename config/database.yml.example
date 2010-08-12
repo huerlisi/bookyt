@@ -1,0 +1,25 @@
+sqlite: &sqlite
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+mysql: &mysql
+  adapter: mysql
+  pool: 5
+  timeout: 5000
+  host: localhost
+  username: root
+  password: REPLACE WITH PWD
+  encoding: utf8 
+
+development:
+  database: db/development.sqlite3
+  <<: *sqlite
+
+test:
+  database: db/test.sqlite3
+  <<: *sqlite
+
+production:
+  database: db/production.sqlite3
+  <<: *sqlite
