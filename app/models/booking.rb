@@ -69,15 +69,6 @@ class Booking < ActiveRecord::Base
     end
   end
 
-  def in_place_amount
-    currency_fmt(self.rounded_amount)
-  end
-  
-  def in_place_amount=(value)
-    self.amount=value
-  end
-  
-
   def value_date=(value)
     if value.is_a?(String)
       if value =~ /....-..-../
@@ -93,13 +84,5 @@ class Booking < ActiveRecord::Base
     else
       write_attribute(:value_date, value)
     end
-  end
-
-  def in_place_value_date
-    (value_date.nil?) ? ("&nbsp" * 5) : value_date
-  end
-        
-  def in_place_value_date=(value)
-    self.value_date = value #write_attribute(:value_date, value)
   end
 end
