@@ -1,6 +1,6 @@
 %h1
   = "Abrechnung von #{h @day.date}"
-= form_for @register, :as =>:cash_register, :url => {:action => 'calculate_cash'} do |f|
+= form_for @register, :remote => true, :as =>:cash_register, :url => {:action => 'calculate_cash'} do |f|
   %table
     %tr
       %td{:style => "vertical-align: top"}
