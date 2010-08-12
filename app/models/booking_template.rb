@@ -19,8 +19,8 @@ class BookingTemplate < ActiveRecord::Base
         credit_account ? "#{credit_account.title} (#{credit_account.code})" : '?',
         debit_account ? "#{debit_account.title} (#{debit_account.code})" : '?',
         amount ? "%0.2f" % amount : '?',
-        title ? title : '?',
-        comments ? comments : '?'
+        title.present? ? title : '?',
+        comments.present? ? comments : '?'
       ]
     end
   end

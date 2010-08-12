@@ -16,6 +16,12 @@ class BookingTemplateTest < ActiveSupport::TestCase
     assert_equal "?: ? / ? CHF ?", @template.to_s(:short)
   end
     
+  test "to_s suppress blanks titles" do
+    @template.title = " "
+    assert_equal "?: ? an ? CHF ?, ? (?)", @template.to_s
+    assert_equal "?: ? / ? CHF ?", @template.to_s(:short)
+  end
+  
   test "to_s handles template with value date" do
     @template.value_date = '2010-03-02'
     assert_equal "02.03.2010: ? an ? CHF ?, ? (?)", @template.to_s
@@ -40,6 +46,12 @@ class BookingTemplateTest < ActiveSupport::TestCase
     assert_equal "?: ? / ? CHF ?", @template.to_s(:short)
   end
     
+  test "to_s suppress blanks comments" do
+    @template.comments = " "
+    assert_equal "?: ? an ? CHF ?, ? (?)", @template.to_s
+    assert_equal "?: ? / ? CHF ?", @template.to_s(:short)
+  end
+  
   test "to_s handles template with amount" do
     @template.amount = "77.3"
     assert_equal "?: ? an ? CHF 77.30, ? (?)", @template.to_s
