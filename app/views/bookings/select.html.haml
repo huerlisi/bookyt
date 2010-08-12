@@ -4,8 +4,8 @@
 = render 'form'
 
 %h3= t_model(BookingTemplate)
-= render 'booking_templates/list'
+= render 'booking_templates/list', :item_action => {:action => :new_booking}
 
 %h3= t_model(Booking)
-= render 'bookings/list'
+= render 'bookings/list', :item_action => {:action => :copy_booking}
 

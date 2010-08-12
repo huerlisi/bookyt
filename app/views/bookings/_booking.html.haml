@@ -1,7 +1,9 @@
+- item_click = {:action => :show, :id => booking}.merge(item_action)
+
 %tr{:id => "booking_#{booking.id}"}
   %td= booking.value_date
   %td
-    = booking.title
+    = link_to booking.title, url_for(item_click)
     - if booking.comments.present?
       %hr{:style => "height: 1px; margin: 0"}/
       %i= booking.comments
