@@ -31,3 +31,4 @@ config/database.yml
 # Rubymine
 .idea/*public/stylesheets/compiled/*
 public/stylesheets/compiled
+.idea/
