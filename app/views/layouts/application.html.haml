@@ -1,9 +1,8 @@
-!!! XML
-!!!
+!!! 5
 %html{:xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}
-    %meta{:content => "Simon Huerlimann &lt;simon.huerlimann@cyt.ch&gt;", :name => "author"}
+    %meta{:charset => 'utf-8'}/
+    %meta{:content => "Simon Huerlimann &lt;simon.huerlimann@cyt.ch&gt;", :name => "author"}/
     = stylesheet_link_tag 'redmine', 'cyt', 'tabbing', 'invoice', 'accounting', 'cybook', :media => 'all'
     = stylesheet_link_tag 'formtastic', 'formtastic_cyt'
     = javascript_include_tag :defaults
