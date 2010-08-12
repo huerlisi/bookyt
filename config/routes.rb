@@ -48,7 +48,12 @@ Cybook::Application.routes.draw do
 
 
   # Accounting
-  resources :bookings
+  resources :bookings do
+    member do
+      post :select
+    end
+  end
+  
   resources :accounts do
     resources :bookings
   end

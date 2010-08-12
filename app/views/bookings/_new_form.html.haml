@@ -1,0 +1,8 @@
+= semantic_form_for @booking, :url => {:action => :select} do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = hidden_field_tag :stage, 'select'
+    = f.input :value_date, :as => :date_field, :input_html => {"data-autofocus" => true, :size => 10, :style => 'text-align: right'}
+    = f.input :title
+  = f.buttons do
+    = f.commit_button t_action(:next)
