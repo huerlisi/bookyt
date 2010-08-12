@@ -16,6 +16,7 @@ class BookingsController < InheritedResources::Base
   def select
     @booking = Booking.new(params[:booking])
     @booking_templates = BookingTemplate.all.paginate(:page => params[:page])
+    @bookings = Booking.where("title LIKE ?", '%' + @booking.title + '%').paginate(:page => params[:page])
   end
   
   def create
