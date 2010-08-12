@@ -57,4 +57,17 @@ class BookingTemplateTest < ActiveSupport::TestCase
     assert_equal "?: ? an ? CHF 77.30, ? (?)", @template.to_s
     assert_equal "?: ? / ? CHF 77.30", @template.to_s(:short)
   end
+
+  test "allows saving of template with no information" do
+    assert @template.save
+  end
+
+  test "validates date format of value_date" do
+    @template.value_date = "2010-02-03"
+    assert @template.save
+
+    @template.value_date = "2010-02-30"
+    assert !@template.save
+    assert !@template.errors.empty?
+  end
 end

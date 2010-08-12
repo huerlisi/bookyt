@@ -3,6 +3,9 @@ class BookingTemplate < ActiveRecord::Base
   belongs_to :debit_account, :foreign_key => 'debit_account_id', :class_name => "Account"
   belongs_to :credit_account, :foreign_key => 'credit_account_id', :class_name => "Account"
 
+  # Validations
+  validates_date :value_date, :allow_nil => true
+
   # Standard methods
   def to_s(format = :default)
     case format
