@@ -8,6 +8,11 @@ class BookingsController < InheritedResources::Base
   in_place_edit_for :booking, :in_place_amount
   in_place_edit_for :booking, :value_date
 
+  def new
+    @booking = Booking.new(:value_date => Date.today)
+    new!
+  end
+  
   def create
     @booking = Booking.new(params[:booking])
     @booking.save
