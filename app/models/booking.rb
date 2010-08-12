@@ -35,10 +35,21 @@ class Booking < ActiveRecord::Base
   def to_s(format = :default)
     case format
     when :short
-      "#{value_date}: #{credit_account.code} / #{debit_account.code} CHF #{amount_as_string} "
+      "%s: %s / %s CHF %s" % [
+        value_date ? value_date : '?',
+        credit_account ? credit_account.code : '?',
+        debit_account ? debit_account.code : '?',
+        amount ? "%0.2f" % amount : '?',
+      ]
     else
-      "#{value_date}: #{credit_account.title} (#{credit_account.code}) an #{debit_account.title} (#{debit_account.code}) CHF #{amount_as_string}, #{title} " +
-        (comments.blank? ? "" :"(#{comments})")
+      "%s: %s an %s CHF %s, %s (%s)" % [
+        value_date ? value_date : '?',
+        credit_account ? "#{credit_account.title} (#{credit_account.code})" : '?',
+        debit_account ? "#{debit_account.title} (#{debit_account.code})" : '?',
+        amount ? "%0.2f" % amount : '?',
+        title.present? ? title : '?',
+        comments.present? ? comments : '?'
+      ]
     end
   end
 

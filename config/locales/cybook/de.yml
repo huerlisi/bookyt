@@ -26,3 +26,6 @@ de:
         credit_account: Soll
         debit_account:  Haben
         reference:      Referenz
+  crud:
+    title:
+      select_booking_template: %{model} anlegen

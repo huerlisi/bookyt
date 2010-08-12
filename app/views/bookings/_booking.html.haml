@@ -1,9 +1,9 @@
-- item_click = {:action => :show, :id => booking}.merge(item_action)
+- item_action ||= lambda{|object| url_for(object)}
 
 %tr{:id => "booking_#{booking.id}"}
   %td= booking.value_date
   %td
-    = link_to booking.title, url_for(item_click)
+    = link_to booking.title, item_action.call(booking)
     - if booking.comments.present?
       %hr{:style => "height: 1px; margin: 0"}/
       %i= booking.comments
