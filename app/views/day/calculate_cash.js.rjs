@@ -1,2 +1,1 @@
 page.replace_html "cash", @cash
-page.console
