@@ -47,8 +47,6 @@ module Cybook
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-    # Activate haml
-    config.gem "haml"
   end
 end
 
