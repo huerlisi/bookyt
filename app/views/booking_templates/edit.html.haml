@@ -1,0 +1,6 @@
+.contextual
+  = link_to t_action('show'), @booking_template
+  = link_to t_action('back'), booking_templates_path
+  = link_to t_action('delete'), @booking_template, :confirm => t_confirm_delete(@booking_template), :method => :delete
+%h2= t_title
+= render :partial => 'form'

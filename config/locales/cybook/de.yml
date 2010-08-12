@@ -3,6 +3,7 @@ de:
     models:
       account: Konto
       booking: Buchung
+      booking_template: Buchungsvorlage
       
     attributes:
       account:
@@ -10,6 +11,14 @@ de:
         title:          Titel
         saldo:          Saldo
       booking:
+        value_date:     Valutadatum
+        title:          Titel
+        amount:         Betrag
+        comments:       Bemerkungen
+        credit_account: Soll
+        debit_account:  Haben
+        reference:      Referenz
+      booking_template:
         value_date:     Valutadatum
         title:          Titel
         amount:         Betrag

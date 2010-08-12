@@ -1,0 +1,15 @@
+.contextual
+  = link_to t_crud('new'), new_booking_template_path, :class => "icon icon-add"
+%h2= t_crud
+%table.list.booking_template_list
+  %tr
+    = sort_header 'value_date', 'Valuta'
+    = sort_header 'title', 'Titel'
+    = sort_header 'debit_account_id', 'Soll'
+    = sort_header 'credit_account_id', 'Haben'
+    = sort_header 'amount', 'Wert'
+    %th.action-links
+  = render @booking_templates
+  %tr
+    %th{:colspan => "5", :style => "text-align: right"}= will_paginate @booking_templates
+    %th

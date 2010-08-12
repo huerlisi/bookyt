@@ -1,0 +1,15 @@
+- @booking_template = booking_template
+%tr{:id => "booking_template_#{h @booking_template.id}"}
+  %td= in_place_editor_field :booking_template, :value_date
+  %td
+    = in_place_editor_field :booking_template, :title
+    - if @booking_template.comments.present?
+      %hr{:style => "height: 1px; margin: 0"}/
+      %i= in_place_editor_field :booking_template, :comments
+  %td{:style => "text-align: right"}= link_to booking_template.credit_account.code, account_path(booking_template.credit_account), :title => booking_template.credit_account.title unless booking_template.credit_account.nil?
+  %td{:style => "text-align: right"}= link_to booking_template.debit_account.code, account_path(booking_template.debit_account), :title => booking_template.debit_account.title unless booking_template.debit_account.nil?
+  %td{:style => "text-align: right"}= in_place_editor_field :booking_template, :amount
+  %td.action-links
+    = link_to image_tag('16x16/edit.png', :title => 'Edit'), edit_booking_template_path(@booking_template), :method => :get
+    = link_to image_tag('16x16/remove.png', :title => 'Destroy'), booking_template_path(@booking_template), :remote => true, :method => :delete, :confirm => t_confirm_delete(@booking_template)
+    =# link_to image_tag('16x16/copy.png', :title => 'Copy'), copy_booking_template_path(@booking_template), :remote => true
