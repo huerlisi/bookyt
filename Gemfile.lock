@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/justinfrench/formtastic.git
-  revision: 3dbe0fd
+  revision: 42b4eb8
   branch: rails3
   specs:
-    formtastic (1.0.0.rc2)
+    formtastic (1.0.0)
       actionpack (>= 2.3.0)
       activesupport (>= 2.3.0)
       i18n (>= 0.4.0)
@@ -53,7 +53,7 @@ GEM
     haml (3.0.16)
     has_scope (0.5.0)
     i18n (0.4.1)
-    i18n_rails_helpers (0.7.6)
+    i18n_rails_helpers (0.8.0)
       activerecord
       i18n
     inherited_resources (1.1.2)
@@ -98,7 +98,7 @@ PLATFORMS
 DEPENDENCIES
   formtastic!
   haml
-  i18n_rails_helpers (>= 0.7.0)
+  i18n_rails_helpers (>= 0.8.0)
   inherited_resources
   mysql
   rails (= 3.0.0.rc)

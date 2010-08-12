@@ -1,0 +1,11 @@
+.contextual
+  = link_to t_action(:back), :back
+%h2= t_title 'new'
+= render 'form'
+
+%h3= t_model(BookingTemplate)
+= render 'booking_templates/list'
+
+%h3= t_model(Booking)
+= render 'bookings/list'
+

@@ -8,8 +8,20 @@ class BookingsController < InheritedResources::Base
   in_place_edit_for :booking, :in_place_amount
   in_place_edit_for :booking, :value_date
 
+  def new
+    @booking = Booking.new(:value_date => Date.today)
+    new!
+  end
+  
+  def select
+    @booking = Booking.new(params[:booking])
+    @booking_templates = BookingTemplate.all.paginate(:page => params[:page])
+    @bookings = Booking.where("title LIKE ?", '%' + @booking.title + '%').paginate(:page => params[:page])
+  end
+  
   def create
     @booking = Booking.new(params[:booking])
+
     @booking.save
     create!(:notice => render_to_string(:partial => 'layouts/flash_new', :locals => {:object => @booking})) { new_booking_path }
   end
