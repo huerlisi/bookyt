@@ -2,28 +2,39 @@ class BookingsController < InheritedResources::Base
   # Responders
   respond_to :html, :js
  
-  # Inplace Editing
-  in_place_edit_for :booking, :title
-  in_place_edit_for :booking, :comments
-  in_place_edit_for :booking, :in_place_amount
-  in_place_edit_for :booking, :value_date
-
   def new
     @booking = Booking.new(:value_date => Date.today)
     new!
   end
   
+  def select_booking
+    @booking = Booking.find(params[:id]).clone
+    @booking.value_date = params[:booking][:value_date]
+    render :action => 'edit'
+  end
+  
+  def select_booking_template
+    @booking_template = BookingTemplate.find(params[:id]).clone
+    @booking_params = @booking_template.attributes.reject{|key, value| ["updated_at", "created_at", "id"].include?(key)}
+
+    @booking = Booking.new(@booking_params)
+    @booking.value_date = params[:booking][:value_date]
+    render :action => 'edit'
+  end
+  
   def select
     @booking = Booking.new(params[:booking])
     @booking_templates = BookingTemplate.all.paginate(:page => params[:page])
-    @bookings = Booking.where("title LIKE ?", '%' + @booking.title + '%').paginate(:page => params[:page])
+    @bookings = Booking.where("title LIKE ?", '%' + @booking.title + '%').order('value_date DESC').paginate(:page => params[:page])
   end
   
   def create
     @booking = Booking.new(params[:booking])
 
-    @booking.save
-    create!(:notice => render_to_string(:partial => 'layouts/flash_new', :locals => {:object => @booking})) { new_booking_path }
+    create! do |success, failure|
+      success.html {redirect_to new_booking_path(:notice => render_to_string(:partial => 'layouts/flash_new', :locals => {:object => @booking}))}
+      failure.html {render 'edit'}
+    end
   end
   
   def index

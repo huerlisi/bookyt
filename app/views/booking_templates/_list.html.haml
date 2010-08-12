@@ -6,7 +6,7 @@
     = sort_header 'credit_account_id', 'Haben'
     = sort_header 'amount', 'Wert'
     %th.action-links
-  = render @booking_templates
+  = render @booking_templates, :item_action => (item_action ||= {})
   %tr
     %th{:colspan => "5", :style => "text-align: right"}= will_paginate @booking_templates
     %th
