@@ -1,6 +1,4 @@
-- content_for :sidebar do
-  .contextual
-    = link_to t_action(:back), bookings_path
-    
+.contextual
+  = link_to t_action(:back), bookings_path
 %h2= t_title
 = render 'new_form'

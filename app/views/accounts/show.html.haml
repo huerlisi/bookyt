@@ -1,9 +1,8 @@
-- content_for :sidebar do
-  .contextual
-    = link_to "Kontoliste", accounts_path, :class => "icon icon-index"
-    = link_to "Alle Buchungen", @account, :class => "icon"
-    = link_to "Nur Soll Buchungen", url_for(:only_credit_bookings => true), :class => "icon"
-    = link_to "Nur Haben Buchungen", url_for(:only_debit_bookings => true), :class => "icon"
+.contextual
+  = link_to "Kontoliste", accounts_path, :class => "icon icon-index"
+  = link_to "Alle Buchungen", @account, :class => "icon"
+  = link_to "Nur Soll Buchungen", url_for(:only_credit_bookings => true), :class => "icon"
+  = link_to "Nur Haben Buchungen", url_for(:only_debit_bookings => true), :class => "icon"
 
 %h2= @account
 = render :partial => 'booking_list'
