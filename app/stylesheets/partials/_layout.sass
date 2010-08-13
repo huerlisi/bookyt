@@ -1,0 +1,27 @@
+@import "blueprint/liquid"
+@import "compass/utilities/lists/horizontal-list"
+
+body
+  +blueprint-liquid-grid
+  font
+
+#container
+  +container
+  margin-top: $h2_size
+
+#main-menu
+  ul
+    +horizontal-list
+    
+#content
+  +column($column_content)
+  
+#sidebar
+  +column($column_sidebar)
+  +last
+  padding-top: $h2_size * 2
+
+#sidebar,
+#content
+  margin-top: 20px
+    

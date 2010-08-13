@@ -14,10 +14,8 @@
     %title
       = "CyBook - #{controller.action_name.capitalize}"
   %body
-    #wrapper
+    #container
       #header
-        %div{:style => "float: left"}
-        #right-menu
         #main-menu
           %ul
             %li
@@ -32,11 +30,12 @@
               = link_to "Konten", accounts_path
             %li
               = link_to "Buchungen", bookings_path
-    #sidebar
-      = yield :sidebar
-    #content
-      - if flash[:notice]
-        #flash.flash.notice
-          = flash[:notice]
 
-      = yield
+      #content
+        - if flash[:notice]
+          #flash.flash.notice
+            = flash[:notice]
+        = yield
+
+      #sidebar
+        = yield :sidebar

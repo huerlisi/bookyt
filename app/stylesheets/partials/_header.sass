@@ -1,0 +1,42 @@
+@import 'compass/css3/border-radius'
+
+$border_radius : 5px
+
+#header
+  +border-radius($border_radius)
+  height: 80px
+  background-color: $dark_blue
+  color: $white
+
+// Based on Redmine from the redmine.css
+// begin
+#main-menu
+  li
+    margin: 0px 2px 0px 0px
+    padding: 0px 0px 0px 0px
+    white-space: nowrap
+    a
+      display: block
+      color: white
+      text-decoration: none
+      font-weight: bold
+      margin: 0
+      padding: 4px 10px 4px 10px
+      &:hover
+        background: $light_blue
+        color: $white
+      &.selected
+        background: $white
+        color: $gray
+        &:hover
+          background: $white
+          color: $gray
+// end
+#main-menu
+  li
+    a
+      +border-bottom-radius($border_radius)
+  li:first-child
+    a
+      +border-top-left-radius($border_radius)
+      +border-bottom-left-radius(0)

@@ -1,11 +1,13 @@
-.contextual
-  = link_to t_action(:back), :back
+- content_for :sidebar do
+  .contextual
+    = link_to t_action(:back), :back
+
 %h2= t_title 'new'
 = render 'form'
+#bookings
+  %h3= t_model(BookingTemplate)
+  = render 'booking_templates/list', :item_action => lambda{|object| select_booking_template_booking_path(object, :booking => params[:booking])}
 
-%h3= t_model(BookingTemplate)
-= render 'booking_templates/list', :item_action => lambda{|object| select_booking_template_booking_path(object, :booking => params[:booking])}
-
-%h3= t_model(Booking)
-= render 'bookings/list', :item_action => lambda{|object| select_booking_booking_path(object, :booking => params[:booking])}
+  %h3= t_model(Booking)
+  = render 'bookings/list', :item_action => lambda{|object| select_booking_booking_path(object, :booking => params[:booking])}
 

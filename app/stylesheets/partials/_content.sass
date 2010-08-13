@@ -1,0 +1,48 @@
+@import 'partials/content/table_list'
+@import 'partials/content/icons'
+@import 'partials/formtastic/formtastic_base'
+
+#content
+  +sanserif-font
+  font-size: $text_size
+
+// Headers styling  
+h1,
+h2,
+h3
+  +sanserif-font
+  font-weight: bold
+h2
+  font-size: $h2_size
+  margin-bottom: $h2_size
+h1
+  font-size: $h1_size
+  margin-bottom: $h1_size
+h3
+  font-size: $h3_size
+  margin-bottom: $h3_size
+a
+  text-decoration: none
+  color: $link_color
+  &:hover
+    color: $link_color_hover
+    
+// Cash up styling
+#cash_register_new
+  +column($column_small_form)
+  +append(2)
+
+// Form styling
+form.formtastic
+  +float-form
+form.balance
+  +column($column_small_form)
+  +append(2)
+form.profit
+  +column($column_small_form*2)
+form.booking
+  +column($column_content)
+#day_edit
+  table
+    th
+      padding-right: 20px

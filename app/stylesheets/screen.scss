@@ -1,8 +1,13 @@
 // This import applies a global reset to any page that imports this stylesheet.
 @import "blueprint/reset";
+@import 'partials/base';
 
 // Import all the default blueprint modules so that we can access their mixins.
-//@import "blueprint";
+@import "blueprint";
+@import 'partials/layout';
+@import 'partials/header';
+@import 'partials/content';
+@import 'partials/sidebar';
 
 // Import the non-default scaffolding module.
 //@import "blueprint/scaffolding";
@@ -10,7 +15,8 @@
 // To generate css equivalent to the blueprint css but with your
 // configuration applied, uncomment:
 // @include blueprint
-@import 'partials/accounting';
+
+/*@import 'partials/accounting';
 @import 'partials/cybook';
 @import 'partials/cyt';
 @import 'partials/formtastic';
@@ -19,7 +25,8 @@
 @import 'partials/noprobs';
 @import 'partials/redmine';
 @import 'partials/scaffold';
-@import 'partials/tabbing';
+@import 'partials/tabbing';*/
+
 
 
 
