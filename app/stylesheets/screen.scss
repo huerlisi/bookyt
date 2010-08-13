@@ -16,17 +16,11 @@
 // configuration applied, uncomment:
 // @include blueprint
 
-/*@import 'partials/accounting';
-@import 'partials/cybook';
-@import 'partials/cyt';
 @import 'partials/formtastic';
 @import 'partials/formtastic_cyt';
 @import 'partials/invoice';
-@import 'partials/noprobs';
 @import 'partials/redmine';
-@import 'partials/scaffold';
-@import 'partials/tabbing';*/
-
-
-
-
+@import 'partials/tabbing';
+@import 'partials/accounting';
+@import 'partials/cyt';
+@import 'partials/cybook';
