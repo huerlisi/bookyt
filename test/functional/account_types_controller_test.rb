@@ -1,85 +1,49 @@
 require 'test_helper'
 
-
 class AccountTypesControllerTest < ActionController::TestCase
-  fixtures :account_types
-
-  def setup
-    @controller = AccountTypesController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
+  setup do
+    @account_type = account_types(:first)
   end
 
-  def test_index
+  test "should get index" do
     get :index
     assert_response :success
-    assert_template 'list'
-  end
-
-  def test_list
-    get :list
-
-    assert_response :success
-    assert_template 'list'
-
     assert_not_nil assigns(:account_types)
   end
 
-  def test_show
-    get :show, :id => 1
-
-    assert_response :success
-    assert_template 'show'
-
-    assert_not_nil assigns(:account_type)
-    assert assigns(:account_type).valid?
-  end
-
-  def test_new
+  test "should get new" do
     get :new
-
     assert_response :success
-    assert_template 'new'
-
-    assert_not_nil assigns(:account_type)
   end
 
-  def test_create
-    num_account_types = AccountType.count
+  test "should create account_type" do
+    assert_difference('AccountType.count') do
+      post :create, :account_type => @account_type.attributes
+    end
 
-    post :create, :account_type => {}
-
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
-
-    assert_equal num_account_types + 1, AccountType.count
+    assert_redirected_to account_type_path(assigns(:account_type))
   end
 
-  def test_edit
-    get :edit, :id => 1
-
+  test "should show account_type" do
+    get :show, :id => @account_type.to_param
     assert_response :success
-    assert_template 'edit'
-
-    assert_not_nil assigns(:account_type)
-    assert assigns(:account_type).valid?
   end
 
-  def test_update
-    post :update, :id => 1
-    assert_response :redirect
-    assert_redirected_to :action => 'show', :id => 1
+  test "should get edit" do
+    get :edit, :id => @account_type.to_param
+    assert_response :success
   end
 
-  def test_destroy
-    assert_not_nil AccountType.find(1)
+  test "should update account_type" do
+    put :update, :id => @account_type.to_param, :account_type => @account_type.attributes
+    assert_redirected_to account_type_path(assigns(:account_type))
+  end
 
-    post :destroy, :id => 1
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
+  test "should destroy account_type" do
+    assert_difference('AccountType.count', -1) do
+      delete :destroy, :id => @account_type.to_param
+    end
 
-    assert_raise(ActiveRecord::RecordNotFound) {
-      AccountType.find(1)
-    }
+    assert_redirected_to account_types_path
   end
 end
