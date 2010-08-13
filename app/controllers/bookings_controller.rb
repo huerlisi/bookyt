@@ -15,10 +15,7 @@ class BookingsController < InheritedResources::Base
   
   def select_booking_template
     @booking_template = BookingTemplate.find(params[:id]).clone
-    @booking_params = @booking_template.attributes.reject{|key, value| ["updated_at", "created_at", "id"].include?(key)}
-
-    @booking = Booking.new(@booking_params)
-    @booking.value_date = params[:booking][:value_date]
+    @booking = @booking_template.build_booking(params[:booking])
     render :action => 'edit'
   end
   

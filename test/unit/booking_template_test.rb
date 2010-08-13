@@ -83,4 +83,12 @@ class BookingTemplateTest < ActiveSupport::TestCase
     expected.comments = "New comment"
     assert_similar expected, booking_templates(:partial).build_booking(booking_params.merge({:comments => "New comment"}))
   end
+
+  test "build_booking accepts hash" do
+    assert_instance_of Booking, booking_templates(:partial).build_booking({:amount => 77})
+  end
+
+  test "build_booking accepts parameters" do
+    assert_instance_of Booking, booking_templates(:partial).build_booking(:amount => 77)
+  end
 end
