@@ -2,6 +2,7 @@ de:
   activerecord:
     models:
       account: Konto
+      account_type: Kontentyp
       booking: Buchung
       booking_template: Buchungsvorlage
       client: Kunde
@@ -11,6 +12,9 @@ de:
         code:           Nummer
         title:          Titel
         saldo:          Saldo
+      account_type:
+        name:           Name
+        title:          Titel
       booking:
         value_date:     Valutadatum
         title:          Titel

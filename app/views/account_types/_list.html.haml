@@ -1,0 +1,10 @@
+%table.list.account_type_list
+  %tr
+    %th= t_attr :name
+    %th= t_attr :title
+    %th.action-links
+
+  = render @account_types
+
+  %tr
+    %th{:colspan => "3", :style => "text-align: right"}= will_paginate @account_types

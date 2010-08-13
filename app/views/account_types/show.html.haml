@@ -1,9 +1,7 @@
-- for column in AccountType.content_columns
-  %p
-    %b
-      = column.human_name
-      \:
-    = h @account_type.send(column.name)
-= link_to 'Edit', :action => 'edit', :id => @account_type
-|
-\#{link_to 'Back', :action => 'list'}
+.contextual
+  = link_to t_action('edit'), edit_account_type_path(@account_type)
+  = link_to t_action('index'), account_types_path
+%h2= t_title
+
+= @account_type.name
+= @account_type.title
