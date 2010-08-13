@@ -1,82 +1,49 @@
 require 'test_helper'
 
-
 class ClientsControllerTest < ActionController::TestCase
-  fixtures :clients
-
-  def setup
+  setup do
+    @client = clients(:noname)
   end
 
-  def test_index
+  test "should get index" do
     get :index
     assert_response :success
-    assert_template 'list'
-  end
-
-  def test_list
-    get :list
-
-    assert_response :success
-    assert_template 'list'
-
     assert_not_nil assigns(:clients)
   end
 
-  def test_show
-    get :show, :id => 1
-
-    assert_response :success
-    assert_template 'show'
-
-    assert_not_nil assigns(:client)
-    assert assigns(:client).valid?
-  end
-
-  def test_new
+  test "should get new" do
     get :new
-
     assert_response :success
-    assert_template 'new'
-
-    assert_not_nil assigns(:client)
   end
 
-  def test_create
-    num_clients = Client.count
+  test "should create client" do
+    assert_difference('Client.count') do
+      post :create, :client => @client.attributes
+    end
 
-    post :create, :client => {}
-
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
-
-    assert_equal num_clients + 1, Client.count
+    assert_redirected_to client_path(assigns(:client))
   end
 
-  def test_edit
-    get :edit, :id => 1
-
+  test "should show client" do
+    get :show, :id => @client.to_param
     assert_response :success
-    assert_template 'edit'
-
-    assert_not_nil assigns(:client)
-    assert assigns(:client).valid?
   end
 
-  def test_update
-    post :update, :id => 1
-    assert_response :redirect
-    assert_redirected_to :action => 'show', :id => 1
+  test "should get edit" do
+    get :edit, :id => @client.to_param
+    assert_response :success
   end
 
-  def test_destroy
-    assert_not_nil Client.find(1)
+  test "should update client" do
+    put :update, :id => @client.to_param, :client => @client.attributes
+    assert_redirected_to client_path(assigns(:client))
+  end
 
-    post :destroy, :id => 1
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
+  test "should destroy client" do
+    assert_difference('Client.count', -1) do
+      delete :destroy, :id => @client.to_param
+    end
 
-    assert_raise(ActiveRecord::RecordNotFound) {
-      Client.find(1)
-    }
+    assert_redirected_to clients_path
   end
 end

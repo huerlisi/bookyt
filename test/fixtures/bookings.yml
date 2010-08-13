@@ -6,3 +6,4 @@ first:
   title: "First booking"
   amount: 10.0
   value_date: 2001-02-03
+  comments: Let's start

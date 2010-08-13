@@ -27,4 +27,13 @@ class BookingTemplate < ActiveRecord::Base
       ]
     end
   end
+
+  def build_booking(*params)
+    booking_params = attributes.reject{|key, value| ["updated_at", "created_at", "id"].include?(key)}
+
+    booking = Booking.new(booking_params)
+    booking.update_attributes(*params)
+    
+    return booking
+  end
 end
