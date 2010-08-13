@@ -1,4 +1,5 @@
 %tr
-  %th= t :code, :scope => [:activerecord, :attributes, :account]
-  %th= t :title, :scope => [:activerecord, :attributes, :account]
-  %th{:style => "text-align: right"}= t :saldo, :scope => [:activerecord, :attributes, :account]
+  %th= t_attr(:code)
+  %th= t_attr(:title)
+  %th{:style => "text-align: right"}= t_attr(:saldo)
+  %th.action-links

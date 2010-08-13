@@ -5,3 +5,6 @@
     %td{:style => "text-align: right"}= currency_fmt(account.saldo(@date))
   - else
     %td{:style => "text-align: right"}= currency_fmt(account.saldo.abs)
+  %td.action-links
+    = link_to image_tag('16x16/edit.png', :title => 'Edit'), edit_account_path(account), :method => :get
+    = link_to image_tag('16x16/remove.png', :title => 'Destroy'), account_path(account), :remote => true, :method => :delete, :confirm => t_confirm_delete(account)

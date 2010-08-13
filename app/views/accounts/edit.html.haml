@@ -1,7 +1,7 @@
-%h1 Editing account
-- form_tag :action => 'update', :id => @account do
-  = render :partial => 'form'
-  = submit_tag 'Edit'
-= link_to 'Show', :action => 'show', :id => @account
-|
-\#{link_to 'Back', :action => 'list'}
+.contextual
+  = link_to t_action('show'), @account
+  = link_to t_action('index'), accounts_path
+  = link_to t_action('delete'), @account, :confirm => t_confirm_delete(@account), :method => :delete
+%h2= t_title
+
+= render :partial => 'form'
