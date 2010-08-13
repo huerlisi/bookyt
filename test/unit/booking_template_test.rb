@@ -70,4 +70,17 @@ class BookingTemplateTest < ActiveSupport::TestCase
     assert !@template.save
     assert !@template.errors.empty?
   end
+
+  test "builds booking" do
+    booking_params = {:value_date => "2001-02-03", :amount => 10.0}
+    booking = booking_templates(:partial).build_booking(booking_params)
+    
+    assert_instance_of Booking, booking
+
+    expected = bookings(:first)
+    assert_similar expected, booking
+
+    expected.comments = "New comment"
+    assert_similar expected, booking_templates(:partial).build_booking(booking_params.merge({:comments => "New comment"}))
+  end
 end
