@@ -1,6 +1,5 @@
 %table.list.booking_template_list
   %tr
-    = sort_header 'value_date', 'Valuta'
     = sort_header 'title', 'Titel'
     = sort_header 'debit_account_id', 'Soll'
     = sort_header 'credit_account_id', 'Haben'
@@ -8,5 +7,5 @@
     %th.action-links
   = render @booking_templates, :item_action => (item_action ||= nil)
   %tr
-    %th{:colspan => "5", :style => "text-align: right"}= will_paginate @booking_templates
+    %th{:colspan => "4", :style => "text-align: right"}= will_paginate @booking_templates
     %th

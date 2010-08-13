@@ -1,7 +1,6 @@
 - item_action ||= lambda{|object| url_for(object)}
 
 %tr{:id => "booking_template_#{booking_template.id}"}
-  %td= booking_template.value_date
   %td
     = link_to booking_template.title, item_action.call(booking_template)
     - if booking_template.comments.present?
