@@ -7,36 +7,6 @@ body
 
 // Layout ****
 
-#wrapper
-  background: white
-
-#top-menu
-  background: #2c4056
-  color: white
-  height: 1.8em
-  font-size: 0.8em
-  padding: 2px 2px 0px 6px
-  ul
-    margin: 0
-    padding: 0
-  li
-    float: left
-    list-style-type: none
-    margin: 0px 0px 0px 0px
-    padding: 0px 0px 0px 0px
-    white-space: nowrap
-  a
-    color: white
-    padding-right: 8px
-    font-weight: bold
-  #loggedas
-    float: right
-    margin-right: 0.5em
-    color: white
-
-#account
-  float: right
-
 #header
   height: 5.3em
   margin: 0
@@ -46,9 +16,6 @@ body
   position: relative
   a
     color: #f8f8f8
-
-#quick-search
-  float: right
 
 #main
   background-color: #eeeeee
@@ -105,13 +72,6 @@ html>body #content
 
 // IE
 
-#main.nosidebar
-  #sidebar
-    display: none
-  #content
-    width: auto
-    border-right: 0
-
 #footer
   clear: both
   border-top: 1px solid #bbbbbb
@@ -133,13 +93,6 @@ html>body #content
       padding: 6px
   label
     font-weight: bold
-
-.clear:after
-  content: "."
-  display: block
-  height: 0
-  clear: both
-  visibility: hidden
 
 // Links ****
 
@@ -222,15 +175,6 @@ table
 .even
   background-color: white
 
-.highlight
-  background-color: #fcfd8d
-  &.token-1
-    background-color: #ffaaaa
-  &.token-2
-    background-color: #aaffaa
-  &.token-3
-    background-color: #aaaaff
-
 .box
   padding: 6px
   margin-bottom: 10px
@@ -256,14 +200,6 @@ div.square
   font-size: 0.9em
   input
     font-size: 0.9em
-
-.splitcontentleft
-  float: left
-  width: 49%
-
-.splitcontentright
-  float: right
-  width: 49%
 
 form
   display: inline
@@ -331,110 +267,14 @@ fieldset
 .buttons
   font-size: 0.9em
 
-#search-results
-  margin-left: 2em
-  dd
-    margin-bottom: 1em
-    padding-left: 18px
-    font-size: 0.9em
-  dt
-    margin-bottom: 0px
-    padding-left: 20px
-    line-height: 18px
-    background-position: 0 50%
-    background-repeat: no-repeat
-  dd
-    .description
-      font-style: italic
-    span.description
-      display: block
-    margin-bottom: 1em
-    padding-left: 20px
-    margin-left: 0px
-
-div#search-results-counts
-  float: right
-  ul
-    margin-top: 0.5em
-  li
-    list-style-type: none
-    float: left
-    margin-left: 1em
-
-ul.properties
-  padding: 0
-  font-size: 0.9em
-  color: #777777
-  li
-    list-style-type: none
-    span
-      font-style: italic
-
-.autoscroll
-  overflow-x: auto
-  padding: 1px
-  margin-bottom: 1.2em
-
-#user_firstname, #user_lastname, #user_mail, #my_account_form select
-  width: 90%
-
 .pagination
   font-size: 90%
 
 p.pagination
   margin-top: 8px
 
-// Tabular forms *****
-
-.tabular p
-  margin: 0
-  padding: 5px 0 8px 0
-  padding-left: 180px
-  /*width of left column containing the label elements
-  height: 1%
-  clear: left
-
-html>body .tabular p
-  overflow: hidden
-
-.tabular
-  label
-    font-weight: bold
-    float: left
-    text-align: right
-    margin-left: -180px
-    // width of left column
-    width: 175px
-    // width of labels. Should be smaller than left column to create some right margin
-    &.floating
-      font-weight: normal
-      margin-left: 0px
-      text-align: left
-      width: 270px
-  &.settings
-    p
-      padding-left: 300px
-    label
-      margin-left: -300px
-      width: 295px
-
 .required
   color: #bb0000
-
-.summary
-  font-style: italic
-
-p.other-formats
-  text-align: right
-  font-size: 0.9em
-  color: #666666
-
-.other-formats span + span:before
-  content: "| "
-
-a.feed
-  background: url(../images/feed.png) no-repeat 1px 50%
-  padding: 2px 0px 3px 16px
 
 // Flash & error messages ***
 
@@ -499,96 +339,6 @@ html>body #ajax-indicator
   padding-left: 26px
   vertical-align: bottom
 
-// Calendar ****
-table.cal
-  border-collapse: collapse
-  width: 100%
-  margin: 0px 0 6px 0
-  border: 1px solid #d7d7d7
-  thead th
-    width: 14%
-  tbody tr
-    height: 100px
-  th
-    background-color: #eeeeee
-    padding: 4px
-  td
-    border: 1px solid #d7d7d7
-    vertical-align: top
-    font-size: 0.9em
-    p.day-num
-      font-size: 1.1em
-      text-align: right
-    &.odd p.day-num
-      color: #bbbbbb
-    &.today
-      background: #ffffdd
-      p.day-num
-        font-weight: bold
-
-// Tooltips *****
-.tooltip
-  position: relative
-  z-index: 24
-  &:hover
-    z-index: 25
-    color: black
-  span.tip
-    display: none
-    text-align: left
-
-div.tooltip:hover span.tip
-  display: block
-  position: absolute
-  top: 12px
-  left: 24px
-  width: 270px
-  border: 1px solid #555555
-  background-color: white
-  padding: 4px
-  font-size: 0.8em
-  color: #505050
-
-// Progress bar ****
-table.progress
-  border: 1px solid #d7d7d7
-  border-collapse: collapse
-  border-spacing: 0pt
-  empty-cells: show
-  text-align: center
-  float: left
-  margin: 1px 6px 1px 0px
-  td
-    height: 0.9em
-    &.closed
-      background: #bae0ba none repeat scroll 0%
-    &.done
-      background: #def0de none repeat scroll 0%
-    &.open
-      background: white none repeat scroll 0%
-
-p
-  &.pourcent
-    font-size: 80%
-  &.progress-info
-    clear: left
-    font-style: italic
-    font-size: 80%
-
-// My page layout ****
-.block-receiver
-  border: 1px dashed silver
-  margin-bottom: 20px
-  padding: 15px 0 15px 0
-
-.mypage-box
-  margin: 0 0 20px 0
-  color: #505050
-  line-height: 1.5em
-
-.handle
-  cursor: move
-
 a.close-icon
   display: block
   margin-top: 3px
@@ -615,16 +365,3 @@ a.close-icon
   padding-left: 26px
   line-height: 22px
   vertical-align: middle
-
-img.gravatar
-  padding: 2px
-  border: solid 1px #d5d5d5
-  background: white
-
-td.username img.gravatar
-  float: left
-  margin: 0 1em 0 0
-
-h2 img
-  vertical-align: middle
-
