@@ -4,6 +4,7 @@ de:
       account: Konto
       booking: Buchung
       booking_template: Buchungsvorlage
+      client: Kunde
       
     attributes:
       account:
@@ -26,6 +27,8 @@ de:
         credit_account: Soll
         debit_account:  Haben
         reference:      Referenz
+      client:
+        name:           Name
   crud:
     title:
       select_booking_template: %{model} anlegen

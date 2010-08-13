@@ -1,7 +1,7 @@
-%h1 Editing client
-- form_tag :action => 'update', :id => @client do
-  = render :partial => 'form'
-  = submit_tag 'Edit'
-= link_to 'Show', :action => 'show', :id => @client
-|
-\#{link_to 'Back', :action => 'list'}
+.contextual
+  = link_to t_action('show'), @client
+  = link_to t_action('index'), clients_path
+  = link_to t_action('delete'), @client, :confirm => t_confirm_delete(@client), :method => :delete
+%h2= t_title
+
+= render :partial => 'form'

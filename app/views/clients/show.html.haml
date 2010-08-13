@@ -1,9 +1,6 @@
-- for column in Client.content_columns
-  %p
-    %b
-      = column.human_name
-      \:
-    = h @client.send(column.name)
-= link_to 'Edit', :action => 'edit', :id => @client
-|
-\#{link_to 'Back', :action => 'list'}
+.contextual
+  = link_to t_action('edit'), edit_client_path(@client)
+  = link_to t_action('index'), clients_path
+%h2= t_title
+
+= @client.name

@@ -1,7 +1,6 @@
-= error_messages_for 'client'
-/ [form:client]
-%p
-  %label{:for => "client_name"} Name
-  %br/
-  = text_field 'client', 'name'
-/ [eoform:client]
+= semantic_form_for @client do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = f.inputs :name
+  = f.buttons do
+    = f.commit_button

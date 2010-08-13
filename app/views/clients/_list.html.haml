@@ -1,0 +1,9 @@
+%table.list.booking_template_list
+  %tr
+    %th= t_attr :name
+    %th.action-links
+
+  = render @clients
+
+  %tr
+    %th{:colspan => "2", :style => "text-align: right"}= will_paginate @clients

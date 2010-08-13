@@ -48,6 +48,8 @@ Cybook::Application.routes.draw do
 
 
   # Accounting
+  resources :clients
+  
   resources :bookings do
     member do
       post :select, :select_booking, :select_booking_template
