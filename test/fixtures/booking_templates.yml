@@ -9,6 +9,7 @@ one:
   comments: MyText
 
 empty:
+  code:
   title:
   amount:
   credit_account_id:
@@ -17,6 +18,7 @@ empty:
   comments:
 
 full:
+  code: full
   title: MyString
   amount: 9.99
   credit_account: ubs
@@ -25,6 +27,7 @@ full:
   comments: MyText
 
 partial:
+  code: partial
   title: First booking
   credit_account: ubs
   debit_account: postfinance

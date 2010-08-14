@@ -29,7 +29,7 @@ class BookingTemplate < ActiveRecord::Base
   end
 
   def build_booking(params = {})
-    booking_params = attributes.reject{|key, value| ["updated_at", "created_at", "id"].include?(key)}
+    booking_params = attributes.reject{|key, value| ["updated_at", "created_at", "id", "code"].include?(key)}
     booking_params.merge!(params)
 
     booking = Booking.new(booking_params)
@@ -37,10 +37,17 @@ class BookingTemplate < ActiveRecord::Base
     return booking
   end
 
-  def create_booking(*params)
-    booking = build_booking(*params)
+  def create_booking(params = {})
+    booking = build_booking(params)
     booking.save
     
     return booking
+  end
+
+  def self.create_booking(code, params = {})
+    template = find_by_code(code)
+    return if template.nil?
+    
+    template.create_booking(params)
   end
 end

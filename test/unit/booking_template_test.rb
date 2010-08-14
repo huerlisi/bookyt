@@ -115,4 +115,12 @@ class BookingTemplateTest < ActiveSupport::TestCase
   test "create_booking accepts parameters" do
     assert_instance_of Booking, booking_templates(:partial).create_booking(:amount => 77)
   end
+
+  test "class build_booking returns nil if no template with this code" do
+    assert_nil BookingTemplate.create_booking("unreal", {:amount => 77})
+  end
+
+  test "class build_booking does lookup by code and build" do
+    assert_instance_of Booking, BookingTemplate.create_booking("partial", {:amount => 77})
+  end
 end
