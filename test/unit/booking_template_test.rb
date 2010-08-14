@@ -84,11 +84,35 @@ class BookingTemplateTest < ActiveSupport::TestCase
     assert_similar expected, booking_templates(:partial).build_booking(booking_params.merge({:comments => "New comment"}))
   end
 
+  test "build_booking returns new record" do
+    assert booking_templates(:partial).build_booking.new_record?
+  end
+  
+  test "build_booking accepts nil" do
+    assert_instance_of Booking, booking_templates(:partial).build_booking()
+  end
+
   test "build_booking accepts hash" do
     assert_instance_of Booking, booking_templates(:partial).build_booking({:amount => 77})
   end
 
   test "build_booking accepts parameters" do
     assert_instance_of Booking, booking_templates(:partial).build_booking(:amount => 77)
+  end
+
+  test "create_booking returns persisted record when valid" do
+    assert booking_templates(:full).create_booking.persisted?
+  end
+  
+  test "create_booking returns new record when invalid" do
+    assert booking_templates(:partial).create_booking.new_record?
+  end
+  
+  test "create_booking accepts hash" do
+    assert_instance_of Booking, booking_templates(:partial).create_booking({:amount => 77})
+  end
+
+  test "create_booking accepts parameters" do
+    assert_instance_of Booking, booking_templates(:partial).create_booking(:amount => 77)
   end
 end
