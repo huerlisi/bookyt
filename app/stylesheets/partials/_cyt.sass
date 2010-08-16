@@ -16,18 +16,17 @@ body
 
 // Content
 #content
-  width: 80%
   background-color: white
   margin: 0px
   border-right: 1px solid #dddddd
-  padding: 6px 10px 10px 10px
+  padding: $content_padding
+  width: 100% - 2 * $content_padding
   z-index: 10
 
-* html kcontent
-  width: 80%
+* html content
   padding-left: 0
   margin-top: 0px
-  padding: 6px 10px 10px 10px
+  padding: $content_padding
 
 html>body #content
   min-height: 600px
