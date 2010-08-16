@@ -12,10 +12,10 @@ Account.create!([
 ])
 
 BookingTemplate.create!([
-  {:code => "day:cash", :title => "Bareinnahmen", :credit_account => Account.where(:code => "3200").first, :debit_account => Account.where(:code => "1010").first},
-  {:code => "day:card turnover", :title => "Kreditkarten Einnahmen", :credit_account => Account.where(:code => "3200").first, :debit_account => Account.where(:code => "1021").first},
-  {:code => "day:expenses", :title => "Barausgabe", :credit_account => Account.where(:code => "1010").first, :debit_account => Account.where(:code => "1000").first},
-  {:code => "day:credit turnover", :title => "Kredit", :credit_account => Account.where(:code => "3200").first, :debit_account => Account.where(:code => "1100").first},
-  {:code => "day:voucher sold", :title => "Gutschein ausgestellt", :credit_account => Account.where(:code => "2001").first, :debit_account => Account.where(:code => "1010").first},
-  {:code => "day:voucher cashed", :title => "Gutschein eingelöst", :credit_account => Account.where(:code => "3200").first, :debit_account => Account.where(:code => "2001").first},
+  {:code => "day:cash", :title => "Bareinnahmen", :debit_account => Account.where(:code => "3200").first, :credit_account => Account.where(:code => "1010").first},
+  {:code => "day:card turnover", :title => "Kreditkarten Einnahmen", :debit_account => Account.where(:code => "3200").first, :credit_account => Account.where(:code => "1021").first},
+  {:code => "day:expenses", :title => "Barausgabe", :debit_account => Account.where(:code => "1010").first, :credit_account => Account.where(:code => "1000").first},
+  {:code => "day:credit turnover", :title => "Kredit", :debit_account => Account.where(:code => "3200").first, :credit_account => Account.where(:code => "1100").first},
+  {:code => "day:voucher sold", :title => "Gutschein ausgestellt", :debit_account => Account.where(:code => "2001").first, :credit_account => Account.where(:code => "1010").first},
+  {:code => "day:voucher cashed", :title => "Gutschein eingelöst", :debit_account => Account.where(:code => "3200").first, :credit_account => Account.where(:code => "2001").first},
 ])
