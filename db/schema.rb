@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100814181657) do
+ActiveRecord::Schema.define(:version => 20100816121822) do
 
   create_table "account_types", :force => true do |t|
     t.string "name",  :limit => 100
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20100814181657) do
     t.integer  "product_count",   :default => 0
     t.float    "expenses",        :default => 0.0
     t.float    "credit_turnover", :default => 0.0
+    t.decimal  "discount",        :default => 0.0
   end
 
   create_table "products", :force => true do |t|

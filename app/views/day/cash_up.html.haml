@@ -56,4 +56,7 @@
       %th Kredit
       %td= f.text_field 'credit_turnover', :label => 'Kreditumsatz', :size => 6, :style => "text-align: right"
     %tr
+      %th Rabatt
+      %td= f.text_field 'discount', :label => 'Rabatt', :size => 6, :style => "text-align: right"
+    %tr
       %td{:colspan => "2"}= submit_tag 'Abschliessen'
