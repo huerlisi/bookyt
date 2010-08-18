@@ -26,9 +26,4 @@
       %td{:colspan => "4"}
         = submit_tag 'Ausrechnen'
 
-= semantic_form_for @day do |f|
-  = f.semantic_errors
-  = f.inputs do
-    = f.inputs
-  = f.buttons do
-    = f.commit_button
+= render 'form'
