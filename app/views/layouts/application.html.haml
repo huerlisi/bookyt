@@ -19,9 +19,9 @@
         #main-menu
           %ul
             %li
-              = link_to "Abrechnung", :controller => "day", :action => :cash_up
+              = link_to "Abrechnung", new_day_path
             %li
-              = link_to "Neue Buchung", :controller => "bookings", :action => :new
+              = link_to "Neue Buchung", new_booking_path
             %li
               = link_to "Balance Sheet", :controller => "balance"
             %li
