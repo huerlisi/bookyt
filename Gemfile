@@ -34,6 +34,7 @@ gem 'compass', '>= 0.10.4'
 # ====
 group :test do
   gem "mocha"
+  gem "shoulda"
 end
 
 # CyBook
