@@ -30,6 +30,12 @@ gem 'compass', '>= 0.10.4'
 #   gem 'webrat'
 # end
 
+# Test
+# ====
+group :test do
+  gem "mocha"
+end
+
 # CyBook
 # ======
 gem 'formtastic', :git => 'git://github.com/justinfrench/formtastic.git', :branch => 'rails3'

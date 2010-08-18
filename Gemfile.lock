@@ -66,6 +66,8 @@ GEM
       mime-types
       treetop (>= 1.4.5)
     mime-types (1.16)
+    mocha (0.9.8)
+      rake
     mysql (2.8.1)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -103,6 +105,7 @@ DEPENDENCIES
   haml
   i18n_rails_helpers (>= 0.8.0)
   inherited_resources
+  mocha
   mysql
   rails (= 3.0.0.rc)
   sqlite3-ruby
