@@ -2,7 +2,7 @@ require 'test_helper'
 
 class DayTest < ActiveSupport::TestCase
   setup do
-    @day = Day.new(:date => Date.parse('15.2.2010'), :gross_turnover => 100.0, :net_turnover => 80.0)
+    @day = Factory.build(:day, :gross_turnover => 100.0, :net_turnover => 80.0)
   end
 
   should "output sensible string on to_s" do
@@ -11,25 +11,23 @@ class DayTest < ActiveSupport::TestCase
 
   context "create_bookings callback" do
     should "be called on save of new object" do
-      day = Day.new(:date => Date.parse('15.2.2010'), :gross_turnover => 100.0, :net_turnover => 80.0)
-      day.expects(:create_bookings).returns(nil)
+      day = Factory.build(:day)
 
+      day.expects(:create_bookings)
       day.save
     end
 
-    should "not be called on second save" do
-      day = Day.new(:date => Date.parse('15.2.2010'), :gross_turnover => 100.0, :net_turnover => 80.0)
-      day.expects(:create_bookings).returns(nil)
+    should "not be called on persisted record" do
+      day = Factory.create(:day)
 
-      day.save
+      day.expects(:create_bookings).never
       day.save
     end
 
     should "not be called on update" do
-      day = Day.new(:date => Date.parse('15.2.2010'), :gross_turnover => 100.0, :net_turnover => 80.0)
-      day.expects(:create_bookings).returns(nil)
+      day = Factory.create(:day)
 
-      day.save
+      day.expects(:create_bookings).never
       day.update_attributes(:net_turnover => 90.0)
     end
 
