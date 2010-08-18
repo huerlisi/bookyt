@@ -1,14 +1,17 @@
 require 'test_helper'
 
 class DayTest < ActiveSupport::TestCase
-  setup do
-    @day = Factory.build(:day, :gross_turnover => 100.0, :net_turnover => 80.0)
-  end
 
-  should "output sensible string on to_s" do
-    assert_equal "15.02.2010: brutto 100.00, netto 80.00", @day.to_s
-  end
+  context "a closed day" do
+    setup do
+      @day = Factory.build(:closed_day, :gross_turnover => 100.0, :net_turnover => 80.0)
+    end
 
+    should "output a sensible string on to_s" do
+      assert_equal "15.02.2010: brutto 100.00, netto 80.00", @day.to_s
+    end
+  end
+  
   context "create_bookings callback" do
     should "be called on save of new object" do
       day = Factory.build(:day)
@@ -32,9 +35,10 @@ class DayTest < ActiveSupport::TestCase
     end
 
     should "create 4 bookings" do
-      BookingTemplate.expects(:create_booking).times(4)
+      day = Factory.build(:day)
 
-      @day.send(:create_bookings)
+      BookingTemplate.expects(:create_booking).times(4)
+      day.send(:create_bookings)
     end
   end
 end
