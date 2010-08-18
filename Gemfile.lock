@@ -52,6 +52,10 @@ GEM
       haml (>= 3.0.4)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    factory_girl (1.3.2)
+    factory_girl_rails (1.0)
+      factory_girl (~> 1.3)
+      rails (>= 3.0.0.beta4)
     haml (3.0.16)
     has_scope (0.5.0)
     i18n (0.4.1)
@@ -102,6 +106,7 @@ PLATFORMS
 
 DEPENDENCIES
   compass (>= 0.10.4)
+  factory_girl_rails
   formtastic!
   haml
   i18n_rails_helpers (>= 0.8.0)
