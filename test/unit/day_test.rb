@@ -14,4 +14,10 @@ class DayTest < ActiveSupport::TestCase
     
     @day.save
   end
+
+  test "creates 4 bookings" do
+    BookingTemplate.expects(:create_booking).times(4)
+
+    @day.send(:create_bookings)
+  end
 end
