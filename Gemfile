@@ -36,6 +36,9 @@ group :test do
   gem 'mocha'
   gem 'shoulda'
   gem 'factory_girl_rails'
+  gem 'cucumber-rails'
+  gem 'cucumber'
+  gem 'capybara'
 end
 
 # CyBook
