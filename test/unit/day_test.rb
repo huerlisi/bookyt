@@ -8,4 +8,10 @@ class DayTest < ActiveSupport::TestCase
   test "to_s" do
     assert_equal "15.02.2010: brutto 100.00, netto 80.00", @day.to_s
   end
+
+  test "save calls create_bookings" do
+    @day.expects(:create_bookings).returns(nil)
+    
+    @day.save
+  end
 end

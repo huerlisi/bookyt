@@ -11,7 +11,7 @@ class Day < ActiveRecord::Base
   end
   
   # Callbacks
-  after_update :create_bookings
+  after_save :create_bookings
   
   private
   def create_bookings
