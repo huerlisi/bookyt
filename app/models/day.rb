@@ -2,6 +2,10 @@ class Day < ActiveRecord::Base
   # Associations
   validates_date :date
 
+  # Scopes
+  default_scope :order => 'date DESC'
+  
+  # Callbacks
   after_update :create_bookings
   
   private
