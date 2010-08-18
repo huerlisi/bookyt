@@ -6,6 +6,7 @@ de:
       booking: Buchung
       booking_template: Buchungsvorlage
       client: Kunde
+      day: Tagesabschluss
       
     attributes:
       account:
@@ -33,6 +34,18 @@ de:
         reference:      Referenz
       client:
         name:           Name
+      day:
+        date:            Datum
+        cash:            Bargeldumsatz
+        card_turnover:   Kreditkartenumsatz
+        expenses:        Barausgabe
+        gross_turnover:  Bruttoumsatz
+        net_turnover:    Nettoumsatz
+        client_count:    Anzahl Verkäufe
+        product_count:   Verkaufte Produkte
+        credit_turnover: Kreditumsatz
+        discount:        Rabatt
+        
   crud:
     title:
       select_booking_template: %{model} anlegen

@@ -1,0 +1,13 @@
+%tr[day]
+  %td= day.date
+  %td.currency= currency_fmt(day.cash)
+  %td.currency= currency_fmt(day.card_turnover)
+  %td.currency= currency_fmt(day.gross_turnover)
+  %td.currency= currency_fmt(day.net_turnover)
+  %td.currency= currency_fmt(day.client_count)
+  %td.currency= currency_fmt(day.expenses)
+  %td.currency= currency_fmt(day.credit_turnover)
+  %td.currency= currency_fmt(day.discount)
+  %td.action-links
+    = link_to image_tag('16x16/edit.png', :title => 'Edit'), edit_day_path(day), :method => :get
+    = link_to image_tag('16x16/remove.png', :title => 'Destroy'), day_path(day), :remote => true, :method => :delete, :confirm => t_confirm_delete(day)
