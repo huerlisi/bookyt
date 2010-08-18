@@ -1,4 +1,7 @@
 class Day < ActiveRecord::Base
+  # Associations
+  validates_date :date
+
   after_update :create_bookings
   
   private
