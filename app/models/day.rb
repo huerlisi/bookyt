@@ -5,6 +5,11 @@ class Day < ActiveRecord::Base
   # Scopes
   default_scope :order => 'date DESC'
   
+  # Helpers
+  def to_s
+    "%s: brutto %0.2f, netto %0.2f" % [date, gross_turnover, net_turnover]
+  end
+  
   # Callbacks
   after_update :create_bookings
   

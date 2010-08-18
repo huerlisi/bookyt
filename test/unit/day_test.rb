@@ -1,10 +1,11 @@
 require 'test_helper'
 
 class DayTest < ActiveSupport::TestCase
-  fixtures :days
+  setup do
+    @day = Day.new(:date => Date.parse('15.2.2010'), :gross_turnover => 100.0, :net_turnover => 80.0)
+  end
 
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  test "to_s" do
+    assert_equal "15.02.2010: brutto 100.00, netto 80.00", @day.to_s
   end
 end
