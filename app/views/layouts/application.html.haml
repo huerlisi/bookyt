@@ -4,6 +4,8 @@
     %meta{:charset => 'utf-8'}/
     %meta{:content => "Simon Huerlimann &lt;simon.huerlimann@cyt.ch&gt;", :name => "author"}/
 
+    %link{:rel => "shortcut icon", :href => image_path('favicon.ico')}/
+
     = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
     = stylesheet_link_tag 'compiled/print.css', :media => 'print'
     /[if lt IE 8]
@@ -16,6 +18,9 @@
   %body
     #container
       #header
+        #logo{:style => 'margin: 14px; float: left;'}
+          = image_tag('logo.png')
+          %h1{:style => 'display: inline; color: #002B3D'} CyBook
         #main-menu
           %ul
             %li
