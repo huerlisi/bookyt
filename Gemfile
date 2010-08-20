@@ -11,6 +11,7 @@ gem 'mysql', :group => :development
 # Use haml for templates
 gem 'haml'
 gem 'compass', '>= 0.10.4'
+gem 'fancy-buttons'
 
 # Use unicorn as the web server
 # gem 'unicorn'
