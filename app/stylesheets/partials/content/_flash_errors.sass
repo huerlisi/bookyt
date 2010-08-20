@@ -1,0 +1,38 @@
+// Snippet from Redmine.css
+// Flash & error messages ***
+
+#errorExplanation, div.flash, .nodata, .warning
+  padding: 4px 4px 4px 30px
+  margin-bottom: 12px
+  font-size: 1.1em
+  border: 2px solid
+
+div.flash
+  margin-top: 8px
+  &.error
+    background: url(../images/false.png) 8px 5px no-repeat
+    background-color: #ffe3e3
+    border-color: #dd0000
+    color: #550000
+
+#errorExplanation
+  background: url(../images/false.png) 8px 5px no-repeat
+  background-color: #ffe3e3
+  border-color: #dd0000
+  color: #550000
+
+div.flash.notice
+  background: url(../images/true.png) 8px 5px no-repeat
+  background-color: #dfffdf
+  border-color: #9fcf9f
+  color: #005f00
+
+.nodata, .warning
+  text-align: center
+  background-color: #ffebc1
+  border-color: #fdbf3b
+  color: #a6750c
+
+#errorExplanation ul
+  font-size: 0.9em
+// End of Snippet
