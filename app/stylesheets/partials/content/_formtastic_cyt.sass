@@ -38,6 +38,7 @@ form.formtastic fieldset
     margin-right: 0.5em
     text-align: right
   > ol > li
+    line-height: 25px
     label
       font-weight: bold
     &.required
@@ -49,11 +50,13 @@ form.formtastic fieldset
       width: 74%
       margin: 0
       padding: 0 0 0 15%
-    p
-      &.inline-hints
-        margin: 0.5em 0 0 15%
-      &.inline-errors
-        margin: 0.5em 0 0 15%
+    p.inline-hints
+    p.inline-errors
+      display: block
+      color: $red
+      float: right
+    li.error
+      border: 1px solid $red
     ul.errors
       margin: 0.5em 0 0 15%
   ol li
