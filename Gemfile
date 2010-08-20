@@ -13,6 +13,9 @@ gem 'haml'
 gem 'compass', '>= 0.10.4'
 gem 'fancy-buttons'
 
+# Simple navigation
+gem 'simple-navigation'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
