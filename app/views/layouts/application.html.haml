@@ -10,7 +10,8 @@
     = stylesheet_link_tag 'compiled/print.css', :media => 'print'
     /[if lt IE 8]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
-      
+    /[if lt IE 7]
+      = stylesheet_link_tag 'compiled/ie6.css', :media => 'screen, projection'
     = javascript_include_tag :defaults
     = csrf_meta_tag
     %title
