@@ -63,12 +63,12 @@ SimpleNavigation::Configuration.run do |navigation|
     # primary.auto_highlight = false
 
     # Cybook navigation
-    primary.item :day, "Abrechnung", new_day_path
-    primary.item :booking, "Neue Buchung", new_booking_path
+    primary.item :day, "Abrechnung", new_day_path, :highlights_on => /\/days/
+    primary.item :booking, "Neue Buchung", new_booking_path, :highlights_on => /\/bookings\/.*$/
     primary.item :balance, "Balance Sheet", root_path
     primary.item :profit, "Profit Sheet", profit_path
-    primary.item :accounts, "Konten", accounts_path
-    primary.item :bookings, "Buchungen", bookings_path
+    primary.item :accounts, "Konten", accounts_path, :highlights_on => /\/accounts/
+    primary.item :bookings, "Buchungen", bookings_path, :highlights_on => /\/bookings$/
   
   end
   
