@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100816121822) do
+ActiveRecord::Schema.define(:version => 20100820063621) do
 
   create_table "account_types", :force => true do |t|
     t.string "name",  :limit => 100
@@ -70,14 +70,14 @@ ActiveRecord::Schema.define(:version => 20100816121822) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date"
-    t.float    "cash",            :default => 0.0
-    t.float    "card_turnover",   :default => 0.0
-    t.float    "gross_turnover",  :default => 0.0
-    t.float    "net_turnover",    :default => 0.0
+    t.decimal  "cash",            :default => 0.0
+    t.decimal  "card_turnover",   :default => 0.0
+    t.decimal  "gross_turnover",  :default => 0.0
+    t.decimal  "net_turnover",    :default => 0.0
     t.integer  "client_count",    :default => 0
     t.integer  "product_count",   :default => 0
-    t.float    "expenses",        :default => 0.0
-    t.float    "credit_turnover", :default => 0.0
+    t.decimal  "expenses",        :default => 0.0
+    t.decimal  "credit_turnover", :default => 0.0
     t.decimal  "discount",        :default => 0.0
   end
 
