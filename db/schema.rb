@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20100820063621) do
 
   create_table "booking_templates", :force => true do |t|
     t.string   "title"
-    t.decimal  "amount"
+    t.decimal  "amount",            :precision => 10, :scale => 0
     t.integer  "credit_account_id"
     t.integer  "debit_account_id"
     t.date     "value_date"
@@ -51,15 +51,15 @@ ActiveRecord::Schema.define(:version => 20100820063621) do
 
   create_table "bookings", :force => true do |t|
     t.string  "title",             :limit => 100
-    t.decimal "amount"
+    t.decimal "amount",                           :precision => 10, :scale => 0
     t.integer "credit_account_id"
     t.integer "debit_account_id"
     t.date    "value_date"
-    t.text    "comments",          :limit => 1000, :default => ""
+    t.text    "comments"
     t.string  "scan"
-    t.string  "debit_currency",                    :default => "CHF"
-    t.string  "credit_currency",                   :default => "CHF"
-    t.float   "exchange_rate",                     :default => 1.0
+    t.string  "debit_currency",                                                  :default => "CHF"
+    t.string  "credit_currency",                                                 :default => "CHF"
+    t.float   "exchange_rate",                                                   :default => 1.0
   end
 
   create_table "clients", :force => true do |t|

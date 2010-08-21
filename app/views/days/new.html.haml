@@ -1,29 +1,25 @@
 %h1
   = "Abrechnung von #{h @day.date}"
-= form_for @register, :remote => true, :as =>:cash_register, :url => {:action => 'calculate_cash'} do |f|
-  %table
-    %tr
-      %td{:style => "vertical-align: top"}
-        %table
-          - for i in [ 200, 100, 50, 20, 10 ]
-            %tr
-              %th{:style => "text-align: right"}
-                = h i
-                x
-              %td
-                = f.text_field i, :size => 4, :style => "text-align: right"
-      %td{:style => "vertical-align: top"}
-        %table
-          - for i in [ 5, 2, 1, 0.5, 0.2, 0.1, 0.05 ]
-            %tr
-              %th{:style => "text-align: right"}
-                = h i
-              %td= f.text_field i, :size => 4, :style => "text-align: right"
-          %tr
-            %th Total:
-            %td#cash
-    %tr
-      %td{:colspan => "4"}
-        = submit_tag 'Ausrechnen'
+= form_for @register, :remote => true, :as =>:cash_register, :url => {:action => 'calculate_cash'}, :html => {:class => 'formtastic cash_register_new'} do |f|
+  %ul.first
+    - for i in [ 200, 100, 50, 20, 10 ]
+      %li
+        %label
+          = h i
+          x
+        = f.text_field i, :type => 'number'
+  %ul.second
+    - for i in [ 5, 2, 1, 0.5, 0.2, 0.1, 0.05 ]
+      %li
+        %label
+          = h i
+        = f.text_field i, :type => 'number'
+  %ul#result
+    %li
+      %label
+        Total:
+      #cash
+    %li
+      = submit_tag 'Ausrechnen'
 
 = render 'form'

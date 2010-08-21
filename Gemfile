@@ -20,6 +20,10 @@ end
 # ================
 gem 'haml'
 gem 'compass', '>= 0.10.4'
+gem 'fancy-buttons'
+
+gem 'simple-navigation'
+
 gem 'formtastic', :git => 'git://github.com/justinfrench/formtastic.git', :branch => 'rails3'
 gem 'will_paginate', :git => 'http://github.com/mislav/will_paginate.git', :branch => 'rails3'
 gem 'inherited_resources'

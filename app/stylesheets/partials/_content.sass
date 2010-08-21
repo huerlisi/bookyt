@@ -1,6 +1,11 @@
 @import 'partials/content/table_list'
 @import 'partials/content/icons'
 @import 'partials/formtastic/formtastic_base'
+@import 'partials/content/formtastic_cyt'
+@import 'partials/content/accounting'
+@import 'partials/content/ajax_indicator'
+@import 'partials/content/flash_errors'
+@import 'partials/content/fancy_buttons'
 
 #content
   +sanserif-font
@@ -13,6 +18,7 @@ h2,
 h3
   +sanserif-font
   font-weight: bold
+  border-bottom: 1px solid #bbbbbb
 h2
   font-size: $h2_size
   margin-bottom: $h2_size
@@ -22,6 +28,7 @@ h1
 h3
   font-size: $h3_size
   margin-bottom: $h3_size
+
 a
   text-decoration: none
   color: $link_color
@@ -29,9 +36,47 @@ a
     color: $link_color_hover
     
 // Cash up styling
-#cash_register_new
+#cash_register_new,
+#new_day
   +column($column_small_form)
-  +append(2)
+#cash_register_new
+  ul
+    width: 50%
+    float: left
+    &.second
+      li
+        width: 141px
+        float: right
+    label
+      width: 45px
+      float: left
+    input
+      width: 90px
+  #cash
+    float: left
+    color: red
+    text-decoration: underline
+    font-weight: bold
+  #result
+    width: 100%
+    margin-top: 10px
+    padding-top: 10px
+    border-top: 1px solid black
+    label
+      font-weight: bold
+      margin-right: 15px
+    input
+      width: 100%
+    li:first-child
+      margin-bottom: 10px
+#new_day
+  label
+    width: 160px
+  input
+    width: 100px
+    float: right
+    &#day_submit
+      width: 100%
 
 // Form styling
 form.formtastic
@@ -41,3 +86,28 @@ form.formtastic
   table
     th
       padding-right: 20px
+
+// Accounting **
+tr.currency, th.currency
+  text-align: right
+
+.booking_list tr
+  td
+    background-color: white
+    border-left: 0px none
+    border-right: 0px none
+    border-bottom: 1px solid
+  border-left: 0px none
+  border-right: 0px none
+
+// Snippet from Redmine.css
+.contextual
+  float: right
+  white-space: nowrap
+  line-height: 1.4em
+  margin-top: 5px
+  padding-left: 10px
+  font-size: 0.9em
+  input
+    font-size: 0.9em
+// End of snippet
