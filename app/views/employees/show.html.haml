@@ -1,0 +1,6 @@
+.contextual
+  = link_to t_action('edit'), edit_employee_path(@employee)
+  = link_to t_action('index'), employees_path
+%h2= t_title
+
+= @employee.vcard.try(:full_name)

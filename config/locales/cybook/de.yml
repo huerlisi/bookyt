@@ -2,6 +2,10 @@ de:
   application:
     title: Bookyt
 
+  sex:
+    :male:   Mann
+    :female: Frau
+    
   activerecord:
     models:
       account: Konto
@@ -10,6 +14,9 @@ de:
       booking_template: Buchungsvorlage
       client: Kunde
       day: Tagesabschluss
+      employee: Mitarbeiter
+      employment: Anstellung
+      employer: Arbeitgeber
       
     attributes:
       account:
@@ -48,7 +55,14 @@ de:
         product_count:   Verkaufte Produkte
         credit_turnover: Kreditumsatz
         discount:        Rabatt
-        
+      employee:
+        full_name:     Name
+        date_of_birth: Geburtsdatum
+        date_of_death: Todestag
+        sex:           Geschlecht
+      employment:
+      employer:
+
   crud:
     title:
       select_booking_template: %{model} anlegen

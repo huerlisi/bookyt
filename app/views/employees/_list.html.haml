@@ -1,0 +1,9 @@
+%table.list.employee_list
+  %tr
+    %th= t_attr :full_name
+    %th.action-links
+
+  = render @employees
+
+  %tr
+    %th{:colspan => "3", :style => "text-align: right"}= will_paginate @employees

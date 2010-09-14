@@ -1,0 +1,1 @@
+page.replace "employee_#{@employee.id}", ''

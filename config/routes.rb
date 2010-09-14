@@ -50,6 +50,10 @@ Cybook::Application.routes.draw do
   # Accounting
   resources :clients
   resources :account_types
+
+  resources :employees
+  resources :employers
+  resources :employments
   
   resources :bookings do
     member do

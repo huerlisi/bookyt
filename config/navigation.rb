@@ -69,6 +69,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :profit, "Profit Sheet", profit_path
     primary.item :accounts, "Konten", accounts_path, :highlights_on => /\/accounts/
     primary.item :bookings, "Buchungen", bookings_path, :highlights_on => /\/bookings$/
+    primary.item :emplyees, "Mitarbeiter", employees_path, :highlights_on => /\/employees$/
   
   end
   
