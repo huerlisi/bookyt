@@ -1,3 +1,5 @@
 class Employer < Person
-  has_many :employees
+  # Associations
+  has_many :employments
+  has_many :employees, :through => :employments
 end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  duration_from: 2010-09-15
+  duration_to: 2010-09-15
+  temporary: false
+  hourly_paid: false
+  daily_workload: 9.99
+
+two:
+  duration_from: 2010-09-15
+  duration_to: 2010-09-15
+  temporary: false
+  hourly_paid: false
+  daily_workload: 9.99

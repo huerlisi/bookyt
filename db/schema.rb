@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100914215158) do
+ActiveRecord::Schema.define(:version => 20100914221438) do
 
   create_table "account_types", :force => true do |t|
     t.string "name",  :limit => 100
@@ -95,10 +95,25 @@ ActiveRecord::Schema.define(:version => 20100914215158) do
     t.decimal  "discount",        :default => 0.0
   end
 
+  create_table "employments", :force => true do |t|
+    t.date     "duration_from"
+    t.date     "duration_to"
+    t.boolean  "temporary"
+    t.boolean  "hourly_paid"
+    t.decimal  "daily_workload"
+    t.integer  "employee_id"
+    t.integer  "employer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "people", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+    t.date     "date_of_birth"
+    t.date     "date_of_death"
+    t.integer  "sex"
   end
 
   create_table "phone_numbers", :force => true do |t|
