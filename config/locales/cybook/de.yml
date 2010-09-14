@@ -3,9 +3,14 @@ de:
     title: Bookyt
 
   sex:
-    :male:   Mann
-    :female: Frau
+    male:   Mann
+    female: Frau
     
+  form:
+    person:
+     address: Adresse
+     civil:   Personalien
+
   activerecord:
     models:
       account: Konto

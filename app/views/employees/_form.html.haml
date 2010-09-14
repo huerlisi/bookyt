@@ -1,7 +1,8 @@
 = semantic_form_for @employee do |f|
   = f.semantic_errors
-  = f.inputs do
-    = f.inputs :full_name, :street_address, :for => :vcard
+  = f.inputs t('form.person.address') do
+    = f.inputs :full_name, :street_address, :extended_address, :postal_code, :locality, :for => :vcard
+  = f.inputs t('form.person.civil') do
     = f.input :sex, :as => :select, :collection => { t('sex.male') => 1, t('sex.female') => 2}
     = f.input :date_of_birth, :as => :date_field
 
