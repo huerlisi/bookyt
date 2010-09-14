@@ -19,6 +19,3 @@
 [submodule "vendor/plugins/has_vcards"]
 	path = vendor/plugins/has_vcards
 	url = git@github.com:huerlisi/has_vcards.git
-[submodule "vendor/plugins/has_delegates"]
-	path = vendor/plugins/has_delegates
-	url = git@github.com:huerlisi/has_delegates.git
