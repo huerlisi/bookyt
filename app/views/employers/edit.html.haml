@@ -1,0 +1,7 @@
+.contextual
+  = link_to t_action('show'), @employer
+  = link_to t_action('index'), employers_path
+  = link_to t_action('delete'), @employer, :confirm => t_confirm_delete(@employer), :method => :delete
+%h2= t_title
+
+= render :partial => 'form'
