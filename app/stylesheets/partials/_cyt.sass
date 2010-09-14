@@ -1,12 +1,22 @@
+// Imports
+@import "compass/css3/box-shadow"
+@import 'partials/formtastic'
+@import 'partials/formtastic_cyt'
+@import 'partials/pagination'
+
 // CyT **
 body
   color: #484848
   background: #f3f3f3
   +sanserif-font
 
+#container
+  margin-top: $h2_size
+  width: 95%
+
 #header
   background-color: #aeb9cf
-  height: 5.3em
+  height: 54px
   margin: 0
   color: #f8f8f8
   padding: 4px 8px 0px 6px
@@ -20,7 +30,6 @@ body
   margin: 0px
   border-right: 1px solid #dddddd
   padding: $content_padding
-  width: 100% - 2 * $content_padding
   z-index: 10
 
 * html content
@@ -33,6 +42,16 @@ html>body #content
 
 * html body #content
   height: 600px
+
+// Sidebar
+#sidebar
+  background-color: white
+  margin: 0px
+  border: 1px solid #dddddd
+  padding: $content_padding
+  +sanserif-font
+  font-size: $text_size
+  +border-radius($border_radius)
 
 // Login form
 #login-form

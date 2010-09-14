@@ -19,9 +19,9 @@
   %body
     #container
       #header
-        #logo{:style => 'margin: 14px; float: left;'}
+        #logo{:style => 'margin: 0px'}
           = image_tag('logo.png')
-          %h1{:style => 'display: inline; color: #002B3D'} CyBook
+          %h1#logo-text book<span id="logo-yt">yt</span>
         #main-menu
           = render_navigation(:level => 1)
 

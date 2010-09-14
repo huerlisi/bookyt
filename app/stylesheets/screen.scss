@@ -7,6 +7,7 @@
 @import 'partials/layout';
 @import 'partials/header';
 @import 'partials/content';
+@import 'partials/sidebar';
 
 // Import the non-default scaffolding module.
 //@import "blueprint/scaffolding";
@@ -15,8 +16,5 @@
 // configuration applied, uncomment:
 // @include blueprint
 
-@import 'partials/invoice';
-//@import 'partials/redmine';
-@import 'partials/accounting';
 @import 'partials/cyt';
-@import 'partials/cybook';
+@import 'partials/application';
