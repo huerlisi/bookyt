@@ -8,6 +8,7 @@ class Employee < Person
     super
 
     build_vcard unless vcard
+    vcard.build_address unless vcard.address
   end
 
   # Helpers
