@@ -15,7 +15,7 @@
     = javascript_include_tag :defaults
     = csrf_meta_tag
     %title
-      = "CyBook - #{controller.action_name.capitalize}"
+      = "#{t('application.title')} - #{controller.action_name.capitalize}"
   %body
     #container
       #header

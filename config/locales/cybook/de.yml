@@ -1,4 +1,7 @@
 de:
+  application:
+    title: Bookyt
+
   activerecord:
     models:
       account: Konto
