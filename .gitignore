@@ -2,7 +2,6 @@
 # ============
 *~
 .#*
-_darcs
 DEADJOE
 
 # Rails
@@ -14,6 +13,7 @@ tmp/**/*
 
 # Vendor
 vendor/cache
+vendor/bundle
 
 # Volatile
 doc/api
@@ -25,10 +25,12 @@ db/backup
 # Local
 config/database.yml
 
+# compass
+public/stylesheets/compiled
+
 # RVM
 .rvmrc
 
 # Rubymine
 .idea/*public/stylesheets/compiled/*
-public/stylesheets/compiled
 .idea/
