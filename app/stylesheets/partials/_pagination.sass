@@ -1,0 +1,61 @@
+/** 
+ *Code based on will_paginate example CSS at http://github.com/mislav/will_paginate/tree/gh-pages
+ **
+.digg_pagination
+  background: white
+  /* self-clearing method:
+
+.digg_pagination a, .digg_pagination span, .digg_pagination em
+  +border-radius($border_radius / 1.5)
+  padding: .2em .5em
+  display: block
+  float: left
+  margin-right: 1px
+
+.digg_pagination span.disabled
+  color: #999
+  border: 1px solid #DDD
+
+.digg_pagination em
+  font-weight: bold
+  background: #2E6AB1
+  color: white
+  border: 1px solid #2E6AB1
+
+.digg_pagination a
+  text-decoration: none
+  color: #105CB6
+  border: 1px solid #9AAFE5
+
+.digg_pagination a:hover, .digg_pagination a:focus
+  color: #003
+  border-color: #003
+
+.digg_pagination .page_info
+  background: #2E6AB1
+  color: white
+  padding: .4em .6em
+  width: 22em
+  margin-bottom: .3em
+  text-align: center
+
+.digg_pagination .page_info b
+  color: #003
+  background: #6aa6ed
+  padding: .1em .25em
+
+.digg_pagination:after
+  content: "."
+  display: block
+  height: 0
+  clear: both
+  visibility: hidden
+
+* html .digg_pagination
+  height: 1%
+
+*:first-child+html .digg_pagination
+  overflow: hidden
+
+.digg_paggination a.per_page
+  border: 0
