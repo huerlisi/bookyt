@@ -1,0 +1,8 @@
+.contextual
+  = link_to t_action('edit'), edit_employment_path(@employment)
+  = link_to t_action('index'), employments_path
+%h2= t_title
+
+= @employment.employer
+= @employment.employee
+= "%s - %s" % [@employment.duration_from, @employment.duration_to]
