@@ -4,12 +4,13 @@ document.observe("dom:loaded", function() {
   elements.first().activate();
 });
 
-// Linkify containers having attribute data-href
+// Linkify containers having attribute data-href-container
 document.observe("dom:loaded", function() {
   var elements = $$("[data-href-container]");
   elements.each(function(element) {
     var container = element.up(element.readAttribute('data-href-container'));
     container.style.cursor = "pointer";
+    container.writeAttribute('data-href', element.readAttribute('href'));
   });
   
   $(document.body).observe("click", function(event) {
@@ -19,15 +20,12 @@ document.observe("dom:loaded", function() {
     };
     
     var element = event.element();
-    var ref = element.down("[data-href-container]");
-    if (ref) {
-      var container = ref.up(ref.readAttribute('data-href-container'));
-      if (element.descendantOf(container)) {
-        var href = ref.readAttribute('href');
-        document.location.href = href;
+    var container = element.up("[data-href]");
+    if (container) {
+      var href = container.readAttribute('data-href');
+      document.location.href = href;
 
-        event.stop();
-      };
+      event.stop();
       return false;
     }
   });
