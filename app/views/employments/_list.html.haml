@@ -1,8 +1,8 @@
 %table.list.employment_list
   %tr
-    %th= t_attr :employer
-    %th= t_attr :employee
-    %th= t_attr :duration
+    %th= t_attr :employer, Employment
+    %th= t_attr :employee, Employment
+    %th= t_attr :duration, Employment
     %th.action-links
 
   = render @employments
