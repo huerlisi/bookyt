@@ -4,3 +4,8 @@
 %h2= t_title
 
 = @employee.vcard.try(:full_name)
+
+%h2 Anstellung
+
+- @employments = @employee.employments.paginate(:page => params[:page])
+= render 'employments/list'
