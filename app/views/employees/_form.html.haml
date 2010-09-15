@@ -1,9 +1,10 @@
 = semantic_form_for @employee do |f|
   = f.semantic_errors
   = f.inputs t('form.person.address') do
-    = semantic_fields_for :vcard do |vcard|
+    = f.semantic_fields_for :vcard do |vcard|
       = vcard.input :full_name, :input_html => {"data-autofocus" => true}
-      = vcard.inputs :street_address, :extended_address, :postal_code, :locality
+      = vcard.semantic_fields_for :address do |address|
+        = address.inputs :street_address, :extended_address, :postal_code, :locality
   = f.inputs t('form.person.civil') do
     = f.input :sex, :as => :select, :collection => { t('sex.male') => 1, t('sex.female') => 2}
     = f.input :date_of_birth, :as => :date_field
