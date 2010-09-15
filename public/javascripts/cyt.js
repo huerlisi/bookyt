@@ -6,9 +6,10 @@ document.observe("dom:loaded", function() {
 
 // Linkify containers having attribute data-href
 document.observe("dom:loaded", function() {
-  elements = $$("[data-href]");
+  var elements = $$("[data-href-container]");
   elements.each(function(element) {
-    element.style.cursor = "pointer";
+    var container = element.up(element.readAttribute('data-href-container'));
+    container.style.cursor = "pointer";
   });
   
   $(document.body).observe("click", function(event) {
@@ -17,12 +18,16 @@ document.observe("dom:loaded", function() {
       return true;
     };
     
-    var element = event.findElement("[data-href]");
-    if (element) {
-      var href = element.readAttribute('data-href');
-      document.location.href=href;
+    var element = event.element();
+    var ref = element.down("[data-href-container]");
+    if (ref) {
+      var container = ref.up(ref.readAttribute('data-href-container'));
+      if (element.descendantOf(container)) {
+        var href = ref.readAttribute('href');
+        document.location.href = href;
 
-      event.stop();
+        event.stop();
+      };
       return false;
     }
   });
