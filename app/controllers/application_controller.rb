@@ -67,7 +67,12 @@ class Formtastic::SemanticFormBuilder
         (validation.options.present? ? options_require_validation?(validation.options) : true)
       end
     else
-      @@all_fields_required_by_default
+      if @object && @object.class.respond_to?(:validators_on)
+        attribute_sym = attribute.to_s.sub(/_id$/, '').to_sym
+        !@object.class.validators_on(attribute_sym).find{|validator| (validator.kind == :presence) && (validator.options.present? ? options_require_validation?(validator.options) : true)}.nil?
+      else
+        self.class.all_fields_required_by_default
+      end
     end
   end
 end
