@@ -1,6 +1,11 @@
 .contextual
   = link_to t_action('edit'), edit_employer_path(@employer)
   = link_to t_action('index'), employers_path
-%h2= t_title
+%h1= t_title
 
 = @employer.vcard.try(:full_name)
+
+%h2 Anstellung
+
+- @employments = @employer.employments.paginate(:page => params[:page])
+= render 'employments/list'
