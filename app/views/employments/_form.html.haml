@@ -1,7 +1,13 @@
 = semantic_form_for @employment do |f|
   = f.semantic_errors
   = f.inputs do
-    = f.inputs
+    = f.input :employee
+    = f.input :employer
+    = f.input :duration_from, :as => :date_field
+    = f.input :duration_to, :as => :date_field
+    = f.input :temporary
+    = f.input :hourly_paid
+    = f.input :daily_workload
 
   = f.buttons do
     = f.commit_button
