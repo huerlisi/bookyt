@@ -1,0 +1,9 @@
+%table.list.invoice_list
+  %tr
+    %th= t_attr :full_name
+    %th.action-links
+
+  = render @invoices
+
+  %tr
+    %th{:colspan => "3", :style => "text-align: right"}= will_paginate @invoices

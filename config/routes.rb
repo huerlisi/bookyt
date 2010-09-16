@@ -55,7 +55,10 @@ Cybook::Application.routes.draw do
   resources :employers
   resources :employments
   
-  resources :customers
+  resources :invoices
+  resources :customers do
+    resources :invoices
+  end
   
   resources :bookings do
     member do
