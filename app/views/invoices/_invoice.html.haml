@@ -1,5 +1,5 @@
 %tr[invoice]
-  %td= link_to invoice.vcard.try(:full_name), invoice, {'data-href-container' => 'tr'}
+  %td= link_to invoice.due_date, invoice, {'data-href-container' => 'tr'}
   %td.action-links
     = link_to image_tag('16x16/edit.png', :title => 'Edit'), edit_invoice_path(invoice), :method => :get
     = link_to image_tag('16x16/remove.png', :title => 'Destroy'), invoice_path(invoice), :remote => true, :method => :delete, :confirm => t_confirm_delete(invoice)

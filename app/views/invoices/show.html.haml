@@ -3,4 +3,5 @@
   = link_to t_action('index'), invoices_path
 %h1= t_title
 
-= @invoice.vcard.try(:full_name)
+= @invoice.customer
+= @invoice.due_date

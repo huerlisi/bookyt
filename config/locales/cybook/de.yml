@@ -23,6 +23,7 @@ de:
       employee: Mitarbeiter
       employment: Anstellung
       employer: Arbeitgeber
+      invoice: Rechnung
       
     attributes:
       account:
@@ -74,6 +75,11 @@ de:
         full_name:     Name
       customer:
         full_name:     Name
+      invoice:
+        due_date:      Fälligkeitsdatum
+        state:         Status
+        customer:      Kunde
+        company:       Firma
 
   crud:
     title:
