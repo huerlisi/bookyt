@@ -6,6 +6,9 @@ class Invoice < ActiveRecord::Base
   belongs_to :customer
   belongs_to :company, :class_name => 'Employer'
   
+  # Validations
+  validates_date :due_date
+  
   # Helpers
   def to_s
     "%s für %s à %s" % [title, customer, currency_fmt(amount)]
