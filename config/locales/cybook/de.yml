@@ -80,6 +80,9 @@ de:
         state:         Status
         customer:      Kunde
         company:       Firma
+        title:         Titel
+        remarks:       Bemerkungen
+        amount:        Betrag
 
   crud:
     title:

@@ -3,8 +3,11 @@
   = f.inputs do
     = f.input :customer
     = f.input :company
+    = f.input :title
+    = f.input :amount
     = f.input :due_date, :as => :date_field
     = f.input :state, :collection => ['open', 'closed']
+    = f.input :remarks
 
   = f.buttons do
     = f.commit_button

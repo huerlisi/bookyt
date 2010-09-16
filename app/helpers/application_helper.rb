@@ -12,6 +12,6 @@ module ApplicationHelper
   end
 
   def cu_to_s(value, unit = 'CHF')
-    "<span style=\"float: left\">#{unit}&nbsp;</span>".html_save + number_to_currency(value, :unit => '').html_save
+    "<span style=\"float: left\">#{unit}&nbsp;</span>".html_safe + number_to_currency(value, :unit => '').html_safe
   end
 end
