@@ -18,6 +18,7 @@ de:
       booking: Buchung
       booking_template: Buchungsvorlage
       client: Kunde
+      customer: Kunde
       day: Tagesabschluss
       employee: Mitarbeiter
       employment: Anstellung
@@ -70,6 +71,8 @@ de:
         employee:      Arbeitnehmer
         duration:      Dauer
       employer:
+        full_name:     Name
+      customer:
         full_name:     Name
 
   crud:

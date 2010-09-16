@@ -1,0 +1,1 @@
+page.replace "customer_#{@customer.id}", ''

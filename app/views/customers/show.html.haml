@@ -1,0 +1,6 @@
+.contextual
+  = link_to t_action('edit'), edit_customer_path(@customer)
+  = link_to t_action('index'), customers_path
+%h1= t_title
+
+= @customer.vcard.try(:full_name)
