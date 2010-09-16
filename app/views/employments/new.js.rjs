@@ -1,1 +1,1 @@
-page.replace "new_employment", :partial => 'form'
+page.insert_html :before, 'employment_list', :partial => 'form'
