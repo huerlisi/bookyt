@@ -1,6 +1,8 @@
 .contextual
   = link_to t_action('edit'), edit_invoice_path(@invoice)
   = link_to t_action('index'), invoices_path
+  = link_to "PDF", invoice_path(:format => :pdf)
+
 %h1= t_title
 
 #invoice{:style =>"position: relative"}
