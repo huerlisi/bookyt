@@ -1,0 +1,9 @@
+#info.block
+  %h2 Rechnung Nr. #{@invoice.id}
+  %table
+    %tr
+      %th= t_attr :created_at
+      %td= @invoice.created_at.to_date
+    %tr
+      %th= t_attr :due_date
+      %td= @invoice.due_date

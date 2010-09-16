@@ -1,0 +1,8 @@
+#biller.block
+  %h3 Rechnungssteller
+  = full_address(@invoice.company.vcard)
+  %br
+  = contact(@invoice.company.vcard)
+
+#billingaddress.block
+  = full_address(@invoice.customer.vcard)

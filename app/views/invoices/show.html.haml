@@ -3,5 +3,6 @@
   = link_to t_action('index'), invoices_path
 %h1= t_title
 
-= @invoice.customer
-= @invoice.due_date
+#invoice{:style =>"position: relative"}
+  = render :partial => 'invoice_info'
+  = render :partial => 'invoice_parties'

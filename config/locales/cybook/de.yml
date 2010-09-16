@@ -76,6 +76,7 @@ de:
       customer:
         full_name:     Name
       invoice:
+        created_at:    Rechnungsdatum
         due_date:      Fälligkeitsdatum
         state:         Status
         customer:      Kunde
