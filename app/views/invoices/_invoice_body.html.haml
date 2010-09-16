@@ -1,0 +1,8 @@
+#reminder-message
+  %h2= @invoice.title
+  %pre= @invoice.remarks
+
+  #signature
+    Mit freundlichen Grüssen,
+    %br
+    = @invoice.company.vcard.full_name

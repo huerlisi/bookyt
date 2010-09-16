@@ -4,5 +4,6 @@
 %h1= t_title
 
 #invoice{:style =>"position: relative"}
-  = render :partial => 'invoice_info'
-  = render :partial => 'invoice_parties'
+  = render 'invoice_info'
+  = render 'invoice_parties'
+  = render 'invoice_body'

@@ -1,11 +1,14 @@
-@import "blueprint";
+@import "blueprint"
+@import 'partials/invoice'
 
 // To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
-// @include blueprint-print
 
 //Recommended Blueprint configuration with scoping and semantic layout:
-body.bp {
-  @include blueprint-print(true); }
+body.bp
+  +blueprint-print(true)
+
+h1
+  display: none
 
 #balance-sheet form,
 #profit-sheet form
@@ -24,3 +27,4 @@ body.bp {
   border: 0
   background: white
   overflow: visible !important
+
