@@ -62,7 +62,7 @@ SimpleNavigation::Configuration.run do |navigation|
     # You can turn off auto highlighting for a specific level
     # primary.auto_highlight = false
 
-    # Cybook navigation
+    # bookyt navigation
     primary.item :day, "Abrechnung", new_day_path, :highlights_on => /\/days/
     primary.item :booking, "Neue Buchung", new_booking_path, :highlights_on => /\/bookings\/.*$/
     primary.item :balance, "Balance Sheet", root_path

@@ -1,6 +1,6 @@
 h1. Changelog
 
-h2. CyBook 0.5.0
+h2. bookyt 0.5.0
 
 User visible changes include:
 

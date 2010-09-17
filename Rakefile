@@ -7,4 +7,4 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 
-Cybook::Application.load_tasks
+Bookyt::Application.load_tasks
