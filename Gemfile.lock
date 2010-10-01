@@ -156,6 +156,7 @@ DEPENDENCIES
   pdfkit
   rails (= 3.0.0)
   rails3-generators
+  rake
   rcov
   rspec
   rspec-rails (>= 2.0.0.beta.19)
