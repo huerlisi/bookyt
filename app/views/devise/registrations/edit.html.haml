@@ -8,5 +8,8 @@
     = f.input :password_confirmation
     = f.input :current_password, :required => true
     
+  = f.inputs t_model(Employee) do
+    = f.input :person, :collection => Employee.all
+
   = f.buttons do
     = f.commit_button "Update"
