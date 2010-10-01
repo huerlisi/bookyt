@@ -51,8 +51,9 @@ Bookyt::Application.routes.draw do
   resources :clients
   resources :account_types
 
+  resources :companies
+
   resources :employees
-  resources :employers
   resources :employments
   
   resources :invoices

@@ -18,11 +18,11 @@ de:
       booking: Buchung
       booking_template: Buchungsvorlage
       client: Kunde
+      company: Firma
       customer: Kunde
       day: Tagesabschluss
       employee: Mitarbeiter
       employment: Anstellung
-      employer: Arbeitgeber
       invoice: Rechnung
       
     attributes:
@@ -71,7 +71,7 @@ de:
         employer:      Arbeitgeber
         employee:      Arbeitnehmer
         duration:      Dauer
-      employer:
+      company:
         full_name:     Name
       customer:
         full_name:     Name

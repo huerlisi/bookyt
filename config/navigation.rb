@@ -70,9 +70,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :accounts, "Konten", accounts_path, :highlights_on => /\/accounts/
     primary.item :bookings, "Buchungen", bookings_path, :highlights_on => /\/bookings$/
     primary.item :employees, "Mitarbeiter", employees_path, :highlights_on => /\/employees$/
-    primary.item :employers, "Arbeitgeber", employers_path, :highlights_on => /\/employers$/
+    primary.item :employers, "Firmen", companies_path, :highlights_on => /\/companies$/
     primary.item :customers, "Kunden", customers_path, :highlights_on => /\/customers$/
-  
   end
-  
 end
