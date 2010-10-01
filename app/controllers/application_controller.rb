@@ -61,21 +61,14 @@ class Formtastic::SemanticFormBuilder
 
   # Add :validates_date to requiring validations
   def method_required?(attribute)
-    if @object && @object.class.respond_to?(:reflect_on_validations_for)
+    if @object && @object.class.respond_to?(:validators_on)
       attribute_sym = attribute.to_s.sub(/_id$/, '').to_sym
-
-      @object.class.reflect_on_validations_for(attribute_sym).any? do |validation|
-        [:validates_presence_of, :validates_date, :validates_time].include?(validation.macro) &&
-        validation.name == attribute_sym && !(validation.options.present? && (validation.options[:allow_nil] || validation.options[:allow_blank])) &&
-        (validation.options.present? ? options_require_validation?(validation.options) : true)
-      end
+      !@object.class.validators_on(attribute_sym).find{|validator|
+        ((validator.kind == :presence) && (validator.options.present? ? options_require_validation?(validator.options) : true)) ||
+        ((validator.kind == :timeliness) && !(validator.instance_variable_get('@allow_nil') || validator.instance_variable_get('@allow_blank')))
+      }.nil?
     else
-      if @object && @object.class.respond_to?(:validators_on)
-        attribute_sym = attribute.to_s.sub(/_id$/, '').to_sym
-        !@object.class.validators_on(attribute_sym).find{|validator| (validator.kind == :presence) && (validator.options.present? ? options_require_validation?(validator.options) : true)}.nil?
-      else
-        self.class.all_fields_required_by_default
-      end
+      self.class.all_fields_required_by_default
     end
   end
 end
