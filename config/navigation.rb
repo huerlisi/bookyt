@@ -72,5 +72,8 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :employees, "Mitarbeiter", employees_path, :highlights_on => /\/employees$/
     primary.item :employers, "Firmen", companies_path, :highlights_on => /\/companies$/
     primary.item :customers, "Kunden", customers_path, :highlights_on => /\/customers$/
+
+    primary.item :logout, "Logout", destroy_user_session_path, :highlights_on => /\/users\/sign_out/, :if => Proc.new { user_signed_in? }
+    primary.item :logout, "Login", new_user_session_path, :highlights_on => /\/users\/sign_in/, :unless => Proc.new { user_signed_in? }
   end
 end

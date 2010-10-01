@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
+
+  # Authentication
+  before_filter :authenticate_user!
 end
 
 module ActionView
