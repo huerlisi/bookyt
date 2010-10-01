@@ -5,11 +5,7 @@ class ProfitController < ApplicationController
   end
 
   def show
-    # Client
-    unless @client = Client.find(:first)
-      redirect_to :controller => 'clients', :action => 'new'
-      return
-    end
+    @company = current_user.person.employers.first
     
     # use current date if not specified otherwise
     params[:profit] ||= {}
