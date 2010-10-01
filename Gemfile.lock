@@ -68,7 +68,7 @@ GEM
     has_scope (0.5.0)
     hpricot (0.8.2)
     i18n (0.4.1)
-    i18n_rails_helpers (0.8.0)
+    i18n_rails_helpers (0.8.2)
       activerecord
       i18n
     inherited_resources (1.1.2)
@@ -149,7 +149,7 @@ DEPENDENCIES
   formtastic (~> 1.1.0)
   haml
   hpricot
-  i18n_rails_helpers (>= 0.8.0)
+  i18n_rails_helpers (~> 0.8.0)
   inherited_resources
   mocha
   mysql
