@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :person_id
 
+  # Aspects
+  include SentientUser
+
   # Associations
   belongs_to :person
 end
