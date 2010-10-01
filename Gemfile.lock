@@ -37,6 +37,7 @@ GEM
     activesupport (3.0.0)
     arel (1.0.1)
       activesupport (~> 3.0.0)
+    bcrypt-ruby (2.1.2)
     builder (2.1.2)
     compass (0.10.5)
       haml (>= 3.0.4)
@@ -48,6 +49,9 @@ GEM
       term-ansicolor (~> 1.0.4)
     cucumber-rails (0.3.2)
       cucumber (>= 0.8.0)
+    devise (1.1.3)
+      bcrypt-ruby (~> 2.1.2)
+      warden (~> 0.10.7)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -132,6 +136,8 @@ GEM
       polyglot (>= 0.3.1)
     trollop (1.16.2)
     tzinfo (0.3.23)
+    warden (0.10.7)
+      rack (>= 1.0.0)
     webrat (0.7.1)
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
@@ -144,6 +150,7 @@ DEPENDENCIES
   compass (>= 0.10.4)
   cucumber
   cucumber-rails
+  devise (>= 1.1)
   factory_girl_rails
   fancy-buttons
   formtastic (~> 1.1.0)
