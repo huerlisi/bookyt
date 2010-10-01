@@ -18,4 +18,4 @@
 	url = http://github.com/activestylus/formtastic-sass.git
 [submodule "vendor/plugins/has_vcards"]
 	path = vendor/plugins/has_vcards
-	url = git@github.com:huerlisi/has_vcards.git
+	url = git://github.com/huerlisi/has_vcards.git
