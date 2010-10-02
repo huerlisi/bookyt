@@ -1,4 +1,4 @@
-%table#booking_list.list.booking_list
+%table#booking_list.list
   = render :partial => 'accounts/booking_list_header'
   - @saldo = @account.saldo(@bookings.first, false)
   - for @booking in @bookings
