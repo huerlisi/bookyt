@@ -26,9 +26,10 @@
 
       #content-column
         #content
-          - if flash[:notice]
-            #flash.flash.notice
-              = flash[:notice]
+          - if notice
+            #flash.flash.notice= notice
+          - if alert
+            #alert.flash.alert= alert
           = yield
 
       #sidebar-column
