@@ -53,7 +53,6 @@ Bookyt::Application.routes.draw do
 #  devise_for :users
   
   # Accounting
-  resources :clients
   resources :account_types
 
   resources :companies

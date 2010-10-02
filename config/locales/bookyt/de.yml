@@ -17,7 +17,6 @@ de:
       account_type: Kontentyp
       booking: Buchung
       booking_template: Buchungsvorlage
-      client: Kunde
       company: Firma
       customer: Kunde
       day: Tagesabschluss
@@ -49,8 +48,6 @@ de:
         credit_account: Soll
         debit_account:  Haben
         reference:      Referenz
-      client:
-        name:           Name
       day:
         date:            Datum
         cash:            Bargeldumsatz

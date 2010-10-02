@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101001231531) do
+ActiveRecord::Schema.define(:version => 20101002103358) do
 
   create_table "account_types", :force => true do |t|
     t.string "name",  :limit => 100
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(:version => 20101001231531) do
 
   create_table "accounts", :force => true do |t|
     t.string  "title",           :limit => 100
-    t.integer "client_id"
     t.integer "parent_id"
     t.integer "account_type_id"
     t.integer "number"
@@ -74,10 +73,6 @@ ActiveRecord::Schema.define(:version => 20101001231531) do
     t.string  "debit_currency",                    :default => "CHF"
     t.string  "credit_currency",                   :default => "CHF"
     t.float   "exchange_rate",                     :default => 1.0
-  end
-
-  create_table "clients", :force => true do |t|
-    t.string "name", :limit => 100
   end
 
   create_table "days", :force => true do |t|
