@@ -155,6 +155,7 @@ DEPENDENCIES
   fancy-buttons
   formtastic (~> 1.1.0)
   haml
+  has_scope
   hpricot
   i18n_rails_helpers (~> 0.8.0)
   inherited_resources

@@ -1,4 +1,7 @@
 class AccountsController < InheritedResources::Base
+  # Scopes
+  has_scope :by_value_period, :using => [:from, :to], :default => proc { |c| c.session[:has_scope] }
+
   def index
     @accounts = Account.paginate :page => params[:page], :per_page => 50, :order => 'number'
     
@@ -7,7 +10,8 @@ class AccountsController < InheritedResources::Base
   
   def show
     @account = Account.find(params[:id])
-    @bookings = Booking.by_account(@account)
+    @bookings = apply_scopes(Booking).by_account(@account)
+    
     if params[:only_credit_bookings]
       @bookings = @bookings.where(:credit_account_id => @account.id)
     end
