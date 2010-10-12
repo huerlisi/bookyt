@@ -1,4 +1,6 @@
 Bookyt::Application.routes.draw do
+  devise_for :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -47,12 +49,15 @@ Bookyt::Application.routes.draw do
   #   end
 
 
+  # Authentication
+#  devise_for :users
+  
   # Accounting
-  resources :clients
   resources :account_types
 
+  resources :companies
+
   resources :employees
-  resources :employers
   resources :employments
   
   resources :invoices

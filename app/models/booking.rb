@@ -29,6 +29,13 @@ class Booking < ActiveRecord::Base
     end
   end
 
+  # Returns array of all years we have bookings for
+  def self.fiscal_years
+    with_exclusive_scope do
+      select("DISTINCT strftime('%Y', value_date) AS year").all.map{|booking| booking.year}
+    end
+  end
+
 #  file_column :scan
 
   # Standard methods

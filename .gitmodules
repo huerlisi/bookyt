@@ -4,9 +4,6 @@
 [submodule "vendor/plugins/in_place_editing"]
 	path = vendor/plugins/in_place_editing
 	url = http://github.com/rails/in_place_editing.git
-[submodule "vendor/plugins/verification"]
-	path = vendor/plugins/verification
-	url = http://github.com/rails/verification.git
 [submodule "vendor/plugins/dynamic_form"]
 	path = vendor/plugins/dynamic_form
 	url = git://github.com/rails/dynamic_form.git
@@ -19,3 +16,6 @@
 [submodule "vendor/plugins/has_vcards"]
 	path = vendor/plugins/has_vcards
 	url = git://github.com/huerlisi/has_vcards.git
+[submodule "vendor/plugins/sentient_user"]
+	path = vendor/plugins/sentient_user
+	url = git://github.com/huerlisi/sentient_user.git

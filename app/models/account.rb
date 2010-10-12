@@ -12,7 +12,6 @@ end
 
 class Account < ActiveRecord::Base
   # Associations
-  belongs_to :client
   belongs_to :account_type
   
   has_many :credit_bookings, :class_name => "Booking", :foreign_key => "credit_account_id"

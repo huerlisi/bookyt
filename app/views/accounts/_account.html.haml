@@ -1,10 +1,10 @@
 %tr
   %td= account.code
   %td= link_to account.title, account
-  - if @date
-    %td{:style => "text-align: right"}= currency_fmt(account.saldo(@date))
+  - if params[:by_value_period]
+    %td{:style => "text-align: right"}= currency_fmt(account.saldo(params[:by_value_period][:from]..params[:by_value_period][:to]))
   - else
-    %td{:style => "text-align: right"}= currency_fmt(account.saldo.abs)
+    %td{:style => "text-align: right"}= currency_fmt(account.saldo)
   %td.action-links
     = link_to image_tag('16x16/edit.png', :title => 'Edit'), edit_account_path(account), :method => :get
     = link_to image_tag('16x16/remove.png', :title => 'Destroy'), account_path(account), :remote => true, :method => :delete, :confirm => t_confirm_delete(account)

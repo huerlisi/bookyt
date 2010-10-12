@@ -12,6 +12,7 @@
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
     /[if lt IE 7]
       = stylesheet_link_tag 'compiled/ie6.css', :media => 'screen, projection'
+
     = csrf_meta_tag
     %title
       = "#{t('application.title')} - #{controller.action_name.capitalize}"
@@ -24,12 +25,16 @@
         #main-menu
           = render_navigation(:level => 1)
 
-      #content
-        - if flash[:notice]
-          #flash.flash.notice
-            = flash[:notice]
-        = yield
+      #content-column
+        #content
+          - if notice
+            #flash.flash.notice= notice
+          - if alert
+            #alert.flash.alert= alert
+          = yield
 
-      #sidebar
-        = yield :sidebar
+      #sidebar-column
+        #sidebar
+          = yield :sidebar
+
     = javascript_include_tag :defaults
