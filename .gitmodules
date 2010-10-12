@@ -19,3 +19,6 @@
 [submodule "vendor/plugins/sentient_user"]
 	path = vendor/plugins/sentient_user
 	url = git://github.com/huerlisi/sentient_user.git
+[submodule "vendor/plugins/has_delegates"]
+	path = vendor/plugins/has_delegates
+	url = git://github.com/huerlisi/has_delegates.git
