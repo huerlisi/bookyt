@@ -1,1 +1,1 @@
-page.replace "employment_#{@employment.id}", ''
+page['tr'].remove("employment_#{@employment.id}")
