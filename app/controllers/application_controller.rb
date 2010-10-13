@@ -18,6 +18,7 @@ module ActionView
         # value is empty when re-showing field after error, use params  
         options["value"] =  value.to_s(:text_field) if value.is_a?(Date)
         options["value"] ||= params[object_name][method] if params[object_name]
+        options.merge!("date-picker" => true) 
 
         instance_tag.to_input_field_tag("text", options)
       end

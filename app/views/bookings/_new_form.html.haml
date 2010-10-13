@@ -3,6 +3,6 @@
   = f.inputs do
     = hidden_field_tag :stage, 'select'
     = f.input :title, :input_html => {'data-autofocus' => true}
-    = f.input :value_date, :as => :date_field, :input_html => {'date-picker' => true, :size => 10, :style => 'text-align: right'}
+    = f.input :value_date, :as => :date_field, :input_html => {:size => 10, :style => 'text-align: right'}
   = f.buttons do
     = f.commit_button t_action(:next)
