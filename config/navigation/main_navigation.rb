@@ -86,6 +86,8 @@ SimpleNavigation::Configuration.run do |navigation|
       basic_claims_data.item :customers, t('bookyt.main_navigation.customers'), customers_path, :highlights_on => /\/customers$/
     end
 
+    primary.item :user_settings, t('bookyt.main_navigation.settings'), edit_user_registration_path, :highlights_on => /\/users\/edit/
+
     primary.item :logout, t('bookyt.main_navigation.destroy_user_session'), destroy_user_session_path, :highlights_on => /\/users\/sign_out/, :if => Proc.new { user_signed_in? }
     primary.item :logout, t('bookyt.main_navigation.new_user_session'), new_user_session_path, :highlights_on => /\/users\/sign_in/, :unless => Proc.new { user_signed_in? }
   end

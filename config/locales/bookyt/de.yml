@@ -23,7 +23,8 @@ de:
       employee: Mitarbeiter
       employment: Anstellung
       invoice: Rechnung
-      
+      user: Benutzer
+
     attributes:
       account:
         code:           Nummer
@@ -158,3 +159,4 @@ de:
       invoicing: Debitoren
       new_invoice: Neue Rechnung
       invoices: Rechnungen
+      settings: Einstellungen
