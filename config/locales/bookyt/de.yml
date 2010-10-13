@@ -140,4 +140,18 @@ de:
       invoicing_party:        Rechnungssteller
     profit:
       earnings_statement_for: Erfolgsrechnung für {{company}} {{year}}
-
+    main_navigation:
+      new_day:  Tagesabschluss
+      new_booking: Neue Buchung
+      balance: Balance Sheet
+      profit:  Profit Sheet
+      accounts: Konten
+      bookings: Journal
+      employees: Mitarbeiter
+      companies:  Firmen
+      customers: Kunden
+      destroy_user_session:  Logout
+      new_user_session:  Login
+      store: Laden
+      accounting: Buchhaltung
+      basic_claims_data: Stammdaten
