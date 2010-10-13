@@ -21,6 +21,8 @@ body
   color: #f8f8f8
   padding: 4px 8px 0px 6px
   position: relative
+  +border-radius($border_radius)
+  border: 1px solid #dddddd
   a
     color: #f8f8f8
 
@@ -28,9 +30,11 @@ body
 #content
   background-color: white
   margin: 0px
-  border-right: 1px solid #dddddd
+  border: 1px solid #dddddd
   padding: $content_padding
-  z-index: 10
+  +sanserif-font
+  font-size: $text_size
+  +border-radius($border_radius)
 
 * html #content
   padding-left: 0

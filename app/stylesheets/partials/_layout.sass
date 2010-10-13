@@ -7,13 +7,13 @@ body
 #container
   +container
 
-#main-menu
-  ul
-    +horizontal-list
-    
 #content-column
   +column($column_content)
+  +last
 
 #sidebar-column
   +column($column_sidebar)
-  +last
+
+#sidebar-column,
+#content-column
+  margin-top: 10px

@@ -1,0 +1,18 @@
+#second-main-menu
+  margin: -1em
+  +border-top-radius($border_radius)
+  border: 1px solid #AEB9CF
+  ul
+    +no-bullets
+    li
+      border-bottom: 1px solid white
+      line-height: 2em
+      a
+        display: block
+        padding-left: 1em
+        &.selected,
+        &:hover
+          color: black
+      &:hover,
+      &.selected
+        border-bottom: 1px solid #AEB9CF
