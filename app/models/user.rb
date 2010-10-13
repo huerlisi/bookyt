@@ -12,4 +12,9 @@ class User < ActiveRecord::Base
 
   # Associations
   belongs_to :person
+  
+  # Shortcuts
+  def current_company
+    person.try(:employers).try(:first)
+  end
 end
