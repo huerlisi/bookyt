@@ -30,7 +30,7 @@ To get an idea on what we're currently focus on visit the "Roadmap":http://redmi
 
 Find out what we want to do next on "Sprints":http://redmine.cyt.ch/projects/bookyt/wiki/Sprints
 
-To get to know what bookyt should cover see "User Stories":http://redmine.cyt.ch/projects/bookyt/wiki/User_Stories]]
+To get to know what bookyt should cover see "User Stories":http://redmine.cyt.ch/projects/bookyt/wiki/User_Stories
 
 h2. License
 
