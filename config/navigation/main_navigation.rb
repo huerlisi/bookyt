@@ -75,6 +75,11 @@ SimpleNavigation::Configuration.run do |navigation|
       accounting.item :bookings, t('bookyt.main_navigation.bookings'), bookings_path, :highlights_on => /\/bookings$/
     end
 
+    primary.item :invoicing, t('bookyt.main_navigation.invoicing'), invoices_path, :if => Proc.new { user_signed_in? }, :highlights_on => /\/invoices.*/ do |invoicing|
+      invoicing.item :new_invoice, t('bookyt.main_navigation.new_invoice'), new_invoice_path, :highlights_on => /\/invoices\/new.*$/
+      invoicing.item :invoices, t('bookyt.main_navigation.invoices'), invoices_path, :highlights_on => /\/invoices$/
+    end
+
     primary.item :basic_claims_data, t('bookyt.main_navigation.basic_claims_data'), employees_path, :if => Proc.new { user_signed_in? } do |basic_claims_data|
       basic_claims_data.item :employees, t('bookyt.main_navigation.employees'), employees_path, :highlights_on => /\/employees$/
       basic_claims_data.item :employers, t('bookyt.main_navigation.companies'), companies_path, :highlights_on => /\/companies$/

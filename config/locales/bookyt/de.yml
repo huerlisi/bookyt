@@ -155,3 +155,6 @@ de:
       store: Laden
       accounting: Buchhaltung
       basic_claims_data: Stammdaten
+      invoicing: Debitoren
+      new_invoice: Neue Rechnung
+      invoices: Rechnungen
