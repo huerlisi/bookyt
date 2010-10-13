@@ -18,6 +18,8 @@ h2. Documentation
 
 Documentation is maintained in a "Wiki":http://redmine.cyt.ch/projects/mailyt/wiki.
 
+* "Installation":http://redmine.cyt.ch/projects/bookyt/wiki/Installation
+
 h2. Contributing
 
 Code is available at "github":http://github.com/huerlisi/mailyt.
