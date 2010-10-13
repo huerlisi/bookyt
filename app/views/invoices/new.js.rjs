@@ -1,1 +1,1 @@
-page.insert_html :before, 'invoices_list', :partial => 'form'
+page['#invoices_list'].before(render(:partial => 'form'))

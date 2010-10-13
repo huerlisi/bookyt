@@ -1,1 +1,1 @@
-page.insert_html :before, 'employment_list', :partial => 'form'
+page['#employment_list'].before(render(:partial => 'form'))
