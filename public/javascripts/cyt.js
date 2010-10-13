@@ -5,7 +5,7 @@ function addAutofocusBehaviour() {
 
 function addDatePickerBehaviour() {
   $('*[date-picker=true]').each(function(){
-    $(this).datepicker();
+    $(this).datepicker({ dateFormat: 'dd.mm.yy' });
   });
 }
 
