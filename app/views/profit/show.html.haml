@@ -3,13 +3,13 @@
   td.action-links {display: none}
 
 %h1
-  Erfolgsrechnung f&uuml;r #{@company} #{@year}
+  = t('bookyt.profit.earnings_statement_for', :company => @company, :year => @year)
 #profit-sheet
   = semantic_form_for :profit do |f|
     = f.inputs do
       = f.input :end_date, :as => :date_field, :input_html => {:size => 10, :style => 'text-align: right'}
     = f.buttons do
-      = f.commit_button 'Anzeigen'
+      = f.commit_button t('bookyt.show')
   %table
     %tr
       %th Aufwand
@@ -20,17 +20,20 @@
           = render 'accounts/list_header'
           = render Account.expenses.all.select{|a| a.saldo(@date) != 0.0}
           %tr.total
-            %th{:colspan => "2"} Total
+            %th{:colspan => "2"}
+              = t('bookyt.total')
             %th.currency= currency_fmt(Account.expenses.saldo(@date))
       %td{:style => "background-color: #FF0000"}
         %table{:style => "border-spacing:0", :width => "100%"}
           = render 'accounts/list_header'
           = render Account.earnings.all.select{|a| a.saldo(@date) != 0.0}
           %tr.total
-            %th{:colspan => "2"} Total
+            %th{:colspan => "2"}
+              = t('bookyt.total')
             %th.currency= currency_fmt(Account.earnings.saldo(@date))
     - difference = Account.expenses.saldo(@date) - Account.earnings.saldo(@date)
     - if difference != 0
     %tr.total
-      %th Differenz
+      %th
+        = t('bookyt.difference')
       %td.currency= currency_fmt(difference)

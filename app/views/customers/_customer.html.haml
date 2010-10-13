@@ -1,5 +1,5 @@
 %tr[customer]
   %td= link_to customer.vcard.try(:full_name), customer, {'data-href-container' => 'tr'}
   %td.action-links
-    = link_to image_tag('16x16/edit.png', :title => 'Edit'), edit_customer_path(customer), :method => :get
-    = link_to image_tag('16x16/remove.png', :title => 'Destroy'), customer_path(customer), :remote => true, :method => :delete, :confirm => t_confirm_delete(customer)
+    = link_to image_tag('16x16/edit.png', :title => t('bookyt.edit')), edit_customer_path(customer), :method => :get
+    = link_to image_tag('16x16/remove.png', :title => t('bookyt.destroy')), customer_path(customer), :remote => true, :method => :delete, :confirm => t_confirm_delete(customer)

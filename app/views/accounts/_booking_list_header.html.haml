@@ -1,8 +1,14 @@
 %tr
-  %th Datum
-  %th Text
-  %th Referenz
-  %th{:style => "text-align: right"} Soll
-  %th{:style => "text-align: right"} Haben
-  %th{:style => "text-align: right"} Saldo
+  %th
+    = t('activerecord.attributes.booking.date')
+  %th
+    = t('activerecord.attributes.booking.text')
+  %th
+    = t('activerecord.attributes.booking.reference')
+  %th{:style => "text-align: right"}
+    = t('activerecord.attributes.booking.credit_account')
+  %th{:style => "text-align: right"}
+    = t('activerecord.attributes.booking.debit_account')
+  %th{:style => "text-align: right"}
+    = t('activerecord.attributes.booking.balance')
   %th.action-links

@@ -40,6 +40,13 @@ de:
         credit_account: Soll
         debit_account:  Haben
         reference:      Referenz
+        text:           Text
+        date:           Datum
+        balance:        Saldo
+        edit:           Editieren
+        destroy:        Löschen
+        valuta:         Valuta
+        value:          Wert
       booking_template:
         value_date:     Valutadatum
         title:          Titel
@@ -59,6 +66,9 @@ de:
         product_count:   Verkaufte Produkte
         credit_turnover: Kreditumsatz
         discount:        Rabatt
+        from:            Abrechnung von
+        total:           Total
+        calculate:       Ausrechnen
       employee:
         full_name:     Name
         date_of_birth: Geburtsdatum
@@ -81,7 +91,53 @@ de:
         title:         Titel
         remarks:       Bemerkungen
         amount:        Betrag
+        invoice:       Invoice
 
   crud:
     title:
       select_booking_template: %{model} anlegen
+
+  bookyt:
+    all:              Alle
+    edit:             Editieren
+    destroy:          Löschen
+    greetings:        Mit freundlichen Grüssen,
+    pdf:              PDF
+    show:             Anzeigen
+    total:            Total
+    difference:       Differenz
+    back:             Zurück
+    equity_capital:   Eigenkapital
+    capital_assets:   Anlagevermögen
+    debt_capital:     Fremdkapital
+    working_capital:  Umlaufvermögen
+    balance_for:      Bilanz für {{company}} {{year}}
+    devise:
+      resend:                     Resend confirmation instructions
+      welcome:                    Welcome {{email}}!
+      confirm_with_link:          'You can confirm your account through the link below:'
+      confirm_account:            Confirm my account
+      hello:                      Hello {{email}}!
+      request_to_change_password: Someone has requested a link to change your password, and you can do this through the link below.
+      change_my_password:         Change my password
+      ignore_mail:
+        first_line:               If you didn't request this, please ignore this email.
+        second_line:              Your password won't change until you access the link above and create a new one.
+      unlock_my_account:          Unlock my account
+      click_to_unlock_account:    'Click the link below to unlock your account:'
+      account_locked:             Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
+      change_your_password:       Change your password
+      forgot_your_password:       Forgot your password?
+      send_reset_instructions:    Send me reset password instructions
+      update:                     Update
+      sign_up:                    Sign up
+      sign_in:                    Sign in
+      resend_unlock_instructions: Resend unlock instructions
+      no_confirmation_received:   Didn't receive confirmation instructions?
+      no_unlock_received:         Didn't receive unlock instructions?
+    invoices:
+      payment_no:             Rechnung Nr. {{payment_no}}
+      invoicing_party:        Rechnungssteller
+    profit:
+      earnings_statement_for: Erfolgsrechnung für {{company}} {{year}}
+
