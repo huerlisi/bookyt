@@ -3,36 +3,32 @@ function addAutofocusBehaviour() {
   $('*[data-autofocus=true]').first().focus();
 };
 
+// Add datepicker
 function addDatePickerBehaviour() {
   $('*[date-picker=true]').each(function(){
     $(this).datepicker({ dateFormat: 'dd.mm.yy' });
   });
-}
+};
+
+//
+function addSortableBehaviour() {
+  $(".sortable").sortable();
+  $(".sortable").disableSelection();
+};
+                    
 
 // Linkify containers having attribute data-href-container
 function addLinkifyContainersBehaviour() {
   var elements = $('*[data-href-container]');
-  elements.each(function(element) {
-    var container = element.up(element.readAttribute('data-href-container'));
-    container.style.cursor = "pointer";
-    container.writeAttribute('data-href', element.readAttribute('href'));
-  });
-  
-  $(document.body).observe("click", function(event) {
-    var link = event.findElement("a");
-    if (link) {
-      return true;
-    };
+  elements.each(function() {
+    var element = $(this);
+    var container = element.closest(element.data('href-container'));
+    container.css('cursor', "pointer");
+    var href = element.attr('href');
     
-    var element = event.element();
-    var container = element.up("[data-href]");
-    if (container) {
-      var href = container.readAttribute('data-href');
+    container.delegate(':not(a)', 'click', {href: href}, function() {
       document.location.href = href;
-
-      event.stop();
-      return false;
-    }
+    });
   });
 };
 
@@ -83,5 +79,6 @@ function addLinkifyContainersBehaviour() {
 $(document).ready(function() {
     addAutofocusBehaviour();
     addDatePickerBehaviour();
+    addSortableBehaviour();
     addLinkifyContainersBehaviour();
 });
