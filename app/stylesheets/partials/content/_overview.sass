@@ -6,13 +6,32 @@
     li#invoicing,
     li#basic_claims_data
       width: 120px
-    li a
-      border-bottom: 1px solid black
-      display: block
+    li
+      background: no-repeat top left
+      padding-left: 58px
+      padding-right: 40px
+      min-height: 58px
+      a
+        border-bottom: 1px solid black
+        display: block
+      &#overview
+        display: none
+      &#store
+        background-image: url(/images/48x48/store.png)
+      &#accounting
+        background-image: url(/images/48x48/accounting.png)
+      &#invoicing
+        background-image: url(/images/48x48/invoicing.png)
+      &#basic_claims_data
+        background-image: url(/images/48x48/basic_claims_data.png)
+      &#user_settings
+        background-image: url(/images/48x48/user_settings.png)
     ul
       width: inherit
+      margin-top: 5px
       li
         padding-left: 0px
         width: inherit
+        min-height: 1em
         a
           border-bottom: none
