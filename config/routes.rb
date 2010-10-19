@@ -77,6 +77,8 @@ Bookyt::Application.routes.draw do
   end
   
   resources :booking_templates
+
+  resource :balance
   
   # Days
   resources :days
@@ -85,7 +87,7 @@ Bookyt::Application.routes.draw do
   
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "balance#show"
+  root :to => "overview#index"
 
   # See how all your routes lay out with "rake routes"
 
