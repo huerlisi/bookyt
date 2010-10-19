@@ -12,4 +12,4 @@
   = t('bookyt.overview.title')
 
 #overview
-  = render_navigation(:context => 'main', :expand_all => true)
+  = render_navigation(:context => 'main', :expand_all => true, :renderer => SimpleNavigation::Renderer::Overview)

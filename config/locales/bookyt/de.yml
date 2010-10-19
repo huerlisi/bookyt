@@ -161,5 +161,25 @@ de:
       invoices: Rechnungen
       settings: Einstellungen
       overview: Übersicht
+      tooltip:
+        new_day:  Tagesabschluss
+        new_booking: Neue Buchung
+        balance: Balance Sheet
+        profit:  Profit Sheet
+        accounts: Konten
+        bookings: Journal
+        employees: Mitarbeiter
+        companies:  Firmen
+        customers: Kunden
+        destroy_user_session:  Logout
+        new_user_session:  Login
+        store: Laden
+        accounting: Buchhaltung
+        basic_claims_data: Stammdaten
+        invoicing: Debitoren
+        new_invoice: Neue Rechnung
+        invoices: Rechnungen
+        settings: Einstellungen
+        overview: Übersicht
     overview:
       title: Übersicht
