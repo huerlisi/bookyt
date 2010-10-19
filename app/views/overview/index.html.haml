@@ -1,0 +1,15 @@
+// Sets the class of #content-column
+- content_for :class_content_column do
+  hole-width
+
+- content_for :class_sidebar_column do
+  display-none
+
+- content_for :page_title do
+  = t('bookyt.overview.title')
+
+%h1
+  = t('bookyt.overview.title')
+
+#overview
+  = render_navigation(:context => 'main', :expand_all => true)
