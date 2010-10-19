@@ -63,13 +63,14 @@ SimpleNavigation::Configuration.run do |navigation|
     # primary.auto_highlight = false
 
     # bookyt navigation
+    primary.item :overview, t('bookyt.main_navigation.overview'), root_path
     primary.item :store, t('bookyt.main_navigation.store'), new_day_path, :if => Proc.new { user_signed_in? } do |store|
       store.item :day, t('bookyt.main_navigation.new_day'), new_day_path, :highlights_on => /\/days/
     end
 
     primary.item :accounting, t('bookyt.main_navigation.accounting'), new_booking_path, :if => Proc.new { user_signed_in? } do |accounting|
       accounting.item :booking, t('bookyt.main_navigation.new_booking'), new_booking_path, :highlights_on => /\/bookings\/.*$/
-      accounting.item :balance, t('bookyt.main_navigation.balance'), root_path
+      accounting.item :balance, t('bookyt.main_navigation.balance'), balance_path
       accounting.item :profit, t('bookyt.main_navigation.profit'), profit_path
       accounting.item :accounts, t('bookyt.main_navigation.accounts'), accounts_path, :highlights_on => /\/accounts/
       accounting.item :bookings, t('bookyt.main_navigation.bookings'), bookings_path, :highlights_on => /\/bookings$/
@@ -86,9 +87,6 @@ SimpleNavigation::Configuration.run do |navigation|
       basic_claims_data.item :customers, t('bookyt.main_navigation.customers'), customers_path, :highlights_on => /\/customers$/
     end
 
-    primary.item :user_settings, t('bookyt.main_navigation.settings'), edit_user_registration_path, :highlights_on => /\/users\/edit/
-
-    primary.item :logout, t('bookyt.main_navigation.destroy_user_session'), destroy_user_session_path, :highlights_on => /\/users\/sign_out/, :if => Proc.new { user_signed_in? }
-    primary.item :logout, t('bookyt.main_navigation.new_user_session'), new_user_session_path, :highlights_on => /\/users\/sign_in/, :unless => Proc.new { user_signed_in? }
+    primary.item :user_settings, t('bookyt.main_navigation.settings'), edit_user_registration_path, :if => Proc.new { user_signed_in? }, :highlights_on => /\/users\/edit/
   end
 end
