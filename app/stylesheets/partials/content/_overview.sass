@@ -1,3 +1,7 @@
+@mixin icon-48($ident)
+  &##{$ident}
+    background-image: url("/images/48x48/#{$ident}.png")
+
 #overview
   ul
     +no-bullets
@@ -16,20 +20,17 @@
         display: block
       &#overview
         display: none
-      &#store
-        background-image: url(/images/48x48/store.png)
-      &#accounting
-        background-image: url(/images/48x48/accounting.png)
-      &#invoicing
-        background-image: url(/images/48x48/invoicing.png)
-      &#basic_claims_data
-        background-image: url(/images/48x48/basic_claims_data.png)
-      &#user_settings
-        background-image: url(/images/48x48/user_settings.png)
+      +icon-48('store')
+      +icon-48('accounting')
+      +icon-48('invoicing')
+      +icon-48('basic_claims_data')
+      +icon-48('user_settings')
     ul
       width: inherit
       margin-top: 5px
       li
+        display: block
+        float: none
         padding-left: 0px
         width: inherit
         min-height: 1em
