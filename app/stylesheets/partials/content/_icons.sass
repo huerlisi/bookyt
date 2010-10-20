@@ -7,8 +7,11 @@
     float: left
 
 =icon($ident, $size=16)
+  background-image: url("/images/#{$size}x#{$size}/#{$ident}.png")
+
+=icon-class($ident, $size=16)
   .icon-#{$ident}
-    background-image: url("/images/#{$size}x#{$size}/#{$ident}.png")
+    +icon($ident, $size)
 
 .icon
   background-repeat: no-repeat
@@ -19,10 +22,10 @@
   &:hover
     color: $link_color_hover
 
-+icon('add')
-+icon('delete')
-+icon('edit')
-+icon('index')
++icon-class('add')
++icon-class('delete')
++icon-class('edit')
++icon-class('index')
 
 +icon-text('add')
 +icon-text('delete')
