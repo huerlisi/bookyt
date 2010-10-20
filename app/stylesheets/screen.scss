@@ -5,10 +5,8 @@
 // Import all the default blueprint modules so that we can access their mixins.
 @import "blueprint";
 @import 'partials/layout';
-@import 'partials/header';
 @import 'partials/content';
 @import 'partials/sidebar';
-@import 'partials/navigation';
 
 // Import the non-default scaffolding module.
 //@import "blueprint/scaffolding";
@@ -16,9 +14,6 @@
 // To generate css equivalent to the blueprint css but with your
 // configuration applied, uncomment:
 // @include blueprint
-
-@import 'partials/cyt';
-@import 'partials/application';
 
 // jQuery UI styling
 @import 'partials/jquery'
