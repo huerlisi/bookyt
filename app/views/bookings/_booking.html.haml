@@ -11,6 +11,6 @@
   %td{:style => "text-align: right"}= link_to booking.debit_account.code, account_path(booking.debit_account), :title => booking.debit_account.title unless booking.debit_account.nil?
   %td{:style => "text-align: right"}= currency_fmt(booking.amount)
   %td.action-links
-    = link_to image_tag('16x16/edit.png', :title => t('bookyt.edit')), edit_booking_path(booking), :method => :get
-    = link_to image_tag('16x16/remove.png', :title => t('bookyt.destroy')), booking_path(booking), :remote => true, :method => :delete, :confirm => t_confirm_delete(booking)
+    = icon_edit_link_to edit_booking_path(booking)
+    = icon_delete_link_to booking, booking_path(booking)
     =# link_to image_tag('16x16/copy.png', :title => 'Copy'), copy_booking_path(booking), :remote => true
