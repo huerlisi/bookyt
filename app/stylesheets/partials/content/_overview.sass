@@ -1,6 +1,10 @@
-@mixin icon-48($ident)
+=icon-48($ident)
   &##{$ident}
     background-image: url("/images/48x48/#{$ident}.png")
+
+=overview-icon-48($ident)
+  #overview ul li
+    +icon-48($ident)
 
 #overview
   ul
@@ -20,11 +24,6 @@
         display: block
       &#overview
         display: none
-      +icon-48('store')
-      +icon-48('accounting')
-      +icon-48('invoicing')
-      +icon-48('basic_claims_data')
-      +icon-48('user_settings')
     ul
       width: inherit
       margin-top: 5px
