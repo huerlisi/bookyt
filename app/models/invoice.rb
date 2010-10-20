@@ -8,6 +8,7 @@ class Invoice < ActiveRecord::Base
   
   # Validations
   validates_date :due_date
+  validates_presence_of :customer, :company, :title, :amount, :state
   
   # Helpers
   def to_s
