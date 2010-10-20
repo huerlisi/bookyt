@@ -177,3 +177,19 @@ th.action-links
     text-align: left
     font-weight: bold
     font-style: italic
+
+// Boxes
+.box
+  +border-radius($border_radius)
+  background-color: #F6F6F6
+  border: 1px solid #E4E4E4
+  color: #505050
+  line-height: 1.5em
+  margin-bottom: 10px
+  padding: 6px
+
+.subbox, form.formtastic fieldset.subbox
+  border: solid 2px white
+  +border-radius($border_radius / 2)
+  padding: 1em
+  width: 97%
