@@ -162,24 +162,24 @@ de:
       settings: Einstellungen
       overview: Übersicht
       tooltip:
-        new_day:  Tagesabschluss
-        new_booking: Neue Buchung
-        balance: Balance Sheet
-        profit:  Profit Sheet
-        accounts: Konten
-        bookings: Journal
-        employees: Mitarbeiter
-        companies:  Firmen
-        customers: Kunden
-        destroy_user_session:  Logout
-        new_user_session:  Login
-        store: Laden
-        accounting: Buchhaltung
-        basic_claims_data: Stammdaten
-        invoicing: Debitoren
-        new_invoice: Neue Rechnung
-        invoices: Rechnungen
-        settings: Einstellungen
-        overview: Übersicht
+        new_day:  Hier können Sie einen neuen Tagesabschluss gemäss Registrierkasse buchen
+        new_booking: Hier können Sie eine neue Buchung für die Finanzbuchhaltung erstellen
+        balance: Hier können Sie die Bilanz aufrufen
+        profit:  Hier können Sie die Erfolgsrechnung aufrufen
+        accounts: Hier finden Sie eine Liste aller Konten der Finanzbuchhaltung
+        bookings: Im Journal finden Sie alle Buchungen die erstellt wurden
+        employees: Hier finden Sie eine Liste aller Mitarbeiter
+        companies:  Hier finden Sie eine Liste aller Firmen (Mandanten)
+        customers: Hier finden Sie eine Liste aller Kunden
+        destroy_user_session:  Hier können Sie sich von Bookyt abmelden
+        new_user_session:  Hier können Sie sich bei Bookyt anmelden
+        store: Hier finden Sie alle Funktionen welche Sie im Laden brauchen
+        accounting: Hier finden Sie sämtliche Funktionen für die Finanzbuchhaltung
+        basic_claims_data: Hier können Sie die Stammdaten anzeigen und bearbeiten
+        invoicing: Hier können Sie Rechnungen erstellen und überwachen
+        new_invoice: Erstellt eine neue Rechnung
+        invoices: Listet alle Rechnungen auf
+        settings: Hier können die nötigen Einstellungen für Bookyt gemacht werden
+        overview: Gibt Ihnen eine Übersicht über die Funktionen
     overview:
       title: Übersicht
