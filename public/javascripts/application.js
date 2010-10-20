@@ -1,13 +1,13 @@
 $(document).ready(function() {
-  loadOverviewTooltips();
-  loadIconTooltips();
+  addOverviewTooltipBehaviour();
+  addIconTooltipBehaviour();
 });
 
-function loadOverviewTooltips() {
+function addOverviewTooltipBehaviour() {
   $('ul#overview li a[title]').tooltip();
 };
 
-function loadIconTooltips() {
+function addIconTooltipBehaviour() {
   $('a.icon-tooltip[title]').tooltip({
     tipClass: 'icon-tooltip-popup',
     effect: 'fade',
