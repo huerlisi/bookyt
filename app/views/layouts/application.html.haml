@@ -26,9 +26,9 @@
           = render_navigation(:context => :main, :level => 1)
           = render_navigation(:context => :user, :level => 1)
       #sidebar-column
-        #sidebar
-          #second-main-menu
-            = render_navigation(:context => :main, :level => 2)
+        #second-main-menu.sidebar
+          = render_navigation(:context => :main, :level => 2)
+        #sidebar.sidebar
           = yield :sidebar
 
       #content-column

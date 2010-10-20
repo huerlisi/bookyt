@@ -1,3 +1,15 @@
+@import 'compass/utilities/text/replacement'
+
+$icon_add_url     = '/images/16x16/add.png'
+$icon_remove_url  = '/images/16x16/remove.png'
+$icon_edit_url    = '/images/16x16/edit.png'
+$icon_index_url   = '/images/16x16/index.png'
+
+=icon-text($img_url)
+  +replace-text-with-dimensions($img_url)
+  display: block
+  float: left
+
 .icon
   background-repeat: no-repeat
   padding-left: 20px
@@ -7,10 +19,19 @@
   &:hover
     color: $link_color_hover
 .icon-add
-  background-image: url(/images/16x16/add.png)
+  background-image: url($icon_add_url)
 .icon-delete
-  background-image: url(/images/16x16/remove.png)
+  background-image: url($icon_remove_url)
 .icon-edit
-  background-image: url(/images/16x16/edit.png)
+  background-image: url($icon_edit_url)
 .icon-index
-  background-image: url(/images/16x16/index.png)
+  background-image: url($icon_index_url)
+
+.icon-add-text
+  +icon-text($icon_add_url)
+.icon-delete-text
+  +icon-text($icon_remove_url)
+.icon-edit-text
+  +icon-text($icon_edit_url)
+.icon-index-text
+  +icon-text($icon_index_url)

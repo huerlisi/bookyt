@@ -1,5 +1,5 @@
 %tr[company]
   %td= link_to company.vcard.try(:full_name), company, {'data-href-container' => 'tr'}
   %td.action-links
-    = link_to image_tag('16x16/edit.png', :title => t('bookyt.edit')), edit_company_path(company), :method => :get
-    = link_to image_tag('16x16/remove.png', :title => t('bookyt.destroy')), company_path(company), :remote => true, :method => :delete, :confirm => t_confirm_delete(company)
+    = icon_edit_link_to edit_company_path(company)
+    = icon_delete_link_to company, company_path(company)
