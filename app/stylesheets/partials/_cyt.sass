@@ -28,12 +28,15 @@ body
 
 // Content
 #content
-  background-color: white
   margin: 0px
-  border: 1px solid #dddddd
   padding: $content_padding
   +sanserif-font
   font-size: $text_size
+
+#content-column
+  background-color: white
+  border: 1px solid #dddddd
+  margin-left: -2px
   +border-radius($border_radius)
 
 * html #content
@@ -42,23 +45,31 @@ body
   padding: $content_padding
 
 html>body
-  #content, #sidebar
+  #content-column,
+  #sidebar-column
     min-height: 600px
 
 * html body
-  #content, #sidebar
+  #content-column,
+  #sidebar-column
     height: 600px
 
 // Sidebar
-#sidebar
+.sidebar,
+#sidebar-column
   background-color: white
-  margin: 0px
-  border: 1px solid #dddddd
-  padding: $content_padding
   +sanserif-font
   font-size: $text_size
   +border-radius($border_radius)
-
+.sidebar
+  margin: 0px
+  padding-left: 10px
+  margin-bottom: 10px
+  ul
+    +no-bullets
+#sidebar-column
+  margin-right: 10px
+  border: 1px solid #dddddd
 // Login form
 #login-form
   table
