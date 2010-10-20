@@ -26,6 +26,8 @@ de:
       user: Benutzer
 
     attributes:
+      title:            Titel
+      amount:           Betrag
       account:
         code:           Nummer
         title:          Titel
@@ -47,7 +49,7 @@ de:
         edit:           Editieren
         destroy:        Löschen
         valuta:         Valuta
-        value:          Wert
+        value:          Betrag
       booking_template:
         value_date:     Valutadatum
         title:          Titel
@@ -98,6 +100,7 @@ de:
         password:                       Passwort
         password_confirmation:          Passwort Bestätigung
         current_password:               Aktuelles Passwort
+        remember_me:                    Angemeldet bleiben
       vcard:
         full_name:                      Name
       address:
