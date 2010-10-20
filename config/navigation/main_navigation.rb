@@ -64,7 +64,8 @@ SimpleNavigation::Configuration.run do |navigation|
 
     # bookyt navigation
     primary.item :overview, t('bookyt.main_navigation.overview'), root_path,
-                 :tooltip => t('bookyt.main_navigation.tooltip.overview')
+                 :tooltip => t('bookyt.main_navigation.tooltip.overview'),
+                 :if => Proc.new { user_signed_in? }
     primary.item :store, t('bookyt.main_navigation.store'), new_day_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.store'),
                  :if => Proc.new { user_signed_in? } do |store|
