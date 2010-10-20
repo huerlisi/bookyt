@@ -1,16 +1,16 @@
 $(document).ready(function() {
-    loadOverviewTooltips();
-    loadIconTooltips();
+  loadOverviewTooltips();
+  loadIconTooltips();
 });
 
 function loadOverviewTooltips() {
-    $('ul#overview li a[title]').tooltip();
-}
+  $('ul#overview li a[title]').tooltip();
+};
 
 function loadIconTooltips() {
-    $('a.icon-tooltip[title]').tooltip({
-        tipClass: 'icon-tooltip-popup',
-        effect: 'fade',
-        fadeOutSpeed: 100
-    });
-}
+  $('a.icon-tooltip[title]').tooltip({
+    tipClass: 'icon-tooltip-popup',
+    effect: 'fade',
+    fadeOutSpeed: 100
+  });
+};
