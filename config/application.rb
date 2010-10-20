@@ -57,4 +57,4 @@ module Bookyt
 end
 
 # Include your application configuration below
-#require 'float.rb'
+require 'sqlite3_extensions.rb'
