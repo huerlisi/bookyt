@@ -93,6 +93,18 @@ de:
         remarks:       Bemerkungen
         amount:        Betrag
         invoice:       Invoice
+      user:
+        email:                          E-Mail
+        password:                       Passwort
+        password_confirmation:          Passwort Bestätigung
+        current_password:               Aktuelles Passwort
+      vcard:
+        full_name:                      Name
+      address:
+        street_address:                 Strasse
+        extended_address:               Postfach
+        postal_code:                    PLZ
+        locality:                       Ort
 
   crud:
     title:
