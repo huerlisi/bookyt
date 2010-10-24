@@ -1,9 +1,10 @@
-%h2 Resend confirmation instructions
+%h2
+  = t('bookyt.devise.resend')
 = form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
   = devise_error_messages!
   %p
     = f.label :email
     %br/
     = f.text_field :email
-  %p= f.submit "Resend confirmation instructions"
+  %p= f.submit t('bookyt.devise.resend')
 = render :partial => "devise/shared/links"

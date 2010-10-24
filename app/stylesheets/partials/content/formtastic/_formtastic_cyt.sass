@@ -16,22 +16,40 @@ form.formtastic
   border: 1px solid #e4e4e4
   fieldset > ol > li.boolean label
     padding-left: 15%
+
   ul.errors
     color: #cc0000
     margin: 0.5em 0 1.5em 15%
     list-style: square
+  li.error
+    input
+      border-color: #cc0000
+  > ol > li
+    p.inline-errors
+      color: #dd0000
+      padding-left: 6px
+      margin: 0 0 0 15%
 
-// BOOLEAN OVERRIDES
-// SEMANTIC ERRORS
-// FIELD SETS & LISTS
-#recall_form form.formtastic fieldset
-  border: 2px groove #d7d7d7
-  padding: 0.2em
-  &.buttons
-    border: 0
-    padding-left: 15%
+  // Date-picker styling
+  input.hasDatepicker
+    width: 85px
+
+  legend
+    color: #505050
+    font-style: italic
+    padding-left: 1em
+    padding-right: 1em
 
 // LABELS
+form.formtastic fieldset.inputs
+  padding: 1em
+  width: 97%
+  border-bottom: 1px solid #e4e4e4
+  margin-bottom: 10px
+  fieldset
+    border-bottom: none
+    margin-bottom: 10px
+    
 form.formtastic fieldset
   ol li label
     width: 15%

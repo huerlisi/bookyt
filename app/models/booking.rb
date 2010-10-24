@@ -32,7 +32,7 @@ class Booking < ActiveRecord::Base
   # Returns array of all years we have bookings for
   def self.fiscal_years
     with_exclusive_scope do
-      select("DISTINCT strftime('%Y', value_date) AS year").all.map{|booking| booking.year}
+      select("DISTINCT year(value_date) AS year").all.map{|booking| booking.year}
     end
   end
 

@@ -1,10 +1,10 @@
-h1. mailyt
+h1. bookyt
 
-mailyt is a simple but powerfull financial accounting software.
+bookyt is a simple but powerfull financial accounting software.
 
-h2. About mailyt
+h2. About bookyt
 
-mailyt is a web application implementing double-entry bookkeeping providing:
+bookyt is a web application implementing double-entry bookkeeping providing:
 
 * Customizable accounts
 * Booking wizard
@@ -12,23 +12,25 @@ mailyt is a web application implementing double-entry bookkeeping providing:
 * Earnings report
 * Balance sheet
 
-mailyt is built on "Ruby On Rails":http://www.rubyonrails.org and released as "Open Source":http://www.opensource.org.
+bookyt is built on "Ruby On Rails":http://www.rubyonrails.org and released as "Open Source":http://www.opensource.org.
 
 h2. Documentation
 
-Documentation is maintained in a "Wiki":http://redmine.cyt.ch/projects/mailyt/wiki.
+Documentation is maintained in a "Wiki":http://redmine.cyt.ch/projects/bookyt/wiki.
+
+* "Installation":http://redmine.cyt.ch/projects/bookyt/wiki/Installation
 
 h2. Contributing
 
-Code is available at "github":http://github.com/huerlisi/mailyt.
+Code is available at "github":http://github.com/huerlisi/bookyt.
 
-Issue tracking is done using "Redmine":http://redmine.cyt.ch/projects/mailyt/issues.
+Issue tracking is done using "Redmine":http://redmine.cyt.ch/projects/bookyt/issues.
 
-To get an idea on what we're currently focus on visit the "Roadmap":http://redmine.cyt.ch/projects/mailyt/roadmap.
+To get an idea on what we're currently focus on visit the "Roadmap":http://redmine.cyt.ch/projects/bookyt/roadmap.
 
-Find out what we want to do next on [[Sprints]]
+Find out what we want to do next on "Sprints":http://redmine.cyt.ch/projects/bookyt/wiki/Sprints
 
-To get to know what mailyt should cover see [[User Stories]]
+To get to know what bookyt should cover see "User Stories":http://redmine.cyt.ch/projects/bookyt/wiki/User_Stories
 
 h2. License
 

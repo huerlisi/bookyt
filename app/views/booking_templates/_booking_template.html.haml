@@ -11,6 +11,6 @@
   %td{:style => "text-align: right"}= currency_fmt(booking_template.amount)
   %td.action-links
     = link_to image_tag('16x16/edit.png', :title => 'Edit'), edit_booking_template_path(booking_template), :method => :get
-    = link_to image_tag('16x16/remove.png', :title => 'Destroy'), booking_template_path(booking_template), :remote => true, :method => :delete, :confirm => t_confirm_delete(booking_template)
+    = link_to image_tag('16x16/delete.png', :title => 'Destroy'), booking_template_path(booking_template), :remote => true, :method => :delete, :confirm => t_confirm_delete(booking_template)
     =# link_to image_tag('16x16/copy.png', :title => 'Copy'), copy_booking_template_path(booking_template), :remote => true
 

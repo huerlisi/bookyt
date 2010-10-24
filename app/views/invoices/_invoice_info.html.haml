@@ -1,5 +1,6 @@
 #info.block
-  %h2 Rechnung Nr. #{@invoice.id}
+  %h2
+    = t('bookyt.invoices.payment_no', :payment_no => @invoice.id)
   %table
     %tr
       %th= t_attr :created_at

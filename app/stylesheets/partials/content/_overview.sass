@@ -1,0 +1,36 @@
+@import 'content/icons'
+
+=overview-icon-48($ident)
+  #overview ul li
+    &##{$ident}
+      +icon($ident, 48)
+
+#overview
+  ul
+    +no-bullets
+    +horizontal-list
+    li#accounting,
+    li#invoicing,
+    li#basic_claims_data
+      width: 120px
+    li
+      background: no-repeat top left
+      padding-left: 58px
+      padding-right: 40px
+      min-height: 58px
+      a
+        border-bottom: 1px solid black
+        display: block
+      &#overview
+        display: none
+    ul
+      width: inherit
+      margin-top: 5px
+      li
+        display: block
+        float: none
+        padding-left: 0px
+        width: inherit
+        min-height: 1em
+        a
+          border-bottom: none

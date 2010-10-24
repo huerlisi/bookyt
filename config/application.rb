@@ -41,7 +41,7 @@ module Bookyt
     end
 
     # JavaScript files you want as :defaults (application.js is always included).
-    config.action_view.javascript_expansions[:defaults] += %w(cyt)
+    config.action_view.javascript_expansions[:defaults] += %w(cyt tooltip)
 
     # Configure to log the deprecation notices
     config.active_support.deprecation = :log
@@ -57,4 +57,4 @@ module Bookyt
 end
 
 # Include your application configuration below
-#require 'float.rb'
+require 'sqlite3_extensions.rb'

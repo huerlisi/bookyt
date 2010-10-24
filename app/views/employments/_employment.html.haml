@@ -3,5 +3,5 @@
   %td= link_to employment.employee, employment.employee
   %td= link_to ("%s - %s" % [employment.duration_from, employment.duration_to]), employment, {'data-href-container' => 'tr'}
   %td.action-links
-    = link_to image_tag('16x16/edit.png', :title => 'Edit'), edit_employment_path(employment), :method => :get
-    = link_to image_tag('16x16/remove.png', :title => 'Destroy'), employment_path(employment), :remote => true, :method => :delete, :confirm => t_confirm_delete(employment)
+    = icon_edit_link_to edit_employment_path(employment)
+    = icon_delete_link_to employment, employment_path(employment)

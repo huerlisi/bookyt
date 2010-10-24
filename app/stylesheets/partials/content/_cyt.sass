@@ -1,8 +1,7 @@
 // Imports
 @import "compass/css3/box-shadow"
-@import 'partials/formtastic'
-@import 'partials/formtastic_cyt'
-@import 'partials/pagination'
+@import 'partials/content/formtastic/formtastic'
+@import 'partials/content/formtastic/formtastic_cyt'
 
 // CyT **
 body
@@ -21,16 +20,23 @@ body
   color: #f8f8f8
   padding: 4px 8px 0px 6px
   position: relative
+  +border-radius($border_radius)
+  border: 1px solid #dddddd
   a
     color: #f8f8f8
 
 // Content
 #content
-  background-color: white
   margin: 0px
-  border-right: 1px solid #dddddd
   padding: $content_padding
-  z-index: 10
+  +sanserif-font
+  font-size: $text_size
+
+#content-column
+  background-color: white
+  border: 1px solid #dddddd
+  margin-left: -2px
+  +border-radius($border_radius)
 
 * html #content
   padding-left: 0
@@ -38,23 +44,31 @@ body
   padding: $content_padding
 
 html>body
-  #content, #sidebar
+  #content-column,
+  #sidebar-column
     min-height: 600px
 
 * html body
-  #content, #sidebar
+  #content-column,
+  #sidebar-column
     height: 600px
 
 // Sidebar
-#sidebar
+.sidebar,
+#sidebar-column
   background-color: white
-  margin: 0px
-  border: 1px solid #dddddd
-  padding: $content_padding
   +sanserif-font
   font-size: $text_size
   +border-radius($border_radius)
-
+.sidebar
+  margin: 0px
+  padding-left: 10px
+  margin-bottom: 10px
+  ul
+    +no-bullets
+#sidebar-column
+  margin-right: 10px
+  border: 1px solid #dddddd
 // Login form
 #login-form
   table
@@ -103,6 +117,9 @@ form
   display: block
 
 // Icons
+.destroy
+  float: right
+
 td.action-links
   border: none 0px
 
@@ -138,18 +155,6 @@ th.action-links
   line-height: 48px
   vertical-align: middle
 
-.icon-add
-  background-image: url(/images/16x16/add.png)
-
-.icon-delete
-  background-image: url(/images/16x16/remove.png)
-
-.icon-edit
-  background-image: url(/images/16x16/edit.png)
-
-.icon-index
-  background-image: url(/images/16x16/index.png)
-
 // restful-authentication
 #right-menu
   float: right
@@ -175,3 +180,19 @@ th.action-links
     text-align: left
     font-weight: bold
     font-style: italic
+
+// Boxes
+.box
+  +border-radius($border_radius)
+  background-color: #F6F6F6
+  border: 1px solid #E4E4E4
+  color: #505050
+  line-height: 1.5em
+  margin-bottom: 10px
+  padding: 6px
+
+.subbox, form.formtastic fieldset.subbox
+  border: solid 2px white
+  +border-radius($border_radius / 2)
+  padding: 1em
+  width: 97%

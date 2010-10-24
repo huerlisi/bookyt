@@ -1,1 +1,1 @@
-page.replace "customer_#{@customer.id}", ''
+page['tr'].remove("customer_#{@customer.id}")

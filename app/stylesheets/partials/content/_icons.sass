@@ -1,3 +1,18 @@
+@import 'compass/utilities/text/replacement'
+
+=icon-text($ident, $size=16)
+  .icon-#{$ident}-text
+    +replace-text-with-dimensions("/images/#{$size}x#{$size}/#{$ident}.png")
+    display: block
+    float: left
+
+=icon($ident, $size=16)
+  background-image: url("/images/#{$size}x#{$size}/#{$ident}.png")
+
+=icon-class($ident, $size=16)
+  .icon-#{$ident}
+    +icon($ident, $size)
+
 .icon
   background-repeat: no-repeat
   padding-left: 20px
@@ -6,11 +21,13 @@
   color: $link_color
   &:hover
     color: $link_color_hover
-.icon-add
-  background-image: url(/images/16x16/add.png)
-.icon-delete
-  background-image: url(/images/16x16/remove.png)
-.icon-edit
-  background-image: url(/images/16x16/edit.png)
-.icon-index
-  background-image: url(/images/16x16/index.png)
+
++icon-class('add')
++icon-class('delete')
++icon-class('edit')
++icon-class('index')
+
++icon-text('add')
++icon-text('delete')
++icon-text('edit')
++icon-text('index')

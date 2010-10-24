@@ -23,7 +23,13 @@
           = image_tag('logo.png')
           %h1#logo-text book<span id="logo-yt">yt</span>
         #main-menu
-          = render_navigation(:level => 1)
+          = render_navigation(:context => :main, :level => 1)
+          = render_navigation(:context => :user, :level => 1)
+      #sidebar-column
+        #second-main-menu.sidebar
+          = render_navigation(:context => :main, :level => 2)
+        #sidebar.sidebar
+          = yield :sidebar
 
       #content-column
         #content
@@ -32,9 +38,5 @@
           - if alert
             #alert.flash.alert= alert
           = yield
-
-      #sidebar-column
-        #sidebar
-          = yield :sidebar
 
     = javascript_include_tag :defaults

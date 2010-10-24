@@ -23,7 +23,8 @@ de:
       employee: Mitarbeiter
       employment: Anstellung
       invoice: Rechnung
-      
+      user: Benutzer
+
     attributes:
       account:
         code:           Nummer
@@ -40,6 +41,13 @@ de:
         credit_account: Soll
         debit_account:  Haben
         reference:      Referenz
+        text:           Text
+        date:           Datum
+        balance:        Saldo
+        edit:           Editieren
+        destroy:        Löschen
+        valuta:         Valuta
+        value:          Wert
       booking_template:
         value_date:     Valutadatum
         title:          Titel
@@ -59,6 +67,9 @@ de:
         product_count:   Verkaufte Produkte
         credit_turnover: Kreditumsatz
         discount:        Rabatt
+        from:            Abrechnung von
+        total:           Total
+        calculate:       Ausrechnen
       employee:
         full_name:     Name
         date_of_birth: Geburtsdatum
@@ -81,7 +92,94 @@ de:
         title:         Titel
         remarks:       Bemerkungen
         amount:        Betrag
+        invoice:       Invoice
 
   crud:
     title:
       select_booking_template: %{model} anlegen
+
+  bookyt:
+    all:              Alle
+    edit:             Editieren
+    destroy:          Löschen
+    greetings:        Mit freundlichen Grüssen,
+    pdf:              PDF
+    show:             Anzeigen
+    total:            Total
+    difference:       Differenz
+    back:             Zurück
+    equity_capital:   Eigenkapital
+    capital_assets:   Anlagevermögen
+    debt_capital:     Fremdkapital
+    working_capital:  Umlaufvermögen
+    balance_for:      Bilanz für {{company}} {{year}}
+    devise:
+      resend:                     Resend confirmation instructions
+      welcome:                    Welcome {{email}}!
+      confirm_with_link:          'You can confirm your account through the link below:'
+      confirm_account:            Confirm my account
+      hello:                      Hello {{email}}!
+      request_to_change_password: Someone has requested a link to change your password, and you can do this through the link below.
+      change_my_password:         Change my password
+      ignore_mail:
+        first_line:               If you didn't request this, please ignore this email.
+        second_line:              Your password won't change until you access the link above and create a new one.
+      unlock_my_account:          Unlock my account
+      click_to_unlock_account:    'Click the link below to unlock your account:'
+      account_locked:             Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
+      change_your_password:       Change your password
+      forgot_your_password:       Forgot your password?
+      send_reset_instructions:    Send me reset password instructions
+      update:                     Update
+      sign_up:                    Sign up
+      sign_in:                    Sign in
+      resend_unlock_instructions: Resend unlock instructions
+      no_confirmation_received:   Didn't receive confirmation instructions?
+      no_unlock_received:         Didn't receive unlock instructions?
+    invoices:
+      payment_no:             Rechnung Nr. {{payment_no}}
+      invoicing_party:        Rechnungssteller
+    profit:
+      earnings_statement_for: Erfolgsrechnung für {{company}} {{year}}
+    main_navigation:
+      new_day:  Tagesabschluss
+      new_booking: Neue Buchung
+      balance: Balance Sheet
+      profit:  Profit Sheet
+      accounts: Konten
+      bookings: Journal
+      employees: Mitarbeiter
+      companies:  Firmen
+      customers: Kunden
+      destroy_user_session:  Logout
+      new_user_session:  Login
+      store: Laden
+      accounting: Buchhaltung
+      basic_claims_data: Stammdaten
+      invoicing: Debitoren
+      new_invoice: Neue Rechnung
+      invoices: Rechnungen
+      settings: Einstellungen
+      overview: Übersicht
+      tooltip:
+        new_day:  Hier können Sie einen neuen Tagesabschluss gemäss Registrierkasse buchen
+        new_booking: Hier können Sie eine neue Buchung für die Finanzbuchhaltung erstellen
+        balance: Hier können Sie die Bilanz aufrufen
+        profit:  Hier können Sie die Erfolgsrechnung aufrufen
+        accounts: Hier finden Sie eine Liste aller Konten der Finanzbuchhaltung
+        bookings: Im Journal finden Sie alle Buchungen die erstellt wurden
+        employees: Hier finden Sie eine Liste aller Mitarbeiter
+        companies:  Hier finden Sie eine Liste aller Firmen (Mandanten)
+        customers: Hier finden Sie eine Liste aller Kunden
+        destroy_user_session:  Hier können Sie sich von Bookyt abmelden
+        new_user_session:  Hier können Sie sich bei Bookyt anmelden
+        store: Hier finden Sie alle Funktionen welche Sie im Laden brauchen
+        accounting: Hier finden Sie sämtliche Funktionen für die Finanzbuchhaltung
+        basic_claims_data: Hier können Sie die Stammdaten anzeigen und bearbeiten
+        invoicing: Hier können Sie Rechnungen erstellen und überwachen
+        new_invoice: Erstellt eine neue Rechnung
+        invoices: Listet alle Rechnungen auf
+        settings: Hier können die nötigen Einstellungen für Bookyt gemacht werden
+        overview: Gibt Ihnen eine Übersicht über die Funktionen
+    overview:
+      title: Übersicht

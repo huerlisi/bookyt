@@ -1,5 +1,5 @@
 %h1
-  = "Abrechnung von #{h @day.date}"
+  = t('activerecord.attributes.day.from') + " #{h @day.date}"
 = form_for @register, :remote => true, :as =>:cash_register, :url => {:action => 'calculate_cash'}, :html => {:class => 'formtastic cash_register_new'} do |f|
   %ul.first
     - for i in [ 200, 100, 50, 20, 10 ]
@@ -17,9 +17,9 @@
   %ul#result
     %li
       %label
-        Total:
+        = t('activerecord.attributes.day.total') + ':'
       #cash
     %li
-      = submit_tag 'Ausrechnen'
+      = submit_tag t('activerecord.attributes.day.calculate')
 
 = render 'form'

@@ -5,7 +5,7 @@ class BalanceController < ApplicationController
   end
 
   def show
-    @company = current_user.person.employers.first
+    @company = current_user.current_company
     
     # use current date if not specified otherwise
     params[:balance] ||= {}

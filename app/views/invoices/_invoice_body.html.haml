@@ -3,6 +3,6 @@
   %pre= @invoice.remarks
 
   #signature
-    Mit freundlichen Grüssen,
+    = t('bookyt.greetings')
     %br
     = @invoice.company.vcard.full_name

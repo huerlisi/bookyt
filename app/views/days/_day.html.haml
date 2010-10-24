@@ -9,5 +9,5 @@
   %td.currency= currency_fmt(day.credit_turnover)
   %td.currency= currency_fmt(day.discount)
   %td.action-links
-    = link_to image_tag('16x16/edit.png', :title => 'Edit'), edit_day_path(day), :method => :get
-    = link_to image_tag('16x16/remove.png', :title => 'Destroy'), day_path(day), :title => 'Destroy', :remote => true, :method => :delete, :confirm => t_confirm_delete(day)
+    = icon_edit_link_to edit_day_path(day)
+    = icon_delete_link_to day, day_path(day)

@@ -3,24 +3,27 @@
   td.action-links {display: none}
 
 %h1
-  Bilanz f&uuml;r #{@company} #{@year}
+  = t('bookyt.balance_for', :company => @company, :year => @year)
 #balance-sheet
   = semantic_form_for :balance do |f|
     = f.inputs do
       = f.input :date, :as => :date_field, :input_html => {:size => 10, :style => 'text-align: right'}
     = f.buttons do
-      = f.commit_button 'Anzeigen'
+      = f.commit_button t('bookyt.show')
   %table
     %tr
-      %th Umlaufverm&ouml;gen
-      %th Fremdkapital
+      %th
+        = t('bookyt.working_capital')
+      %th
+        = t('bookyt.debt_capital')
     %tr
       %td.current-assets{:style => "background-color: #00FF00"}
         %table{:width => "100%"}
           = render 'accounts/list_header'
           = render Account.current_assets.all.select{|a| a.saldo(@date) != 0.0}
           %tr.total
-            %th{:colspan => "2"} Total
+            %th{:colspan => "2"}
+              = t('bookyt.total')
             %th.currency= currency_fmt(Account.current_assets.saldo(@date))
           %tr
       %td{:style => "background-color: #FF0000"}
@@ -28,19 +31,23 @@
           = render 'accounts/list_header'
           = render Account.outside_capital.all.select{|a| a.saldo(@date) != 0.0}
           %tr.total
-            %th{:colspan => "2"} Total
+            %th{:colspan => "2"}
+              = t('bookyt.total')
             %th.currency= currency_fmt(Account.outside_capital.saldo(@date))
           %tr
     %tr
-      %th Anlagevermögen
-      %th Eigenkapital
+      %th
+        = t('bookyt.capital_assets')
+      %th
+        = t('bookyt.equity_capital')
     %tr
       %td{:style => "background-color: #00AA00"}
         %table{:width => "100%"}
           = render 'accounts/list_header'
           = render Account.capital_assets.all.select{|a| a.saldo(@date) != 0.0}
           %tr.total
-            %th{:colspan => "2"} Total
+            %th{:colspan => "2"}
+              = t('bookyt.total')
             %th.currency= currency_fmt(Account.capital_assets.saldo(@date))
           %tr
       %td{:style => "background-color: #AA0000"}
@@ -48,16 +55,18 @@
           = render 'accounts/list_header'
           = render Account.equity_capital.all.select{|a| a.saldo(@date) != 0.0}
           %tr.total
-            %th{:colspan => "2"} Total
+            %th{:colspan => "2"}
+              = t('bookyt.total')
             %th.currency= currency_fmt(Account.equity_capital.saldo(@date))
           %tr
     %tr.total
       %td
-        Total: #{currency_fmt(Account.current_assets.saldo(@date) + Account.capital_assets.saldo(@date))}
+        = t('bookyt.total') + ": #{currency_fmt(Account.current_assets.saldo(@date) + Account.capital_assets.saldo(@date))}"
       %td
-        Total: #{currency_fmt(Account.outside_capital.saldo(@date) + Account.equity_capital.saldo(@date))}
+        = t('bookyt.total') + ": #{currency_fmt(Account.outside_capital.saldo(@date) + Account.equity_capital.saldo(@date))}"
     - difference = (Account.current_assets.saldo(@date) + Account.capital_assets.saldo(@date)) - (Account.outside_capital.saldo(@date) + Account.equity_capital.saldo(@date))
     - if difference != 0
     %tr.total
-      %th Differenz
+      %th
+        = t('balance.difference')
       %td.currency= currency_fmt(difference)

@@ -1,5 +1,7 @@
 @import "blueprint/liquid"
 @import "compass/utilities/lists/horizontal-list"
+@import 'partials/layout/header'
+@import 'partials/layout/navigation'
 
 body
   +blueprint-liquid-grid
@@ -7,13 +9,13 @@ body
 #container
   +container
 
-#main-menu
-  ul
-    +horizontal-list
-    
 #content-column
   +column($column_content)
+  +last
 
 #sidebar-column
   +column($column_sidebar)
-  +last
+
+#sidebar-column,
+#content-column
+  margin-top: 10px
