@@ -3,5 +3,5 @@
   %td= link_to invoice.customer, invoice.customer
   %td= invoice.amount
   %td.action-links
-    = link_to image_tag('16x16/edit.png', :title => t('bookyt.edit')), edit_invoice_path(invoice), :method => :get
-    = link_to image_tag('16x16/delete.png', :title => t('bookyt.destroy')), invoice_path(invoice), :remote => true, :method => :delete, :confirm => t_confirm_delete(invoice)
+    = icon_edit_link_to edit_invoice_path(invoice)
+    = icon_delete_link_to invoice, invoice_path(invoice)

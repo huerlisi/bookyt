@@ -2,5 +2,5 @@
   %td= account_type.name
   %td= account_type.title
   %td.action-links
-    = link_to image_tag('16x16/edit.png', :title => 'Edit'), edit_account_type_path(account_type), :method => :get
-    = link_to image_tag('16x16/delete.png', :title => 'Destroy'), account_type_path(account_type), :remote => true, :method => :delete, :confirm => t_confirm_delete(account_type)
+    = icon_edit_link_to edit_account_type_path(account_type)
+    = icon_delete_link_to account_type, account_type_path(account_type)
