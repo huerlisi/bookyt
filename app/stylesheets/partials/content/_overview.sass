@@ -1,36 +1,38 @@
-@import 'content/icons'
-
 =overview-icon-48($ident)
-  #overview ul li
-    &##{$ident}
+  ul.overview-list li
+    &#overview-#{$ident}
       +icon($ident, 48)
 
-#overview
+ul.overview-list
+  +no-bullets
+  +horizontal-list
+  li#overview-accounting,
+  li#overview-invoicing,
+  li#overview-basic_claims_data
+    width: 120px
+  li
+    background: no-repeat top left
+    padding-left: 58px
+    padding-right: 40px
+    min-height: 58px
+    a
+      border-bottom: 1px solid black
+      display: block
+    &#overview-overview
+      display: none
+    +overview-icon-48('store')
+    +overview-icon-48('accounting')
+    +overview-icon-48('invoicing')
+    +overview-icon-48('basic_claims_data')
+    +overview-icon-48('user_settings')
   ul
-    +no-bullets
-    +horizontal-list
-    li#accounting,
-    li#invoicing,
-    li#basic_claims_data
-      width: 120px
+    width: inherit
+    margin-top: 5px
     li
-      background: no-repeat top left
-      padding-left: 58px
-      padding-right: 40px
-      min-height: 58px
-      a
-        border-bottom: 1px solid black
-        display: block
-      &#overview
-        display: none
-    ul
+      display: block
+      float: none
+      padding-left: 0px
       width: inherit
-      margin-top: 5px
-      li
-        display: block
-        float: none
-        padding-left: 0px
-        width: inherit
-        min-height: 1em
-        a
-          border-bottom: none
+      min-height: 1em
+      a
+        border-bottom: none
