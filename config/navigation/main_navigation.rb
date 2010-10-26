@@ -96,12 +96,12 @@ SimpleNavigation::Configuration.run do |navigation|
                  :tooltip => t('bookyt.main_navigation.tooltip.invoicing'),
                  :if => Proc.new { user_signed_in? },
                  :highlights_on => /\/invoices.*/ do |invoicing|
+      invoicing.item :invoices, t('bookyt.main_navigation.invoices'), invoices_path,
+                     :tooltip => t('bookyt.main_navigation.tooltip.invoices'),
+                     :highlights_on => /\/invoices$/      
       invoicing.item :new_invoice, t('bookyt.main_navigation.new_invoice'), new_invoice_path,
                      :tooltip => t('bookyt.main_navigation.tooltip.new_invoice'),
                      :highlights_on => /\/invoices\/new.*$/
-      invoicing.item :invoices, t('bookyt.main_navigation.invoices'), invoices_path,
-                     :tooltip => t('bookyt.main_navigation.tooltip.invoices'),
-                     :highlights_on => /\/invoices$/
     end
 
     primary.item :basic_claims_data, t('bookyt.main_navigation.basic_claims_data'), employees_path,
