@@ -55,6 +55,3 @@ module Bookyt
     config.middleware.use PDFKit::Middleware
   end
 end
-
-# Include your application configuration below
-require 'sqlite3_extensions.rb'
