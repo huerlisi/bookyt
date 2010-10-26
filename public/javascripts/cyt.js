@@ -26,7 +26,7 @@ function addLinkifyContainersBehaviour() {
     container.css('cursor', "pointer");
     var href = element.attr('href');
     
-    container.delegate(':not(a)', 'click', {href: href}, function() {
+    container.delegate(':not(a, a img)', 'click', {href: href}, function() {
       document.location.href = href;
     });
   });
