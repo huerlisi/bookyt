@@ -1,5 +1,5 @@
 %h2
-  = t('bookyt.devise.forgot_your_password')
+  = t('devise.forgot_your_password')
 = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
   = devise_error_messages!
   %p
@@ -7,5 +7,5 @@
     %br/
     = f.text_field :email
   %p
-    = f.submit t('bookyt.devise.send_reset_instructions')
+    = f.submit t('devise.send_reset_instructions')
 = render :partial => "devise/shared/links"

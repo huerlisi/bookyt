@@ -113,22 +113,6 @@ de:
     title:
       select_booking_template: %{model} anlegen
 
-  devise:
-    registrations:
-      signed_up:        'Sie haben sich erfolgreich registriert'
-      updated:          'Ihr Konto wurde aktualisiert'
-      destroyed:        'Ihr Konto wurde gelöscht'
-    sessions:
-      signed_in:        'Sie haben sich erfolgreich angemeldet'
-    failure:
-      unauthenticated:  'Sie müssen sich zuerst Anmelden.'
-      unconfirmed:      'Sie müssen Ihr Konto zuerst aktivieren.'
-      locked:           'Ihr Konto ist gesperrt.'
-      invalid:          'Ungültige E-Mail Adresse oder ungültiges Passwort.'
-      invalid_token:    'Invalid authentication token.'
-      timeout:          'Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.'
-      inactive:         'Ihr Konto wurde noch nicht aktiviert.'
-
   bookyt:
     all:              Alle
     edit:             Editieren
