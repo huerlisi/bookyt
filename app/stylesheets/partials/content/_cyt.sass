@@ -117,6 +117,9 @@ form
   display: block
 
 // Icons
+.destroy
+  float: right
+
 td.action-links
   border: none 0px
 
@@ -152,18 +155,6 @@ th.action-links
   line-height: 48px
   vertical-align: middle
 
-.icon-add
-  background-image: url(/images/16x16/add.png)
-
-.icon-delete
-  background-image: url(/images/16x16/remove.png)
-
-.icon-edit
-  background-image: url(/images/16x16/edit.png)
-
-.icon-index
-  background-image: url(/images/16x16/index.png)
-
 // restful-authentication
 #right-menu
   float: right
@@ -189,3 +180,19 @@ th.action-links
     text-align: left
     font-weight: bold
     font-style: italic
+
+// Boxes
+.box
+  +border-radius($border_radius)
+  background-color: #F6F6F6
+  border: 1px solid #E4E4E4
+  color: #505050
+  line-height: 1.5em
+  margin-bottom: 10px
+  padding: 6px
+
+.subbox, form.formtastic fieldset.subbox
+  border: solid 2px white
+  +border-radius($border_radius / 2)
+  padding: 1em
+  width: 97%

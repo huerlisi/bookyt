@@ -1,10 +1,9 @@
-=icon-48($ident)
-  &##{$ident}
-    background-image: url("/images/48x48/#{$ident}.png")
+@import 'content/icons'
 
 =overview-icon-48($ident)
   #overview ul li
-    +icon-48($ident)
+    &##{$ident}
+      +icon($ident, 48)
 
 #overview
   ul

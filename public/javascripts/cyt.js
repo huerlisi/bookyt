@@ -32,6 +32,19 @@ function addLinkifyContainersBehaviour() {
   });
 };
 
+// Add tooltips for overview
+function addOverviewTooltipBehaviour() {
+  $('ul#overview li a[title]').tooltip();
+};
+
+// Add icon action tooltips
+function addIconTooltipBehaviour() {
+  $('a.icon-tooltip[title]').tooltip({
+    tipClass: 'icon-tooltip-popup',
+    effect: 'fade',
+    fadeOutSpeed: 100
+  });
+};
 // Javascript Highlighter
 // Fixed version of comment in
 // http://stackoverflow.com/questions/1650389/prototype-js-highlight-words-dom-traversing-correctly-and-efficiently
@@ -77,8 +90,10 @@ function addLinkifyContainersBehaviour() {
 
 // Loads functions after DOM is ready
 $(document).ready(function() {
-    addAutofocusBehaviour();
-    addDatePickerBehaviour();
-    addSortableBehaviour();
-    addLinkifyContainersBehaviour();
+  addAutofocusBehaviour();
+  addDatePickerBehaviour();
+  addSortableBehaviour();
+  addLinkifyContainersBehaviour();
+  addOverviewTooltipBehaviour();
+  addIconTooltipBehaviour();
 });

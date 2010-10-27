@@ -1,0 +1,76 @@
+We currently support installing on Debian 5.0 Lenny and Ubuntu 10.04 Lucid systems.
+
+h2. Install rubygems
+
+To get access to the binaries provided by rails and other gems you need to extend your PATH.
+
+<pre>
+export PATH=/var/lib/gems/1.8/bin:$PATH
+</pre>
+
+h3. On Ubuntu Lucid
+
+We need to add huerlisi PPA archive to get a rubygems version supporting rails 3:
+
+<pre>
+sudo apt-add-repository ppa:huerlisi/ppa
+</pre>
+
+Now install the rubygems package:
+
+<pre>
+sudo apt-get install rubygems
+</pre>
+
+h2. Install Ruby'n'Rails
+
+bookyt is developed and tested using Rails 3.0.0 and Ruby 1.8.
+
+Install packages to support installing rails:
+
+<pre>
+sudo apt-get install irb ruby libruby-extras sqlite3 libsqlite3-dev libmysqlclient-dev libxml2-dev libxslt-dev ruby-dev build-essential
+</pre>
+
+Install rails using gem:
+
+<pre>
+sudo gem install rails rake bundler
+</pre>
+
+h2. Install bookyt
+
+Install current bookyt from git repository. We'll use this checkout as working directory from now on:
+
+<pre>
+git clone http://github.com/huerlisi/bookyt.git
+cd bookyt
+mkdir -p tmp log
+</pre>
+
+Install dependency gems:
+
+<pre>
+bundle
+</pre>
+
+Install dependency plugins:
+
+<pre>
+# Install plugin package dependencies
+git submodule update --init
+</pre>
+
+Setup database:
+
+Copy database.yml.example to database.yml and edit as needed. The stock version uses sqlite3 to get everything running without additional setup.
+
+<pre>
+cp config/database.yml.example config/database.yml
+</pre>
+
+Initialize the database:
+
+<pre>
+rake db:setup
+</pre>

@@ -11,4 +11,4 @@
   %td{:style => "text-align: right"}= currency_fmt(@saldo)
   %td.action-links
     = link_to image_tag('16x16/edit.png', :title => 'Edit'), edit_account_booking_path(@account, @booking, :page => params['page']), :method => :get
-    = link_to image_tag('16x16/remove.png', :title => 'Destroy'), account_booking_path(@account, @booking, :page => params['page']), :remote => true, :method => :delete, :confirm => t_confirm_delete(@booking)
+    = link_to image_tag('16x16/delete.png', :title => 'Destroy'), account_booking_path(@account, @booking, :page => params['page']), :remote => true, :method => :delete, :confirm => t_confirm_delete(@booking)
