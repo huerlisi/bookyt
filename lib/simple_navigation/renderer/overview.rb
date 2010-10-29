@@ -24,7 +24,7 @@ module SimpleNavigation
         if skip_if_empty? && item_container.empty?
           ''
         else
-          content_tag(:ul, html_safe(list_content), {:class => "#{OVERVIEW_PREFIX}-list"})
+          content_tag(:ul, list_content, {:class => "#{OVERVIEW_PREFIX}-list"})
         end
       end
 
