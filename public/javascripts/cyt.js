@@ -34,7 +34,7 @@ function addLinkifyContainersBehaviour() {
 
 // Add tooltips for overview
 function addOverviewTooltipBehaviour() {
-  $('ul#overview li a[title]').tooltip();
+  $('.overview-list li a[title]').tooltip();
 };
 
 // Add icon action tooltips
