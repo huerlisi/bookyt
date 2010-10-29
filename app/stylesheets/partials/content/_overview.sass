@@ -1,15 +1,11 @@
-=overview-icon-48($ident)
+=overview-icon-48($ident, $icon = $ident)
   ul.overview-list li
-    &#overview-#{$ident}
-      +icon($ident, 48)
+    &#overview-#{$ident}, &.#{ident}
+      +icon($icon, 48)
 
 ul.overview-list
   +no-bullets
   +horizontal-list
-  li#overview-accounting,
-  li#overview-invoicing,
-  li#overview-basic_claims_data
-    width: 120px
   li
     background: no-repeat top left
     padding-left: 58px
