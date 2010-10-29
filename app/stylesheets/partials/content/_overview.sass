@@ -3,21 +3,36 @@
     &#overview-#{$ident}, &.#{ident}
       +icon($icon, 48)
 
-ul.overview-list
+ul.overview-list.level-1
   +no-bullets
   +horizontal-list
-  li
-    background: no-repeat top left
-    padding-left: 58px
-    padding-right: 40px
-    min-height: 58px
+
+  li // All items
     a
       border-bottom: 1px solid black
       display: block
     &#overview-overview
       display: none
-  ul
-    width: inherit
+
+  >li
+    // Top level
+    background: no-repeat 0.4em 0.8em
+    // Fix horizontal-list to not drop padding in first and last item
+    &, .first, &:first-child, .last, &:last-child
+      padding-left: 60px
+      padding-right: 40px
+    min-height: 58px
+    +border-radius($border_radius)
+    background-color: #F6F6F6
+    border: 1px solid #E4E4E4
+    color: #505050
+    
+    margin: 1em
+    padding-top: 0.8em
+    padding-bottom: 0.8em
+    width: 20%
+
+  ul // Level > 1
     margin-top: 5px
     li
       display: block
@@ -27,3 +42,4 @@ ul.overview-list
       min-height: 1em
       a
         border-bottom: none
+
