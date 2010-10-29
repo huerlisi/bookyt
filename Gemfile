@@ -1,10 +1,14 @@
+# Settings
+# ========
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
-gem 'rake'
+# Rails
+# =====
+gem 'rails', '~> 3.0.0'
 
+# Database
 gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'mysql', :group => :development
+gem 'mysql'
 
 # Development
 # ===========
@@ -32,6 +36,8 @@ end
 
 # Standard helpers
 # ================
+gem 'styleyt', :git => 'http://github.com/CyTeam/styleyt.git'
+
 gem 'haml'
 gem 'compass', '>= 0.10.4'
 gem 'fancy-buttons'
@@ -48,7 +54,8 @@ gem 'jquery-rails'
 
 # Bookyt
 # ======
-gem 'pdfkit'
-
 # Authentication
-gem 'devise', '>= 1.1'
+gem 'devise', '~> 1.1'
+
+# PDF generation
+gem 'pdfkit'
