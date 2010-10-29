@@ -1,20 +1,12 @@
-// This import applies a global reset to any page that imports this stylesheet.
+// Blueprint
 @import "blueprint/reset";
-@import 'partials/base';
-
-// Import all the default blueprint modules so that we can access their mixins.
 @import "blueprint";
+
+// CyT
+@import 'partials/base';
 @import 'partials/layout';
 @import 'partials/content';
 @import 'partials/sidebar';
 
-// Import the non-default scaffolding module.
-//@import "blueprint/scaffolding";
-
-// To generate css equivalent to the blueprint css but with your
-// configuration applied, uncomment:
-// @include blueprint
-
-// jQuery UI styling
-@import 'partials/jquery'
-;
+// jQuery UI
+@import 'partials/jquery';
