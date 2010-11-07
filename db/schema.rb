@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101002103358) do
+ActiveRecord::Schema.define(:version => 20101107125310) do
 
   create_table "account_types", :force => true do |t|
     t.string "name",  :limit => 100
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20101002103358) do
 
   create_table "booking_templates", :force => true do |t|
     t.string   "title"
-    t.decimal  "amount",            :precision => 10, :scale => 0
+    t.decimal  "amount"
     t.integer  "credit_account_id"
     t.integer  "debit_account_id"
     t.date     "value_date"
@@ -64,30 +64,30 @@ ActiveRecord::Schema.define(:version => 20101002103358) do
 
   create_table "bookings", :force => true do |t|
     t.string  "title",             :limit => 100
-    t.decimal "amount",                           :precision => 10, :scale => 0
+    t.decimal "amount"
     t.integer "credit_account_id"
     t.integer "debit_account_id"
     t.date    "value_date"
-    t.text    "comments"
+    t.text    "comments",          :limit => 1000, :default => ""
     t.string  "scan"
-    t.string  "debit_currency",                                                  :default => "CHF"
-    t.string  "credit_currency",                                                 :default => "CHF"
-    t.float   "exchange_rate",                                                   :default => 1.0
+    t.string  "debit_currency",                    :default => "CHF"
+    t.string  "credit_currency",                   :default => "CHF"
+    t.float   "exchange_rate",                     :default => 1.0
   end
 
   create_table "days", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date"
-    t.decimal  "cash",            :precision => 10, :scale => 0, :default => 0
-    t.decimal  "card_turnover",   :precision => 10, :scale => 0, :default => 0
-    t.decimal  "gross_turnover",  :precision => 10, :scale => 0, :default => 0
-    t.decimal  "net_turnover",    :precision => 10, :scale => 0, :default => 0
-    t.integer  "client_count",                                   :default => 0
-    t.integer  "product_count",                                  :default => 0
-    t.decimal  "expenses",        :precision => 10, :scale => 0, :default => 0
-    t.decimal  "credit_turnover", :precision => 10, :scale => 0, :default => 0
-    t.decimal  "discount",        :precision => 10, :scale => 0, :default => 0
+    t.decimal  "cash",            :default => 0.0
+    t.decimal  "card_turnover",   :default => 0.0
+    t.decimal  "gross_turnover",  :default => 0.0
+    t.decimal  "net_turnover",    :default => 0.0
+    t.integer  "client_count",    :default => 0
+    t.integer  "product_count",   :default => 0
+    t.decimal  "expenses",        :default => 0.0
+    t.decimal  "credit_turnover", :default => 0.0
+    t.decimal  "discount",        :default => 0.0
   end
 
   create_table "employments", :force => true do |t|
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(:version => 20101002103358) do
     t.date     "duration_to"
     t.boolean  "temporary"
     t.boolean  "hourly_paid"
-    t.decimal  "daily_workload", :precision => 10, :scale => 0
+    t.decimal  "daily_workload"
     t.integer  "employee_id"
     t.integer  "employer_id"
     t.datetime "created_at"
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(:version => 20101002103358) do
     t.datetime "updated_at"
     t.string   "title"
     t.text     "remarks"
-    t.decimal  "amount",      :precision => 10, :scale => 0
+    t.decimal  "amount"
   end
 
   create_table "people", :force => true do |t|
@@ -136,6 +136,17 @@ ActiveRecord::Schema.define(:version => 20101002103358) do
   add_index "phone_numbers", ["vcard_id"], :name => "phone_numbers_vcard_id_index"
 
   create_table "products", :force => true do |t|
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|

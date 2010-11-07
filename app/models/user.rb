@@ -10,6 +10,13 @@ class User < ActiveRecord::Base
   # Aspects
   include SentientUser
 
+  # Authorization roles
+  has_and_belongs_to_many :roles
+  
+  def role?(role)
+    return !!self.roles.find_by_name(role.to_s.camelize)
+  end
+
   # Associations
   belongs_to :person
   
