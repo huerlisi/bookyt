@@ -6,6 +6,6 @@
     - if devise_mapping.rememberable?
       = f.input :remember_me, :as => :boolean
   = f.buttons do
-    = f.commit_button t('bookyt.devise.sign_in')
+    = f.commit_button t('devise.sign_in')
 
 = render :partial => "devise/shared/links"

@@ -113,22 +113,6 @@ de:
     title:
       select_booking_template: %{model} anlegen
 
-  devise:
-    registrations:
-      signed_up:        'Sie haben sich erfolgreich registriert'
-      updated:          'Ihr Konto wurde aktualisiert'
-      destroyed:        'Ihr Konto wurde gelöscht'
-    sessions:
-      signed_in:        'Sie haben sich erfolgreich angemeldet'
-    failure:
-      unauthenticated:  'Sie müssen sich zuerst Anmelden.'
-      unconfirmed:      'Sie müssen Ihr Konto zuerst aktivieren.'
-      locked:           'Ihr Konto ist gesperrt.'
-      invalid:          'Ungültige E-Mail Adresse oder ungültiges Passwort.'
-      invalid_token:    'Invalid authentication token.'
-      timeout:          'Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.'
-      inactive:         'Ihr Konto wurde noch nicht aktiviert.'
-
   bookyt:
     all:              Alle
     edit:             Editieren
@@ -144,29 +128,6 @@ de:
     debt_capital:     Fremdkapital
     working_capital:  Umlaufvermögen
     balance_for:      Bilanz für {{company}} {{year}}
-    devise:
-      resend:                     Anforderung für die Kontoaktvierung erneut senden
-      welcome:                    Wilkommen {{email}}!
-      confirm_with_link:          'Sie können ihren Konto mit folgendem link aktivieren:'
-      confirm_account:            Konto aktivieren
-      hello:                      Hallo {{email}}!
-      request_to_change_password: Jemand hat einen Link zum Ändern des Passworts angefragt, Sie können dies mit folgendem Link tun.
-      change_my_password:         Passwort ändern
-      ignore_mail:
-        first_line:               Falls Sie dies nicht angefordert haben, ignorieren Sie bitte diese E-Mail.
-        second_line:              Ihr Passwort wird erst geändert, wenn Sie obigen Link klicken und ein neues Erstellen.
-      unlock_my_account:          Mein Konto entsperren
-      click_to_unlock_account:    'Klicken Sie auf untenstehenden Link um das Konto zu entsperren:'
-      account_locked:             Ihr Konto wurde wegen zu vielen Fehlversuchen gesprerrt.
-      change_your_password:       Passwort ändern
-      forgot_your_password:       Passwort vergessen?
-      send_reset_instructions:    Anleitung für die Zurücksetzung anfordern
-      update:                     Aktualisieren
-      sign_up:                    Registrieren
-      sign_in:                    Anmelden
-      resend_unlock_instructions: Entsperrungsanleitung erneut senden
-      no_confirmation_received:   Haben Sie keine Anleitung für die Kontoaktivierung erhalten?
-      no_unlock_received:         Haben Sie keine Anleitung für die Kontoentsperrung erhalten?
     invoices:
       payment_no:             Rechnung Nr. {{payment_no}}
       invoicing_party:        Rechnungssteller

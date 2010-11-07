@@ -1,6 +1,6 @@
 %p
-  = t('bookyt.devise.welcome', :email => @resource.email)
+  = t('devise.welcome', :email => @resource.email)
 %p
-  = t('bookyt.devise.confirm_with_link')
+  = t('devise.confirm_with_link')
 %p
-  = link_to t('bookyt.devise.confirm_account'), confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+  = link_to t('devise.confirm_account'), confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)

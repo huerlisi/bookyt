@@ -1,0 +1,3 @@
+de:
+  cancan:
+    access_denied: "Sie sind nicht berechtigt diese Seite anzuzeigen."
