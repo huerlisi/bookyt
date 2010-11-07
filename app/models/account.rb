@@ -21,6 +21,11 @@ class Account < ActiveRecord::Base
     Booking.by_account(id)
   end
 
+  # Aspects
+  # Pagination
+  cattr_reader :per_page
+  @@per_page = 50
+
   # Scopes
   default_scope :order => 'code'
   

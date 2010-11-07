@@ -1,4 +1,4 @@
-class DaysController < InheritedResources::Base
+class DaysController < AuthorizedController
   def create
     create! {days_path}
   end

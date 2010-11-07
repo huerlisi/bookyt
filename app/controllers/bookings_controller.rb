@@ -1,7 +1,5 @@
-class BookingsController < InheritedResources::Base
-  # Responders
-  respond_to :html, :js
- 
+class BookingsController < AuthorizedController
+  # Actions
   def new
     @booking = Booking.new(:value_date => Date.today)
     new!
