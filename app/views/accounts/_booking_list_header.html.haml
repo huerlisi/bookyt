@@ -1,14 +1,8 @@
 %tr
-  %th
-    = t('activerecord.attributes.booking.date')
-  %th
-    = t('activerecord.attributes.booking.text')
-  %th
-    = t('activerecord.attributes.booking.reference')
-  %th{:style => "text-align: right"}
-    = t('activerecord.attributes.booking.credit_account')
-  %th{:style => "text-align: right"}
-    = t('activerecord.attributes.booking.debit_account')
-  %th{:style => "text-align: right"}
-    = t('activerecord.attributes.booking.balance')
+  %th= t_attr :date, Booking
+  %th= t_attr :text, Booking
+  %th= t_attr :reference, Booking
+  %th{:style => "text-align: right"}= t_attr :credit_account, Booking
+  %th{:style => "text-align: right"}= t_attr :debit_account, Booking
+  %th{:style => "text-align: right"}= t_attr :balance, Booking
   %th.action-links

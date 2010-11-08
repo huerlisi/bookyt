@@ -1,8 +1,8 @@
 %table.list#invoices_list
   %tr
-    %th= t_attr :title, t('activerecord.attributes.invoice.invoice')
-    %th= t_attr :customer, t('activerecord.attributes.invoice.invoice')
-    %th= t_attr :amount, t('activerecord.attributes.invoice.invoice')
+    %th= t_attr :title
+    %th= t_attr :customer
+    %th= t_attr :amount
     %th.action-links
 
   = render @invoices
