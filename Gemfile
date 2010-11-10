@@ -63,3 +63,6 @@ gem 'cancan'
 
 # PDF generation
 gem 'pdfkit'
+
+# Vcards
+gem 'has_vcards', '~> 0.5.1'

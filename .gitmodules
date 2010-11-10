@@ -7,9 +7,6 @@
 [submodule "app/stylesheets/partials/formtastic"]
 	path = app/stylesheets/partials/formtastic
 	url = http://github.com/activestylus/formtastic-sass.git
-[submodule "vendor/plugins/has_vcards"]
-	path = vendor/plugins/has_vcards
-	url = git://github.com/huerlisi/has_vcards.git
 [submodule "vendor/plugins/sentient_user"]
 	path = vendor/plugins/sentient_user
 	url = git://github.com/huerlisi/sentient_user.git
