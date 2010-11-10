@@ -1,30 +1,5 @@
-@import "blueprint"
-@import 'partials/content/invoice'
+// CyT
+@import 'partials/print/layout';
 
-// To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
-
-//Recommended Blueprint configuration with scoping and semantic layout:
-body.bp
-  +blueprint-print(true)
-
-h1
-  display: none
-
-#balance-sheet form,
-#profit-sheet form
-  display: none
-#balance-sheet, #profit-sheet
-  background: white
-// Media print specific styles ****
-#top-menu, #header, #main-menu, #sidebar, #footer, .contextual, .other-formats
-  display: none
-#main
-  background: white
-#content
-  width: 99%
-  margin: 0
-  padding: 0
-  border: 0
-  background: white
-  overflow: visible !important
-
+// Application
+@import 'partials/print/application';
