@@ -1,25 +1,51 @@
+# Database configuration
+# ======================
+# This file can be use as a template for the database.yml file.
+#
+# If you're using the SQLite3 file-based database, all you have
+# to do is copy this file to database.yml.
+#
+# For production environments MySQL is a better fit. In this
+# case you need to setup the databases and adapt this file:
+#
+# 1. create the database and grant access
+# 2. change the '*sqlite' instances in the Environments section
+#    to '*mysql'
+# 3. update host, username and password settings in the 'Common
+#    settings' section
+
+# Common settings
+# ===============
+# SQLite3
 sqlite: &sqlite
   adapter: sqlite3
-  pool: 5
+  pool:    5
   timeout: 5000
 
+# MySQL
 mysql: &mysql
-  adapter: mysql
-  pool: 5
-  timeout: 5000
-  host: localhost
-  username: root
+  adapter:  mysql
+  pool:     5
+  timeout:  5000
+  host:     localhost
+  username: bookyt
   password: REPLACE WITH PWD
   encoding: utf8 
+
+# Environments
+# ============
+production:
+  database: db/production.sqlite3
+  <<: *sqlite
 
 development:
   database: db/development.sqlite3
   <<: *sqlite
 
-test:
-  database: db/test.sqlite3
+demo:
+  database: db/demo.sqlite3
   <<: *sqlite
 
-production:
-  database: db/production.sqlite3
+test:
+  database: db/test.sqlite3
   <<: *sqlite
