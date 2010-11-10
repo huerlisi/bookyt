@@ -26,3 +26,6 @@ config/database.yml
 
 # compass
 public/stylesheets/compiled
+
+# Capistrano
+config/deploy/*.rb
