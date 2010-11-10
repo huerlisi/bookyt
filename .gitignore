@@ -1,6 +1,5 @@
 # Boring files
 # ============
-*~
 .#*
 DEADJOE
 
@@ -27,10 +26,3 @@ config/database.yml
 
 # compass
 public/stylesheets/compiled
-
-# RVM
-.rvmrc
-
-# Rubymine
-.idea/*public/stylesheets/compiled/*
-.idea/
