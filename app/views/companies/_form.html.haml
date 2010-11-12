@@ -1,10 +1,8 @@
 = semantic_form_for @company do |f|
   = f.semantic_errors
+
   = f.inputs t('form.person.address') do
-    = f.semantic_fields_for :vcard do |vcard|
-      = vcard.input :full_name, :input_html => {"data-autofocus" => true}
-      = vcard.semantic_fields_for :address do |address|
-        = address.inputs :street_address, :extended_address, :postal_code, :locality
+    = render 'vcards/form', :f => f
 
   = f.buttons do
     = f.commit_button

@@ -65,4 +65,4 @@ gem 'cancan'
 gem 'pdfkit'
 
 # Vcards
-gem 'has_vcards', '~> 0.5.1'
+gem 'has_vcards', '~> 0.5.3'
