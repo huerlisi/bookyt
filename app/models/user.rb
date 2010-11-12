@@ -5,13 +5,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :person_id, :role_texts
+  attr_accessible :email, :password, :password_confirmation, :remember_me
 
   # Aspects
   include SentientUser
 
   # Authorization roles
   has_and_belongs_to_many :roles
+  attr_accessible :role_texts
   
   def role?(role)
     return !!self.roles.find_by_name(role.to_s)
@@ -30,6 +31,8 @@ class User < ActiveRecord::Base
   
   # Associations
   belongs_to :person
+  attr_accessible :person_attributes
+  accepts_nested_attributes_for :person
   
   # Shortcuts
   def current_company
