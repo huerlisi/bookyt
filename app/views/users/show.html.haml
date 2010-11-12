@@ -1,0 +1,11 @@
+= contextual_links
+
+%h1= @user
+
+%p
+  = @user.email
+
+%ul#roles
+- @user.roles.each do |role|
+  %li
+    = role.to_s

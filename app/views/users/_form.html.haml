@@ -1,0 +1,5 @@
+= semantic_form_for @user do |f|
+  = render :partial => 'devise/registrations/form', :locals => {:f => f}
+
+  = f.buttons do
+    = f.commit_button

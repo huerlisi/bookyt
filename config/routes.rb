@@ -4,6 +4,7 @@ Bookyt::Application.routes.draw do
 
   # Authorization
   devise_for :users
+  resources :users
   
   # Accounting
   resources :account_types

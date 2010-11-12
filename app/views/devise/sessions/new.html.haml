@@ -2,7 +2,7 @@
   = f.semantic_errors
   = f.inputs do
     = f.input :email
-    = f.input :password
+    = f.input :password, :hint => false
     - if devise_mapping.rememberable?
       = f.input :remember_me, :as => :boolean
   = f.buttons do

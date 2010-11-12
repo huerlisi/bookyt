@@ -101,6 +101,9 @@ de:
         password_confirmation:          Passwort Bestätigung
         current_password:               Aktuelles Passwort
         remember_me:                    Angemeldet bleiben
+        created_at:                     Registriert seit
+        roles:                          Rollen
+        role_texts:                     Rollen
       vcard:
         full_name:                      Name
       address:
@@ -109,9 +112,21 @@ de:
         postal_code:                    PLZ
         locality:                       Ort
 
+  formtastic:
+    hints:
+      user:
+        password: "Leer lassen um Passwort nicht zu ändern."
+          
+  cancan:
+    roles:
+      admin:      'Administrator'
+      accountant: 'Buchhalter'
+      
   crud:
     title:
       select_booking_template: %{model} anlegen
+    flash:
+      created_html: %{message} angelegt
 
   bookyt:
     all:              Alle
