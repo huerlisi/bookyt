@@ -104,6 +104,7 @@ de:
         created_at:                     Registriert seit
         roles:                          Rollen
         role_texts:                     Rollen
+        name:                           Name
       vcard:
         full_name:                      Name
       address:

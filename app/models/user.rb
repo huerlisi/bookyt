@@ -35,4 +35,9 @@ class User < ActiveRecord::Base
   def current_company
     person.try(:employers).try(:first)
   end
+
+  # Helpers
+  def to_s
+    person.try(:to_s)
+  end
 end
