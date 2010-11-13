@@ -15,4 +15,9 @@ class Person < ActiveRecord::Base
     build_vcard unless vcard
     vcard.build_address unless vcard.address
   end
+
+  # Helpers
+  def to_s
+    "%s (%s)" % [vcard.try(:full_name), vcard.try(:locality)]
+  end
 end
