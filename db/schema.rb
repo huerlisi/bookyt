@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101107125310) do
+ActiveRecord::Schema.define(:version => 20101113133934) do
 
   create_table "account_types", :force => true do |t|
     t.string "name",  :limit => 100
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(:version => 20101107125310) do
     t.decimal  "amount"
     t.integer  "credit_account_id"
     t.integer  "debit_account_id"
-    t.date     "value_date"
     t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
