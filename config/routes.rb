@@ -34,7 +34,7 @@ Bookyt::Application.routes.draw do
   
   resources :booking_templates
 
-  resource :balance
+  match '/balance' => 'balance#show'
   match '/profit' => 'profit#show'
   
   # Days
