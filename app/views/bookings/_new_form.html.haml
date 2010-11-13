@@ -1,4 +1,4 @@
-= semantic_form_for @booking, :url => {:action => :select} do |f|
+= semantic_form_for @booking, :url => select_bookings_path do |f|
   = f.semantic_errors
   = f.inputs do
     = hidden_field_tag :stage, 'select'

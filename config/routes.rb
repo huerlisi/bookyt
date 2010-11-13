@@ -20,9 +20,11 @@ Bookyt::Application.routes.draw do
   end
   
   resources :bookings do
+    collection do
+      post :select
+    end
     member do
-      post :select, :select_booking, :select_booking_template
-      get :select, :select_booking, :select_booking_template
+      get :select_booking, :select_booking_template
     end
   end
   
