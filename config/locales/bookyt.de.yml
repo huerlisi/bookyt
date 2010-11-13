@@ -126,6 +126,7 @@ de:
   crud:
     title:
       select_booking_template: %{model} anlegen
+      select_booking: %{model} anlegen
     flash:
       created_html: %{message} angelegt
 
