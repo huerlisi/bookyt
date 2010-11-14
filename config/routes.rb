@@ -38,5 +38,9 @@ Bookyt::Application.routes.draw do
   match '/profit' => 'profit#show'
   
   # Days
-  resources :days
+  resources :days do
+    collection do
+      post :calculate_cash
+    end
+  end
 end
