@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
 
   # Authentication
   before_filter :authenticate_user!
+
+  # Tenancy
+  def current_tenant
+    current_user.tenant
+  end
 end
 
 module ActionView

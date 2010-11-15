@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   # Aspects
   include SentientUser
 
+  # Tenancy
+  belongs_to :tenant
+  
   # Authorization roles
   has_and_belongs_to_many :roles
   attr_accessible :role_texts
