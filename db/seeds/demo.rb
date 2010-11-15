@@ -11,3 +11,4 @@ company = Company.create(:vcard => company_vcard)
 
 # Tenant
 user.create_tenant(:company => company)
+user.save
