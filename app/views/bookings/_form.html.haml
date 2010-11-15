@@ -4,8 +4,8 @@
     = f.input :value_date, :as => :date_field, :input_html => {"data-autofocus" => true, :size => 10, :style => 'text-align: right'}
     = f.input :title
     = f.input :amount, :input_html => {:size => 12, :style => 'text-align: right'}
-    = f.input :credit_account
-    = f.input :debit_account
+    = f.input :credit_account, :input_html => {:class => 'combobox'}
+    = f.input :debit_account, :input_html => {:class => 'combobox'}
     = f.input :comments, :input_html => {:rows => 5}
   = f.buttons do
     = f.commit_button
