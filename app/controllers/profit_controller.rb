@@ -5,7 +5,7 @@ class ProfitController < ApplicationController
   end
 
   def show
-    @company = current_user.current_company
+    @company = current_tenant.company
     
     # use current date if not specified otherwise
     params[:profit] ||= {}
