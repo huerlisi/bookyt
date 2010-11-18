@@ -4,12 +4,20 @@ Bookyt::Application.routes.draw do
 
   # Authorization
   devise_for :users
-  resources :users
+  resources :users do
+    collection do
+      get :current
+    end
+  end
   
   # Accounting
   resources :account_types
 
-  resources :tenants
+  resources :tenants do
+    collection do
+      get :current
+    end
+  end
   resources :companies
 
   resources :employees

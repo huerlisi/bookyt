@@ -128,9 +128,11 @@ de:
       accountant: 'Buchhalter'
       
   crud:
+    action:
     title:
       select_booking_template: %{model} anlegen
       select_booking: %{model} anlegen
+      current: Aktueller %{model}
     flash:
       created_html: %{message} angelegt
 

@@ -15,4 +15,8 @@ class UsersController < AuthorizedController
     params[:user].delete(:role_texts) unless can? :manage, Role 
     update!
   end
+
+  def current
+    redirect_to current_user
+  end
 end
