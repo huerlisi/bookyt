@@ -1,0 +1,2 @@
+class TenantsController < AuthorizedController
+end

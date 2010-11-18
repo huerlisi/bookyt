@@ -1,0 +1,10 @@
+%table.list#tenants_list
+  %tr
+    %th= t_attr :company, Tenant
+    %th= t_attr :users, Tenant
+    %th.action-links
+
+  = render @tenants
+
+  %tr
+    %th{:colspan => "4", :style => "text-align: right"}= will_paginate @tenants

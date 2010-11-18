@@ -23,6 +23,7 @@ de:
       employee: Mitarbeiter
       employment: Anstellung
       invoice: Rechnung
+      tenant: Mandant
       user: Benutzer
 
     attributes:
@@ -95,6 +96,9 @@ de:
         remarks:       Bemerkungen
         amount:        Betrag
         invoice:       Invoice
+      tenant:
+        company:       Firma
+        users:         Benutzer
       user:
         email:                          E-Mail
         password:                       Passwort

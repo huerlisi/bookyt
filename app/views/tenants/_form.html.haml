@@ -1,0 +1,8 @@
+= semantic_form_for @tenant do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = f.input :company, :input_html => {:class => 'combobox'}
+    = f.input :users
+
+  = f.buttons do
+    = f.commit_button
