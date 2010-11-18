@@ -26,8 +26,8 @@ class Ability
       can :manage, :all
     elsif user.role? :accountant
       can :manage, [Account, Balance, BookingTemplate, Customer, Employee, Invoice, Product, AccountType, Booking, Company, Day, Employment, Person, Profit]
-      can :edit, [Tenant], :users => {:id => user.id}
-      can :edit, User, :id => user.id
+      can [:list, :read, :edit], [Tenant], :users => {:id => user.id}
+      can [:read, :edit], User, :id => user.id
     end
   end
 end
