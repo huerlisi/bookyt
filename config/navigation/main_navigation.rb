@@ -67,7 +67,7 @@ SimpleNavigation::Configuration.run do |navigation|
                  :tooltip => t('bookyt.main_navigation.tooltip.settings'),
                  :if => Proc.new { user_signed_in? } do |settings|
       settings.item :current_user, t_title(:current, User), current_users_path
-      settings.item :current_tenant, t_title(:current, Tenant), current_tenants_path, :if => lambda { can?(:read, current_user.tenant) }
+      settings.item :current_tenant, t_title(:current, Tenant), current_tenants_path, :if => lambda { can?(:current, current_user.tenant) }
     end
   end
 end
