@@ -44,13 +44,13 @@ SimpleNavigation::Configuration.run do |navigation|
                      :highlights_on => /\/invoices\/new.*$/
     end
 
-    primary.item :nav_users, t('bookyt.main_navigation.basic_claims_data'), employees_path,
-                 :tooltip => t('bookyt.main_navigation.tooltip.basic_claims_data'),
-                 :if => Proc.new { user_signed_in? } do |basic_claims_data|
-      basic_claims_data.item :employees, t('bookyt.main_navigation.employees'), employees_path,
+    primary.item :nav_users, t('bookyt.main_navigation.contacts'), employees_path,
+                 :tooltip => t('bookyt.main_navigation.tooltip.contacts'),
+                 :if => Proc.new { user_signed_in? } do |contacts|
+      contacts.item :employees, t('bookyt.main_navigation.employees'), employees_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.employees'),
                              :highlights_on => /\/employees$/
-      basic_claims_data.item :customers, t('bookyt.main_navigation.customers'), customers_path,
+      contacts.item :customers, t('bookyt.main_navigation.customers'), customers_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.customers'),
                              :highlights_on => /\/customers$/
     end

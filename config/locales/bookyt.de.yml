@@ -170,7 +170,7 @@ de:
       new_user_session:         Anmelden
       store:                    Laden
       accounting:               Buchhaltung
-      basic_claims_data:        Stammdaten
+      contacts:                 Kontakte
       invoicing:                Debitoren
       new_invoice:              Neue Rechnung
       invoices:                 Rechnungen
@@ -190,7 +190,7 @@ de:
         new_user_session:  Hier können Sie sich bei Bookyt anmelden
         store: Hier finden Sie alle Funktionen welche Sie im Laden brauchen
         accounting: Hier finden Sie sämtliche Funktionen für die Finanzbuchhaltung
-        basic_claims_data: Hier können Sie die Stammdaten anzeigen und bearbeiten
+        contacts: Hier können Sie Kontakte (Stammdaten) anzeigen und bearbeiten
         invoicing: Hier können Sie Rechnungen erstellen und überwachen
         new_invoice: Erstellt eine neue Rechnung
         invoices: Listet alle Rechnungen auf
