@@ -62,9 +62,6 @@ SimpleNavigation::Configuration.run do |navigation|
       settings.item :user_index, t_title(:index, User), users_path, :if => lambda { can?(:index, User) }
       settings.item :current_tenant, t_title(:current, Tenant), current_tenants_path, :if => lambda { can?(:current, current_user.tenant) }
       settings.item :tenant_index, t_title(:index, Tenant), tenants_path, :if => lambda { can?(:index, Tenant) }
-      settings.item :employers, t('bookyt.main_navigation.companies'), companies_path,
-                             :tooltip => t('bookyt.main_navigation.tooltip.companies'),
-                             :highlights_on => /\/companies$/
     end
   end
 end
