@@ -35,7 +35,7 @@ sudo apt-get install irb ruby libruby-extras sqlite3 libsqlite3-dev libmysqlclie
 Install rails using gem:
 
 <pre>
-sudo gem install rails rake bundler
+sudo gem install rake bundler
 </pre>
 
 h2. Install bookyt
