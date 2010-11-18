@@ -54,13 +54,6 @@ Install dependency gems:
 bundle
 </pre>
 
-Install dependency plugins:
-
-<pre>
-# Install plugin package dependencies
-git submodule update --init
-</pre>
-
 Setup database:
 
 Copy database.yml.example to database.yml and edit as needed. The stock version uses sqlite3 to get everything running without additional setup.
