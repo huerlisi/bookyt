@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   belongs_to :tenant
   
   # Authorization roles
-  has_and_belongs_to_many :roles
+  has_and_belongs_to_many :roles, :autosave => true
   attr_accessible :role_texts
   
   def role?(role)
@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   def role_texts=(role_names)
     roles.delete_all
     for role_name in role_names
-      roles.create(:name => role_name)
+      roles.build(:name => role_name)
     end
   end
   
