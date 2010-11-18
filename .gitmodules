@@ -1,6 +1,3 @@
-[submodule "vendor/plugins/in_place_editing"]
-	path = vendor/plugins/in_place_editing
-	url = http://github.com/rails/in_place_editing.git
 [submodule "vendor/plugins/sentient_user"]
 	path = vendor/plugins/sentient_user
 	url = git://github.com/huerlisi/sentient_user.git
