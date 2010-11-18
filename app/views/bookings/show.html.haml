@@ -1,10 +1,10 @@
+= contextual_links
+
+%h1= @booking
+
 - for column in Booking.content_columns
   %p
     %b
       = column.human_name
       \:
     = h @booking.send(column.name)
-= link_to t('bookyt.edit'), :action => 'edit', :id => @booking
-|
-\#{link_to 'Back', :action => 'list'} |
-\#{link_to 'Destroy', { :action => 'destroy', :id => @booking }, :confirm => 'Are you sure?', :method => :post}
