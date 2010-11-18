@@ -58,16 +58,13 @@ SimpleNavigation::Configuration.run do |navigation|
                              :highlights_on => /\/customers$/
     end
 
-    primary.item :nav_users, t_model(User), users_path, :if => lambda { can?(:new, User) or can?(:index, User) } do |user|
-      user.item :new_user, t_action(:new, User), new_user_path, :if => lambda { can?(:new, User) }
-      user.item :user_index, t_action(:index, User), users_path, :if => lambda { can?(:index, User) }
-    end
-
-    primary.item :user_settings, t('bookyt.main_navigation.settings'), current_users_path,
+    primary.item :nav_users, t('bookyt.main_navigation.settings'), current_users_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.settings'),
                  :if => Proc.new { user_signed_in? } do |settings|
       settings.item :current_user, t_title(:current, User), current_users_path
+      settings.item :user_index, t_title(:index, User), users_path, :if => lambda { can?(:index, User) }
       settings.item :current_tenant, t_title(:current, Tenant), current_tenants_path, :if => lambda { can?(:current, current_user.tenant) }
+      settings.item :tenant_index, t_title(:index, Tenant), tenants_path, :if => lambda { can?(:index, Tenant) }
     end
   end
 end
