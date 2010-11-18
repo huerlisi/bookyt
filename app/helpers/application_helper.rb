@@ -98,4 +98,19 @@ module ApplicationHelper
     
     render 'layouts/list_item_actions_for', :model_name => model_name, :resource => resource
   end
+
+  # Nested form helpers
+  def show_new_form(model)
+    model_name = model.to_s.underscore
+    
+    output = <<EOF
+$('##{model_name}_list').replaceWith('#{escape_javascript(render('form'))}');
+addAutofocusBehaviour();
+addAutocompleteBehaviour();
+addDatePickerBehaviour();
+addAutogrowBehaviour();
+EOF
+  
+    return output.html_safe
+  end
 end

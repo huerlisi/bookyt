@@ -10,6 +10,8 @@ de:
     person:
      address: Adresse
      civil:   Personalien
+    company:
+      address: Adresse
 
   activerecord:
     models:
