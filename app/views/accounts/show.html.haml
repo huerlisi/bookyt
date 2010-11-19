@@ -1,10 +1,10 @@
 .contextual
-  = link_to "Kontoliste", accounts_path, :class => "icon icon-index"
-  = link_to "Alle Buchungen", @account, :class => "icon"
-  = link_to "Nur Soll Buchungen", url_for(:only_credit_bookings => true), :class => "icon"
-  = link_to "Nur Haben Buchungen", url_for(:only_debit_bookings => true), :class => "icon"
+  = icon_link_to 'only_credit_bookings', url_for(:only_credit_bookings => true) unless params[:only_credit_bookings]
+  = icon_link_to 'only_debit_bookings', url_for(:only_debit_bookings => true) unless params[:only_debit_bookings]
+  = icon_link_to 'all_bookings', @account if params[:only_credit_bookings] || params[:only_debit_bookings]
+  = contextual_links_for
 
-%h2= @account
+%h1= @account
 = render :partial => 'booking_list'
 
 = render 'bookings/sidebar'
