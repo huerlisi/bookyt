@@ -1,6 +1,4 @@
-.contextual
-  = link_to t_action('show'), @booking
-  = link_to t_action('back'), bookings_path
-  = link_to t_action('delete'), @booking, :confirm => t_confirm_delete(@booking), :method => :delete
+= contextual_links
+
 %h2= t_title
 = render :partial => 'form'
