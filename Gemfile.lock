@@ -120,6 +120,9 @@ GEM
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
     nokogiri (1.4.3.1)
+    paperclip (2.3.5)
+      activerecord
+      activesupport
     pdfkit (0.4.6)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -143,6 +146,7 @@ GEM
       thor (~> 0.14.4)
     rake (0.8.7)
     rcov (0.9.9)
+    remotipart (0.1.1)
     responders (0.6.2)
     rspec (2.1.0)
       rspec-core (~> 2.1.0)
@@ -199,10 +203,12 @@ DEPENDENCIES
   jquery-rails
   mocha
   mysql
+  paperclip
   pdfkit
   rails (~> 3.0.0)
   rails3-generators
   rcov
+  remotipart
   rspec
   rspec-rails (>= 2.0.0.beta.19)
   ruby_parser

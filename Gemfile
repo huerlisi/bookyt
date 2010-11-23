@@ -53,6 +53,8 @@ gem 'has_scope'
 gem 'i18n_rails_helpers', '~> 0.8.0'
 
 gem 'jquery-rails'
+gem 'remotipart'
+gem 'paperclip'
 
 # Bookyt
 # ======
@@ -69,3 +71,5 @@ gem 'pdfkit'
 
 # Vcards
 gem 'has_vcards', '~> 0.5.6'
+
+

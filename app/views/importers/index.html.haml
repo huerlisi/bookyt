@@ -1,0 +1,16 @@
+%h1
+  Importer
+
+%ul
+- @importers.each do |importer|
+  %li
+    = link_to importer.csv_file_name, importer.csv.url
+    %ul
+      -#%li
+      -#  = link_to 'Show', importer
+      %li
+        = link_to 'Edit', edit_importer_path(importer)
+      %li
+        = link_to 'Destroy', importer, :confirm => 'Are you sure?', :method => :delete
+
+= link_to 'New Import', new_importer_path
