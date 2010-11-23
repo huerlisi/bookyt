@@ -76,18 +76,45 @@ de:
         total:           Total
         calculate:       Ausrechnen
       employee:
-        full_name:     Name
-        date_of_birth: Geburtsdatum
-        date_of_death: Todestag
-        sex:           Geschlecht
+        full_name:        Name
+        date_of_birth:    Geburtsdatum
+        date_of_death:    Todestag
+        sex:              Geschlecht
+        post_office_box:  Postfach
+        extended_address: Adresszusatz
+        street_address:   Strasse
+        locality:         Ort
+        region:           Region
+        postal_code:      PLZ
+        country_name:     Land
       employment:
         employer:      Arbeitgeber
         employee:      Arbeitnehmer
         duration:      Dauer
       company:
-        full_name:     Name
+        full_name:        Name
+        date_of_birth:    Geburtsdatum
+        date_of_death:    Todestag
+        sex:              Geschlecht
+        post_office_box:  Postfach            
+        extended_address: Adresszusatz
+        street_address:   Strasse             
+        locality:         Ort
+        region:           Region
+        postal_code:      PLZ
+        country_name:     Land 
       customer:
-        full_name:     Name
+        full_name:        Name
+        date_of_birth:    Geburtsdatum
+        date_of_death:    Todestag
+        sex:              Geschlecht
+        post_office_box:  Postfach            
+        extended_address: Adresszusatz
+        street_address:   Strasse             
+        locality:         Ort
+        region:           Region
+        postal_code:      PLZ
+        country_name:     Land 
       invoice:
         created_at:    Rechnungsdatum
         due_date:      Fälligkeitsdatum
