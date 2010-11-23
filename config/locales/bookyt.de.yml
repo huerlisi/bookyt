@@ -138,6 +138,17 @@ de:
         roles:                          Rollen
         role_texts:                     Rollen
         name:                           Name
+        full_name:                      Name
+        date_of_birth:                  Geburtsdatum
+        date_of_death:                  Todestag
+        sex:                            Geschlecht
+        post_office_box:                Postfach  
+        extended_address:               Adresszusatz
+        street_address:                 Strasse
+        locality:                       Ort
+        region:                         Region
+        postal_code:                    PLZ   
+        country_name:                   Land
       vcard:
         full_name:                      Name
       address:
