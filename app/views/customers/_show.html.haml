@@ -1,0 +1,13 @@
+%table
+  %tr   
+    %th= t_attr :street_address
+    %td= @customer.vcard.street_address         
+  %tr   
+    %th= t_attr :locality
+    %td= @customer.vcard.locality        
+  %tr   
+    %th= t_attr :postal_code
+    %td= @customer.vcard.postal_code        
+  %tr   
+    %th= t_attr :country_name
+    %td= @customer.vcard.country_name
