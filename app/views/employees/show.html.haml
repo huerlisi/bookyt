@@ -4,6 +4,8 @@
 
 = @employee.vcard.try(:full_name)
 
+= render :partial => 'show'
+
 .contextual
   = link_to t_action('new', Employment), new_employment_path, :remote => true, :class => "icon icon-add"
 %h2= t_title :index, Employment
