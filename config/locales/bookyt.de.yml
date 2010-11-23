@@ -182,6 +182,7 @@ de:
       invoices:                 Rechnungen
       settings:                 Einstellungen
       overview:                 Übersicht
+      importer:                 Importer
       tooltip:
         new_day:  Hier können Sie einen neuen Tagesabschluss gemäss Registrierkasse buchen
         new_booking: Hier können Sie eine neue Buchung für die Finanzbuchhaltung erstellen
@@ -202,5 +203,6 @@ de:
         invoices: Listet alle Rechnungen auf
         settings: Hier können die nötigen Einstellungen für Bookyt gemacht werden
         overview: Gibt Ihnen eine Übersicht über die Funktionen
+        importer: Imports Data
     overview:
       title: Übersicht
