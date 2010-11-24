@@ -14,6 +14,7 @@ gem 'mysql'
 # ===========
 group :development do
   gem 'rails3-generators'
+  gem 'rspec'
   gem 'rspec-rails', ">= 2.0.0.beta.19"
   # Haml generators
   gem 'hpricot'
