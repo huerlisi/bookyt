@@ -72,5 +72,3 @@ gem 'pdfkit'
 
 # Vcards
 gem 'has_vcards', '~> 0.5.6'
-
-
