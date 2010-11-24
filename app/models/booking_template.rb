@@ -43,4 +43,13 @@ class BookingTemplate < ActiveRecord::Base
     
     template.create_booking(params)
   end
+
+  def self.import(struct)
+    templates = self.all.inject([]) do |found, template|
+      puts "matcher: " + template.matcher
+      puts 'text: ' + struct.text
+      found << template if not Regexp.new(template.matcher).match(struct.text).eql?nil
+    end
+    puts templates.inspect
+  end
 end

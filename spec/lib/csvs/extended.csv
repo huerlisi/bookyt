@@ -1,0 +1,9 @@
+Booked At;Text;Credit/Debit Amount;Balance;Valuta Date
+2008-01-03;Bareinzahlung Canonical 810400;478.6;1781.65;2008-01-03
+2008-01-03;Gutschrift Dell SA;654.9;2436.55;2008-01-03
+;Dell SA MUSTERSTRASSE 12 6330 CHAM VERTRAG NR. 000 REF. NO. 2323 DOK NR. 20 FR. 658,85 KOM. 3,97;;;
+2008-01-03;E-Banking Dauerauftrag zu Gunsten Apple;-1806.9;629.65;2008-01-04
+;CHF 1'806.90  Apple Support-Dienstleistungen 6300 Zug;;;
+2008-01-04;Bareinzahlung Canonical 810401;71.1;700.75;2008-01-04
+2008-01-04;Bareinzahlung Canonical 810398;297.55;998.30;2008-01-04
+2008-01-04;Barauszahlung Storno Canonical;-297.55;700.75;2008-01-04
