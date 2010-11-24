@@ -2,9 +2,7 @@
 
 %h1= t_title
 
-= @customer.vcard.try(:full_name)
-
-= render :partial => 'show'
+= render 'show'
 
 #list_invoices
 
