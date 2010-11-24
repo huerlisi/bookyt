@@ -27,16 +27,14 @@ class BookingTemplate < ActiveRecord::Base
     booking_params = attributes.reject{|key, value| ["updated_at", "created_at", "id", "code"].include?(key)}
     booking_params.merge!(params)
 
-    booking = Booking.new(booking_params)
-    
-    return booking
+    Booking.new(booking_params)
   end
 
   def create_booking(params = {})
     booking = build_booking(params)
     booking.save
     
-    return booking
+    booking
   end
 
   def self.create_booking(code, params = {})
