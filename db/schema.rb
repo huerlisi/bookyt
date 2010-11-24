@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101123090816) do
+ActiveRecord::Schema.define(:version => 20101124074701) do
 
   create_table "account_types", :force => true do |t|
     t.string "name",  :limit => 100
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(:version => 20101123090816) do
   end
 
   add_index "addresses", ["vcard_id"], :name => "addresses_vcard_id_index"
+
+  create_table "booking_imports", :force => true do |t|
+    t.string   "csv_file_name"
+    t.string   "csv_content_type"
+    t.integer  "csv_file_size"
+    t.datetime "csv_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "booking_templates", :force => true do |t|
     t.string   "title"
@@ -97,15 +106,6 @@ ActiveRecord::Schema.define(:version => 20101123090816) do
     t.decimal  "daily_workload"
     t.integer  "employee_id"
     t.integer  "employer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "importers", :force => true do |t|
-    t.string   "csv_file_name"
-    t.string   "csv_content_type"
-    t.integer  "csv_file_size"
-    t.datetime "csv_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

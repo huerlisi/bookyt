@@ -43,7 +43,7 @@ Bookyt::Application.routes.draw do
   
   resources :booking_templates
 
-  resources :importers
+  resources :booking_imports
 
   match '/balance' => 'balance#show'
   match '/profit' => 'profit#show'

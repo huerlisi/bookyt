@@ -1,0 +1,6 @@
+= form_for @booking_import, :url => {:controller => 'booking_imports', :action => 'create' }, :html => { :multipart => true }, :remote => true do |f|
+  .field
+    = f.label :csv
+    = f.file_field :csv
+  .actions
+    = f.submit

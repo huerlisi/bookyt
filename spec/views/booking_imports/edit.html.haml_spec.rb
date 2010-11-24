@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "importers/edit.html.haml" do
+describe "booking_imports/edit.html.haml" do
   before(:each) do
-    @importer = assign(:importer, stub_model(Importer,
+    @importer = assign(:booking_import, stub_model(BookingImport,
       :new_record? => false
     ))
   end
@@ -11,7 +11,7 @@ describe "importers/edit.html.haml" do
     render
 
     # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
-    assert_select "form", :action => importer_path(@importer), :method => "post" do
+    assert_select "form", :action => booking_import_path(@booking_import), :method => "post" do
     end
   end
 end
