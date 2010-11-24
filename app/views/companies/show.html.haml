@@ -1,6 +1,5 @@
-.contextual
-  = link_to t_action('edit'), edit_company_path(@company)
-  = link_to t_action('index'), companies_path
+= contextual_links
+
 %h1= t_title
 
 = @company.vcard.try(:full_name)

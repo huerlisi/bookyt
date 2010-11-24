@@ -1,7 +1,5 @@
-.contextual
-  = link_to t_action('show'), @account_type
-  = link_to t_action('index'), account_types_path
-  = link_to t_action('delete'), @account_type, :confirm => t_confirm_delete(@account_type), :method => :delete
+= contextual_links
+
 %h2= t_title
 
 = render :partial => 'form'
