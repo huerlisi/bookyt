@@ -71,4 +71,4 @@ gem 'validates_timeliness', '~> 3.0.0'
 gem 'pdfkit'
 
 # Vcards
-gem 'has_vcards', '~> 0.5.6'
+gem 'has_vcards', '~> 0.6'

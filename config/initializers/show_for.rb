@@ -1,10 +1,10 @@
 # Use this setup block to configure all options available in ShowFor.
 ShowFor.setup do |config|
   # The tag which wraps show_for calls.
-  # config.show_for_tag = :div
+  config.show_for_tag = :ul
 
   # The tag which wraps each attribute/association call. Default is :p.
-  # config.wrapper_tag = :dl
+  config.wrapper_tag = :li
 
   # The tag used to wrap each label. Default is :strong.
   # config.label_tag = :dt
@@ -16,7 +16,7 @@ ShowFor.setup do |config|
   # config.blank_content_class = 'no_content'
 
   # The separator between label and content. Default is "<br />".
-  # config.separator = "<br />"
+  config.separator = " "
 
   # The tag used to wrap collections. Default is :ul.
   # config.collection_tag = :ul
