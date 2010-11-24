@@ -51,6 +51,7 @@ gem 'will_paginate', :git => 'http://github.com/mislav/will_paginate.git', :bran
 gem 'inherited_resources'
 gem 'has_scope'
 gem 'i18n_rails_helpers', '~> 0.8.0'
+gem 'show_for'
 
 gem 'jquery-rails'
 gem 'remotipart'
