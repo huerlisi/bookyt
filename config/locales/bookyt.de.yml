@@ -221,6 +221,8 @@ de:
       settings:                 Einstellungen
       overview:                 Übersicht
       importer:                 Importer
+      new_employee:             Neuer Mitarbeiter
+      new_customer:             Neuer Kunde
       tooltip:
         new_day:  Hier können Sie einen neuen Tagesabschluss gemäss Registrierkasse buchen
         new_booking: Hier können Sie eine neue Buchung für die Finanzbuchhaltung erstellen
@@ -241,6 +243,8 @@ de:
         invoices: Listet alle Rechnungen auf
         settings: Hier können die nötigen Einstellungen für Bookyt gemacht werden
         overview: Gibt Ihnen eine Übersicht über die Funktionen
-        importer: Imports Data
+        importer: Importiert Buchungsdaten aus einer .csv Datei
+        new_customer: Legt einen neuen Kunden an
+        new_employee: Legt einen neuen Mitarbeiter an
     overview:
       title: Übersicht

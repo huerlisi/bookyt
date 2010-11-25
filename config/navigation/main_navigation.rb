@@ -47,15 +47,22 @@ SimpleNavigation::Configuration.run do |navigation|
                      :highlights_on => /\/invoices\/new.*$/
     end
 
-    primary.item :nav_users, t('bookyt.main_navigation.contacts'), employees_path,
+    primary.item :contacts, t('bookyt.main_navigation.contacts'), employees_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.contacts'),
-                 :if => Proc.new { user_signed_in? } do |contacts|
+                 :if => Proc.new { user_signed_in? }, 
+		 :highlights_on => /\/employees.*/ do |contacts|
       contacts.item :employees, t('bookyt.main_navigation.employees'), employees_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.employees'),
-                             :highlights_on => /\/employees$/
+                             :highlights_on => /\/employees*/
+      contacts.item :new_employee, t('bookyt.main_navigation.new_employee'), new_employee_path,
+                             :tooltip => t('bookyt.main_navigation.tooltip.new_employee'),
+                             :highlights_on => /\/employees\/new.$*/
       contacts.item :customers, t('bookyt.main_navigation.customers'), customers_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.customers'),
-                             :highlights_on => /\/customers$/
+                             :highlights_on => /\/customers*/
+      contacts.item :new_customer, t('bookyt.main_navigation.new_customer'), new_customer_path,
+                             :tooltip => t('bookyt.main_navigation.tooltip.new_customer'),
+                             :highlights_on => /\/customers\/new.$*/
     end
 
     primary.item :user_settings, t('bookyt.main_navigation.settings'), current_users_path,
