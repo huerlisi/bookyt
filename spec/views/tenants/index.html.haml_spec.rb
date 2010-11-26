@@ -5,7 +5,7 @@ describe "tenants/index.html.haml" do
     assign(:tenants, [
       stub_model(Tenant),
       stub_model(Tenant)
-    ])
+    ].paginate(:page => 1))
   end
 
   it "renders a list of tenants" do

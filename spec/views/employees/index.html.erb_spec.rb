@@ -5,7 +5,7 @@ describe "employees/index.html.erb" do
     assign(:employees, [
       stub_model(Employee),
       stub_model(Employee)
-    ])
+    ].paginate(:page => 1))
   end
 
   it "renders a list of employees" do
