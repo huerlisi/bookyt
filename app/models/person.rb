@@ -1,4 +1,8 @@
 class Person < ActiveRecord::Base
+  # sex enumeration
+  MALE   = 1
+  FEMALE = 2
+
   # Associations
   has_many :vcards, :as => :object
   has_one :vcard, :as => :object
