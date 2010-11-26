@@ -11,6 +11,7 @@ class Person < ActiveRecord::Base
 
   # Validations
   validates_date :date_of_birth, :date_of_death, :allow_nil => true, :allow_blank => true
+  validates_presence_of :vcard
 
   # Constructor
   def initialize(attributes = nil)
