@@ -1,0 +1,1 @@
+page['#bookings_list'].before(render(:partial => 'new_form'))

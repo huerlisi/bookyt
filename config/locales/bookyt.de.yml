@@ -177,6 +177,8 @@ de:
       select_booking_template: %{model} anlegen
       select_booking: %{model} anlegen
       current: Aktueller %{model}
+      day:
+        new: Abrechnung von %{day}
     flash:
       created_html: %{message} angelegt
 
@@ -244,7 +246,11 @@ de:
         settings: Hier können die nötigen Einstellungen für Bookyt gemacht werden
         overview: Gibt Ihnen eine Übersicht über die Funktionen
         importer: Importiert Buchungsdaten aus einer .csv Datei
-        new_customer: Legt einen neuen Kunden an
-        new_employee: Legt einen neuen Mitarbeiter an
+        new_customer: Erstellt einen neuen Kunden
+        new_employee: Erstellt einen neuen Mitarbeiter an
+        current_user: Zeigt die Details des aktuell angemeldeten Benutzers
+        user_index: Zeigt eine Liste aller Benutzer
+        current_tenant: Zeigt die Details des aktiven Mandanten
+        tenant_index: Zeigt eine Liste aller Mandanten
     overview:
       title: Übersicht
