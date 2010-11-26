@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe BookingImportsController do
+  login_admin
 
   def mock_importer(stubs={})
     (@mock_importer ||= mock_model(BookingImport).as_null_object).tap do |importer|

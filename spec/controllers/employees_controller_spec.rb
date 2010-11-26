@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe EmployeesController do
-
+  login_admin
+  
   def mock_employee(stubs={})
     @mock_employee ||= mock_model(Employee, stubs).as_null_object
   end
