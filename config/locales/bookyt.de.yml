@@ -177,6 +177,8 @@ de:
       select_booking_template: %{model} anlegen
       select_booking: %{model} anlegen
       current: Aktueller %{model}
+      day:
+        new: Abrechnung von %{day}
     flash:
       created_html: %{message} angelegt
 
