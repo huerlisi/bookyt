@@ -48,6 +48,8 @@ SimpleNavigation::Configuration.run do |navigation|
       invoicing.item :new_invoice, t('bookyt.main_navigation.new_invoice'), new_invoice_path,
                      :tooltip => t('bookyt.main_navigation.tooltip.new_invoice'),
                      :highlights_on => /\/invoices\/new.*$/
+      invoicing.item :new_customer, t('bookyt.main_navigation.new_customer'), new_customer_path,
+                     :tooltip => t('bookyt.main_navigation.tooltip.new_customer')
     end
 
     primary.item :contacts, t('bookyt.main_navigation.contacts'), employees_path,
