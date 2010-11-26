@@ -214,8 +214,8 @@ DEPENDENCIES
   rails3-generators
   rcov
   remotipart
-  rspec
-  rspec-rails (>= 2.0.0.beta.19)
+  rspec (~> 2.1)
+  rspec-rails (~> 2.1)
   ruby_parser
   shoulda
   show_for
