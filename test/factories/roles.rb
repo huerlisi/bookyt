@@ -1,5 +1,8 @@
-# Read about factories at http://github.com/thoughtbot/factory_girl
+# Role factories
+Factory.define :admin, :class => Role do |f|
+  f.name "admin"
+end
 
-Factory.define :role do |f|
-  f.name "MyString"
+Factory.define :accountant, :class => Role do |f|
+  f.name "accountant"
 end

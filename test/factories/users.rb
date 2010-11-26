@@ -1,4 +1,10 @@
-# Read about factories at http://github.com/thoughtbot/factory_girl
+# User factories
+require File.expand_path('../roles', __FILE__)
+require File.expand_path('../people', __FILE__)
 
-Factory.define :user do |f|
+Factory.define :admin_user, :class => User do |f|
+  f.email    "admin@example.com"
+  f.password "admin1234"
+  f.roles [Factory.create(:admin)]
+  f.person Factory.build(:person)
 end
