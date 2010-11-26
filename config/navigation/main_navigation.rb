@@ -27,6 +27,9 @@ SimpleNavigation::Configuration.run do |navigation|
       accounting.item :accounts, t('bookyt.main_navigation.accounts'), accounts_path,
                       :tooltip => t('bookyt.main_navigation.tooltip.accounts'),
                       :highlights_on => /\/accounts/
+      accounting.item :account_types, t('bookyt.main_navigation.account_types'), account_types_path,
+                      :tooltip => t('bookyt.main_navigation.tooltip.account_types'),
+                      :highlights_on => /\/account_types/
       accounting.item :bookings, t('bookyt.main_navigation.bookings'), bookings_path,
                       :tooltip => t('bookyt.main_navigation.tooltip.bookings'),
                       :highlights_on => /\/bookings$/

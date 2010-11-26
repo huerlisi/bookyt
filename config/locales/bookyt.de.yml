@@ -225,6 +225,7 @@ de:
       importer:                 Importer
       new_employee:             Neuer Mitarbeiter
       new_customer:             Neuer Kunde
+      account_types:            Kontenarten
       tooltip:
         new_day:  Hier können Sie einen neuen Tagesabschluss gemäss Registrierkasse buchen
         new_booking: Hier können Sie eine neue Buchung für die Finanzbuchhaltung erstellen
@@ -252,5 +253,6 @@ de:
         user_index: Zeigt eine Liste aller Benutzer
         current_tenant: Zeigt die Details des aktiven Mandanten
         tenant_index: Zeigt eine Liste aller Mandanten
+        account_types: Zeigt eine Liste aller Kontentypen (Anlagevermögen, Umlaufvermögen, ...)
     overview:
       title: Übersicht
