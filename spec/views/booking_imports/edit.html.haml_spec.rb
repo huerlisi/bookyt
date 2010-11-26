@@ -10,8 +10,7 @@ describe "booking_imports/edit.html.haml" do
   it "renders the edit importer form" do
     render
 
-    # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
-    assert_select "form", :action => booking_import_path(@booking_import), :method => "post" do
+    rendered.should have_selector("form", :action => booking_import_path(@booking_import), :method => "post") do |form|
     end
   end
 end
