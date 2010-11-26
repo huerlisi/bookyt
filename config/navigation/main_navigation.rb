@@ -66,6 +66,9 @@ SimpleNavigation::Configuration.run do |navigation|
       contacts.item :new_customer, t('bookyt.main_navigation.new_customer'), new_customer_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.new_customer'),
                              :highlights_on => /\/customers\/new$/
+      contacts.item :companies, t('bookyt.main_navigation.companies'), companies_path,
+                             :tooltip => t('bookyt.main_navigation.tooltip.companies'),
+                             :highlights_on => /\/companies*/
     end
 
     primary.item :user_settings, t('bookyt.main_navigation.settings'), current_users_path,
