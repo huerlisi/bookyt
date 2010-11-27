@@ -4,9 +4,7 @@ describe BookingImportsController do
   login_admin
 
   def mock_booking_import(stubs={})
-    (@mock_booking_import ||= mock_model(BookingImport).as_null_object).tap do |booking_import|
-      booking_import.stub(stubs) unless stubs.empty?
-    end
+    @mock_booking_import ||= mock_model(BookingImport, stubs).as_null_object
   end
 
   describe "GET index" do

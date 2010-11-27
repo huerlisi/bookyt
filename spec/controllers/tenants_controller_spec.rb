@@ -4,9 +4,7 @@ describe TenantsController do
   login_admin
   
   def mock_tenant(stubs={})
-    (@mock_tenant ||= mock_model(Tenant).as_null_object).tap do |tenant|
-      tenant.stub(stubs) unless stubs.empty?
-    end
+    @mock_tenant ||= mock_model(Tenant, stubs).as_null_object
   end
 
   describe "GET index" do
