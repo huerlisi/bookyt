@@ -51,7 +51,7 @@ module ApplicationHelper
     # Link generation
     case action
     when 'new'
-      return icon_link_to(action, send("new_#{model_name}_path"), :remote => true)
+      return icon_link_to(action, send("new_#{model_name}_path"))
     when 'show'
       return icon_link_to(action, send("#{model_name}_path", resource))
     when 'edit'
