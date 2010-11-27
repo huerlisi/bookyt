@@ -10,7 +10,7 @@ describe "booking_imports/edit.html.haml" do
   it "renders the edit importer form" do
     render
 
-    rendered.should have_selector("form", :action => booking_import_path(@booking_import), :method => "post") do |form|
+    rendered.should have_selector("form", :action => booking_import_path(@booking_import), :method => "post", :enctype => "multipart/form-data") do |form|
     end
   end
 end
