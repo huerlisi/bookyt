@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "booking_imports/edit.html.haml" do
   before(:each) do
-    @importer = assign(:booking_import, stub_model(BookingImport,
+    @booking_import = assign(:booking_import, stub_model(BookingImport,
       :new_record? => false
     ))
   end
