@@ -27,6 +27,7 @@ de:
       invoice: Rechnung
       tenant: Mandant
       user: Benutzer
+      booking_import: Buchungsimport
 
     attributes:
       title:            Titel
@@ -156,6 +157,8 @@ de:
         extended_address:               Postfach
         postal_code:                    PLZ
         locality:                       Ort
+      booking_import:
+        csv:                            CSV-Datei
 
   formtastic:
     hints:
