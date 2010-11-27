@@ -29,4 +29,7 @@ public/stylesheets/compiled
 
 # Capistrano
 config/deploy/*.rb
-public/importers/*
+
+# Bookyt Data
+# ===========
+public/booking_imports
