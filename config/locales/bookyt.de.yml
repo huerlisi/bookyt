@@ -159,6 +159,7 @@ de:
         locality:                       Ort
       booking_import:
         csv:                            CSV-Datei
+        created_at:                     Importiert am
 
   formtastic:
     hints:
