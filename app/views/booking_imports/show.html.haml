@@ -1,0 +1,6 @@
+= contextual_links
+
+%h1= @booking_import
+
+= show_for @booking_import do |booking_import|
+  = booking_import.attribute(:csv)
