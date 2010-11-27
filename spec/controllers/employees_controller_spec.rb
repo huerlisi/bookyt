@@ -8,7 +8,7 @@ describe EmployeesController do
   end
 
   describe "GET index" do
-    it "assigns all employees as @employees" do
+    pending "assigns all employees as @employees" do
       Employee.stub(:all) { [mock_employee] }
       get :index
       assigns(:employees).should eq([mock_employee])

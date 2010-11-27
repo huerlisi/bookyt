@@ -8,7 +8,7 @@ describe TenantsController do
   end
 
   describe "GET index" do
-    it "assigns all tenants as @tenants" do
+    pending "assigns all tenants as @tenants" do
       Tenant.stub(:all) { [mock_tenant] }
       get :index
       assigns(:tenants).should eq([mock_tenant])
