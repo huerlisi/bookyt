@@ -41,6 +41,6 @@ class User < ActiveRecord::Base
 
   # Helpers
   def to_s
-    person.try(:to_s)
+    person.try(:to_s) || ""
   end
 end
