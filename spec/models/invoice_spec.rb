@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Invoice do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "when new" do
+    specify { should_not be_valid }
+    its(:to_s) { should == "" }
+  end
 end

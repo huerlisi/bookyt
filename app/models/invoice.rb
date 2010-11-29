@@ -11,7 +11,9 @@ class Invoice < ActiveRecord::Base
   validates_presence_of :customer, :company, :title, :amount, :state
   
   # Helpers
-#  def to_s
-#    "%s für %s à %s"  % [title, customer, currency_fmt(amount)]
-#  end
+  def to_s
+    return "" if amount.nil?
+
+    "%s für %s à %s"  % [title, customer, currency_fmt(amount)]
+  end
 end
