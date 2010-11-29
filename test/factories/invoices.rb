@@ -1,7 +1,12 @@
-# Read about factories at http://github.com/thoughtbot/factory_girl
+# Invoice factories
+require File.expand_path('../customers', __FILE__)
+require File.expand_path('../companies', __FILE__)
 
 Factory.define :invoice do |f|
-  f.customer_id 1
-  f.due_date 1
-  f.state "MyString"
+  f.customer Factory.build(:customer)
+  f.company Factory.build(:company)
+  f.due_date '2010-10-20'
+  f.state "new"
+  f.title "New Invoice"
+  f.amount 99.85
 end
