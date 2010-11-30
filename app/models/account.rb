@@ -52,7 +52,7 @@ class Account < ActiveRecord::Base
   validates_presence_of :code, :title
   
   # Helpers
-  def to_s
+  def to_s(format = :default)
     "#{code} - #{title}"
   end
   
