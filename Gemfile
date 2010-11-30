@@ -14,7 +14,8 @@ gem 'mysql'
 # ===========
 group :development do
   gem 'rails3-generators'
-  gem 'rspec-rails', ">= 2.0.0.beta.19"
+  gem 'rspec', '~> 2.1'
+  gem 'rspec-rails', '~> 2.1'
   # Haml generators
   gem 'hpricot'
   gem 'ruby_parser'
@@ -26,8 +27,8 @@ end
 # Test
 # ====
 group :test do
-  gem 'rspec'
-  gem 'rspec-rails', ">= 2.0.0.beta.19"
+  gem 'rspec', '~> 2.1'
+  gem 'rspec-rails', '~> 2.1'
   gem 'mocha'
   gem 'shoulda'
   gem 'factory_girl_rails'
@@ -51,8 +52,13 @@ gem 'will_paginate', :git => 'http://github.com/mislav/will_paginate.git', :bran
 gem 'inherited_resources'
 gem 'has_scope'
 gem 'i18n_rails_helpers', '~> 0.8.0'
+gem 'show_for'
 
 gem 'jquery-rails'
+# Raiffeisen BookingImport
+gem 'remotipart'
+gem 'paperclip'
+gem 'csv-mapper'
 
 # Bookyt
 # ======
@@ -68,4 +74,4 @@ gem 'validates_timeliness', '~> 3.0.0'
 gem 'pdfkit'
 
 # Vcards
-gem 'has_vcards', '~> 0.5.6'
+gem 'has_vcards', '~> 0.6'

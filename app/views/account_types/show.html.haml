@@ -1,6 +1,5 @@
-.contextual
-  = link_to t_action('edit'), edit_account_type_path(@account_type)
-  = link_to t_action('index'), account_types_path
+= contextual_links
+
 %h2= t_title
 
 = @account_type.name

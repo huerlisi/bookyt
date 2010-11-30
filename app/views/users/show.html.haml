@@ -5,6 +5,8 @@
 %p
   = @user.email
 
+  = render :partial => 'show'
+
 %ul#roles
 - @user.roles.each do |role|
   %li

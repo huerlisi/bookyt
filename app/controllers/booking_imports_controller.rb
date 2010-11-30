@@ -1,0 +1,2 @@
+class BookingImportsController < AuthorizedController
+end

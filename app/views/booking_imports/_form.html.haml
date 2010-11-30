@@ -1,0 +1,6 @@
+= semantic_form_for @booking_import, :html => { :multipart => true } do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = f.input :csv
+  = f.buttons do
+    = f.commit_button

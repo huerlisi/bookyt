@@ -2,9 +2,7 @@ require 'spec_helper'
 
 describe "employees/new.html.erb" do
   before(:each) do
-    assign(:employee, stub_model(Employee,
-      :new_record? => true
-    ))
+    assign(:employee, stub_model(Employee).as_new_record)
   end
 
   it "renders new employee form" do

@@ -1,0 +1,1 @@
+page['#account_types_list'].before(render(:partial => 'form'))

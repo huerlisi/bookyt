@@ -26,7 +26,7 @@ class Ability
     if user.role? :admin
       can :manage, :all
     elsif user.role? :accountant
-      can :manage, [Account, Balance, BookingTemplate, Customer, Employee, Invoice, Product, AccountType, Booking, Company, Day, Employment, Person, Profit]
+      can :manage, [Account, BookingTemplate, Customer, Employee, Invoice, Product, AccountType, Booking, Company, Day, Employment, Person, Profit]
       can [:show, :list], [Tenant], :users => {:id => user.id}
       can [:show, :update], User, :id => user.id
     end

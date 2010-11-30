@@ -27,16 +27,14 @@ class BookingTemplate < ActiveRecord::Base
     booking_params = attributes.reject{|key, value| ["updated_at", "created_at", "id", "code"].include?(key)}
     booking_params.merge!(params)
 
-    booking = Booking.new(booking_params)
-    
-    return booking
+    Booking.new(booking_params)
   end
 
   def create_booking(params = {})
     booking = build_booking(params)
     booking.save
     
-    return booking
+    booking
   end
 
   def self.create_booking(code, params = {})
@@ -44,5 +42,14 @@ class BookingTemplate < ActiveRecord::Base
     return if template.nil?
     
     template.create_booking(params)
+  end
+
+  def self.import(struct)
+    templates = self.all.inject([]) do |found, template|
+      puts "matcher: " + template.matcher
+      puts 'text: ' + struct.text
+      found << template if not Regexp.new(template.matcher).match(struct.text).eql?nil
+    end
+    puts templates.inspect
   end
 end

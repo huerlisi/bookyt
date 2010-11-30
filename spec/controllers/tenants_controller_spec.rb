@@ -1,15 +1,14 @@
 require 'spec_helper'
 
 describe TenantsController do
-
+  login_admin
+  
   def mock_tenant(stubs={})
-    (@mock_tenant ||= mock_model(Tenant).as_null_object).tap do |tenant|
-      tenant.stub(stubs) unless stubs.empty?
-    end
+    @mock_tenant ||= mock_model(Tenant, stubs).as_null_object
   end
 
   describe "GET index" do
-    it "assigns all tenants as @tenants" do
+    pending "assigns all tenants as @tenants" do
       Tenant.stub(:all) { [mock_tenant] }
       get :index
       assigns(:tenants).should eq([mock_tenant])

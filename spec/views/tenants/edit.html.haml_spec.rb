@@ -10,8 +10,7 @@ describe "tenants/edit.html.haml" do
   it "renders the edit tenant form" do
     render
 
-    # Run the generator again with the --webrat-matchers flag if you want to use webrat matchers
-    assert_select "form", :action => tenant_path(@tenant), :method => "post" do
+    rendered.should have_selector("form", :action => tenant_path(@tenant), :method => "post") do |form|
     end
   end
 end

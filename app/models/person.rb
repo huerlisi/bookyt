@@ -1,4 +1,8 @@
 class Person < ActiveRecord::Base
+  # sex enumeration
+  MALE   = 1
+  FEMALE = 2
+
   # Associations
   has_many :vcards, :as => :object
   has_one :vcard, :as => :object
@@ -7,6 +11,7 @@ class Person < ActiveRecord::Base
 
   # Validations
   validates_date :date_of_birth, :date_of_death, :allow_nil => true, :allow_blank => true
+  validates_presence_of :vcard
 
   # Constructor
   def initialize(attributes = nil)

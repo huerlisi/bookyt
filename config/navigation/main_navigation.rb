@@ -27,9 +27,15 @@ SimpleNavigation::Configuration.run do |navigation|
       accounting.item :accounts, t('bookyt.main_navigation.accounts'), accounts_path,
                       :tooltip => t('bookyt.main_navigation.tooltip.accounts'),
                       :highlights_on => /\/accounts/
+      accounting.item :account_types, t('bookyt.main_navigation.account_types'), account_types_path,
+                      :tooltip => t('bookyt.main_navigation.tooltip.account_types'),
+                      :highlights_on => /\/account_types/
       accounting.item :bookings, t('bookyt.main_navigation.bookings'), bookings_path,
                       :tooltip => t('bookyt.main_navigation.tooltip.bookings'),
                       :highlights_on => /\/bookings$/
+      accounting.item :importer, t('bookyt.main_navigation.importer'), booking_imports_path,
+                      :tooltip => t('bookyt.main_navigation.tooltip.importer'),
+                      :highlights_on => /\/booking_imports/
     end
 
     primary.item :invoicing, t('bookyt.main_navigation.invoicing'), invoices_path,
@@ -42,26 +48,46 @@ SimpleNavigation::Configuration.run do |navigation|
       invoicing.item :new_invoice, t('bookyt.main_navigation.new_invoice'), new_invoice_path,
                      :tooltip => t('bookyt.main_navigation.tooltip.new_invoice'),
                      :highlights_on => /\/invoices\/new.*$/
+      invoicing.item :new_customer, t('bookyt.main_navigation.new_customer'), new_customer_path,
+                     :tooltip => t('bookyt.main_navigation.tooltip.new_customer')
     end
 
-    primary.item :nav_users, t('bookyt.main_navigation.contacts'), employees_path,
+    primary.item :contacts, t('bookyt.main_navigation.contacts'), employees_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.contacts'),
-                 :if => Proc.new { user_signed_in? } do |contacts|
+                 :if => Proc.new { user_signed_in? }, 
+		 :highlights_on => /\/employees.*/ do |contacts|
       contacts.item :employees, t('bookyt.main_navigation.employees'), employees_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.employees'),
                              :highlights_on => /\/employees$/
+      contacts.item :new_employee, t('bookyt.main_navigation.new_employee'), new_employee_path,
+                             :tooltip => t('bookyt.main_navigation.tooltip.new_employee'),
+                             :highlights_on => /\/employees\/new$/
       contacts.item :customers, t('bookyt.main_navigation.customers'), customers_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.customers'),
                              :highlights_on => /\/customers$/
+      contacts.item :new_customer, t('bookyt.main_navigation.new_customer'), new_customer_path,
+                             :tooltip => t('bookyt.main_navigation.tooltip.new_customer'),
+                             :highlights_on => /\/customers\/new$/
+      contacts.item :companies, t('bookyt.main_navigation.companies'), companies_path,
+                             :tooltip => t('bookyt.main_navigation.tooltip.companies'),
+                             :highlights_on => /\/companies*/
     end
 
     primary.item :user_settings, t('bookyt.main_navigation.settings'), current_users_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.settings'),
                  :if => Proc.new { user_signed_in? } do |settings|
-      settings.item :current_user, t_title(:current, User), current_users_path
-      settings.item :user_index, t_title(:index, User), users_path, :if => lambda { can?(:index, User) }
-      settings.item :current_tenant, t_title(:current, Tenant), current_tenants_path, :if => lambda { can?(:current, current_user.tenant) }
-      settings.item :tenant_index, t_title(:index, Tenant), tenants_path, :if => lambda { can?(:index, Tenant) }
+      settings.item :current_user, t_title(:current, User), current_users_path,
+                             :tooltip => t('bookyt.main_navigation.tooltip.current_user'),
+                             :highlights_on => /\/users\/./     
+      settings.item :user_index, t_title(:index, User), users_path, :if => lambda { can?(:index, User) },
+                             :tooltip => t('bookyt.main_navigation.tooltip.user_index'),
+                             :highlights_on => /\/users$/ 
+      settings.item :current_tenant, t_title(:current, Tenant), current_tenants_path, :if => lambda { can?(:current, current_user.tenant) },
+                             :tooltip => t('bookyt.main_navigation.tooltip.current_tenant'),
+                             :highlights_on => /\/tenants\/./
+      settings.item :tenant_index, t_title(:index, Tenant), tenants_path, :if => lambda { can?(:index, Tenant) },
+                             :tooltip => t('bookyt.main_navigation.tooltip.tenant_index'),
+                             :highlights_on => /\/tenants$/	
     end
   end
 end
