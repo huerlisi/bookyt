@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User do
+describe Day do
   context "a closed day" do
     subject { Factory.build(:closed_day, :gross_turnover => 100.0, :net_turnover => 80.0) }
 
