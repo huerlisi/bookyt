@@ -53,7 +53,7 @@ class Account < ActiveRecord::Base
   
   # Helpers
   def to_s(format = :default)
-    "#{code} - #{title}"
+    "%s (%s)" % [title, code]
   end
   
   # Type support

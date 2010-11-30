@@ -1,3 +1,8 @@
+Factory.define :account do |a|
+  a.title 'Account'
+  a.code '1000'
+end
+
 Factory.define :cash_account, :class => Account do |a|
   a.title 'Kasse Laden'
   a.code '1010'
