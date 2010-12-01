@@ -59,70 +59,65 @@ describe BookingTemplate do
   end
 
   describe "#build_booking" do
+    shared_examples_for "new partial booking" do
+      context "and return a Booking which" do
+        specify { should be_a(Booking) }
+        specify { should be_a_new_record }
+        specify { should_not be_valid }
+      end
+    end
+    
+    shared_examples_for "new valid booking" do
+      context "and return a Booking which" do
+        specify { should be_a(Booking) }
+        specify { should be_a_new_record }
+        specify { should be_valid }
+      end
+    end
+    
     context "on :cash record" do
       let(:cash) { Factory.build(:cash) }
       subject { booking } # Expects let(:booking) calls in nested contexts
     
       context "when called with no parameters" do
         let(:booking) { cash.build_booking }
-
-        context "returns booking which" do
-          specify { should be_a(Booking) }
-          specify { should be_new_record }
-          specify { should_not be_valid }
-        end
+        it_should_behave_like "new partial booking"
       end
       
       context "when called with amount 10.0" do
         let(:booking) { cash.build_booking(:amount => 10.0) }
 
-        context "returns booking which" do
-          specify { should be_a(Booking) }
-          specify { should be_new_record }
-          specify { should_not be_valid }
-          context "and whose" do
-            its(:amount) { should == 10.0 }
-          end
+        it_should_behave_like "new partial booking"
+        context "whose" do
+          its(:amount) { should == 10.0 }
         end
       end
 
       context "when called with value_date 2001-02-03 as string" do
         let(:booking) { cash.build_booking(:value_date => "2001-02-03") }
 
-        context "returns booking which" do
-          specify { should be_a(Booking) }
-          specify { should be_new_record }
-          specify { should_not be_valid }
-          context "and whose" do
-            its(:value_date) { should == Date.parse("2001-02-03") }
-          end
+        it_should_behave_like "new partial booking"
+        context "whose" do
+          its(:value_date) { should == Date.parse("2001-02-03") }
         end
       end
 
       context "when called with value_date 2001-02-03 as date" do
         let(:booking) { cash.build_booking(:value_date => Date.parse("2001-02-03")) }
 
-        context "returns booking which" do
-          specify { should be_a(Booking) }
-          specify { should be_new_record }
-          specify { should_not be_valid }
-          context "and whose" do
-            its(:value_date) { should == Date.parse("2001-02-03") }
-          end
+        it_should_behave_like "new partial booking"
+        context "whose" do
+          its(:value_date) { should == Date.parse("2001-02-03") }
         end
       end
 
       context "when called with value_date 2001-02-03 and amount 10.0" do
         let(:booking) { cash.build_booking(:value_date => "2001-02-03", :amount => 10.0) }
 
-        context "returns booking which" do
-          specify { should be_a(Booking) }
-          specify { should be_new_record }
-          specify { should be_valid }
-          context "and whose" do
-            its(:value_date) { should == Date.parse("2001-02-03") }
-            its(:amount) { should == 10.0 }
-          end
+        it_should_behave_like "new valid booking"
+        context "whose" do
+          its(:value_date) { should == Date.parse("2001-02-03") }
+          its(:amount) { should == 10.0 }
         end
       end
     end
