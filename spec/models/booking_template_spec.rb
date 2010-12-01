@@ -58,4 +58,99 @@ describe BookingTemplate do
     end
   end
 
+  describe "#build_booking" do
+    context "on :cash record" do
+      let(:cash) { Factory.build(:cash) }
+      subject { booking } # Expects let(:booking) calls in nested contexts
+    
+      context "when called with no parameters" do
+        let(:booking) { cash.build_booking }
+
+        context "returns booking which" do
+          specify { should be_a(Booking) }
+          specify { should be_new_record }
+          specify { should_not be_valid }
+        end
+      end
+      
+      context "when called with amount 10.0" do
+        let(:booking) { cash.build_booking(:amount => 10.0) }
+
+        context "returns booking which" do
+          specify { should be_a(Booking) }
+          specify { should be_new_record }
+          specify { should_not be_valid }
+          context "and whose" do
+            its(:amount) { should == 10.0 }
+          end
+        end
+      end
+
+      context "when called with value_date 2001-02-03 as string" do
+        let(:booking) { cash.build_booking(:value_date => "2001-02-03") }
+
+        context "returns booking which" do
+          specify { should be_a(Booking) }
+          specify { should be_new_record }
+          specify { should_not be_valid }
+          context "and whose" do
+            its(:value_date) { should == Date.parse("2001-02-03") }
+          end
+        end
+      end
+
+      context "when called with value_date 2001-02-03 as date" do
+        let(:booking) { cash.build_booking(:value_date => Date.parse("2001-02-03")) }
+
+        context "returns booking which" do
+          specify { should be_a(Booking) }
+          specify { should be_new_record }
+          specify { should_not be_valid }
+          context "and whose" do
+            its(:value_date) { should == Date.parse("2001-02-03") }
+          end
+        end
+      end
+
+      context "when called with value_date 2001-02-03 and amount 10.0" do
+        let(:booking) { cash.build_booking(:value_date => "2001-02-03", :amount => 10.0) }
+
+        context "returns booking which" do
+          specify { should be_a(Booking) }
+          specify { should be_new_record }
+          specify { should be_valid }
+          context "and whose" do
+            its(:value_date) { should == Date.parse("2001-02-03") }
+            its(:amount) { should == 10.0 }
+          end
+        end
+      end
+    end
+  end
+=begin
+  test "create_booking returns persisted record when valid" do
+    assert booking_templates(:full).create_booking.persisted?
+  end
+  
+  test "create_booking returns new record when invalid" do
+    assert booking_templates(:partial).create_booking.new_record?
+  end
+  
+  test "create_booking accepts hash" do
+    assert_instance_of Booking, booking_templates(:partial).create_booking({:amount => 77})
+  end
+
+  test "create_booking accepts parameters" do
+    assert_instance_of Booking, booking_templates(:partial).create_booking(:amount => 77)
+  end
+
+  test "class build_booking returns nil if no template with this code" do
+    assert_nil BookingTemplate.create_booking("unreal", {:amount => 77})
+  end
+
+  test "class build_booking does lookup by code and build" do
+    assert_instance_of Booking, BookingTemplate.create_booking("partial", {:amount => 77})
+  end
+=end
+
 end
