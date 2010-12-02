@@ -61,16 +61,14 @@ describe BookingTemplate do
   describe "#build_booking" do
     shared_examples_for "new partial booking" do
       context "and return a Booking which" do
-        specify { should be_a(Booking) }
-        specify { should be_a_new_record }
+        specify { should be_a_new(Booking) }
         specify { should_not be_valid }
       end
     end
     
     shared_examples_for "new valid booking" do
       context "and return a Booking which" do
-        specify { should be_a(Booking) }
-        specify { should be_a_new_record }
+        specify { should be_a_new(Booking) }
         specify { should be_valid }
       end
     end
