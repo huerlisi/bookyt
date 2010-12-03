@@ -14,7 +14,6 @@ gem 'mysql'
 # ===========
 group :development do
   gem 'rails3-generators'
-  gem 'rspec', '~> 2.1'
   gem 'rspec-rails', '~> 2.1'
   # Haml generators
   gem 'hpricot'
@@ -27,7 +26,6 @@ end
 # Test
 # ====
 group :test do
-  gem 'rspec', '~> 2.1'
   gem 'rspec-rails', '~> 2.1'
   gem 'mocha'
   gem 'shoulda'
@@ -42,7 +40,7 @@ end
 gem 'styleyt', :git => 'http://github.com/CyTeam/styleyt.git'
 
 gem 'haml'
-gem 'compass', '>= 0.10.4'
+gem 'compass', '~> 0.10.6'
 gem 'fancy-buttons'
 
 gem 'simple-navigation'
