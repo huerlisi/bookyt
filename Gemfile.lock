@@ -192,7 +192,7 @@ DEPENDENCIES
   cancan
   capistrano
   capistrano-ext
-  compass (>= 0.10.4)
+  compass (~> 0.10.6)
   csv-mapper
   cucumber
   cucumber-rails
@@ -215,7 +215,6 @@ DEPENDENCIES
   rails3-generators
   rcov
   remotipart
-  rspec (~> 2.1)
   rspec-rails (~> 2.1)
   ruby_parser
   shoulda
