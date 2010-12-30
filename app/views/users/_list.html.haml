@@ -1,6 +1,7 @@
 %table.list#user_list
   %tr
     %th= t_attr :name
+    %th= t_attr :email
     %th= t_attr :roles
     %th= t_attr :created_at
     %th.action-links
@@ -8,4 +9,4 @@
   = render @users
 
   %tr
-    %th{:colspan => "5", :style => "text-align: right"}= will_paginate @users
+    %th{:colspan => "6", :style => "text-align: right"}= will_paginate @users
