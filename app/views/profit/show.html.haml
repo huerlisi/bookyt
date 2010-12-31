@@ -15,7 +15,7 @@
       %th Aufwand
       %th Ertrag
     %tr
-      %td{:style => "background-color: #00FF00"}
+      %td{:style => "background-color: #cccccc"}
         %table{:width => "100%"}
           = render 'accounts/list_header'
           = render Account.expenses.all.select{|a| a.saldo(@date) != 0.0}
@@ -23,7 +23,7 @@
             %th{:colspan => "2"}
               = t('bookyt.total')
             %th.currency= currency_fmt(Account.expenses.saldo(@date))
-      %td{:style => "background-color: #FF0000"}
+      %td{:style => "background-color: #aaaaaa"}
         %table{:style => "border-spacing:0", :width => "100%"}
           = render 'accounts/list_header'
           = render Account.earnings.all.select{|a| a.saldo(@date) != 0.0}
