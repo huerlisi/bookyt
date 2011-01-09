@@ -1,4 +1,7 @@
 class BookingsController < AuthorizedController
+  # Scopes
+  has_scope :by_value_period, :using => [:from, :to], :default => proc { |c| c.session[:has_scope] }
+
   # Actions
   def new
     @booking = Booking.new(:value_date => Date.today)
@@ -32,12 +35,6 @@ class BookingsController < AuthorizedController
     end
   end
   
-  def index
-    order_by = params[:order] || 'value_date'
-    @bookings = Booking.paginate :page => params[:page], :per_page => 100, :order => order_by
-    index!
-  end
-
   def copy
     @booking = Booking.find(params[:id])
     new_booking = @booking.clone
