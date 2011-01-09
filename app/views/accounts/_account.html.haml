@@ -3,6 +3,8 @@
   %td= link_to account.title, account
   - if params[:by_value_period]
     %td{:style => "text-align: right"}= currency_fmt(account.saldo(params[:by_value_period][:from]..params[:by_value_period][:to]))
+  - elsif @date
+    %td{:style => "text-align: right"}= currency_fmt(account.saldo(@date))
   - else
     %td{:style => "text-align: right"}= currency_fmt(account.saldo)
   %td.action-links
