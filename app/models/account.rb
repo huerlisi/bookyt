@@ -29,6 +29,9 @@ class Account < ActiveRecord::Base
   # Scopes
   default_scope :order => 'code'
   
+  # Dummy scope to make scoped_by happy
+  scope :by_value_period, scoped
+  
   scope :current_assets, where('account_type_id = 1') do
     include AccountScopeExtension
   end
