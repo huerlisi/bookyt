@@ -32,7 +32,7 @@ SimpleNavigation::Configuration.run do |navigation|
                       :highlights_on => /\/account_types/
       accounting.item :bookings, t('bookyt.main_navigation.bookings'), bookings_path,
                       :tooltip => t('bookyt.main_navigation.tooltip.bookings'),
-                      :highlights_on => /\/bookings$/
+                      :highlights_on => /\/bookings($|\?)/
       accounting.item :importer, t('bookyt.main_navigation.importer'), booking_imports_path,
                       :tooltip => t('bookyt.main_navigation.tooltip.importer'),
                       :highlights_on => /\/booking_imports/
