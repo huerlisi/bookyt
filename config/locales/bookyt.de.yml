@@ -200,13 +200,12 @@ de:
     capital_assets:   Anlagevermögen
     debt_capital:     Fremdkapital
     working_capital:  Umlaufvermögen
-    balance_for:      Bilanz für %{company} %{year}
+    balance_report_for: Bilanz für %{company} per %{per}
+    profit_report_for:  Erfolgsrechnung für %{company} per %{per}
     carry_booking:    Übertrag
     invoices:
       payment_no:             Rechnung Nr. %{payment_no}
       invoicing_party:        Rechnungssteller
-    profit:
-      earnings_statement_for:   Erfolgsrechnung für %{company} %{year}
     main_navigation:
       new_day:                  Tagesabschluss
       new_booking:              Neue Buchung
