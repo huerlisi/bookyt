@@ -184,6 +184,7 @@ GEM
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
+    wkhtmltopdf-binary (0.9.5.1)
 
 PLATFORMS
   ruby
@@ -225,3 +226,4 @@ DEPENDENCIES
   validates_timeliness (~> 3.0.0)
   webrat
   will_paginate!
+  wkhtmltopdf-binary

@@ -70,6 +70,7 @@ gem 'validates_timeliness', '~> 3.0.0'
 
 # PDF generation
 gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
 
 # Vcards
 gem 'has_vcards', '~> 0.6'
