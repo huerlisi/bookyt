@@ -8,8 +8,8 @@ GIT
       rails (~> 3.0.0)
 
 GIT
-  remote: http://github.com/mislav/will_paginate.git
-  revision: b1a5beeec9f56ecbe3594fcdca76d92b6767ce50
+  remote: http://github.com/huerlisi/will_paginate.git
+  revision: 05fbcb82299a449fc37fb9198346703740cb39cd
   branch: rails3
   specs:
     will_paginate (3.0.pre3)
