@@ -2,4 +2,5 @@
 
 %h2= t_title
 
-= render 'list'
+= paginated_section @customers do
+  = render 'list'
