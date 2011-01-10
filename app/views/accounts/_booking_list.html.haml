@@ -2,7 +2,9 @@
   = render :partial => 'accounts/booking_list_header'
   - @saldo = @account.saldo(@bookings.first, false)
   - for @booking in @bookings
-    - @saldo -= @booking.amount if @booking.debit_account == @account
-    - @saldo += @booking.amount if @booking.credit_account == @account
+    - amount = @booking.amount
+    - amount = -(amount) if @account.is_liability_account?
+    - @saldo -= amount if @booking.debit_account == @account
+    - @saldo += amount if @booking.credit_account == @account
     = render :partial => 'accounts/booking_item'
   = render :partial => 'accounts/booking_list_footer' unless @bookings.empty?
