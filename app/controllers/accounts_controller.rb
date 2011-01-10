@@ -12,7 +12,7 @@ class AccountsController < AuthorizedController
     if params[:only_debit_bookings]
       @bookings = @bookings.where(:debit_account_id => @account.id)
     end
-    @bookings = @bookings.paginate(:page => params['page'], :per_page => 20, :order => 'value_date, id')
+    @bookings = @bookings.paginate(:page => params['page'], :per_page => params['per_page'], :order => 'value_date, id')
         
     show!
   end
