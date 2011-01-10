@@ -2,4 +2,5 @@
 
 %h1= t_title
 
-= render 'list'
+= paginated_section @tenants do
+  = render 'list'

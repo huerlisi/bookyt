@@ -7,6 +7,3 @@
     = sort_header 'amount', t('activerecord.attributes.booking.value')
     %th.action-links
   = render @bookings, :item_action => (item_action ||= nil)
-  %tr
-    %th{:colspan => "5", :style => "text-align: right"}= will_paginate @bookings
-    %th
