@@ -3,10 +3,14 @@
   %table#booking_list.list.booking_list
     = render :partial => 'accounts/booking_list_header'
     - @saldo = @account.saldo(@bookings.first, false)
+
+    = render :partial => 'accounts/carry_booking' unless @saldo == 0
+
     - for @booking in @bookings
       - amount = @booking.amount
       - amount = -(amount) if @account.is_liability_account?
       - @saldo -= amount if @booking.debit_account == @account
       - @saldo += amount if @booking.credit_account == @account
       = render :partial => 'accounts/booking_item'
+
     = render :partial => 'accounts/booking_list_footer' unless @bookings.empty?

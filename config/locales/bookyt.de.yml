@@ -201,6 +201,7 @@ de:
     debt_capital:     Fremdkapital
     working_capital:  Umlaufvermögen
     balance_for:      Bilanz für %{company} %{year}
+    carry_booking:    Übertrag
     invoices:
       payment_no:             Rechnung Nr. %{payment_no}
       invoicing_party:        Rechnungssteller
