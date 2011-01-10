@@ -8,9 +8,10 @@ class BalanceController < ApplicationController
     @company = current_tenant.company
     
     # use current date if not specified otherwise
-    params[:balance] ||= {}
-    params[:balance][:date] ||= Date.today.to_s
-
-    @date = Date.parse(params[:balance][:date])
+    if params[:by_value_period]
+      @date = Date.parse(params[:by_value_period][:to])
+    else
+      @date = Date.today
+    end
   end
 end
