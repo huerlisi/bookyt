@@ -5,11 +5,6 @@
 %h1
   = t('bookyt.profit.earnings_statement_for', :company => @company, :year => @year)
 #profit-sheet
-  = semantic_form_for :profit do |f|
-    = f.inputs do
-      = f.input :end_date, :as => :date_field, :input_html => {:size => 10, :style => 'text-align: right'}
-    = f.buttons do
-      = f.commit_button t('bookyt.show')
   %table
     %tr
       %th Aufwand
