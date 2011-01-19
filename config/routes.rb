@@ -38,6 +38,9 @@ Bookyt::Application.routes.draw do
   end
   
   resources :accounts do
+    member do
+      get :csv_bookings
+    end
     resources :bookings
   end
   

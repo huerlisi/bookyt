@@ -16,4 +16,10 @@ class AccountsController < AuthorizedController
         
     show!
   end
+
+  def csv_bookings
+    @account = Account.find(params[:id])
+    @bookings = apply_scopes(Booking).by_account(@account)
+    send_csv @bookings, :only => [:value_date, :title, :comments, :amount, 'credit_account.code', 'debit_account.code'], :filename => "%s-%s.csv" % [@account.code, @account.title]
+  end
 end
