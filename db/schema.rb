@@ -10,25 +10,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101124122259) do
+ActiveRecord::Schema.define(:version => 20110225221558) do
 
   create_table "account_types", :force => true do |t|
-    t.string "name",  :limit => 100
-    t.string "title", :limit => 100
+    t.string   "name",       :limit => 100
+    t.string   "title",      :limit => 100
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "accounts", :force => true do |t|
-    t.string  "title",           :limit => 100
-    t.integer "parent_id"
-    t.integer "account_type_id"
-    t.integer "number"
-    t.string  "code"
-    t.integer "type"
-    t.integer "holder_id"
-    t.string  "holder_type"
-    t.integer "bank_id"
-    t.integer "esr_id"
-    t.integer "pc_id"
+    t.string   "title",           :limit => 100
+    t.integer  "parent_id"
+    t.integer  "account_type_id"
+    t.integer  "number"
+    t.string   "code"
+    t.integer  "type"
+    t.integer  "holder_id"
+    t.string   "holder_type"
+    t.integer  "bank_id"
+    t.integer  "esr_id"
+    t.integer  "pc_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "accounts", ["bank_id"], :name => "index_accounts_on_bank_id"
@@ -37,15 +41,17 @@ ActiveRecord::Schema.define(:version => 20101124122259) do
   add_index "accounts", ["type"], :name => "index_accounts_on_type"
 
   create_table "addresses", :force => true do |t|
-    t.string  "post_office_box",  :limit => 50
-    t.string  "extended_address", :limit => 50
-    t.string  "street_address",   :limit => 50
-    t.string  "locality",         :limit => 50
-    t.string  "region",           :limit => 50
-    t.string  "postal_code",      :limit => 50
-    t.string  "country_name",     :limit => 50
-    t.integer "vcard_id"
-    t.string  "address_type"
+    t.string   "post_office_box",  :limit => 50
+    t.string   "extended_address", :limit => 50
+    t.string   "street_address",   :limit => 50
+    t.string   "locality",         :limit => 50
+    t.string   "region",           :limit => 50
+    t.string   "postal_code",      :limit => 50
+    t.string   "country_name",     :limit => 50
+    t.integer  "vcard_id"
+    t.string   "address_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "addresses", ["vcard_id"], :name => "addresses_vcard_id_index"
@@ -72,16 +78,18 @@ ActiveRecord::Schema.define(:version => 20101124122259) do
   end
 
   create_table "bookings", :force => true do |t|
-    t.string  "title",             :limit => 100
-    t.decimal "amount"
-    t.integer "credit_account_id"
-    t.integer "debit_account_id"
-    t.date    "value_date"
-    t.text    "comments",          :limit => 1000, :default => ""
-    t.string  "scan"
-    t.string  "debit_currency",                    :default => "CHF"
-    t.string  "credit_currency",                   :default => "CHF"
-    t.float   "exchange_rate",                     :default => 1.0
+    t.string   "title",             :limit => 100
+    t.decimal  "amount"
+    t.integer  "credit_account_id"
+    t.integer  "debit_account_id"
+    t.date     "value_date"
+    t.text     "comments",          :limit => 1000, :default => ""
+    t.string   "scan"
+    t.string   "debit_currency",                    :default => "CHF"
+    t.string   "credit_currency",                   :default => "CHF"
+    t.float    "exchange_rate",                     :default => 1.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "days", :force => true do |t|
@@ -133,11 +141,13 @@ ActiveRecord::Schema.define(:version => 20101124122259) do
   end
 
   create_table "phone_numbers", :force => true do |t|
-    t.string  "number",            :limit => 50
-    t.string  "phone_number_type", :limit => 50
-    t.integer "vcard_id"
-    t.integer "object_id"
-    t.string  "object_type"
+    t.string   "number",            :limit => 50
+    t.string   "phone_number_type", :limit => 50
+    t.integer  "vcard_id"
+    t.integer  "object_id"
+    t.string   "object_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "phone_numbers", ["object_id", "object_type"], :name => "index_phone_numbers_on_object_id_and_object_type"
@@ -186,16 +196,18 @@ ActiveRecord::Schema.define(:version => 20101124122259) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "vcards", :force => true do |t|
-    t.string  "full_name",        :limit => 50
-    t.string  "nickname",         :limit => 50
-    t.string  "family_name",      :limit => 50
-    t.string  "given_name",       :limit => 50
-    t.string  "additional_name",  :limit => 50
-    t.string  "honorific_prefix", :limit => 50
-    t.string  "honorific_suffix", :limit => 50
-    t.boolean "active",                         :default => true
-    t.integer "object_id"
-    t.string  "object_type"
+    t.string   "full_name",        :limit => 50
+    t.string   "nickname",         :limit => 50
+    t.string   "family_name",      :limit => 50
+    t.string   "given_name",       :limit => 50
+    t.string   "additional_name",  :limit => 50
+    t.string   "honorific_prefix", :limit => 50
+    t.string   "honorific_suffix", :limit => 50
+    t.boolean  "active",                         :default => true
+    t.integer  "object_id"
+    t.string   "object_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "vcards", ["object_id", "object_type"], :name => "index_vcards_on_object_id_and_object_type"
