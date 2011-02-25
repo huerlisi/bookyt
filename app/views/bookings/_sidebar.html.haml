@@ -4,4 +4,4 @@
     %ul
       %li= link_to t('bookyt.all'), url_for(params.merge(:by_value_period => nil))
       - for year in Booking.fiscal_years
-        %li= link_to year, url_for(params.merge({:by_value_period => {:from => Date.new(year.to_i, 4, 1).to_s(:db), :to => Date.new(year.to_i + 1, 3, 31).to_s(:db)}}))
+        %li= link_to year, url_for(params.merge({:by_value_period => {:from => Date.new(year.to_i - 1, 4, 1).to_s(:db), :to => Date.new(year.to_i, 3, 31).to_s(:db)}}))
