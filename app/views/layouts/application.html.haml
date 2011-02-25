@@ -23,7 +23,7 @@
           = image_tag('logo.png')
           %h1#logo-text book<span id="logo-yt">yt</span>
         #main-menu
-          - cache :main_menu
+          - cache :main_menu do
             = render_navigation(:context => :main, :level => 1)
           = render_navigation(:context => :user, :level => 1)
       #sidebar-column
