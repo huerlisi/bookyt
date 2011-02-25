@@ -6,10 +6,10 @@ set :repository,  'git@github.com:CyTeam/bookyt.git'
 set :server, :passenger
 set :user, "deployer"                               # The server's user for deploys
 
-set :deploy_to, '/srv/int.cyt.ch/bookyt'
-role :web, "bookyt.int"                          # Your HTTP server, Apache/etc
-role :app, "bookyt.int"                          # This may be the same as your `Web` server
-role :db,  "bookyt.int", :primary => true        # This is where Rails migrations will run
+set :deploy_to, '/srv/cyt.ch/bookyt'
+role :web, "bookyt.cyt"                          # Your HTTP server, Apache/etc
+role :app, "bookyt.cyt"                          # This may be the same as your `Web` server
+role :db,  "bookyt.cyt", :primary => true        # This is where Rails migrations will run
 
 # Configuration
 set :scm, :git
