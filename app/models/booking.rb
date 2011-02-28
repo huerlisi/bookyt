@@ -15,7 +15,13 @@ class Booking < ActiveRecord::Base
   scope :by_text, lambda {|value|
     text   = '%' + value + '%'
     amount = value.delete("'").to_f
-    where("title LIKE :text OR amount = :amount", :text => text, :amount => amount)
+    date   = nil
+    begin
+      date = Date.parse(value)
+    rescue ArgumentError
+    end
+    
+    where("title LIKE :text OR amount = :amount OR value_date = :value_date", :text => text, :amount => amount, :value_date => date)
   }
   
   scope :by_value_date, lambda {|value_date| { :conditions => { :value_date => value_date } } }
