@@ -12,7 +12,11 @@ class Booking < ActiveRecord::Base
   # Scoping
   default_scope order(:value_date)
   
-  scope :by_text, lambda {|value| where("title LIKE ?", '%' + value + '%')}
+  scope :by_text, lambda {|value|
+    text   = '%' + value + '%'
+    amount = value.delete("'").to_f
+    where("title LIKE :text OR amount = :amount", :text => text, :amount => amount)
+  }
   
   scope :by_value_date, lambda {|value_date| { :conditions => { :value_date => value_date } } }
   scope :by_value_period, lambda {|from, to| { :conditions => { :value_date => from..to } } }
