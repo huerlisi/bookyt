@@ -5,6 +5,9 @@ db/*.sqlite3
 log/*.log
 tmp/**/*
 
+# Passenger
+tmp/restart.txt
+
 # Vendor
 vendor/cache
 vendor/bundle
@@ -20,6 +23,8 @@ db/backup
 # Local
 config/database.yml
 
+# Plugins
+# =======
 # compass
 public/stylesheets/compiled
 
