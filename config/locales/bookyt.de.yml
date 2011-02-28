@@ -177,10 +177,12 @@ de:
       only_debit_bookings:  'Nur Haben'
       all_bookings:         'Alle Buchungen'
       PDF:                  'PDF'
+      search:               'Suche'
     title:
       select_booking_template: %{model} anlegen
       select_booking: %{model} anlegen
       current: Aktueller %{model}
+      search:               'Suche'
       day:
         new: Abrechnung von %{day}
     flash:
