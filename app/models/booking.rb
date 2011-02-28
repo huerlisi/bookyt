@@ -14,7 +14,12 @@ class Booking < ActiveRecord::Base
   
   scope :by_text, lambda {|value|
     text   = '%' + value + '%'
+    
     amount = value.delete("'").to_f
+    if amount == 0.0
+      amount = nil unless value.match(/^[0.]*$/)
+    end
+    
     date   = nil
     begin
       date = Date.parse(value)
