@@ -7,9 +7,9 @@
     - if booking.comments.present?
       %hr{:style => "height: 1px; margin: 0"}/
       %i= booking.comments
-  %td{:style => "text-align: right"}= link_to booking.credit_account.code, account_path(booking.credit_account), :title => booking.credit_account.title unless booking.credit_account.nil?
-  %td{:style => "text-align: right"}= link_to booking.debit_account.code, account_path(booking.debit_account), :title => booking.debit_account.title unless booking.debit_account.nil?
-  %td{:style => "text-align: right"}= currency_fmt(booking.amount)
+  %td= link_to booking.credit_account.code, account_path(booking.credit_account), :title => booking.credit_account.title unless booking.credit_account.nil?
+  %td= link_to booking.debit_account.code, account_path(booking.debit_account), :title => booking.debit_account.title unless booking.debit_account.nil?
+  %td.currency= currency_fmt(booking.amount)
   %td.action-links
     = icon_edit_link_to edit_booking_path(booking)
     = icon_delete_link_to booking, booking_path(booking)
