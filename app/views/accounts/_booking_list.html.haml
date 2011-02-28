@@ -1,4 +1,7 @@
 - url_params = {:controller => 'accounts', :action => 'show', :id => params[:account_id] || params[:id]}
+
+= render 'bookings/search_form'
+
 = paginated_section @bookings, :params => url_params.merge(:query => params[:query]) do
   %table#booking_list.list.booking_list
     = render :partial => 'accounts/booking_list_header'

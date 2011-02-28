@@ -1,4 +1,5 @@
-= form_tag '', :method => :get do
-  %label{:for => "search_text"}= t_title('search') + ':'
-  = text_field '', :by_text, :autocomplete => 'off', 'data-autofocus' => true
-  = submit_tag t_action('search')
+.box
+  = form_tag '', :method => :get do
+    %label{:for => "search_text"}= t_title('search') + ':'
+    = text_field '', :by_text, :autocomplete => 'off', 'data-autofocus' => true
+    = submit_tag t_action('search')
