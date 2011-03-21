@@ -10,7 +10,7 @@ class Booking < ActiveRecord::Base
   validates_date :value_date
   
   # Scoping
-  default_scope order(:value_date)
+  default_scope order('value_date, id')
   
   scope :by_text, lambda {|value|
     text   = '%' + value + '%'
