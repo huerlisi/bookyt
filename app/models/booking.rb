@@ -29,8 +29,8 @@ class Booking < ActiveRecord::Base
     where("title LIKE :text OR amount = :amount OR value_date = :value_date", :text => text, :amount => amount, :value_date => date)
   }
   
-  scope :by_value_date, lambda {|value_date| { :conditions => { :value_date => value_date } } }
-  scope :by_value_period, lambda {|from, to| { :conditions => { :value_date => from..to } } }
+  scope :by_value_date, lambda {|value_date| where(:value_date => value_date) }
+  scope :by_value_period, lambda {|from, to| where(:value_date => (from..to)) }
   
   scope :by_account, lambda {|account_id|
     { :conditions => ["debit_account_id = :account_id OR credit_account_id = :account_id", {:account_id => account_id}] }
