@@ -90,14 +90,6 @@ class Booking < ActiveRecord::Base
     end
   end
 
-  def amount_as_string
-    '%0.2f' % (amount || 0.0)
-  end
-  
-  def amount_as_string=(value)
-    self.amount = value
-  end
-
   def rounded_amount
     if amount.nil?
     	return 0
