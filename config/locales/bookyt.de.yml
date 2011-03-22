@@ -119,6 +119,7 @@ de:
       invoice:
         created_at:    Rechnungsdatum
         due_date:      Fälligkeitsdatum
+        value_date:    Rechnungsdatum
         state:         Status
         customer:      Kunde
         company:       Firma
