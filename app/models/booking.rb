@@ -1,34 +1,17 @@
 class Booking < ActiveRecord::Base
   include ApplicationHelper
   
+  # Validations
+  validates_presence_of :debit_account, :credit_account, :title, :amount, :value_date
+  validates_date :value_date
+  
   # Associations
   belongs_to :debit_account, :foreign_key => 'debit_account_id', :class_name => "Account"
   belongs_to :credit_account, :foreign_key => 'credit_account_id', :class_name => "Account"
   
-  # Validations
-  validates_presence_of :debit_account, :credit_account, :title, :amount
-  validates_date :value_date
-  
   # Scoping
   default_scope order('value_date, id')
-  
-  scope :by_text, lambda {|value|
-    text   = '%' + value + '%'
-    
-    amount = value.delete("'").to_f
-    if amount == 0.0
-      amount = nil unless value.match(/^[0.]*$/)
-    end
-    
-    date   = nil
-    begin
-      date = Date.parse(value)
-    rescue ArgumentError
-    end
-    
-    where("title LIKE :text OR amount = :amount OR value_date = :value_date", :text => text, :amount => amount, :value_date => date)
-  }
-  
+
   scope :by_value_date, lambda {|value_date| where(:value_date => value_date) }
   scope :by_value_period, lambda {|from, to| where(:value_date => (from..to)) }
   
@@ -48,14 +31,29 @@ class Booking < ActiveRecord::Base
     end
   end
 
+  scope :by_text, lambda {|value|
+    text   = '%' + value + '%'
+    
+    amount = value.delete("'").to_f
+    if amount == 0.0
+      amount = nil unless value.match(/^[0.]*$/)
+    end
+    
+    date   = nil
+    begin
+      date = Date.parse(value)
+    rescue ArgumentError
+    end
+    
+    where("title LIKE :text OR amount = :amount OR value_date = :value_date", :text => text, :amount => amount, :value_date => date)
+  }
+  
   # Returns array of all years we have bookings for
   def self.fiscal_years
     with_exclusive_scope do
       select("DISTINCT year(value_date) AS year").all.map{|booking| booking.year}
     end
   end
-
-#  file_column :scan
 
   # Standard methods
   def to_s(format = :default)
@@ -90,6 +88,14 @@ class Booking < ActiveRecord::Base
     end
   end
 
+  def amount_as_string
+    '%0.2f' % amount
+  end
+  
+  def amount_as_string=(value)
+    self.amount = value
+  end
+  
   def rounded_amount
     if amount.nil?
     	return 0
@@ -98,20 +104,12 @@ class Booking < ActiveRecord::Base
     end
   end
 
-  def value_date=(value)
-    if value.is_a?(String)
-      if value =~ /....-..-../
-        write_attribute(:value_date, value)
-      else
-        day, month, year = value.split('.')
-        month ||= Date.today.month
-        year ||= Date.today.year
-        year = 2000 + year.to_i if year.to_i < 100
+  # Reference
+  belongs_to :reference, :polymorphic => true
+  after_save :notify_references
 
-        write_attribute(:value_date, "#{year}-#{month}-#{day}")
-      end
-    else
-      write_attribute(:value_date, value)
-    end
+  private
+  def notify_references
+    reference.booking_saved(self) if reference.respond_to?(:booking_saved)
   end
 end
