@@ -28,6 +28,8 @@ Bookyt::Application.routes.draw do
       get :letter
     end
   end
+  resources :credit_invoices do
+  end
   
   resources :customers do
     resources :invoices

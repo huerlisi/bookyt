@@ -1,0 +1,2 @@
+class DebitInvoice < Invoice
+end

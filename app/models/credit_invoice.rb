@@ -1,0 +1,2 @@
+class CreditInvoice < Invoice
+end
