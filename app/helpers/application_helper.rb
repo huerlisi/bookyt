@@ -8,7 +8,10 @@ module ApplicationHelper
   end
 
   def currency_fmt(value)
-    number_with_precision(value, :precision => 2, :separator => '.', :delimiter => "'")
+    # We often do get -0.0 but don't like it
+    value = 0.0 if value.to_s.match %r{-[0]*[.0]*}
+    
+    number = number_with_precision(value, :precision => 2, :separator => '.', :delimiter => "'")
   end
 
   def cu_to_s(value, unit = 'CHF')
