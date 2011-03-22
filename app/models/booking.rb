@@ -105,11 +105,15 @@ class Booking < ActiveRecord::Base
   end
 
   # Reference
-  belongs_to :reference, :polymorphic => true
-  after_save :notify_references
+  has_many :booking_references
 
-  private
-  def notify_references
-    reference.booking_saved(self) if reference.respond_to?(:booking_saved)
+  # TODO: fix ActiveRecord::HasManyThroughAssociationPolymorphicError: Cannot have a has_many :through association 'Booking#references' on the polymorphic object 'Reference#reference'.
+  #has_many :references, :through => :booking_references
+  def references
+    booking_references.collect{|br| br.reference}
+  end
+  
+  def reference
+    booking_references.first.reference
   end
 end

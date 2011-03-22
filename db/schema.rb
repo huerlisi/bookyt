@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110225221558) do
+ActiveRecord::Schema.define(:version => 20110322135150) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -61,6 +61,15 @@ ActiveRecord::Schema.define(:version => 20110225221558) do
     t.string   "csv_content_type"
     t.integer  "csv_file_size"
     t.datetime "csv_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "booking_references", :force => true do |t|
+    t.integer  "booking_id"
+    t.string   "kind"
+    t.integer  "reference_id"
+    t.string   "reference_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
