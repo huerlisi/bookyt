@@ -108,6 +108,10 @@ class Booking < ActiveRecord::Base
   belongs_to :reference, :polymorphic => true
   after_save :notify_references
 
+  scope :by_reference, lambda {|value| 
+    where(:reference_id => value.id, :reference_type => value.class)
+  }
+  
   private
   def notify_references
     reference.booking_saved(self) if reference.respond_to?(:booking_saved)
