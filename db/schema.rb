@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110322144237) do
+ActiveRecord::Schema.define(:version => 20110322152340) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -99,6 +99,8 @@ ActiveRecord::Schema.define(:version => 20110322144237) do
     t.float    "exchange_rate",                     :default => 1.0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "reference_id"
+    t.string   "reference_type"
   end
 
   create_table "days", :force => true do |t|
