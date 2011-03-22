@@ -3,11 +3,11 @@ class Invoice < ActiveRecord::Base
   include ApplicationHelper
   
   # Associations
-  belongs_to :customer
-  belongs_to :company
+  belongs_to :customer, :class_name => 'Person'
+  belongs_to :company, :class_name => 'Person'
   
   # Validations
-  validates_date :due_date
+  validates_date :due_date, :value_date
   validates_presence_of :customer, :company, :title, :amount, :state
   
   # Helpers

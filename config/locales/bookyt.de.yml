@@ -25,6 +25,8 @@ de:
       employee: Mitarbeiter
       employment: Anstellung
       invoice: Rechnung
+      credit_invoice: Kreditoren Rechnung
+      debit_invoice:  Debitoren Rechnung
       tenant: Mandant
       user: Benutzer
       booking_import: Buchungsimport
