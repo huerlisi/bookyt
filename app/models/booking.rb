@@ -110,7 +110,17 @@ class Booking < ActiveRecord::Base
 
   scope :by_reference, lambda {|value| 
     where(:reference_id => value.id, :reference_type => value.class)
-  }
+  } do
+    def direct_balance(direct_account)
+      balance = 0.0
+
+      for booking in all
+        balance += booking.accounted_amount(direct_account)
+      end
+
+      balance
+    end
+  end
   
   private
   def notify_references
