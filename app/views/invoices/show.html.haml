@@ -18,3 +18,10 @@
       %td= l(@invoice.value_date) if @invoice.value_date
       %th= t_attr(:due_date, Invoice)
       %td= l(@invoice.due_date) if @invoice.due_date
+
+.contextual
+  = icon_link_to :book_manual, new_booking_path, :remote => true
+
+%h3= t('title.bookings')
+#invoice_booking_list
+  = render 'direct_bookings/list', :reference => @invoice

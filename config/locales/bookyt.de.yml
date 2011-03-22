@@ -127,6 +127,8 @@ de:
         remarks:       Bemerkungen
         amount:        Betrag
         invoice:       Invoice
+        open_amount:   Offener Betrag
+        balance:       Saldo
       tenant:
         company:       Firma
         users:         Benutzer
@@ -191,6 +193,7 @@ de:
       all_bookings:         'Alle Buchungen'
       PDF:                  'PDF'
       search:               'Suche'
+      book_manual:          'Manuell buchen'
     title:
       select_booking_template: %{model} anlegen
       select_booking: %{model} anlegen
@@ -202,6 +205,9 @@ de:
     flash:
       created_html: %{message} angelegt
 
+  title:
+    bookings:         Buchungen
+    
   bookyt:
     all:              Alle
     edit:             Editieren

@@ -1,0 +1,7 @@
+- @direct_bookings ||= Booking.by_reference(reference)
+- @direct_account  ||= @direct_bookings.first.credit_account
+- @direct_balance  ||= @direct_bookings.direct_balance(@direct_account)
+
+%table.list
+  = render :partial => 'direct_bookings/item', :collection => @direct_bookings
+  = render 'direct_bookings/list_footer'

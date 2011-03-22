@@ -1,0 +1,7 @@
+%tr#bookings_footer
+  %th{:style => "width: 10em"}= l Date.today
+  %th= @direct_balance >= 0 ? t_attr(:open_amount, Invoice) : t_attr(:balance, Invoice)
+  / TODO: to_a is deprecated, but needed to get the Enumeration sum function
+  %th{:style => "text-align: right"}
+    = currency_fmt(@direct_balance)
+    \&nbsp;CHF
