@@ -1,8 +1,9 @@
 %tr
-  %td{:style => "width: 10em"}= l item.value_date
+  %td{:style => "width: 10em"}= l item.value_date.to_date
   %td
     = link_to item.title, item
-    = '<hr style="height: 1px; margin: 0"/>' unless item.comments.blank?
+    - unless item.comments.blank?
+      %hr{:style => "height: 1px; margin: 0"}
     = h item.comments
   %td{:style => "text-align: right"}
     = h currency_fmt(item.accounted_amount(@direct_account))

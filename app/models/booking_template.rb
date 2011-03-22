@@ -23,11 +23,13 @@ class BookingTemplate < ActiveRecord::Base
     end
   end
 
-  def build_booking(params = {})
+  def booking_parameters(params = {})
     booking_params = attributes.reject!{|key, value| !["title", "amount", "comments", "credit_account_id", "debit_account_id"].include?(key)}
     booking_params.merge!(params)
-
-    Booking.new(booking_params)
+  end
+  
+  def build_booking(params = {})
+    Booking.new(booking_parameters(params))
   end
 
   def create_booking(params = {})

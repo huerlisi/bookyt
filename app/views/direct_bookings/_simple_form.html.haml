@@ -1,8 +1,0 @@
-#booking_form
-  = error_messages_for :booking
-  - remote_form_for :booking, @booking, :url => invoice_bookings_url(@invoice) do |booking|
-    = booking.text_field :value_date, :size => 12
-    = booking.select :title, ['Barzahlung', 'Bankzahlung', 'Skonto/Rabatt', 'Zusatzleistung', 'Debitorenverlust', 'Rückerstattung']
-    Text: #{booking.text_field :comments, :size => 40}
-    Betrag: #{booking.text_field :amount, :size => 6}
-    \#{booking.submit "Buchen"}

@@ -35,6 +35,8 @@ Bookyt::Application.routes.draw do
     resources :invoices
   end
   
+  resources :direct_bookings
+  
   resources :bookings do
     collection do
       post :select
