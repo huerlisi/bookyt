@@ -2,6 +2,19 @@
   = icon_link_to t('bookyt.pdf'), invoice_path(:format => :pdf)
   = contextual_links_for
 
-%h1= t_title
-
-#invoice
+%h1 #{t_model(Invoice)} ##{ @invoice.id}
+.box
+  %table{:style => "width: 100%"}
+    %tr
+      %th= t_attr(:customer, Invoice)
+      %td= link_to(full_address(@invoice.customer.vcard, ', '), @invoice.customer)
+      %th= t_attr(:company, Invoice)
+      %td= link_to(full_address(@invoice.company.vcard, ', '), @invoice.company)
+    %tr
+      %th= t_attr(:state, Invoice)
+      %td#invoice_state=t @invoice.state, :scope => 'invoice.state'
+    %tr
+      %th= t_attr(:value_date, Invoice)
+      %td= l(@invoice.value_date) if @invoice.value_date
+      %th= t_attr(:due_date, Invoice)
+      %td= l(@invoice.due_date) if @invoice.due_date

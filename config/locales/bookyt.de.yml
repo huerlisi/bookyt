@@ -122,7 +122,7 @@ de:
         value_date:    Rechnungsdatum
         state:         Status
         customer:      Kunde
-        company:       Firma
+        company:       Rechnungssteller
         title:         Titel
         remarks:       Bemerkungen
         amount:        Betrag
@@ -161,6 +161,18 @@ de:
       booking_import:
         csv:                            CSV-Datei
         created_at:                     Importiert am
+
+  invoice:
+    state:
+      2xreminded:  2x gemahnt
+      booked:      verbucht
+      canceled:    storniert
+      encashment:  in Inkasso
+      paid:        bezahlt
+      prepared:    offen
+      printed:     gedruckt
+      reactivated: reaktiviert
+      reminded:    1x gemahnt
 
   formtastic:
     hints:
