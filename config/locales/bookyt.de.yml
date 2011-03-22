@@ -183,6 +183,7 @@ de:
       select_booking: %{model} anlegen
       current: Aktueller %{model}
       search:               'Suche'
+      letter:               'Brief'
       day:
         new: Abrechnung von %{day}
     flash:

@@ -23,7 +23,12 @@ Bookyt::Application.routes.draw do
   resources :employees
   resources :employments
   
-  resources :invoices
+  resources :invoices do
+    member do
+      get :letter
+    end
+  end
+  
   resources :customers do
     resources :invoices
   end

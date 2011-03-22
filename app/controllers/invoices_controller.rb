@@ -8,4 +8,8 @@ class InvoicesController < AuthorizedController
     
     new!
   end
+
+  def letter
+    show!
+  end
 end
