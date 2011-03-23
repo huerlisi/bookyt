@@ -10,6 +10,9 @@ class Invoice < ActiveRecord::Base
   validates_date :due_date, :value_date
   validates_presence_of :customer, :company, :title, :amount, :state
   
+  # Bookings
+  has_many :bookings, :as => :reference
+
   # Helpers
   def to_s
     return "" if amount.nil?

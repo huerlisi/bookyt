@@ -123,8 +123,8 @@ class Booking < ActiveRecord::Base
   belongs_to :reference, :polymorphic => true
   after_save :notify_references
 
-  scope :by_reference, lambda {|value| 
-    where(:reference_id => value.id, :reference_type => value.class)
+  scope :by_reference, lambda {|value|
+    where(:reference_id => value.id, :reference_type => value.class.base_class)
   } do
     def direct_balance(direct_account)
       balance = 0.0
