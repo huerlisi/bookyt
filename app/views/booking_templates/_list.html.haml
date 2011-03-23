@@ -5,7 +5,5 @@
     = sort_header 'credit_account_id', t('activerecord.attributes.booking.debit_account')
     = sort_header 'amount', t('activerecord.attributes.booking.value')
     %th.action-links
-  = render @booking_templates, :item_action => (item_action ||= nil)
-  %tr
-    %th{:colspan => "4", :style => "text-align: right"}= will_paginate @booking_templates
-    %th
+
+  = render collection, :item_action => (item_action ||= nil)

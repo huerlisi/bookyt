@@ -1,0 +1,14 @@
+= semantic_form_for resource do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = f.input :company_id, :as => :hidden
+    = f.input :state, :as => :hidden
+    = f.input :customer, :input_html => {:class => 'combobox'}
+    = f.input :title
+    = f.input :value_date, :as => :date_field
+    = f.input :amount
+    = f.input :due_date, :as => :date_field
+    = f.input :remarks
+
+  = f.buttons do
+    = f.commit_button

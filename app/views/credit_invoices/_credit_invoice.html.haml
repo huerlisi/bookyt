@@ -3,6 +3,6 @@
   %td= link_to credit_invoice.title, credit_invoice, {'data-href-container' => 'tr'}
   %td= link_to credit_invoice.company, credit_invoice.company
   %td= credit_invoice.due_date
-  %td= currency_fmt(credit_invoice.amount)
+  %td.currency= currency_fmt(credit_invoice.amount)
   %td.action-links
     = icon_edit_link_to edit_invoice_path(credit_invoice)

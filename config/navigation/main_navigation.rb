@@ -49,16 +49,12 @@ SimpleNavigation::Configuration.run do |navigation|
                      :tooltip => t('bookyt.main_navigation.tooltip.invoices'),
                      :highlights_on => /\/invoices$/
       invoicing.item :credit_invoices, t('bookyt.main_navigation.credit_invoices'), credit_invoices_path,
-                     :tooltip => t('bookyt.main_navigation.tooltip.credit_invoices'),
                      :highlights_on => /\/credit_invoices$/
       invoicing.item :new_credit_invoice, t('bookyt.main_navigation.new_credit_invoice'), new_credit_invoice_path,
-                     :tooltip => t('bookyt.main_navigation.tooltip.new_credit_invoice'),
                      :highlights_on => /\/credit_invoices\/new$/
       invoicing.item :debit_invoices, t('bookyt.main_navigation.debit_invoices'), debit_invoices_path,
-                     :tooltip => t('bookyt.main_navigation.tooltip.debit_invoices'),
                      :highlights_on => /\/debit_invoices$/
       invoicing.item :new_debit_invoice, t('bookyt.main_navigation.new_debit_invoice'), new_debit_invoice_path,
-                     :tooltip => t('bookyt.main_navigation.tooltip.new_debit_invoice'),
                      :highlights_on => /\/debit_invoices\/new$/
       invoicing.item :new_customer, t('bookyt.main_navigation.new_customer'), new_customer_path,
                      :tooltip => t('bookyt.main_navigation.tooltip.new_customer')
