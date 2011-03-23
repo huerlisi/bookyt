@@ -16,3 +16,12 @@ company = Company.create(:vcard => company_vcard)
 # Tenant
 user.create_tenant(:company => company)
 user.save
+
+# Accounts
+#bank = Bank.create!(
+#  :full_name => "General Bank", :street_address => "Hauptstrasse 1", :postal_code => "8000", :locality => "Zürich"
+#)
+
+#BankAccount.create!(
+#  :pc_id => "01-123456-7", :esr_id => "444444", :code => "1020", :title => "Bankkonto", :bank => bank, :holder => company
+#)
