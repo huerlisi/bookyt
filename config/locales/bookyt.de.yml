@@ -49,6 +49,8 @@ de:
         credit_account: Soll
         debit_account:  Haben
         reference:      Referenz
+        reference_type: Referenz Typ
+        reference_id:   Referenz ID
         text:           Text
         date:           Datum
         balance:        Saldo

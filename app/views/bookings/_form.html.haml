@@ -6,6 +6,8 @@
     = f.input :amount, :input_html => {:size => 12, :style => 'text-align: right'}
     = f.input :credit_account, :input_html => {:class => 'combobox'}
     = f.input :debit_account, :input_html => {:class => 'combobox'}
+    = f.input :reference_type, :as => :select, :collection => reference_types_as_collection
+    = f.input :reference_id, :as => :string
     = f.input :comments, :input_html => {:rows => 5}
   = f.buttons do
     = f.commit_button
