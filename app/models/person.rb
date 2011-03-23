@@ -13,6 +13,10 @@ class Person < ActiveRecord::Base
   validates_date :date_of_birth, :date_of_death, :allow_nil => true, :allow_blank => true
   validates_presence_of :vcard
 
+  # Invoices
+  has_many :credit_invoices, :class_name => 'Invoice', :foreign_key => :customer_id
+  has_many :debit_invoices, :class_name => 'Invoice', :foreign_key => :company_id
+
   # Constructor
   def initialize(attributes = nil)
     super

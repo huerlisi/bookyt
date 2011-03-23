@@ -12,3 +12,13 @@
 
   #new_employment
   = render 'employments/list'
+
+- unless @credit_invoices.empty?
+  %h2= t_title :index, CreditInvoice
+
+  = render 'credit_invoices/list'
+
+- unless @debit_invoices.empty?
+  %h2= t_title :index, DebitInvoice
+
+  = render 'debit_invoices/list'
