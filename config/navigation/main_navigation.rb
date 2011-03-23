@@ -100,6 +100,8 @@ SimpleNavigation::Configuration.run do |navigation|
       settings.item :tenant_index, t_title(:index, Tenant), tenants_path, :if => lambda { can?(:index, Tenant) },
                              :tooltip => t('bookyt.main_navigation.tooltip.tenant_index'),
                              :highlights_on => /\/tenants$/
+      settings.item :booking_templates, t_title(:index, BookingTemplate), booking_templates_path,
+                             :hightlights_on => /\/booking_templates(\/|$)/
     end
   end
 end
