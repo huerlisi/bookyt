@@ -2,6 +2,7 @@
 - if @direct_bookings.empty?
   - @direct_balance ||= 0.0
 -else
+  - @direct_account ||= reference.direct_account if reference.respond_to?(:direct_account)
   - @direct_account ||= @direct_bookings.first.credit_account
   - @direct_balance ||= @direct_bookings.direct_balance(@direct_account)
 
