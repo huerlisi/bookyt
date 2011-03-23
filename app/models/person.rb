@@ -21,6 +21,11 @@ class Person < ActiveRecord::Base
     vcard.build_address unless vcard.address
   end
 
+  # Search
+  scope :by_name, lambda {|value|
+    includes(:vcard).where("(vcards.given_name LIKE :query) OR (vcards.family_name LIKE :query) OR (vcards.full_name LIKE :query)", :query => "%#{value}%")
+  }
+
   # Helpers
   def to_s
     "%s (%s)" % [vcard.try(:full_name), vcard.try(:locality)]
