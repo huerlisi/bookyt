@@ -13,6 +13,13 @@ class Invoice < ActiveRecord::Base
   # Bookings
   has_many :bookings, :as => :reference
 
+  def build_booking
+    booking = bookings.build(:amount => amount, :value_date => value_date)
+    booking.booking_template_id = BookingTemplate.find_by_code('credit_invoice:invoice').id
+    
+    booking
+  end
+
   # Helpers
   def to_s
     return "" if amount.nil?

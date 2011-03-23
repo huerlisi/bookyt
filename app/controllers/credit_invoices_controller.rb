@@ -8,4 +8,11 @@ class CreditInvoicesController < AuthorizedController
     
     new!
   end
+
+  def create
+    @credit_invoice = CreditInvoice.new(params[:credit_invoice])
+    @credit_invoice.build_booking
+    
+    create!
+  end
 end
