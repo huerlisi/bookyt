@@ -124,6 +124,11 @@ class Booking < ActiveRecord::Base
   belongs_to :reference, :polymorphic => true
   after_save :notify_references
 
+  # Safety net for form assignments
+  def reference_type=(value)
+    write_attribute(:reference_type, value) unless value.empty?
+  end
+
   scope :by_reference, lambda {|value|
     where(:reference_id => value.id, :reference_type => value.class.base_class)
   } do
@@ -140,6 +145,7 @@ class Booking < ActiveRecord::Base
   
   private
   def notify_references
-    reference.booking_saved(self) if reference.respond_to?(:booking_saved)
+    return unless reference and reference.respond_to?(:booking_saved)
+    reference.booking_saved(self)
   end
 end
