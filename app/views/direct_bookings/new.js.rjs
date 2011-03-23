@@ -1,1 +1,2 @@
 page['#direct_booking_list'].before(render(:partial => 'form'))
+page.call('addAutofocusBehaviour')

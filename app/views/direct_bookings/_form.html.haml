@@ -5,6 +5,6 @@
     = booking.hidden_field :reference_type
     = booking.text_field :value_date, :style => 'width: 12em'
     = collection_select :direct_booking, :booking_template_id, BookingTemplate.all, :id, :title
+    Betrag: #{booking.text_field :amount, :style => 'width: 6em', "data-autofocus" => true}
     Text: #{booking.text_field :comments, :style => 'width: 26em'}
-    Betrag: #{booking.text_field :amount, :style => 'width: 6em'}
     \#{booking.submit "Buchen"}
