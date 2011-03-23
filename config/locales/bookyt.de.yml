@@ -246,8 +246,11 @@ de:
       store:                    Laden
       accounting:               Buchhaltung
       contacts:                 Kontakte
-      invoicing:                Debitoren
-      new_invoice:              Neue Rechnung
+      invoicing:                Rechnungen
+      credit_invoices:          Kreditoren
+      new_credit_invoice:       Neue Kreditoren Rechnung
+      new_debit_invoice:        Neue Debitoren Rechnung
+      debit_invoices:           Debitoren
       invoices:                 Rechnungen
       settings:                 Einstellungen
       overview:                 Übersicht
