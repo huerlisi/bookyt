@@ -11,7 +11,7 @@ class Invoice < ActiveRecord::Base
   validates_presence_of :customer, :company, :title, :amount, :state
   
   # Bookings
-  has_many :bookings, :as => :reference
+  has_many :bookings, :as => :reference, :dependent => :destroy
 
   def build_booking
     booking = bookings.build(:amount => amount, :value_date => value_date)
