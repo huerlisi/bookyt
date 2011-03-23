@@ -28,6 +28,11 @@ class Person < ActiveRecord::Base
 
   # Helpers
   def to_s
-    "%s (%s)" % [vcard.try(:full_name), vcard.try(:locality)]
+    return unless vcard
+    
+    s = vcard.full_name
+    s += " ( #{vcard.locality})" if vcard.locality
+    
+    return s
   end
 end
