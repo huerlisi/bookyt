@@ -122,8 +122,8 @@ de:
         country_name:     Land 
       invoice:
         created_at:    Rechnungsdatum
-        due_date:      Fälligkeitsdatum
-        value_date:    Rechnungsdatum
+        due_date:      Fälligkeit
+        value_date:    Vom
         state:         Status
         customer:      Kunde
         company:       Rechnungssteller
