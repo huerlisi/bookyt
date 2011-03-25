@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "employees/show.html.erb" do
+describe "employees/show.html.haml" do
   before(:each) do
     @employee = assign(:employee, stub_model(Employee))
     @view.stub(:resource).and_return(@employee)
