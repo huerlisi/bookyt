@@ -9,3 +9,10 @@
     %th.action-links
 
   = render @credit_invoices
+
+  %tr#invoices_list_footer
+    %th{:style => "width: 10em"}= l Date.today
+    %th{:colspan => 3}= t('bookyt.total')
+    %th.currency= currency_fmt(@debit_invoices_amount)
+    %th.currency= currency_fmt(@debit_invoices_balance)
+    %th
