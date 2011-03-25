@@ -11,9 +11,15 @@ class Invoice < ActiveRecord::Base
   validates_presence_of :customer, :company, :title, :amount, :state
   
   # Bookings
+  def direct_account
+    nil
+  end
+  
   has_many :bookings, :as => :reference, :dependent => :destroy do
     # TODO: duplicated in Booking (without parameter)
     def direct_balance(value_date = nil, direct_account = nil)
+      return 0.0 unless proxy_owner.direct_account
+      
       direct_account ||= proxy_owner.direct_account
       balance = 0.0
 
