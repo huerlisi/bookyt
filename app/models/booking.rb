@@ -132,6 +132,7 @@ class Booking < ActiveRecord::Base
   scope :by_reference, lambda {|value|
     where(:reference_id => value.id, :reference_type => value.class.base_class)
   } do
+    # TODO duplicated in Invoice
     def direct_balance(direct_account)
       balance = 0.0
 

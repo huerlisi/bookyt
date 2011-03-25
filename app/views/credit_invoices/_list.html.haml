@@ -5,6 +5,7 @@
     %th= t_attr :title, Invoice
     %th= t_attr :due_date, Invoice
     %th.currency= t_attr :amount, Invoice
+    %th.currency= t_attr :balance, Invoice
     %th.action-links
 
   = render @credit_invoices

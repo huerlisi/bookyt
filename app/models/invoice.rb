@@ -11,7 +11,22 @@ class Invoice < ActiveRecord::Base
   validates_presence_of :customer, :company, :title, :amount, :state
   
   # Bookings
-  has_many :bookings, :as => :reference, :dependent => :destroy
+  has_many :bookings, :as => :reference, :dependent => :destroy do
+    # TODO: duplicated in Booking (without parameter)
+    def direct_balance(value_date = nil, direct_account = nil)
+      direct_account ||= proxy_owner.direct_account
+      balance = 0.0
+
+      direct_bookings = scoped
+      direct_bookings = direct_bookings.where("value_date <= ?", value_date) if value_date
+
+      for booking in direct_bookings.all
+        balance += booking.accounted_amount(direct_account)
+      end
+
+      balance
+    end
+  end
 
   def build_booking
     booking = bookings.build(:amount => amount, :value_date => value_date)
@@ -20,6 +35,11 @@ class Invoice < ActiveRecord::Base
     booking
   end
 
+  # TODO: called due_amount in CyDoc
+  def balance(value_date = nil)
+    bookings.direct_balance(value_date)
+  end
+  
   # Helpers
   def to_s
     return "" if amount.nil?
