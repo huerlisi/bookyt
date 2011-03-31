@@ -78,6 +78,15 @@ class Booking < ActiveRecord::Base
   end
 
   # Helpers
+  scope :with_direct_amount, lambda {|account|
+    # Guard
+    return select("0.0 AS direct_amount") unless account
+    
+    # Be aware of SQL injections when changing this code!
+    account_id = account.id
+    select("CASE WHEN debit_account_id = #{account_id} THEN amount WHEN credit_account_id = #{account_id} THEN -amount ELSE 0.0 END AS direct_amount, *")
+  }
+  
   def accounted_amount(account)
     # TODO: this differs from CyDoc/has_accounts gem
     if credit_account == account

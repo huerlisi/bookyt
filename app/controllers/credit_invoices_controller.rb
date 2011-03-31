@@ -1,6 +1,9 @@
 class CreditInvoicesController < AuthorizedController
-  public
   # Actions
+  def index
+    @credit_invoices = CreditInvoice.with_balance.paginate(:page => params[:page])
+  end
+  
   def new
     invoice_params = params[:invoice] || {}
     invoice_params.merge!(:customer_id => current_tenant.company.id, :state => 'booked')

@@ -1,5 +1,8 @@
 class InvoicesController < AuthorizedController
-  public
+  def index
+    @invoices = Invoice.with_balance.paginate(:page => params[:page])
+  end
+  
   # Actions
   def new
     invoice_params = params[:invoice] || {}
