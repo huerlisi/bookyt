@@ -15,6 +15,10 @@ class Invoice < ActiveRecord::Base
     nil
   end
   
+  def direct_account
+    self.class.direct_account
+  end
+
   has_many :bookings, :as => :reference, :dependent => :destroy do
     # TODO: duplicated in Booking (without parameter)
     def direct_balance(value_date = nil, direct_account = nil)
@@ -36,7 +40,7 @@ class Invoice < ActiveRecord::Base
 
   def build_booking
     booking = bookings.build(:amount => amount, :value_date => value_date)
-    booking.booking_template_id = BookingTemplate.find_by_code('credit_invoice:invoice').id
+    booking.booking_template_id = BookingTemplate.find_by_code(self.class.to_s.underscore + ':invoice').id
     
     booking
   end
