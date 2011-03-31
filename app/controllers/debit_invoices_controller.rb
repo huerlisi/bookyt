@@ -2,10 +2,10 @@ class DebitInvoicesController < AuthorizedController
   # Actions
   def new
     # Allow pre-seeding some parameters
-    invoice_params = params[:invoice] || {}
+    invoice_params = {:company_id => current_tenant.company.id, :state => 'booked'}
 
     # Set default parameters
-    invoice_params.merge!(:company_id => current_tenant.company.id, :state => 'booked')
+    invoice_params.merge!(params[:invoice]) if params[:invoice]
 
     @debit_invoice = DebitInvoice.new(invoice_params)
     
