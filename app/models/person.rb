@@ -35,7 +35,7 @@ class Person < ActiveRecord::Base
     return unless vcard
     
     s = vcard.full_name
-    s += " ( #{vcard.locality})" if vcard.locality
+    s += " (#{vcard.locality})" if vcard.locality
     
     return s
   end
