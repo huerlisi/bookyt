@@ -1,0 +1,10 @@
+#info.block
+  %h2
+    = t('bookyt.invoices.payment_no', :payment_no => @debit_invoice.id)
+  %table
+    %tr
+      %th= t_attr :created_at
+      %td= @debit_invoice.value_date.to_date
+    %tr
+      %th= t_attr :due_date
+      %td= @debit_invoice.due_date

@@ -1,8 +1,0 @@
-#reminder-message
-  %h2= @invoice.title
-  %pre= @invoice.remarks
-
-  #signature
-    = t('bookyt.greetings')
-    %br
-    = @invoice.company.vcard.full_name

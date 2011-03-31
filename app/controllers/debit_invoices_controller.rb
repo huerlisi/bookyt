@@ -23,4 +23,8 @@ class DebitInvoicesController < AuthorizedController
     
     create!
   end
+
+  def letter
+    show!
+  end
 end

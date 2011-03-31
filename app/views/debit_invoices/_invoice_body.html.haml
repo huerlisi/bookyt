@@ -1,0 +1,8 @@
+#reminder-message
+  %h2= @debit_invoice.title
+  %pre= @debit_invoice.remarks
+
+  #signature
+    = t('bookyt.greetings')
+    %br
+    = @debit_invoice.company.vcard.full_name
