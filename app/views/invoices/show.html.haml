@@ -2,26 +2,26 @@
   = icon_link_to t('bookyt.pdf'), invoice_path(:format => :pdf)
   = contextual_links_for
 
-%h1 #{t_model(Invoice)} ##{ @invoice.id}
+%h1 #{t_model(resource)} ##{resource.id}
 .box
   %table{:style => "width: 100%"}
     %tr
       %th= t_attr(:customer, Invoice)
-      %td= link_to(full_address(@invoice.customer.vcard, ', '), @invoice.customer)
+      %td= link_to(full_address(resource.customer.vcard, ', '), resource.customer)
       %th= t_attr(:company, Invoice)
-      %td= link_to(full_address(@invoice.company.vcard, ', '), @invoice.company)
+      %td= link_to(full_address(resource.company.vcard, ', '), resource.company)
     %tr
       %th= t_attr(:state, Invoice)
-      %td#invoice_state=t @invoice.state, :scope => 'invoice.state'
+      %td#invoice_state=t resource.state, :scope => 'invoice.state'
     %tr
       %th= t_attr(:value_date, Invoice)
-      %td= l(@invoice.value_date) if @invoice.value_date
+      %td= l(resource.value_date) if resource.value_date
       %th= t_attr(:due_date, Invoice)
-      %td= l(@invoice.due_date) if @invoice.due_date
+      %td= l(resource.due_date) if resource.due_date
 
 .contextual
-  = icon_link_to :book_manual, new_booking_path(:direct_booking => {:reference_id => @invoice.id, :reference_type}), :remote => true
+  = icon_link_to :book_manual, new_direct_booking_path(:direct_booking => {:reference_id => resource.id, :reference_type => resource.class.base_class}), :remote => true
 
 %h3= t('title.bookings')
 #invoice_booking_list
-  = render 'direct_bookings/list', :reference => @invoice
+  = render 'direct_bookings/list', :reference => resource
