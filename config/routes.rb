@@ -21,6 +21,7 @@ Bookyt::Application.routes.draw do
   resources :companies
 
   # Contacts
+  resources :person
   resources :employees
   resources :employments
   
