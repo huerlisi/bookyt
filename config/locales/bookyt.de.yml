@@ -30,6 +30,7 @@ de:
       tenant: Mandant
       user: Benutzer
       booking_import: Buchungsimport
+      attachment: Anhang
 
     attributes:
       title:            Titel
@@ -41,6 +42,9 @@ de:
       account_type:
         name:           Name
         title:          Titel
+      attachment:
+        title:          Titel
+        file:           Dateiname
       booking:
         value_date:     Valutadatum
         title:          Titel
@@ -211,6 +215,7 @@ de:
 
   title:
     bookings:         Buchungen
+    attachments:      Anhänge
     
   bookyt:
     all:              Alle

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110401062446) do
+ActiveRecord::Schema.define(:version => 20110401062858) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(:version => 20110401062446) do
     t.string   "file"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "object_id"
+    t.string   "object_type"
   end
 
   create_table "booking_imports", :force => true do |t|

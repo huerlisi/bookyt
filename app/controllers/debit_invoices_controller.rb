@@ -1,5 +1,11 @@
 class DebitInvoicesController < AuthorizedController
   # Actions
+  def show
+    @attachments = resource.attachments
+
+    show!
+  end
+  
   def new
     # Allow pre-seeding some parameters
     invoice_params = {
@@ -13,6 +19,8 @@ class DebitInvoicesController < AuthorizedController
     invoice_params.merge!(params[:invoice]) if params[:invoice]
 
     @debit_invoice = DebitInvoice.new(invoice_params)
+    
+    @debit_invoice.attachments.build
     
     new!
   end

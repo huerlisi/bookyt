@@ -1,4 +1,4 @@
-= semantic_form_for resource do |f|
+= semantic_form_for resource, :html => {:multipart => true} do |f|
   = f.semantic_errors
   = f.inputs do
     = f.input :company_id, :as => :hidden
@@ -9,6 +9,10 @@
     = f.input :amount
     = f.input :due_date, :as => :date_field
     = f.input :remarks
+
+  = f.inputs do
+    = f.semantic_fields_for :attachments do |a|
+      = a.input :file, :as => :file
 
   = f.buttons do
     = f.commit_button

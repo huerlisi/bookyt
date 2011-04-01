@@ -10,7 +10,13 @@ class Invoice < ActiveRecord::Base
   validates_date :due_date, :value_date
   validates_presence_of :customer, :company, :title, :amount, :state
   
+  # Attachments
+  # ===========
+  has_many :attachments, :as => :object
+  accepts_nested_attributes_for :attachments
+  
   # Bookings
+  # ========
   def direct_account
     nil
   end
