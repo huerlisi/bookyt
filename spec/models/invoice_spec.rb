@@ -14,7 +14,6 @@ describe Invoice do
     specify { should_not be_valid }
 
     its(:to_s) { should == "" }
-    its(:balance) { should == 0.0 }
   end
 
   context "when amount is nil" do
@@ -32,9 +31,5 @@ describe Invoice do
 
   context "with bookings" do
     it { should have_many(:bookings) }
-    
-    context "provides a #direct_balance() extension" do
-      it { Factory.build(:invoice).bookings.direct_balance.should be == 0.0 }
-    end
   end
 end
