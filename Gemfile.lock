@@ -54,14 +54,13 @@ GEM
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
     cancan (1.5.1)
+    cap-recipes (0.3.36)
     capistrano (2.5.19)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.0.0)
-    capistrano-ext (1.2.1)
-      capistrano (>= 1.0.0)
     compass (0.10.6)
       haml (>= 3.0.4)
     csv-mapper (0.5.1)
@@ -199,8 +198,8 @@ PLATFORMS
 
 DEPENDENCIES
   cancan
+  cap-recipes
   capistrano
-  capistrano-ext
   compass (~> 0.10.6)
   csv-mapper
   cucumber

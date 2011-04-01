@@ -19,8 +19,10 @@ group :development do
   gem 'hpricot'
   gem 'ruby_parser'
   gem 'rcov'
+
+  # Capistrano
   gem 'capistrano'
-  gem 'capistrano-ext'
+  gem 'cap-recipes'
 end
 
 # Test
