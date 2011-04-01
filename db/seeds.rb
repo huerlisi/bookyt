@@ -9,7 +9,6 @@ Account.create!([
   {:code => "1100", :title => "Debitoren"},
   {:code => "2001", :title => "Ausstehende Gutscheine"},
   {:code => "3200", :title => "Dienstleistungsertrag"},
-  {:code => "3900", :title => "Debitorenverlust"},
 ])
 
 # Booking Templates
@@ -37,4 +36,18 @@ BookingTemplate.create!([
 
   {:code => "credit_invoice:cash_payment", :title => "Barzahlung", :debit_account => Account.find_by_code("1000"), :credit_account => Account.find_by_code("2000")},
   {:code => "credit_invoice:bank_payment", :title => "Bankzahlung", :debit_account => Account.find_by_code("1020"), :credit_account => Account.find_by_code("2000")},
+])
+
+# DebitInvoice
+Account.create!([
+  {:code => "3900", :title => "Debitorenverlust"},
+])
+
+BookingTemplate.create!([
+  {:code => "debit_invoice:invoice", :title => "Debitoren Rechnung", :debit_account => Account.find_by_code("3200"), :credit_account => Account.find_by_code("1100")},
+  {:code => "debit_invoice:reminder", :title => "Mahnung", :debit_account => Account.find_by_code("3200"), :credit_account => Account.find_by_code("1100")},
+  {:code => "debit_invoice:cancel", :title => "Storno", :debit_account => Account.find_by_code("1100"), :credit_account => Account.find_by_code("3200")},
+
+  {:code => "debit_invoice:cash_payment", :title => "Barzahlung", :debit_account => Account.find_by_code("1100"), :credit_account => Account.find_by_code("1000")},
+  {:code => "debit_invoice:bank_payment", :title => "Bankzahlung", :debit_account => Account.find_by_code("1100"), :credit_account => Account.find_by_code("1020")},
 ])

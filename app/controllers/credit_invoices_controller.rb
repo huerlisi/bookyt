@@ -5,8 +5,17 @@ class CreditInvoicesController < AuthorizedController
   end
   
   def new
-    invoice_params = params[:invoice] || {}
-    invoice_params.merge!(:customer_id => current_tenant.company.id, :state => 'booked')
+    # Allow pre-seeding some parameters
+    invoice_params = {
+      :customer_id => current_tenant.company.id,
+      :state       => 'booked',
+      :value_date  => Date.today,
+      :due_date    => Date.today.in(30.days)
+    }
+
+    # Set default parameters
+    invoice_params.merge!(params[:invoice]) if params[:invoice]
+
     @credit_invoice = CreditInvoice.new(invoice_params)
     
     new!

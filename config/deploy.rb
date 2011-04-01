@@ -1,6 +1,6 @@
 #Application
 set :application, 'bookyt'
-set :repository,  'git@github.com:CyTeam/bookyt.git'
+set :repository,  'git@github.com:huerlisi/bookyt.git'
 
 # Deployment
 set :server, :passenger

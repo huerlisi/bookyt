@@ -8,6 +8,12 @@ GIT
       rails (~> 3.0.0)
 
 GIT
+  remote: http://github.com/huerlisi/PDFKit.git
+  revision: 7fd74e36a81af03533fb8f42611458dd9bec7fc6
+  specs:
+    pdfkit (0.5.0)
+
+GIT
   remote: http://github.com/huerlisi/will_paginate.git
   revision: 05fbcb82299a449fc37fb9198346703740cb39cd
   branch: rails3
@@ -124,7 +130,6 @@ GEM
     paperclip (2.3.8)
       activerecord
       activesupport
-    pdfkit (0.5.0)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -214,7 +219,7 @@ DEPENDENCIES
   mocha
   mysql
   paperclip
-  pdfkit
+  pdfkit!
   rails (~> 3.0.0)
   rails3-generators
   rcov

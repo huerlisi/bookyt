@@ -3,7 +3,7 @@
   = f.inputs do
     = f.input :customer_id, :as => :hidden
     = f.input :state, :as => :hidden
-    = f.input :company, :input_html => {:class => 'combobox'}
+    = f.input :company, :input_html => {:class => 'combobox', 'data-autofocus' => true}
     = f.input :title
     = f.input :value_date, :as => :date_field
     = f.input :amount

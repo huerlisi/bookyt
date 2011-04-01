@@ -69,7 +69,7 @@ gem 'cancan'
 gem 'validates_timeliness', '~> 3.0.0'
 
 # PDF generation
-gem 'pdfkit'
+gem 'pdfkit', :git => 'http://github.com/huerlisi/PDFKit.git'
 gem 'wkhtmltopdf-binary'
 
 # Vcards
