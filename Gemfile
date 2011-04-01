@@ -74,8 +74,11 @@ gem 'show_for'
 
 # Bookyt
 # ======
-# Vcards
+# Addresses
 gem 'has_vcards', '~> 0.7.1'
+
+# Uploads
+gem 'carrierwave'
 
 # Raiffeisen BookingImport
 gem 'remotipart'

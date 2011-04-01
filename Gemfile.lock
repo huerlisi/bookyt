@@ -52,6 +52,8 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.0.0)
+    carrierwave (0.5.2)
+      activesupport (~> 3.0)
     compass (0.10.6)
       haml (>= 3.0.4)
     csv-mapper (0.5.1)
@@ -196,6 +198,7 @@ DEPENDENCIES
   cancan
   cap-recipes
   capistrano
+  carrierwave
   compass (~> 0.10.6)
   csv-mapper
   cucumber
