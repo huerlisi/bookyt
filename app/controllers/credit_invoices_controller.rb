@@ -14,6 +14,9 @@ class CreditInvoicesController < AuthorizedController
 
     @credit_invoice = CreditInvoice.new(invoice_params)
     
+    # Prebuild an empty attachment instance
+    @credit_invoice.attachments.build
+    
     new!
   end
 
