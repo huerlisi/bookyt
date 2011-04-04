@@ -20,6 +20,7 @@ class DebitInvoicesController < AuthorizedController
 
     @debit_invoice = DebitInvoice.new(invoice_params)
     
+    # Prebuild an empty attachment instance
     @debit_invoice.attachments.build
     
     new!

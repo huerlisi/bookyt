@@ -26,6 +26,10 @@
 #invoice_booking_list
   = render 'direct_bookings/list', :reference => resource
 
+.contextual
+  = icon_link_to :new, new_invoice_attachment_path(resource), :remote => true
+
 %h3= t('title.attachments')
-#attachment_list
-  = render 'attachments/list'
+- @attachments = resource.attachments
+#attachments_list
+  = render 'attachments/list' unless @attachments.empty?

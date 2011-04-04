@@ -20,18 +20,29 @@ Bookyt::Application.routes.draw do
   end
   resources :companies
 
+  # Attachments
+  resources :attachments
+  
   # Contacts
   resources :person
   resources :employees
   resources :employments
   
   # Invoices
-  resources :invoices
-  resources :credit_invoices
+  resources :invoices do
+    resources :attachments
+  end
+  
+  resources :credit_invoices do
+    resources :attachments
+  end
+  
   resources :debit_invoices do
     member do
       get :letter
     end
+    
+    resources :attachments
   end
   
   resources :customers do
