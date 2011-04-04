@@ -12,6 +12,7 @@
 
   = f.inputs do
     = f.semantic_fields_for :attachments do |a|
+      = a.input :title
       = a.input :file, :as => :file
 
   = f.buttons do
