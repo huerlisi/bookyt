@@ -2,7 +2,7 @@
   = icon_link_to t('bookyt.pdf'), invoice_path(:format => :pdf)
   = contextual_links_for
 
-%h1 #{t_model(resource)} ##{resource.id}
+%h1= resource.title
 .box
   %table{:style => "width: 100%"}
     %tr
