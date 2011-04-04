@@ -1,6 +1,5 @@
 %tr[attachment]
   %td= link_to attachment.title, attachment.file.url, {'data-href-container' => 'tr'}
   %td.action-links
-    =link_to t_action(:show), attachment_url(attachment), 'data-href-container' => 'tr'
-    =link_to t_action(:edit), edit_attachment_url(attachment)
-    =link_to t_action(:delete), attachment_url(attachment), :confirm => t_confirm_delete(attachment), :method => :delete
+    = icon_edit_link_to edit_attachment_url(attachment)
+    = icon_delete_link_to attachment, attachment_url(attachment)

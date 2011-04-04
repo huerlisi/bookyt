@@ -11,6 +11,5 @@
         - @attributes.each do |field|
           %td= r.send(field) if r.respond_to?(field)
         %td.action-links
-          =link_to t_action(:show), resource_url(r), 'data-href-container' => 'tr'
-          =link_to t_action(:edit), edit_resource_url(r)
-          =link_to t_action(:delete), resource_url(r), :confirm => t_confirm_delete(r), :method => :delete
+          = icon_edit_link_to edit_resource_url(r)
+          = icon_delete_link_to r, resource_url(r)
