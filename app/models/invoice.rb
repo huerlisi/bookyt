@@ -17,6 +17,7 @@ class Invoice < ActiveRecord::Base
   
   # States
   # ======
+  STATES = ['booked', 'canceled', 'paid']
   scope :by_state, lambda {|value| where(:state => value)}
   
   # Bookings
