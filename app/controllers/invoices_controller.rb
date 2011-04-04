@@ -1,5 +1,7 @@
 class InvoicesController < AuthorizedController
-  public
+  # States
+  has_scope :by_state
+  
   # Actions
   def new
     invoice_params = params[:invoice] || {}

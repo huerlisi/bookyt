@@ -1,4 +1,8 @@
 class DebitInvoicesController < AuthorizedController
+  # States
+  has_scope :by_state
+
+  # Actions
   def new
     # Allow pre-seeding some parameters
     invoice_params = {

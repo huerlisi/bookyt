@@ -15,6 +15,10 @@ class Invoice < ActiveRecord::Base
   has_many :attachments, :as => :object
   accepts_nested_attributes_for :attachments
   
+  # States
+  # ======
+  scope :by_state, lambda {|value| where(:state => value)}
+  
   # Bookings
   # ========
   def direct_account
