@@ -175,7 +175,7 @@ de:
   invoice:
     state:
       2xreminded:  2x gemahnt
-      booked:      verbucht
+      booked:      offen
       canceled:    storniert
       encashment:  in Inkasso
       paid:        bezahlt
