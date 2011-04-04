@@ -126,7 +126,7 @@ class Booking < ActiveRecord::Base
 
   # Safety net for form assignments
   def reference_type=(value)
-    write_attribute(:reference_type, value) unless value.empty?
+    write_attribute(:reference_type, value) unless value.blank?
   end
 
   scope :by_reference, lambda {|value|
