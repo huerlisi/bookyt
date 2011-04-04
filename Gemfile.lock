@@ -99,6 +99,8 @@ GEM
     inherited_resources (1.2.1)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)
+    inherited_resources_views (0.4.1)
+      inherited_resources (>= 1.0)
     jquery-rails (0.2.7)
       rails (~> 3.0)
       thor (~> 0.14.4)
@@ -213,6 +215,7 @@ DEPENDENCIES
   hpricot
   i18n_rails_helpers (~> 0.9)
   inherited_resources
+  inherited_resources_views
   jquery-rails
   lyb_sidebar
   mocha

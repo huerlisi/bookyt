@@ -1,0 +1,6 @@
+%table{:class => "#{collection.first.class.to_s.downcase} detail"}
+  - resource.attributes.each_pair do |attr, value|
+    - next if ['id', 'created_at', 'updated_at'].include?(attr)
+    %tr
+      %th= attr.titleize
+      %td= value

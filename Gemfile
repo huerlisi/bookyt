@@ -56,6 +56,7 @@ gem 'will_paginate', :git => 'http://github.com/huerlisi/will_paginate.git', :br
 gem 'inherited_resources'
 gem 'has_scope'
 gem 'i18n_rails_helpers', '~> 0.9'
+gem 'inherited_resources_views'
 
 gem 'jquery-rails'
 
