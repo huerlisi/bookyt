@@ -4,7 +4,6 @@
 
 = render 'persons/show'
 
-
 - unless @employments.empty?
   .contextual
     = link_to t_action('new', t('activerecord.models.employment')), new_employment_path, :remote => true, :class => "icon icon-add"
