@@ -10,5 +10,9 @@
     = f.input :due_date, :as => :date_field
     = f.input :remarks
 
+  = f.inputs do
+    = f.semantic_fields_for :attachments do |a|
+      = a.input :file, :as => :file
+
   = f.buttons do
     = f.commit_button
