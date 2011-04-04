@@ -81,11 +81,17 @@ class Booking < ActiveRecord::Base
   def accounted_amount(account)
     # TODO: this differs from CyDoc/has_accounts gem
     if credit_account == account
-      return -(amount)
+      balance = -(amount)
     elsif debit_account == account
-      return amount
+      balance = amount
     else
       return 0.0
+    end
+
+    if account.is_asset_account?
+      return -(balance)
+    else
+      return balance
     end
   end
 

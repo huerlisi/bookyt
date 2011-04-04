@@ -4,7 +4,5 @@
     = link_to item.title, item
     - unless item.comments.blank?
       %hr{:style => "height: 1px; margin: 0"}
-    = h item.comments
-  %td.currency
-    = h currency_fmt(item.accounted_amount(@direct_account))
-    \&nbsp;CHF
+    = item.comments
+  %td.currency= currency_fmt(item.accounted_amount(@direct_account))
