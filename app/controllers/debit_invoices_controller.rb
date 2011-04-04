@@ -1,11 +1,4 @@
 class DebitInvoicesController < AuthorizedController
-  # Actions
-  def show
-    @attachments = resource.attachments
-
-    show!
-  end
-  
   def new
     # Allow pre-seeding some parameters
     invoice_params = {
