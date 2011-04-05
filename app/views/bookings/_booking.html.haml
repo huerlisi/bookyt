@@ -1,6 +1,6 @@
 - item_action ||= lambda{|object| url_for(object)}
 
-%tr{:id => "booking_#{booking.id}"}
+%tr[booking.id]
   %td= booking.value_date
   %td
     = link_to booking.title, item_action.call(booking)
