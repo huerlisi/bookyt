@@ -6,4 +6,5 @@
     %th= t_attr :debit_account
     %th.currency= t_attr 'amount'
     %th.action-links
-  = render @bookings, :item_action => (item_action ||= nil)
+
+  = render collection, :item_action => (item_action ||= nil)
