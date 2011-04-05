@@ -1,9 +1,9 @@
 %table.list#bookings_list
   %tr
-    = sort_header 'value_date', t('activerecord.attributes.booking.valuta')
-    = sort_header 'title', t('activerecord.attributes.booking.title')
-    = sort_header 'debit_account_id', t('activerecord.attributes.booking.credit_account')
-    = sort_header 'credit_account_id', t('activerecord.attributes.booking.debit_account')
+    %th= t_attr :valuta
+    %th= t_attr :title
+    %th= t_attr :credit_account
+    %th= t_attr :debit_account
     %th.currency= t_attr 'amount'
     %th.action-links
   = render @bookings, :item_action => (item_action ||= nil)
