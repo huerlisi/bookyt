@@ -20,7 +20,9 @@
       %td= l(resource.due_date) if resource.due_date
 
 .contextual
-  = icon_link_to :book_manual, new_direct_booking_path(:direct_booking => {:reference_id => resource.id, :reference_type => resource.class.base_class}), :remote => true
+  = form_tag new_direct_booking_path(:direct_booking => {:reference_id => resource.id, :reference_type => resource.class.base_class}), :method => :get, :remote => true do
+    = collection_select :direct_booking, :booking_template_id, BookingTemplate.by_type('credit_invoice'), :id, :title
+    = submit_tag t_action('new')
 
 %h3= t('title.bookings')
 #invoice_booking_list
