@@ -2,11 +2,6 @@
 module ApplicationHelper
   include ActionView::Helpers::NumberHelper
   
-  def sort_header(column, label = nil)
-    label ||= column.humanize
-    content_tag('th', label.html_safe + ' '.html_safe + link_to(image_tag('up.png', :class => 'edit_controls'), :order => column) + link_to(image_tag('down.png', :class => 'edit_controls'), :order => column + ' DESC'))
-  end
-
   def currency_fmt(value)
     # We often do get -0.0 but don't like it
     value = 0.0 if value.to_s.match %r{^-[0.]*$}

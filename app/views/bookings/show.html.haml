@@ -1,10 +1,23 @@
 = contextual_links
 
-%h1= @booking
+%h1= t_title
 
-- for column in Booking.content_columns
-  %p
-    %b
-      = column.human_name
-      \:
-    = h @booking.send(column.name)
+.box
+  %table{:style => "width: 100%"}
+    %tr
+      %th= t_attr(:value_date, Booking)
+      %td= l(resource.value_date) if resource.value_date
+      %th= t_attr(:title, Booking)
+      %td= resource.title
+    %tr
+      %th= t_attr(:debit_account, Booking)
+      %td= link_to resource.debit_account, resource.debit_account
+      %th= t_attr(:credit_account, Booking)
+      %td= link_to resource.credit_account, resource.credit_account
+    %tr
+      %th= t_attr(:reference, Booking)
+      %td= link_to resource.reference, resource.reference
+      %th= t_attr(:amount, Booking)
+      %td= currency_fmt(resource.amount)
+
+%p= resource.comments

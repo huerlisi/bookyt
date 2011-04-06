@@ -1,12 +1,13 @@
 - item_action ||= lambda{|object| url_for(object)}
 
-%tr{:id => "booking_#{booking.id}"}
+%tr[booking.id]
   %td= booking.value_date
   %td
     = link_to booking.title, item_action.call(booking)
     - if booking.comments.present?
       %hr{:style => "height: 1px; margin: 0"}/
       %i= booking.comments
+  %td= link_to booking.reference, booking.reference unless booking.reference.nil?
   %td= link_to booking.credit_account.code, account_path(booking.credit_account), :title => booking.credit_account.title unless booking.credit_account.nil?
   %td= link_to booking.debit_account.code, account_path(booking.debit_account), :title => booking.debit_account.title unless booking.debit_account.nil?
   %td.currency= currency_fmt(booking.amount)
