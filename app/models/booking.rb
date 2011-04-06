@@ -85,7 +85,7 @@ class Booking < ActiveRecord::Base
     elsif debit_account == account
       balance = amount
     else
-      return 0.0
+      return BigDecimal.new('0')
     end
 
     if account.is_asset_account?

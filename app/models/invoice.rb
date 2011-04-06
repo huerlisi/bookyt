@@ -33,10 +33,10 @@ class Invoice < ActiveRecord::Base
   has_many :bookings, :as => :reference, :dependent => :destroy do
     # TODO: duplicated in Booking (without parameter)
     def direct_balance(value_date = nil, direct_account = nil)
-      return 0.0 unless proxy_owner.direct_account
+      return BigDecimal.new('0') unless proxy_owner.direct_account
       
       direct_account ||= proxy_owner.direct_account
-      balance = 0.0
+      balance = BigDecimal.new('0')
 
       direct_bookings = scoped
       direct_bookings = direct_bookings.where("value_date <= ?", value_date) if value_date
