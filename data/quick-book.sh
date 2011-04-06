@@ -72,5 +72,6 @@ cat "$file" | fix_csv | add_value_date | add_chf_value_eur_ebanking | csv2bookin
 cat "$file" | fix_csv | add_value_date | comment_as_title 'Barauszahlung' | csv2booking 1 2
 cat "$file" | fix_csv | add_value_date | add_title '[Bb]ancomat[-]?[Bb]ezug' 'Bancomatbezug' | csv2booking 1 2
 cat "$file" | fix_csv | add_value_date | add_title 'Bareinzahlung' | grep -v 'Gebühr' | csv2booking 2 1
+cat "$file" | fix_csv | add_value_date | add_title 'Einzahlung' | csv2booking 2 1
 cat "$file" | fix_csv | add_value_date | add_value_and_title | grep 'Aduno' | csv2booking 2 49
 cat "$file" | fix_csv | add_value_date | add_value_and_title | grep 'Gutschrift' | grep -v 'Aduno' | csv2booking 2 52

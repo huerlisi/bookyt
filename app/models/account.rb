@@ -74,13 +74,13 @@ class Account < ActiveRecord::Base
       if selector.first.is_a? Booking
         equality = "=" if inclusive
         if selector.first.value_date == selector.last.value_date
-          condition = ["value_date = :value_date AND id >#{equality} :first_id AND id <#{equality} :last_id", {
+          condition = ["date(value_date) = :value_date AND id >#{equality} :first_id AND id <#{equality} :last_id", {
             :value_date => selector.first.value_date,
             :first_id => selector.first.id,
             :last_id => selector.last.id
           }]
         else
-          condition = ["(value_date > :first_value_date AND value_date < :latest_value_date) OR (value_date = :first_value_date AND id >#{equality} :first_id) OR (value_date = :latest_value_date AND id <#{equality} :last_id)", {
+          condition = ["(value_date > :first_value_date AND value_date < :latest_value_date) OR (date(value_date) = :first_value_date AND id >#{equality} :first_id) OR (date(value_date) = :latest_value_date AND id <#{equality} :last_id)", {
             :first_value_date => selector.first.value_date,
             :latest_value_date => selector.last.value_date,
             :first_id => selector.first.id,
@@ -94,7 +94,8 @@ class Account < ActiveRecord::Base
     else
       if selector.is_a? Booking
         equality = "=" if inclusive
-        condition = ["(value_date < :value_date) OR (value_date = :value_date AND id <#{equality} :id)", {:value_date => selector.value_date, :id => selector.id}]
+        # date(value_date) is needed on sqlite!
+        condition = ["(value_date < :value_date) OR (date(value_date) = :value_date AND id <#{equality} :id)", {:value_date => selector.value_date, :id => selector.id}]
       else
         equality = "=" if inclusive
         condition = ["value_date <#{equality} ?", selector]
