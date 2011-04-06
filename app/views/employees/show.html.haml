@@ -11,3 +11,10 @@
 #new_employment
 - @employments = @employee.employments.paginate(:page => params[:page])
 = render 'employments/list'
+
+.contextual
+  = link_to t_action('new', Salary), new_salary_path(:salary => {:company_id => @employee.id}), :remote => true, :class => "icon icon-add"
+%h2= t_title :index, Salary
+
+- @salaries = @employee.salaries.paginate(:page => params[:page])
+= render 'salaries/list'

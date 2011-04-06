@@ -31,6 +31,7 @@ de:
       user: Benutzer
       booking_import: Buchungsimport
       attachment: Anhang
+      salary: Lohn
 
     attributes:
       title:            Titel

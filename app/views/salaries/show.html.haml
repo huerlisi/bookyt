@@ -1,0 +1,29 @@
+.contextual
+  = icon_link_to t('bookyt.pdf'), invoice_path(:format => :pdf)
+  = contextual_links_for
+
+%h1= resource.title
+.box
+  %table{:style => "width: 100%"}
+    %tr
+      %th= t_attr(:customer, Invoice)
+      %td= link_to(full_address(resource.customer.vcard, ', '), resource.customer)
+      %th= t_attr(:company, Invoice)
+      %td= link_to(full_address(resource.company.vcard, ', '), resource.company)
+    %tr
+      %th= t_attr(:state, Invoice)
+      %td#invoice_state=t resource.state, :scope => 'invoice.state'
+    %tr
+      %th= t_attr(:value_date, Invoice)
+      %td= l(resource.value_date) if resource.value_date
+      %th= t_attr(:due_date, Invoice)
+      %td= l(resource.due_date) if resource.due_date
+
+.contextual
+  = form_tag new_direct_booking_path(:direct_booking => {:reference_id => resource.id, :reference_type => resource.class.base_class}), :method => :get, :remote => true do
+    = collection_select :direct_booking, :booking_template_id, BookingTemplate.by_type('salary'), :id, :title
+    = submit_tag t_action('new')
+
+%h3= t('title.bookings')
+#salary_booking_list
+  = render 'direct_bookings/list', :reference => resource

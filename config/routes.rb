@@ -45,6 +45,8 @@ Bookyt::Application.routes.draw do
     resources :attachments
   end
   
+  resources :salaries
+  
   resources :customers do
     resources :invoices
   end
