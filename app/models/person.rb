@@ -14,8 +14,8 @@ class Person < ActiveRecord::Base
   validates_presence_of :vcard
 
   # Invoices
-  has_many :credit_invoices, :class_name => 'Invoice', :foreign_key => :customer_id
-  has_many :debit_invoices, :class_name => 'Invoice', :foreign_key => :company_id
+  has_many :credit_invoices, :class_name => 'Invoice', :foreign_key => :customer_id, :order => 'value_date DESC'
+  has_many :debit_invoices, :class_name => 'Invoice', :foreign_key => :company_id, :order => 'value_date DESC'
 
   # Constructor
   def initialize(attributes = nil)
