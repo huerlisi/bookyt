@@ -1,1 +1,0 @@
-page['tr'].remove("#booking_template_#{@booking_template.id}")
