@@ -59,7 +59,7 @@ Bookyt::Application.routes.draw do
     end
     member do
       get :select_booking, :select_booking_template
-      post :copy
+      get :copy
     end
   end
   

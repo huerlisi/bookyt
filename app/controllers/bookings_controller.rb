@@ -37,11 +37,10 @@ class BookingsController < AuthorizedController
   end
   
   def copy
-    @booking = Booking.find(params[:id])
+    original_booking = Booking.find(params[:id])
 
-    new_booking = @booking.clone
-    new_booking.save
+    @booking = original_booking.clone
     
-    redirect_to edit_booking_path(resource)
+    render 'edit'
   end
 end

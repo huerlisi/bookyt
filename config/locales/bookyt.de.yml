@@ -210,6 +210,7 @@ de:
       current: Aktueller %{model}
       search:               'Suche'
       letter:               'Brief'
+      copy:                 %{model} kopieren
       day:
         new: Abrechnung von %{day}
     flash:

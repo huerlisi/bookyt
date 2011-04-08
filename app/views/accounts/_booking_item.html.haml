@@ -12,3 +12,4 @@
   %td.action-links
     = icon_edit_link_to edit_account_booking_path(@account, @booking)
     = icon_delete_link_to @booking, account_booking_path(@account, @booking)
+    = icon_link_to :copy, copy_booking_path(@booking)
