@@ -16,7 +16,7 @@
       %td= link_to resource.credit_account, resource.credit_account
     %tr
       %th= t_attr(:reference, Booking)
-      %td= link_to resource.reference, resource.reference
+      %td= link_to resource.reference, resource.reference if resource.reference
       %th= t_attr(:amount, Booking)
       %td= currency_fmt(resource.amount)
 
