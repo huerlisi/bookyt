@@ -117,13 +117,6 @@ class Booking < ActiveRecord::Base
   end
   
   def booking_template_id=(value)
-    booking_template = BookingTemplate.find(value)
-    
-    booking_template_parameters = booking_template.booking_parameters
-    booking_template_parameters.reject!{|key, value| value.blank?}
-
-    # TODO: ensure association objects (accounts) get reloaded, too
-    self.attributes = attributes.merge!(booking_template_parameters)
   end
   
   # Reference

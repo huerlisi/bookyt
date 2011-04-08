@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110401062858) do
+ActiveRecord::Schema.define(:version => 20110408113132) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(:version => 20110401062858) do
 
   create_table "booking_templates", :force => true do |t|
     t.string   "title"
-    t.decimal  "amount"
+    t.string   "amount"
     t.integer  "credit_account_id"
     t.integer  "debit_account_id"
     t.text     "comments"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20110401062858) do
     t.datetime "updated_at"
     t.string   "code"
     t.string   "matcher"
+    t.string   "amount_relates_to"
   end
 
   create_table "bookings", :force => true do |t|

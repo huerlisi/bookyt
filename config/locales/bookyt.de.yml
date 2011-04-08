@@ -64,13 +64,14 @@ de:
         valuta:         Valuta
         value:          Betrag
       booking_template:
-        value_date:     Valutadatum
-        title:          Titel
-        amount:         Betrag
-        comments:       Bemerkungen
-        credit_account: Soll
-        debit_account:  Haben
-        reference:      Referenz
+        value_date:        Valutadatum
+        title:             Titel
+        amount:            Betrag
+        comments:          Bemerkungen
+        credit_account:    Soll
+        debit_account:     Haben
+        reference:         Referenz
+        amount_relates_to: Relativ zu
       day:
         date:            Datum
         cash:            Bargeldumsatz
@@ -185,6 +186,11 @@ de:
       reactivated: reaktiviert
       reminded:    1x gemahnt
 
+  booking_template:
+    relation:
+      reference_amount:  'Ursprünglicher Betrag'
+      reference_balance: 'Aktueller Saldo'
+    
   formtastic:
     hints:
       user:
