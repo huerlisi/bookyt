@@ -1,7 +1,7 @@
 %tr[@booking]
   %td= @booking.value_date
   %td
-    = @booking.title
+    = link_to @booking.title, @booking, {'data-href-container' => 'tr'}
     - if @booking.comments.present?
       %hr{:style => "height: 1px; margin: 0"}/
       %i= @booking.comments
