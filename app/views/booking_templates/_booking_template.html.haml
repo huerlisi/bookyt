@@ -9,6 +9,7 @@
   %td= link_to booking_template.credit_account.code, account_path(booking_template.credit_account), :title => booking_template.credit_account.title unless booking_template.credit_account.nil?
   %td= link_to booking_template.debit_account.code, account_path(booking_template.debit_account), :title => booking_template.debit_account.title unless booking_template.debit_account.nil?
   %td.currency= currency_fmt(booking_template.amount)
+  %td= "* " + t(booking_template.amount_relates_to, :scope => 'booking_template.relation') if booking_template.amount_relates_to.present?
   %td.action-links
     = icon_edit_link_to edit_booking_template_path(booking_template)
     = icon_delete_link_to booking_template, booking_template_path(booking_template)
