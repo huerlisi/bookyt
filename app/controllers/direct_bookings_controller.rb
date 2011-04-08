@@ -1,9 +1,10 @@
 class DirectBookingsController < InheritedResources::Base
   def new
-    @direct_booking = BookingTemplate.find(params[:direct_booking][:booking_template_id]).build_booking(params[:direct_booking])
-    @direct_booking.value_date ||= Date.today
+    # Lookup and instantiate template
+    booking_template = BookingTemplate.find(params[:direct_booking][:booking_template_id])
+    @direct_booking = booking_template.build_booking(params[:direct_booking])
 
-    @template_type = @direct_booking.reference.class.name.underscore
+    @direct_booking.value_date ||= Date.today
   end
 
   def create
