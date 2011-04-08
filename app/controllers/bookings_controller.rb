@@ -38,8 +38,10 @@ class BookingsController < AuthorizedController
   
   def copy
     @booking = Booking.find(params[:id])
+
     new_booking = @booking.clone
     new_booking.save
-    render :partial => 'booking', :object => new_booking
+    
+    redirect_to edit_booking_path(resource)
   end
 end

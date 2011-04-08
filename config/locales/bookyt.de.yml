@@ -203,6 +203,7 @@ de:
       PDF:                  'PDF'
       search:               'Suche'
       book_manual:          'Manuell buchen'
+      copy:                 'Kopieren'
     title:
       select_booking_template: %{model} anlegen
       select_booking: %{model} anlegen
