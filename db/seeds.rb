@@ -15,12 +15,12 @@ Account.create!([
 # =================
 # Day
 BookingTemplate.create!([
-  {:code => "day:cash", :title => "Bareinnahmen", :debit_account => Account.where(:code => "3200").first, :credit_account => Account.where(:code => "1010").first},
-  {:code => "day:card turnover", :title => "Kreditkarten Einnahmen", :debit_account => Account.where(:code => "3200").first, :credit_account => Account.where(:code => "1021").first},
-  {:code => "day:expenses", :title => "Barausgabe", :debit_account => Account.where(:code => "1010").first, :credit_account => Account.where(:code => "1000").first},
-  {:code => "day:credit turnover", :title => "Kredit", :debit_account => Account.where(:code => "3200").first, :credit_account => Account.where(:code => "1100").first},
-  {:code => "day:voucher sold", :title => "Gutschein ausgestellt", :debit_account => Account.where(:code => "2001").first, :credit_account => Account.where(:code => "1010").first},
-  {:code => "day:voucher cashed", :title => "Gutschein eingelöst", :debit_account => Account.where(:code => "3200").first, :credit_account => Account.where(:code => "2001").first},
+  {:code => "day:cash", :title => "Bareinnahmen", :debit_account => Account.find_by_code(:code => "3200"), :credit_account => Account.find_by_code(:code => "1010")},
+  {:code => "day:card turnover", :title => "Kreditkarten Einnahmen", :debit_account => Account.find_by_code(:code => "3200"), :credit_account => Account.find_by_code(:code => "1021")},
+  {:code => "day:expenses", :title => "Barausgabe", :debit_account => Account.find_by_code(:code => "1010"), :credit_account => Account.find_by_code(:code => "1000")},
+  {:code => "day:credit turnover", :title => "Kredit", :debit_account => Account.find_by_code(:code => "3200"), :credit_account => Account.find_by_code(:code => "1100")},
+  {:code => "day:voucher sold", :title => "Gutschein ausgestellt", :debit_account => Account.find_by_code(:code => "2001"), :credit_account => Account.find_by_code(:code => "1010")},
+  {:code => "day:voucher cashed", :title => "Gutschein eingelöst", :debit_account => Account.find_by_code(:code => "3200"), :credit_account => Account.find_by_code(:code => "2001")},
 ])
 
 # CreditInvoice
