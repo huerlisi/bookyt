@@ -50,8 +50,10 @@ class Invoice < ActiveRecord::Base
   end
 
   def build_booking
-    booking = bookings.build(:amount => amount, :value_date => value_date)
-    booking.booking_template_id = BookingTemplate.find_by_code(self.class.to_s.underscore + ':invoice').id
+    booking_template = BookingTemplate.find_by_code(self.class.to_s.underscore + ':invoice')
+    
+    booking = booking_template.build_booking(:value_date => value_date, :amount => amount)
+    bookings << booking
     
     booking
   end
