@@ -1,4 +1,4 @@
-class CompaniesController < AuthorizedController
+class PeopleController < AuthorizedController
   def show
     @credit_invoices = resource.credit_invoices.paginate(:page => params[:page])
     @credit_invoices_amount = resource.credit_invoices.to_a.sum(&:amount)
