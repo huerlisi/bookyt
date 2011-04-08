@@ -10,5 +10,5 @@
   %td.currency= (@booking.debit_account == @account) ? currency_fmt(@booking.amount) : content_tag('i', link_to(@booking.debit_account.code, account_path(@booking.debit_account), :title => @booking.debit_account.title))
   %td.currency= currency_fmt(@saldo)
   %td.action-links
-    = icon_edit_link_to edit_account_booking_path(@account, @booking, :page => params['page'])
-    = icon_delete_link_to @booking, account_booking_path(@account, @booking, :page => params['page'])
+    = icon_edit_link_to edit_account_booking_path(@account, @booking)
+    = icon_delete_link_to @booking, account_booking_path(@account, @booking)
