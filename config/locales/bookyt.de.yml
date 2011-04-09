@@ -19,6 +19,7 @@ de:
       account_type: Kontentyp
       booking: Buchung
       booking_template: Buchungsvorlage
+      person: Person
       company: Firma
       customer: Kunde
       day: Tagesabschluss
@@ -102,6 +103,11 @@ de:
         employer:      Arbeitgeber
         employee:      Arbeitnehmer
         duration:      Dauer
+      person:
+        date_of_birth:    Geburtsdatum
+        date_of_death:    Todestag
+        sex:              Geschlecht
+        type:             Typ
       company:
         full_name:        Name
         date_of_birth:    Geburtsdatum
@@ -255,6 +261,7 @@ de:
       accounts:                 Konten
       bookings:                 Journal
       employees:                Mitarbeiter
+      people:                   Personen
       companies:                Firmen
       customers:                Kunden
       destroy_user_session:     Abmelden
