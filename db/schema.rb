@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110408113132) do
+ActiveRecord::Schema.define(:version => 20110409122334) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(:version => 20110408113132) do
   end
 
   add_index "addresses", ["vcard_id"], :name => "addresses_vcard_id_index"
+
+  create_table "assets", :force => true do |t|
+    t.string   "title"
+    t.text     "remarks"
+    t.decimal  "amount"
+    t.string   "state"
+    t.integer  "invoice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "attachments", :force => true do |t|
     t.string   "title"

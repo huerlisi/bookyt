@@ -17,6 +17,7 @@ de:
     models:
       account: Konto
       account_type: Kontentyp
+      asset: Bestand
       booking: Buchung
       booking_template: Buchungsvorlage
       person: Person
@@ -47,6 +48,13 @@ de:
       attachment:
         title:          Titel
         file:           Dateiname
+      asset:
+        invoice_id:      Rechnungs Nr.
+        amount:       Wert
+        remarks:      Bemerkungen
+        title:        Titel
+        state:        Status
+        
       booking:
         value_date:     Valutadatum
         title:          Titel

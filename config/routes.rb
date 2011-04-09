@@ -51,8 +51,10 @@ Bookyt::Application.routes.draw do
     resources :invoices
   end
   
-  resources :direct_bookings
-  
+  # Assets
+  resources :assets
+
+  # Bookings
   resources :bookings do
     collection do
       post :select
@@ -63,6 +65,8 @@ Bookyt::Application.routes.draw do
     end
   end
   
+  resources :direct_bookings
+
   resources :accounts do
     member do
       get :csv_bookings
