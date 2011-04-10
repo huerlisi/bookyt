@@ -9,6 +9,10 @@ class Asset < ActiveRecord::Base
   # ========
   include HasAccounts::Model
   
+  # Guess direct_account
+  #
+  # We simply take the first booking and exclude accounts with codes
+  # 1100 and 2000 (credit and debit invoices) as candidates.
   def direct_account
     # We don't care if no bookings
     return nil if bookings.empty?
