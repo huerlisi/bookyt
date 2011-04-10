@@ -17,7 +17,7 @@ class Asset < ActiveRecord::Base
     booking = bookings.first
     involved_accounts = [booking.credit_account, booking.debit_account]
     
-    relevant_account = involved_accounts - [Account.find_by_code("2000")]
+    relevant_account = involved_accounts - [Account.find_by_code("1100"), Account.find_by_code("2000")]
     
     return relevant_account.first
   end
