@@ -75,6 +75,9 @@ gem 'show_for'
 
 # Bookyt
 # ======
+# Accounting
+gem 'has_accounts', '~> 0.2.0'
+
 # Addresses
 gem 'has_vcards', '~> 0.7.1'
 
