@@ -8,9 +8,11 @@
     %tr
       %th= t_attr(:title)
       %td= resource.title
-      %th.currency= t_attr(:amount)
+      %th= t_attr(:amount)
       %td.currency= currency_fmt(resource.amount)
     %tr
+      %th= t_attr(:direct_account)
+      %td= link_to resource.direct_account, resource.direct_account
       %th= t_attr(:state)
       %td.state=t resource.state, :scope => 'invoice.state'
 

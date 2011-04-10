@@ -49,12 +49,13 @@ de:
         title:          Titel
         file:           Dateiname
       asset:
-        invoice_id:   Rechnungs Nr.
-        invoice:      Rechnung
-        amount:       Wert
-        remarks:      Bemerkungen
-        title:        Titel
-        state:        Status
+        invoice_id:     Rechnungs Nr.
+        invoice:        Rechnung
+        amount:         Anschaffungswert
+        remarks:        Bemerkungen
+        title:          Titel
+        state:          Status
+        direct_account: Konto
         
       booking:
         value_date:     Valutadatum
