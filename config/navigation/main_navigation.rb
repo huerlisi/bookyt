@@ -83,6 +83,12 @@ SimpleNavigation::Configuration.run do |navigation|
                              :highlights_on => /\/companies($|\/[0-9]*$)/
     end
 
+    primary.item :assets, t_title(:index, Asset), assets_path,
+                 :if => Proc.new { user_signed_in? } do |assets|
+      assets.item :assets, t_title(:index, Asset), assets_path, :highlights_on => /\/assets($|\/[0-9]*$)/
+      assets.item :new_asset, t_title(:new, Asset), new_asset_path
+    end
+    
     primary.item :settings, t('bookyt.main_navigation.settings'), current_users_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.settings'),
                  :if => Proc.new { user_signed_in? } do |settings|
