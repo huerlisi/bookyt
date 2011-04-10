@@ -49,7 +49,8 @@ de:
         title:          Titel
         file:           Dateiname
       asset:
-        invoice_id:      Rechnungs Nr.
+        invoice_id:   Rechnungs Nr.
+        invoice:      Rechnung
         amount:       Wert
         remarks:      Bemerkungen
         title:        Titel

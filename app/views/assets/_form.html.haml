@@ -1,0 +1,13 @@
+= semantic_form_for @invoice do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = f.input :customer, :input_html => {:class => 'combobox'}
+    = f.input :company, :input_html => {:class => 'combobox'}
+    = f.input :title
+    = f.input :amount
+    = f.input :due_date, :as => :date_field
+    = f.input :state, :collection => ['open', 'closed'], :input_html => {:class => 'combobox'}
+    = f.input :remarks
+
+  = f.buttons do
+    = f.commit_button

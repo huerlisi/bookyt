@@ -1,0 +1,8 @@
+%tr[asset]
+  %td= link_to asset.title, asset, {'data-href-container' => 'tr'}
+  %td= link_to asset.invoice, asset.invoice
+  %td= asset.state
+  %td.currency= asset.amount
+  %td.action-links
+    = icon_edit_link_to edit_asset_path(asset)
+    = icon_delete_link_to asset, asset_path(asset)
