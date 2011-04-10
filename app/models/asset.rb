@@ -5,6 +5,11 @@ class Asset < ActiveRecord::Base
   # Validations
   validates_presence_of :title, :amount, :state
 
+  # String
+  def to_s
+    title
+  end
+  
   # Bookings
   # ========
   include HasAccounts::Model
@@ -24,5 +29,14 @@ class Asset < ActiveRecord::Base
     relevant_account = involved_accounts - [Account.find_by_code("1100"), Account.find_by_code("2000")]
     
     return relevant_account.first
+  end
+
+  def build_booking
+    booking_template = BookingTemplate.find_by_code(self.class.to_s.underscore + ':activate')
+
+    booking = booking_template.build_booking(:value_date => invoice.value_date, :amount => amount)
+    bookings << booking
+
+    booking
   end
 end

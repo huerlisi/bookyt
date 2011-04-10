@@ -52,6 +52,7 @@ de:
         invoice_id:     Rechnungs Nr.
         invoice:        Rechnung
         amount:         Anschaffungswert
+        balance:        Buchwert
         remarks:        Bemerkungen
         title:          Titel
         state:          Status
