@@ -1,6 +1,7 @@
 class Asset < ActiveRecord::Base
-  # Invoice
-  belongs_to :invoice
+  # Invoices
+  belongs_to :purchase_invoice, :class_name => 'Invoice'
+  belongs_to :selling_invoice, :class_name => 'Invoice'
 
   # Validations
   validates_presence_of :title, :amount, :state
@@ -31,10 +32,13 @@ class Asset < ActiveRecord::Base
     return relevant_account.first
   end
 
+  # Build booking
+  #
+  # We use the value_date of the purchase invoice but our own amount.
   def build_booking
     booking_template = BookingTemplate.find_by_code(self.class.to_s.underscore + ':activate')
 
-    booking = booking_template.build_booking(:value_date => invoice.value_date, :amount => amount)
+    booking = booking_template.build_booking(:value_date => purchase_invoice.value_date, :amount => amount)
     bookings << booking
 
     booking

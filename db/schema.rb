@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110409122334) do
+ActiveRecord::Schema.define(:version => 20110411063013) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -61,9 +61,10 @@ ActiveRecord::Schema.define(:version => 20110409122334) do
     t.text     "remarks"
     t.decimal  "amount"
     t.string   "state"
-    t.integer  "invoice_id"
+    t.integer  "purchase_invoice_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "selling_invoice_id"
   end
 
   create_table "attachments", :force => true do |t|
