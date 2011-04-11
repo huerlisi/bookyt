@@ -47,6 +47,7 @@ class Asset < ActiveRecord::Base
     end
     booking_params.merge!(params)
     
+    # Build and assign booking
     booking = booking_template.build_booking(booking_params)
     bookings << booking
 

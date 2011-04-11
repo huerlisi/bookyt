@@ -10,6 +10,13 @@ class Invoice < ActiveRecord::Base
   validates_date :due_date, :value_date
   validates_presence_of :customer, :company, :title, :amount, :state
   
+  # String
+  def to_s
+    return "" if amount.nil?
+
+    "%s für %s à %s"  % [title, customer, currency_fmt(amount)]
+  end
+
   # Attachments
   # ===========
   has_many :attachments, :as => :object
@@ -24,13 +31,6 @@ class Invoice < ActiveRecord::Base
   # ========
   include HasAccounts::Model
   
-  # Helpers
-  def to_s
-    return "" if amount.nil?
-
-    "%s für %s à %s"  % [title, customer, currency_fmt(amount)]
-  end
-
   # Assets
   # ======
   has_many :assets, :foreign_key => :purchase_invoice_id
