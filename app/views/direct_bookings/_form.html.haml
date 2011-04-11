@@ -6,7 +6,7 @@
     = booking.hidden_field :credit_account_id
     = booking.hidden_field :reference_id
     = booking.hidden_field :reference_type
-    = booking.text_field :value_date, :style => 'width: 12em'
-    Betrag: #{booking.text_field :amount, :style => 'width: 6em', "data-autofocus" => true}
+    = booking.text_field :value_date, :style => 'width: 12em', "data-autofocus" => true
+    Betrag: #{booking.text_field :amount, :style => 'width: 6em'}
     Text: #{booking.text_field :comments, :style => 'width: 26em'}
     \#{booking.submit "Buchen"}
