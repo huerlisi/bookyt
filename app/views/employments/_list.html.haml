@@ -1,4 +1,4 @@
-%table.list#employment_list
+%table.list#employments_list
   %tr
     %th= t_attr :employer, Employment
     %th= t_attr :employee, Employment
@@ -6,6 +6,3 @@
     %th.action-links
 
   = render @employments
-
-  %tr
-    %th{:colspan => "5", :style => "text-align: right"}= will_paginate @employments
