@@ -2,6 +2,9 @@ class Invoice < ActiveRecord::Base
   # Aspects
   include ApplicationHelper
   
+  # Scopes
+  default_scope order(:due_date)
+  
   # Associations
   belongs_to :customer, :class_name => 'Person'
   belongs_to :company, :class_name => 'Person'
