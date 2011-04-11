@@ -57,7 +57,6 @@ de:
         title:          Titel
         state:          Status
         direct_account: Konto
-        
       booking:
         value_date:     Valutadatum
         title:          Titel
@@ -119,6 +118,7 @@ de:
         date_of_death:    Todestag
         sex:              Geschlecht
         type:             Typ
+        full_name:        Name
       company:
         full_name:        Name
         date_of_birth:    Geburtsdatum

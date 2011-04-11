@@ -1,0 +1,6 @@
+%tr[person]
+  %td= person.type
+  %td= link_to person.vcard.try(:full_name), person, {'data-href-container' => 'tr'}
+  %td.action-links
+    = icon_edit_link_to edit_person_path(person)
+    = icon_delete_link_to person, person_path(person)
