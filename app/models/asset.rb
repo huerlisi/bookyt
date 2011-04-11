@@ -35,10 +35,19 @@ class Asset < ActiveRecord::Base
   # Build booking
   #
   # We use the value_date of the purchase invoice but our own amount.
-  def build_booking
+  def build_booking(params = {})
     booking_template = BookingTemplate.find_by_code(self.class.to_s.underscore + ':activate')
 
-    booking = booking_template.build_booking(:value_date => purchase_invoice.value_date, :amount => amount)
+    # Prepare booking parameters
+    booking_params = {:amount => amount}
+    if purchase_invoice
+      booking_params[:value_date] = purchase_invoice.value_date
+    else
+      booking_params[:value_date] = Date.today
+    end
+    booking_params.merge!(params)
+    
+    booking = booking_template.build_booking(booking_params)
     bookings << booking
 
     booking
