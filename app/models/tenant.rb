@@ -6,4 +6,9 @@ class Tenant < ActiveRecord::Base
 
   # Validations
   validates_presence_of :company
+
+  # String
+  def to_s
+    company.to_s
+  end
 end
