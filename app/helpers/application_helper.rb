@@ -9,10 +9,6 @@ module ApplicationHelper
     number = number_with_precision(value, :precision => 2, :separator => '.', :delimiter => "'")
   end
 
-  def cu_to_s(value, unit = 'CHF')
-    "<span style=\"float: left\">#{unit}&nbsp;</span>".html_safe + number_to_currency(value, :unit => '').html_safe
-  end
-
   def icon_edit_link_to(path)
     link_to t('bookyt.edit'), path, :method => :get, :class => 'icon-tooltip icon-edit-text', :title => t('bookyt.edit')
   end
