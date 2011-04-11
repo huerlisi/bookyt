@@ -28,6 +28,16 @@
 #invoice_booking_list
   = render 'direct_bookings/list', :reference => resource
 
+
+.contextual
+  = icon_link_to :new, new_invoice_asset_path(resource, :asset => {:purchase_invoice_id => resource.id}), :remote => true
+%h3= t('title.assets')
+
+- @assets = resource.assets
+#assets_list
+  = render 'assets/list' unless @assets.empty?
+
+
 .contextual
   = icon_link_to :new, new_invoice_attachment_path(resource), :remote => true
 %h3= t('title.attachments')
@@ -35,3 +45,4 @@
 - @attachments = resource.attachments
 #attachments_list
   = render 'attachments/list' unless @attachments.empty?
+

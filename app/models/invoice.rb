@@ -30,4 +30,8 @@ class Invoice < ActiveRecord::Base
 
     "%s für %s à %s"  % [title, customer, currency_fmt(amount)]
   end
+
+  # Assets
+  # ======
+  has_many :assets, :foreign_key => :purchase_invoice_id
 end

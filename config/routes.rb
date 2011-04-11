@@ -53,6 +53,9 @@ Bookyt::Application.routes.draw do
   
   # Assets
   resources :assets
+  resources :invoices do
+    resources :assets
+  end
 
   # Bookings
   resources :bookings do
