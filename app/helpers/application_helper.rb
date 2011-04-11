@@ -11,11 +11,11 @@ module ApplicationHelper
 
   # CRUD helpers
   def icon_edit_link_to(path)
-    link_to t('bookyt.edit'), path, :method => :get, :class => 'icon-tooltip icon-edit-text', :title => t('bookyt.edit')
+    link_to t('bookyt.edit'), path, :method => :get, :class => 'icon-edit-text', :title => t('bookyt.edit')
   end
 
   def icon_delete_link_to(model, path)
-    link_to t('bookyt.destroy'), path, :remote => true, :method => :delete, :confirm => t_confirm_delete(model), :class => 'icon-tooltip icon-delete-text', :title => t('bookyt.destroy')
+    link_to t('bookyt.destroy'), path, :remote => true, :method => :delete, :confirm => t_confirm_delete(model), :class => 'icon-delete-text', :title => t('bookyt.destroy')
   end
 
   def list_item_actions_for(resource)
