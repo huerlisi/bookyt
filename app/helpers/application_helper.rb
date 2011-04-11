@@ -10,14 +10,6 @@ module ApplicationHelper
   end
 
   # CRUD helpers
-  def t_page_head
-    if params[:id] and resource
-      return "%s %s" % [t_title, resource.to_s]
-    else
-      return t_title
-    end
-  end
-  
   def icon_edit_link_to(path)
     link_to t('bookyt.edit'), path, :method => :get, :class => 'icon-tooltip icon-edit-text', :title => t('bookyt.edit')
   end
