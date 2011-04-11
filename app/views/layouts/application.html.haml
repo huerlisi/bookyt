@@ -15,7 +15,7 @@
 
     = csrf_meta_tag
     %title
-      = "#{t('application.title')} - #{controller.action_name.capitalize}"
+      = "#{t_title} (#{current_user.tenant}) - #{t('application.title')}"
   %body
     #container
       #header

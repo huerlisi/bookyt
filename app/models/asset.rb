@@ -11,6 +11,11 @@ class Asset < ActiveRecord::Base
     title
   end
   
+  # States
+  # ======
+  STATES = ['available', 'amortized', 'sold', 'removed']
+  scope :by_state, lambda {|value| where(:state => value)}
+  
   # Bookings
   # ========
   include HasAccounts::Model

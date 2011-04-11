@@ -204,6 +204,13 @@ de:
       reactivated: reaktiviert
       reminded:    1x gemahnt
 
+  asset:
+    state:
+      available: vorhanden
+      amortized: amortisiert
+      sold:      verkauft
+      removed:   entsorgt
+
   booking_template:
     relation:
       reference_amount:  'Ursprünglicher Betrag'

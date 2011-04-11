@@ -3,5 +3,5 @@
     %h3 Filter
     %ul
       %li= link_to t('bookyt.all'), url_for(params.merge(:by_state => nil))
-      - for state in Invoice::STATES
-        %li= link_to t(state, :scope => 'invoice.state'), url_for(params.merge(:by_state => state))
+      - for state in Asset::STATES
+        %li= link_to t(state, :scope => 'asset.state'), url_for(params.merge(:by_state => state))

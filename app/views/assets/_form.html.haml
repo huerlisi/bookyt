@@ -3,7 +3,7 @@
   = f.inputs do
     = f.input :title
     = f.input :amount
-    = f.input :state, :collection => ['open', 'closed'], :input_html => {:class => 'combobox'}
+    = f.input :state, :collection => asset_states_as_collection
     = f.input :remarks
     = f.input :purchase_invoice, :input_html => {:class => 'combobox'}
     = f.input :selling_invoice, :input_html => {:class => 'combobox'}
