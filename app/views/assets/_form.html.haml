@@ -5,7 +5,8 @@
     = f.input :amount
     = f.input :state, :collection => ['open', 'closed'], :input_html => {:class => 'combobox'}
     = f.input :remarks
-    = f.input :invoice, :input_html => {:class => 'combobox'}
+    = f.input :purchase_invoice, :input_html => {:class => 'combobox'}
+    = f.input :selling_invoice, :input_html => {:class => 'combobox'}
 
   = f.buttons do
     = f.commit_button
