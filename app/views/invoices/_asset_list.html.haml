@@ -5,9 +5,4 @@
 #assets_list
   - unless resource.assets.empty?
     %table.list
-      %tr
-        %th= t_attr :title, Asset
-        %th= t_attr :direct_account, Asset
-        %th.currency= t_attr :amount, Asset
-
       = render :partial => 'invoices/asset', :collection => resource.assets
