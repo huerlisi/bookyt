@@ -6,7 +6,7 @@
     = f.input :title
     = f.input :amount
     = f.input :due_date, :as => :date_field
-    = f.input :state, :collection => ['open', 'closed'], :input_html => {:class => 'combobox'}
+    = f.input :state, :collection => invoice_states_as_collection
     = f.input :remarks
 
   = f.buttons do
