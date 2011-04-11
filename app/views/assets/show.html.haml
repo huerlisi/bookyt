@@ -14,7 +14,7 @@
       %th= t_attr(:direct_account)
       %td= link_to resource.direct_account, resource.direct_account
       %th= t_attr(:state)
-      %td.state=t resource.state, :scope => 'invoice.state'
+      %td.state= t_asset_state(resource.state)
     %tr
       %th= t_attr(:purchase_invoice)
       %td= link_to resource.purchase_invoice, resource.purchase_invoice if resource.purchase_invoice
