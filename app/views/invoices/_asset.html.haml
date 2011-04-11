@@ -1,0 +1,4 @@
+%tr[asset]
+  %td= link_to asset.title, asset, {'data-href-container' => 'tr'}
+  %td= link_to asset.direct_account, asset.direct_account
+  %td.currency= currency_fmt(asset.amount)

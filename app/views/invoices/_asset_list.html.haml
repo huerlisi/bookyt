@@ -2,6 +2,12 @@
   = icon_link_to :new, new_invoice_asset_path(resource, :asset => {:purchase_invoice_id => resource.id}), :remote => true
 %h3= t('title.assets')
 
-- @assets = resource.assets
 #assets_list
-  = render 'assets/list' unless @assets.empty?
+  - unless resource.assets.empty?
+    %table.list
+      %tr
+        %th= t_attr :title, Asset
+        %th= t_attr :direct_account, Asset
+        %th.currency= t_attr :amount, Asset
+
+      = render :partial => 'invoices/asset', :collection => resource.assets
