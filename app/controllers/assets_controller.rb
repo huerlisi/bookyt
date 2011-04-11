@@ -1,6 +1,6 @@
 class AssetsController < AuthorizedController
   # States
-  has_scope :by_state, :default => 'available'
+  has_scope :by_state, :default => 'available', :only => :index
   
   # Actions
   def create
