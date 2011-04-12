@@ -11,5 +11,5 @@
         - @attributes.each do |field|
           %td= r.send(field) if r.respond_to?(field)
         %td.action-links
-          = icon_edit_link_to edit_resource_url(r)
+          = list_link_for(:edit, r)
           = icon_delete_link_to r, resource_url(r)

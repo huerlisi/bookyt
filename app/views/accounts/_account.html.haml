@@ -8,5 +8,5 @@
   - else
     %td{:style => "text-align: right"}= currency_fmt(account.saldo)
   %td.action-links
-    = icon_edit_link_to edit_account_path(account)
+    = list_link_for(:edit, account)
     = icon_delete_link_to account, account_path(account)

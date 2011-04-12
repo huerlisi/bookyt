@@ -6,4 +6,4 @@
   %td.currency= currency_fmt(debit_invoice.amount)
   %td.currency= currency_fmt(debit_invoice.balance)
   %td.action-links
-    = icon_edit_link_to edit_debit_invoice_path(debit_invoice)
+    = list_link_for(:edit, debit_invoice)

@@ -12,6 +12,6 @@
   %td= link_to booking.debit_account.code, account_path(booking.debit_account), :title => booking.debit_account.title unless booking.debit_account.nil?
   %td.currency= currency_fmt(booking.amount)
   %td.action-links
-    = icon_edit_link_to edit_booking_path(booking)
+    = list_link_for(:edit, booking)
     = icon_delete_link_to booking, booking_path(booking)
     =# link_to image_tag('16x16/copy.png', :title => 'Copy'), copy_booking_path(booking), :remote => true

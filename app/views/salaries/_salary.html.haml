@@ -6,4 +6,4 @@
   %td.currency= currency_fmt(salary.amount)
   %td.currency= currency_fmt(salary.balance)
   %td.action-links
-    = icon_edit_link_to edit_salary_path(salary)
+    = list_link_for(:edit, salary)

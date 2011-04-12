@@ -1,5 +1,5 @@
 %tr[employee]
   %td= link_to employee.vcard.try(:full_name), employee, {'data-href-container' => 'tr'}
   %td.action-links
-    = icon_edit_link_to edit_employee_path(employee)
+    = list_link_for(:edit, employee)
     = icon_delete_link_to employee, employee_path(employee)

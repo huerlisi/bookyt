@@ -9,5 +9,5 @@
   %td.currency= currency_fmt(day.credit_turnover)
   %td.currency= currency_fmt(day.discount)
   %td.action-links
-    = icon_edit_link_to edit_day_path(day)
+    = list_link_for(:edit, day)
     = icon_delete_link_to day, day_path(day)

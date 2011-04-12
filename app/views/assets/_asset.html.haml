@@ -6,5 +6,5 @@
   %td.currency= currency_fmt(asset.amount)
   %td.currency= currency_fmt(asset.balance)
   %td.action-links
-    = icon_edit_link_to edit_asset_path(asset)
+    = list_link_for(:edit, asset)
     = icon_delete_link_to asset, asset_path(asset)

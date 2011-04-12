@@ -2,5 +2,5 @@
   %td= account_type.name
   %td= account_type.title
   %td.action-links
-    = icon_edit_link_to edit_account_type_path(account_type)
+    = list_link_for(:edit, account_type)
     = icon_delete_link_to account_type, account_type_path(account_type)
