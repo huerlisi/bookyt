@@ -15,7 +15,10 @@
 
     = csrf_meta_tag
     %title
-      = "#{t_page_head} (#{current_user.tenant}) - #{t('application.title')}"
+      - if current_user
+        = "#{t_page_head} (#{current_user.tenant}) - #{t('application.title')}"
+      - else
+        = "#{t_page_head} - #{t('application.title')}"
   %body
     #container
       #header
