@@ -5,10 +5,11 @@
     = f.input :state, :collection => invoice_states_as_collection
     = f.input :customer, :input_html => {:class => 'combobox', 'data-autofocus' => true}
     = f.input :title
+    = f.input :code
     = f.input :value_date, :as => :date_field
-    = f.input :amount
     = f.input :due_date, :as => :date_field
-    = f.input :remarks
+    = f.input :amount
+    = f.input :remarks, :input_html => {:rows => 4}
 
   = f.inputs do
     = f.semantic_fields_for :attachments do |a|
