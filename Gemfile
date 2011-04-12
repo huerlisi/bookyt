@@ -55,7 +55,7 @@ gem 'formtastic', '~> 1.2.1'
 gem 'will_paginate', :git => 'http://github.com/huerlisi/will_paginate.git', :branch => 'rails3'
 gem 'inherited_resources'
 gem 'has_scope'
-gem 'i18n_rails_helpers', '~> 0.12'
+gem 'i18n_rails_helpers', '~> 0.13'
 #gem 'i18n_rails_helpers', :path => '../i18n_rails_helpers'
 gem 'inherited_resources_views'
 

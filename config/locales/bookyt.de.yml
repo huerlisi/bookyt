@@ -157,6 +157,7 @@ de:
         invoice:       Invoice
         open_amount:   Offener Betrag
         balance:       Saldo
+        code:          Rechnungsnr.
       tenant:
         company:       Firma
         users:         Benutzer
