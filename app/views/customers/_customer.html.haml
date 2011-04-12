@@ -2,4 +2,4 @@
   %td= link_to customer.vcard.try(:full_name), customer, {'data-href-container' => 'tr'}
   %td.action-links
     = list_link_for(:edit, customer)
-    = icon_delete_link_to customer, customer_path(customer)
+    = list_link_for(:delete, customer)

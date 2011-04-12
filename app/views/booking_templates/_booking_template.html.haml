@@ -12,6 +12,6 @@
   %td= "* " + t(booking_template.amount_relates_to, :scope => 'booking_template.relation') if booking_template.amount_relates_to.present?
   %td.action-links
     = list_link_for(:edit, booking_template)
-    = icon_delete_link_to booking_template, booking_template_path(booking_template)
+    = list_link_for(:delete, booking_template)
     =# link_to image_tag('16x16/copy.png', :title => 'Copy'), copy_booking_template_path(booking_template), :remote => true
 

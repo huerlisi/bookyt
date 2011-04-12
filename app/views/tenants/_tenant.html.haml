@@ -4,4 +4,4 @@
     = tenant.users.map{|user| link_to user, user}.join(', ').html_safe
   %td.action-links
     = list_link_for(:edit, tenant)
-    = icon_delete_link_to tenant, tenant_path(tenant)
+    = list_link_for(:delete, tenant)

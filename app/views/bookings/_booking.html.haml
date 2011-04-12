@@ -13,5 +13,5 @@
   %td.currency= currency_fmt(booking.amount)
   %td.action-links
     = list_link_for(:edit, booking)
-    = icon_delete_link_to booking, booking_path(booking)
+    = list_link_for(:delete, booking)
     =# link_to image_tag('16x16/copy.png', :title => 'Copy'), copy_booking_path(booking), :remote => true
