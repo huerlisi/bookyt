@@ -12,6 +12,10 @@
     = f.input :amount
     = f.input :remarks, :input_html => {:rows => 4}
 
+  = f.inputs t('title.period') do
+    = f.input :duration_from, :as => :date_field
+    = f.input :duration_to, :as => :date_field
+
   = f.inputs do
     = f.semantic_fields_for :attachments do |a|
       = a.input :title

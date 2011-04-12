@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110412092023) do
+ActiveRecord::Schema.define(:version => 20110412103351) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -155,6 +155,8 @@ ActiveRecord::Schema.define(:version => 20110412092023) do
     t.date     "value_date"
     t.string   "type"
     t.string   "code"
+    t.date     "duration_from"
+    t.date     "duration_to"
   end
 
   create_table "people", :force => true do |t|
