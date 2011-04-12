@@ -1,9 +1,17 @@
 class CreditInvoice < Invoice
   # String
-  def to_s
+  def to_s(format = :default)
     return "" if amount.nil?
 
-    "%s (%s) à %s"  % [title, company, currency_fmt(amount)]
+    identifier = title
+    identifier += " (#{code})" if code
+    
+    case format
+      when :long
+        return "%s: %s für %s à %s"  % [I18n::localize(value_date), ident, company, currency_fmt(amount)]
+      else
+        return identifier
+    end
   end
 
   # Bookings

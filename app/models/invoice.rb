@@ -14,10 +14,18 @@ class Invoice < ActiveRecord::Base
   validates_presence_of :customer, :company, :title, :amount, :state
   
   # String
-  def to_s
+  def to_s(format = :default)
     return "" if amount.nil?
 
-    "%s für %s à %s"  % [title, customer, currency_fmt(amount)]
+    identifier = title
+    identifier += " (#{code})" if code
+    
+    case format
+      when :long
+        return "%s: %s für %s à %s"  % [I18n::localize(value_date), ident, customer, currency_fmt(amount)]
+      else
+        return identifier
+    end
   end
 
   # Attachments
