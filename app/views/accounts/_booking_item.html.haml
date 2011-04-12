@@ -12,4 +12,4 @@
   %td.action-links
     = list_link_for(:edit, [@account, @booking])
     = list_link_for(:delete, [@account, @booking])
-    = icon_link_to :copy, copy_booking_path(@booking)
+    = list_link_for(:copy, @booking)
