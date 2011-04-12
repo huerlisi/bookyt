@@ -99,14 +99,22 @@ $(function() {
 });
 
 
+// Application specific behaviour
+function addAlternateTableBehaviour() {
+  $("table.list tr:odd").addClass("odd");
+}
+
 // Loads functions after DOM is ready
 $(document).ready(function() {
+  // from cyt.js
   addAutofocusBehaviour();
   addDatePickerBehaviour();
   addSortableBehaviour();
   addLinkifyContainersBehaviour();
   addOverviewTooltipBehaviour();
   addIconTooltipBehaviour();
-});
 
+  // application
+  addAlternateTableBehaviour();
+});
 
