@@ -1,6 +1,7 @@
 class DebitInvoicesController < AuthorizedController
   # States
   has_scope :by_state
+  has_scope :by_text
 
   # Actions
   def new
