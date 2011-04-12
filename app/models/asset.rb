@@ -11,6 +11,25 @@ class Asset < ActiveRecord::Base
     title
   end
   
+  # Search
+  # ======
+  scope :by_text, lambda {|value|
+    text   = '%' + value + '%'
+
+    amount = value.delete("'").to_f
+    if amount == 0.0
+      amount = nil unless value.match(/^[0.]*$/)
+    end
+
+    date   = nil
+    begin
+      date = Date.parse(value)
+    rescue ArgumentError
+    end
+
+    includes(:purchase_invoice, :selling_invoice).where("assets.title LIKE :text OR assets.remarks LIKE :text OR assets.amount = :amount OR date(invoices.value_date) = :date", :text => text, :amount => amount, :date => date)
+  }
+
   # States
   # ======
   STATES = ['available', 'amortized', 'sold', 'removed']
