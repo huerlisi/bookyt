@@ -1,0 +1,18 @@
+= semantic_form_for @salary do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = f.input :state, :collection => invoice_states_as_collection
+    = f.input :customer_id, :as => :hidden
+    = f.input :company_id, :as => :hidden
+    = f.input :title
+    = f.input :value_date, :as => :date_field
+    = f.input :due_date, :as => :date_field
+    = f.input :amount, :input_html => {:size => 12}
+    = f.input :remarks, :input_html => {:rows => 4}
+
+  = f.inputs t('title.period') do
+    = f.input :duration_from, :as => :date_field
+    = f.input :duration_to, :as => :date_field
+
+  = f.buttons do
+    = f.commit_button
