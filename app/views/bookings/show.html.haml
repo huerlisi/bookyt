@@ -21,5 +21,9 @@
       %td= link_to resource.reference, resource.reference if resource.reference
       %th= t_attr(:amount, Booking)
       %td= currency_fmt(resource.amount)
+    %tr
+      %th= t_attr(:comments)
+    %tr
+      %td{:style => 'white-space: pre-line; padding-left: 2em', :colspan => 4}<= resource.comments
 
 %p= resource.comments
