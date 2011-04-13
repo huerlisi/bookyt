@@ -59,8 +59,8 @@ class Asset < ActiveRecord::Base
   # Build booking
   #
   # We use the value_date of the purchase invoice but our own amount.
-  def build_booking(params = {})
-    booking_template = BookingTemplate.find_by_code(self.class.to_s.underscore + ':activate')
+  def build_booking(params = {}, template_code = nil)
+    template_code = self.class.to_s.underscore + ':activate'
 
     # Prepare booking parameters
     booking_params = {:amount => amount}
@@ -72,9 +72,6 @@ class Asset < ActiveRecord::Base
     booking_params.merge!(params)
     
     # Build and assign booking
-    booking = booking_template.build_booking(booking_params)
-    bookings << booking
-
-    booking
+    super(booking_params, template_code)
   end
 end
