@@ -11,6 +11,8 @@
       %th= t_attr(:company, Invoice)
       %td= link_to(full_address(resource.company.vcard, ', '), resource.company)
     %tr
+      %th= t_attr(:direct_account, Invoice)
+      %td= link_to resource.direct_account, resource.direct_account
       %th= t_attr(:state, Invoice)
       %td#invoice_state=t resource.state, :scope => 'invoice.state'
     %tr

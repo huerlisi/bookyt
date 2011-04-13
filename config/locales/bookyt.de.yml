@@ -145,6 +145,7 @@ de:
         postal_code:      PLZ
         country_name:     Land 
       invoice:
+        direct_account: Konto
         created_at:    Rechnungsdatum
         due_date:      Fälligkeit
         value_date:    Vom
