@@ -1,11 +1,10 @@
 class DebitInvoice < Invoice
-  # Bookings
+  # Accounts
+  # ========
   def self.direct_account
     Account.find_by_code("1100")
   end
 
-  # Accounts
-  # ========
   def balance_account
     bookings.first.credit_account
   end
