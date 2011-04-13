@@ -77,7 +77,7 @@ gem 'show_for'
 # Bookyt
 # ======
 # Accounting
-gem 'has_accounts', '~> 0.2.2'
+gem 'has_accounts', '~> 0.3.0'
 #gem 'has_accounts', :path => '../has_accounts'
 
 # Addresses
