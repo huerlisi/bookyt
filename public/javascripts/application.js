@@ -104,8 +104,7 @@ function addAlternateTableBehaviour() {
   $("table.list tr:odd").addClass("odd");
 }
 
-// Loads functions after DOM is ready
-$(document).ready(function() {
+function addBehaviours() {
   // from cyt.js
   addAutofocusBehaviour();
   addDatePickerBehaviour();
@@ -116,5 +115,10 @@ $(document).ready(function() {
 
   // application
   addAlternateTableBehaviour();
+}
+
+// Loads functions after DOM is ready
+$(document).ready(function() {
+  addBehaviours();
 });
 

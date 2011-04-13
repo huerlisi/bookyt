@@ -1,1 +1,2 @@
 page["##{resource.class.name.tableize}_list"].before(render(:partial => 'form'))
+page.call('addBehaviours')
