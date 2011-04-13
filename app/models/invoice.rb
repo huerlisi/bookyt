@@ -18,9 +18,11 @@ class Invoice < ActiveRecord::Base
     return "" if amount.nil?
 
     identifier = title
-    identifier += " (#{code})" if code
+    identifier += " / #{code}" if code
     
     case format
+      when :reference
+        return identifier + " (#{customer.to_s})"
       when :long
         return "%s: %s für %s à %s"  % [I18n::localize(value_date), ident, customer, currency_fmt(amount)]
       else

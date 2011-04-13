@@ -4,9 +4,11 @@ class CreditInvoice < Invoice
     return "" if amount.nil?
 
     identifier = title
-    identifier += " (#{code})" if code
+    identifier += " / #{code}" if code
     
     case format
+      when :reference
+        return identifier + " (#{company.to_s})"
       when :long
         return "%s: %s für %s à %s"  % [I18n::localize(value_date), ident, company, currency_fmt(amount)]
       else
