@@ -7,7 +7,7 @@ class Asset < ActiveRecord::Base
   validates_presence_of :title, :amount, :state
 
   # String
-  def to_s
+  def to_s(format = :default)
     title
   end
   
