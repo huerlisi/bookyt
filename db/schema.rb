@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110412103351) do
+ActiveRecord::Schema.define(:version => 20110414124420) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -113,6 +113,16 @@ ActiveRecord::Schema.define(:version => 20110412103351) do
     t.datetime "updated_at"
     t.integer  "reference_id"
     t.string   "reference_type"
+  end
+
+  create_table "charge_rates", :force => true do |t|
+    t.string   "title"
+    t.string   "code"
+    t.decimal  "rate"
+    t.date     "duration_from"
+    t.date     "duration_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "days", :force => true do |t|
