@@ -50,24 +50,24 @@ class BookingTemplate < ActiveRecord::Base
     booking_params.merge!(params)
   end
   
+  # Factory methods
   def build_booking(params = {})
     Booking.new(booking_parameters(params))
   end
 
   def create_booking(params = {})
-    booking = build_booking(params)
-    booking.save
-    
-    booking
+    Booking.create(booking_parameters(params))
+  end
+
+  def self.build_booking(code, params = {})
+    find_by_code(code).try(:build_booking, params)
   end
 
   def self.create_booking(code, params = {})
-    template = find_by_code(code)
-    return if template.nil?
-    
-    template.create_booking(params)
+    find_by_code(code).try(:create_booking, params)
   end
 
+  # Importer
   def self.import(struct)
     templates = self.all.inject([]) do |found, template|
       puts "matcher: " + template.matcher
