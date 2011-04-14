@@ -80,6 +80,11 @@ BookingTemplate.create!([
   {:code => "salary:bank_payment", :title => "Bankzahlung Lohn", :debit_account => Account.find_by_code("1020"), :credit_account => Account.find_by_code("2050")},
 ])
 
+ChargeBookingTemplate.create!([
+  {:code => "salary:employee:ahv_iv_eo", :charge_rate => ChargeRate.find_by_code('salary:both:ahv_iv_eo'), :title => "AHV/IV/EO Arbeitnehmer", :debit_account => Account.find_by_code("2020"), :credit_account => Account.find_by_code("5000"), :amount_relates_to => 'reference_amount'},
+  {:code => "salary:employer:ahv_iv_eo", :charge_code => ChargeRate.find_by_code('salary:both:ahv_iv_eo'), :title => "AHV/IV/EO Arbeitgeber", :debit_account => Account.find_by_code("2020"), :credit_account => Account.find_by_code("5700"), :amount_relates_to => 'reference_amount'},
+])
+
 # Asset
 BookingTemplate.create!([
   {:code => "asset:activate", :title => "Aktivierung", :debit_account => Account.find_by_code("4000"), :credit_account => Account.find_by_code("1230"), :amount => 1, :amount_relates_to => 'reference_amount'},

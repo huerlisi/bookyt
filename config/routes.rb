@@ -79,6 +79,7 @@ Bookyt::Application.routes.draw do
   
   # Booking templates
   resources :booking_templates
+  resources :charge_booking_templates
 
   # Charge rates
   resources :charge_rates

@@ -1,10 +1,21 @@
 class ChargeBookingTemplate < BookingTemplate
+  # Charge Rates
+  def charge_rate(date = nil)
+    ChargeRate.current(charge_rate_code, date)
+  end
+  
+  def amount(date)
+    return 0.0 unless charge_rate(date)
+    
+    charge_rate(date).rate / 100
+  end
+  
   def booking_parameters(params = {})
     # Prepare parameters set by template
     booking_params = attributes.reject!{|key, value| !["title", "comments", "credit_account_id", "debit_account_id"].include?(key)}
 
     # Calculate amount
-    booking_amount = BigDecimal.new(attributes['amount'] || '0')
+    booking_amount = self.amount(params['value_date'])
 
     if ref_type = params['reference_type'] and ref_id = params['reference_id']
       reference = ref_type.constantize.find(ref_id)

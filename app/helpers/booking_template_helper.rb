@@ -6,4 +6,12 @@ module BookingTemplateHelper
       result
     end
   end
+
+  def amount_to_s(booking_template)
+    if booking_template.amount_relates_to
+      return "%.2f%%" % (booking_template.amount.to_f * 100)
+    else
+      return currency_fmt(booking_template.amount)
+    end
+  end
 end
