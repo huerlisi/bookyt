@@ -163,6 +163,8 @@ de:
         code:          Rechnungsnr.
         duration_from: Von
         duration_to:   Bis
+      salary:
+        amount:        Bruttolohn
       tenant:
         company:       Firma
         users:         Benutzer
