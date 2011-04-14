@@ -1,5 +1,12 @@
 # Configures your navigation
 SimpleNavigation::Configuration.run do |navigation|  
+  def account_item(parent, code)
+    account = Account.find_by_code(code)
+    return unless account
+    
+    parent.item "account_#{code}", account.to_s, account_path(account)
+  end
+
   # Define the primary navigation
   navigation.items do |primary|
     # bookyt navigation
@@ -93,7 +100,8 @@ SimpleNavigation::Configuration.run do |navigation|
                  :if => Proc.new { user_signed_in? } do |salaries|
       salaries.item :salaries, t_title(:index, Salary), salaries_path, :highlights_on => /\/salaries($|\/[0-9]*($|\/.*))/
       salaries.item :new_salary, t_title(:new, Salary), new_salary_path
-      salaries.item :employees, t_title(:index, Employee), employees_path
+      salaries.item :labor_costs, t_title(:index, Employee), employees_path
+      account_item(salaries, '5000')
     end
     
     primary.item :settings, t('bookyt.main_navigation.settings'), current_users_path,
