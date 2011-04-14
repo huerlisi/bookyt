@@ -52,12 +52,26 @@ BookingTemplate.create!([
   {:code => "debit_invoice:bank_payment", :title => "Bankzahlung", :debit_account => Account.find_by_code("1100"), :credit_account => Account.find_by_code("1020")},
 ])
 
-# DebitInvoice
-Account.create!([
-  {:code => "2050", :title => "Offene Lohnforderungen"},
-  {:code => "5000", :title => "Lohnaufwand"},
+# Salaries
+# ========
+# Charge Rates
+ChargeRate.create!([
+  {:code => 'salary:both:ahv_iv_eo', :title => "AHV/IV/EO", :duration_from => '2007-01-01', :rate => 5.05},
+  {:code => 'salary:both:ahv_iv_eo', :title => "AHV/IV/EO", :duration_from => '2011-01-01', :rate => 5.15},
+  {:code => 'salary:both:alv', :title => "ALV", :duration_from => '2007-01-01', :rate => 1},
+  {:code => 'salary:both:alv', :title => "ALV", :duration_from => '2011-01-01', :rate => 1.1},
+  {:code => 'salary:both:alv_solidarity', :title => "ALV Solidaritätsprozent", :duration_from => '2011-01-01', :rate => 1},
 ])
 
+# Accounts
+Account.create!([
+  {:code => "2020", :title => "Kreditoren Sozialversicherungen"},
+  {:code => "2050", :title => "Offene Lohnforderungen"},
+  {:code => "5000", :title => "Lohnaufwand"},
+  {:code => "5700", :title => "Sozialversicherungaufwand"},
+])
+
+# Booking Templates
 BookingTemplate.create!([
   {:code => "salary:invoice", :title => "Lohn", :debit_account => Account.find_by_code("2050"), :credit_account => Account.find_by_code("5000"), :amount => 1, :amount_relates_to => 'reference_amount'},
   {:code => "salary:cancel", :title => "Storno", :debit_account => Account.find_by_code("5000"), :credit_account => Account.find_by_code("2050"), :amount => 1, :amount_relates_to => 'reference_amount'},
