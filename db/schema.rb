@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20110414124420) do
     t.string   "code"
     t.string   "matcher"
     t.string   "amount_relates_to"
+    t.string   "type"
   end
 
   create_table "bookings", :force => true do |t|
