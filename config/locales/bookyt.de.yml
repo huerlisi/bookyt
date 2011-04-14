@@ -34,6 +34,7 @@ de:
       booking_import: Buchungsimport
       attachment: Anhang
       salary: Lohn
+      charge_rate: Abgabe Satz
 
     attributes:
       title:            Titel
@@ -84,6 +85,12 @@ de:
         debit_account:     Haben
         reference:         Referenz
         amount_relates_to: Relativ zu
+      charge_rate:
+        title:           Titel
+        code:            Code
+        duration_from:   Gültig ab
+        duration_to:     Gültig bis
+        rate:            Satz
       day:
         date:            Datum
         cash:            Bargeldumsatz

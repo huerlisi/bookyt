@@ -77,8 +77,13 @@ Bookyt::Application.routes.draw do
     resources :bookings
   end
   
+  # Booking templates
   resources :booking_templates
 
+  # Charge rates
+  resources :charge_rates
+  
+  # Imports
   resources :booking_imports
 
   match '/balance' => 'balance#show'

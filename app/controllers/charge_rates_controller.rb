@@ -1,0 +1,2 @@
+class ChargeRatesController < AuthorizedController
+end
