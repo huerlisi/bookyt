@@ -89,6 +89,13 @@ SimpleNavigation::Configuration.run do |navigation|
       assets.item :new_asset, t_title(:new, Asset), new_asset_path
     end
     
+    primary.item :salaries, t_title(:index, Salary), salaries_path,
+                 :if => Proc.new { user_signed_in? } do |salaries|
+      salaries.item :salaries, t_title(:index, Salary), salaries_path, :highlights_on => /\/salaries($|\/[0-9]*($|\/.*))/
+      salaries.item :new_salary, t_title(:new, Salary), new_salary_path
+      salaries.item :employees, t_title(:index, Employee), employees_path
+    end
+    
     primary.item :settings, t('bookyt.main_navigation.settings'), current_users_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.settings'),
                  :if => Proc.new { user_signed_in? } do |settings|
