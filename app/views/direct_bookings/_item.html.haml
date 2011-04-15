@@ -5,5 +5,12 @@
     - unless item.comments.blank?
       %hr{:style => "height: 1px; margin: 0"}
     = item.comments
-  %td= link_to item.contra_account, item.contra_account
-  %td.currency= currency_fmt(item.accounted_amount(@direct_account))
+  - if item.contra_account
+    %td= link_to item.contra_account, item.contra_account
+    %td.currency= currency_fmt(item.accounted_amount(@direct_account))
+  - else
+    %td
+      = link_to(item.debit_account, item.debit_account)
+      \/
+      = link_to(item.credit_account, item.credit_account)
+    %td.currency
