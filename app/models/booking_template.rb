@@ -33,6 +33,8 @@ class BookingTemplate < ActiveRecord::Base
     # Calculate amount
     booking_amount = BigDecimal.new(attributes['amount'] || '0')
 
+    params.stringify_keys!
+
     if ref_type = params['reference_type'] and ref_id = params['reference_id']
       reference = ref_type.constantize.find(ref_id)
 
@@ -46,7 +48,7 @@ class BookingTemplate < ActiveRecord::Base
       end
     end
 
-    booking_amount = booking_amount.round(2)
+    booking_amount = booking_amount.try(:round, 2)
     booking_params['amount'] = booking_amount
     
     # Override by passed in parameters

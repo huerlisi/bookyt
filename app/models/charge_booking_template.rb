@@ -14,6 +14,8 @@ class ChargeBookingTemplate < BookingTemplate
     # Prepare parameters set by template
     booking_params = attributes.reject!{|key, value| !["title", "comments", "credit_account_id", "debit_account_id"].include?(key)}
 
+    params.stringify_keys!
+    
     if ref_type = params['reference_type'] and ref_id = params['reference_id']
       reference = ref_type.constantize.find(ref_id)
 
@@ -31,7 +33,7 @@ class ChargeBookingTemplate < BookingTemplate
       end
     end
 
-    booking_amount = booking_amount.round(2)
+    booking_amount = booking_amount.try(:round, 2)
     booking_params['amount'] = booking_amount
     
     # Override by passed in parameters
