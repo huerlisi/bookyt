@@ -1,4 +1,9 @@
 class Salary < Invoice
+  # String
+  def to_s(format = :default)
+    "%s (%s - %s)" % [title, duration_from ? I18n::localize(duration_from) : '', duration_to ? I18n::localize(duration_to) : '']
+  end
+  
   # Calculations
   def net_amount
     salary_invoice_booking = bookings.where(:debit_account_id => Account.find_by_code('2050').id).first
