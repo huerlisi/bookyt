@@ -31,6 +31,7 @@ class ChargeBookingTemplate < BookingTemplate
       end
     end
 
+    booking_amount = booking_amount.round(2)
     booking_params['amount'] = booking_amount
     
     # Override by passed in parameters
