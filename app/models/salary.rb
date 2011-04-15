@@ -7,6 +7,17 @@ class Salary < Invoice
     salary_invoice_booking.amount
   end
   
+  # Assignment proxies
+  def duration_from=(value)
+    write_attribute(:duration_from, value)
+    
+    value_as_date = self.duration_from
+    # Calculate value and due dates
+    date = Date.new(value_as_date.year, value_as_date.month, 1).in(1.month).ago(1.day)
+    self.value_date ||= date
+    self.due_date   ||= date
+  end
+  
   # Bookings
   # ========
   def self.direct_account
