@@ -41,6 +41,8 @@ class BookingTemplate < ActiveRecord::Base
           booking_amount *= reference.amount
         when 'reference_balance'
           booking_amount *= reference.balance
+        when 'reference_amount_minus_balance'
+          booking_amount *= reference.amount - reference.balance
       end
     end
 

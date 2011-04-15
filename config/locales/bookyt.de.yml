@@ -230,6 +230,7 @@ de:
     relation:
       reference_amount:  'Ursprünglicher Betrag'
       reference_balance: 'Aktueller Saldo'
+      reference_amount_minus_balance: 'Differenz Betrag'
     
   formtastic:
     hints:
