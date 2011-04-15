@@ -45,7 +45,11 @@ Bookyt::Application.routes.draw do
     resources :attachments
   end
   
-  resources :salaries
+  resources :salaries do
+    member do
+      get :payslip
+    end
+  end
   
   resources :customers do
     resources :invoices

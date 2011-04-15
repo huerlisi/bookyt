@@ -249,9 +249,11 @@ de:
       only_debit_bookings:  'Nur Haben'
       all_bookings:         'Alle Buchungen'
       PDF:                  'PDF'
+      pdf:                  'PDF'
       search:               'Suche'
       book_manual:          'Manuell buchen'
       copy:                 'Kopieren'
+      payslip:              'Lohnabrechnung'
     title:
       select_booking_template: %{model} anlegen
       select_booking: %{model} anlegen

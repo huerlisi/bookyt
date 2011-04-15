@@ -33,4 +33,8 @@ class SalariesController < AuthorizedController
     
     create!
   end
+
+  def payslip
+    show!
+  end
 end
