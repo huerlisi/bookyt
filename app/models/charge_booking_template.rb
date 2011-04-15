@@ -7,7 +7,11 @@ class ChargeBookingTemplate < BookingTemplate
   def amount(date = nil)
     return 0.0 unless charge_rate(date)
     
-    charge_rate(date).rate / 100
+    if self.amount_relates_to.present?
+      return charge_rate(date).rate / 100
+    else
+      return charge_rate(date).rate
+    end
   end
   
   def booking_parameters(params = {})
