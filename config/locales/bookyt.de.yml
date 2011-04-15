@@ -121,6 +121,9 @@ de:
         employer:      Arbeitgeber
         employee:      Arbeitnehmer
         duration:      Dauer
+        salary_amount: Brutto Lohn
+        kids:          Kinder
+        workload:      Pensum
       person:
         date_of_birth:    Geburtsdatum
         date_of_death:    Todestag
