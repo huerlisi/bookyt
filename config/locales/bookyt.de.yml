@@ -258,6 +258,7 @@ de:
       book_manual:          'Manuell buchen'
       copy:                 'Kopieren'
       payslip:              'Lohnabrechnung'
+      letter:               'Rechnung'
     title:
       select_booking_template: %{model} anlegen
       select_booking: %{model} anlegen
