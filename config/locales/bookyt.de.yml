@@ -253,7 +253,6 @@ de:
       only_credit_bookings: 'Nur Soll'
       only_debit_bookings:  'Nur Haben'
       all_bookings:         'Alle Buchungen'
-      PDF:                  'PDF'
       pdf:                  'PDF'
       search:               'Suche'
       book_manual:          'Manuell buchen'
@@ -283,7 +282,6 @@ de:
     edit:             Editieren
     destroy:          Löschen
     greetings:        Mit freundlichen Grüssen,
-    pdf:              PDF
     show:             Anzeigen
     total:            Total
     difference:       Differenz
