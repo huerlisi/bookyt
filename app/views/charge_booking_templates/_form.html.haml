@@ -1,7 +1,6 @@
 = semantic_form_for resource do |f|
   = f.semantic_errors
   = f.inputs do
-    = f.input :amount, :input_html => {"data-autofocus" => true, :size => 12, :style => 'text-align: right'}
     = f.input :amount_relates_to, :collection => amount_relations_as_collection
     = f.input :code
     = f.input :title
