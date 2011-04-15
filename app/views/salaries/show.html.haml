@@ -25,17 +25,17 @@
     = collection_select :direct_booking, :booking_template_id, BookingTemplate.by_type(resource_class.name.underscore), :id, :title
     = submit_tag t_action('new')
 
-%h3= Account.find_by_code("2050").title
 - @direct_account = Account.find_by_code("2050")
+%h3= link_to @direct_account.title, @direct_account
 #salary_payment_booking_list
   = render 'direct_bookings/list', :reference => resource
 
-%h3= Account.find_by_code("5000").title
 - @direct_account = Account.find_by_code("5000")
+%h3= link_to @direct_account.title, @direct_account
 #salary_payment_booking_list
   = render 'direct_bookings/list', :reference => resource
 
-%h3= Account.find_by_code("5700").title
 - @direct_account = Account.find_by_code("5700")
+%h3= link_to @direct_account.title, @direct_account
 #salary_booking_list
   = render 'direct_bookings/list', :reference => resource
