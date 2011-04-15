@@ -172,6 +172,7 @@ de:
         duration_to:   Bis
       salary:
         amount:        Bruttolohn
+        net_amount:    Nettolohn
       tenant:
         company:       Firma
         users:         Benutzer
