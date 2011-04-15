@@ -176,6 +176,8 @@ de:
       salary:
         amount:        Bruttolohn
         net_amount:    Nettolohn
+        customer:      Arbeitgeber
+        company:       Arbeitnehmer
       tenant:
         company:       Firma
         users:         Benutzer

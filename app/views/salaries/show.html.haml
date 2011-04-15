@@ -7,12 +7,12 @@
 .box
   %table{:style => "width: 100%"}
     %tr
-      %th= t_attr(:customer, Invoice)
+      %th= t_attr(:customer)
       %td= link_to(full_address(resource.customer.vcard, ', '), resource.customer)
-      %th= t_attr(:company, Invoice)
+      %th= t_attr(:company)
       %td= link_to(full_address(resource.company.vcard, ', '), resource.company)
     %tr
-      %th= t_attr(:amount, Invoice)
+      %th= t_attr(:amount)
       %td= resource.amount
     %tr
       %th= t_attr(:duration_from, Invoice)
