@@ -14,11 +14,12 @@ class ChargeBookingTemplate < BookingTemplate
     # Prepare parameters set by template
     booking_params = attributes.reject!{|key, value| !["title", "comments", "credit_account_id", "debit_account_id"].include?(key)}
 
-    # Calculate amount
-    booking_amount = self.amount(params['value_date'])
-
     if ref_type = params['reference_type'] and ref_id = params['reference_id']
       reference = ref_type.constantize.find(ref_id)
+
+      # Calculate amount
+      booking_params['value_date'] = reference.value_date
+      booking_amount = self.amount(reference.value_date)
 
       case self.amount_relates_to
         when 'reference_amount'
