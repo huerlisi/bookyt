@@ -4,7 +4,7 @@ class ChargeBookingTemplate < BookingTemplate
     ChargeRate.current(charge_rate_code, date)
   end
   
-  def amount(date)
+  def amount(date = nil)
     return 0.0 unless charge_rate(date)
     
     charge_rate(date).rate / 100
