@@ -94,9 +94,11 @@ GEM
     highline (1.6.1)
     hpricot (0.8.3)
     i18n (0.5.0)
-    i18n_rails_helpers (0.13.0)
+    i18n_rails_helpers (0.14.0)
       activerecord
       i18n
+      i18n_rails_helpers
+      rails (~> 3.0.0)
     inherited_resources (1.2.1)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)
@@ -215,7 +217,7 @@ DEPENDENCIES
   has_scope
   has_vcards (~> 0.7.1)
   hpricot
-  i18n_rails_helpers (~> 0.13)
+  i18n_rails_helpers (~> 0.14)
   inherited_resources
   inherited_resources_views
   jquery-rails
