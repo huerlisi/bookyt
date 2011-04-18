@@ -3,8 +3,8 @@
   %td= link_to employment.employee, employment.employee
   %td= link_to ("%s - %s" % [employment.duration_from, employment.duration_to]), employment, {'data-href-container' => 'tr'}
   %td.currency= currency_fmt(employment.salary_amount)
-  %td= "%i%%" % employment.workload
-  %td= employment.kids
+  %td.currency= "%i%%" % employment.workload
+  %td.currency= employment.kids
   %td.action-links
     = list_link_for(:edit, employment)
     = list_link_for(:delete, employment)

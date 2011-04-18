@@ -4,8 +4,8 @@
     %th= t_attr :employee, Employment
     %th= t_attr :duration, Employment
     %th.currency= t_attr :salary_amount, Employment
-    %th= t_attr :workload, Employment
-    %th= t_attr :kids, Employment
+    %th.currency= t_attr :workload, Employment
+    %th.currency= t_attr :kids, Employment
     %th.action-links
 
   = render @employments
