@@ -25,7 +25,9 @@ Bookyt::Application.routes.draw do
   
   # Contacts
   resources :people
-  resources :employees
+  resources :employees do
+    resources :attachments
+  end
   resources :employments
   
   # Invoices

@@ -17,3 +17,11 @@
 
 - @salaries = @employee.salaries
 = render 'salaries/list'
+
+.contextual
+  = icon_link_to :new, new_employee_attachment_path(resource), :remote => true
+%h3= t('title.attachments')
+
+- @attachments = resource.attachments
+#attachments_list
+  = render 'attachments/list' unless @attachments.empty?

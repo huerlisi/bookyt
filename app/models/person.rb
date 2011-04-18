@@ -42,4 +42,9 @@ class Person < ActiveRecord::Base
   # ========
   has_many :credit_invoices, :class_name => 'Invoice', :foreign_key => :customer_id, :order => 'value_date DESC'
   has_many :debit_invoices, :class_name => 'Invoice', :foreign_key => :company_id, :order => 'value_date DESC'
+
+  # Attachments
+  # ===========
+  has_many :attachments, :as => :object
+  accepts_nested_attributes_for :attachments
 end
