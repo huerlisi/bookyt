@@ -17,6 +17,7 @@ class ChargeRate < ActiveRecord::Base
   # Validity
   scope :valid_at, lambda {|value| where("duration_from <= :date AND (duration_to IS NULL OR duration_to > :date)", :date => value) }
   scope :valid, lambda { valid_at(Date.today) }
+  scope :latest, group(:code)
 
   def self.current(code, date = nil)
     date ||= Date.today
