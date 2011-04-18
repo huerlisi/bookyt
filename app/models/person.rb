@@ -8,11 +8,15 @@ class Person < ActiveRecord::Base
   FEMALE = 2
 
   # String
-  def to_s
+  def to_s(format = :default)
     return unless vcard
     
     s = vcard.full_name
-    s += " (#{vcard.locality})" if vcard.locality
+
+    case format
+      when :long
+        s += " (#{vcard.locality})" if vcard.locality
+    end
     
     return s
   end
