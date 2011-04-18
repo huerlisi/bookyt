@@ -8,6 +8,9 @@
     = f.input :code
     = f.input :sex, :as => :select, :collection => { t('sex.male') => Person::MALE, t('sex.female') => Person::FEMALE}, :input_html => {:class => 'combobox'}
     = f.input :date_of_birth, :as => :date_field
+    = f.input :social_security_nr
+    = f.input :social_security_nr_12
+
 
   = f.buttons do
     = f.commit_button

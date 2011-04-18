@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110418084153) do
+ActiveRecord::Schema.define(:version => 20110418194746) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -184,6 +184,8 @@ ActiveRecord::Schema.define(:version => 20110418084153) do
     t.date     "date_of_death"
     t.integer  "sex"
     t.string   "code"
+    t.string   "social_security_nr"
+    t.string   "social_security_nr_12"
   end
 
   create_table "phone_numbers", :force => true do |t|

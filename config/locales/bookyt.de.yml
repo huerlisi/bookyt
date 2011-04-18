@@ -120,6 +120,8 @@ de:
         region:           Region
         postal_code:      PLZ
         country_name:     Land
+        social_security_nr: AHV-Nr.
+        social_security_nr_12: Alte AHV-Nr.
       employment:
         employer:      Arbeitgeber
         employee:      Arbeitnehmer
