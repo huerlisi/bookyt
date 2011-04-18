@@ -120,7 +120,9 @@ SimpleNavigation::Configuration.run do |navigation|
                              :tooltip => t('bookyt.main_navigation.tooltip.tenant_index'),
                              :highlights_on => /\/tenants$/
       settings.item :booking_templates, t_title(:index, BookingTemplate), booking_templates_path,
-                             :highlights_on => /\/booking_templates(\/|$)/
+                             :highlights_on => /\/booking_templates($|\/[0-9]*($|\/.*))/
+      settings.item :charge_booking_templates, t_title(:index, ChargeBookingTemplate), charge_booking_templates_path,
+                             :highlights_on => /\/charge_booking_templates($|\/[0-9]*($|\/.*))/
       settings.item :charge_rates, t_title(:index, ChargeRate), charge_rates_path,
                              :highlights_on => /\/charge_rates(\/|$)/
     end
