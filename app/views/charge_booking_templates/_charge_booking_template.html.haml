@@ -1,10 +1,8 @@
-- booking_template = charge_booking_template
-
 - item_action ||= lambda{|object| url_for(object)}
 
 %tr[charge_booking_template]
   %td
-    = link_to "%s (%s)" % [charge_booking_template.title, charge_booking_template.code], item_action.call(booking_template)
+    = link_to "%s (%s)" % [charge_booking_template.title, charge_booking_template.code], item_action.call(charge_booking_template)
     - if charge_booking_template.comments.present?
       %hr{:style => "height: 1px; margin: 0"}/
       %i= charge_booking_template.comments
@@ -13,7 +11,6 @@
   %td.currency= link_to amount_to_s(charge_booking_template), charge_booking_template.charge_rate
   %td= t(charge_booking_template.amount_relates_to, :scope => 'booking_template.relation') if charge_booking_template.amount_relates_to.present?
   %td.action-links
-    = list_link_for(:edit, booking_template)
-    = list_link_for(:delete, booking_template)
-    =# link_to image_tag('16x16/copy.png', :title => 'Copy'), copy_booking_template_path(booking_template), :remote => true
+    = list_link_for(:edit, charge_booking_template)
+    = list_link_for(:delete, charge_booking_template)
 
