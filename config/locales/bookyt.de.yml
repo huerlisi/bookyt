@@ -86,7 +86,7 @@ de:
         debit_account:     Haben
         reference:         Referenz
         amount_relates_to: Relativ zu
-        charge_rate_code:  Code für Abgabesatz
+        charge_rate_code:  Abgabesatz
       charge_rate:
         title:           Titel
         code:            Code
