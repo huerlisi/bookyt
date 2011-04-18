@@ -7,4 +7,4 @@
     %th= t_attr :amount_relates_to, BookingTemplate
     %th.action-links
 
-  = render collection, :item_action => (item_action ||= nil)
+  = render @booking_templates, :item_action => (item_action ||= nil)
