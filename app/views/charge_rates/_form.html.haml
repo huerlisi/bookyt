@@ -4,6 +4,7 @@
     = f.input :title
     = f.input :code
     = f.input :rate, :input_html => {:size => 3}
+    = f.input :person, :input_html => {:class => 'combobox'}
 
   = f.inputs t('title.period') do
     = f.input :duration_from, :as => :date_field

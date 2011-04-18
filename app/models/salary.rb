@@ -45,7 +45,7 @@ class Salary < Invoice
     super(params, 'salary:employer:vkb').save
     
     super(params, 'salary:employee:ktg').save
-    super(params, "salary:#{company.code}:bvg").save
+    super(params.merge(:person_id => company.id), "salary:bvg").save
 
     super(params, 'salary:invoice').save
   end

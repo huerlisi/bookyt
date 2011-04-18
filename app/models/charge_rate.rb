@@ -23,4 +23,8 @@ class ChargeRate < ActiveRecord::Base
     date ||= Date.today
     valid_at(date).find_by_code(code)
   end
+
+  # Person
+  belongs_to :person
+  scope :by_person, lambda {|value| value ? where(:person_id => value) : scoped}
 end

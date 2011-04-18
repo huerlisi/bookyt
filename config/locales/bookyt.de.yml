@@ -93,6 +93,7 @@ de:
         duration_from:   Gültig ab
         duration_to:     Gültig bis
         rate:            Satz
+        person_id:       Person
       day:
         date:            Datum
         cash:            Bargeldumsatz

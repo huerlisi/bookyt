@@ -1,20 +1,23 @@
 class ChargeBookingTemplate < BookingTemplate
   # Charge Rates
-  def charge_rate(date = nil)
-    ChargeRate.current(charge_rate_code, date)
+  def charge_rate(date = nil, params = {})
+    ChargeRate.by_person(params[:person_id]).current(charge_rate_code, date)
   end
   
-  def amount(date = nil)
-    return 0.0 unless charge_rate(date)
+  def amount(date = nil, params = {})
+    rate = charge_rate(date, params)
+    return 0.0 unless rate
     
     if self.amount_relates_to.present?
-      return charge_rate(date).rate / 100
+      return rate.rate / 100
     else
-      return charge_rate(date).rate
+      return rate.rate
     end
   end
   
   def booking_parameters(params = {})
+    person_id = params.delete(:person_id)
+
     # Prepare parameters set by template
     booking_params = attributes.reject!{|key, value| !["title", "comments", "credit_account_id", "debit_account_id"].include?(key)}
 
@@ -25,7 +28,7 @@ class ChargeBookingTemplate < BookingTemplate
 
       # Calculate amount
       booking_params['value_date'] = reference.value_date
-      booking_amount = self.amount(reference.value_date)
+      booking_amount = self.amount(reference.value_date, :person_id => person_id)
 
       case self.amount_relates_to
         when 'reference_amount'
