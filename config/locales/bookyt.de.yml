@@ -20,6 +20,7 @@ de:
       asset: Bestand
       booking: Buchung
       booking_template: Buchungsvorlage
+      charge_booking_template: Bedingte Buchungsvorlage
       person: Person
       company: Firma
       customer: Kunde
@@ -85,6 +86,7 @@ de:
         debit_account:     Haben
         reference:         Referenz
         amount_relates_to: Relativ zu
+        charge_rate_code:  Code für Abgabesatz
       charge_rate:
         title:           Titel
         code:            Code
