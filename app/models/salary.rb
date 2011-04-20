@@ -23,6 +23,10 @@ class Salary < Invoice
     self.due_date   ||= date
   end
   
+  # Filter/Search
+  # =============
+  scope :by_value_period, lambda {|from, to| where("date(value_date) BETWEEN ? AND ?", from, to) }
+  
   # Bookings
   # ========
   def self.direct_account
