@@ -13,7 +13,7 @@
       %td= link_to(full_address(resource.company.vcard, ', '), resource.company)
     %tr
       %th= t_attr(:amount)
-      %td= resource.amount
+      %td= currency_fmt(resource.amount)
     %tr
       %th= t_attr(:duration_from, Invoice)
       %td= l(resource.duration_from) if resource.duration_from
