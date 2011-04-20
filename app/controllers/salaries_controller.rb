@@ -6,6 +6,11 @@ class SalariesController < AuthorizedController
   has_scope :by_employee_id
 
   # Actions
+  # =======
+  def statistics
+    index!
+  end
+  
   def new
     # Allow pre-seeding some parameters
     salary_params = {

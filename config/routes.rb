@@ -48,6 +48,10 @@ Bookyt::Application.routes.draw do
   end
   
   resources :salaries do
+    collection do
+      get :statistics
+    end
+    
     member do
       get :payslip
     end

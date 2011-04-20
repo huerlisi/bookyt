@@ -12,6 +12,18 @@ class Salary < Invoice
     salary_invoice_booking.amount
   end
   
+  def bvg_amount
+    bookings.by_text("BVG").sum(:amount)
+  end
+  
+  def social_amount
+    result = bookings.by_text("AHV/IV/EO Arbeitnehmer").sum(:amount)
+    result += bookings.by_text("ALV Arbeitnehmer").sum(:amount)
+    result += bookings.by_text("NBU Arbeitnehmer").sum(:amount)
+
+    result
+  end
+  
   # Assignment proxies
   def duration_from=(value)
     write_attribute(:duration_from, value)

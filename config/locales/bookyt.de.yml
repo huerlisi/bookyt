@@ -181,6 +181,8 @@ de:
       salary:
         amount:        Bruttolohn
         net_amount:    Nettolohn
+        bvg_amount:    BVG
+        social_amount: AHV/IV/EO/ALV/NBU
         customer:      Arbeitgeber
         company:       Arbeitnehmer
       tenant:
@@ -264,6 +266,7 @@ de:
       copy:                 'Kopieren'
       payslip:              'Lohnabrechnung'
       letter:               'Rechnung'
+      statistics:           'Statistiken'
     title:
       select_booking_template: %{model} anlegen
       select_booking: %{model} anlegen
@@ -273,6 +276,7 @@ de:
       copy:                 %{model} kopieren
       day:
         new: Abrechnung von %{day}
+      statistics:           'Statistiken'
     flash:
       created_html: %{message} angelegt
 
