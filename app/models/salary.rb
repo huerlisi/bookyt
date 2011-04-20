@@ -26,6 +26,7 @@ class Salary < Invoice
   # Filter/Search
   # =============
   scope :by_value_period, lambda {|from, to| where("date(value_date) BETWEEN ? AND ?", from, to) }
+  scope :by_employee_id, lambda {|value| where(:company_id => value)}
   
   # Bookings
   # ========
