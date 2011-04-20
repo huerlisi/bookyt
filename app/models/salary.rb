@@ -24,6 +24,13 @@ class Salary < Invoice
     result
   end
   
+  def ahv_amount
+    result = amount
+    result += bookings.where(:title => "Kinderzulage").sum(:amount)
+    
+    result
+  end
+  
   # Assignment proxies
   def duration_from=(value)
     write_attribute(:duration_from, value)

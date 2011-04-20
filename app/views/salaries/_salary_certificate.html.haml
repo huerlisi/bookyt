@@ -12,14 +12,14 @@
     - for salary in @salaries
       %tr
         %td= salary.company
-        %td.currency= link_to currency_fmt(salary.amount), salary, "data-href-container" => 'tr'
+        %td.currency= link_to currency_fmt(salary.ahv_amount), salary, "data-href-container" => 'tr'
         %td.currency= currency_fmt(salary.social_amount)
         %td.currency= currency_fmt(salary.bvg_amount)
         %td.currency= currency_fmt(salary.net_amount)
 
     %tr
       %th= t('bookyt.total')
-      %th.currency= currency_fmt(@salaries.sum(&:amount))
+      %th.currency= currency_fmt(@salaries.sum(&:ahv_amount))
       %th.currency= currency_fmt(@salaries.sum(&:social_amount))
       %th.currency= currency_fmt(@salaries.sum(&:bvg_amount))
       %th.currency= currency_fmt(@salaries.sum(&:net_amount))
