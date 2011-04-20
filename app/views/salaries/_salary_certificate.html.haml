@@ -12,7 +12,7 @@
     - for salary in @salaries
       %tr
         %td= salary.company
-        %td.currency= currency_fmt(salary.amount)
+        %td.currency= link_to currency_fmt(salary.amount), salary, "data-href-container" => 'tr'
         %td.currency= currency_fmt(salary.social_amount)
         %td.currency= currency_fmt(salary.bvg_amount)
         %td.currency= currency_fmt(salary.net_amount)
