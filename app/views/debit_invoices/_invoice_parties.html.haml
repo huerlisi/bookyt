@@ -1,0 +1,9 @@
+#biller.block
+  %h3
+    = t('bookyt.invoices.invoicing_party')
+  = full_address(@debit_invoice.company.vcard)
+  %br
+  = contact(@debit_invoice.company.vcard)
+
+#billingaddress.block
+  = full_address(@debit_invoice.customer.vcard)

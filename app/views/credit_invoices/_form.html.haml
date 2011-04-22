@@ -2,13 +2,24 @@
   = f.semantic_errors
   = f.inputs do
     = f.input :customer_id, :as => :hidden
-    = f.input :state, :as => :hidden
-    = f.input :company, :input_html => {:class => 'combobox'}
+    = f.input :state, :collection => invoice_states_as_collection
+    .combobox-action= list_link_for(:new, Company, :target => 'blank')
+    = f.input :company, :input_html => {:class => 'combobox', 'data-autofocus' => true}
     = f.input :title
+    = f.input :code
     = f.input :value_date, :as => :date_field
-    = f.input :amount
     = f.input :due_date, :as => :date_field
-    = f.input :remarks
+    = f.input :amount, :input_html => {:size => 12}
+    = f.input :remarks, :input_html => {:rows => 4}
+
+  = f.inputs t('title.period') do
+    = f.input :duration_from, :as => :date_field
+    = f.input :duration_to, :as => :date_field
+
+  = f.inputs do
+    = f.semantic_fields_for :attachments do |a|
+      = a.input :title
+      = a.input :file, :as => :file
 
   = f.buttons do
     = f.commit_button

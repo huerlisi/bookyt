@@ -5,3 +5,11 @@
 = @employment.employer
 = @employment.employee
 = "%s - %s" % [@employment.duration_from, @employment.duration_to]
+
+.contextual
+  = icon_link_to :new, new_invoice_attachment_path(resource), :remote => true
+%h3= t('title.attachments')
+
+- @attachments = resource.attachments
+#attachments_list
+  = render 'attachments/list' unless @attachments.empty?

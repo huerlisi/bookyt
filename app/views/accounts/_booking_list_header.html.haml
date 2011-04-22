@@ -2,7 +2,7 @@
   %th= t_attr :date, Booking
   %th= t_attr :text, Booking
   %th= t_attr :reference, Booking
-  %th{:style => "text-align: right"}= t_attr :credit_account, Booking
-  %th{:style => "text-align: right"}= t_attr :debit_account, Booking
-  %th{:style => "text-align: right"}= t_attr :balance, Booking
-  %th.action-links
+  %th.currency= t_attr :credit_account, Booking
+  %th.currency= t_attr :debit_account, Booking
+  %th.currency= t_attr :balance, Booking
+  %th.action-links.count-3

@@ -17,5 +17,3 @@ Factory.define :service_account, :class => Account do |a|
   a.title 'Dienstleistungsertrag'
   a.code '3200'
 end
-
-

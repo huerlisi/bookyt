@@ -1,9 +1,9 @@
 %tr[credit_invoice]
   %td= credit_invoice.value_date
   %td= link_to credit_invoice.company, credit_invoice.company
-  %td= link_to credit_invoice.title, credit_invoice, {'data-href-container' => 'tr'}
+  %td= link_to credit_invoice, credit_invoice, {'data-href-container' => 'tr'}
   %td= credit_invoice.due_date
   %td.currency= currency_fmt(credit_invoice.amount)
   %td.currency= currency_fmt(credit_invoice.balance)
   %td.action-links
-    = icon_edit_link_to edit_credit_invoice_path(credit_invoice)
+    = list_link_for(:edit, credit_invoice)

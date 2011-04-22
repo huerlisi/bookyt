@@ -97,3 +97,28 @@
 $(function() {
   $( ".combobox" ).combobox();
 });
+
+
+// Application specific behaviour
+function addAlternateTableBehaviour() {
+  $("table.list tr:odd").addClass("odd");
+}
+
+function addBehaviours() {
+  // from cyt.js
+  addAutofocusBehaviour();
+  addDatePickerBehaviour();
+  addSortableBehaviour();
+  addLinkifyContainersBehaviour();
+  addOverviewTooltipBehaviour();
+  addIconTooltipBehaviour();
+
+  // application
+  addAlternateTableBehaviour();
+}
+
+// Loads functions after DOM is ready
+$(document).ready(function() {
+  addBehaviours();
+});
+

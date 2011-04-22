@@ -1,0 +1,15 @@
+- item_action ||= lambda{|object| url_for(object)}
+
+%tr[charge_booking_template]
+  %td
+    = link_to "%s (%s)" % [charge_booking_template.title, charge_booking_template.code], item_action.call(charge_booking_template)
+    - if charge_booking_template.comments.present?
+      %hr{:style => "height: 1px; margin: 0"}/
+      %i= charge_booking_template.comments
+  %td= link_to charge_booking_template.credit_account.code, account_path(charge_booking_template.credit_account), :title => charge_booking_template.credit_account.title unless charge_booking_template.credit_account.nil?
+  %td= link_to charge_booking_template.debit_account.code, account_path(charge_booking_template.debit_account), :title => charge_booking_template.debit_account.title unless charge_booking_template.debit_account.nil?
+  %td.currency= link_to amount_to_s(charge_booking_template), charge_booking_template.charge_rate
+  %td= t(charge_booking_template.amount_relates_to, :scope => 'booking_template.relation') if charge_booking_template.amount_relates_to.present?
+  %td.action-links
+    = list_link_for(:edit, charge_booking_template)
+    = list_link_for(:delete, charge_booking_template)

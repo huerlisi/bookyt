@@ -1,0 +1,15 @@
+= semantic_form_for parent? ? [parent, resource] : resource, :html => {:multipart => true} do |f|
+  = f.semantic_errors
+
+  = f.input :title
+  = f.input :file, :as => :file
+  - if parent?
+    - if parent
+      - f.object.object = parent
+      = f.input :object_id, :as => :hidden
+      = f.input :object_type, :as => :hidden
+    - else
+      = f.input :object, :collection => parent_class.all
+
+  = f.buttons do
+    = f.commit_button

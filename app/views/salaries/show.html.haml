@@ -1,0 +1,41 @@
+.contextual
+  = icon_link_to :pdf, :format => :pdf
+  = icon_link_to :payslip
+  = contextual_links_for
+
+%h1= resource.title
+.box
+  %table{:style => "width: 100%"}
+    %tr
+      %th= t_attr(:customer)
+      %td= link_to(full_address(resource.customer.vcard, ', '), resource.customer)
+      %th= t_attr(:company)
+      %td= link_to(full_address(resource.company.vcard, ', '), resource.company)
+    %tr
+      %th= t_attr(:amount)
+      %td= currency_fmt(resource.amount)
+    %tr
+      %th= t_attr(:duration_from, Invoice)
+      %td= l(resource.duration_from) if resource.duration_from
+      %th= t_attr(:duration_to, Invoice)
+      %td= l(resource.duration_to) if resource.duration_to
+
+.contextual
+  = form_tag new_direct_booking_path(:direct_booking => {:reference_id => resource.id, :reference_type => resource_class.base_class}), :method => :get, :remote => true do
+    = collection_select :direct_booking, :booking_template_id, BookingTemplate.by_type(resource_class.name.underscore), :id, :title
+    = submit_tag t_action('new')
+
+- @direct_account = Account.find_by_code("2050")
+%h3= link_to @direct_account.title, @direct_account
+#salary_payment_booking_list
+  = render 'direct_bookings/list', :reference => resource
+
+- @direct_account = Account.find_by_code("5000")
+%h3= link_to @direct_account.title, @direct_account
+#salary_payment_booking_list
+  = render 'direct_bookings/list', :reference => resource
+
+- @direct_account = Account.find_by_code("5700")
+%h3= link_to @direct_account.title, @direct_account
+#salary_booking_list
+  = render 'direct_bookings/list', :reference => resource

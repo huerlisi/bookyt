@@ -1,0 +1,10 @@
+%table.list.booking_template_list
+  %tr
+    %th= t_attr :title, BookingTemplate
+    %th= t_attr :credit_account, BookingTemplate
+    %th= t_attr :debit_account, BookingTemplate
+    %th.currency= t_attr 'amount', BookingTemplate
+    %th= t_attr :amount_relates_to, BookingTemplate
+    %th.action-links
+
+  = render @charge_booking_templates, :item_action => (item_action ||= nil)

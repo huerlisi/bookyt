@@ -2,6 +2,9 @@ class Invoice < ActiveRecord::Base
   # Aspects
   include ApplicationHelper
   
+  # Scopes
+  default_scope order(:due_date)
+  
   # Associations
   belongs_to :customer, :class_name => 'Person'
   belongs_to :company, :class_name => 'Person'
@@ -10,40 +13,59 @@ class Invoice < ActiveRecord::Base
   validates_date :due_date, :value_date
   validates_presence_of :customer, :company, :title, :amount, :state
   
-  # Bookings
-  has_many :bookings, :as => :reference, :dependent => :destroy do
-    # TODO: duplicated in Booking (without parameter)
-    def direct_balance(value_date = nil, direct_account = nil)
-      direct_account ||= proxy_owner.direct_account
-      balance = 0.0
+  # String
+  def to_s(format = :default)
+    return "" if amount.nil?
 
-      direct_bookings = scoped
-      direct_bookings = direct_bookings.where("value_date <= ?", value_date) if value_date
-
-      for booking in direct_bookings.all
-        balance += booking.accounted_amount(direct_account)
-      end
-
-      balance
+    identifier = title
+    identifier += " / #{code}" if code
+    
+    case format
+      when :reference
+        return identifier + " (#{customer.to_s})"
+      when :long
+        return "%s: %s für %s à %s"  % [I18n::localize(value_date), ident, customer, currency_fmt(amount)]
+      else
+        return identifier
     end
   end
 
-  def build_booking
-    booking = bookings.build(:amount => amount, :value_date => value_date)
-    booking.booking_template_id = BookingTemplate.find_by_code('credit_invoice:invoice').id
+  # Search
+  # ======
+  scope :by_text, lambda {|value|
+    text   = '%' + value + '%'
+
+    amount = value.delete("'").to_f
+    if amount == 0.0
+      amount = nil unless value.match(/^[0.]*$/)
+    end
+
+    date   = nil
+    begin
+      date = Date.parse(value)
+    rescue ArgumentError
+    end
+
+    people = Person.by_name(value)
     
-    booking
-  end
+    where("title LIKE :text OR code LIKE :text OR remarks LIKE :text OR amount = :amount OR date(value_date) = :date OR date(due_date) = :date OR company_id IN (:people) OR customer_id IN (:people)", :text => text, :amount => amount, :date => date, :people => people)
+  }
 
-  # TODO: called due_amount in CyDoc
-  def balance(value_date = nil)
-    bookings.direct_balance(value_date)
-  end
+  # Attachments
+  # ===========
+  has_many :attachments, :as => :object
+  accepts_nested_attributes_for :attachments
   
-  # Helpers
-  def to_s
-    return "" if amount.nil?
-
-    "%s für %s à %s"  % [title, customer, currency_fmt(amount)]
-  end
+  # States
+  # ======
+  STATES = ['booked', 'canceled', 'paid']
+  scope :by_state, lambda {|value| where(:state => value)}
+  
+  # Bookings
+  # ========
+  include HasAccounts::Model
+  
+  # Assets
+  # ======
+  has_many :assets, :foreign_key => :purchase_invoice_id
 end

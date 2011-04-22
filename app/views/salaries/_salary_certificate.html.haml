@@ -1,0 +1,25 @@
+%h3= t('salary_certificate')
+
+= paginated_section collection do
+  %table.list
+    %tr
+      %th= t_attr :company, Invoice
+      %th.currency= t_attr :amount, Salary
+      %th.currency= t_attr :social_amount, Salary
+      %th.currency= t_attr :bvg_amount, Salary
+      %th.currency= t_attr :net_amount, Salary
+
+    - for salary in @salaries
+      %tr
+        %td= salary.company
+        %td.currency= link_to currency_fmt(salary.ahv_amount), salary, "data-href-container" => 'tr'
+        %td.currency= currency_fmt(salary.social_amount)
+        %td.currency= currency_fmt(salary.bvg_amount)
+        %td.currency= currency_fmt(salary.net_amount)
+
+    %tr
+      %th= t('bookyt.total')
+      %th.currency= currency_fmt(@salaries.sum(&:ahv_amount))
+      %th.currency= currency_fmt(@salaries.sum(&:social_amount))
+      %th.currency= currency_fmt(@salaries.sum(&:bvg_amount))
+      %th.currency= currency_fmt(@salaries.sum(&:net_amount))

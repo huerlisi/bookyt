@@ -20,16 +20,40 @@ Bookyt::Application.routes.draw do
   end
   resources :companies
 
+  # Attachments
+  resources :attachments
+  
   # Contacts
-  resources :employees
+  resources :people
+  resources :employees do
+    resources :attachments
+  end
   resources :employments
   
   # Invoices
-  resources :invoices
-  resources :credit_invoices
+  resources :invoices do
+    resources :attachments
+  end
+  
+  resources :credit_invoices do
+    resources :attachments
+  end
+  
   resources :debit_invoices do
     member do
       get :letter
+    end
+    
+    resources :attachments
+  end
+  
+  resources :salaries do
+    collection do
+      get :statistics
+    end
+    
+    member do
+      get :payslip
     end
   end
   
@@ -37,17 +61,25 @@ Bookyt::Application.routes.draw do
     resources :invoices
   end
   
-  resources :direct_bookings
-  
+  # Assets
+  resources :assets
+  resources :invoices do
+    resources :assets
+  end
+
+  # Bookings
   resources :bookings do
     collection do
       post :select
     end
     member do
       get :select_booking, :select_booking_template
+      get :copy
     end
   end
   
+  resources :direct_bookings
+
   resources :accounts do
     member do
       get :csv_bookings
@@ -55,8 +87,14 @@ Bookyt::Application.routes.draw do
     resources :bookings
   end
   
+  # Booking templates
   resources :booking_templates
+  resources :charge_booking_templates
 
+  # Charge rates
+  resources :charge_rates
+  
+  # Imports
   resources :booking_imports
 
   match '/balance' => 'balance#show'

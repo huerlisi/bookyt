@@ -13,13 +13,13 @@ class BookingTemplate < ActiveRecord::Base
       "%s / %s CHF %s" % [
         credit_account ? credit_account.to_s(:short) : '?',
         debit_account ? debit_account.to_s(:short) : '?',
-        amount ? "%0.2f" % amount : '?',
+        amount ? "%0.2f" % amount.to_f : '?',
       ]
     else
       "%s an %s CHF %s, %s (%s)" % [
         credit_account ? credit_account.to_s : '?',
         debit_account ? debit_account.to_s : '?',
-        amount ? "%0.2f" % amount : '?',
+        amount ? "%0.2f" % amount.to_f : '?',
         title.present? ? title : '?',
         comments.present? ? comments : '?'
       ]
@@ -27,28 +27,52 @@ class BookingTemplate < ActiveRecord::Base
   end
 
   def booking_parameters(params = {})
-    booking_params = attributes.reject!{|key, value| !["title", "amount", "comments", "credit_account_id", "debit_account_id"].include?(key)}
+    # Prepare parameters set by template
+    booking_params = attributes.reject!{|key, value| !["title", "comments", "credit_account_id", "debit_account_id"].include?(key)}
+
+    # Calculate amount
+    booking_amount = BigDecimal.new(attributes['amount'] || '0')
+
+    params.stringify_keys!
+
+    if ref_type = params['reference_type'] and ref_id = params['reference_id']
+      reference = ref_type.constantize.find(ref_id)
+
+      case self.amount_relates_to
+        when 'reference_amount'
+          booking_amount *= reference.amount
+        when 'reference_balance'
+          booking_amount *= reference.balance
+        when 'reference_amount_minus_balance'
+          booking_amount *= reference.amount - reference.balance
+      end
+    end
+
+    booking_amount = booking_amount.try(:round, 2)
+    booking_params['amount'] = booking_amount
+    
+    # Override by passed in parameters
     booking_params.merge!(params)
   end
   
+  # Factory methods
   def build_booking(params = {})
     Booking.new(booking_parameters(params))
   end
 
   def create_booking(params = {})
-    booking = build_booking(params)
-    booking.save
-    
-    booking
+    Booking.create(booking_parameters(params))
+  end
+
+  def self.build_booking(code, params = {})
+    find_by_code(code).try(:build_booking, params)
   end
 
   def self.create_booking(code, params = {})
-    template = find_by_code(code)
-    return if template.nil?
-    
-    template.create_booking(params)
+    find_by_code(code).try(:create_booking, params)
   end
 
+  # Importer
   def self.import(struct)
     templates = self.all.inject([]) do |found, template|
       puts "matcher: " + template.matcher

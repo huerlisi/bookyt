@@ -1,6 +1,6 @@
 #Application
 set :application, 'bookyt'
-set :repository,  'git@github.com:CyTeam/bookyt.git'
+set :repository,  'git@github.com:huerlisi/bookyt.git'
 
 # Deployment
 set :server, :passenger
@@ -20,14 +20,8 @@ set :deploy_via, :remote_cache
 set :git_enable_submodules, 1
 set :copy_exclude, [".git", "spec"]
 
-# Restart passenger
-namespace :deploy do
-  task :start do ; end
-  task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-  end
-end
+# Passenger
+require 'cap_recipes/tasks/passenger'
 
 # Bundle install
 require "bundler/capistrano"

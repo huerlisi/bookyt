@@ -1,0 +1,2 @@
+class ChargeBookingTemplatesController < BookingTemplatesController
+end

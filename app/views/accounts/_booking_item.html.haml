@@ -1,14 +1,15 @@
-%tr{:id => "booking_#{@booking.id}"}
+%tr[@booking]
   %td= @booking.value_date
   %td
-    = @booking.title
+    = link_to @booking.title, @booking, {'data-href-container' => 'tr'}
     - if @booking.comments.present?
       %hr{:style => "height: 1px; margin: 0"}/
       %i= @booking.comments
-  %td= link_to @booking.reference.to_s, @booking.reference unless @booking.reference.nil? rescue ''
-  %td{:style => "text-align: right"}= (@booking.credit_account == @account) ? currency_fmt(@booking.amount) : content_tag('i', link_to(@booking.credit_account.code, account_path(@booking.credit_account), :title => @booking.credit_account.title))
-  %td{:style => "text-align: right"}= (@booking.debit_account == @account) ? currency_fmt(@booking.amount) : content_tag('i', link_to(@booking.debit_account.code, account_path(@booking.debit_account), :title => @booking.debit_account.title))
-  %td{:style => "text-align: right"}= currency_fmt(@saldo)
+  %td= link_to @booking.reference.to_s(:reference), @booking.reference unless @booking.reference.nil?
+  %td.currency= (@booking.credit_account == @account) ? currency_fmt(@booking.amount) : content_tag('i', link_to(@booking.credit_account.code, account_path(@booking.credit_account), :title => @booking.credit_account.title))
+  %td.currency= (@booking.debit_account == @account) ? currency_fmt(@booking.amount) : content_tag('i', link_to(@booking.debit_account.code, account_path(@booking.debit_account), :title => @booking.debit_account.title))
+  %td.currency= currency_fmt(@saldo)
   %td.action-links
-    = icon_edit_link_to edit_account_booking_path(@account, @booking, :page => params['page'])
-    = icon_delete_link_to @booking, account_booking_path(@account, @booking, :page => params['page'])
+    = list_link_for(:edit, [@account, @booking])
+    = list_link_for(:delete, [@account, @booking])
+    = list_link_for(:copy, @booking)

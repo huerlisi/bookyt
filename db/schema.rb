@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110322161706) do
+ActiveRecord::Schema.define(:version => 20110418194746) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -56,6 +56,26 @@ ActiveRecord::Schema.define(:version => 20110322161706) do
 
   add_index "addresses", ["vcard_id"], :name => "addresses_vcard_id_index"
 
+  create_table "assets", :force => true do |t|
+    t.string   "title"
+    t.text     "remarks"
+    t.decimal  "amount"
+    t.string   "state"
+    t.integer  "purchase_invoice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "selling_invoice_id"
+  end
+
+  create_table "attachments", :force => true do |t|
+    t.string   "title"
+    t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "object_id"
+    t.string   "object_type"
+  end
+
   create_table "booking_imports", :force => true do |t|
     t.string   "csv_file_name"
     t.string   "csv_content_type"
@@ -65,18 +85,9 @@ ActiveRecord::Schema.define(:version => 20110322161706) do
     t.datetime "updated_at"
   end
 
-  create_table "booking_references", :force => true do |t|
-    t.integer  "booking_id"
-    t.string   "kind"
-    t.integer  "reference_id"
-    t.string   "reference_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "booking_templates", :force => true do |t|
     t.string   "title"
-    t.decimal  "amount"
+    t.string   "amount"
     t.integer  "credit_account_id"
     t.integer  "debit_account_id"
     t.text     "comments"
@@ -84,6 +95,9 @@ ActiveRecord::Schema.define(:version => 20110322161706) do
     t.datetime "updated_at"
     t.string   "code"
     t.string   "matcher"
+    t.string   "amount_relates_to"
+    t.string   "type"
+    t.string   "charge_rate_code"
   end
 
   create_table "bookings", :force => true do |t|
@@ -101,6 +115,17 @@ ActiveRecord::Schema.define(:version => 20110322161706) do
     t.datetime "updated_at"
     t.integer  "reference_id"
     t.string   "reference_type"
+  end
+
+  create_table "charge_rates", :force => true do |t|
+    t.string   "title"
+    t.string   "code"
+    t.decimal  "rate"
+    t.date     "duration_from"
+    t.date     "duration_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "person_id"
   end
 
   create_table "days", :force => true do |t|
@@ -128,6 +153,10 @@ ActiveRecord::Schema.define(:version => 20110322161706) do
     t.integer  "employer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "remarks"
+    t.decimal  "salary_amount"
+    t.integer  "kids"
+    t.decimal  "workload"
   end
 
   create_table "invoices", :force => true do |t|
@@ -142,6 +171,9 @@ ActiveRecord::Schema.define(:version => 20110322161706) do
     t.decimal  "amount"
     t.date     "value_date"
     t.string   "type"
+    t.string   "code"
+    t.date     "duration_from"
+    t.date     "duration_to"
   end
 
   create_table "people", :force => true do |t|
@@ -151,6 +183,9 @@ ActiveRecord::Schema.define(:version => 20110322161706) do
     t.date     "date_of_birth"
     t.date     "date_of_death"
     t.integer  "sex"
+    t.string   "code"
+    t.string   "social_security_nr"
+    t.string   "social_security_nr_12"
   end
 
   create_table "phone_numbers", :force => true do |t|

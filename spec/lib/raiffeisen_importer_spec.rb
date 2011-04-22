@@ -11,6 +11,7 @@ describe RaiffeisenImporter do
   end
 
   it 'should import data from a simple csv' do
+    pending
     RaiffeisenImporter::import(@csv_simple)
     @booking = Booking.find_by_value_date('2008-01-03')
     @booking.should_not == nil

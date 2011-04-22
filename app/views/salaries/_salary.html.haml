@@ -1,0 +1,10 @@
+%tr[salary]
+  %td= salary.value_date
+  %td= link_to salary.company, salary.company
+  %td= link_to salary.title, salary, {'data-href-container' => 'tr'}
+  %td= salary.due_date
+  %td.currency= currency_fmt(salary.amount)
+  %td.currency= currency_fmt(salary.net_amount)
+  %td.currency= currency_fmt(salary.balance(Date.today, Account.find_by_code('2050')))
+  %td.action-links
+    = list_link_for(:edit, salary)

@@ -1,27 +1,56 @@
 .contextual
-  = icon_link_to t('bookyt.pdf'), invoice_path(:format => :pdf)
+  = icon_link_to :pdf, :format => :pdf
+  = icon_link_to :letter if resource.is_a?(DebitInvoice)
   = contextual_links_for
+%h1= resource
 
-%h1 #{t_model(Invoice)} ##{ @invoice.id}
 .box
   %table{:style => "width: 100%"}
     %tr
       %th= t_attr(:customer, Invoice)
-      %td= link_to(full_address(@invoice.customer.vcard, ', '), @invoice.customer)
+      %td= link_to(full_address(resource.customer.vcard, ', '), resource.customer)
       %th= t_attr(:company, Invoice)
-      %td= link_to(full_address(@invoice.company.vcard, ', '), @invoice.company)
+      %td= link_to(full_address(resource.company.vcard, ', '), resource.company)
+    %tr
+      %th= t_attr(:balance_account, Invoice)
+      %td= link_to resource.balance_account, resource.balance_account
+      %th= t_attr(:profit_account, Invoice)
+      %td= link_to resource.profit_account, resource.profit_account
     %tr
       %th= t_attr(:state, Invoice)
-      %td#invoice_state=t @invoice.state, :scope => 'invoice.state'
+      %td#invoice_state=t resource.state, :scope => 'invoice.state'
     %tr
       %th= t_attr(:value_date, Invoice)
-      %td= l(@invoice.value_date) if @invoice.value_date
+      %td= l(resource.value_date) if resource.value_date
       %th= t_attr(:due_date, Invoice)
-      %td= l(@invoice.due_date) if @invoice.due_date
+      %td= l(resource.due_date) if resource.due_date
+    %tr
+      %th= t_attr(:duration_from, Invoice)
+      %td= l(resource.duration_from) if resource.duration_from
+      %th= t_attr(:duration_to, Invoice)
+      %td= l(resource.duration_to) if resource.duration_to
+    %tr
+      %th= t_attr(:remarks, Invoice)
+    %tr
+      %td{:style => 'white-space: pre-line; padding-left: 2em', :colspan => 4}<= resource.remarks
+
 
 .contextual
-  = icon_link_to :book_manual, new_booking_path(:direct_booking => {:reference_id => @invoice.id, :reference_type}), :remote => true
-
+  = form_tag new_direct_booking_path(:direct_booking => {:reference_id => resource.id, :reference_type => resource_class.base_class}), :method => :get, :remote => true do
+    = collection_select :direct_booking, :booking_template_id, BookingTemplate.by_type(resource_class.name.underscore), :id, :title
+    = submit_tag t_action('new')
 %h3= t('title.bookings')
+
 #invoice_booking_list
-  = render 'direct_bookings/list', :reference => @invoice
+  = render 'direct_bookings/list', :reference => resource
+
+
+= render 'invoices/asset_list'
+
+.contextual
+  = icon_link_to :new, new_invoice_attachment_path(resource), :remote => true
+%h3= t('title.attachments')
+
+- @attachments = resource.attachments
+#attachments_list
+  = render 'attachments/list' unless @attachments.empty?

@@ -1,0 +1,5 @@
+%tr[attachment]
+  %td= link_to attachment.title, attachment.file.url, {'data-href-container' => 'tr'}
+  %td.action-links
+    = list_link_for(:edit, attachment)
+    = icon_delete_link_to attachment, attachment_url(attachment)

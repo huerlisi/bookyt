@@ -1,11 +1,8 @@
 GIT
-  remote: http://github.com/CyTeam/styleyt.git
-  revision: 9d3248d5f72d041f57c9a026e23bdaea0c76d992
+  remote: http://github.com/huerlisi/PDFKit.git
+  revision: 7fd74e36a81af03533fb8f42611458dd9bec7fc6
   specs:
-    styleyt (0.2.4)
-      compass
-      haml
-      rails (~> 3.0.0)
+    pdfkit (0.5.0)
 
 GIT
   remote: http://github.com/huerlisi/will_paginate.git
@@ -48,14 +45,15 @@ GEM
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
     cancan (1.5.1)
+    cap-recipes (0.3.36)
     capistrano (2.5.19)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.0.0)
-    capistrano-ext (1.2.1)
-      capistrano (>= 1.0.0)
+    carrierwave (0.5.2)
+      activesupport (~> 3.0)
     compass (0.10.6)
       haml (>= 3.0.4)
     csv-mapper (0.5.1)
@@ -81,13 +79,14 @@ GEM
     fancy-buttons (1.0.6)
       compass (= 0.10.6)
     fastercsv (1.5.4)
-    formtastic (1.1.0)
-      actionpack (>= 2.3.0)
-      activesupport (>= 2.3.0)
-      i18n (>= 0.4.0)
+    formtastic (1.2.3)
+      actionpack (>= 2.3.7)
+      activesupport (>= 2.3.7)
+      i18n (~> 0.4)
     gherkin (2.3.3)
       json (~> 1.4.6)
     haml (3.0.25)
+    has_accounts (0.5.0)
     has_scope (0.5.0)
     has_vcards (0.7.1)
       activerecord
@@ -95,16 +94,21 @@ GEM
     highline (1.6.1)
     hpricot (0.8.3)
     i18n (0.5.0)
-    i18n_rails_helpers (0.8.2)
+    i18n_rails_helpers (0.14.0)
       activerecord
       i18n
+      i18n_rails_helpers
+      rails (~> 3.0.0)
     inherited_resources (1.2.1)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)
+    inherited_resources_views (0.4.1)
+      inherited_resources (>= 1.0)
     jquery-rails (0.2.7)
       rails (~> 3.0)
       thor (~> 0.14.4)
     json (1.4.6)
+    lyb_sidebar (0.1.0)
     mail (2.2.15)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -124,7 +128,6 @@ GEM
     paperclip (2.3.8)
       activerecord
       activesupport
-    pdfkit (0.5.0)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -173,6 +176,10 @@ GEM
     sqlite3 (1.3.3)
     sqlite3-ruby (1.3.3)
       sqlite3 (>= 1.3.3)
+    styleyt (0.2.3)
+      compass
+      haml
+      rails (~> 3.0.0)
     term-ansicolor (1.0.5)
     thor (0.14.6)
     timeliness (0.3.3)
@@ -194,8 +201,9 @@ PLATFORMS
 
 DEPENDENCIES
   cancan
+  cap-recipes
   capistrano
-  capistrano-ext
+  carrierwave
   compass (~> 0.10.6)
   csv-mapper
   cucumber
@@ -203,18 +211,21 @@ DEPENDENCIES
   devise (~> 1.1)
   factory_girl_rails
   fancy-buttons
-  formtastic (~> 1.1.0)
+  formtastic (~> 1.2.1)
   haml
+  has_accounts (~> 0.5.0)
   has_scope
-  has_vcards (~> 0.6)
+  has_vcards (~> 0.7.1)
   hpricot
-  i18n_rails_helpers (~> 0.8.0)
+  i18n_rails_helpers (~> 0.14)
   inherited_resources
+  inherited_resources_views
   jquery-rails
+  lyb_sidebar
   mocha
   mysql
   paperclip
-  pdfkit
+  pdfkit!
   rails (~> 3.0.0)
   rails3-generators
   rcov
@@ -225,7 +236,7 @@ DEPENDENCIES
   show_for
   simple-navigation
   sqlite3-ruby
-  styleyt!
+  styleyt
   validates_timeliness (~> 3.0.0)
   webrat
   will_paginate!

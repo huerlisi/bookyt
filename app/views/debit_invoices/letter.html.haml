@@ -1,0 +1,9 @@
+.contextual
+  = icon_link_to :pdf, :format => :pdf
+  = icon_link_to :show
+  = contextual_links_for :show
+
+#invoice{:style =>"position: relative"}
+  = render 'invoice_info'
+  = render 'invoice_parties'
+  = render 'invoice_body'

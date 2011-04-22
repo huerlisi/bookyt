@@ -28,4 +28,8 @@ describe Invoice do
     its(:to_s) { should =~ /New Invoice/ }
     its(:to_s) { should =~ /99.85/ }
   end
+
+  context "with bookings" do
+    it { should have_many(:bookings) }
+  end
 end

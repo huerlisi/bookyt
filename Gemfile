@@ -19,8 +19,10 @@ group :development do
   gem 'hpricot'
   gem 'ruby_parser'
   gem 'rcov'
+
+  # Capistrano
   gem 'capistrano'
-  gem 'capistrano-ext'
+  gem 'cap-recipes'
 end
 
 # Test
@@ -37,40 +39,54 @@ end
 
 # Standard helpers
 # ================
-gem 'styleyt', :git => 'http://github.com/CyTeam/styleyt.git'
-
 gem 'haml'
 gem 'compass', '~> 0.10.6'
 gem 'fancy-buttons'
 
 gem 'simple-navigation'
 
-gem 'formtastic', '~> 1.1.0'
+# Styling
+gem 'lyb_sidebar'
+gem 'styleyt'
+
+# Form framework
+gem 'formtastic', '~> 1.2.1'
+
 gem 'will_paginate', :git => 'http://github.com/huerlisi/will_paginate.git', :branch => 'rails3'
 gem 'inherited_resources'
 gem 'has_scope'
-gem 'i18n_rails_helpers', '~> 0.8.0'
-gem 'show_for'
+gem 'i18n_rails_helpers', '~> 0.14'
+#gem 'i18n_rails_helpers', :path => '../i18n_rails_helpers'
+gem 'inherited_resources_views'
 
 gem 'jquery-rails'
-# Raiffeisen BookingImport
-gem 'remotipart'
-gem 'paperclip'
-gem 'csv-mapper'
 
-# Bookyt
-# ======
-# Authentication
+# Access Control
 gem 'devise', '~> 1.1'
-# Authorization
 gem 'cancan'
 
 # Date/Time handling
 gem 'validates_timeliness', '~> 3.0.0'
 
 # PDF generation
-gem 'pdfkit'
+gem 'pdfkit', :git => 'http://github.com/huerlisi/PDFKit.git'
 gem 'wkhtmltopdf-binary'
 
-# Vcards
-gem 'has_vcards', '~> 0.6'
+gem 'show_for'
+
+# Bookyt
+# ======
+# Accounting
+gem 'has_accounts', '~> 0.5.0'
+#gem 'has_accounts', :path => '../has_accounts'
+
+# Addresses
+gem 'has_vcards', '~> 0.7.1'
+
+# Uploads
+gem 'carrierwave'
+
+# Raiffeisen BookingImport
+gem 'remotipart'
+gem 'paperclip'
+gem 'csv-mapper'

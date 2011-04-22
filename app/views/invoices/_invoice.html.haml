@@ -3,5 +3,5 @@
   %td= link_to invoice.customer, invoice.customer
   %td= invoice.amount
   %td.action-links
-    = icon_edit_link_to edit_invoice_path(invoice)
-    = icon_delete_link_to invoice, invoice_path(invoice)
+    = list_link_for(:edit, invoice)
+    = list_link_for(:delete, invoice)

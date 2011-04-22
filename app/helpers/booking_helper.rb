@@ -1,6 +1,6 @@
 module BookingHelper
   def reference_types_as_collection
-    types = [CreditInvoice, DebitInvoice]
+    types = [Invoice, Asset]
     types.inject({}) do |result, type|
       result[t_model(type)] = type.base_class
       result

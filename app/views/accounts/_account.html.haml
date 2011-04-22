@@ -1,4 +1,4 @@
-%tr
+%tr[account]
   %td= account.code
   %td= link_to account.title, account_path(account, :by_value_period => params[:by_value_period])
   - if @date
@@ -8,5 +8,5 @@
   - else
     %td{:style => "text-align: right"}= currency_fmt(account.saldo)
   %td.action-links
-    = icon_edit_link_to edit_account_path(account)
-    = icon_delete_link_to account, account_path(account)
+    = list_link_for(:edit, account)
+    = list_link_for(:delete, account)

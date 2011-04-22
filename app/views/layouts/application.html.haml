@@ -15,7 +15,10 @@
 
     = csrf_meta_tag
     %title
-      = "#{t('application.title')} - #{controller.action_name.capitalize}"
+      - if current_user
+        = "#{t_page_head} (#{current_user.tenant}) - #{t('application.title')}"
+      - else
+        = "#{t_page_head} - #{t('application.title')}"
   %body
     #container
       #header
@@ -23,14 +26,13 @@
           = image_tag('logo.png')
           %h1#logo-text book<span id="logo-yt">yt</span>
         #main-menu
-          - cache :main_menu do
-            = render_navigation(:context => :main, :level => 1)
+          = render_navigation(:context => :main, :level => 1)
           = render_navigation(:context => :user, :level => 1)
       #sidebar-column
         #second-main-menu.sidebar
           = render_navigation(:context => :main, :level => 2)
         #sidebar.sidebar
-          = yield :sidebar
+          = render_sidebars
 
       #content-column
         #content

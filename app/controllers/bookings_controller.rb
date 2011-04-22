@@ -37,9 +37,10 @@ class BookingsController < AuthorizedController
   end
   
   def copy
-    @booking = Booking.find(params[:id])
-    new_booking = @booking.clone
-    new_booking.save
-    render :partial => 'booking', :object => new_booking
+    original_booking = Booking.find(params[:id])
+
+    @booking = original_booking.clone
+    
+    render 'edit'
   end
 end

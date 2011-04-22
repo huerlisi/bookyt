@@ -1,0 +1,9 @@
+= contextual_links
+
+%h1= t_title
+= render 'search_form'
+
+= paginated_section collection do
+  = render 'list'
+
+= render 'sidebar'

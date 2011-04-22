@@ -1,0 +1,10 @@
+%tr[asset]
+  %td= link_to asset.title, asset, {'data-href-container' => 'tr'}
+  %td= link_to asset.purchase_invoice, asset.purchase_invoice if asset.purchase_invoice
+  %td= link_to asset.direct_account, asset.direct_account
+  %td= t_asset_state(asset.state)
+  %td.currency= currency_fmt(asset.amount)
+  %td.currency= currency_fmt(asset.balance)
+  %td.action-links
+    = list_link_for(:edit, asset)
+    = list_link_for(:delete, asset)

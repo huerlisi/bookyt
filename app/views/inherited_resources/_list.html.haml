@@ -1,0 +1,15 @@
+- @attributes ||= collection.first.attribute_names - ['id', 'created_at', 'updated_at']
+%table.list{:class => "#{collection.first.class.to_s.downcase.pluralize} collection"}
+  %thead
+    %tr
+      - @attributes.each do |field|
+        %th= t_attr field, collection.first.class
+      %th.action-links
+  %tbody
+    - collection.each do |r|
+      %tr
+        - @attributes.each do |field|
+          %td= r.send(field) if r.respond_to?(field)
+        %td.action-links
+          = list_link_for(:edit, r)
+          = list_link_for(:delete, r)

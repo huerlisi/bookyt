@@ -1,1 +1,0 @@
-page['tr'].remove("customer_#{@customer.id}")
