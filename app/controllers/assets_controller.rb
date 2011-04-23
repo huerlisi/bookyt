@@ -12,8 +12,8 @@ class AssetsController < AuthorizedController
     }
 
     # Load and assign parent invoice
-    invoice = Invoice.find(params[:invoice_id])
-    if invoice
+    if params[:invoice_id]
+      invoice = Invoice.find(params[:invoice_id])
       asset_params.merge!(
         :title  => invoice.title,
         :amount => invoice.amount
