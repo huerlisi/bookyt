@@ -21,7 +21,7 @@ class AssetsController < AuthorizedController
     end
     
     # Paramameters
-    asset_params.merge!(params[:asset])
+    asset_params.merge!(params[:asset] || {})
 
     @asset = Asset.new(asset_params)
   end
