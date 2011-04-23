@@ -2,14 +2,14 @@
 set :application, 'bookyt'
 set :repository,  'git@github.com:huerlisi/bookyt.git'
 
+# Staging
+set :stages, %w(production staging demo)
+set :default_stage, "staging"
+require 'capistrano/ext/multistage'
+
 # Deployment
 set :server, :passenger
 set :user, "deployer"                               # The server's user for deploys
-
-set :deploy_to, '/srv/cyt.ch/bookyt'
-role :web, "bookyt.cyt"                          # Your HTTP server, Apache/etc
-role :app, "bookyt.cyt"                          # This may be the same as your `Web` server
-role :db,  "bookyt.cyt", :primary => true        # This is where Rails migrations will run
 
 # Configuration
 set :scm, :git
