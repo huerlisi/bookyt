@@ -40,7 +40,8 @@ end
 # Standard helpers
 # ================
 gem 'haml'
-gem 'compass', '~> 0.10.6'
+gem 'sass'
+gem 'compass'
 gem 'fancy-buttons'
 
 gem 'simple-navigation'
