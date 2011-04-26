@@ -4,7 +4,7 @@ class CreditInvoice < Invoice
     return "" if amount.nil?
 
     identifier = title
-    identifier += " / #{code}" if code
+    identifier += " / #{code}" if code.present?
     
     case format
       when :reference
