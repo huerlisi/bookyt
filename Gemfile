@@ -42,7 +42,7 @@ end
 gem 'haml'
 gem 'sass'
 gem 'compass'
-gem 'fancy-buttons'
+gem 'fancy-buttons', '~> 1.1.0.alpha.1'
 
 gem 'simple-navigation'
 
