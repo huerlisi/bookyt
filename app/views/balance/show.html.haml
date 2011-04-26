@@ -61,9 +61,9 @@
         = t('bookyt.total') + ": #{currency_fmt(Account.outside_capital.saldo(@date) + Account.equity_capital.saldo(@date))}"
     - difference = (Account.current_assets.saldo(@date) + Account.capital_assets.saldo(@date)) - (Account.outside_capital.saldo(@date) + Account.equity_capital.saldo(@date))
     - if difference != 0
-    %tr.total
-      %th
-        = t('bookyt.difference')
-      %td.currency= currency_fmt(difference)
+      %tr.total
+        %th
+          = t('bookyt.difference')
+        %td.currency= currency_fmt(difference)
 
   = render 'bookings/sidebar'

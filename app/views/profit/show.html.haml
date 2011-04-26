@@ -28,9 +28,9 @@
             %th.currency= currency_fmt(Account.earnings.saldo(@date))
     - difference = Account.expenses.saldo(@date) - Account.earnings.saldo(@date)
     - if difference != 0
-    %tr.total
-      %th
-        = t('bookyt.difference')
-      %td.currency= currency_fmt(difference)
+      %tr.total
+        %th
+          = t('bookyt.difference')
+        %td.currency= currency_fmt(difference)
 
   = render 'bookings/sidebar'
