@@ -11,4 +11,9 @@ class Tenant < ActiveRecord::Base
   def to_s
     company.to_s
   end
+
+  # Attachments
+  # ===========
+  has_many :attachments, :as => :object
+  accepts_nested_attributes_for :attachments
 end

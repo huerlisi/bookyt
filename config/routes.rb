@@ -18,13 +18,17 @@ Bookyt::Application.routes.draw do
       get :current
     end
   end
-  resources :companies
+  resources :companies do
+    resources :attachments
+  end
 
   # Attachments
   resources :attachments
   
   # Contacts
-  resources :people
+  resources :people do
+    resources :attachments
+  end
   resources :employees do
     resources :attachments
   end
