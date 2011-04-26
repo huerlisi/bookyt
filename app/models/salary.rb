@@ -55,7 +55,7 @@ class Salary < Invoice
 
   # Build booking
   #
-  # We use the value_date of the purchase invoice but our own amount.
+  # We need to ensure the order of creation as we depent on current balance.
   def build_booking(params = {}, template_code = nil)
     # Build and assign booking
     super(params, 'salary:employee:ahv_iv_eo').save

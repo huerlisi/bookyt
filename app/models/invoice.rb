@@ -65,6 +65,18 @@ class Invoice < ActiveRecord::Base
   # ========
   include HasAccounts::Model
   
+  # Build booking
+  #
+  # We pass the value_date to the booking
+  def build_booking(params = {}, template_code = nil)
+    invoice_params = {:value_date => self.value_date}
+    template_code ||= self.class.to_s.underscore + ':invoice'
+    
+    invoice_params.merge!(params)
+
+    super(invoice_params, template_code)
+  end
+  
   # Assets
   # ======
   has_many :assets, :foreign_key => :purchase_invoice_id
