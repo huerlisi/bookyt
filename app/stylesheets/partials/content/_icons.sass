@@ -1,4 +1,4 @@
-@import 'compass/utilities/text/replacement'
+@import compass/utilities/text/replacement
 
 =icon-text($ident, $icon: $ident, $size: 16)
   .icon-#{$ident}-text
@@ -22,18 +22,30 @@
   &:hover
     color: $link_color_hover
 
-+icon-class('add')
-+icon-class('new', 'add')
-+icon-class('delete')
-+icon-class('edit')
-+icon-class('index')
-+icon-class('show')
-+icon-class('copy')
++icon-class("add")
 
-+icon-text('add')
-+icon-text('new', 'add')
-+icon-text('delete')
-+icon-text('edit')
-+icon-text('index')
-+icon-text('show')
-+icon-text('copy')
++icon-class("new", "add")
+
++icon-class("delete")
+
++icon-class("edit")
+
++icon-class("index")
+
++icon-class("show")
+
++icon-class("copy")
+
++icon-text("add")
+
++icon-text("new", "add")
+
++icon-text("delete")
+
++icon-text("edit")
+
++icon-text("index")
+
++icon-text("show")
+
++icon-text("copy")
