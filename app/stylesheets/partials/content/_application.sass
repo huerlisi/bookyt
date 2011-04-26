@@ -1,21 +1,29 @@
-@import 'partials/content/invoice'
-@import 'partials/content/accounting'
+@import partials/content/invoice
+@import partials/content/accounting
 
 // Overview
 ul.overview-list.level-1 >li
   min-height: 11em
 
-+overview-icon-48('store')
-+overview-icon-48('accounting')
-+overview-icon-48('invoicing')
-+overview-icon-48('basic_claims_data')
-+overview-icon-48('settings')
-+overview-icon-48('nav_users')
++overview-icon-48("store")
 
-+icon-class('only_credit_bookings', 'filter')
-+icon-class('only_debit_bookings', 'filter')
-+icon-class('all_bookings', 'filter')
-+icon-class('pdf', 'pdf')
++overview-icon-48("accounting")
+
++overview-icon-48("invoicing")
+
++overview-icon-48("basic_claims_data")
+
++overview-icon-48("settings")
+
++overview-icon-48("nav_users")
+
++icon-class("only_credit_bookings", "filter")
+
++icon-class("only_debit_bookings", "filter")
+
++icon-class("all_bookings", "filter")
+
++icon-class("pdf", "pdf")
 
 // tables
 table.list
@@ -24,7 +32,6 @@ table.list
   th
     font-size: 120%
     font-weight: bolder
-
 
 // Alternating row
 table.list
