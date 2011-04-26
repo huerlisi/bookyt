@@ -35,9 +35,17 @@ class BookingTemplate < ActiveRecord::Base
 
     params.stringify_keys!
 
-    if ref_type = params['reference_type'] and ref_id = params['reference_id']
-      reference = ref_type.constantize.find(ref_id)
-
+    # Lookup reference
+    reference = params['reference']
+    unless reference
+      ref_type = params['reference_type']
+      ref_id = params['reference_id']
+      if ref_type.present? and ref_id.present?
+        reference = ref_type.constantize.find(ref_id)
+      end
+    end
+    
+    if reference
       case self.amount_relates_to
         when 'reference_amount'
           booking_amount *= reference.amount

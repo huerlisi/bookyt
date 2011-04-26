@@ -22,10 +22,18 @@ class ChargeBookingTemplate < BookingTemplate
     booking_params = attributes.reject!{|key, value| !["title", "comments", "credit_account_id", "debit_account_id"].include?(key)}
 
     params.stringify_keys!
-    
-    if ref_type = params['reference_type'] and ref_id = params['reference_id']
-      reference = ref_type.constantize.find(ref_id)
 
+    # Lookup reference
+    reference = params['reference']
+    unless reference
+      ref_type = params['reference_type']
+      ref_id = params['reference_id']
+      if ref_type.present? and ref_id.present?
+        reference = ref_type.constantize.find(ref_id)
+      end
+    end
+    
+    if reference
       # Calculate amount
       booking_params['value_date'] = reference.value_date
       booking_amount = self.amount(reference.value_date, :person_id => person_id)

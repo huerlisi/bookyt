@@ -33,10 +33,6 @@ class SalariesController < AuthorizedController
 
   def create
     @salary = Salary.new(params[:salary])
-
-    # TODO: workaround for reference lookup in booking templating
-    @salary.save
-
     @salary.build_booking
     
     create!
