@@ -10,13 +10,13 @@ namespace :sqlite do
   namespace :sync do
     desc "Sync down the production sqlite database to local development sqlite"
     task :down do
-      download "#{shared_path}/db/production.sqlite3", "db/development.sqlite3", :via => :scp
+      download "#{shared_path}/db/#{rails_env}.sqlite3", "db/development.sqlite3", :via => :scp
     end
 
     desc "Sync up the development sqlite database to production sqlite"
     task :up do
       run "mkdir -p #{shared_path}/db"
-      upload "db/development.sqlite3", "#{shared_path}/db/production.sqlite3", :via => :scp
+      upload "db/development.sqlite3", "#{shared_path}/db/#{rails_env}.sqlite3", :via => :scp
     end
   end
 
