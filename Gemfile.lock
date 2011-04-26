@@ -172,6 +172,7 @@ GEM
       rspec (~> 2.5.0)
     ruby_parser (2.0.6)
       sexp_processor (~> 3.0)
+    sass (3.1.0)
     sexp_processor (3.0.5)
     shoulda (2.11.3)
     show_for (0.2.4)
@@ -208,7 +209,7 @@ DEPENDENCIES
   cap-recipes
   capistrano
   carrierwave
-  compass (~> 0.10.6)
+  compass
   csv-mapper
   cucumber
   cucumber-rails
@@ -236,6 +237,7 @@ DEPENDENCIES
   remotipart
   rspec-rails (~> 2.1)
   ruby_parser
+  sass
   shoulda
   show_for
   simple-navigation
