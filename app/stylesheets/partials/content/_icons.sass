@@ -1,15 +1,15 @@
 @import 'compass/utilities/text/replacement'
 
-=icon-text($ident, $icon=$ident, $size=16)
+=icon-text($ident, $icon: $ident, $size: 16)
   .icon-#{$ident}-text
     +replace-text-with-dimensions("#{$size}x#{$size}/#{$icon}.png")
     display: block
     float: left
 
-=icon($ident, $size=16)
+=icon($ident, $size: 16)
   background-image: url("/images/#{$size}x#{$size}/#{$ident}.png")
 
-=icon-class($ident, $icon=$ident, $size=16)
+=icon-class($ident, $icon: $ident, $size: 16)
   .icon-#{$ident}
     +icon($icon, $size)
 
