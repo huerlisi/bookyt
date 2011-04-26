@@ -1,4 +1,4 @@
-=overview-icon-48($ident, $icon=$ident)
+=overview-icon-48($ident, $icon: $ident)
   ul.overview-list li
     &#overview-#{$ident}, &.#{$ident}
       +icon($icon, 48)
@@ -6,14 +6,12 @@
 ul.overview-list.level-1
   +no-bullets
   +horizontal-list
-
   li // All items
     a
       border-bottom: 1px solid black
       display: block
     &#overview-overview
       display: none
-
   >li
     // Top level
     background: no-repeat 0.4em 0.8em
@@ -23,15 +21,13 @@ ul.overview-list.level-1
       padding-right: 40px
     min-height: 58px
     +border-radius($border_radius)
-    background-color: #F6F6F6
-    border: 1px solid #E4E4E4
+    background-color: #f6f6f6
+    border: 1px solid #e4e4e4
     color: #505050
-    
     margin: 1em
     padding-top: 0.8em
     padding-bottom: 0.8em
     width: 20%
-
   ul // Level > 1
     margin-top: 5px
     li
@@ -42,4 +38,3 @@ ul.overview-list.level-1
       min-height: 1em
       a
         border-bottom: none
-

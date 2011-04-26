@@ -1,43 +1,47 @@
-@import 'partials/content/table_list'
-@import 'partials/content/icons'
-@import 'partials/formtastic/formtastic_base'
-@import 'partials/content/ajax_indicator'
-@import 'partials/content/flash_errors'
-@import 'partials/content/fancy_buttons'
-@import 'partials/content/overview'
-@import 'partials/content/pagination'
-@import 'partials/content/cyt'
+@import partials/content/table_list
+@import partials/content/icons
+@import partials/formtastic/formtastic_base
+@import partials/content/ajax_indicator
+@import partials/content/flash_errors
+@import partials/content/fancy_buttons
+@import partials/content/overview
+@import partials/content/pagination
+@import partials/content/cyt
 
-@import 'partials/content/application'
+@import partials/content/application
 
-// Headers styling  
+// Headers styling
 h1,
 h2,
 h3
   +sanserif-font
   font-weight: bold
   border-bottom: 1px solid #bbbbbb
+
 h2
   font-size: $h2_size
   margin-bottom: $h2_size
+
 h1
   font-size: $h1_size
   margin-bottom: $h1_size
+
 h3
   font-size: $h3_size
   margin-bottom: 0.4em
-  margin-top:    1.2em
+  margin-top: 1.2em
 
 a
   text-decoration: none
   color: $link_color
   &:hover
     color: $link_color_hover
-    
+
 // Cash up styling
 #cash_register_new,
 #new_day
   +column($column_small_form)
+
 #cash_register_new
   ul
     width: 50%
@@ -68,6 +72,7 @@ a
       width: 100%
     li:first-child
       margin-bottom: 10px
+
 #new_day
   label
     width: 160px
@@ -109,4 +114,5 @@ tr.currency, th.currency
   font-size: 0.9em
   input
     font-size: 0.9em
+
 // End of snippet
