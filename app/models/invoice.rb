@@ -61,6 +61,10 @@ class Invoice < ActiveRecord::Base
   STATES = ['booked', 'canceled', 'paid']
   scope :by_state, lambda {|value| where(:state => value)}
   
+  # Period
+  # ======
+  scope :active_at, lambda {|value| Invoice.where("date(duration_from) < :date AND date(duration_to) > :date", :date => value)}
+
   # Bookings
   # ========
   include HasAccounts::Model
