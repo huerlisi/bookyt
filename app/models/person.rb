@@ -54,5 +54,5 @@ class Person < ActiveRecord::Base
   # Attachments
   # ===========
   has_many :attachments, :as => :object
-  accepts_nested_attributes_for :attachments, :reject_if => :all_blank
+  accepts_nested_attributes_for :attachments, :reject_if => proc { |attributes| attributes['file'].blank? }
 end
