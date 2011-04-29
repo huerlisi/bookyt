@@ -11,6 +11,11 @@ GIT
   specs:
     will_paginate (3.0.pre3)
 
+PATH
+  remote: ../has_accounts
+  specs:
+    has_accounts (0.7.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -93,7 +98,6 @@ GEM
     gherkin (2.3.6)
       json (>= 1.4.6)
     haml (3.1.1)
-    has_accounts (0.7.0)
     has_scope (0.5.0)
     has_vcards (0.7.1)
       activerecord
@@ -222,7 +226,7 @@ DEPENDENCIES
   fancy-buttons (~> 1.1.0.alpha.1)
   formtastic (~> 1.2.1)
   haml
-  has_accounts (~> 0.7.0)
+  has_accounts!
   has_scope
   has_vcards (~> 0.7.1)
   hpricot
