@@ -1,5 +1,14 @@
 = contextual_links
 
-%h1= t_title
+%h1= link_to @tenant.company, @tenant.company
 
-= @tenant.company
+- @vcard = @tenant.company.vcard
+= render 'persons/show'
+
+.contextual
+  = icon_link_to :new, new_tenant_attachment_path(resource), :remote => true
+%h3= t('title.attachments')
+
+- @attachments = resource.attachments
+#attachments_list
+  = render 'attachments/list' unless @attachments.empty?

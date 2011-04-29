@@ -17,6 +17,7 @@ Bookyt::Application.routes.draw do
     collection do
       get :current
     end
+    resources :attachments
   end
   resources :companies do
     resources :attachments
