@@ -94,6 +94,7 @@ SimpleNavigation::Configuration.run do |navigation|
                  :if => Proc.new { user_signed_in? } do |assets|
       assets.item :assets, t_title(:index, Asset), assets_path, :highlights_on => /\/assets($|\/[0-9]*($|\/.*))/
       assets.item :new_asset, t_title(:new, Asset), new_asset_path
+      assets.item :write_downs, t_title(:write_downs, Asset), write_downs_assets_path, :highlights_on => /\/assets\/write_downs($|\?)/
     end
     
     primary.item :salaries, t_title(:index, Salary), salaries_path,

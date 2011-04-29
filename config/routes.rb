@@ -67,7 +67,12 @@ Bookyt::Application.routes.draw do
   end
   
   # Assets
-  resources :assets
+  resources :assets do
+    collection do
+      get :write_downs
+    end
+  end
+
   resources :invoices do
     resources :assets
   end

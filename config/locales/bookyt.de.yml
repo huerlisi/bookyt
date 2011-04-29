@@ -56,6 +56,10 @@ de:
         selling_invoice:  Verkaufsbeleg
         amount:           Anschaffungswert
         balance:          Buchwert
+        balance_begin:    Buchwert Anfang
+        balance_end:      Buchwert Ende
+        write_downs:      Abschreibungen
+        change:           Zu-/Abgänge
         remarks:          Bemerkungen
         title:            Titel
         state:            Status
@@ -277,6 +281,7 @@ de:
       day:
         new: Abrechnung von %{day}
       statistics:           'Statistiken'
+      write_downs:          Abschreibungen
     flash:
       created_html: %{message} angelegt
 

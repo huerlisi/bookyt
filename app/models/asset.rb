@@ -35,6 +35,10 @@ class Asset < ActiveRecord::Base
   STATES = ['available', 'amortized', 'sold', 'removed']
   scope :by_state, lambda {|value| where(:state => value)}
   
+  # Period
+  # ======
+  scope :active_at, lambda {|value| bookings.balance(value) == 0}
+
   # Bookings
   # ========
   include HasAccounts::Model
@@ -73,5 +77,14 @@ class Asset < ActiveRecord::Base
     
     # Build and assign booking
     super(booking_params, template_code)
+  end
+
+  # Calculations
+  def write_downs(value_date)
+    bookings.direct_balance(value_date, Account.find_by_code('6900'))
+  end
+  
+  def amount_changes(value_date)
+    -(balance(value_date.first) - balance(value_date.last) - write_downs(value_date))
   end
 end
