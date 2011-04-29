@@ -301,6 +301,8 @@ de:
     total:            Total
     difference:       Differenz
     back:             Zurück
+    assets:           Aktiva
+    liabilities:      Passiva
     equity_capital:   Eigenkapital
     capital_assets:   Anlagevermögen
     debt_capital:     Fremdkapital
