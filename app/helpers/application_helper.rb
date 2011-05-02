@@ -1,7 +1,11 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  # Tenancy
+  def current_tenant
+    current_user.tenant
+  end
+
   include ActionView::Helpers::NumberHelper
-  
   def currency_fmt(value)
     # We often do get -0.0 but don't like it
     value = 0.0 if value.to_s.match %r{^-[0.]*$}
