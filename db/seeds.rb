@@ -1,6 +1,16 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
+
+AccountType.create!([
+  {:name => "current_assets", :title => "Umlaufvermögen"},
+  {:name => "capital_assets", :title => "Anlagevermögen"},
+  {:name => "outside_capital", :title => "Fremdkapital"},
+  {:name => "equity_capital", :title => "Eigenkapital"},
+  {:name => "costs", :title => "Aufwand"},
+  {:name => "earnings", :title => "Ertrag"},
+])
+
 Account.create!([
   {:code => "1000", :title => "Kasse"},
   {:code => "1010", :title => "Kasse Laden"},
