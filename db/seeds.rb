@@ -2,6 +2,7 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 
+current_assets, capital_assets, outside_capital, equity_capital, costs, earnings =
 AccountType.create!([
   {:name => "current_assets", :title => "Umlaufvermögen"},
   {:name => "capital_assets", :title => "Anlagevermögen"},
@@ -12,13 +13,13 @@ AccountType.create!([
 ])
 
 Account.create!([
-  {:code => "1000", :title => "Kasse"},
-  {:code => "1010", :title => "Kasse Laden"},
-  {:code => "1020", :title => "Bankkonto"},
-  {:code => "1021", :title => "EFT Kontokorrent"},
-  {:code => "1100", :title => "Debitoren"},
-  {:code => "2001", :title => "Ausstehende Gutscheine"},
-  {:code => "3200", :title => "Dienstleistungsertrag"},
+  {:code => "1000", :title => "Kasse", :account_type => current_assets},
+  {:code => "1010", :title => "Kasse Laden", :account_type => current_assets},
+  {:code => "1020", :title => "Bankkonto", :account_type => current_assets},
+  {:code => "1021", :title => "EFT Kontokorrent", :account_type => current_assets},
+  {:code => "1100", :title => "Debitoren", :account_type => current_assets},
+  {:code => "2001", :title => "Ausstehende Gutscheine", :account_type => outside_capital},
+  {:code => "3200", :title => "Dienstleistungsertrag", :account_type => earnings},
 ])
 
 # Booking Templates
@@ -35,8 +36,8 @@ BookingTemplate.create!([
 
 # CreditInvoice
 Account.create!([
-  {:code => "2000", :title => "Kreditoren"},
-  {:code => "4000", :title => "Materialaufwand"},
+  {:code => "2000", :title => "Kreditoren", :account_type => outside_capital},
+  {:code => "4000", :title => "Materialaufwand", :account_type => costs},
 ])
 
 BookingTemplate.create!([
@@ -50,7 +51,7 @@ BookingTemplate.create!([
 
 # DebitInvoice
 Account.create!([
-  {:code => "3900", :title => "Debitorenverlust"},
+  {:code => "3900", :title => "Debitorenverlust", :account_type => costs},
 ])
 
 BookingTemplate.create!([
@@ -66,10 +67,10 @@ BookingTemplate.create!([
 # ========
 # Accounts
 Account.create!([
-  {:code => "2020", :title => "Kreditoren Sozialversicherungen"},
-  {:code => "2050", :title => "Offene Lohnforderungen"},
-  {:code => "5000", :title => "Lohnaufwand"},
-  {:code => "5700", :title => "Sozialversicherungaufwand"},
+  {:code => "2020", :title => "Kreditoren Sozialversicherungen", :account_type => outside_capital},
+  {:code => "2050", :title => "Offene Lohnforderungen", :account_type => outside_capital},
+  {:code => "5000", :title => "Lohnaufwand", :account_type => costs},
+  {:code => "5700", :title => "Sozialversicherungaufwand", :account_type => costs},
 ])
 
 # Booking Templates
