@@ -1,0 +1,57 @@
+%style
+  th.action-links {display: none}
+  td.action-links {display: none}
+
+.contextual
+  = icon_link_to :pdf, :format => :pdf
+  = icon_link_to :profit_sheet
+  = contextual_links_for
+
+%h1
+  = t('bookyt.balance_report_for', :company => @company, :per => @date)
+
+%table{:width => "100%"}
+  %tr
+    %th{:colspan => "2"}
+      %h2= t('bookyt.assets')
+    %th{:style => "text-align: right"}
+      %h2= currency_fmt(Account.current_assets.saldo(@date) + Account.capital_assets.saldo(@date))
+  %tr
+    %th{:colspan => "2"}
+      %h3= t('bookyt.working_capital')
+    %th{:style => "text-align: right"}
+      %h3= currency_fmt(Account.current_assets.saldo(@date))
+  = render Account.current_assets.all.select{|a| a.saldo(@date) != 0.0}
+  %tr
+    %th{:colspan => "2"}
+      %h3= t('bookyt.capital_assets')
+    %th{:style => "text-align: right"}
+      %h3= currency_fmt(Account.capital_assets.saldo(@date))
+  = render Account.capital_assets.all.select{|a| a.saldo(@date) != 0.0}
+  %tr
+    %th{:colspan => "2"}
+      %h2= t('bookyt.liabilities')
+    %th{:style => "text-align: right"}
+      %h2= currency_fmt(Account.outside_capital.saldo(@date) + Account.equity_capital.saldo(@date))
+  %tr
+    %th{:colspan => "2"}
+      %h3= t('bookyt.dept_capital')
+    %th{:style => "text-align: right"}
+      %h3= currency_fmt(Account.outside_capital.saldo(@date))
+  = render Account.outside_capital.all.select{|a| a.saldo(@date) != 0.0}
+  %tr
+    %th{:colspan => "2"}
+      %h3= t('bookyt.equity_capital')
+    %th{:style => "text-align: right"}
+      %h3= currency_fmt(Account.equity_capital.saldo(@date))
+  = render Account.equity_capital.all.select{|a| a.saldo(@date) != 0.0}
+
+  - difference = (Account.current_assets.saldo(@date) + Account.capital_assets.saldo(@date)) - (Account.outside_capital.saldo(@date) + Account.equity_capital.saldo(@date))
+  - if difference != BigDecimal.new('0')
+    %tr
+      %th{:colspan => "2"}
+        %h2= t('bookyt.difference')
+      %th{:style => "text-align: right"}
+        %h2= currency_fmt(difference)
+
+= render 'bookings/sidebar'

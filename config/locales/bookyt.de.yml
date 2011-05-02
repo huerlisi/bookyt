@@ -271,6 +271,8 @@ de:
       payslip:              'Lohnabrechnung'
       letter:               'Rechnung'
       statistics:           'Statistiken'
+      balance_sheet:        'Bilanz'
+      profit_sheet:         'Erfolgsrechnung'
     title:
       select_booking_template: %{model} anlegen
       select_booking: %{model} anlegen
@@ -282,6 +284,8 @@ de:
         new: Abrechnung von %{day}
       statistics:           'Statistiken'
       write_downs:          Abschreibungen
+      balance_sheet:        'Bilanz'
+      profit_sheet:         'Erfolgsrechnung'
     flash:
       created_html: %{message} angelegt
 
@@ -305,7 +309,7 @@ de:
     liabilities:      Passiva
     equity_capital:   Eigenkapital
     capital_assets:   Anlagevermögen
-    debt_capital:     Fremdkapital
+    dept_capital:     Fremdkapital
     working_capital:  Umlaufvermögen
     balance_report_for: Bilanz für %{company} per %{per}
     profit_report_for:  Erfolgsrechnung für %{company} per %{per}

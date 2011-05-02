@@ -17,6 +17,9 @@ Bookyt::Application.routes.draw do
     collection do
       get :current
     end
+    member do
+      get :balance_sheet, :profit_sheet
+    end
     resources :attachments
   end
   resources :companies do
