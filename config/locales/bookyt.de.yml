@@ -305,13 +305,15 @@ de:
     total:            Total
     difference:       Differenz
     back:             Zurück
-    assets:           Aktiva
-    liabilities:      Passiva
-    equity_capital:   Eigenkapital
-    capital_assets:   Anlagevermögen
-    dept_capital:     Fremdkapital
-    working_capital:  Umlaufvermögen
     balance_report_for: Bilanz für %{company} per %{per}
+    assets:             Aktiva
+    current_assets:     Umlaufvermögen
+    capital_assets:     Anlagevermögen
+    capital:            Passiva
+    equity_capital:     Eigenkapital
+    outside_capital:    Fremdkapital
+    costs:              Aufwand
+    earnings:           Ertrag
     profit_report_for:  Erfolgsrechnung für %{company} per %{per}
     carry_booking:    Übertrag
     invoices:

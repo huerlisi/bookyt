@@ -15,38 +15,20 @@
     %th{:colspan => "2"}
       %h2= t('bookyt.assets')
     %th{:style => "text-align: right"}
-      %h2= currency_fmt(Account.current_assets.saldo(@date) + Account.capital_assets.saldo(@date))
-  %tr
-    %th{:colspan => "2"}
-      %h3= t('bookyt.working_capital')
-    %th{:style => "text-align: right"}
-      %h3= currency_fmt(Account.current_assets.saldo(@date))
-  = render Account.current_assets.all.select{|a| a.saldo(@date) != 0.0}
-  %tr
-    %th{:colspan => "2"}
-      %h3= t('bookyt.capital_assets')
-    %th{:style => "text-align: right"}
-      %h3= currency_fmt(Account.capital_assets.saldo(@date))
-  = render Account.capital_assets.all.select{|a| a.saldo(@date) != 0.0}
-  %tr
-    %th{:colspan => "2"}
-      %h2= t('bookyt.liabilities')
-    %th{:style => "text-align: right"}
-      %h2= currency_fmt(Account.outside_capital.saldo(@date) + Account.equity_capital.saldo(@date))
-  %tr
-    %th{:colspan => "2"}
-      %h3= t('bookyt.dept_capital')
-    %th{:style => "text-align: right"}
-      %h3= currency_fmt(Account.outside_capital.saldo(@date))
-  = render Account.outside_capital.all.select{|a| a.saldo(@date) != 0.0}
-  %tr
-    %th{:colspan => "2"}
-      %h3= t('bookyt.equity_capital')
-    %th{:style => "text-align: right"}
-      %h3= currency_fmt(Account.equity_capital.saldo(@date))
-  = render Account.equity_capital.all.select{|a| a.saldo(@date) != 0.0}
+      %h2= currency_fmt(Account.by_type('current_assets').saldo(@date) + Account.by_type('capital_assets').saldo(@date))
 
-  - difference = (Account.current_assets.saldo(@date) + Account.capital_assets.saldo(@date)) - (Account.outside_capital.saldo(@date) + Account.equity_capital.saldo(@date))
+  = render 'account_group_sheet', :group => 'current_assets'
+  = render 'account_group_sheet', :group => 'capital_assets'
+
+  %tr
+    %th{:colspan => "2"}
+      %h2= t('bookyt.capital')
+    %th{:style => "text-align: right"}
+      %h2= currency_fmt(Account.by_type('outside_capital').saldo(@date) + Account.by_type('equity_capital').saldo(@date))
+  = render 'account_group_sheet', :group => 'outside_capital'
+  = render 'account_group_sheet', :group => 'equity_capital'
+
+  - difference = (Account.by_type('current_assets').saldo(@date) + Account.by_type('capital_assets').saldo(@date)) - (Account.by_type('outside_capital').saldo(@date) + Account.by_type('equity_capital').saldo(@date))
   - if difference != BigDecimal.new('0')
     %tr
       %th{:colspan => "2"}

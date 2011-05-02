@@ -9,33 +9,17 @@
 
 %h1
   = t('bookyt.profit_report_for', :company => @company, :per => @end_date)
-#profit-sheet
-  %table
+
+%table{:width => "100%"}
+  = render 'account_group_sheet', :group => 'costs'
+  = render 'account_group_sheet', :group => 'earnings'
+
+  - difference = Account.by_type('costs').saldo(@date) - Account.by_type('earnings').saldo(@date)
+  - if difference != BigDecimal.new('0')
     %tr
-      %th Aufwand
-      %th Ertrag
-    %tr
-      %td{:style => "background-color: #cccccc"}
-        %table{:width => "100%"}
-          = render 'accounts/list_header'
-          = render Account.expenses.all.select{|a| a.saldo(@date) != 0.0}
-          %tr.total
-            %th{:colspan => "2"}
-              = t('bookyt.total')
-            %th.currency= currency_fmt(Account.expenses.saldo(@date))
-      %td{:style => "background-color: #aaaaaa"}
-        %table{:style => "border-spacing:0", :width => "100%"}
-          = render 'accounts/list_header'
-          = render Account.earnings.all.select{|a| a.saldo(@date) != 0.0}
-          %tr.total
-            %th{:colspan => "2"}
-              = t('bookyt.total')
-            %th.currency= currency_fmt(Account.earnings.saldo(@date))
-    - difference = Account.expenses.saldo(@date) - Account.earnings.saldo(@date)
-    - if difference != 0
-      %tr.total
-        %th
-          = t('bookyt.difference')
-        %td.currency= currency_fmt(difference)
+      %th{:colspan => "2"}
+        %h2= t('bookyt.difference')
+      %th{:style => "text-align: right"}
+        %h2= currency_fmt(difference)
 
 = render 'bookings/sidebar'
