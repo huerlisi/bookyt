@@ -191,8 +191,10 @@ de:
         customer:      Arbeitgeber
         company:       Arbeitnehmer
       tenant:
-        company:       Firma
-        users:         Benutzer
+        company:                   Firma
+        users:                     Benutzer
+        incorporated_on:           Gründung
+        fiscal_year_ends_on: Ende des 1. Fiskaljahres
       user:
         email:                          E-Mail
         password:                       Passwort
