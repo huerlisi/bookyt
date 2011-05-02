@@ -44,6 +44,7 @@ de:
         code:           Nummer
         title:          Titel
         saldo:          Saldo
+        account_type:   Kontentyp
       account_type:
         name:           Name
         title:          Titel
