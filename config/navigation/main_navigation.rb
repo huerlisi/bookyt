@@ -118,7 +118,7 @@ SimpleNavigation::Configuration.run do |navigation|
                              :highlights_on => /\/users$/
       settings.item :current_tenant, t_title(:current, Tenant), current_tenants_path, :if => lambda { can?(:current, current_user.tenant) },
                              :tooltip => t('bookyt.main_navigation.tooltip.current_tenant'),
-                             :highlights_on => /\/tenants\/./
+                             :highlights_on => /\/tenants\/[0-9]*($|\?)/
       settings.item :tenant_index, t_title(:index, Tenant), tenants_path, :if => lambda { can?(:index, Tenant) },
                              :tooltip => t('bookyt.main_navigation.tooltip.tenant_index'),
                              :highlights_on => /\/tenants$/
