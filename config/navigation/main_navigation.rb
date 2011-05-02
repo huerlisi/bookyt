@@ -31,9 +31,11 @@ SimpleNavigation::Configuration.run do |navigation|
                       :tooltip => t('bookyt.main_navigation.tooltip.new_booking'),
                       :highlights_on => /\/bookings\/.*$/
       accounting.item :balance, t('bookyt.main_navigation.balance'), balance_sheet_tenant_path(current_user.tenant, :by_value_period => params[:by_value_period]),
-                      :tooltip => t('bookyt.main_navigation.tooltip.balance')
+                      :tooltip => t('bookyt.main_navigation.tooltip.balance'),
+                      :highlights_on => /#{Regexp.escape(balance_sheet_tenant_path(current_user.tenant))}($|\?)/ 
       accounting.item :profit, t('bookyt.main_navigation.profit'), profit_sheet_tenant_path(current_user.tenant, :by_value_period => params[:by_value_period]),
-                      :tooltip => t('bookyt.main_navigation.tooltip.profit')
+                      :tooltip => t('bookyt.main_navigation.tooltip.profit'),
+                      :highlights_on => /#{Regexp.escape(profit_sheet_tenant_path(current_user.tenant))}($|\?)/ 
       accounting.item :accounts, t('bookyt.main_navigation.accounts'), accounts_path,
                       :tooltip => t('bookyt.main_navigation.tooltip.accounts'),
                       :highlights_on => /\/accounts/
@@ -117,11 +119,10 @@ SimpleNavigation::Configuration.run do |navigation|
                              :tooltip => t('bookyt.main_navigation.tooltip.user_index'),
                              :highlights_on => /\/users$/
       settings.item :current_tenant, t_title(:current, Tenant), current_tenants_path, :if => lambda { can?(:current, current_user.tenant) },
-                             :tooltip => t('bookyt.main_navigation.tooltip.current_tenant'),
-                             :highlights_on => /\/tenants\/[0-9]*($|\?)/
+                             :tooltip => t('bookyt.main_navigation.tooltip.current_tenant')
       settings.item :tenant_index, t_title(:index, Tenant), tenants_path, :if => lambda { can?(:index, Tenant) },
                              :tooltip => t('bookyt.main_navigation.tooltip.tenant_index'),
-                             :highlights_on => /\/tenants$/
+                             :highlights_on => /\/tenants($|\?)/
       settings.item :booking_templates, t_title(:index, BookingTemplate), booking_templates_path,
                              :highlights_on => /\/booking_templates($|\/[0-9]*($|\/.*))/
       settings.item :charge_booking_templates, t_title(:index, ChargeBookingTemplate), charge_booking_templates_path,
