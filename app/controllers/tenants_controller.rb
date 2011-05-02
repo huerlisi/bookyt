@@ -27,9 +27,11 @@ class TenantsController < AuthorizedController
     
     # use current date if not specified otherwise
     if params[:by_value_period]
-      @date = Date.parse(params[:by_value_period][:to])
+      @dates = [Date.parse(params[:by_value_period][:to])]
+    elsif params[:years]
+      @dates = params[:years].map{|year| current_tenant.fiscal_period(year.to_i)[:to]}
     else
-      @date = Date.today
+      @dates = [Date.today]
     end
   end
 end

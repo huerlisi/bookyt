@@ -1,6 +1,8 @@
 %tr
   %th{:colspan => "2"}
     %h3= t(group, :scope => 'bookyt')
-  %th{:style => "text-align: right"}
-    %h3= currency_fmt(Account.by_type(group).saldo(@date))
-= render Account.by_type(group).all.select{|a| a.saldo(@date) != 0.0}
+  -for @date in @dates
+    %th{:style => "text-align: right"}
+      %h3= currency_fmt(Account.by_type(group).saldo(@date))
+
+= render :partial => 'account', :collection => Account.by_type(group).all.select{|a| a.saldo(@date) != 0.0}
