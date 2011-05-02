@@ -6,12 +6,30 @@ class Tenant < ActiveRecord::Base
 
   # Validations
   validates_presence_of :company
+  validates_date :incorporated_on
 
   # String
   def to_s
     company.to_s
   end
 
+  # Fiscal Years
+  # ============
+  validates_date :fiscal_year_ends_on
+  def fiscal_years
+    first_year = fiscal_year_ends_on.year
+    final_year = Date.today.year + 1
+    
+    years = {}
+    (first_year..final_year).map{|year|
+      final_day_of_fiscal_year = Date.new(year, fiscal_year_ends_on.month, fiscal_year_ends_on.day)
+      first_day_of_fiscal_year = final_day_of_fiscal_year.ago(1.year).in(1.day)
+      years[year] = {:from => first_day_of_fiscal_year.to_date, :to => final_day_of_fiscal_year.to_date }
+    }
+    
+    return years
+  end
+  
   # Attachments
   # ===========
   has_many :attachments, :as => :object
