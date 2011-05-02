@@ -109,9 +109,6 @@ Bookyt::Application.routes.draw do
   
   # Imports
   resources :booking_imports
-
-  match '/balance' => 'balance#show'
-  match '/profit' => 'profit#show'
   
   # Days
   resources :days do
