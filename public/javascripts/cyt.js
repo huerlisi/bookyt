@@ -17,7 +17,7 @@ function addSortableBehaviour() {
   });
   $(".sortable").disableSelection();
 };
-                    
+
 
 // Linkify containers having attribute data-href-container
 function addLinkifyContainersBehaviour() {
@@ -28,7 +28,7 @@ function addLinkifyContainersBehaviour() {
     container.css('cursor', "pointer");
     var href = element.attr('href');
     element.addClass('linkified_container')
-    
+
     container.delegate('*', 'click', {href: href}, function(event) {
       // Don't override original link behaviour
       if ($(event.target).parents('a').length == 0) {
@@ -36,6 +36,11 @@ function addLinkifyContainersBehaviour() {
       };
     });
   });
+};
+
+// Autogrow
+function addAutogrowBehaviour() {
+  $(".autogrow").elastic();
 };
 
 // Add tooltips for overview
