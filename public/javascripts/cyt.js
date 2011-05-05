@@ -44,6 +44,19 @@ function addAutogrowBehaviour() {
 };
 
 // Add tooltips for overview
+function addTooltipBehaviour() {
+  $(".tooltip-title[title]").each(function() {
+    if ( $(this).attr('title') != '' ) {
+      $(this).tooltip({
+        position: 'top center',
+        predelay: 500,
+        effect: 'fade'
+      });
+    }
+  });
+};
+
+// Add tooltips for overview
 function addOverviewTooltipBehaviour() {
   $('.overview-list li a[title]').tooltip({
     position: 'center right',
