@@ -11,6 +11,12 @@ bookyt is a web application implementing double-entry bookkeeping providing:
 * Booking templates
 * Earnings report
 * Balance sheet
+* Invoicing
+* Accounts Receivable
+* Accounts Payable
+* Employee expense voucher
+* Depreciation
+* Setting up tax tables
 
 bookyt is built on "Ruby On Rails":http://www.rubyonrails.org and released as "Open Source":http://www.opensource.org.
 
@@ -38,8 +44,8 @@ Read the "human-readable summary":http://creativecommons.org/licenses/GPL/2.0 to
 of your right to use this software.
 
 Copyright 2007-2011 Simon Hürlimann <simon.huerlimann@cyt.ch>
-Copyright 2011 Ramon Egloff <ramon.egloff@cyt.ch>
-Copyright 2010 Roman Simecek <roman.simecek@cyt.ch>
+Copyright 2010-2011 Ramon Egloff <ramon.egloff@cyt.ch>
+Copyright 2010-2011 Roman Simecek <roman.simecek@cyt.ch>
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
