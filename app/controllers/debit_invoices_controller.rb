@@ -1,8 +1,4 @@
-class DebitInvoicesController < AuthorizedController
-  # States
-  has_scope :by_state
-  has_scope :by_text
-
+class DebitInvoicesController < InvoicesController
   # Actions
   def new
     # Allow pre-seeding some parameters
@@ -29,9 +25,5 @@ class DebitInvoicesController < AuthorizedController
     @debit_invoice.build_booking
     
     create!
-  end
-
-  def letter
-    show!
   end
 end

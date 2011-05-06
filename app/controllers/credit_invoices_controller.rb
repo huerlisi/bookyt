@@ -1,8 +1,4 @@
-class CreditInvoicesController < AuthorizedController
-  # States
-  has_scope :by_state
-  has_scope :by_text
-
+class CreditInvoicesController < InvoicesController
   # Actions
   def new
     # Allow pre-seeding some parameters
