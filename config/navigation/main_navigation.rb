@@ -74,22 +74,22 @@ SimpleNavigation::Configuration.run do |navigation|
                  :if => Proc.new { user_signed_in? } do |contacts|
       contacts.item :people, t('bookyt.main_navigation.people'), people_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.people'),
-                             :highlights_on => /\/people($|\/[0-9]*($|\/.*))/
+                             :highlights_on => /\/people($|\?|\/[0-9]*($|\?|\/.*))/
       contacts.item :employees, t('bookyt.main_navigation.employees'), employees_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.employees'),
-                             :highlights_on => /\/employees($|\/[0-9]*($|\/.*))/
+                             :highlights_on => /\/employees($|\?|\/[0-9]*($|\?|\/.*))/
       contacts.item :new_employee, t('bookyt.main_navigation.new_employee'), new_employee_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.new_employee'),
                              :highlights_on => /\/employees\/new$/
       contacts.item :customers, t('bookyt.main_navigation.customers'), customers_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.customers'),
-                             :highlights_on => /\/customers($|\/[0-9]*($|\/.*))/
+                             :highlights_on => /\/customers($|\?|\/[0-9]*($|\?|\/.*))/
       contacts.item :new_customer, t('bookyt.main_navigation.new_customer'), new_customer_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.new_customer'),
                              :highlights_on => /\/customers\/new$/
       contacts.item :companies, t('bookyt.main_navigation.companies'), companies_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.companies'),
-                             :highlights_on => /\/companies($|\/[0-9]*($|\/.*))/
+                             :highlights_on => /\/companies($|\?|\/[0-9]*($|\?|\/.*))/
     end
 
     primary.item :assets, t_title(:index, Asset), assets_path,
