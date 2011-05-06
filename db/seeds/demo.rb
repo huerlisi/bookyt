@@ -17,7 +17,7 @@ company = Company.create(:vcard => company_vcard)
 user.create_tenant(
   :company => company,
   :incorporated_on => '2009-06-01',
-  :fiscal_year_ends_on => '2009-31-12'
+  :fiscal_year_ends_on => '2009-12-31'
 )
 
 # Accounts
