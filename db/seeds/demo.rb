@@ -19,6 +19,7 @@ user.create_tenant(
   :incorporated_on => '2009-06-01',
   :fiscal_year_ends_on => '2009-12-31'
 )
+user.save
 
 # Accounts
 #bank = Bank.create!(
