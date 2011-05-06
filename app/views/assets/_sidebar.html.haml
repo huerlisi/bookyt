@@ -2,6 +2,6 @@
   .sub-tabs
     %h3 Filter
     %ul
-      %li= link_to t('bookyt.all'), url_for(params.merge(:by_state => nil))
+      %li= link_to t('bookyt.all'), url_for(params.merge(:by_state => 'all'))
       - for state in Asset::STATES
         %li= link_to t(state, :scope => 'asset.state'), url_for(params.merge(:by_state => state))

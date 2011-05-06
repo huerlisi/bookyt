@@ -59,7 +59,9 @@ class Invoice < ActiveRecord::Base
   # States
   # ======
   STATES = ['booked', 'canceled', 'paid']
-  scope :by_state, lambda {|value| where(:state => value)}
+  scope :by_state, lambda {|value|
+    where(:state => value) unless value == 'all'
+  }
   
   # Period
   # ======

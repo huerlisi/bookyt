@@ -33,8 +33,10 @@ class Asset < ActiveRecord::Base
   # States
   # ======
   STATES = ['available', 'amortized', 'sold', 'removed']
-  scope :by_state, lambda {|value| where(:state => value)}
-  
+  scope :by_state, lambda {|value|
+    where(:state => value) unless value == 'all'
+  }
+
   # Period
   # ======
   scope :active_at, lambda {|value| bookings.balance(value) == 0}
