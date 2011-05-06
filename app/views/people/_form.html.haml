@@ -1,0 +1,5 @@
+= semantic_form_for resource do |f|
+  = f.semantic_errors
+
+  = f.inputs t('form.person.address') do
+    = render 'vcards/form', :f => f
