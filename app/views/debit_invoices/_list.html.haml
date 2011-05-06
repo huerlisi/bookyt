@@ -13,6 +13,6 @@
   %tr#invoices_list_footer
     %th{:style => "width: 10em"}= l Date.today
     %th{:colspan => 3}= t('bookyt.total')
-    %th.currency= currency_fmt(@debit_invoices_amount)
-    %th.currency= currency_fmt(@debit_invoices_balance)
+    %th.currency= currency_fmt(@debit_invoices.sum(&:amount))
+    %th.currency= currency_fmt(@debit_invoices.sum(&:balance))
     %th
