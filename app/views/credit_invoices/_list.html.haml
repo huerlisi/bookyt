@@ -1,3 +1,8 @@
+- unless @invoice_sidebar
+  - content_for :sidebar do
+    = render 'invoices/sidebar'
+  - @invoice_sidebar = true
+
 %table.list#invoices_list
   %tr
     %th= t_attr :value_date, Invoice
