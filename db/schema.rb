@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110502100542) do
+ActiveRecord::Schema.define(:version => 20110507064046) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(:version => 20110502100542) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "account_types", ["name"], :name => "index_account_types_on_name"
 
   create_table "accounts", :force => true do |t|
     t.string   "title",           :limit => 100
@@ -35,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20110502100542) do
     t.datetime "updated_at"
   end
 
+  add_index "accounts", ["account_type_id"], :name => "index_accounts_on_account_type_id"
   add_index "accounts", ["bank_id"], :name => "index_accounts_on_bank_id"
   add_index "accounts", ["code"], :name => "index_accounts_on_code"
   add_index "accounts", ["holder_id", "holder_type"], :name => "index_accounts_on_holder_id_and_holder_type"
@@ -67,6 +70,10 @@ ActiveRecord::Schema.define(:version => 20110502100542) do
     t.integer  "selling_invoice_id"
   end
 
+  add_index "assets", ["purchase_invoice_id"], :name => "index_assets_on_purchase_invoice_id"
+  add_index "assets", ["selling_invoice_id"], :name => "index_assets_on_selling_invoice_id"
+  add_index "assets", ["state"], :name => "index_assets_on_state"
+
   create_table "attachments", :force => true do |t|
     t.string   "title"
     t.string   "file"
@@ -75,6 +82,8 @@ ActiveRecord::Schema.define(:version => 20110502100542) do
     t.integer  "object_id"
     t.string   "object_type"
   end
+
+  add_index "attachments", ["object_id", "object_type"], :name => "index_attachments_on_object_id_and_object_type"
 
   create_table "booking_imports", :force => true do |t|
     t.string   "csv_file_name"
@@ -100,6 +109,10 @@ ActiveRecord::Schema.define(:version => 20110502100542) do
     t.string   "charge_rate_code"
   end
 
+  add_index "booking_templates", ["credit_account_id"], :name => "index_booking_templates_on_credit_account_id"
+  add_index "booking_templates", ["debit_account_id"], :name => "index_booking_templates_on_debit_account_id"
+  add_index "booking_templates", ["type"], :name => "index_booking_templates_on_type"
+
   create_table "bookings", :force => true do |t|
     t.string   "title",             :limit => 100
     t.decimal  "amount"
@@ -117,6 +130,11 @@ ActiveRecord::Schema.define(:version => 20110502100542) do
     t.string   "reference_type"
   end
 
+  add_index "bookings", ["credit_account_id"], :name => "index_bookings_on_credit_account_id"
+  add_index "bookings", ["debit_account_id"], :name => "index_bookings_on_debit_account_id"
+  add_index "bookings", ["reference_id", "reference_type"], :name => "index_bookings_on_reference_id_and_reference_type"
+  add_index "bookings", ["value_date"], :name => "index_bookings_on_value_date"
+
   create_table "charge_rates", :force => true do |t|
     t.string   "title"
     t.string   "code"
@@ -127,6 +145,8 @@ ActiveRecord::Schema.define(:version => 20110502100542) do
     t.datetime "updated_at"
     t.integer  "person_id"
   end
+
+  add_index "charge_rates", ["person_id"], :name => "index_charge_rates_on_person_id"
 
   create_table "days", :force => true do |t|
     t.datetime "created_at"
@@ -159,6 +179,9 @@ ActiveRecord::Schema.define(:version => 20110502100542) do
     t.decimal  "workload"
   end
 
+  add_index "employments", ["employee_id"], :name => "index_employments_on_employee_id"
+  add_index "employments", ["employer_id"], :name => "index_employments_on_employer_id"
+
   create_table "invoices", :force => true do |t|
     t.integer  "customer_id"
     t.integer  "company_id"
@@ -176,6 +199,10 @@ ActiveRecord::Schema.define(:version => 20110502100542) do
     t.date     "duration_to"
   end
 
+  add_index "invoices", ["state"], :name => "index_invoices_on_state"
+  add_index "invoices", ["type"], :name => "index_invoices_on_type"
+  add_index "invoices", ["value_date"], :name => "index_invoices_on_value_date"
+
   create_table "people", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -187,6 +214,8 @@ ActiveRecord::Schema.define(:version => 20110502100542) do
     t.string   "social_security_nr"
     t.string   "social_security_nr_12"
   end
+
+  add_index "people", ["type"], :name => "index_people_on_type"
 
   create_table "phone_numbers", :force => true do |t|
     t.string   "number",            :limit => 50
@@ -211,10 +240,15 @@ ActiveRecord::Schema.define(:version => 20110502100542) do
     t.datetime "updated_at"
   end
 
+  add_index "roles", ["name"], :name => "index_roles_on_name"
+
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer "role_id"
     t.integer "user_id"
   end
+
+  add_index "roles_users", ["role_id"], :name => "index_roles_users_on_role_id"
+  add_index "roles_users", ["user_id"], :name => "index_roles_users_on_user_id"
 
   create_table "tenants", :force => true do |t|
     t.integer  "person_id"
@@ -223,6 +257,8 @@ ActiveRecord::Schema.define(:version => 20110502100542) do
     t.date     "incorporated_on"
     t.date     "fiscal_year_ends_on"
   end
+
+  add_index "tenants", ["person_id"], :name => "index_tenants_on_person_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -243,7 +279,9 @@ ActiveRecord::Schema.define(:version => 20110502100542) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["person_id"], :name => "index_users_on_person_id"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["tenant_id"], :name => "index_users_on_tenant_id"
 
   create_table "vcards", :force => true do |t|
     t.string   "full_name",        :limit => 50
