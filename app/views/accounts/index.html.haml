@@ -1,7 +1,7 @@
 = contextual_links
 
 %h2= t_title
-= paginated_section @ccounts, :params => {:query => params[:query]} do
+= paginated_section @accounts, :params => {:query => params[:query]} do
   %table.list#accounts_list
     = render 'list_header'
     = render @accounts
