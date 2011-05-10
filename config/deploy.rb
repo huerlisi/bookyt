@@ -3,8 +3,8 @@ set :application, 'bookyt'
 set :repository,  'git@github.com:huerlisi/bookyt.git'
 
 # Staging
-set :stages, %w(production staging demo)
-set :default_stage, "staging"
+set :stages, %w(production)
+set :default_stage, 'production'
 require 'capistrano/ext/multistage'
 
 # Deployment
