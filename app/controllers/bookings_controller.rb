@@ -4,6 +4,11 @@ class BookingsController < AuthorizedController
   has_scope :by_text
 
   # Actions
+  def index
+    @bookings = apply_scopes(Booking).accessible_by(current_ability, :list).includes(:credit_account, :debit_account).paginate(:page => params[:page], :per_page => params[:per_page])
+    index!
+  end
+  
   def new
     @booking = Booking.new(:value_date => Date.today)
     new!
