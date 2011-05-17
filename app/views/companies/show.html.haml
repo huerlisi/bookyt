@@ -12,15 +12,11 @@
   #new_employment
   = render 'employments/list'
 
-- unless @credit_invoices.empty?
-  %h2= t_title :index, CreditInvoice
+%h2= t_title :index, CreditInvoice
+= render 'credit_invoices/list'
 
-  = render 'credit_invoices/list'
-
-- unless @debit_invoices.empty?
-  %h2= t_title :index, DebitInvoice
-
-  = render 'debit_invoices/list'
+%h2= t_title :index, DebitInvoice
+= render 'debit_invoices/list'
 
 .contextual
   = icon_link_to :new, new_company_attachment_path(resource), :remote => true
