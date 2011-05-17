@@ -1,7 +1,4 @@
-- unless @invoice_sidebar
-  - content_for :sidebar do
-    = render 'invoices/sidebar'
-  - @invoice_sidebar = true
+= render 'invoices/sidebar'
 
 %table.list#invoices_list
   %tr
