@@ -232,7 +232,7 @@ DEPENDENCIES
   jquery-rails
   lyb_sidebar
   mocha
-  mysql2
+  mysql2 (~> 0.2.7)
   paperclip
   pdfkit!
   rails (~> 3.0.0)
