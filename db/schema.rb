@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110507064046) do
+ActiveRecord::Schema.define(:version => 20110530101908) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20110507064046) do
   create_table "assets", :force => true do |t|
     t.string   "title"
     t.text     "remarks"
-    t.decimal  "amount",              :precision => 10, :scale => 0
+    t.decimal  "amount",              :precision => 10, :scale => 2
     t.string   "state"
     t.integer  "purchase_invoice_id"
     t.datetime "created_at"
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(:version => 20110507064046) do
 
   create_table "bookings", :force => true do |t|
     t.string   "title",             :limit => 100
-    t.decimal  "amount",                           :precision => 10, :scale => 0
+    t.decimal  "amount",                           :precision => 10, :scale => 2
     t.integer  "credit_account_id"
     t.integer  "debit_account_id"
     t.date     "value_date"
@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(:version => 20110507064046) do
   create_table "charge_rates", :force => true do |t|
     t.string   "title"
     t.string   "code"
-    t.decimal  "rate",          :precision => 10, :scale => 0
+    t.decimal  "rate",          :precision => 10, :scale => 2
     t.date     "duration_from"
     t.date     "duration_to"
     t.datetime "created_at"
@@ -152,15 +152,15 @@ ActiveRecord::Schema.define(:version => 20110507064046) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date"
-    t.decimal  "cash",            :precision => 10, :scale => 0, :default => 0
-    t.decimal  "card_turnover",   :precision => 10, :scale => 0, :default => 0
-    t.decimal  "gross_turnover",  :precision => 10, :scale => 0, :default => 0
-    t.decimal  "net_turnover",    :precision => 10, :scale => 0, :default => 0
+    t.decimal  "cash",            :precision => 10, :scale => 2, :default => 0.0
+    t.decimal  "card_turnover",   :precision => 10, :scale => 2, :default => 0.0
+    t.decimal  "gross_turnover",  :precision => 10, :scale => 2, :default => 0.0
+    t.decimal  "net_turnover",    :precision => 10, :scale => 2, :default => 0.0
     t.integer  "client_count",                                   :default => 0
     t.integer  "product_count",                                  :default => 0
-    t.decimal  "expenses",        :precision => 10, :scale => 0, :default => 0
-    t.decimal  "credit_turnover", :precision => 10, :scale => 0, :default => 0
-    t.decimal  "discount",        :precision => 10, :scale => 0, :default => 0
+    t.decimal  "expenses",        :precision => 10, :scale => 2, :default => 0.0
+    t.decimal  "credit_turnover", :precision => 10, :scale => 2, :default => 0.0
+    t.decimal  "discount",        :precision => 10, :scale => 2, :default => 0.0
   end
 
   create_table "employments", :force => true do |t|
@@ -168,15 +168,15 @@ ActiveRecord::Schema.define(:version => 20110507064046) do
     t.date     "duration_to"
     t.boolean  "temporary"
     t.boolean  "hourly_paid"
-    t.decimal  "daily_workload", :precision => 10, :scale => 0
+    t.decimal  "daily_workload", :precision => 10, :scale => 2
     t.integer  "employee_id"
     t.integer  "employer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "remarks"
-    t.decimal  "salary_amount",  :precision => 10, :scale => 0
+    t.decimal  "salary_amount",  :precision => 10, :scale => 2
     t.integer  "kids"
-    t.decimal  "workload",       :precision => 10, :scale => 0
+    t.decimal  "workload",       :precision => 10, :scale => 2
   end
 
   add_index "employments", ["employee_id"], :name => "index_employments_on_employee_id"
@@ -191,7 +191,7 @@ ActiveRecord::Schema.define(:version => 20110507064046) do
     t.datetime "updated_at"
     t.string   "title"
     t.text     "remarks"
-    t.decimal  "amount",        :precision => 10, :scale => 0
+    t.decimal  "amount",        :precision => 10, :scale => 2
     t.date     "value_date"
     t.string   "type"
     t.string   "code"
