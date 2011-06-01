@@ -24,7 +24,8 @@ sudo apt-get install rubygems
 
 h2. Install Ruby'n'Rails
 
-bookyt is developed and tested using Rails 3.0.0 and Ruby 1.8.
+bookyt is developed and tested using Rails 3.0 and Ruby 1.8. It currently won't work with Ruby 1.9, but it should only
+be small fixes. Patches welcome!
 
 Install packages to support installing rails:
 
