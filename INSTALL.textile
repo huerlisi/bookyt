@@ -68,3 +68,5 @@ Initialize the database:
 <pre>
 rake db:setup
 </pre>
+
+To print invoices wkhtmltopdf needs to be installed (download manually to /urs/local/bin)
