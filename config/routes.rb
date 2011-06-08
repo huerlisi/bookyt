@@ -67,6 +67,7 @@ Bookyt::Application.routes.draw do
   
   resources :customers do
     resources :invoices
+    resources :attachments
   end
   
   # Assets
@@ -78,6 +79,7 @@ Bookyt::Application.routes.draw do
 
   resources :invoices do
     resources :assets
+    resources :attachments
   end
 
   # Bookings
