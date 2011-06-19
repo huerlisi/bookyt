@@ -5,4 +5,9 @@ class Attachment < ActiveRecord::Base
   # Carrier Wave
   validates_presence_of :file
   mount_uploader :file, AttachmentUploader
+
+  # String
+  def to_s(format = :default)
+    title
+  end
 end
