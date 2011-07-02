@@ -79,10 +79,6 @@ gem 'cancan'
 # Date/Time handling
 gem 'validates_timeliness'
 
-# PDF generation
-gem 'pdfkit', :git => 'http://github.com/huerlisi/PDFKit.git'
-gem 'wkhtmltopdf-binary'
-
 gem 'show_for'
 
 # Bookyt
@@ -95,6 +91,10 @@ gem 'has_vcards'
 
 # Uploads
 gem 'carrierwave'
+
+# PDF generation
+gem 'pdfkit', :git => 'http://github.com/huerlisi/PDFKit.git'
+gem 'wkhtmltopdf-binary'
 
 # Raiffeisen BookingImport
 gem 'remotipart'
