@@ -96,6 +96,8 @@ gem 'carrierwave'
 gem 'pdfkit', :git => 'http://github.com/huerlisi/PDFKit.git'
 gem 'wkhtmltopdf-binary'
 
+gem 'prawn'
+
 # Raiffeisen BookingImport
 gem 'remotipart'
 gem 'paperclip'
