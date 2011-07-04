@@ -5,4 +5,4 @@
 #assets_list
   - unless resource.assets.empty?
     %table.list
-      = render :partial => 'invoices/asset', :collection => resource.assets
+      = render 'invoices/asset', :collection => resource.assets
