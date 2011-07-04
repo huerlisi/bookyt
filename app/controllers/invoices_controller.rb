@@ -3,6 +3,8 @@ class InvoicesController < AuthorizedController
   has_scope :by_state, :default => 'booked', :only => :index
   has_scope :by_text
 
+  respond_to :html, :pdf
+
   # Actions
   def new
     invoice_params = params[:invoice] || {}
