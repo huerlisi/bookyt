@@ -8,7 +8,7 @@ class DebitInvoice < Invoice
   def balance_account
     bookings.first.credit_account
   end
-  
+
   def profit_account
     bookings.first.debit_account
   end

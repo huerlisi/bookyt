@@ -5,7 +5,7 @@ class AddHasAccountsColumnsToAccounts < ActiveRecord::Migration
     add_index :accounts, :code
     Account.update_all "code = number"
     Account.update_all "number = NULL"
-    
+
     # Single Table Inheritance
     add_column :accounts, :type, :integer
     add_index :accounts, :type
@@ -26,13 +26,13 @@ class AddHasAccountsColumnsToAccounts < ActiveRecord::Migration
   def self.down
     remove_columns :accounts, :pc_id
     remove_columns :accounts, :esr_id
-    
+
     remove_columns :accounts, :bank_id
     remove_columns :accounts, :holder_id
     remove_columns :accounts, :holder_type
-    
+
     remove_columns :accounts, :type
-    
+
     Account.update_all "numer = code"
     remove_columns :accounts, :code
   end

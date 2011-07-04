@@ -1,7 +1,7 @@
 class AddTypeToInvoices < ActiveRecord::Migration
   def self.up
     add_column :invoices, :type, :string
-    
+
     Invoice.update_all(:type => 'DebitInvoice')
   end
 

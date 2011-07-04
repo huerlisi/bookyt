@@ -3,11 +3,11 @@
 for line in STDIN
   fields = line.split(';')
   valuta = ""
-  
+
   # If details
   if fields[0] == ""
     entry = fields[1]
-    
+
     fields[0] = valuta
 
     if entry =~ /(CHF) ([^ ]*) *(.*)$/

@@ -10,7 +10,7 @@ class Asset < ActiveRecord::Base
   def to_s(format = :default)
     title
   end
-  
+
   # Search
   # ======
   scope :by_text, lambda {|value|
@@ -44,7 +44,7 @@ class Asset < ActiveRecord::Base
   # Bookings
   # ========
   include HasAccounts::Model
-  
+
   # Guess direct_account
   #
   # We simply take the first booking and exclude accounts with codes
@@ -52,13 +52,13 @@ class Asset < ActiveRecord::Base
   def direct_account
     # We don't care if no bookings
     return nil if bookings.empty?
-    
+
     # Take any booking
     booking = bookings.first
     involved_accounts = [booking.credit_account, booking.debit_account]
-    
+
     relevant_account = involved_accounts - [Account.find_by_code("1100"), Account.find_by_code("2000")]
-    
+
     return relevant_account.first
   end
 
@@ -76,7 +76,7 @@ class Asset < ActiveRecord::Base
       booking_params[:value_date] = Date.today
     end
     booking_params.merge!(params)
-    
+
     # Build and assign booking
     super(booking_params, template_code)
   end
@@ -85,7 +85,7 @@ class Asset < ActiveRecord::Base
   def write_downs(value_date)
     bookings.direct_balance(value_date, Account.find_by_code('6900'))
   end
-  
+
   def amount_changes(value_date)
     -(balance(value_date.first) - balance(value_date.last) - write_downs(value_date))
   end

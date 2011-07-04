@@ -3,7 +3,7 @@ require 'spec_helper'
 describe BookingTemplate do
   context "when new" do
     subject { BookingTemplate.new }
-    
+
     specify { should be_valid }
     its(:to_s) { should == "? an ? CHF ?, ? (?)" }
     context "to_s(:short)" do
@@ -15,7 +15,7 @@ describe BookingTemplate do
 
   context "with title" do
     subject { BookingTemplate.new(:title => "Test")}
-    
+
     its(:to_s) { should =~ /Test/ }
     context "to_s(:short)" do
       it "should == \"? / ? CHF ?\"" do
@@ -26,7 +26,7 @@ describe BookingTemplate do
 
   context "with blank title" do
     subject { BookingTemplate.new(:title => "")}
-    
+
     its(:to_s) { should == "? an ? CHF ?, ? (?)" }
     context "to_s(:short)" do
       it "should == \"? / ? CHF ?\"" do
@@ -49,7 +49,7 @@ describe BookingTemplate do
       }
     }
     subject { BookingTemplate.new(:credit_account => credit_account, :debit_account => debit_account)}
-    
+
     its(:to_s) { should == "Credit Account (1000) an Debit Account (2000) CHF ?, ? (?)" }
     context "to_s(:short)" do
       it "should == \"1000 / 2000 CHF ?\"" do
@@ -65,23 +65,23 @@ describe BookingTemplate do
         specify { should_not be_valid }
       end
     end
-    
+
     shared_examples_for "new valid booking" do
       context "and return a Booking which" do
         specify { should be_a_new(Booking) }
         specify { should be_valid }
       end
     end
-    
+
     context "on :cash record" do
       let(:cash) { Factory.build(:cash) }
       subject { booking } # Expects let(:booking) calls in nested contexts
-    
+
       context "when called with no parameters" do
         let(:booking) { cash.build_booking }
         it_should_behave_like "new partial booking"
       end
-      
+
       context "when called with amount 10.0" do
         let(:booking) { cash.build_booking(:amount => 10.0) }
 
@@ -124,11 +124,11 @@ describe BookingTemplate do
   test "create_booking returns persisted record when valid" do
     assert booking_templates(:full).create_booking.persisted?
   end
-  
+
   test "create_booking returns new record when invalid" do
     assert booking_templates(:partial).create_booking.new_record?
   end
-  
+
   test "create_booking accepts hash" do
     assert_instance_of Booking, booking_templates(:partial).create_booking({:amount => 77})
   end

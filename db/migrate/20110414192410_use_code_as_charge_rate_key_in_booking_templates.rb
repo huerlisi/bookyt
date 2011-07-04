@@ -6,7 +6,7 @@ class UseCodeAsChargeRateKeyInBookingTemplates < ActiveRecord::Migration
       template.charge_rate_code = ChargeRate.find(template.charge_rate_id).code
       template.save
     }
-    
+
     remove_column :booking_templates, :charge_rate_id
   end
 

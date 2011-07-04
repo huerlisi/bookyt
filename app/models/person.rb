@@ -10,14 +10,14 @@ class Person < ActiveRecord::Base
   # String
   def to_s(format = :default)
     return unless vcard
-    
+
     s = vcard.full_name
 
     case format
       when :long
         s += " (#{vcard.locality})" if vcard.locality
     end
-    
+
     return s
   end
 
@@ -29,11 +29,11 @@ class Person < ActiveRecord::Base
 
   # Search
   default_scope includes(:vcard).order('IFNULL(vcards.full_name, vcards.family_name + ' ' + vcards.given_name)')
-  
+
   scope :by_name, lambda {|value|
     includes(:vcard).where("(vcards.given_name LIKE :query) OR (vcards.family_name LIKE :query) OR (vcards.full_name LIKE :query)", :query => "%#{value}%")
   }
-  
+
   # Constructor
   def initialize(attributes = nil)
     super
@@ -50,7 +50,7 @@ class Person < ActiveRecord::Base
   # Charge Rates
   # ============
   has_many :charge_rates
-  
+
   # Attachments
   # ===========
   has_many :attachments, :as => :object

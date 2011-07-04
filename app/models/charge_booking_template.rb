@@ -3,18 +3,18 @@ class ChargeBookingTemplate < BookingTemplate
   def charge_rate(date = nil, params = {})
     ChargeRate.by_person(params[:person_id]).current(charge_rate_code, date)
   end
-  
+
   def amount(date = nil, params = {})
     rate = charge_rate(date, params)
     return 0.0 unless rate
-    
+
     if self.amount_relates_to.present?
       return rate.rate / 100
     else
       return rate.rate
     end
   end
-  
+
   def booking_parameters(params = {})
     person_id = params.delete(:person_id)
 
@@ -32,7 +32,7 @@ class ChargeBookingTemplate < BookingTemplate
         reference = ref_type.constantize.find(ref_id)
       end
     end
-    
+
     if reference
       # Calculate amount
       booking_params['value_date'] = reference.value_date
@@ -50,7 +50,7 @@ class ChargeBookingTemplate < BookingTemplate
 
     booking_amount = booking_amount.try(:round, 2)
     booking_params['amount'] = booking_amount
-    
+
     # Override by passed in parameters
     booking_params.merge!(params)
   end

@@ -2,7 +2,7 @@ class AssetsController < AuthorizedController
   # States
   has_scope :by_state, :default => 'available', :only => :index
   has_scope :by_text
-  
+
   # Actions
   def new
 
@@ -19,24 +19,24 @@ class AssetsController < AuthorizedController
         :amount => invoice.amount
       )
     end
-    
+
     # Paramameters
     asset_params.merge!(params[:asset] || {})
 
     @asset = Asset.new(asset_params)
   end
-  
+
   def create
     @asset = Asset.new(params[:asset])
     @asset.build_booking
-    
+
     create!
   end
 
   def write_downs
     # use current date if not specified otherwise
     params[:profit] ||= {}
-    
+
     # use current date if not specified otherwise
     if params[:by_value_period]
       @end_date = Date.parse(params[:by_value_period][:to])

@@ -9,7 +9,7 @@ Bookyt::Application.routes.draw do
       get :current
     end
   end
-  
+
   # Accounting
   resources :account_types
 
@@ -28,7 +28,7 @@ Bookyt::Application.routes.draw do
 
   # Attachments
   resources :attachments
-  
+
   # Contacts
   resources :people do
     resources :attachments
@@ -37,39 +37,39 @@ Bookyt::Application.routes.draw do
     resources :attachments
   end
   resources :employments
-  
+
   # Invoices
   resources :invoices do
     resources :attachments
   end
-  
+
   resources :credit_invoices do
     resources :attachments
   end
-  
+
   resources :debit_invoices do
     member do
       get :letter
     end
-    
+
     resources :attachments
   end
-  
+
   resources :salaries do
     collection do
       get :statistics
     end
-    
+
     member do
       get :payslip
     end
   end
-  
+
   resources :customers do
     resources :invoices
     resources :attachments
   end
-  
+
   # Assets
   resources :assets do
     collection do
@@ -92,7 +92,7 @@ Bookyt::Application.routes.draw do
       get :copy
     end
   end
-  
+
   resources :direct_bookings
 
   resources :accounts do
@@ -101,17 +101,17 @@ Bookyt::Application.routes.draw do
     end
     resources :bookings
   end
-  
+
   # Booking templates
   resources :booking_templates
   resources :charge_booking_templates
 
   # Charge rates
   resources :charge_rates
-  
+
   # Imports
   resources :booking_imports
-  
+
   # Days
   resources :days do
     collection do

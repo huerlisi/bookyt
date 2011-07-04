@@ -8,10 +8,10 @@ module ActionView
         # Let InstanceTag do the object/attribute lookup for us
         value = instance_tag.value(instance_tag.object)
 
-        # value is empty when re-showing field after error, use params  
+        # value is empty when re-showing field after error, use params
         options["value"] =  value.to_s(:text_field) if value.is_a?(Date)
         options["value"] ||= params[object_name][method] if params[object_name]
-        options.merge!("date-picker" => true) 
+        options.merge!("date-picker" => true)
 
         instance_tag.to_input_field_tag("text", options)
       end

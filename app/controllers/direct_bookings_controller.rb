@@ -8,7 +8,7 @@ class DirectBookingsController < InheritedResources::Base
 
   def create
     @direct_booking = Booking.new(params[:direct_booking])
-    
+
     create! {
       render 'list' and return
     }

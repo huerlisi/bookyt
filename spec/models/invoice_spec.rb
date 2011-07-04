@@ -9,7 +9,7 @@ describe Invoice do
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:amount) }
   it { should validate_presence_of(:state) }
-  
+
   context "when new" do
     specify { should_not be_valid }
 
@@ -21,7 +21,7 @@ describe Invoice do
 
     its(:to_s) { should == "" }
   end
-  
+
   context "when properly initialized" do
     subject { Factory.build :invoice }
 

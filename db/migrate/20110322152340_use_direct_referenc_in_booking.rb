@@ -1,7 +1,7 @@
 class UseDirectReferencInBooking < ActiveRecord::Migration
   def self.up
     drop_table :booking_references
-    
+
     add_column :bookings, :reference_id, :integer
     add_column :bookings, :reference_type, :string
   end

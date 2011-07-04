@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe AccountsController do
   login_admin
-  
+
   def mock_account(stubs={})
     @mock_account ||= mock_model(Account, stubs).as_null_object
   end

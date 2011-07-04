@@ -5,7 +5,7 @@ class BookingTemplate < ActiveRecord::Base
 
   # Scopes
   scope :by_type, lambda{|value| where("code LIKE ?", value + ':%')}
-  
+
   # Standard methods
   def to_s(format = :default)
     case format
@@ -44,7 +44,7 @@ class BookingTemplate < ActiveRecord::Base
         reference = ref_type.constantize.find(ref_id)
       end
     end
-    
+
     if reference
       case self.amount_relates_to
         when 'reference_amount'
@@ -58,11 +58,11 @@ class BookingTemplate < ActiveRecord::Base
 
     booking_amount = booking_amount.try(:round, 2)
     booking_params['amount'] = booking_amount
-    
+
     # Override by passed in parameters
     booking_params.merge!(params)
   end
-  
+
   # Factory methods
   def build_booking(params = {})
     Booking.new(booking_parameters(params))

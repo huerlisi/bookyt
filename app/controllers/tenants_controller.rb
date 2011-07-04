@@ -6,10 +6,10 @@ class TenantsController < AuthorizedController
 
   def profit_sheet
     @company = current_tenant.company
-    
+
     # use current date if not specified otherwise
     params[:profit] ||= {}
-    
+
     # use current date if not specified otherwise
     if params[:by_value_period]
       @end_date = Date.parse(params[:by_value_period][:to])
@@ -26,7 +26,7 @@ class TenantsController < AuthorizedController
 
   def balance_sheet
     @company = current_tenant.company
-    
+
     # use current date if not specified otherwise
     if params[:by_value_period]
       @dates = [Date.parse(params[:by_value_period][:to])]

@@ -9,7 +9,7 @@ module ApplicationHelper
   def currency_fmt(value)
     # We often do get -0.0 but don't like it
     value = 0.0 if value.to_s.match %r{^-[0.]*$}
-    
+
     number = number_with_precision(value, :precision => 2, :separator => '.', :delimiter => "'")
   end
 
@@ -24,14 +24,14 @@ module ApplicationHelper
 
   def list_item_actions_for(resource)
     model_name = resource.class.to_s.underscore
-    
+
     render 'layouts/list_item_actions_for', :model_name => model_name, :resource => resource
   end
 
   # Nested form helpers
   def show_new_form(model)
     model_name = model.to_s.underscore
-    
+
     output = <<EOF
 $('##{model_name}_list').replaceWith('#{escape_javascript(render('form'))}');
 addAutofocusBehaviour();
@@ -39,7 +39,7 @@ addAutocompleteBehaviour();
 addDatePickerBehaviour();
 addAutogrowBehaviour();
 EOF
-  
+
     return output.html_safe
   end
 end

@@ -5,7 +5,7 @@ class CreditInvoice < Invoice
 
     identifier = title
     identifier += " / #{code}" if code.present?
-    
+
     case format
       when :reference
         return identifier + " (#{company.to_s})"
@@ -25,7 +25,7 @@ class CreditInvoice < Invoice
   def balance_account
     bookings.first.debit_account
   end
-  
+
   def profit_account
     bookings.first.credit_account
   end

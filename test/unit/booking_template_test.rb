@@ -4,25 +4,25 @@ class BookingTemplateTest < ActiveSupport::TestCase
   setup do
     @template = BookingTemplate.new
   end
-  
+
   test "to_s handles template with value date" do
     @template.value_date = '2010-03-02'
     assert_equal "02.03.2010: ? an ? CHF ?, ? (?)", @template.to_s
     assert_equal "02.03.2010: ? / ? CHF ?", @template.to_s(:short)
   end
-    
+
   test "to_s handles template with comments" do
     @template.comments = "Comment"
     assert_equal "?: ? an ? CHF ?, ? (Comment)", @template.to_s
     assert_equal "?: ? / ? CHF ?", @template.to_s(:short)
   end
-    
+
   test "to_s suppress blanks comments" do
     @template.comments = " "
     assert_equal "?: ? an ? CHF ?, ? (?)", @template.to_s
     assert_equal "?: ? / ? CHF ?", @template.to_s(:short)
   end
-  
+
   test "to_s handles template with amount" do
     @template.amount = "77.3"
     assert_equal "?: ? an ? CHF 77.30, ? (?)", @template.to_s
@@ -41,7 +41,7 @@ class BookingTemplateTest < ActiveSupport::TestCase
   test "builds booking" do
     booking_params = {:value_date => "2001-02-03", :amount => 10.0}
     booking = booking_templates(:partial).build_booking(booking_params)
-    
+
     assert_instance_of Booking, booking
 
     expected = bookings(:first)
@@ -54,7 +54,7 @@ class BookingTemplateTest < ActiveSupport::TestCase
   test "build_booking returns new record" do
     assert booking_templates(:partial).build_booking.new_record?
   end
-  
+
   test "build_booking accepts nil" do
     assert_instance_of Booking, booking_templates(:partial).build_booking()
   end
@@ -70,11 +70,11 @@ class BookingTemplateTest < ActiveSupport::TestCase
   test "create_booking returns persisted record when valid" do
     assert booking_templates(:full).create_booking.persisted?
   end
-  
+
   test "create_booking returns new record when invalid" do
     assert booking_templates(:partial).create_booking.new_record?
   end
-  
+
   test "create_booking accepts hash" do
     assert_instance_of Booking, booking_templates(:partial).create_booking({:amount => 77})
   end

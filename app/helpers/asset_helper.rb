@@ -3,7 +3,7 @@ module AssetHelper
   def t_asset_state(state)
     t(state, :scope => 'asset.state')
   end
-  
+
   # Provide translated asset states for select fields
   def asset_states_as_collection
     states = Asset::STATES

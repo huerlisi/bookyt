@@ -10,10 +10,10 @@ class ChargeRate < ActiveRecord::Base
         "%s: %.2f" % [code, rate]
     end
   end
-  
+
   # Sorting
   default_scope order('duration_from DESC')
-  
+
   # Validity
   scope :valid_at, lambda {|value| where("duration_from <= :date AND (duration_to IS NULL OR duration_to > :date)", :date => value) }
   scope :valid, lambda { valid_at(Date.today) }

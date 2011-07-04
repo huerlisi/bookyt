@@ -1,13 +1,13 @@
 class AddIndicesForEverything < ActiveRecord::Migration
   def self.up
     add_index :account_types, :name
-    
+
     add_index :accounts, :account_type_id
 
     add_index :assets, :state
     add_index :assets, :purchase_invoice_id
     add_index :assets, :selling_invoice_id
-    
+
     add_index :attachments, [:object_id, :object_type]
 
     add_index :booking_templates, :type

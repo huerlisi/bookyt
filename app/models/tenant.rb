@@ -23,19 +23,19 @@ class Tenant < ActiveRecord::Base
 
     return :from => first_day_of_fiscal_year.to_date, :to => final_day_of_fiscal_year.to_date
   end
-  
+
   def fiscal_years
     first_year = fiscal_year_ends_on.year
     final_year = Date.today.year + 1
-    
+
     years = {}
     (first_year..final_year).map{|year|
       years[year] = fiscal_period(year)
     }
-    
+
     return years
   end
-  
+
   # Attachments
   # ===========
   has_many :attachments, :as => :object

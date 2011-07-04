@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe TenantsController do
   login_admin
-  
+
   def mock_tenant(stubs={})
     @mock_tenant ||= mock_model(Tenant, stubs).as_null_object
   end

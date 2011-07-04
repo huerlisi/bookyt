@@ -6,7 +6,7 @@ namespace :sqlite do
   task :setup do
     run "mkdir -p #{shared_path}/db"
   end
-  
+
   namespace :sync do
     desc "Sync down the production sqlite database to local development sqlite"
     task :down do

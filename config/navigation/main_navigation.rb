@@ -1,9 +1,9 @@
 # Configures your navigation
-SimpleNavigation::Configuration.run do |navigation|  
+SimpleNavigation::Configuration.run do |navigation|
   def account_item(parent, code)
     account = Account.find_by_code(code)
     return unless account
-    
+
     parent.item "account_#{code}", account.to_s, account_path(account)
   end
 
@@ -32,10 +32,10 @@ SimpleNavigation::Configuration.run do |navigation|
                       :highlights_on => /\/bookings\/.*$/
       accounting.item :balance, t('bookyt.main_navigation.balance'), balance_sheet_tenant_path(current_user.tenant, :by_value_period => params[:by_value_period]),
                       :tooltip => t('bookyt.main_navigation.tooltip.balance'),
-                      :highlights_on => /#{Regexp.escape(balance_sheet_tenant_path(current_user.tenant))}($|\?)/ 
+                      :highlights_on => /#{Regexp.escape(balance_sheet_tenant_path(current_user.tenant))}($|\?)/
       accounting.item :profit, t('bookyt.main_navigation.profit'), profit_sheet_tenant_path(current_user.tenant, :by_value_period => params[:by_value_period]),
                       :tooltip => t('bookyt.main_navigation.tooltip.profit'),
-                      :highlights_on => /#{Regexp.escape(profit_sheet_tenant_path(current_user.tenant))}($|\?)/ 
+                      :highlights_on => /#{Regexp.escape(profit_sheet_tenant_path(current_user.tenant))}($|\?)/
       accounting.item :accounts, t('bookyt.main_navigation.accounts'), accounts_path,
                       :tooltip => t('bookyt.main_navigation.tooltip.accounts'),
                       :highlights_on => /\/accounts/
@@ -98,7 +98,7 @@ SimpleNavigation::Configuration.run do |navigation|
       assets.item :new_asset, t_title(:new, Asset), new_asset_path
       assets.item :write_downs, t_title(:write_downs, Asset), write_downs_assets_path, :highlights_on => /\/assets\/write_downs($|\?)/
     end
-    
+
     primary.item :salaries, t_title(:index, Salary), salaries_path,
                  :if => Proc.new { user_signed_in? } do |salaries|
       salaries.item :salaries, t_title(:index, Salary), salaries_path, :highlights_on => /\/salaries($|\/[0-9]*($|\/.*))/
@@ -108,7 +108,7 @@ SimpleNavigation::Configuration.run do |navigation|
       salaries.item :salary_statistics, t_title(:statistics, Salary), statistics_salaries_path, :highlights_on => /\/salaries\/statistics($|\?)/
       account_item(salaries, '5000')
     end
-    
+
     primary.item :settings, t('bookyt.main_navigation.settings'), current_users_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.settings'),
                  :if => Proc.new { user_signed_in? } do |settings|

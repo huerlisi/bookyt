@@ -13,5 +13,5 @@ Factory.define :invoice do |f|
 end
 
 Factory.define :credit_invoice, :parent => :invoice, :class => CreditInvoice do |f|
-  
+
 end
