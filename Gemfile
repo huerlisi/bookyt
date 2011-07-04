@@ -93,7 +93,7 @@ gem 'has_vcards'
 gem 'carrierwave'
 
 # PDF generation
-gem 'pdfkit', :git => 'http://github.com/huerlisi/PDFKit.git'
+gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 
 gem 'prawn'

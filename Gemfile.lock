@@ -1,10 +1,4 @@
 GIT
-  remote: http://github.com/huerlisi/PDFKit.git
-  revision: a7681f142f0114d0433f5e6f3a12922a29062ea5
-  specs:
-    pdfkit (0.5.0)
-
-GIT
   remote: http://github.com/huerlisi/will_paginate.git
   revision: 05fbcb82299a449fc37fb9198346703740cb39cd
   branch: rails3
@@ -134,6 +128,7 @@ GEM
       activesupport (>= 2.3.2)
     pdf-reader (0.9.2)
       Ascii85 (>= 0.9)
+    pdfkit (0.5.2)
     polyglot (0.3.1)
     prawn (0.11.1)
       pdf-reader (>= 0.9.0)
@@ -227,7 +222,7 @@ DEPENDENCIES
   mocha
   mysql2 (~> 0.2.7)
   paperclip
-  pdfkit!
+  pdfkit
   prawn
   rails (~> 3.0.9)
   rdoc
