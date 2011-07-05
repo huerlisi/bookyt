@@ -1,19 +1,24 @@
-Factory.define :account do |a|
-  a.title 'Account'
-  a.code '1000'
-end
+FactoryGirl.define do
+  factory :account do
+    title 'Account'
+    code '1000'
+  end
 
-Factory.define :cash_account, :class => Account do |a|
-  a.title 'Kasse Laden'
-  a.code '1010'
-end
+  factory :cash_account, :class => Account do
+    title 'Kasse Laden'
+    code '1010'
+    association :account_type, :factory => :current_assets
+  end
 
-Factory.define :eft_account, :class => Account do |a|
-  a.title 'EFT Kontokorrent'
-  a.code '1021'
-end
+  factory :eft_account, :class => Account do
+    title 'EFT Kontokorrent'
+    code '1021'
+    association :account_type, :factory => :current_assets
+  end
 
-Factory.define :service_account, :class => Account do |a|
-  a.title 'Dienstleistungsertrag'
-  a.code '3200'
+  factory :service_account, :class => Account do
+    title 'Dienstleistungsertrag'
+    code '3200'
+    association :account_type, :factory => :earnings
+  end
 end

@@ -1,10 +1,15 @@
-# User factories
-require File.expand_path('../roles', __FILE__)
-require File.expand_path('../people', __FILE__)
+FactoryGirl.define do
+  factory :user do
+    email    "user@example.com"
+    password "user1234"
+    roles [FactoryGirl.create(:role, :name => 'user')]
+    person
+  end
 
-Factory.define :admin_user, :class => User do |f|
-  f.email    "admin@example.com"
-  f.password "admin1234"
-  f.roles [Factory.create(:admin)]
-  f.person Factory.build(:person)
+  factory :admin_user, :class => User do
+    email    "admin@example.com"
+    password "admin1234"
+    roles [FactoryGirl.create(:role, :name => 'admin')]
+    person
+  end
 end
