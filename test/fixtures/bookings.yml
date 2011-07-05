@@ -1,9 +1,0 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html:
-
-first:
-  debit_account: ubs
-  credit_account: postfinance
-  title: "First booking"
-  amount: 10.0
-  value_date: 2001-02-03
-  comments: Let's start
