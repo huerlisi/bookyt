@@ -19,6 +19,7 @@ group :test do
 
   # Browser
   gem 'capybara'
+  gem 'webrat'
 
   # Mocking
   gem 'mocha'
