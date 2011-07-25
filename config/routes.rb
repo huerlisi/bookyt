@@ -111,11 +111,4 @@ Bookyt::Application.routes.draw do
 
   # Imports
   resources :booking_imports
-
-  # Days
-  resources :days do
-    collection do
-      post :calculate_cash
-    end
-  end
 end

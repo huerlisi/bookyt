@@ -108,3 +108,7 @@ gem 'prawn_rails'
 gem 'remotipart'
 gem 'paperclip'
 gem 'csv-mapper'
+
+# Plugins
+# =======
+gem 'bookyt_pos'

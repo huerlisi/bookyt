@@ -1,1 +1,0 @@
-page['#days_list'].before(render(:partial => 'complete_form'))
