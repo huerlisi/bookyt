@@ -25,8 +25,7 @@ group :test do
   gem 'mocha'
 
   # Fixtures
-  gem "factory_girl_rails", "~> 1.1.rc1"
-  gem 'factory_girl', "~> 2.0.0.rc1"
+  gem "factory_girl_rails", "~> 1.1"
 
   # Matchers/Helpers
   gem 'shoulda'
