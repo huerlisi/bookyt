@@ -4,11 +4,11 @@ source 'http://rubygems.org'
 
 # Rails
 # =====
-gem 'rails', '~> 3.0.9'
+gem 'rails', '~> 3.1.0.rc'
 
 # Database
+gem 'mysql2'
 gem 'sqlite3'
-gem 'mysql2', '~> 0.2.7'
 
 # Test
 # ===
@@ -61,17 +61,14 @@ gem 'simple-navigation'
 
 # Styling
 gem 'lyb_sidebar'
-gem 'styleyt'
 
 # Form framework
 gem 'formtastic'
 
 # CRUD
-gem 'will_paginate', :git => 'http://github.com/huerlisi/will_paginate.git', :branch => 'rails3'
 gem 'inherited_resources'
 gem 'has_scope'
 gem 'i18n_rails_helpers'
-gem 'inherited_resources_views'
 
 # Javascript
 gem 'jquery-rails'
