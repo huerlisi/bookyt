@@ -6,6 +6,12 @@
 %h1= t('bookyt.profit_report_for', :company => @company, :per => @end_date)
 
 %table{:width => "100%"}
+  %tr
+    %th{:colspan => "2"}
+    -for @date in @dates
+      %th{:style => "text-align: right"}
+        %h2= @date.last.year
+
   = render 'account_group_sheet', :group => 'costs'
   = render 'account_group_sheet', :group => 'earnings'
 
