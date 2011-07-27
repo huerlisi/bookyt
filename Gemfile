@@ -19,13 +19,13 @@ group :test do
 
   # Browser
   gem 'capybara'
+  gem 'webrat'
 
   # Mocking
   gem 'mocha'
 
   # Fixtures
-  gem "factory_girl_rails", "~> 1.1.rc1"
-  gem 'factory_girl', "~> 2.0.0.rc1"
+  gem "factory_girl_rails", "~> 1.1"
 
   # Matchers/Helpers
   gem 'shoulda'
@@ -107,3 +107,7 @@ gem 'prawn_rails'
 gem 'remotipart'
 gem 'paperclip'
 gem 'csv-mapper'
+
+# Plugins
+# =======
+gem 'bookyt_pos'
