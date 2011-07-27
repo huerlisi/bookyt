@@ -9,8 +9,9 @@
   %tr
     %th{:colspan => "2"}
       %h2= t('bookyt.assets')
-    %th{:style => "text-align: right"}
-      %h2= currency_fmt(Account.by_type('current_assets').saldo(@date) + Account.by_type('capital_assets').saldo(@date))
+    -for @date in @dates
+      %th{:style => "text-align: right"}
+        %h2= currency_fmt(Account.by_type('current_assets').saldo(@date) + Account.by_type('capital_assets').saldo(@date))
 
   = render 'account_group_sheet', :group => 'current_assets'
   = render 'account_group_sheet', :group => 'capital_assets'
@@ -18,8 +19,10 @@
   %tr
     %th{:colspan => "2"}
       %h2= t('bookyt.capital')
-    %th{:style => "text-align: right"}
-      %h2= currency_fmt(Account.by_type('outside_capital').saldo(@date) + Account.by_type('equity_capital').saldo(@date))
+    -for @date in @dates
+      %th{:style => "text-align: right"}
+        %h2= currency_fmt(Account.by_type('outside_capital').saldo(@date) + Account.by_type('equity_capital').saldo(@date))
+
   = render 'account_group_sheet', :group => 'outside_capital'
   = render 'account_group_sheet', :group => 'equity_capital'
 
