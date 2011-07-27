@@ -9,12 +9,12 @@
   = render 'account_group_sheet', :group => 'costs'
   = render 'account_group_sheet', :group => 'earnings'
 
-  - difference = Account.by_type('costs').saldo(@date) - Account.by_type('earnings').saldo(@date)
-  - if difference != BigDecimal.new('0')
-    %tr
-      %th{:colspan => "2"}
-        %h2= t('bookyt.difference')
+  %tr
+    %th{:colspan => "2"}
+      %h3= t('bookyt.difference')
+
+    - for @date in @dates
       %th{:style => "text-align: right"}
-        %h2= currency_fmt(difference)
+        %h3= currency_fmt(Account.by_type('costs').saldo(@date) - Account.by_type('earnings').saldo(@date))
 
 = render 'bookings/sidebar'
