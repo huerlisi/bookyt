@@ -3,8 +3,7 @@
   = icon_link_to :profit_sheet, :action => :profit_sheet, :by_value_period => params[:by_value_period]
   = contextual_links_for
 
-%h1
-  = t('bookyt.balance_report_for', :company => @company, :per => @date)
+%h1= t('bookyt.balance_report_for', :company => @company, :per => @date)
 
 %table{:width => "100%"}
   %tr
