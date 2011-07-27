@@ -45,13 +45,13 @@ namespace :sync do
     DESC
     task :db, :roles => :db, :only => { :primary => true } do
       # Use production on non-multistage
-      stage ||= 'production'
+      set :stage, 'production' unless exists?(:stage)
 
       filename = "database.#{stage}.#{Time.now.strftime '%Y-%m-%d_%H:%M:%S'}.sql.bz2"
       on_rollback { delete "#{shared_path}/sync/#{filename}" }
 
       # Remote DB dump
-      username, password, database, host = database_config(stage)
+      username, password, database, host = remote_database_config(stage)
       host_option = host ? "--host='#{host}'" : ""
       run "mysqldump -u #{username} --password='#{password}' #{host_option} #{database} | bzip2 -9 > #{shared_path}/sync/#{filename}" do |channel, stream, data|
         puts data
@@ -75,7 +75,7 @@ namespace :sync do
     DESC
     task :fs, :roles => :web, :once => true do
       # Use production on non-multistage
-      stage ||= 'production'
+      set :stage, 'production' unless exists?(:stage)
 
       server, port = host_and_port
 
@@ -113,7 +113,7 @@ namespace :sync do
     DESC
     task :db, :roles => :db, :only => { :primary => true } do
       # Use production on non-multistage
-      stage ||= 'production'
+      set :stage, 'production' unless exists?(:stage)
 
       filename = "database.#{stage}.#{Time.now.strftime '%Y-%m-%d_%H:%M:%S'}.sql.bz2"
 
@@ -123,7 +123,7 @@ namespace :sync do
       end
 
       # Make a backup before importing
-      username, password, database, host = database_config(stage)
+      username, password, database, host = remote_database_config(stage)
       host_option = host ? "--host='#{host}'" : ""
       run "mysqldump -u #{username} --password='#{password}' #{host_option} #{database} | bzip2 -9 > #{shared_path}/sync/#{filename}" do |channel, stream, data|
         puts data
@@ -138,7 +138,7 @@ namespace :sync do
       system "rm -f #{filename}"
 
       # Remote DB import
-      username, password, database, host = database_config(stage)
+      username, password, database, host = remote_database_config(stage)
       host_option = host ? "--host='#{host}'" : ""
       run "bzip2 -d -c #{shared_path}/sync/#{filename} | mysql -u #{username} --password='#{password}' #{host_option} #{database}; rm -f #{shared_path}/sync/#{filename}"
       purge_old_backups "database"
@@ -153,7 +153,7 @@ namespace :sync do
     DESC
     task :fs, :roles => :web, :once => true do
       # Use production on non-multistage
-      stage ||= 'production'
+      set :stage, 'production' unless exists?(:stage)
 
       server, port = host_and_port
       Array(fetch(:sync_directories, [])).each do |syncdir|
@@ -185,6 +185,18 @@ namespace :sync do
   def database_config(db)
     database = YAML::load_file('config/database.yml')
     return database["#{db}"]['username'], database["#{db}"]['password'], database["#{db}"]['database'], database["#{db}"]['host']
+  end
+
+  #
+  # Reads the database credentials from the remote config/database.yml file
+  # +db+ the name of the environment to get the credentials for
+  # Returns username, password, database
+  #
+  def remote_database_config(db)
+    env = rails_env || db
+    config = capture "cat #{deploy_to}/current/config/database.yml"
+    database = YAML::load(config)
+    return database["#{env}"]['username'], database["#{env}"]['password'], database["#{env}"]['database'], database["#{env}"]['host']
   end
 
   #
