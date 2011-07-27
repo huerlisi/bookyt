@@ -5,4 +5,4 @@
     %th{:style => "text-align: right"}
       %h3= currency_fmt(Account.by_type(group).saldo(@date))
 
-= render :partial => 'account', :collection => Account.by_type(group).all.select{|a| a.bookings.by_value_period(@dates.first, @dates.last).exists?}
+= render :partial => 'account', :collection => Account.by_type(group)
