@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   attr_accessible :role_texts
 
   def role?(role)
-    return !!self.roles.find_by_name(role.to_s)
+    !!self.roles.find_by_name(role.to_s)
   end
 
   def role_texts
@@ -23,10 +23,7 @@ class User < ActiveRecord::Base
   end
 
   def role_texts=(role_names)
-    roles.delete_all
-    for role_name in role_names
-      roles.build(:name => role_name)
-    end
+    self.roles = Role.where(:name => role_names)
   end
 
   # Associations
