@@ -66,6 +66,7 @@ gem 'lyb_sidebar'
 gem 'formtastic'
 
 # CRUD
+gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
 gem 'inherited_resources'
 gem 'has_scope'
 gem 'i18n_rails_helpers'
