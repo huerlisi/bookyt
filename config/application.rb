@@ -40,7 +40,7 @@ module Bookyt
     end
 
     # JavaScript files you want as :defaults (application.js is always included).
-    config.action_view.javascript_expansions[:defaults] += %w(cyt tooltip jquery.form jquery.remotipart)
+    config.action_view.javascript_expansions[:defaults] += %w(jquery-ui cyt tooltip jquery.form jquery.remotipart)
 
     # Configure to log the deprecation notices
     config.active_support.deprecation = :log
