@@ -16,6 +16,7 @@ vendor/bundle
 doc/api
 doc/app
 public/stylesheets/all.css
+app/assets/stylesheets/compiled
 
 # Backup
 db/backup
@@ -25,9 +26,6 @@ config/database.yml
 
 # Plugins
 # =======
-# compass
-public/stylesheets/compiled
-
 # Capistrano
 config/deploy/*.rb
 

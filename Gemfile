@@ -10,6 +10,19 @@ gem 'rails', '~> 3.1.0.rc'
 gem 'mysql2'
 gem 'sqlite3'
 
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails', "~> 3.1.0.rc"
+  # gem 'coffee-rails', "~> 3.1.0.rc"
+  gem 'therubyracer'
+  gem 'uglifier'
+  gem 'compass', :git => 'git://github.com/chriseppstein/compass.git', :branch => 'rails31'
+  gem 'fancy-buttons'
+end
+
+gem 'jquery-rails'
+
 # Test
 # ===
 group :test do
@@ -52,9 +65,6 @@ end
 # Standard helpers
 # ================
 gem 'haml'
-gem 'sass'
-gem 'compass'
-gem 'fancy-buttons'
 
 # Navigation
 gem 'simple-navigation'
@@ -70,9 +80,6 @@ gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branc
 gem 'inherited_resources'
 gem 'has_scope'
 gem 'i18n_rails_helpers'
-
-# Javascript
-gem 'jquery-rails'
 
 # Access Control
 gem 'devise'

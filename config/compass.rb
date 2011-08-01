@@ -14,6 +14,9 @@ http_path = "/"
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 # line_comments = false
 
+# this fixes the generated path to the sprite image
+http_images_path = '/assets'
+
 # Use compiled for CSS output
 css_dir = "public/stylesheets/compiled"
 
