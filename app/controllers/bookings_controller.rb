@@ -28,7 +28,7 @@ class BookingsController < AuthorizedController
 
   def select
     @booking = Booking.new(params[:booking])
-    @booking_templates = BookingTemplate.all.paginate(:page => params[:page])
+    @booking_templates = BookingTemplate.paginate(:page => params[:page])
     @bookings = Booking.where("title LIKE ?", '%' + @booking.title + '%').order('value_date DESC').paginate(:page => params[:page])
   end
 
