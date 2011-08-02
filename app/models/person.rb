@@ -35,7 +35,7 @@ class Person < ActiveRecord::Base
   }
 
   # Constructor
-  def initialize(attributes = nil)
+  def initialize(attributes = nil, options = {})
     super
 
     build_vcard unless vcard
