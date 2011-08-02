@@ -1,5 +1,12 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  # Plugins
+  def engine_stylesheet_link_tag(options = {})
+    Bookyt::Engine.engines.map {|engine|
+      stylesheet_link_tag engine, options
+    }.join.html_safe
+  end
+
   # Tenancy
   def current_tenant
     current_user.tenant

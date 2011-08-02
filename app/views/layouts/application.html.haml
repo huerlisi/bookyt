@@ -7,6 +7,7 @@
     %link{:rel => "shortcut icon", :href => image_path('favicon.ico')}/
 
     = stylesheet_link_tag 'screen', :media => 'screen, projection, print'
+    = engine_stylesheet_link_tag :media => 'screen, projection, print'
     = stylesheet_link_tag 'print', :media => 'print'
     /[if lt IE 8]
       = stylesheet_link_tag 'ie', :media => 'screen, projection'

@@ -6,6 +6,10 @@ module Bookyt
       @@engines << name
     end
     
+    def self.engines
+      @@engines
+    end
+
     def self.setup_navigation(navigation, item)
       @@engines.map do |engine|
         self.setup_navigation_engine(navigation, item, engine)
