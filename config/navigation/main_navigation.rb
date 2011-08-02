@@ -13,16 +13,9 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :overview, t('bookyt.main_navigation.overview'), root_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.overview'),
                  :if => Proc.new { user_signed_in? }
-    primary.item :store, t('bookyt.main_navigation.store'), new_day_path,
-                 :tooltip => t('bookyt.main_navigation.tooltip.store'),
-                 :if => Proc.new { user_signed_in? } do |store|
-      store.item :day, t('bookyt.main_navigation.days'), days_path,
-                 :tooltip => t('bookyt.main_navigation.tooltip.days'),
-                 :highlights_on => /\/days($|\?)/
-      store.item :day, t('bookyt.main_navigation.new_day'), new_day_path,
-                 :tooltip => t('bookyt.main_navigation.tooltip.new_day'),
-                 :highlights_on => /\/days\/new/
-    end
+
+    # Hack to get engine navigations included
+    Bookyt::Engine.setup_navigation(self, primary)
 
     primary.item :accounting, t('bookyt.main_navigation.accounting'), new_booking_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.accounting'),
