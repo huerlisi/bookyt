@@ -62,7 +62,7 @@ describe BookingTemplate do
     shared_examples_for "new partial booking" do
       context "and return a Booking which" do
         specify { should be_a_new(Booking) }
-        specify { should_not be_valid }
+        specify { puts subject.inspect; should_not be_valid }
       end
     end
 
@@ -79,44 +79,34 @@ describe BookingTemplate do
 
       context "when called with no parameters" do
         let(:booking) { cash.build_booking }
-        it_should_behave_like "new partial booking"
+
+        specify { should be_a_new(Booking) }
+        its(:amount) { should == 0.0 }
       end
 
       context "when called with amount 10.0" do
         let(:booking) { cash.build_booking(:amount => 10.0) }
 
-        it_should_behave_like "new partial booking"
-        context "whose" do
-          its(:amount) { should == 10.0 }
-        end
+        its(:amount) { should == 10.0 }
       end
 
       context "when called with value_date 2001-02-03 as string" do
         let(:booking) { cash.build_booking(:value_date => "2001-02-03") }
 
-        it_should_behave_like "new partial booking"
-        context "whose" do
-          its(:value_date) { should == Date.parse("2001-02-03") }
-        end
+        its(:value_date) { should == Date.parse("2001-02-03") }
       end
 
       context "when called with value_date 2001-02-03 as date" do
         let(:booking) { cash.build_booking(:value_date => Date.parse("2001-02-03")) }
 
-        it_should_behave_like "new partial booking"
-        context "whose" do
-          its(:value_date) { should == Date.parse("2001-02-03") }
-        end
+        its(:value_date) { should == Date.parse("2001-02-03") }
       end
 
       context "when called with value_date 2001-02-03 and amount 10.0" do
         let(:booking) { cash.build_booking(:value_date => "2001-02-03", :amount => 10.0) }
 
-        it_should_behave_like "new valid booking"
-        context "whose" do
-          its(:value_date) { should == Date.parse("2001-02-03") }
-          its(:amount) { should == 10.0 }
-        end
+        its(:value_date) { should == Date.parse("2001-02-03") }
+        its(:amount) { should == 10.0 }
       end
     end
   end
