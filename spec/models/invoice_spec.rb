@@ -26,7 +26,6 @@ describe Invoice do
     subject { Factory.build :invoice }
 
     its(:to_s) { should =~ /New Invoice/ }
-    its(:to_s) { should =~ /99.85/ }
   end
 
   context "with bookings" do
