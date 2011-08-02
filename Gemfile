@@ -23,31 +23,6 @@ end
 
 gem 'jquery-rails'
 
-# Test
-# ===
-group :test do
-  # Framework
-  gem "rspec"
-  gem 'rspec-rails'
-
-  # Browser
-  gem 'capybara'
-  gem 'webrat'
-
-  # Mocking
-  gem 'mocha'
-
-  # Fixtures
-  gem "factory_girl_rails", "~> 1.1"
-
-  # Matchers/Helpers
-  gem 'shoulda'
-
-  # Autotest
-  gem 'autotest'
-  gem 'autotest-rails'
-end
-
 # Development
 # ===========
 group :development do
@@ -56,10 +31,42 @@ group :development do
 
   # Haml generators
   gem 'haml-rails'
+  gem 'hpricot'
+  gem 'ruby_parser'
 
-  # Deployment
+  # Capistrano
   gem 'capistrano'
+  gem 'capistrano-ext'
   gem 'cap-recipes'
+end
+
+# Test
+# ====
+group :test do
+  # Matchers/Helpers
+  gem 'shoulda'
+
+  # Mocking
+  # gem 'mocha'
+
+  # Browser
+  gem 'capybara'
+
+  # Autotest
+  gem 'autotest'
+  gem 'autotest-rails'
+end
+
+group :test, :development do
+  # Framework
+  gem 'rspec-rails'
+
+  # Fixtures
+  gem "factory_girl_rails"
+
+  # Integration
+  # gem 'cucumber-rails'
+  # gem 'cucumber'
 end
 
 # Standard helpers

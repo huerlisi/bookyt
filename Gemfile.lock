@@ -65,6 +65,8 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    capistrano-ext (1.2.1)
+      capistrano (>= 1.0.0)
     capybara (1.0.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -112,6 +114,7 @@ GEM
     has_vcards (0.7.2)
     highline (1.6.2)
     hike (1.2.0)
+    hpricot (0.8.4)
     i18n (0.6.0)
     i18n_rails_helpers (0.13.0)
       activerecord
@@ -130,7 +133,6 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mocha (0.9.12)
     multi_json (1.0.3)
     mysql2 (0.3.6)
     net-scp (1.0.4)
@@ -197,6 +199,8 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.6.0)
+    ruby_parser (2.0.6)
+      sexp_processor (~> 3.0)
     rubyzip (0.9.4)
     sass (3.1.5)
     sass-rails (3.1.0.rc.5)
@@ -209,6 +213,7 @@ GEM
       ffi (>= 1.0.7)
       json_pure
       rubyzip
+    sexp_processor (3.0.5)
     shoulda (2.11.3)
     show_for (0.2.4)
     simple-navigation (3.3.4)
@@ -235,10 +240,6 @@ GEM
       timeliness (~> 0.3.3)
     warden (1.0.4)
       rack (>= 1.0)
-    webrat (0.7.3)
-      nokogiri (>= 1.2.0)
-      rack (>= 1.0)
-      rack-test (>= 0.5.3)
     wkhtmltopdf-binary (0.9.5.3)
     xpath (0.1.4)
       nokogiri (~> 1.3)
@@ -253,12 +254,13 @@ DEPENDENCIES
   cancan
   cap-recipes
   capistrano
+  capistrano-ext
   capybara
   carrierwave
   compass!
   csv-mapper
   devise
-  factory_girl_rails (~> 1.1)
+  factory_girl_rails
   fancy-buttons
   formtastic
   haml
@@ -266,11 +268,11 @@ DEPENDENCIES
   has_accounts
   has_scope
   has_vcards
+  hpricot
   i18n_rails_helpers
   inherited_resources
   jquery-rails
   lyb_sidebar
-  mocha
   mysql2
   paperclip
   pdfkit!
@@ -279,8 +281,8 @@ DEPENDENCIES
   rails (~> 3.1.0.rc)
   rdoc
   remotipart
-  rspec
   rspec-rails
+  ruby_parser
   sass-rails (~> 3.1.0.rc)
   shoulda
   show_for
@@ -289,5 +291,5 @@ DEPENDENCIES
   therubyracer
   uglifier
   validates_timeliness
-  webrat
+  will_paginate!
   wkhtmltopdf-binary
