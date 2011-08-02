@@ -15,11 +15,17 @@ GIT
   specs:
     will_paginate (3.0.pre4)
 
+GIT
+  remote: http://github.com/huerlisi/PDFKit.git
+  revision: e4a8a67a69394be211358b04235bb3ce28a33d52
+  specs:
+    pdfkit (0.5.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
     Ascii85 (1.0.1)
-    ZenTest (4.6.0)
+    ZenTest (4.5.0)
     actionmailer (3.1.0.rc5)
       actionpack (= 3.1.0.rc5)
       mail (~> 2.3.0)
