@@ -11,28 +11,28 @@ describe Day do
     it "be called on save of new object" do
       day = Factory.build(:day)
 
-      day.expects(:create_bookings)
+      day.should_receive(:create_bookings)
       day.save
     end
 
     it "not be called on persisted record" do
       day = Factory.create(:day)
 
-      day.expects(:create_bookings).never
+      day.should_receive(:create_bookings).never
       day.save
     end
 
     it "not be called on update" do
       day = Factory.create(:day)
 
-      day.expects(:create_bookings).never
+      day.should_receive(:create_bookings).never
       day.update_attributes(:net_turnover => 90.0)
     end
 
     it "create 4 bookings" do
       day = Factory.build(:day)
 
-      BookingTemplate.expects(:create_booking).times(4)
+      BookingTemplate.should_receive(:create_booking).exactly(4).times
       day.send(:create_bookings)
     end
   end
