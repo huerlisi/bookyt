@@ -24,13 +24,11 @@ sqlite: &sqlite
 
 # MySQL
 mysql: &mysql
-  adapter:  mysql
+  adapter:  mysql2
+  encoding: utf8
   pool:     5
   timeout:  5000
   host:     localhost
-  username: bookyt
-  password: REPLACE WITH PWD
-  encoding: utf8 
 
 # Environments
 # ============
