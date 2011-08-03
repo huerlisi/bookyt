@@ -62,7 +62,7 @@ GEM
       ZenTest
     bcrypt-ruby (2.1.4)
     bookyt_pos (0.1.1)
-    bookyt_salary (0.0.1)
+    bookyt_salary (0.1.0)
     builder (3.0.0)
     cancan (1.6.5)
     cap-recipes (0.3.36)
