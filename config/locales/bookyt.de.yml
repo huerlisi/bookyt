@@ -290,8 +290,6 @@ de:
       search:               'Suche'
       letter:               'Brief'
       copy:                 %{model} kopieren
-      day:
-        new: Abrechnung von %{day}
       statistics:           'Statistiken'
       write_downs:          Abschreibungen
       balance_sheet:        'Bilanz'
