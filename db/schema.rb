@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110704201932) do
+ActiveRecord::Schema.define(:version => 20110803203804) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -58,21 +58,6 @@ ActiveRecord::Schema.define(:version => 20110704201932) do
   end
 
   add_index "addresses", ["vcard_id"], :name => "addresses_vcard_id_index"
-
-  create_table "assets", :force => true do |t|
-    t.string   "title"
-    t.text     "remarks"
-    t.decimal  "amount",              :precision => 10, :scale => 2
-    t.string   "state"
-    t.integer  "purchase_invoice_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "selling_invoice_id"
-  end
-
-  add_index "assets", ["purchase_invoice_id"], :name => "index_assets_on_purchase_invoice_id"
-  add_index "assets", ["selling_invoice_id"], :name => "index_assets_on_selling_invoice_id"
-  add_index "assets", ["state"], :name => "index_assets_on_state"
 
   create_table "attachments", :force => true do |t|
     t.string   "title"
@@ -251,6 +236,21 @@ ActiveRecord::Schema.define(:version => 20110704201932) do
 
   add_index "roles_users", ["role_id"], :name => "index_roles_users_on_role_id"
   add_index "roles_users", ["user_id"], :name => "index_roles_users_on_user_id"
+
+  create_table "stocks", :force => true do |t|
+    t.string   "title"
+    t.text     "remarks"
+    t.decimal  "amount",              :precision => 10, :scale => 2
+    t.string   "state"
+    t.integer  "purchase_invoice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "selling_invoice_id"
+  end
+
+  add_index "stocks", ["purchase_invoice_id"], :name => "index_assets_on_purchase_invoice_id"
+  add_index "stocks", ["selling_invoice_id"], :name => "index_assets_on_selling_invoice_id"
+  add_index "stocks", ["state"], :name => "index_assets_on_state"
 
   create_table "tenants", :force => true do |t|
     t.integer  "person_id"
