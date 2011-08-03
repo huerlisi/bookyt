@@ -17,6 +17,7 @@ doc/api
 doc/app
 public/stylesheets/all.css
 app/assets/stylesheets/compiled
+public/assets
 
 # Backup
 db/backup
