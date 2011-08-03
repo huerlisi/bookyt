@@ -56,5 +56,9 @@ module Bookyt
     config.assets.precompile += %w( ie.css ie6.css print.css screen.css )
 
     config.middleware.use PDFKit::Middleware, {}, :except => %r[letter]
+
+    # Engines
+    config.bookyt = ActiveSupport::OrderedOptions.new
+    config.bookyt.engines = []
   end
 end
