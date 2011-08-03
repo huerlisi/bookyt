@@ -330,8 +330,6 @@ de:
       payment_no:             Rechnung Nr. %{payment_no}
       invoicing_party:        Rechnungssteller
     main_navigation:
-      days:                     Tagesabschlüsse
-      new_day:                  Tagesabschluss
       new_booking:              Neue Buchung
       balance:                  Bilanz
       profit:                   Erfolgsrechnung
@@ -359,8 +357,6 @@ de:
       new_customer:             Neuer Kunde
       account_types:            Kontenarten
       tooltip:
-        new_day:  Hier können Sie einen neuen Tagesabschluss gemäss Registrierkasse buchen
-        days:  Hier finden Sie eine Liste aller Tagesabschlüsse
         new_booking: Hier können Sie eine neue Buchung für die Finanzbuchhaltung erstellen
         balance: Hier können Sie die Bilanz aufrufen
         profit:  Hier können Sie die Erfolgsrechnung aufrufen
