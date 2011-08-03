@@ -123,3 +123,4 @@ gem 'csv-mapper'
 # Plugins
 # =======
 gem 'bookyt_pos'
+gem 'bookyt_salary'
