@@ -53,6 +53,7 @@ module Bookyt
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    config.assets.precompile += %w( ie.css ie6.css print.css screen.css )
 
     config.middleware.use PDFKit::Middleware, {}, :except => %r[letter]
   end
