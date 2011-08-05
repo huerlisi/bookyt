@@ -1,6 +1,6 @@
 class RenameAssetsToStocks < ActiveRecord::Migration
   def up
-#    rename_table :assets, :stocks
+    rename_table :assets, :stocks
     
     execute "UPDATE attachments SET object_type = 'Stock' WHERE object_type = 'Asset'"
     execute "UPDATE bookings SET reference_type = 'Stock' WHERE reference_type = 'Asset'"
