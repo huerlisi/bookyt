@@ -3,5 +3,9 @@
 %h1= t_title
 = render 'search_form'
 
-= paginated_section collection do
-  = render 'list'
+%ul.overview-list.level-1
+  %li
+    = link_to t_model(DebitInvoice), debit_invoices_path
+    %ul.overview-list.level-2
+      %li= link_to "Offene Rechnungen", debit_invoices_path(:by_state => :booked)
+      %li= link_to "Überfällige Rechnungen", debit_invoices_path(:overdue => true)
