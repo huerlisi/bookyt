@@ -33,7 +33,7 @@ module Prawn
           # TODO use uploaded file from tenant
           # TODO think about requiring prawn-fast-png or only use PNGs with no transparency
           # You better use a bigger file as it gives better resolution
-          image "#{::Rails.root}/public/images/letter-logo.png", :width => 150, :position => :left, :vposition => :top
+          image ::Rails.root.join("app/assets/images/letter-logo.png"), :width => 150, :position => :left, :vposition => :top
 
         end
       end
