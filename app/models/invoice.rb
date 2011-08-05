@@ -82,8 +82,4 @@ class Invoice < ActiveRecord::Base
 
     super(invoice_params, template_code)
   end
-
-  # Assets
-  # ======
-  has_many :assets, :foreign_key => :purchase_invoice_id
 end

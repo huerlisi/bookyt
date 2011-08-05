@@ -70,18 +70,6 @@ Bookyt::Application.routes.draw do
     resources :attachments
   end
 
-  # Assets
-  resources :assets do
-    collection do
-      get :write_downs
-    end
-  end
-
-  resources :invoices do
-    resources :assets
-    resources :attachments
-  end
-
   # Bookings
   resources :bookings do
     collection do

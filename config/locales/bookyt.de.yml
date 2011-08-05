@@ -24,7 +24,6 @@ de:
     models:
       account: Konto
       account_type: Kontentyp
-      asset: Bestand
       booking: Buchung
       booking_template: Buchungsvorlage
       charge_booking_template: Bedingte Buchungsvorlage
@@ -58,20 +57,6 @@ de:
       attachment:
         title:          Titel
         file:           Dateiname
-      asset:
-        invoice_id:       Rechnungs Nr.
-        purchase_invoice: Kaufbeleg
-        selling_invoice:  Verkaufsbeleg
-        amount:           Anschaffungswert
-        balance:          Buchwert
-        balance_begin:    Buchwert Anfang
-        balance_end:      Buchwert Ende
-        write_downs:      Abschreibungen
-        change:           Zu-/Abgänge
-        remarks:          Bemerkungen
-        title:            Titel
-        state:            Status
-        direct_account:   Konto
       booking:
         value_date:     Valutadatum
         title:          Titel
@@ -246,13 +231,6 @@ de:
       reactivated: reaktiviert
       reminded:    1x gemahnt
 
-  asset:
-    state:
-      available: vorhanden
-      amortized: amortisiert
-      sold:      verkauft
-      removed:   entsorgt
-
   booking_template:
     relation:
       reference_amount:  'Ursprünglicher Betrag'
@@ -300,7 +278,6 @@ de:
   title:
     bookings:         Buchungen
     attachments:      Anhänge
-    assets:           Posten
     period:           Periode
     invoices:         Belege
 

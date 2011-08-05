@@ -1,8 +1,8 @@
 .contextual
-  = icon_link_to :new, new_invoice_asset_path(resource, :asset => {:purchase_invoice_id => resource.id}), :remote => true
+  = icon_link_to :new, new_invoice_stock_path(resource, :stock => {:purchase_invoice_id => resource.id}), :remote => true
 %h3= t('title.assets')
 
 #assets_list
-  - unless resource.assets.empty?
+  - unless resource.stocks.empty?
     %table.list
-      = render :partial => 'invoices/asset', :collection => resource.assets
+      = render :partial => 'invoices/asset', :collection => resource.stocks
