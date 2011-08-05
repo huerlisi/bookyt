@@ -48,11 +48,11 @@ class BookingTemplate < ActiveRecord::Base
     if reference
       case self.amount_relates_to
         when 'reference_amount'
-          booking_amount *= reference.amount
+          booking_amount *= reference.amount unless reference.amount.nil?
         when 'reference_balance'
-          booking_amount *= reference.balance
+          booking_amount *= reference.balance unless reference.balance.nil?
         when 'reference_amount_minus_balance'
-          booking_amount *= reference.amount - reference.balance
+          booking_amount *= reference.amount - reference.balance unless (reference.amount.nil? or reference.balance.nil?)
       end
     end
 
