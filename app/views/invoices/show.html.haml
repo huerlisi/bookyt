@@ -44,6 +44,9 @@
 #invoice_booking_list
   = render 'direct_bookings/list', :reference => resource
 
+%h3= t('title.line_items')
+%table.list
+  = render resource.line_items
 
 = render 'bookyt_stock/invoices/show' if controller.template_exists? 'show', 'bookyt_stock/invoices', true
 
