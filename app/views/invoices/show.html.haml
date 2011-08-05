@@ -45,7 +45,7 @@
   = render 'direct_bookings/list', :reference => resource
 
 
-= render 'invoices/asset_list'
+= render 'bookyt_stock/invoices/show' if controller.template_exists? 'show', 'bookyt_stock/invoices', true
 
 .contextual
   = icon_link_to :new, new_invoice_attachment_path(resource), :remote => true
