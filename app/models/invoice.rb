@@ -4,6 +4,7 @@ class Invoice < ActiveRecord::Base
 
   # Scopes
   default_scope order(:due_date)
+  scope :overdue, where("due_date < NOW()")
 
   # Associations
   belongs_to :customer, :class_name => 'Person'

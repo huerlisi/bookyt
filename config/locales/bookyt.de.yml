@@ -230,6 +230,7 @@ de:
       printed:     gedruckt
       reactivated: reaktiviert
       reminded:    1x gemahnt
+      overdue:     überfällig
 
   booking_template:
     relation:
