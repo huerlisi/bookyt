@@ -83,4 +83,9 @@ class Invoice < ActiveRecord::Base
 
     super(invoice_params, template_code)
   end
+
+  # Line Items
+  # ==========
+  has_many :line_items, :autosave => true
+  accepts_nested_attributes_for :line_items, :reject_if => proc { |attributes| attributes['quantity'].blank? or attributes['quantity'] == '0' }
 end
