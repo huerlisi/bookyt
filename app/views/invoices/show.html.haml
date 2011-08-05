@@ -1,6 +1,5 @@
 .contextual
-  = icon_link_to :pdf, :format => :pdf
-  = icon_link_to :letter if resource.is_a?(DebitInvoice)
+  = icon_link_to :pdf, :action => :letter, :format => :pdf if resource.is_a?(DebitInvoice)
   = contextual_links_for
 %h1= resource
 
