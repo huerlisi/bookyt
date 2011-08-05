@@ -82,6 +82,7 @@ gem 'lyb_sidebar'
 
 # Form framework
 gem 'formtastic'
+gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
 
 # CRUD
 gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'

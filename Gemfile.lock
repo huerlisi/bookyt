@@ -30,6 +30,12 @@ GIT
   specs:
     pdfkit (0.5.2)
 
+GIT
+  remote: https://github.com/ryanb/nested_form.git
+  revision: 57f32788f1952bcd633057b4b56b69b51df17610
+  specs:
+    nested_form (0.1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -285,6 +291,7 @@ DEPENDENCIES
   jquery-rails
   lyb_sidebar
   mysql2
+  nested_form!
   paperclip
   pdfkit!
   prawn

@@ -36,6 +36,7 @@ de:
       invoice: Rechnung
       credit_invoice: Kreditoren Rechnung
       debit_invoice:  Debitoren Rechnung
+      line_item: Position
       tenant: Mandant
       user: Benutzer
       booking_import: Buchungsimport
@@ -175,6 +176,10 @@ de:
         code:          Rechnungsnr.
         duration_from: Von
         duration_to:   Bis
+      line_item:
+        quantity:      Anzahl
+        price:         Betrag
+        title:         Titel
       salary:
         amount:        Bruttolohn
         net_amount:    Nettolohn
@@ -281,6 +286,7 @@ de:
     attachments:      Anhänge
     period:           Periode
     invoices:         Belege
+    line_items:       Positionen
 
   bookyt:
     all:              Alle

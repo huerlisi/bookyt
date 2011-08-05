@@ -1,4 +1,4 @@
-= semantic_form_for resource do |f|
+= semantic_nested_form_for resource do |f|
   = f.semantic_errors
   = f.inputs do
     = f.input :company_id, :as => :hidden
@@ -15,6 +15,14 @@
   = f.inputs t('title.period') do
     = f.input :duration_from, :as => :date_field
     = f.input :duration_to, :as => :date_field
+
+  = f.inputs t('title.line_items') do
+    = f.fields_for :line_items do |line_item|
+      = line_item.input :quantity, :required => true
+      = line_item.input :price, :required => true
+      = line_item.input :title, :required => true
+      = line_item.link_to_remove t_action(:delete)
+    = f.link_to_add t_action(:new), :line_items
 
   = f.inputs do
     = f.semantic_fields_for :attachments do |a|
