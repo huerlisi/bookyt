@@ -5,8 +5,8 @@ class PeopleController < AuthorizedController
 
     # Invoice scoping by state
     by_state = params[:by_state] || 'all'
-    @credit_invoices = @credit_invoices.by_state(by_state)
-    @debit_invoices = @debit_invoices.by_state(by_state)
+    @credit_invoices = @credit_invoices.reorder('due_date DESC').by_state(by_state)
+    @debit_invoices = @debit_invoices.reorder('due_date DESC').by_state(by_state)
 
     show!
   end
