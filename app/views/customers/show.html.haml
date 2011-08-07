@@ -4,6 +4,8 @@
 
 = render 'persons/show'
 
+.contextual
+  = icon_link_to :new, new_debit_invoice_path(:invoice => {:customer_id => resource})
 %h2= t('bookyt.main_navigation.invoicing')
 
 = render 'credit_invoices/list'
