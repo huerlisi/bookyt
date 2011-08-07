@@ -11,12 +11,12 @@ class LineItem < ActiveRecord::Base
   def assign_item=(value)
     self.item = value
 
-    self.amount = value.amount
-    self.title  = value.title
-    self.code   = value.code
+    self.price = value.price
+    self.title = value.title
+    self.code  = value.code
   end
 
   def total_amount
-    quantity * amount.to_f
+    quantity * price.to_f
   end
 end

@@ -8,12 +8,8 @@ module Prawn
       super
       
       # Default Font
-      font_path = ::Rails.root.join('public/system/fonts/')
-      font_families.update(
-        "Angostura" => { :bold        => font_path.join('letter-bold.ttf'),
-                         :normal      => font_path.join('letter-normal.ttf')})
-      font "Angostura"
-      font_size 13
+      font  'Helvetica'
+      font_size 10
     end
 
     # Draws the full address of a vcard
@@ -25,7 +21,7 @@ module Prawn
 
     def header(sender)
       repeat :all do
-        bounding_box [0, bounds.height + 130], :width => bounds.width, :height => 160 do
+        bounding_box [0, bounds.height + 140], :width => bounds.width do
           indent bounds.width / 11 * 9 do
             full_address(sender.vcard)
           end
@@ -34,81 +30,51 @@ module Prawn
           # TODO think about requiring prawn-fast-png or only use PNGs with no transparency
           # You better use a bigger file as it gives better resolution
           image ::Rails.root.join("app/assets/images/letter-logo.png"), :width => 150, :position => :left, :vposition => :top
-
         end
       end
     end
 
-    def letter_head(sender, receiver)
-      # define grid
-      define_grid(:columns => 11, :rows => 16, :gutter => 2) #.show_all('EEEEEE')
+    def closing(sender)
+      text I18n.t('letters.debit_invoice.closing')
 
-      #Header start
-      grid([0,7], [1,9]).bounding_box do
-        full_address(receiver.vcard)
-      end
-
-      # Place'n'Date
-      grid([3,7], [3,9]).bounding_box do
-        text sender.vcard.locality + ", " + I18n.l(Date.today, :format => :long)
-      end
-
-      # Subject
-      grid([4,0], [4,9]).bounding_box do
-        text "<b>#{t('activerecord.models.invoice')}</b>", :inline_format => true, :character_spacing => 1.2
-      end
-
-    end
-
-    def closing(subscriber_one, subscriber_two)
-      move_down 30
-      text I18n.t('letters.offer.disclaimer'), :style => :bold
-      move_down 10
-
-      table([[I18n.t("letters.offer.additional_infos.five.one"), I18n.t("letters.offer.additional_infos.five.two")],
-            [I18n.t("letters.offer.additional_infos.parts.one"), I18n.t("letters.offer.additional_infos.parts.two")],
-            [I18n.t("letters.offer.additional_infos.machine.one"), I18n.t("letters.offer.additional_infos.machine.two")],
-            [I18n.t("letters.offer.additional_infos.machine_parts.one"), I18n.t("letters.offer.additional_infos.machine_parts.two")]],
-            :width => 420,
-            :cell_style => {:borders => [], :padding => [0, 0, 0, 0], :font_style => :bold},
-            :column_widths => [120, 300])
-
-      move_down 20
-      text "Wir hoffen, Ihnen mit unserem Angebot zu dienen.", :style => :bold
-      text "Für weitere Fragen stehen wir Ihnen zur Verfügung.", :style => :bold
-      move_down 20
+      text " "
+      text " "
 
       indent(320) do
-        text I18n.t('letters.offer.greetings'), :style => :bold
-        move_down 10
-        text I18n.t('letters.offer.signature'), :style => :bold
-        move_down 30
-        text "#{subscriber_one}         #{subscriber_two}", :style => :bold
+        text I18n.t('letters.greetings')
+        text " "
+        text "#{sender.vcard.full_name}"
       end
     end
 
-    def line_items_table(offer)
-      items = offer.line_items
+    def line_items_table(invoice, line_items)
+      content = line_items.collect do |item|
+        quantity = "%i x" % item.quantity
 
-      titles = [:amount, :description, :code, :price].inject([]) do |out, attr|
-        out << make_cell(:content => I18n.t("letters.offer.#{attr}"), :background_color => "CFCFCF")
+        [quantity, item.title, currency_fmt(item.total_amount)]
       end
 
-      content = items.inject([]) do |out, item|
-        if items.first.eql?item
-          title = offer.product.description
-        else
-          title = item.title
-        end
+      total = ["Total", nil, currency_fmt(invoice.amount)]
 
-        times = "%ix" % item.times
+      rows = [titles] + content + [total]
+      table(rows, :width => bounds.width,
+                  :column_widths => [40, 300],
+                  :header => true) do
 
-        out << [times, title, item.code, currency_fmt(item.total_amount).to_s]
+        # General cell styling
+        cells.valign  = :top
+        cells.borders = []
+        cells.padding = [0, 0, 0, 0]
+
+        # Headings styling
+        row(0).font_style = :bold
+
+        # Columns
+        column(2).align = :right
+
+        # Footer styling
+        row(-1).font_style = :bold
       end
-      table([titles] + content, :width => bounds.width,
-                      :cell_style => {:borders => [], :padding => [0, 0, 0, 0], :font_style => :bold},
-                      :column_widths => [40, 300],
-                      :header => true)
     end
   end
 end
