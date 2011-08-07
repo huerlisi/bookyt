@@ -18,6 +18,17 @@ AccountType.create!([
 ])
 
 
+# Basic Accounts
+Account.create!([
+  {:code => "1000", :title => "Kasse", :account_type => current_assets},
+  {:code => "1100", :title => "Debitoren", :account_type => current_assets},
+  {:code => "3200", :title => "Waren-/Dienstleistungsertrag", :account_type => earnings},
+])
+
+BankAccount.create!([
+  {:code => "1020", :title => "Bankkonto", :account_type => current_assets},
+])
+
 # Credit Invoices
 Account.create!([
   {:code => "2000", :title => "Kreditoren", :account_type => outside_capital},
