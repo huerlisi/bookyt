@@ -3,7 +3,6 @@
   = f.inputs do
     = f.input :company_id, :as => :hidden
     = f.input :state, :collection => invoice_states_as_collection
-    .combobox-action= list_link_for(:new, Customer, :target => 'blank')
     = f.input :customer, :input_html => {:class => 'combobox', 'data-autofocus' => true}
     = f.input :title
     = f.input :code
