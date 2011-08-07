@@ -124,5 +124,7 @@ gem 'csv-mapper'
 
 # Plugins
 # =======
-gem 'bookyt_pos'
-gem 'bookyt_salary'
+# Uncomment to enable plugins
+#gem 'bookyt_pos'
+#gem 'bookyt_salary'
+#gem 'bookyt_stock'
