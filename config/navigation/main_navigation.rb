@@ -32,9 +32,6 @@ SimpleNavigation::Configuration.run do |navigation|
       accounting.item :accounts, t('bookyt.main_navigation.accounts'), accounts_path,
                       :tooltip => t('bookyt.main_navigation.tooltip.accounts'),
                       :highlights_on => /\/accounts/
-      accounting.item :account_types, t('bookyt.main_navigation.account_types'), account_types_path,
-                      :tooltip => t('bookyt.main_navigation.tooltip.account_types'),
-                      :highlights_on => /\/account_types/
       accounting.item :bookings, t('bookyt.main_navigation.bookings'), bookings_path,
                       :tooltip => t('bookyt.main_navigation.tooltip.bookings'),
                       :highlights_on => /\/bookings($|\?)/
@@ -99,6 +96,9 @@ SimpleNavigation::Configuration.run do |navigation|
       settings.item :tenant_index, t_title(:index, Tenant), tenants_path, :if => lambda { can?(:index, Tenant) },
                              :tooltip => t('bookyt.main_navigation.tooltip.tenant_index'),
                              :highlights_on => /\/tenants($|\?)/
+      settings.item :account_types, t('bookyt.main_navigation.account_types'), account_types_path,
+                      :tooltip => t('bookyt.main_navigation.tooltip.account_types'),
+                      :highlights_on => /\/account_types/
       settings.item :booking_templates, t_title(:index, BookingTemplate), booking_templates_path,
                              :highlights_on => /\/booking_templates($|\/[0-9]*($|\/.*))/
       settings.item :charge_booking_templates, t_title(:index, ChargeBookingTemplate), charge_booking_templates_path,
