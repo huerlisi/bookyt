@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110807202930) do
+ActiveRecord::Schema.define(:version => 20110807210733) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20110807202930) do
     t.integer  "account_type_id"
     t.integer  "number"
     t.string   "code"
-    t.integer  "type"
+    t.string   "type"
     t.integer  "holder_id"
     t.string   "holder_type"
     t.integer  "bank_id"
