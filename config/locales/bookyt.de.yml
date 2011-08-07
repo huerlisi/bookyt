@@ -177,9 +177,10 @@ de:
         duration_from: Von
         duration_to:   Bis
       line_item:
+        date:          Datum
         quantity:      Anzahl
         price:         Betrag
-        title:         Titel
+        title:         Text
       salary:
         amount:        Bruttolohn
         net_amount:    Nettolohn

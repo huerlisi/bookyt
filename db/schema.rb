@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110805192638) do
+ActiveRecord::Schema.define(:version => 20110807105106) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -202,6 +202,7 @@ ActiveRecord::Schema.define(:version => 20110805192638) do
     t.integer  "invoice_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date"
   end
 
   add_index "line_items", ["invoice_id"], :name => "index_line_items_on_invoice_id"
