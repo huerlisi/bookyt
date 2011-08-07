@@ -21,16 +21,10 @@ module Prawn
 
     def header(sender)
       repeat :all do
-        bounding_box [0, bounds.height + 140], :width => bounds.width do
-          indent bounds.width / 11 * 9 do
-            full_address(sender.vcard)
-          end
-
-          # TODO use uploaded file from tenant
-          # TODO think about requiring prawn-fast-png or only use PNGs with no transparency
-          # You better use a bigger file as it gives better resolution
-          image ::Rails.root.join("app/assets/images/letter-logo.png"), :width => 150, :position => :left, :vposition => :top
-        end
+        # TODO use uploaded file from tenant
+        # TODO think about requiring prawn-fast-png or only use PNGs with no transparency
+        # You better use a bigger file as it gives better resolution
+        image ::Rails.root.join("app/assets/images/letter-logo.png"), :height => 50, :at => [0, bounds.top + 20]
       end
     end
 
@@ -56,18 +50,14 @@ module Prawn
 
       total = ["Total", nil, currency_fmt(invoice.amount)]
 
-      rows = [titles] + content + [total]
+      rows = content + [total]
       table(rows, :width => bounds.width,
-                  :column_widths => [40, 300],
-                  :header => true) do
+                  :column_widths => [40, 300]) do
 
         # General cell styling
         cells.valign  = :top
         cells.borders = []
         cells.padding = [0, 0, 0, 0]
-
-        # Headings styling
-        row(0).font_style = :bold
 
         # Columns
         column(2).align = :right

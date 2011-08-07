@@ -1,8 +1,10 @@
-prawn_document(:page_size => 'A4',  :top_margin => 160, :right_margin => 40, :renderer => Prawn::LetterDocument) do |pdf|
+prawn_document(:page_size => 'A4',  :top_margin => 60, :right_margin => 40, :renderer => Prawn::LetterDocument) do |pdf|
   receiver = @debit_invoice.customer
-  sender = @debit_invoice.customer
+  sender = @debit_invoice.company
 
-  pdf.header(@debit_invoice.company)
+  pdf.header(sender)
+
+  pdf.move_down 80
 
   # Address
   pdf.indent 320 do
@@ -17,7 +19,7 @@ prawn_document(:page_size => 'A4',  :top_margin => 160, :right_margin => 40, :re
   end
 
   # Subject
-  pdf.text t('activerecord.models.invoice'), :style => :bold
+  pdf.text @debit_invoice.title, :style => :bold
 
   # Line Items
   pdf.text " "
