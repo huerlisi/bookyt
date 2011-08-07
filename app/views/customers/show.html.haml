@@ -4,13 +4,9 @@
 
 = render 'persons/show'
 
-%h2= t_title :index, CreditInvoice
+%h2= t('bookyt.main_navigation.invoicing')
 
 = render 'credit_invoices/list'
-
-%h2= t_title :index, DebitInvoice
-
-= render 'debit_invoices/list'
 
 .contextual
   = icon_link_to :new, new_customer_attachment_path(resource), :remote => true
