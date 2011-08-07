@@ -1,3 +1,10 @@
+# Authorization
+# =============
+Role.create!([
+  {:name => 'admin'},
+  {:name => 'accountant'}
+])
+
 # Account Types
 # =============
 current_assets, capital_assets, outside_capital, equity_capital, costs, earnings =
