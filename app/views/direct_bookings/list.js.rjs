@@ -1,2 +1,0 @@
-page['#direct_booking_form'].remove
-page['#direct_booking_list'].replaceWith(render('list', :reference => @direct_booking.reference))
