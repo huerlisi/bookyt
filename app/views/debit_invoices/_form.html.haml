@@ -9,10 +9,6 @@
     = f.input :due_date, :as => :date_field
     = f.input :remarks, :input_html => {:rows => 4}
 
-  = f.inputs t('title.period') do
-    = f.input :duration_from, :as => :date_field
-    = f.input :duration_to, :as => :date_field
-
   = f.inputs t('title.line_items') do
     = f.fields_for :line_items do |line_item|
       = line_item.link_to_remove t_action(:delete), :style => 'float: right', :class => 'icon-delete-text'
@@ -21,6 +17,10 @@
       = line_item.input :quantity, :required => true, :input_html => {:style => 'width: 3em'}
       = line_item.input :price, :required => true, :input_html => {:style => 'width: 3em'}
     = f.link_to_add t_action(:new), :line_items
+
+  = f.inputs t('title.period') do
+    = f.input :duration_from, :as => :date_field
+    = f.input :duration_to, :as => :date_field
 
   = f.inputs do
     = f.semantic_fields_for :attachments do |a|
