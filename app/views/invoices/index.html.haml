@@ -7,3 +7,9 @@
     %ul.overview-list.level-2
       %li= link_to "Offene Rechnungen", debit_invoices_path(:by_state => :booked)
       %li= link_to "Überfällige Rechnungen", debit_invoices_path(:overdue => true)
+
+  %li
+    = link_to t_model(CreditInvoice), credit_invoices_path
+    %ul.overview-list.level-2
+      %li= link_to "Offene Rechnungen", credit_invoices_path(:by_state => :booked)
+      %li= link_to "Überfällige Rechnungen", credit_invoices_path(:overdue => true)
