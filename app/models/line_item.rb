@@ -1,6 +1,6 @@
 class LineItem < ActiveRecord::Base
   belongs_to :item, :polymorphic => true
-  belongs_to :invoice
+  belongs_to :invoice, :touch => true
 
   # Validations
   validate :quantity, :presence => true, :numericality => true
