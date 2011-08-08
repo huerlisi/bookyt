@@ -1,4 +1,6 @@
 %tr[line_item]
-  %td.invoice-position= "%i x" %line_item.quantity
+  %td= line_item.date
   %td= line_item.title
+  %td.invoice-position= "%i x" %line_item.quantity
   %td.currency= currency_fmt(line_item.price)
+  %td.currency= currency_fmt(line_item.total_amount)
