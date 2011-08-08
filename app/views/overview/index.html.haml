@@ -9,7 +9,6 @@
   - content_for :page_title do
     = t('bookyt.overview.title')
 
-  %h1
-    = t('bookyt.overview.title')
+  %h1= t('bookyt.overview.title')
 
   = render_navigation(:context => 'main', :expand_all => true, :renderer => SimpleNavigation::Renderer::Overview)
