@@ -28,7 +28,9 @@ class DebitInvoicesController < InvoicesController
 
   def create
     @debit_invoice = DebitInvoice.new(params[:debit_invoice])
-    @debit_invoice.build_booking if @debit_invoice.valid?
+    if @debit_invoice.save
+      @debit_invoice.build_booking.save
+    end
 
     create!
   end
