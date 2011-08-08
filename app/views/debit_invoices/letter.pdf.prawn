@@ -19,7 +19,7 @@ prawn_document(:page_size => 'A4',  :top_margin => 60, :right_margin => 40, :ren
   end
 
   # Subject
-  pdf.text @debit_invoice.title, :style => :bold
+  pdf.text @debit_invoice.to_s, :style => :bold
 
   # Line Items
   pdf.text " "
