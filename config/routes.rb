@@ -89,6 +89,12 @@ Bookyt::Application.routes.draw do
     end
     resources :bookings
   end
+  resources :bank_accounts do
+    member do
+      get :csv_bookings
+    end
+    resources :bookings
+  end
 
   # Booking templates
   resources :booking_templates
