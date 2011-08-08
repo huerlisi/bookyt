@@ -6,7 +6,8 @@ class DebitInvoicesController < InvoicesController
       :company_id => current_tenant.company.id,
       :state      => 'booked',
       :value_date => Date.today,
-      :due_date   => Date.today.in(30.days).to_date
+      :due_date   => Date.today.in(30.days).to_date,
+      :title      => "Rechnung " + Date.today.strftime('%B')
     }
 
     # Set default parameters
