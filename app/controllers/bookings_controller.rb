@@ -11,6 +11,7 @@ class BookingsController < AuthorizedController
 
   def new
     @booking = Booking.new(:value_date => Date.today)
+    @booking_templates = BookingTemplate.paginate(:page => params[:page])
     new!
   end
 
@@ -22,7 +23,7 @@ class BookingsController < AuthorizedController
 
   def select_booking_template
     @booking_template = BookingTemplate.find(params[:id]).clone
-    @booking = @booking_template.build_booking(params[:booking])
+    @booking = @booking_template.build_booking(params[:booking] || {})
     render :action => 'edit'
   end
 
