@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110807210733) do
+ActiveRecord::Schema.define(:version => 20110808103533) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -32,9 +32,10 @@ ActiveRecord::Schema.define(:version => 20110807210733) do
     t.string   "holder_type"
     t.integer  "bank_id"
     t.integer  "esr_id"
-    t.integer  "pc_id"
+    t.string   "pc_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "iban"
   end
 
   add_index "accounts", ["account_type_id"], :name => "index_accounts_on_account_type_id"
@@ -74,6 +75,8 @@ ActiveRecord::Schema.define(:version => 20110807210733) do
     t.integer  "vcard_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "swift"
+    t.string   "clearing"
   end
 
   add_index "banks", ["vcard_id"], :name => "index_banks_on_vcard_id"

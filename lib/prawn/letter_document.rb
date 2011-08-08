@@ -28,6 +28,42 @@ module Prawn
       end
     end
 
+    def footer(sender, bank_account)
+      repeat :all do
+        bounding_box [bounds.left, 35], :width => 120, :height => 40 do
+          font_size 7 do
+            vcard = sender.vcard
+
+            text "Begünstigter:"
+            text vcard.full_name
+            text vcard.street_address
+            text vcard.postal_code + " " + vcard.locality
+          end
+        end
+
+        bounding_box [bounds.left + 190, 35], :width => 120, :height => 40 do
+          font_size 7 do
+            vcard = bank_account.bank.vcard
+
+            text "Bank:"
+            text vcard.full_name
+            text vcard.street_address
+            text vcard.postal_code + " " + vcard.locality
+          end
+        end
+
+        bounding_box [bounds.left + 360, 35], :width => 120, :height => 40 do
+          font_size 7 do
+            vcard = bank_account.bank.vcard
+
+            text "Konto:"
+            text "IBAN: " + bank_account.iban
+            text "SWIFT: " + bank_account.bank.swift
+          end
+        end
+      end
+    end
+
     def closing(sender)
       text I18n.t('letters.debit_invoice.closing')
 

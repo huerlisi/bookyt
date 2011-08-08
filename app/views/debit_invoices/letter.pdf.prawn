@@ -2,6 +2,7 @@ prawn_document(:page_size => 'A4',  :top_margin => 60, :right_margin => 40, :ren
   receiver = @debit_invoice.customer
   sender = @debit_invoice.company
 
+  # Header
   pdf.header(sender)
 
   pdf.move_down 80
@@ -28,4 +29,7 @@ prawn_document(:page_size => 'A4',  :top_margin => 60, :right_margin => 40, :ren
   # Closing
   pdf.text " "
   pdf.closing(@debit_invoice.company)
+
+  # Footer
+  pdf.footer(sender, BankAccount.find_by_code('1020'))
 end
