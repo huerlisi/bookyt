@@ -92,11 +92,4 @@ class Invoice < ActiveRecord::Base
   def amount
     self[:amount] || line_items.sum('quantity * price').to_f
   end
-
-  before_save :update_amount
-  def update_amount
-    return if line_items.empty?
-
-    self.amount = line_items.sum('quantity * price').to_f
-  end
 end
