@@ -43,24 +43,28 @@ module Prawn
 
     def line_items_table(invoice, line_items)
       content = line_items.collect do |item|
-        quantity = "%i x" % item.quantity
+        # Only include quantity if different from one
+        quantity = "%i x" % item.quantity if item.quantity != 1
 
-        [quantity, item.title, currency_fmt(item.total_amount)]
+        [item.date, item.title, quantity, currency_fmt(item.total_amount)]
       end
 
-      total = ["Total", nil, currency_fmt(invoice.amount)]
+      total = ["Total", nil, nil, currency_fmt(invoice.amount)]
 
       rows = content + [total]
-      table(rows, :width => bounds.width,
-                  :column_widths => [40, 300]) do
+      table(rows, :width => bounds.width) do
 
         # General cell styling
         cells.valign  = :top
         cells.borders = []
-        cells.padding = [0, 0, 0, 0]
 
         # Columns
-        column(2).align = :right
+        columns(2..3).align = :right
+        column(0).width = 60
+        column(2).width = 40
+        column(3).width = 40
+        column(0).padding_left = 0
+        column(-1).padding_right = 0
 
         # Footer styling
         row(-1).font_style = :bold
