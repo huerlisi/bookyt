@@ -59,6 +59,7 @@ de:
         title:          Titel
         file:           Dateiname
       booking:
+        code:           Belegnr.
         value_date:     Valutadatum
         title:          Titel
         amount:         Betrag

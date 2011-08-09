@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110808103533) do
+ActiveRecord::Schema.define(:version => 20110809052145) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20110808103533) do
     t.datetime "updated_at"
     t.integer  "reference_id"
     t.string   "reference_type"
+    t.integer  "code"
   end
 
   add_index "bookings", ["credit_account_id"], :name => "index_bookings_on_credit_account_id"
