@@ -290,6 +290,7 @@ de:
     line_items:       Positionen
     open_invoices:    Offene Rechnungen
     paid_invoices:    Bezahlte Rechnungen
+    profit:           Gewinn
 
   letters:
     greetings:        Mit freundlichen Grüssen,
