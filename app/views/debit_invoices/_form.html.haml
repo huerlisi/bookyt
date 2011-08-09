@@ -14,8 +14,8 @@
       = line_item.link_to_remove t_action(:delete), :style => 'float: right', :class => 'icon-delete-text'
       = line_item.input :date, :as => :date_field, :required => true
       = line_item.input :title, :required => true
-      = line_item.input :quantity, :required => true, :input_html => {:style => 'width: 3em'}
-      = line_item.input :price, :required => true, :input_html => {:style => 'width: 3em'}
+      = line_item.input :quantity, :required => true, :input_html => {:style => 'width: 3em', :autocomplete => "off"}
+      = line_item.input :price, :required => true, :input_html => {:style => 'width: 3em', :autocomplete => "off"}
     = f.link_to_add t_action(:new), :line_items
 
   = f.inputs t('title.period') do
