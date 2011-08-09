@@ -68,7 +68,7 @@ module Prawn
     end
 
     def closing(sender)
-      text I18n.t('letters.debit_invoice.closing')
+      text I18n.t('letters.debit_invoice.closing'), :align => :justify
 
       text " "
       text " "
