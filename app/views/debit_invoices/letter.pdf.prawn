@@ -1,4 +1,4 @@
-prawn_document(:page_size => 'A4',  :top_margin => 60, :right_margin => 40, :renderer => Prawn::LetterDocument) do |pdf|
+prawn_document(:page_size => 'A4',  :top_margin => 60, :left_margin => 50, :right_margin => 55, :renderer => Prawn::LetterDocument) do |pdf|
   receiver = @debit_invoice.customer
   sender = @debit_invoice.company
 
