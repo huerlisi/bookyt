@@ -46,6 +46,7 @@
 %h3= t('title.line_items')
 %table.list
   = render resource.line_items
+  = render 'line_items/list_footer', :total_amount => resource.amount
 
 = render 'bookyt_stock/invoices/show' if controller.template_exists? 'show', 'bookyt_stock/invoices', true
 
