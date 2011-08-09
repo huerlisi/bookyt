@@ -24,7 +24,7 @@ class BookingsController < AuthorizedController
   def select_booking_template
     @booking_template = BookingTemplate.find(params[:id]).clone
     @booking = @booking_template.build_booking(params[:booking] || {})
-    render :action => 'edit'
+    render :action => 'simple_edit'
   end
 
   def select

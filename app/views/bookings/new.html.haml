@@ -1,7 +1,8 @@
 = contextual_links
 
+%h2= t_model(BookingTemplate)
+= render 'booking_templates/list', :item_action => lambda{|object| select_booking_template_booking_path(object)}
+
 %h2= t_title
 = render 'new_form'
 
-%h3= t_model(BookingTemplate)
-= render 'booking_templates/list', :item_action => lambda{|object| select_booking_template_booking_path(object)}
