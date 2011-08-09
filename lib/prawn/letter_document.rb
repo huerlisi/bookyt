@@ -9,7 +9,7 @@ module Prawn
       
       # Default Font
       font  'Helvetica'
-      font_size 10
+      font_size 11
     end
 
     # Draws the full address of a vcard
@@ -98,8 +98,8 @@ module Prawn
         columns(2..4).align = :right
         column(0).width = 60
         column(2).width = 40
-        column(3).width = 35
-        column(4).width = 60
+        column(3).width = 45
+        column(4).width = 65
         column(0).padding_left = 0
         column(-1).padding_right = 0
 
