@@ -85,7 +85,7 @@ module Prawn
         # Only include quantity if different from one
         quantity = "%i x" % item.quantity if item.quantity != 1
 
-        [item.date, item.title, quantity, currency_fmt(item.price), currency_fmt(item.total_amount)]
+        [item.title, item.date, quantity, currency_fmt(item.price), currency_fmt(item.total_amount)]
       end
 
       total = ["Total", nil, nil, nil, currency_fmt(invoice.amount)]
@@ -99,7 +99,7 @@ module Prawn
 
         # Columns
         columns(2..4).align = :right
-        column(0).width = 60
+        column(1).width = 65
         column(2).width = 40
         column(3).width = 45
         column(4).width = 65
