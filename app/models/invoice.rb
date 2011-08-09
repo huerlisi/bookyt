@@ -33,7 +33,7 @@ class Invoice < ActiveRecord::Base
 
   before_save :update_code
   def update_code
-    code = due_date.strftime("%y%m")
+    code = value_date.strftime("%y%m")
     code += "%04i" % id
 
     self.code = code
