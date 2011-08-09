@@ -261,6 +261,7 @@ de:
       only_debit_bookings:  'Nur Haben'
       all_bookings:         'Alle Buchungen'
       pdf:                  'PDF'
+      print:                'Drucken'
       search:               'Suche'
       book_manual:          'Manuell buchen'
       copy:                 'Kopieren'
