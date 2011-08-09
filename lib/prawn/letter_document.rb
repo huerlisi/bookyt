@@ -60,6 +60,7 @@ module Prawn
               text "Konto:"
               text "IBAN: " + bank_account.iban
               text "SWIFT: " + bank_account.bank.swift
+              text "PC-Konto: " + bank_account.pc_id
             end
           end
         end
