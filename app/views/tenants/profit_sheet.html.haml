@@ -21,6 +21,6 @@
 
     - for @date in @dates
       %th{:style => "text-align: right"}
-        %h3= currency_fmt(Account.by_type('costs').saldo(@date) - Account.by_type('earnings').saldo(@date))
+        %h3= currency_fmt(Account.by_type('earnings').saldo(@date) - Account.by_type('costs').saldo(@date))
 
 = render 'bookings/sidebar'
