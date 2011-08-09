@@ -5,7 +5,7 @@
     .sub-tabs
       %h3 Filter
       %ul
-        %li= link_to t('bookyt.all'), url_for(params.merge(:by_state => 'all'))
+        %li= link_to t('bookyt.all'), url_for(params.merge(:by_state => 'all', :overdue => nil))
         - for state in Invoice::STATES
           %li= link_to t(state, :scope => 'invoice.state'), url_for(params.merge(:by_state => state, :overdue => nil))
         %li= link_to t(:overdue, :scope => 'invoice.state'), url_for(params.merge(:by_state => nil, :overdue => true))
