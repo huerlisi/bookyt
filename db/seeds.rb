@@ -29,6 +29,13 @@ BankAccount.create!([
   {:code => "1020", :title => "Bankkonto", :account_type => current_assets},
 ])
 
+# Basic Booking Templates
+BookingTemplate.create!([
+  {:code => "", :title => "Barkauf", :debit_account => Account.find_by_code("1000"), :credit_account => Account.find_by_code("4000")},
+  {:code => "", :title => "EC-Zahlung", :debit_account => Account.find_by_code("1020"), :credit_account => Account.find_by_code("4000")},
+  {:code => "", :title => "Barbezug für Kasse", :debit_account => Account.find_by_code("1020"), :credit_account => Account.find_by_code("1000")},
+])
+
 # Credit Invoices
 Account.create!([
   {:code => "2000", :title => "Kreditoren", :account_type => outside_capital},
