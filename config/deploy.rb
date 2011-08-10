@@ -38,3 +38,8 @@ require 'cap_recipes/tasks/passenger'
 # Bundle install
 require "bundler/capistrano"
 after "bundle:install", "deploy:migrate"
+
+# Asset Pipeline
+after 'deploy:update_code' do
+  run "cd #{release_path}; RAILS_ENV=#{rails_env} bundle exec rake assets:precompile"
+end
