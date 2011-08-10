@@ -1,0 +1,11 @@
+0.9.0
+=====
+Bugfixes:
+
+* booking code should be preset, incremented for new bookings
+  without template
+* bank account link fails
+* copy booking doesn't create new booking
+* New attachment link doesn't work
+* reference should be cleared for new booking based on existing
+* Invoice view fails if invoice booking has been deleted
