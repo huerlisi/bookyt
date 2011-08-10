@@ -12,7 +12,7 @@
   = f.inputs t('title.line_items') do
     = f.fields_for :line_items do |line_item|
       = line_item.link_to_remove t_action(:delete), :style => 'float: right', :class => 'icon-delete-text'
-      = line_item.input :date, :as => :date_field, :required => true
+      = line_item.input :date, :as => :date_field
       = line_item.input :title, :required => true
       = line_item.input :quantity, :required => true, :input_html => {:style => 'width: 3em', :autocomplete => "off"}
       = line_item.input :price, :required => true, :input_html => {:style => 'width: 3em', :autocomplete => "off"}
