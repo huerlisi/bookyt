@@ -12,7 +12,7 @@ prawn_document(:page_size => 'A4',  :top_margin => 60, :left_margin => 50, :righ
     pdf.full_address(receiver.vcard)
   end
 
-  pdf.move_down 60
+  pdf.move_down 80
 
   # Place'n'Date
   pdf.indent 320 do
