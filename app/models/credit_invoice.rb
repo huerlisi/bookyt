@@ -23,10 +23,10 @@ class CreditInvoice < Invoice
   end
 
   def balance_account
-    bookings.first.debit_account
+    bookings.first.try(:debit_account)
   end
 
   def profit_account
-    bookings.first.credit_account
+    bookings.first.try(:credit_account)
   end
 end

@@ -12,9 +12,9 @@
       %td= link_to(full_address(resource.company.vcard, ', '), resource.company)
     %tr
       %th= t_attr(:balance_account, Invoice)
-      %td= link_to resource.balance_account, resource.balance_account
+      %td= link_to resource.balance_account, resource.balance_account if resource.balance_account
       %th= t_attr(:profit_account, Invoice)
-      %td= link_to resource.profit_account, resource.profit_account
+      %td= link_to resource.profit_account, resource.profit_account if resource.balance_account
     %tr
       %th= t_attr(:state, Invoice)
       %td#invoice_state=t resource.state, :scope => 'invoice.state'
