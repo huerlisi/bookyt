@@ -17,8 +17,15 @@ class BookingsController < AuthorizedController
 
   def select_booking
     @booking = Booking.find(params[:id]).clone
+
+    # Clear reference
+    @booking.reference  = nil
+    # Increment code
+    @booking.code       = (Booking.maximum(:code) || 0) + 1
+    # Take value date from form
     @booking.value_date = params[:booking][:value_date]
-    render :action => 'edit'
+
+    render :action => 'simple_edit'
   end
 
   def select_booking_template
