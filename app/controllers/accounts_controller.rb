@@ -4,7 +4,7 @@ class AccountsController < AuthorizedController
   has_scope :by_text
 
   def index
-    @accounts = apply_scopes(Account).includes(:account_type).includes(:credit_bookings, :credit_bookings).paginate(:page => params['page'])
+    @accounts = apply_scopes(Account).includes(:account_type).includes(:credit_bookings, :credit_bookings)
   end
 
   def show
