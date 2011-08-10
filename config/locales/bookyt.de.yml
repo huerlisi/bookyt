@@ -43,6 +43,8 @@ de:
       attachment: Anhang
       salary: Lohn
       charge_rate: Abgabe Satz
+      overview: Übersicht
+      session:  Anmeldung
 
     attributes:
       title:            Titel
