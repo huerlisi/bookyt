@@ -1,7 +1,7 @@
 %tr[debit_invoice]
   %td= debit_invoice.value_date
-  %td= link_to debit_invoice.customer, debit_invoice.customer
   %td= link_to debit_invoice, debit_invoice, {'data-href-container' => 'tr'}
+  %td= link_to debit_invoice.customer, debit_invoice.customer
   %td= debit_invoice.due_date
   %td.currency= currency_fmt(debit_invoice.amount)
   %td.currency= currency_fmt(debit_invoice.balance)

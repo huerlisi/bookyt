@@ -1,7 +1,7 @@
 %tr[credit_invoice]
   %td= credit_invoice.value_date
-  %td= link_to credit_invoice.company, credit_invoice.company
   %td= link_to credit_invoice, credit_invoice, {'data-href-container' => 'tr'}
+  %td= link_to credit_invoice.company, credit_invoice.company
   %td= credit_invoice.due_date
   %td.currency= currency_fmt(credit_invoice.amount)
   %td.currency= currency_fmt(credit_invoice.balance)
