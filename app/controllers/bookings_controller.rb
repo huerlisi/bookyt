@@ -16,7 +16,7 @@ class BookingsController < AuthorizedController
   end
 
   def select_booking
-    @booking = Booking.find(params[:id]).clone
+    @booking = Booking.find(params[:id]).dup
 
     # Clear reference
     @booking.reference  = nil
@@ -29,7 +29,7 @@ class BookingsController < AuthorizedController
   end
 
   def select_booking_template
-    @booking_template = BookingTemplate.find(params[:id]).clone
+    @booking_template = BookingTemplate.find(params[:id])
 
     booking_params = params[:booking] || {}
     booking_params[:value_date] ||= Date.today
@@ -57,7 +57,7 @@ class BookingsController < AuthorizedController
   def copy
     original_booking = Booking.find(params[:id])
 
-    @booking = original_booking.clone
+    @booking = original_booking.dup
 
     render 'edit'
   end
