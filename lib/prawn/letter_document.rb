@@ -36,6 +36,7 @@ module Prawn
 
             text "Begünstigter:"
             text vcard.full_name
+            text vcard.extended_address unless vcard.extended_address.blank?
             text vcard.street_address
             text vcard.postal_code + " " + vcard.locality
           end
