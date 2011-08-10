@@ -131,7 +131,7 @@ GEM
       railties (~> 3.0)
     has_accounts (0.9.2)
     has_scope (0.5.0)
-    has_vcards (0.7.2)
+    has_vcards (0.8.0)
     highline (1.6.2)
     hike (1.2.0)
     hpricot (0.8.4)
