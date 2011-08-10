@@ -1,3 +1,15 @@
+namespace :deploy do
+  task :cold do       # Overriding the default deploy:cold
+    update
+    setup_db
+    start
+  end
+
+  task :setup_db, :roles => :app do
+    run "cd #{current_path}; /usr/bin/env bundle exec rake db:setup RAILS_ENV=#{rails_env}"
+  end
+end
+
 #Application
 set :application, 'bookyt'
 set :repository,  'git@github.com:huerlisi/bookyt.git'
