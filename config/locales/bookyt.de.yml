@@ -93,7 +93,7 @@ de:
         code:            Code
         duration_from:   Gültig ab
         duration_to:     Gültig bis
-        rate:            Satz
+        rate:            Satz (%)
         person_id:       Person
       day:
         date:            Datum
