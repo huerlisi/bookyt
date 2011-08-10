@@ -219,11 +219,6 @@ de:
         country_name:                   Land
       vcard:
         full_name:                      Name
-      address:
-        street_address:                 Strasse
-        extended_address:               Postfach
-        postal_code:                    PLZ
-        locality:                       Ort
       booking_import:
         csv:                            CSV-Datei
         created_at:                     Importiert am
