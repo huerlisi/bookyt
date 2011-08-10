@@ -3,7 +3,7 @@ class LineItem < ActiveRecord::Base
   belongs_to :invoice, :touch => true
 
   # Validations
-  validate :quantity, :presence => true, :numericality => true
+  validate :times, :presence => true, :numericality => true
   validate :price, :presence => true, :numericality => true
   validate :title, :presence => true
   
@@ -17,6 +17,6 @@ class LineItem < ActiveRecord::Base
   end
 
   def total_amount
-    quantity * price.to_f
+    times * price.to_f
   end
 end

@@ -98,6 +98,6 @@ class Invoice < ActiveRecord::Base
   accepts_nested_attributes_for :line_items, :reject_if => proc { |attributes| attributes['quantity'].blank? or attributes['quantity'] == '0' }
 
   def amount
-    self[:amount] || line_items.sum('quantity * price').to_f
+    self[:amount] || line_items.sum('times * price').to_f
   end
 end

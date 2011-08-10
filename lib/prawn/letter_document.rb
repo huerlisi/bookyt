@@ -83,10 +83,22 @@ module Prawn
 
     def line_items_table(invoice, line_items)
       content = line_items.collect do |item|
-        # Only include quantity if different from one
-        quantity = "%i x" % item.quantity if item.quantity != 1
 
-        [item.title, item.date, quantity, currency_fmt(item.price), currency_fmt(item.total_amount)]
+        if item.times == 1
+          if item.quantity == "x"
+            amount = ""
+          elsif item.quantity == "overall"
+            amount = t('line_items.quantity.overall')
+          else
+            amount = "#{item.times} #{t(item.quantity, :scope => 'line_items.quantity')}"
+          end
+        else
+          amount = "#{item.times} #{t(item.quantity, :scope => 'line_items.quantity')}"
+        end
+
+       price = currency_fmt(item.price)
+
+       [item.title, item.date, amount, price, currency_fmt(item.total_amount)]
       end
 
       total = ["Total", nil, nil, nil, currency_fmt(invoice.amount)]
@@ -101,8 +113,8 @@ module Prawn
         # Columns
         columns(2..4).align = :right
         column(1).width = 65
-        column(2).width = 40
-        column(3).width = 45
+        column(2).width = 50
+        column(3).width = 50
         column(4).width = 65
         column(0).padding_left = 0
         column(-1).padding_right = 0

@@ -181,7 +181,8 @@ de:
         duration_to:   Bis
       line_item:
         date:          Datum
-        quantity:      Anzahl
+        times:         Anzahl
+        quantity:      Einheit
         price:         Betrag
         title:         Text
       salary:
@@ -236,6 +237,12 @@ de:
       reminded:    1x gemahnt
       overdue:     überfällig
 
+  line_items:
+    quantity:
+      times:   x
+      hours:   h
+      overall: pauschal
+
   booking_template:
     relation:
       reference_amount:  'Ursprünglicher Betrag'
@@ -267,6 +274,7 @@ de:
       statistics:           'Statistiken'
       balance_sheet:        'Bilanz'
       profit_sheet:         'Erfolgsrechnung'
+      more:                 'Mehr'
     title:
       select_booking_template: %{model} anlegen
       select_booking: %{model} anlegen
