@@ -28,9 +28,9 @@ class User < ActiveRecord::Base
 
   # Associations
   belongs_to :person
-  attr_accessible :person_attributes
-  accepts_nested_attributes_for :person
   validates_presence_of :person
+  accepts_nested_attributes_for :person
+  attr_accessible :person, :person_attributes
 
   # Shortcuts
   def current_company
