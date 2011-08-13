@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
+# Authorization
+# =============
+Role.create!([
+  {:name => 'admin'},
+  {:name => 'accountant'}
+])
 
+# Account Types
+# =============
 current_assets, capital_assets, outside_capital, equity_capital, costs, earnings =
 AccountType.create!([
   {:name => "current_assets", :title => "Umlaufvermögen"},
