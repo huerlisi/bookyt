@@ -11,8 +11,8 @@
 # 1. create the database and grant access
 # 2. change the '*sqlite' instances in the Environments section
 #    to '*mysql'
-# 3. update host, username and password settings in the 'Common
-#    settings' section
+# 3. add username and password and possibly host settings in
+#    the environment config.
 
 # Common settings
 # ===============
