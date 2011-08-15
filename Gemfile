@@ -14,7 +14,7 @@ gem 'sqlite3'
 # in production environments by default.
 group :assets do
   gem 'sass-rails', "~> 3.1.0.rc"
-  gem 'sprockets', :git => 'git://github.com/sstephenson/sprockets.git'
+  gem 'sprockets', "~> 2.0.0.beta"
   # gem 'coffee-rails', "~> 3.1.0.rc"
   gem 'therubyracer'
   gem 'uglifier'
@@ -85,7 +85,7 @@ gem 'formtastic'
 gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
 
 # CRUD
-gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
+gem 'will_paginate'
 gem 'inherited_resources'
 gem 'has_scope'
 gem 'i18n_rails_helpers'
