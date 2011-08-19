@@ -29,6 +29,7 @@ config/database.yml
 # =======
 # Capistrano
 config/deploy/*.rb
+config/deploy_provider.rb
 
 # Bookyt Data
 # ===========

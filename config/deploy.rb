@@ -1,3 +1,6 @@
+require 'recipes/rails31'
+require 'recipes/database/sync'
+
 namespace :deploy do
   task :cold do       # Overriding the default deploy:cold
     update
@@ -15,9 +18,8 @@ set :application, 'bookyt'
 set :repository,  'git@github.com:huerlisi/bookyt.git'
 
 # Staging
-set :stages, %w(production)
-set :default_stage, 'production'
-require 'capistrano/ext/multistage'
+set :stages, %w(staging demo)
+set :default_stage, 'staging'
 
 # Deployment
 set :server, :passenger
@@ -32,14 +34,15 @@ set :deploy_via, :remote_cache
 set :git_enable_submodules, 1
 set :copy_exclude, [".git", "spec"]
 
-# Passenger
-require 'cap_recipes/tasks/passenger'
-
-# Bundle install
-require "bundler/capistrano"
-after "bundle:install", "deploy:migrate"
-
-# Asset Pipeline
-after 'deploy:update_code' do
-  run "cd #{release_path}; RAILS_ENV=#{rails_env} bundle exec rake assets:precompile"
+# Provider
+# ========
+# Try loading a deploy_provider.rb
+begin
+  load File.expand_path('../deploy_provider.rb', __FILE__)
+rescue LoadError
 end
+
+# Plugins
+# =======
+# Multistaging
+require 'capistrano/ext/multistage'

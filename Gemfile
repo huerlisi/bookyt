@@ -36,9 +36,7 @@ group :development do
   gem 'ruby_parser'
 
   # Capistrano
-  gem 'capistrano'
-  gem 'capistrano-ext'
-  gem 'cap-recipes'
+  gem 'capones_recipes'
 end
 
 # Test
