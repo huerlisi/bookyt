@@ -60,6 +60,9 @@ GEM
     autotest-rails (4.1.0)
       ZenTest
     bcrypt-ruby (2.1.4)
+    bookyt_pos (0.2.0)
+    bookyt_salary (0.2.0)
+    bookyt_stock (0.4.1)
     builder (3.0.0)
     cancan (1.6.5)
     cap-recipes (0.3.36)
@@ -259,6 +262,9 @@ PLATFORMS
 DEPENDENCIES
   autotest
   autotest-rails
+  bookyt_pos
+  bookyt_salary
+  bookyt_stock
   cancan
   capones_recipes
   capybara

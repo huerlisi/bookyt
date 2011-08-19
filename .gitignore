@@ -34,5 +34,7 @@ config/deploy_provider.rb
 # Bookyt Data
 # ===========
 public/booking_imports
-
 public/system/uploads
+
+# Config
+config/initializers/bookyt.rb

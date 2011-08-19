@@ -123,6 +123,6 @@ gem 'csv-mapper'
 # Plugins
 # =======
 # Uncomment to enable plugins
-#gem 'bookyt_pos'
-#gem 'bookyt_salary'
-#gem 'bookyt_stock'
+gem 'bookyt_pos'
+gem 'bookyt_salary'
+gem 'bookyt_stock'
