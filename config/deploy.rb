@@ -1,4 +1,4 @@
-require 'recipes/rails31'
+require 'cookbook/rails31'
 require 'recipes/database/sync'
 
 namespace :deploy do
