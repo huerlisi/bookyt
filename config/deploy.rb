@@ -25,6 +25,10 @@ set :default_stage, 'staging'
 set :server, :passenger
 set :user, "deployer"                               # The server's user for deploys
 
+# Sync directories
+set :sync_directories, ["public/system"]
+set :sync_backups, 3
+
 # Configuration
 set :scm, :git
 set :branch, "master"
