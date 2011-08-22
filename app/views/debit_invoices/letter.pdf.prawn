@@ -3,7 +3,7 @@ prawn_document(:page_size => 'A4',  :top_margin => 60, :left_margin => 50, :righ
   sender = @debit_invoice.company
 
   # Header
-  # pdf.header(sender)
+  pdf.header(sender)
 
   pdf.move_down 80
 
