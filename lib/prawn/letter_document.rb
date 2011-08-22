@@ -71,17 +71,17 @@ module Prawn
       end
     end
 
-    def closing(sender)
-      text I18n.t('letters.debit_invoice.closing'), :align => :justify
+    def closing(sender, due_date)
+      text I18n.t('letters.debit_invoice.closing', :due_date => due_date), :align => :justify
 
       text " "
       text " "
+      text " "
+      text " "
 
-      indent(320) do
-        text I18n.t('letters.greetings')
-        text " "
-        text "#{sender.vcard.full_name}"
-      end
+      text I18n.t('letters.greetings')
+      text " "
+      text "#{sender.vcard.full_name}"
     end
 
     def line_items_table(invoice, line_items)

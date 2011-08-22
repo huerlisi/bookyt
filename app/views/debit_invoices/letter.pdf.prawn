@@ -20,6 +20,7 @@ prawn_document(:page_size => 'A4',  :top_margin => 60, :left_margin => 50, :righ
   end
 
   # Subject
+  pdf.move_down 60
   pdf.text @debit_invoice.to_s, :style => :bold
 
   # Line Items
@@ -27,8 +28,8 @@ prawn_document(:page_size => 'A4',  :top_margin => 60, :left_margin => 50, :righ
   pdf.line_items_table(@debit_invoice, @debit_invoice.line_items)
 
   # Closing
-  pdf.text " "
-  pdf.closing(@debit_invoice.company)
+  pdf.move_down 40
+  pdf.closing(@debit_invoice.company, @debit_invoice.due_date)
 
   # Footer
   pdf.footer(sender, BankAccount.find_by_code('1020'))
