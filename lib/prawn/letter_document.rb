@@ -49,8 +49,9 @@ module Prawn
 
               text "Bank:"
               text vcard.full_name
-              text vcard.street_address
-              text vcard.postal_code + " " + vcard.locality
+              text vcard.street_address if vcard.street_address.present?
+              locality = [vcard.postal_code, vcard.locality].compact.join(', ')
+              text locality if locality.present?
             end
           end
 
@@ -59,9 +60,10 @@ module Prawn
               vcard = bank_account.bank.vcard
 
               text "Konto:"
-              text "IBAN: " + bank_account.iban
-              text "SWIFT: " + bank_account.bank.swift
-              text "PC-Konto: " + bank_account.pc_id
+              text "IBAN: " + bank_account.iban if bank_account.iban.present?
+              text "SWIFT: " + bank_account.bank.swift if bank_account.bank.swift.present?
+              text "Clearing: " + bank_account.bank.clearing if bank_account.bank.clearing.present?
+              text "PC-Konto: " + bank_account.pc_id if bank_account.pc_id.present?
             end
           end
         end
