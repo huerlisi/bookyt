@@ -15,6 +15,7 @@ vendor/bundle
 # Volatile
 doc/api
 doc/app
+public/stylesheets/compiled/*.css
 public/stylesheets/all.css
 app/assets/stylesheets/compiled
 public/assets
