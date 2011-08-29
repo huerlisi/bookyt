@@ -7,7 +7,7 @@ de:
   # Views
   debit_invoices:
     letter:
-      signature: "Bitte begleichen Sie diese Rechnung innert 30 Tagen mit beiliegendem Einzahlungsschein oder per E-Banking auf unten stehendes Konto."
+      signature: "Vielen Dank für die Zusammenarbeit.\nBitte begleichen Sie diese Rechnung innert 30 Tagen mit beiliegendem Einzahlungsschein oder per E-Banking auf unten stehendes Konto."
 
   sex:
     male:   Mann
