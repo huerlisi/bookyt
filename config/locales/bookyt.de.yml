@@ -7,7 +7,7 @@ de:
   # Views
   debit_invoices:
     letter:
-      signature: "Bitte begleichen Sie diese Rechnung innert 30 Tagen mit beiliegendem Einzahlungsschein oder per E-Banking auf unten stehendes Konto."
+      signature: "Vielen Dank für die Zusammenarbeit.\nBitte begleichen Sie diese Rechnung innert 30 Tagen mit beiliegendem Einzahlungsschein oder per E-Banking auf unten stehendes Konto."
 
   sex:
     male:   Mann
@@ -302,7 +302,7 @@ de:
   letters:
     greetings:        Mit freundlichen Grüssen,
     debit_invoice:
-      closing:        Bitte begleichen Sie diese Rechnung bis zum %{due_date} mit beiliegendem Einzahlungsschein oder per E-Banking auf unten stehendes Konto.
+      closing:        "Vielen Dank für die Zusammenarbeit.\n\nBitte begleichen Sie diese Rechnung bis zum %{due_date} mit beiliegendem Einzahlungsschein oder per E-Banking auf unten stehendes Konto."
 
   bookyt:
     all:              Alle
