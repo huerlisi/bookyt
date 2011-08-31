@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 
 # Rails
 # =====
-gem 'rails', '~> 3.1.0.rc'
+gem 'rails'
 
 # Database
 gem 'mysql2'
@@ -45,6 +45,9 @@ group :test do
   # Matchers/Helpers
   gem 'shoulda'
 
+  # Fixtures
+  gem "factory_girl_rails"
+
   # Mocking
   # gem 'mocha'
 
@@ -54,14 +57,12 @@ group :test do
   # Autotest
   gem 'autotest'
   gem 'autotest-rails'
+  gem 'ZenTest', '< 4.6.0' # Keep it working with gems < 1.8
 end
 
 group :test, :development do
   # Framework
   gem 'rspec-rails'
-
-  # Fixtures
-  gem "factory_girl_rails"
 
   # Integration
   # gem 'cucumber-rails'
