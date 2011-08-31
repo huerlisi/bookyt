@@ -8,6 +8,7 @@ class DirectBookingsController < InheritedResources::Base
 
   def create
     @direct_booking = Booking.new(params[:direct_booking])
+    @direct_account = @direct_booking.balance_account
 
     create! {
       render 'list' and return

@@ -1,0 +1,8 @@
+- bookings = Booking.by_reference(reference)
+- credit_accounts = bookings.select('credit_account_id').group('credit_account_id').map{|account| account.credit_account}
+- debit_accounts = bookings.select('debit_account_id').group('debit_account_id').map{|account| account.debit_account}
+- accounts = credit_accounts + debit_accounts
+
+- balance_accounts = accounts.uniq.select{|account| account.is_balance_account?}
+- for account in balance_accounts
+  = render 'direct_bookings/show', :reference => resource, :direct_account => account
