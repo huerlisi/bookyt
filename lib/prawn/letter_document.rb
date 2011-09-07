@@ -96,7 +96,7 @@ module Prawn
             amount = "#{item.times} #{t(item.quantity, :scope => 'line_items.quantity')}"
           end
         else
-          amount = "#{item.times} #{t(item.quantity, :scope => 'line_items.quantity')}"
+          amount = "#{currency_fmt(item.times)} #{t(item.quantity, :scope => 'line_items.quantity')}"
         end
 
        price = currency_fmt(item.price)
