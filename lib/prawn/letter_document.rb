@@ -116,7 +116,7 @@ module Prawn
         # Columns
         columns(2..4).align = :right
         column(1).width = 65
-        column(2).width = 65
+        column(2).width = 75
         column(3).width = 65
         column(4).width = 65
         column(0).padding_left = 0
