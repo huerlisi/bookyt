@@ -95,7 +95,7 @@ class Invoice < ActiveRecord::Base
   # Line Items
   # ==========
   has_many :line_items, :autosave => true
-  accepts_nested_attributes_for :line_items, :reject_if => proc { |attributes| attributes['quantity'].blank? or attributes['quantity'] == '0' }
+  accepts_nested_attributes_for :line_items, :allow_destroy => true, :reject_if => proc { |attributes| attributes['quantity'].blank? or attributes['quantity'] == '0' }
 
   def amount
     self[:amount] || line_items.sum('times * price').to_f
