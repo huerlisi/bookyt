@@ -18,7 +18,7 @@ set :application, 'bookyt'
 set :repository,  'git@github.com:huerlisi/bookyt.git'
 
 # Staging
-set :stages, %w(staging demo)
+#set :stages, %w(staging demo)
 set :default_stage, 'staging'
 
 # Deployment
@@ -40,10 +40,19 @@ set :copy_exclude, [".git", "spec"]
 
 # Provider
 # ========
-# Try loading a deploy_provider.rb
-begin
-  load File.expand_path('../deploy_provider.rb', __FILE__)
-rescue LoadError
+# Load configuration
+config_path = File.expand_path('~/.capones.yml')
+
+if File.exist?(config_path)
+  # Parse config file
+  config = YAML.load_file(config_path)
+
+  # States
+  deploy_target_path = File.expand_path(config['deploy_target_repository']['path'])
+
+  # Add stages
+  set :stage_dir, File.join(deploy_target_path, application, 'stages')
+  puts stage_dir
 end
 
 # Plugins
