@@ -33,17 +33,17 @@ mysql: &mysql
 # Environments
 # ============
 production:
-  database: db/production.sqlite3
   <<: *sqlite
+  database: db/production.sqlite3
 
 development:
-  database: db/development.sqlite3
   <<: *sqlite
+  database: db/development.sqlite3
 
 demo:
-  database: db/demo.sqlite3
   <<: *sqlite
+  database: db/demo.sqlite3
 
 test:
-  database: db/test.sqlite3
   <<: *sqlite
+  database: db/test.sqlite3
