@@ -115,7 +115,7 @@ function addAlternateTableBehaviour() {
 }
 
 // Initialize behaviours
-function inititalizeBehaviours() {
+function initializeBehaviours() {
   // from cyt.js
   addAutofocusBehaviour();
   addDatePickerBehaviour();
