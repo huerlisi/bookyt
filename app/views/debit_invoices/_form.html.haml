@@ -17,11 +17,7 @@
       %span{:style => 'display: inline-block; padding: 0px; width: 6em'}= t_attr(:quantity, LineItem)
       %span{:style => 'display: inline-block; padding: 2px; width: 3em'}= t_attr(:price, LineItem)
     = f.fields_for :line_items do |line_item|
-      = line_item.text_field :date, :style => 'width: 85px', 'date-picker' => 'true'
-      = line_item.text_field :title, :required => true, :style => 'width: 30em'
-      = line_item.text_field :times, :required => true, :style => 'width: 3em', :autocomplete => "off"
-      = line_item.select :quantity, ['times', 'hours', 'overall'].map{|quantity| [t(quantity, :scope => 'line_items.quantity'), quantity]}, {}, :style => 'width: 6em'
-      = line_item.text_field :price, :required => true, :style => 'width: 3em', :autocomplete => "off"
+      = render 'line_items/form', :line_item => line_item
       = line_item.link_to_remove t_action(:delete), :class => 'icon-delete-text', :style => 'float: none; display: inline-block'
     %div
       = f.link_to_add t_action(:more), :line_items, :class => 'icon-add-text'
