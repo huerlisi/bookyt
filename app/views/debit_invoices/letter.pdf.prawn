@@ -1,3 +1,13 @@
+# Unescape HTML
+def html_unescape(value)
+  result = value
+
+  result.gsub!(/<div>|<p>|<br>/, '')
+  result.gsub!(/<\/div>|<\/p>|<\/br>|<br[ ]*\/>/, "\n")
+
+  return result
+end
+
 prawn_document(:page_size => 'A4',  :top_margin => 60, :left_margin => 50, :right_margin => 55, :renderer => Prawn::LetterDocument) do |pdf|
   receiver = @debit_invoice.customer
   sender = @debit_invoice.company
@@ -22,6 +32,11 @@ prawn_document(:page_size => 'A4',  :top_margin => 60, :left_margin => 50, :righ
   # Subject
   pdf.move_down 60
   pdf.text @debit_invoice.to_s, :style => :bold
+
+  # Freetext
+  pdf.text " "
+  pdf.text html_unescape(@debit_invoice.text), :inline_format => true if @debit_invoice.present?
+  pdf.move_down 15
 
   # Line Items
   pdf.text " "

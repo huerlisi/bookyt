@@ -171,7 +171,8 @@ de:
         customer:      Kunde
         company:       Rechnungssteller
         title:         Titel
-        remarks:       Bemerkungen
+        text:          Rechnungstext
+        remarks:       Interne Bemerkungen
         amount:        Betrag
         invoice:       Invoice
         open_amount:   Offener Betrag

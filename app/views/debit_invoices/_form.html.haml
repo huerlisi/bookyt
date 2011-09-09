@@ -7,7 +7,8 @@
     = f.input :title
     = f.input :value_date, :as => :date_field
     = f.input :due_date, :as => :date_field
-    = f.input :remarks, :input_html => {:rows => 4}
+    = f.input :text, :input_html => {:rows => 4}
+    = f.input :remarks, :input_html => {:rows => 2}
 
   = f.inputs t('title.line_items') do
     %div
