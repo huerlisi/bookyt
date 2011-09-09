@@ -52,7 +52,7 @@ if File.exist?(config_path)
 
   # Add stages
   set :stage_dir, File.join(deploy_target_path, application, 'stages')
-  puts stage_dir
+  load_paths << ""
 end
 
 # Plugins
