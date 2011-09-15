@@ -199,6 +199,7 @@ ActiveRecord::Schema.define(:version => 20110810213521) do
     t.string   "code"
     t.date     "duration_from"
     t.date     "duration_to"
+    t.text     "text"
   end
 
   add_index "invoices", ["company_id"], :name => "index_invoices_on_company_id"
