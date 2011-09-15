@@ -6,6 +6,6 @@ class VatRate < ChargeRate
 
   # String
   def to_s
-    "%.1f (%s)" % [rate, I18n::translate(code, :scope => 'vat_rates.code')]
+    "%.1f%% (%s)" % [rate, I18n::translate(code, :scope => 'vat_rates.code')]
   end
 end
