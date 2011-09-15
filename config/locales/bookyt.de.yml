@@ -186,6 +186,7 @@ de:
         quantity:      Einheit
         price:         Betrag
         title:         Text
+        vat_rate:      MWSt. Satz
       salary:
         amount:        Bruttolohn
         net_amount:    Nettolohn
@@ -243,6 +244,13 @@ de:
       times:   x
       hours:   h
       overall: pauschal
+
+  vat_rates:
+    code:
+      full:     Normal
+      reduced:  Reduziert
+      special:  Spezial
+      excluded: Befreit
 
   booking_template:
     relation:
