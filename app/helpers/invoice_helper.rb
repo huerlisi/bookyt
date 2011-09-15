@@ -6,13 +6,4 @@ module InvoiceHelper
       result
     end
   end
-
-  def vat_rates_as_collection
-    vats = VatRate.latest
-
-    vats.inject({}) do |result, item|
-      result[item.title] = item.code
-      result
-    end
-  end
 end
