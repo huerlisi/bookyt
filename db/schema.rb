@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110810213521) do
+ActiveRecord::Schema.define(:version => 20110912071440) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -146,10 +146,6 @@ ActiveRecord::Schema.define(:version => 20110810213521) do
 
   add_index "charge_rates", ["person_id"], :name => "index_charge_rates_on_person_id"
 
-  create_table "clients", :force => true do |t|
-    t.string "name", :limit => 100
-  end
-
   create_table "days", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -259,6 +255,23 @@ ActiveRecord::Schema.define(:version => 20110810213521) do
   create_table "products", :force => true do |t|
   end
 
+  create_table "project_states", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.text     "comment"
+    t.date     "from"
+    t.date     "to"
+    t.integer  "project_state_id"
+    t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -289,6 +302,17 @@ ActiveRecord::Schema.define(:version => 20110810213521) do
   add_index "stocks", ["purchase_invoice_id"], :name => "index_assets_on_purchase_invoice_id"
   add_index "stocks", ["selling_invoice_id"], :name => "index_assets_on_selling_invoice_id"
   add_index "stocks", ["state"], :name => "index_assets_on_state"
+
+  create_table "tasks", :force => true do |t|
+    t.date     "when"
+    t.datetime "from"
+    t.datetime "to"
+    t.integer  "person_id"
+    t.integer  "project_id"
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tenants", :force => true do |t|
     t.integer  "person_id"
