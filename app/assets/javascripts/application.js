@@ -123,6 +123,7 @@ function initializeBehaviours() {
   addLinkifyContainersBehaviour();
   addOverviewTooltipBehaviour();
   addIconTooltipBehaviour();
+  addTimeCheckBehaviour();
 
   // application
   addAlternateTableBehaviour();

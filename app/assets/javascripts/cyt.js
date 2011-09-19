@@ -73,3 +73,7 @@ function addIconTooltipBehaviour() {
     fadeOutSpeed: 100
   });
 };
+
+function addTimeCheckBehaviour() {
+  $('*[data-check-hours=true]').setMask();
+}
