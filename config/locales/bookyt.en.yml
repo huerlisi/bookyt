@@ -1,12 +1,395 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# German locale
+de:
+  # Application
+  application:
+    title: bookyt
 
-en:
+  # Views
+  debit_invoices:
+    letter:
+      signature: "Vielen Dank für die Zusammenarbeit.\nBitte begleichen Sie diese Rechnung innert 30 Tagen mit beiliegendem Einzahlungsschein oder per E-Banking auf unten stehendes Konto."
+
+  sex:
+    male:   Mr.
+    female: Mrs.
+    
+  form:
+    person:
+     address: address
+     civil:   Personalien
+    company:
+      address: address
+
   activerecord:
     models:
-      account:   Account
+      account: account
+      account_type: account type
+      booking: booking
+      booking_template: booking template
+      charge_booking_template: charge booking template
+      person: person
+      company: company
+      customer: customer
+      day: daily balance
+      employee: employee
+      employment: employment
+      invoice: invoice
+      credit_invoice: credit invoice
+      debit_invoice:  debit invoice
+      line_item: line item
+      tenant: tenant
+      user: user
+      booking_import: booking import
+      attachment: attachment
+      salary: salary
+      charge_rate: charge rate
+      overview: overview
+      session:  session
+
     attributes:
+      title:            title
+      amount:           amount
       account:
-        code:  Number
-        title: Title
-        saldo: Saldo
+        code:           code
+        title:          title
+        saldo:          saldo
+        account_type:   account type
+      account_type:
+        name:           name
+        title:          title
+      attachment:
+        title:          title
+        file:           filename
+      booking:
+        code:           code
+        value_date:     value date
+        title:          Title
+        amount:         amount
+        comments:       comments
+        credit_account: credit
+        debit_account:  debit
+        reference:      reference
+        reference_type: reference type
+        reference_id:   reference ID
+        text:           text
+        date:           date
+        balance:        balance
+        edit:           edit
+        destroy:        delete
+        valuta:         valuta
+        value:          value
+      booking_template:
+        value_date:        value date
+        title:             title
+        amount:            amount
+        comments:          comments
+        credit_account:    credit
+        debit_account:     debit
+        reference:         Reference
+        amount_relates_to: amount relates to
+        charge_rate_code:  charge rate code
+      charge_rate:
+        title:           title
+        code:            code
+        duration_from:   valid from
+        duration_to:     valid until
+        rate:            rate (%)
+        person_id:       person
+      day:
+        date:            date
+        cash:            cash turnover
+        card_turnover:   card turnover
+        expenses:        cash expense
+        gross_turnover:  gross turnover
+        net_turnover:    net turnover
+        client_count:    no. of sales
+        product_count:   products sold
+        credit_turnover: credit turnover
+        discount:        discount
+        from:            from
+        total:           total
+        calculate:       calculate
+      employee:
+        full_name:        name
+        date_of_birth:    date of birth
+        date_of_death:    date of death
+        sex:              sex
+        post_office_box:  p.o. box
+        extended_address: extended address
+        street_address:   street address
+        locality:         locality
+        region:           region
+        postal_code:      zip
+        country_name:     country
+        social_security_nr: social security no.
+        social_security_nr_12: old social security no.
+      employment:
+        employer:      employer
+        employee:      employee
+        duration:      duration
+        salary_amount: gross salary amount
+        kids:          children
+        workload:      workload (%)
+      person:
+        date_of_birth:    date of birth
+        date_of_death:    date of death
+        sex:              sex
+        type:             type
+        full_name:        name
+      company:
+        full_name:        name
+        date_of_birth:    date of birth
+        date_of_death:    date of death
+        sex:              sex
+        post_office_box:  p.o. box            
+        extended_address: extended address
+        street_address:   street address             
+        locality:         locality
+        region:           region
+        postal_code:      zip
+        country_name:     country 
+      customer:
+        full_name:        mame
+        date_of_birth:    date of birth
+        date_of_death:    date of death
+        sex:              sex
+        post_office_box:  p.o. box            
+        extended_address: extended address
+        street_address:   street address            
+        locality:         locality
+        region:           region
+        postal_code:      zip
+        country_name:     country 
+      invoice:
+        direct_account:  account
+        profit_account:  profit account
+        balance_account: balance account
+        created_at:      invoice date
+        due_date:        due date
+        value_date:      value date
+        state:           state
+        customer:        customer
+        company:         company
+        title:           title
+        text:            text
+        remarks:         internal remarks
+        amount:          amount
+        invoice:         invoice
+        open_amount:     open amount
+        balance:         balance
+        code:            invoice number
+        duration_from:   from
+        duration_to:     to
+      line_item:
+        date:          date
+        times:         times
+        quantity:      quantity
+        price:         price
+        title:         text
+        vat_rate:      VAT rate
+      salary:
+        amount:        gross amount
+        net_amount:    net amount
+        bvg_amount:    BVG
+        social_amount: AHV/IV/EO/ALV/NBU
+        customer:      employer
+        company:       employee
+      tenant:
+        company:                   company
+        users:                     users
+        incorporated_on:           incorporation date
+        fiscal_year_ends_on:       end of first fiscal year
+      user:
+        email:                          e-mail
+        password:                       password
+        password_confirmation:          password confirmation
+        current_password:               current password
+        remember_me:                    remember me
+        created_at:                     created at
+        roles:                          roles
+        role_texts:                     role text
+        name:                           name
+        full_name:                      full name
+        date_of_birth:                  date of birth
+        date_of_death:                  date of death
+        sex:                            sex
+        post_office_box:                p.o. box  
+        extended_address:               extended address
+        street_address:                 street address
+        locality:                       locality
+        region:                         region
+        postal_code:                    zip  
+        country_name:                   country
+      vcard:
+        full_name:                      full name
+      booking_import:
+        csv:                            csv
+        created_at:                     imported at
+
+  invoice:
+    state:
+      2xreminded:  reminded twice
+      booked:      open
+      canceled:    canceled
+      encashment:  in encashment
+      paid:        paid
+      prepared:    open
+      printed:     printed
+      reactivated: reactivated
+      reminded:    reminded once
+      overdue:     overdue
+
+  line_items:
+    quantity:
+      times:   x
+      hours:   h
+      overall: overall
+
+  vat_rates:
+    code:
+      full:     normal
+      reduced:  reduced
+      special:  special
+      excluded: excluded
+
+  booking_template:
+    relation:
+      reference_amount:  'original amount'
+      reference_balance: 'balance'
+      reference_amount_minus_balance: 'open amount'
+    
+  formtastic:
+    hints:
+      user:
+        password: "leave blank to leave password unchanged"
+          
+  cancan:
+    roles:
+      admin:      'administrator'
+      accountant: 'accountant'
+      
+  crud:
+    action:
+      only_credit_bookings: 'only credit'
+      only_debit_bookings:  'only debit'
+      all_bookings:         'all bookings'
+      pdf:                  'pdf'
+      print:                'print'
+      search:               'find'
+      book_manual:          'book manually'
+      copy:                 'copy'
+      payslip:              'payslip'
+      letter:               'letter'
+      statistics:           'statistics'
+      balance_sheet:        'balance sheet'
+      profit_sheet:         'profit sheet'
+      more:                 'more'
+    title:
+      select_booking_template: new %{model}
+      select_booking:  new %{model}
+      current: current %{model}
+      search:               'find'
+      letter:               'letter'
+      copy:                 copy %{model}
+      statistics:           'statistics'
+      write_downs:          write downs
+      balance_sheet:        'balance sheet'
+      profit_sheet:         'profit sheet'
+    flash:
+      created_html:         created %{message}
+
+  title:
+    bookings:         bookings
+    attachments:      attachments
+    period:           period
+    invoices:         invoices
+    line_items:       line items
+    open_invoices:    open invoices
+    paid_invoices:    paid invoices
+    profit:           profit
+
+  letters:
+    greetings:        kind regards,
+    debit_invoice:
+      closing:        "It was a pleasur to work together. Please pay this invoice up to %{due_date} using the payment slip or by e-banking to below account."
+
+  bookyt:
+    all:              all
+    edit:             edit
+    destroy:          delete
+    greetings:        kind regards,
+    show:             show
+    total:            total
+    difference:       difference
+    back:             back
+    balance_report_for: balance sheet for %{company}
+    assets:             assets
+    current_assets:     current assets
+    capital_assets:     capital assets
+    capital:            capital
+    equity_capital:     equity capital
+    outside_capital:    outside capital
+    costs:              costs
+    earnings:           eranings
+    profit_report_for:  profit sheet for %{company} as of %{per}
+    carry_booking:    transfer
+    invoices:
+      payment_no:             payment no. %{payment_no}
+      invoicing_party:        invoicing party
+    main_navigation:
+      new_booking:              new booking
+      balance:                  balance sheet
+      profit:                   profit sheet
+      accounts:                 accounts
+      bookings:                 booking journal
+      employees:                employees
+      people:                   people
+      companies:                companies
+      customers:                customers
+      destroy_user_session:     log out
+      new_user_session:         log in
+      store:                    store
+      accounting:               accounting
+      contacts:                 contacts
+      invoicing:                invoicing
+      credit_invoices:          credit invoices
+      new_credit_invoice:       new credit invoice
+      new_debit_invoice:        new debit invoice
+      debit_invoices:           debit invoices
+      invoices:                 invoices
+      settings:                 settings
+      overview:                 overview
+      importer:                 importer
+      new_employee:             add employee
+      new_customer:             add customer
+      account_types:            account types
+      tooltip:
+        new_booking: you can add new bookings here
+        balance: you can view the balance sheet here
+        profit:  you can view the profit sheet here
+        accounts: you will find a list of all accounts here
+        bookings: you will find all bookings in the journal
+        people: show a list of all contacts
+        employees: show a list of all employees
+        companies: show a list of all companies (tentants)
+        customers: show a list of all customers
+        destroy_user_session:  log out from bookyt
+        new_user_session:  log in to bookyt
+        store: find all functions for your store here
+        accounting: find all functions for accounting here
+        contacts: list all contacts
+        invoicing: create and track invoices here
+        new_invoice: create new invoice
+        invoices: list all invoices
+        settings: configure bookyt here
+        overview: show an overview of all functions
+        importer: import bookings from a .csv file
+        new_customer: add a new customer
+        new_employee: add a new employee
+        current_user: show details of the current user
+        user_index: list all users
+        current_tenant: show details of current tenant (company)
+        tenant_index: list all tentants
+        account_types: list all account types (current assets, equity capital, ...)
+    overview:
+      title: overview
