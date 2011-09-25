@@ -1,14 +1,4 @@
 GIT
-  remote: git://github.com/chriseppstein/compass.git
-  revision: 22e2458b77519e8eb8463170c1a1fe4bab105f3e
-  branch: rails31
-  specs:
-    compass (0.12.0.alpha.0.22e2458)
-      chunky_png (~> 1.2)
-      fssm (>= 0.2.7)
-      sass (~> 3.1)
-
-GIT
   remote: git://github.com/huerlisi/will_paginate.git
   revision: 05fbcb82299a449fc37fb9198346703740cb39cd
   branch: rails3
@@ -64,16 +54,18 @@ GEM
     arel (2.2.1)
     autotest (4.4.6)
       ZenTest (>= 4.4.1)
-    autotest-rails (4.1.0)
-      ZenTest
-    bcrypt-ruby (3.0.0)
+    autotest-rails (4.1.1)
+      ZenTest (= 4.5)
+    bcrypt-ruby (3.0.1)
     bookyt_pos (0.2.0)
+    bookyt_projects (0.2.1)
+      rails (~> 3.1.0.rc)
     bookyt_salary (0.2.0)
     bookyt_stock (0.4.1)
     builder (3.0.0)
     cancan (1.6.5)
     cap-recipes (0.3.36)
-    capistrano (2.8.0)
+    capistrano (2.9.0)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -81,13 +73,13 @@ GEM
       net-ssh-gateway (>= 1.1.0)
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
-    capistrano_colors (0.5.4)
-    capones_recipes (0.12.1)
+    capistrano_colors (0.5.5)
+    capones_recipes (0.13.1)
       cap-recipes
       capistrano
       capistrano-ext
       capistrano_colors
-    capybara (1.0.1)
+    capybara (1.1.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
@@ -98,32 +90,35 @@ GEM
       activesupport (~> 3.0)
     childprocess (0.2.2)
       ffi (~> 1.0.6)
-    chunky_png (1.2.1)
+    chunky_png (1.2.5)
     cocaine (0.2.0)
+    compass (0.12.alpha.0)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
     csv-mapper (0.5.1)
       fastercsv
-    devise (1.4.4)
+    devise (1.4.7)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
     diff-lcs (1.1.3)
     erubis (2.7.0)
-    execjs (1.2.4)
+    execjs (1.2.9)
       multi_json (~> 1.0)
-    factory_girl (2.0.5)
-    factory_girl_rails (1.1.0)
-      factory_girl (~> 2.0.0)
+    factory_girl (2.1.2)
+      activesupport
+    factory_girl_rails (1.2.0)
+      factory_girl (~> 2.1.0)
       railties (>= 3.0.0)
     fancy-buttons (1.1.2)
       compass (>= 0.11)
     fastercsv (1.5.4)
     ffi (1.0.9)
-    formtastic (1.2.4)
-      actionpack (>= 2.3.7)
-      activesupport (>= 2.3.7)
-      i18n (~> 0.4)
+    formtastic (2.0.0)
+      rails (~> 3.0)
     fssm (0.2.7)
-    haml (3.1.2)
+    haml (3.1.3)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
@@ -137,14 +132,13 @@ GEM
     hpricot (0.8.4)
     i18n (0.6.0)
     i18n_rails_helpers (0.14.2)
-    inherited_resources (1.2.2)
+    inherited_resources (1.3.0)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)
-    jquery-rails (1.0.13)
+    jquery-rails (1.0.14)
       railties (~> 3.0)
       thor (~> 0.14)
-    json_pure (1.5.4)
-      spruz (~> 0.2.8)
+    json_pure (1.6.1)
     libv8 (3.3.10.2)
     lyb_sidebar (0.1.0)
     mail (2.3.0)
@@ -163,7 +157,7 @@ GEM
       net-ssh (>= 1.99.1)
     nokogiri (1.5.0)
     orm_adapter (0.0.5)
-    paperclip (2.3.16)
+    paperclip (2.4.2)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
@@ -174,10 +168,10 @@ GEM
     prawn (0.12.0)
       pdf-reader (>= 0.9.0)
       ttfunk (~> 1.0.2)
-    prawn_rails (0.0.6)
+    prawn_rails (0.0.7)
       prawn (>= 0.11.1)
       rails (>= 3.0.0)
-    rack (1.3.2)
+    rack (1.3.3)
     rack-cache (1.0.3)
       rack (>= 0.4)
     rack-mount (0.8.3)
@@ -218,20 +212,22 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.6.0)
-    ruby_parser (2.2.0)
+    ruby_parser (2.3.1)
       sexp_processor (~> 3.0)
     rubyzip (0.9.4)
     sass (3.1.7)
-    sass-rails (3.1.0)
+    sass-rails (3.1.2)
       actionpack (~> 3.1.0)
       railties (~> 3.1.0)
       sass (>= 3.1.4)
-    selenium-webdriver (2.5.0)
+      sprockets (~> 2.0.0)
+      tilt (~> 1.3.2)
+    selenium-webdriver (2.7.0)
       childprocess (>= 0.2.1)
       ffi (>= 1.0.7)
       json_pure
       rubyzip
-    sexp_processor (3.0.6)
+    sexp_processor (3.0.7)
     shoulda (2.11.3)
     show_for (0.2.4)
     simple-navigation (3.5.0)
@@ -240,7 +236,6 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    spruz (0.2.13)
     sqlite3 (1.3.4)
     therubyracer (0.9.4)
       libv8 (~> 3.3.10)
@@ -252,10 +247,10 @@ GEM
       polyglot (>= 0.3.1)
     ttfunk (1.0.2)
     tzinfo (0.3.29)
-    uglifier (1.0.2)
+    uglifier (1.0.3)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
-    validates_timeliness (3.0.6)
+    validates_timeliness (3.0.7)
       timeliness (~> 0.3.3)
     warden (1.0.5)
       rack (>= 1.0)
@@ -271,13 +266,14 @@ DEPENDENCIES
   autotest
   autotest-rails
   bookyt_pos
+  bookyt_projects
   bookyt_salary
   bookyt_stock
   cancan
   capones_recipes
   capybara
   carrierwave
-  compass!
+  compass (~> 0.12.alpha.0)
   csv-mapper
   devise
   factory_girl_rails
@@ -299,7 +295,7 @@ DEPENDENCIES
   pdfkit!
   prawn
   prawn_rails
-  rails
+  rails (~> 3.1.0)
   rdoc
   remotipart
   rspec-rails
