@@ -18,7 +18,7 @@ group :assets do
   # gem 'coffee-rails', "~> 3.1.0.rc"
   gem 'therubyracer'
   gem 'uglifier'
-  gem 'compass', :git => 'git://github.com/chriseppstein/compass.git', :branch => 'rails31'
+  gem 'compass', "~> 0.12.alpha.0"
   gem 'fancy-buttons'
 end
 
