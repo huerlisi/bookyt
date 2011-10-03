@@ -45,6 +45,7 @@ de:
       charge_rate: Abgabe Satz
       overview: Übersicht
       session:  Anmeldung
+      note: Notizen
 
     attributes:
       title:            Titel
@@ -225,6 +226,12 @@ de:
       booking_import:
         csv:                            CSV-Datei
         created_at:                     Importiert am
+      note:
+        created_at: Erfasst am
+        updated_at: Letzte Änderung
+        user: Verfasser
+        content: Notiz
+
 
   invoice:
     state:
@@ -322,6 +329,7 @@ de:
     total:            Total
     difference:       Differenz
     back:             Zurück
+    back_to:          Zurück zum %{type}
     balance_report_for: Bilanz für %{company}
     assets:             Aktiva
     current_assets:     Umlaufvermögen

@@ -1,0 +1,8 @@
+= contextual_links
+= link_to t('bookyt.back_to', :type => t_model(parent_class)), parent_url
+
+%h2= t_title
+
+= paginated_section collection do
+  - if collection.any?
+    = render "list"

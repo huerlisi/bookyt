@@ -1,0 +1,15 @@
+- @attributes = ['created_at', 'updated_at']
+%table.list{:class => "#{collection.first.class.to_s.downcase.pluralize} collection"}
+  %thead
+    %tr
+      %th= t_attr :content, collection.first.class
+      - @attributes.each do |field|
+        %th= t_attr field, collection.first.class
+      %th= t_attr :user, collection.first.class
+  %tbody
+    - collection.each do |r|
+      %tr
+        %td= truncate(r.content, :length => 20)
+        - @attributes.each do |field|
+          %td= r.send(field) if r.respond_to?(field)
+        %td= r.user
