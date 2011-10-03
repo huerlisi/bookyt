@@ -9,7 +9,7 @@
   %tbody
     - collection.each do |r|
       %tr
-        %td= truncate(r.content, :length => 20)
+        %td= link_to truncate(r.content, :length => 20), resource_path(r)
         - @attributes.each do |field|
           %td= r.send(field) if r.respond_to?(field)
         %td= r.user
