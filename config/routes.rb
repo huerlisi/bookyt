@@ -35,6 +35,7 @@ Bookyt::Application.routes.draw do
   end
   resources :employees do
     resources :attachments
+    resources :notes
   end
   resources :employments
 
@@ -105,4 +106,7 @@ Bookyt::Application.routes.draw do
 
   # Imports
   resources :booking_imports
+
+  # Notes
+  resources :notes
 end
