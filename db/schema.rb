@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110912071440) do
+ActiveRecord::Schema.define(:version => 20111003101113) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -59,6 +59,21 @@ ActiveRecord::Schema.define(:version => 20110912071440) do
   end
 
   add_index "addresses", ["vcard_id"], :name => "addresses_vcard_id_index"
+
+  create_table "assets", :force => true do |t|
+    t.string   "title"
+    t.text     "remarks"
+    t.decimal  "amount",              :precision => 10, :scale => 2
+    t.string   "state"
+    t.integer  "purchase_invoice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "selling_invoice_id"
+  end
+
+  add_index "assets", ["purchase_invoice_id"], :name => "index_assets_on_purchase_invoice_id"
+  add_index "assets", ["selling_invoice_id"], :name => "index_assets_on_selling_invoice_id"
+  add_index "assets", ["state"], :name => "index_assets_on_state"
 
   create_table "attachments", :force => true do |t|
     t.string   "title"
@@ -145,6 +160,12 @@ ActiveRecord::Schema.define(:version => 20110912071440) do
   end
 
   add_index "charge_rates", ["person_id"], :name => "index_charge_rates_on_person_id"
+
+  create_table "civil_statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "days", :force => true do |t|
     t.datetime "created_at"
@@ -234,6 +255,8 @@ ActiveRecord::Schema.define(:version => 20110912071440) do
     t.string   "code"
     t.string   "social_security_nr"
     t.string   "social_security_nr_12"
+    t.integer  "civil_status_id"
+    t.integer  "religion_id"
   end
 
   add_index "people", ["type"], :name => "index_people_on_type"
@@ -268,6 +291,12 @@ ActiveRecord::Schema.define(:version => 20110912071440) do
     t.date     "to"
     t.integer  "project_state_id"
     t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "religions", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
