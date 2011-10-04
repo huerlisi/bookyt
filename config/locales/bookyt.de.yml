@@ -331,7 +331,7 @@ de:
     total:            Total
     difference:       Differenz
     back:             Zurück
-    back_to:          Zurück zum %{type}
+    back_to:          Zurück zu %{name}
     balance_report_for: Bilanz für %{company}
     assets:             Aktiva
     current_assets:     Umlaufvermögen

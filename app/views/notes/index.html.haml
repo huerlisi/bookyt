@@ -1,5 +1,6 @@
 = contextual_links
-= link_to t('bookyt.back_to', :type => t_model(parent_class)), parent_url
+.contextual
+  = link_to t('bookyt.back_to', :name => parent.to_s), parent_url, :class => 'icon icon-edit'
 
 %h2= t_title
 

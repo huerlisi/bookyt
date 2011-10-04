@@ -1,5 +1,6 @@
 = contextual_links
-= link_to 'Notes', employee_notes_path(@employee)
+.contextual
+  = link_to t_model(Note), employee_notes_path(@employee), :class => 'icon icon-index'
 
 %h1= t_title
 
