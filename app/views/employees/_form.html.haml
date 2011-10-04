@@ -7,7 +7,7 @@
   = f.inputs t('form.person.civil') do
     = f.input :code
     = f.input :sex, :as => :select, :collection => { t('sex.male') => Person::MALE, t('sex.female') => Person::FEMALE}, :input_html => {:class => 'combobox'}
-    = f.input :date_of_birth#, :as => :date_field  #TODO: Date field doesn't work!
+    = f.input :date_of_birth, :as => :date_field
     = f.input :civil_status
     = f.input :religion
     = f.input :social_security_nr
