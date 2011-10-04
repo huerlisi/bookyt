@@ -80,7 +80,7 @@ gem 'simple-navigation'
 gem 'lyb_sidebar'
 
 # Form framework
-gem 'formtastic'
+gem 'formtastic', '1.2.4'
 gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
 
 # CRUD
