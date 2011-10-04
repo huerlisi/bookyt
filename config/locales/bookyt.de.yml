@@ -137,6 +137,8 @@ de:
         sex:              Geschlecht
         type:             Typ
         full_name:        Name
+        religion:         Religion
+        civil_status:     Zivilstand
       company:
         full_name:        Name
         date_of_birth:    Geburtsdatum
