@@ -4,7 +4,6 @@ class DebitInvoicesController < InvoicesController
     # Allow pre-seeding some parameters
     invoice_params = {
       :company_id => current_tenant.company.id,
-      :state      => 'booked',
       :value_date => Date.today,
       :due_date   => Date.today.in(30.days).to_date,
       :title      => "Rechnung " + Date.today.strftime('%B')
@@ -28,7 +27,13 @@ class DebitInvoicesController < InvoicesController
   end
 
   def create
-    @debit_invoice = DebitInvoice.new(params[:debit_invoice])
+    invoice_params = {
+      :state      => 'booked'
+    }
+
+    invoice_params.merge!(params[:debit_invoice]) if params[:debit_invoice]
+
+    @debit_invoice = DebitInvoice.new(invoice_params)
     if @debit_invoice.save
       @debit_invoice.build_booking.save
     end

@@ -2,7 +2,8 @@
   = f.semantic_errors
   = f.inputs do
     = f.input :company_id, :as => :hidden
-    = f.input :state, :collection => invoice_states_as_collection
+    - unless action_name.eql?'new'
+      = f.input :state, :collection => invoice_states_as_collection
     = f.input :customer, :input_html => {:class => 'combobox', 'data-autofocus' => true}
     = f.input :title
     = f.input :value_date, :as => :date_field
