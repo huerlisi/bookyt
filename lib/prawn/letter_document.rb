@@ -3,6 +3,7 @@ module Prawn
 
     include ApplicationHelper
     include ActionView::Helpers::TranslationHelper
+    include Prawn::Measurements
 
     def initialize(opts = {})
       super
