@@ -127,5 +127,9 @@ module Prawn
         row(-1).font_style = :bold
       end
     end
+
+    def payment_order(sender, bank_account, invoice)
+      draw_text invoice.esr9(bank_account), :at => [cm2pt(5.2), 0]
+    end
   end
 end
