@@ -50,5 +50,5 @@ prawn_document(:page_size => 'A4',  :top_margin => 60, :left_margin => 50, :righ
   pdf.closing(@debit_invoice.company, @debit_invoice.due_date)
 
   # Footer
-  pdf.payment_order(sender, BankAccount.find_by_code('1020'), @debit_invoice)
+  pdf.esr_recipe(@debit_invoice, BankAccount.find_by_code('1020'), sender)
 end

@@ -4,6 +4,7 @@ module Prawn
     include ApplicationHelper
     include ActionView::Helpers::TranslationHelper
     include Prawn::Measurements
+    include EsrRecipe
 
     def initialize(opts = {})
       super
