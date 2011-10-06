@@ -1,5 +1,8 @@
 # Unescape HTML
 def html_unescape(value)
+  # Return an empty string when value is nil.
+  return '' unless value
+
   result = value
 
   result.gsub!(/<div>|<p>|<br>/, '')
