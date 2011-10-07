@@ -1,3 +1,5 @@
+require 'vesr'
+
 module Prawn
   class LetterDocument < Prawn::Document
 
