@@ -106,7 +106,7 @@ module Prawn
 
       # ESR-Reference
       font_size 10
-      font File.dirname(__FILE__) + '/../../data/ocrb10.ttf' if FileTest.exists?(File.dirname(__FILE__) + '/../../data/ocrb10.ttf')
+      font ::Rails.root.join('data/ocrb10.ttf') if FileTest.exists?(::Rails.root.join('data/ocrb10.ttf'))
 
       draw_text esr9(invoice, esr_account), :at => [cm2pt(5.2), 0]
     end
