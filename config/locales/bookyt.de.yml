@@ -203,6 +203,7 @@ de:
         users:                     Benutzer
         incorporated_on:           Gründung
         fiscal_year_ends_on: Ende des 1. Fiskaljahres
+        vat_number:                MwSt.-Nummer
       user:
         email:                          E-Mail
         password:                       Passwort
