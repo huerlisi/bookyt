@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111007080814) do
+ActiveRecord::Schema.define(:version => 20111007090423) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -210,13 +210,16 @@ ActiveRecord::Schema.define(:version => 20111007080814) do
     t.datetime "updated_at"
     t.string   "title"
     t.text     "remarks"
-    t.decimal  "amount",        :precision => 10, :scale => 2
+    t.decimal  "amount",                   :precision => 10, :scale => 2
     t.date     "value_date"
     t.string   "type"
     t.string   "code"
     t.date     "duration_from"
     t.date     "duration_to"
     t.text     "text"
+    t.date     "reminder_due_date"
+    t.date     "second_reminder_due_date"
+    t.date     "third_reminder_due_date"
   end
 
   add_index "invoices", ["company_id"], :name => "index_invoices_on_company_id"
