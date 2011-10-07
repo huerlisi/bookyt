@@ -18,14 +18,14 @@ prawn_document(:page_size => 'A4',  :top_margin => 60, :left_margin => 50, :righ
   # Header
   pdf.header(sender)
 
-  pdf.move_down 80
+  pdf.move_down 60
 
   # Address
   pdf.indent 320 do
     pdf.full_address(receiver.vcard)
   end
 
-  pdf.move_down 80
+  pdf.move_down 60
 
   # Place'n'Date
   pdf.indent 320 do
@@ -39,14 +39,14 @@ prawn_document(:page_size => 'A4',  :top_margin => 60, :left_margin => 50, :righ
   # Freetext
   pdf.text " "
   pdf.text html_unescape(@debit_invoice.text), :inline_format => true if @debit_invoice.present?
-  pdf.move_down 15
+  pdf.text " "
 
   # Line Items
   pdf.text " "
   pdf.line_items_table(@debit_invoice, @debit_invoice.line_items)
 
   # Closing
-  pdf.move_down 40
+  pdf.text " "
   pdf.closing(@debit_invoice.company, @debit_invoice.due_date)
 
   # Footer
