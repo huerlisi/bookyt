@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111003102543) do
+ActiveRecord::Schema.define(:version => 20111007080814) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -358,6 +358,7 @@ ActiveRecord::Schema.define(:version => 20111003102543) do
     t.datetime "updated_at"
     t.date     "incorporated_on"
     t.date     "fiscal_year_ends_on"
+    t.string   "vat_number"
   end
 
   add_index "tenants", ["person_id"], :name => "index_tenants_on_person_id"

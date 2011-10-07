@@ -7,6 +7,8 @@
 
 - @vcard = @tenant.company.vcard
 = render 'persons/show'
+%br
+= t_attr(:vat_number) + ": " + @tenant.vat_number
 
 .contextual
   = icon_link_to :new, new_tenant_attachment_path(resource), :remote => true
