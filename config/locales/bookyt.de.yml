@@ -183,6 +183,7 @@ de:
         code:          Rechnungsnr.
         duration_from: Von
         duration_to:   Bis
+        biller:        'Zugunsten von:'
       line_item:
         date:          Datum
         times:         Anzahl
