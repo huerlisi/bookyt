@@ -225,6 +225,7 @@ de:
         region:                         Region
         postal_code:                    PLZ   
         country_name:                   Land
+        locale:                         Sprache
       vcard:
         full_name:                      Name
       booking_import:

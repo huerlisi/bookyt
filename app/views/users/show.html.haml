@@ -7,7 +7,8 @@
 
   = render 'show'
 
+%p= t_attr(:locale) + ": " + @user.locale if @user.locale
+
 %ul#roles
-- @user.roles.each do |role|
-  %li
-    = role.to_s
+  - @user.roles.each do |role|
+    %li= role.to_s

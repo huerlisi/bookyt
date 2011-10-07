@@ -10,6 +10,12 @@ class AuthorizedController < InheritedResources::Base
   # Responders
   respond_to :html, :js
 
+  # Set the user locale
+  before_filter :set_locale
+  def set_locale
+    I18n.locale = current_user.locale if current_user
+  end
+
   # Resource setup
   protected
     def collection

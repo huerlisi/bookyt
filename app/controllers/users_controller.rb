@@ -13,6 +13,10 @@ class UsersController < AuthorizedController
 
     # Test if user is allowed to change roles
     params[:user].delete(:role_texts) unless can? :manage, Role
+
+    # Set the locale explicitly to the user cause it wasn't saved.
+    @user.locale = params[:user][:locale] if params[:user][:locale]
+
     update!
   end
 
