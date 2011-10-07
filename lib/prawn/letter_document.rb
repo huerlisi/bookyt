@@ -78,8 +78,6 @@ module Prawn
 
       text " "
       text " "
-      text " "
-      text " "
 
       text I18n.t('letters.greetings')
       text " "
