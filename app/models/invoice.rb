@@ -100,4 +100,13 @@ class Invoice < ActiveRecord::Base
   def amount
     self[:amount] || line_items.sum('times * price').to_f
   end
+
+  def overdue?
+    return true if state == 'booked' and due_date < Date.today
+    return true if state == 'reminded' and (reminder_due_date.nil? or reminder_due_date < Date.today)
+    return true if state == '2xreminded' and (second_reminder_due_date.nil? or second_reminder_due_date < Date.today)
+    return true if state == '3xreminded' and (third_reminder_due_date.nil? or third_reminder_due_date < Date.today)
+
+    false
+  end
 end
