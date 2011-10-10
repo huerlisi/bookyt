@@ -19,6 +19,7 @@ de:
      civil:   Personalien
     company:
       address: Adresse
+      book_keeping: Buchhaltung
 
   activerecord:
     models:

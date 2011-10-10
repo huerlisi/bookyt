@@ -19,6 +19,7 @@ en:
      civil:   Personalien
     company:
       address: address
+      book_keeping: book keeping
 
   activerecord:
     models:
