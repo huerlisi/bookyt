@@ -26,9 +26,9 @@ sqlite: &sqlite
 mysql: &mysql
   adapter:  mysql2
   encoding: utf8
-  pool:     5
-  timeout:  5000
   host:     localhost
+  username: 
+  database: bookyt_test
 
 # Environments
 # ============

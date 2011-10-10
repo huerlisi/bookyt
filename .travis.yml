@@ -1,7 +1,7 @@
 before_script:
-  - "mysql -e 'create database bookyt_test;' > /dev/null"
-  - bundle exec rake bookyt:setup
-  - bundle exec rake db:schema:load
+  - "mysql -e 'create database bookyt_test;'"
+  - DB=mysql bundle exec rake bookyt:setup
+  - DB=mysql bundle exec rake db:schema:load
 
 script: "bundle exec rake test"
 
