@@ -1,6 +1,6 @@
 # Invoice factories
-require File.expand_path('../customers', __FILE__)
-require File.expand_path('../companies', __FILE__)
+# require File.expand_path('../customers', __FILE__)
+# require File.expand_path('../companies', __FILE__)
 
 Factory.define :invoice do |f|
   f.customer Factory.build(:customer)
