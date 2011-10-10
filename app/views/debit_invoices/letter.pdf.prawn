@@ -1,3 +1,4 @@
+require 'prawn/measurement_extensions'
 # Unescape HTML
 def html_unescape(value)
   # Return an empty string when value is nil.
@@ -50,5 +51,7 @@ prawn_document(:page_size => 'A4',  :top_margin => 60, :left_margin => 50, :righ
   pdf.closing(@debit_invoice.company, @debit_invoice.due_date)
 
   # Footer
-  pdf.esr_recipe(@debit_invoice, BankAccount.find_by_code('1020'), sender)
+  pdf.bounding_box [12 - pdf.bounds.absolute_left, 23 - pdf.bounds.absolute_bottom], :width => pdf.bounds.width do
+    pdf.esr_recipe(@debit_invoice, BankAccount.find_by_code('1020'), sender)
+  end
 end
