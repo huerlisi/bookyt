@@ -253,7 +253,7 @@ GEM
       multi_json (>= 1.0.2)
     validates_timeliness (3.0.7)
       timeliness (~> 0.3.3)
-    vesr (0.2.1)
+    vesr (0.4.0)
     warden (1.0.5)
       rack (>= 1.0)
     wkhtmltopdf-binary (0.9.5.3)

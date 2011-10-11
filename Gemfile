@@ -121,6 +121,9 @@ gem 'remotipart'
 gem 'paperclip'
 gem 'csv-mapper'
 
+# ESR support
+gem 'vesr'
+
 # Plugins
 # =======
 # Uncomment to enable plugins
@@ -128,4 +131,4 @@ gem 'bookyt_pos'
 gem 'bookyt_salary'
 gem 'bookyt_stock'
 gem 'bookyt_projects'
-gem 'vesr'
+
