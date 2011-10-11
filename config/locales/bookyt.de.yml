@@ -241,16 +241,27 @@ de:
 
   invoice:
     state:
-      2xreminded:  2x gemahnt
       booked:      offen
       canceled:    storniert
-      encashment:  in Inkasso
       paid:        bezahlt
-      prepared:    offen
-      printed:     gedruckt
       reactivated: reaktiviert
       reminded:    1x gemahnt
+      2xreminded:  2x gemahnt
+      3xreminded:  3x gemahnt
+      encashment:  in Inkasso
+      written_off: abgeschrieben
       overdue:     überfällig
+    state_noun:
+      booked:      Verbuchte Rechnung
+      canceled:    Stornierte Rechnung
+      paid:        Bezahlte Rechnung
+      reactivated: Reaktivierte Rechnung
+      reminded:    1. Mahnung
+      2xreminded:  2. Mahnung
+      3xreminded:  3. Mahnung
+      encashment:  Inkasso
+      written_off: Abgeschriebene Rechnung
+      overdue:     Überfällige Rechnung
 
   line_items:
     quantity:
