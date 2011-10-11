@@ -7,8 +7,8 @@ class AddCreditInvoiceBookingTemplates < ActiveRecord::Migration
 
   def self.up
     add(Account, :code, [
-      {:code => "2001", :title => "Kreditoren", :account_type => outside_capital},
-      {:code => "4000", :title => "Materialaufwand", :account_type => costs},
+      {:code => "2001", :title => "Kreditoren", :account_type => AccountType.find_by_name('outside_capital')},
+      {:code => "4000", :title => "Materialaufwand", :account_type => AccountType.find_by_name('costs')},
     ])
 
     add(BookingTemplate, :code, [
