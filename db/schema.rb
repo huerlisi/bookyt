@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111011092706) do
+ActiveRecord::Schema.define(:version => 20111011100149) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -198,12 +198,10 @@ ActiveRecord::Schema.define(:version => 20111011092706) do
   add_index "employments", ["employer_id"], :name => "index_employments_on_employer_id"
 
   create_table "esr_files", :force => true do |t|
-    t.integer  "size"
-    t.string   "content_type"
-    t.string   "filename"
+    t.string   "file"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "remarks",      :default => ""
+    t.string   "remarks",    :default => ""
   end
 
   create_table "esr_records", :force => true do |t|
