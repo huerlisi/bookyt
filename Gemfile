@@ -131,4 +131,3 @@ gem 'bookyt_pos'
 gem 'bookyt_salary'
 gem 'bookyt_stock'
 gem 'bookyt_projects'
-
