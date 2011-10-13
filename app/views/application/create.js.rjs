@@ -1,2 +1,0 @@
-page["#new_#{resource.class.name.underscore}"].replaceWith(render(:partial => 'form'))
-page.call('addBehaviours')
