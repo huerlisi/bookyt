@@ -1,1 +1,0 @@
-page['#customers_list'].before(render(:partial => 'form'))

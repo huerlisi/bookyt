@@ -1,1 +1,0 @@
-page['#accounts_list'].before(render(:partial => 'form'))
