@@ -1,1 +1,6 @@
 = render 'vcards/address'
+
+.contextual
+  = icon_link_to :new, new_vcard_phone_number_url(resource.vcard), :remote => true
+%h2= t_model PhoneNumber
+= render 'phone_numbers/list', :phone_numbers => resource.vcard.contacts
