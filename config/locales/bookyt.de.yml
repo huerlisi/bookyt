@@ -19,6 +19,7 @@ de:
      civil:   Personalien
     company:
       address: Adresse
+      book_keeping: Buchhaltung
 
   activerecord:
     models:
@@ -45,6 +46,7 @@ de:
       charge_rate: Abgabe Satz
       overview: Übersicht
       session:  Anmeldung
+      note: Notizen
 
     attributes:
       title:            Titel
@@ -136,6 +138,8 @@ de:
         sex:              Geschlecht
         type:             Typ
         full_name:        Name
+        religion:         Religion
+        civil_status:     Zivilstand
       company:
         full_name:        Name
         date_of_birth:    Geburtsdatum
@@ -180,12 +184,14 @@ de:
         code:          Rechnungsnr.
         duration_from: Von
         duration_to:   Bis
+        biller:        'Zugunsten von:'
       line_item:
         date:          Datum
         times:         Anzahl
         quantity:      Einheit
         price:         Betrag
         title:         Text
+        vat_rate:      MWSt. Satz
       salary:
         amount:        Bruttolohn
         net_amount:    Nettolohn
@@ -198,6 +204,7 @@ de:
         users:                     Benutzer
         incorporated_on:           Gründung
         fiscal_year_ends_on: Ende des 1. Fiskaljahres
+        vat_number:                MwSt.-Nummer
       user:
         email:                          E-Mail
         password:                       Passwort
@@ -219,30 +226,55 @@ de:
         region:                         Region
         postal_code:                    PLZ   
         country_name:                   Land
+        locale:                         Sprache
       vcard:
         full_name:                      Name
       booking_import:
         csv:                            CSV-Datei
         created_at:                     Importiert am
+      note:
+        created_at: Erfasst am
+        updated_at: Letzte Änderung
+        user: Verfasser
+        content: Notiz
+
 
   invoice:
     state:
-      2xreminded:  2x gemahnt
       booked:      offen
       canceled:    storniert
-      encashment:  in Inkasso
       paid:        bezahlt
-      prepared:    offen
-      printed:     gedruckt
       reactivated: reaktiviert
       reminded:    1x gemahnt
+      2xreminded:  2x gemahnt
+      3xreminded:  3x gemahnt
+      encashment:  in Inkasso
+      written_off: abgeschrieben
       overdue:     überfällig
+    state_noun:
+      booked:      Verbuchte Rechnung
+      canceled:    Stornierte Rechnung
+      paid:        Bezahlte Rechnung
+      reactivated: Reaktivierte Rechnung
+      reminded:    1. Mahnung
+      2xreminded:  2. Mahnung
+      3xreminded:  3. Mahnung
+      encashment:  Inkasso
+      written_off: Abgeschriebene Rechnung
+      overdue:     Überfällige Rechnung
 
   line_items:
     quantity:
       times:   x
       hours:   h
       overall: pauschal
+
+  vat_rates:
+    code:
+      full:     Normal
+      reduced:  Reduziert
+      special:  Spezial
+      excluded: Befreit
 
   booking_template:
     relation:
@@ -314,6 +346,7 @@ de:
     total:            Total
     difference:       Differenz
     back:             Zurück
+    back_to:          Zurück zu %{name}
     balance_report_for: Bilanz für %{company}
     assets:             Aktiva
     current_assets:     Umlaufvermögen

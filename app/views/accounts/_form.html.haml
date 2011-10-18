@@ -2,6 +2,8 @@
   = f.semantic_errors
   = f.inputs do
     = f.input :code, :input_html => {:size => 6}
+    = f.input :pc_id, :input_html => {:size => 6}
+    = f.input :esr_id, :input_html => {:size => 6}
     = f.input :title
     = f.input :account_type, :collection => options_from_collection_for_select(AccountType.all, :id, :title, @account.account_type_id), :input_html => {:class => 'combobox'}
   = f.buttons do

@@ -12,4 +12,13 @@ class DebitInvoice < Invoice
   def profit_account
     bookings.first.try(:debit_account)
   end
+
+  # Callback hook
+  def booking_saved(booking)
+    if (self.state != 'canceled') and (self.state != 'reactivated') and (self.amount <= 0.0)
+      update_attribute(:state, 'paid')
+    elsif !self.overdue? and (self.amount > 0.0)
+      update_attribute(:state, 'booked')
+    end
+  end
 end

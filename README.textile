@@ -2,6 +2,10 @@ h1. bookyt
 
 bookyt is a simple but powerful financial accounting software.
 
+h2. Demo
+
+Here you find a demo installation of "bookyt":http://bookyt.demo.cyt.ch.
+
 h2. About bookyt
 
 bookyt is a web application implementing double-entry bookkeeping providing:

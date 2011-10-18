@@ -6,6 +6,7 @@
     = f.input :password_confirmation
     = f.input :current_password, :required => true unless can?(:manage, User)
     = f.input :role_texts, :as => :select, :collection => Ability.roles_for_collection, :include_blank => false, :input_html => {:multiple => 'multiple'}, :required => true if can?(:manage, Role)
+    = f.input :locale, :as => :radio, :collection => [['Deutsch Schweiz', 'de-CH'], ['English', 'en']]
 
     - f.object.build_person unless f.object.person
     = f.inputs t('form.person.address') do

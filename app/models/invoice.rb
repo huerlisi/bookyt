@@ -67,10 +67,43 @@ class Invoice < ActiveRecord::Base
 
   # States
   # ======
-  STATES = ['booked', 'canceled', 'paid']
+  STATES = ['booked', 'canceled', 'paid', 'reactivated', 'reminded', '2xreminded', '3xreminded', 'encashment', 'written_off']
   scope :by_state, lambda {|value|
     where(:state => value) unless value == 'all'
   }
+
+  scope :prepared, :conditions => "state = 'prepared'"
+  scope :canceled, :conditions => "state = 'canceled'"
+  scope :reactivated, :conditions => "state = 'reactivated'"
+  scope :active, :conditions => "NOT(state IN ('reactivated', 'canceled'))"
+  scope :open, :conditions => "NOT(state IN ('reactivated', 'canceled', 'paid'))"
+  scope :overdue, :conditions => ["(state = 'booked' AND due_date < :today) OR (state = 'reminded' AND reminder_due_date < :today) OR (state = '2xreminded' AND second_reminder_due_date < :today)", {:today => Date.today}]
+  scope :in_encashment, :conditions => ["state = 'encashment'"]
+
+  def active
+    !(state == 'canceled' or state == 'reactivated' or state == 'written_off')
+  end
+
+  def open
+    active and !(state == 'paid')
+  end
+
+  def state_adverb
+    I18n.t state, :scope => 'invoice.state'
+  end
+
+  def state_noun
+    I18n.t state, :scope => 'invoice.state_noun'
+  end
+
+  def overdue?
+    return true if state == 'booked' and due_date < Date.today
+    return true if state == 'reminded' and (reminder_due_date.nil? or reminder_due_date < Date.today)
+    return true if state == '2xreminded' and (second_reminder_due_date.nil? or second_reminder_due_date < Date.today)
+    return true if state == '3xreminded' and (third_reminder_due_date.nil? or third_reminder_due_date < Date.today)
+
+    return false
+  end
 
   # Period
   # ======
@@ -99,5 +132,14 @@ class Invoice < ActiveRecord::Base
 
   def amount
     self[:amount] || line_items.sum('times * price').to_f
+  end
+
+  def overdue?
+    return true if state == 'booked' and due_date < Date.today
+    return true if state == 'reminded' and (reminder_due_date.nil? or reminder_due_date < Date.today)
+    return true if state == '2xreminded' and (second_reminder_due_date.nil? or second_reminder_due_date < Date.today)
+    return true if state == '3xreminded' and (third_reminder_due_date.nil? or third_reminder_due_date < Date.today)
+
+    false
   end
 end

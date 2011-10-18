@@ -1,0 +1,5 @@
+%ul#civil
+  - [:civil_status, :religion].each do |attr|
+    %li
+      %label= t_attr(attr, Person)
+      = @person.send(attr)

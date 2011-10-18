@@ -8,9 +8,10 @@
       = f.semantic_fields_for :company do |p|
         = render 'vcards/form', :f => p
 
-  = f.inputs do
+  = f.inputs t('form.company.book_keeping') do
     = f.input :incorporated_on, :as => :date_field
     = f.input :fiscal_year_ends_on, :as => :date_field
+    = f.input :vat_number
 
   = f.buttons do
     = f.commit_button

@@ -1,4 +1,6 @@
 class CustomersController < PeopleController
+  defaults :resource_class => Customer
+
   def show
     # Invoice scoping by state
     by_state = params[:by_state] || 'all'

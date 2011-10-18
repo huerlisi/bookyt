@@ -1,8 +1,12 @@
+require 'vesr'
+
 module Prawn
   class LetterDocument < Prawn::Document
 
     include ApplicationHelper
     include ActionView::Helpers::TranslationHelper
+    include Prawn::Measurements
+    include EsrRecipe
 
     def initialize(opts = {})
       super
@@ -76,8 +80,6 @@ module Prawn
 
       text " "
       text " "
-      text " "
-      text " "
 
       text I18n.t('letters.greetings')
       text " "
@@ -125,6 +127,10 @@ module Prawn
         # Footer styling
         row(-1).font_style = :bold
       end
+    end
+
+    def payment_order(sender, bank_account, invoice)
+      draw_text invoice.esr9(bank_account), :at => [cm2pt(5.2), 0]
     end
   end
 end

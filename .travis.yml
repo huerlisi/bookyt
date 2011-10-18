@@ -1,7 +1,21 @@
 before_script:
-  - bundle exec rake bookyt:setup
-  - RAILS_ENV=development bundle exec rake db:schema:load
+  - "mysql -e 'create database bookyt_test;'"
+  - DB=mysql bundle exec rake bookyt:setup
+  - DB=mysql bundle exec rake db:schema:load
+
 script: "bundle exec rake test"
+
+# whitelist
+branches:
+  only:
+    - master
+    - stable
+
 rvm:
   - 1.8.7 # (current default)
-  - 1.9.2
+
+bundler_args: "--binstubs --without development"
+
+# IRC notification
+notifications:
+  irc: "irc.freenode.org#cyt"

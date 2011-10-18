@@ -1,1 +1,0 @@
-page['#direct_booking_list'].prepend(render(:partial => 'item', :object => @direct_booking))

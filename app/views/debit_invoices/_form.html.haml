@@ -2,7 +2,8 @@
   = f.semantic_errors
   = f.inputs do
     = f.input :company_id, :as => :hidden
-    = f.input :state, :collection => invoice_states_as_collection
+    - unless action_name.eql?'new'
+      = f.input :state, :collection => invoice_states_as_collection
     = f.input :customer, :input_html => {:class => 'combobox', 'data-autofocus' => true}
     = f.input :title
     = f.input :value_date, :as => :date_field
@@ -17,6 +18,7 @@
       %span{:style => 'display: inline-block; padding: 2px; width: 3em'}= t_attr(:times, LineItem)
       %span{:style => 'display: inline-block; padding: 0px; width: 6em'}= t_attr(:quantity, LineItem)
       %span{:style => 'display: inline-block; padding: 2px; width: 3em'}= t_attr(:price, LineItem)
+      %span{:style => 'display: inline-block; padding: 2px; width: 6em'}= t_attr(:vat_rate, LineItem)
     = f.fields_for :line_items do |line_item|
       = render 'line_items/form', :line_item => line_item
       = line_item.link_to_remove t_action(:delete), :class => 'icon-delete-text', :style => 'float: none; display: inline-block'

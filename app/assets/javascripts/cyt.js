@@ -31,7 +31,7 @@ function addLinkifyContainersBehaviour() {
 
     container.delegate('*', 'click', {href: href}, function(event) {
       // Don't override original link behaviour
-      if ($(event.target).parents('a').length == 0) {
+      if (event.target.nodeName != 'A' && $(event.target).parents('a').length == 0) {
         document.location.href = href;
       };
     });
@@ -73,3 +73,7 @@ function addIconTooltipBehaviour() {
     fadeOutSpeed: 100
   });
 };
+
+function addTimeCheckBehaviour() {
+  $('*[data-check-hours=true]').setMask();
+}

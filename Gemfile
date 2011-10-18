@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 
 # Rails
 # =====
-gem 'rails'
+gem 'rails', "~> 3.1.0"
 
 # Database
 gem 'mysql2'
@@ -13,8 +13,8 @@ gem 'sqlite3'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "~> 3.1.0.rc"
-  gem 'sprockets', "~> 2.0.0.beta"
+  gem 'sass-rails'
+  gem 'sprockets'
   # gem 'coffee-rails', "~> 3.1.0.rc"
   gem 'therubyracer'
   gem 'uglifier'
@@ -36,7 +36,7 @@ group :development do
   gem 'ruby_parser'
 
   # Capistrano
-  gem 'capones_recipes'
+#  gem 'capones_recipes'
 end
 
 # Test
@@ -85,7 +85,7 @@ gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
 
 # CRUD
 gem 'will_paginate', :git => 'git://github.com/huerlisi/will_paginate.git', :branch => 'rails3'
-gem 'inherited_resources'
+gem 'inherited_resources', '1.2.2'
 gem 'has_scope'
 gem 'i18n_rails_helpers'
 
@@ -121,9 +121,13 @@ gem 'remotipart'
 gem 'paperclip'
 gem 'csv-mapper'
 
+# ESR support
+gem 'vesr'
+
 # Plugins
 # =======
 # Uncomment to enable plugins
 gem 'bookyt_pos'
 gem 'bookyt_salary'
 gem 'bookyt_stock'
+gem 'bookyt_projects'

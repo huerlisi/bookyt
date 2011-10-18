@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110810213521) do
+ActiveRecord::Schema.define(:version => 20111011100149) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(:version => 20110810213521) do
   add_index "accounts", ["code"], :name => "index_accounts_on_code"
   add_index "accounts", ["holder_id", "holder_type"], :name => "index_accounts_on_holder_id_and_holder_type"
   add_index "accounts", ["type"], :name => "index_accounts_on_type"
+
+  create_table "activities", :force => true do |t|
+    t.date     "when"
+    t.datetime "from"
+    t.datetime "to"
+    t.integer  "person_id"
+    t.integer  "project_id"
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "addresses", :force => true do |t|
     t.string   "post_office_box",  :limit => 50
@@ -115,7 +126,7 @@ ActiveRecord::Schema.define(:version => 20110810213521) do
     t.integer  "credit_account_id"
     t.integer  "debit_account_id"
     t.date     "value_date"
-    t.string   "comments",                                                        :default => ""
+    t.text     "comments"
     t.string   "scan"
     t.string   "debit_currency",                                                  :default => "CHF"
     t.string   "credit_currency",                                                 :default => "CHF"
@@ -141,25 +152,28 @@ ActiveRecord::Schema.define(:version => 20110810213521) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "person_id"
+    t.string   "type"
   end
 
   add_index "charge_rates", ["person_id"], :name => "index_charge_rates_on_person_id"
 
-  create_table "clients", :force => true do |t|
-    t.string "name", :limit => 100
+  create_table "civil_statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "days", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date"
-    t.decimal  "cash",            :precision => 10, :scale => 2, :default => 0.0
-    t.decimal  "card_turnover",   :precision => 10, :scale => 2, :default => 0.0
-    t.decimal  "gross_turnover",  :precision => 10, :scale => 2, :default => 0.0
-    t.decimal  "net_turnover",    :precision => 10, :scale => 2, :default => 0.0
-    t.integer  "client_count",                                   :default => 0
-    t.integer  "product_count",                                  :default => 0
-    t.decimal  "expenses",        :precision => 10, :scale => 2, :default => 0.0
+    t.decimal  "cash",            :precision => 10, :scale => 2
+    t.decimal  "card_turnover",   :precision => 10, :scale => 2
+    t.decimal  "gross_turnover",  :precision => 10, :scale => 2
+    t.decimal  "net_turnover",    :precision => 10, :scale => 2
+    t.integer  "client_count"
+    t.integer  "product_count"
+    t.decimal  "expenses",        :precision => 10, :scale => 2
     t.decimal  "credit_turnover", :precision => 10, :scale => 2, :default => 0.0
     t.decimal  "discount",        :precision => 10, :scale => 2, :default => 0.0
   end
@@ -183,6 +197,38 @@ ActiveRecord::Schema.define(:version => 20110810213521) do
   add_index "employments", ["employee_id"], :name => "index_employments_on_employee_id"
   add_index "employments", ["employer_id"], :name => "index_employments_on_employer_id"
 
+  create_table "esr_files", :force => true do |t|
+    t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remarks",    :default => ""
+  end
+
+  create_table "esr_records", :force => true do |t|
+    t.string   "bank_pc_id"
+    t.string   "reference"
+    t.decimal  "amount",            :precision => 8, :scale => 2
+    t.string   "payment_reference"
+    t.date     "payment_date"
+    t.date     "transaction_date"
+    t.date     "value_date"
+    t.string   "microfilm_nr"
+    t.string   "reject_code"
+    t.string   "reserved"
+    t.string   "payment_tax"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "esr_file_id"
+    t.integer  "booking_id"
+    t.integer  "invoice_id"
+    t.string   "remarks",                                         :default => ""
+    t.string   "state",                                                           :null => false
+  end
+
+  add_index "esr_records", ["booking_id"], :name => "index_esr_records_on_booking_id"
+  add_index "esr_records", ["esr_file_id"], :name => "index_esr_records_on_esr_file_id"
+  add_index "esr_records", ["invoice_id"], :name => "index_esr_records_on_invoice_id"
+
   create_table "invoices", :force => true do |t|
     t.integer  "customer_id"
     t.integer  "company_id"
@@ -192,12 +238,16 @@ ActiveRecord::Schema.define(:version => 20110810213521) do
     t.datetime "updated_at"
     t.string   "title"
     t.text     "remarks"
-    t.decimal  "amount",        :precision => 10, :scale => 2
+    t.decimal  "amount",                   :precision => 10, :scale => 2
     t.date     "value_date"
     t.string   "type"
     t.string   "code"
     t.date     "duration_from"
     t.date     "duration_to"
+    t.text     "text"
+    t.date     "reminder_due_date"
+    t.date     "second_reminder_due_date"
+    t.date     "third_reminder_due_date"
   end
 
   add_index "invoices", ["company_id"], :name => "index_invoices_on_company_id"
@@ -220,10 +270,20 @@ ActiveRecord::Schema.define(:version => 20110810213521) do
     t.datetime "updated_at"
     t.date     "date"
     t.string   "quantity",                                   :default => "x"
+    t.string   "vat_rate"
   end
 
   add_index "line_items", ["invoice_id"], :name => "index_line_items_on_invoice_id"
   add_index "line_items", ["item_id", "item_type"], :name => "index_line_items_on_item_id_and_item_type"
+
+  create_table "notes", :force => true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "note_of_sth_id"
+    t.string   "note_of_sth_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "people", :force => true do |t|
     t.datetime "created_at"
@@ -235,6 +295,8 @@ ActiveRecord::Schema.define(:version => 20110810213521) do
     t.string   "code"
     t.string   "social_security_nr"
     t.string   "social_security_nr_12"
+    t.integer  "civil_status_id"
+    t.integer  "religion_id"
   end
 
   add_index "people", ["type"], :name => "index_people_on_type"
@@ -254,6 +316,29 @@ ActiveRecord::Schema.define(:version => 20110810213521) do
   add_index "phone_numbers", ["vcard_id"], :name => "phone_numbers_vcard_id_index"
 
   create_table "products", :force => true do |t|
+  end
+
+  create_table "project_states", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.text     "comment"
+    t.date     "from"
+    t.date     "to"
+    t.integer  "project_state_id"
+    t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "religions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "roles", :force => true do |t|
@@ -293,6 +378,7 @@ ActiveRecord::Schema.define(:version => 20110810213521) do
     t.datetime "updated_at"
     t.date     "incorporated_on"
     t.date     "fiscal_year_ends_on"
+    t.string   "vat_number"
   end
 
   add_index "tenants", ["person_id"], :name => "index_tenants_on_person_id"
@@ -300,7 +386,6 @@ ActiveRecord::Schema.define(:version => 20110810213521) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -313,6 +398,7 @@ ActiveRecord::Schema.define(:version => 20110810213521) do
     t.datetime "updated_at"
     t.integer  "person_id"
     t.integer  "tenant_id"
+    t.string   "locale"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

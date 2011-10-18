@@ -1,1 +1,0 @@
-page['#companies_list'].before(render(:partial => 'form'))

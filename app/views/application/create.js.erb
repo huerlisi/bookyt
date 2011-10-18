@@ -1,0 +1,3 @@
+$('#new_<%= resource.class.name.underscore %>').remove();
+$('#<%= resource.class.name.tableize %>_list').replaceWith('<%=j render "list" %>');
+initializeBehaviours();
