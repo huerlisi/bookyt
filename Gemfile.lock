@@ -59,7 +59,7 @@ GEM
     bookyt_pos (0.2.0)
     bookyt_projects (0.6.6)
       rails (~> 3.1.0)
-    bookyt_salary (0.2.0)
+    bookyt_salary (0.2.1)
     bookyt_stock (0.4.1)
     builder (3.0.0)
     cancan (1.6.7)
