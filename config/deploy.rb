@@ -1,5 +1,6 @@
-require 'capones_recipes/cookbook/rails31'
-require 'capones_recipes/tasks/database/sync'
+require 'capones_recipes/cookbook/rails'
+
+load 'deploy/assets'
 
 namespace :deploy do
   task :cold do       # Overriding the default deploy:cold
