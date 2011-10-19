@@ -13,12 +13,12 @@ gem 'sqlite3'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "~> 3.1.0.rc"
-  gem 'sprockets', "~> 2.0.0.beta"
+  gem 'sass-rails'
+  gem 'sprockets'
   # gem 'coffee-rails', "~> 3.1.0.rc"
   gem 'therubyracer'
   gem 'uglifier'
-  gem 'compass', "~> 0.12.alpha.0"
+  gem 'compass', '0.12.alpha'
   gem 'fancy-buttons'
 end
 
@@ -36,7 +36,7 @@ group :development do
   gem 'ruby_parser'
 
   # Capistrano
-  gem 'capones_recipes'
+#  gem 'capones_recipes'
 end
 
 # Test
