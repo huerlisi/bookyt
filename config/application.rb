@@ -64,7 +64,7 @@ module Bookyt
     config.assets.version = '1.0'
 
     # List of assets to precompile
-    config.assets.precompile += %w( ie.css ie6.css print.css screen.css )
+    config.assets.precompile += %w( ie.css ie6.css print.css screen.css bookyt_stock.css)
 
     config.middleware.use PDFKit::Middleware, {}, :except => %r[letter]
 
