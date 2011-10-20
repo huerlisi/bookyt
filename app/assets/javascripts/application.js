@@ -114,6 +114,15 @@ function addAlternateTableBehaviour() {
   $("table.list tr:odd").addClass("odd");
 }
 
+// Dirty Form
+function addDirtyForm() {
+  $(".form-view form").dirty_form()
+    .dirty(function(event, data){
+      var buttons = $(this).find("fieldset.buttons");
+      buttons.fadeIn();
+    })
+}
+
 // Initialize behaviours
 function initializeBehaviours() {
   // from cyt.js
@@ -127,6 +136,7 @@ function initializeBehaviours() {
 
   // application
   addAlternateTableBehaviour();
+  addDirtyForm();
 }
 
 // Loads functions after DOM is ready
