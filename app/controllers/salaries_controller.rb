@@ -33,7 +33,9 @@ class SalariesController < AuthorizedController
 
   def create
     @salary = Salary.new(params[:salary])
-    @salary.build_booking
+    if @salary.valid?
+      @salary.build_booking
+    end
 
     create!
   end
