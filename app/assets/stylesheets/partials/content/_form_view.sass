@@ -8,8 +8,13 @@
       border-radius: 3px
       padding:       3px
       &.changed
-        border:        2px dashed lightgray
-        padding:       2px
+        border:        1px solid lightgray
+        padding:       3px
 
     fieldset.buttons
       display: none
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button
+    -webkit-appearance: none
+    margin: 0
