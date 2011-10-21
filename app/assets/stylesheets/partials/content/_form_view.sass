@@ -4,12 +4,12 @@
     padding:          0px
 
     input, textarea, select
-      border:        1px dashed lightgray
+      border:        1px dashed #DDDDDD
       border-radius: 3px
       padding:       3px
-      &.changed
-        border:        1px solid lightgray
-        padding:       3px
+      &.changed, &:focus
+        background-color: #FFFFE0
+        background-image: none // Fix for combobox
 
     fieldset.buttons
       display: none
