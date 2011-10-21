@@ -75,31 +75,6 @@
           .append( "<a>" + item.label + "</a>" )
           .appendTo( ul );
       };
-
-      $( "<button>&nbsp;</button>" )
-        .attr( "tabIndex", -1 )
-        .attr( "title", "Show All Items" )
-        .insertAfter( input )
-        .button({
-          icons: {
-            primary: "ui-icon-triangle-1-s"
-          },
-          text: false
-        })
-        .removeClass( "ui-corner-all" )
-        .addClass( "ui-corner-right ui-button-icon" )
-        .click(function() {
-          // close if already visible
-          if ( input.autocomplete( "widget" ).is( ":visible" ) ) {
-            input.autocomplete( "close" );
-            return false;
-          }
-
-          // pass empty string as value to search for, displaying all results
-          input.autocomplete( "search", "" );
-          input.focus();
-          return false;
-        });
     }
   });
 })( jQuery );
