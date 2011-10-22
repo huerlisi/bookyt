@@ -57,7 +57,7 @@ GEM
       ZenTest (= 4.5)
     bcrypt-ruby (3.0.1)
     bookyt_pos (0.2.0)
-    bookyt_projects (0.7.0)
+    bookyt_projects (0.8.0)
       rails (~> 3.1.0)
     bookyt_salary (0.2.1)
     bookyt_stock (0.4.1)
@@ -73,7 +73,7 @@ GEM
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     capistrano_colors (0.5.5)
-    capones_recipes (1.0.0)
+    capones_recipes (1.1.0)
       cap-recipes
       capistrano
       capistrano-ext
