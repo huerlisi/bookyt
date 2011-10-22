@@ -14,12 +14,18 @@ function addAlternateTableBehaviour() {
 }
 
 // Dirty Form
+function makeEditForm(form) {
+  var buttons = form.find("fieldset.buttons");
+  buttons.fadeIn('slow');
+}
+
 function addDirtyForm() {
   $(".form-view form").dirty_form()
     .dirty(function(event, data){
-      var buttons = $(this).find("fieldset.buttons");
-      buttons.fadeIn();
+      makeEditForm($(this));
     })
+
+  $(".form-view").focusin(function() {makeEditForm($(this))});
 }
 
 // Initialize behaviours
