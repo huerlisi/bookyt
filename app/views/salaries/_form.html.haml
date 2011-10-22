@@ -2,8 +2,8 @@
   = f.semantic_errors
   = f.inputs do
     = f.input :state, :collection => invoice_states_as_collection
-    = f.input :employer, :input_html => {:class => 'combobox'}
-    = f.input :employee, :input_html => {:class => 'combobox'}
+    = f.input :employer, :as => :combobox
+    = f.input :employee, :as => :combobox
     = f.input :title
     = f.input :duration_from, :as => :date_field
     = f.input :duration_to, :as => :date_field

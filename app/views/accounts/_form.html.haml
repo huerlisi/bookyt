@@ -5,6 +5,6 @@
     = f.input :pc_id, :input_html => {:size => 6}
     = f.input :esr_id, :input_html => {:size => 6}
     = f.input :title
-    = f.input :account_type, :collection => options_from_collection_for_select(AccountType.all, :id, :title, @account.account_type_id), :input_html => {:class => 'combobox'}
+    = f.input :account_type, :as => :combobox, :collection => options_from_collection_for_select(AccountType.all, :id, :title, @account.account_type_id)
   = f.buttons do
     = f.commit_button
