@@ -137,6 +137,10 @@ de:
         daily_workload: Tagesarbeitszeit
         temporary:      Temporär
         hourly_paid:    Stundenlohn
+        overtime_premium: Überstundenzuschlag
+        holiday_premium:  Feiertagszuschlag
+        sunday_premium:   Sonntagarbeitszuschlag
+        night_premium:    Nachtarbeitszuschlag
       person:
         date_of_birth:    Geburtsdatum
         date_of_death:    Todestag

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111011100149) do
+ActiveRecord::Schema.define(:version => 20111024213008) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -191,7 +191,11 @@ ActiveRecord::Schema.define(:version => 20111011100149) do
     t.text     "remarks"
     t.decimal  "salary_amount",  :precision => 10, :scale => 2
     t.integer  "kids"
-    t.decimal  "workload",       :precision => 10, :scale => 2
+    t.decimal  "workload",         :precision => 10, :scale => 2
+    t.decimal  "overtime_premium", :precision => 10, :scale => 0
+    t.decimal  "holiday_premium",  :precision => 10, :scale => 0
+    t.decimal  "sunday_premium",   :precision => 10, :scale => 0
+    t.decimal  "night_premium",    :precision => 10, :scale => 0
   end
 
   add_index "employments", ["employee_id"], :name => "index_employments_on_employee_id"
