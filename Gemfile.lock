@@ -57,8 +57,9 @@ GEM
       ZenTest (= 4.5)
     bcrypt-ruby (3.0.1)
     bookyt_pos (0.2.0)
-    bookyt_projects (0.8.0)
+    bookyt_projects (0.10.0)
       rails (~> 3.1.0)
+      recurrence
     bookyt_salary (0.2.1)
     bookyt_stock (0.4.1)
     builder (3.0.0)
@@ -198,6 +199,9 @@ GEM
     rake (0.9.2.2)
     rdoc (3.11)
       json (~> 1.4)
+    recurrence (1.2.0)
+      activesupport (>= 2.3.0)
+      i18n
     remotipart (1.0)
     responders (0.6.4)
     rspec (2.7.0)
