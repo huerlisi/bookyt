@@ -73,7 +73,7 @@ GEM
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     capistrano_colors (0.5.5)
-    capones_recipes (1.1.0)
+    capones_recipes (1.2.0)
       cap-recipes
       capistrano
       capistrano-ext
@@ -130,7 +130,7 @@ GEM
     hike (1.2.1)
     hpricot (0.8.4)
     i18n (0.6.0)
-    i18n_rails_helpers (0.14.4)
+    i18n_rails_helpers (0.15.0)
     inherited_resources (1.2.2)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)

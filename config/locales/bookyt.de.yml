@@ -238,6 +238,10 @@ de:
         user: Verfasser
         content: Notiz
 
+  # Title customizations
+  people:
+    index:
+      title:  Kontakte
 
   invoice:
     state:
