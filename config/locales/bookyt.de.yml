@@ -339,7 +339,7 @@ de:
   letters:
     greetings:        Mit freundlichen Grüssen,
     debit_invoice:
-      closing:        "Vielen Dank für die Zusammenarbeit.\n\nBitte begleichen Sie diese Rechnung bis zum %{due_date} mit beiliegendem Einzahlungsschein oder per E-Banking auf unten stehendes Konto."
+      closing:        "Vielen Dank für die Zusammenarbeit.\n\nBitte begleichen Sie diese Rechnung bis zum %{due_date} mit beiliegendem Einzahlungsschein oder per E-Banking."
 
   bookyt:
     all:              Alle
