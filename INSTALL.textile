@@ -1,4 +1,4 @@
-We currently support installing on Debian 5.0 Lenny and Ubuntu 10.04 Lucid systems.
+We currently support installing on Debian 5.0 Lenny and Ubuntu 11.10 systems.
 
 h2. Install rubygems
 
@@ -7,10 +7,6 @@ To get access to the binaries provided by rails and other gems you need to exten
 <pre>
 export PATH=/var/lib/gems/1.8/bin:$PATH
 </pre>
-
-h3. On Ubuntu Lucid
-
-We need to add huerlisi PPA archive to get a rubygems version supporting rails 3:
 
 <pre>
 sudo apt-add-repository ppa:huerlisi/ppa
@@ -66,7 +62,7 @@ cp config/database.yml.example config/database.yml
 Initialize the database:
 
 <pre>
-rake db:setup
+bundle exec rake db:setup
 </pre>
 
 To print invoices wkhtmltopdf needs to be installed (download manually to /urs/local/bin)
