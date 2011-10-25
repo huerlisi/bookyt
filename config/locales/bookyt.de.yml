@@ -126,12 +126,21 @@ de:
         social_security_nr: AHV-Nr.
         social_security_nr_12: Alte AHV-Nr.
       employment:
-        employer:      Arbeitgeber
-        employee:      Arbeitnehmer
-        duration:      Dauer
-        salary_amount: Brutto Lohn
-        kids:          Kinder
-        workload:      Pensum
+        employer:       Arbeitgeber
+        employee:       Arbeitnehmer
+        duration:       Dauer
+        duration_from:  Begin
+        duration_to:    Ende
+        salary_amount:  Brutto Lohn
+        kids:           Kinder
+        workload:       Pensum
+        daily_workload: Tagesarbeitszeit
+        temporary:      Temporär
+        hourly_paid:    Stundenlohn
+        overtime_premium: Überstundenzuschlag
+        holiday_premium:  Feiertagszuschlag
+        sunday_premium:   Sonntagarbeitszuschlag
+        night_premium:    Nachtarbeitszuschlag
       person:
         date_of_birth:    Geburtsdatum
         date_of_death:    Todestag
