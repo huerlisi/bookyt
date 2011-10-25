@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111024213008) do
+ActiveRecord::Schema.define(:version => 20111025091156) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(:version => 20111024213008) do
   add_index "accounts", ["type"], :name => "index_accounts_on_type"
 
   create_table "activities", :force => true do |t|
-    t.date     "when"
-    t.datetime "from"
-    t.datetime "to"
+    t.date     "date"
+    t.datetime "duration_from"
+    t.datetime "duration_to"
     t.integer  "person_id"
     t.integer  "project_id"
     t.string   "comment"
@@ -331,8 +331,8 @@ ActiveRecord::Schema.define(:version => 20111024213008) do
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.text     "comment"
-    t.date     "from"
-    t.date     "to"
+    t.date     "duration_from"
+    t.date     "duration_to"
     t.integer  "project_state_id"
     t.integer  "client_id"
     t.datetime "created_at"
