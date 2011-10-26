@@ -5,4 +5,11 @@ class AttachmentsController < AuthorizedController
   belongs_to :customer, :polymorphic => true, :optional => true
   belongs_to :person, :polymorphic => true, :optional => true
   belongs_to :tenant, :polymorphic => true, :optional => true
+
+  def create
+    create! {
+      redirect_to :back
+      return
+    }
+  end
 end

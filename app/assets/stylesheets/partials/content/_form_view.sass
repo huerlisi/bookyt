@@ -1,0 +1,20 @@
+.form-view
+  form, form.formtastic
+    background-color: transparent
+    padding:          0px
+
+    input, textarea, select
+      border:        1px dashed #DDDDDD
+      border-radius: 3px
+      padding:       3px
+      &.changed, &:focus
+        background-color: #FFFFE0
+        background-image: none // Fix for combobox
+
+    fieldset.buttons
+      display: none
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button
+    -webkit-appearance: none
+    margin: 0

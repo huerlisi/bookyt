@@ -14,7 +14,7 @@ class SalariesController < AuthorizedController
   def new
     # Allow pre-seeding some parameters
     salary_params = {
-      :customer_id    => current_tenant.company.id,
+      :employer    => current_tenant.company,
       :state          => 'booked',
       :duration_from  => Date.today,
       :duration_to    => Date.today.in(30.days).to_date
@@ -33,7 +33,9 @@ class SalariesController < AuthorizedController
 
   def create
     @salary = Salary.new(params[:salary])
-    @salary.build_booking
+    if @salary.valid?
+      @salary.build_booking
+    end
 
     create!
   end

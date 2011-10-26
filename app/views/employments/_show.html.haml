@@ -1,10 +1,4 @@
-= contextual_links
-
-%h2= t_title
-
-= @employment.employer
-= @employment.employee
-= "%s - %s" % [@employment.duration_from, @employment.duration_to]
+= render 'application/show'
 
 .contextual
   = icon_link_to :new, new_invoice_attachment_path(resource), :remote => true

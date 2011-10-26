@@ -1,4 +1,18 @@
 class Salary < Invoice
+  # Association customizing
+  belongs_to :employee, :foreign_key => :company_id, :class_name => 'Person'
+  belongs_to :employer, :foreign_key => :customer_id, :class_name => 'Person'
+
+  validates :employee, :employer, :presence => true
+
+  def employer_id=(value)
+    customer_id = value
+  end
+
+  def employee_id=(value)
+    company_id = value
+  end
+
   # String
   def to_s(format = :default)
     "%s (%s / %s - %s)" % [title, company, duration_from ? I18n::localize(duration_from) : '', duration_to ? I18n::localize(duration_to) : '']
@@ -69,11 +83,11 @@ class Salary < Invoice
     super(params, 'salary:employer:vkb').save
 
     super(params, 'salary:employee:ktg').save
-    super(params.merge(:person_id => company.id), "salary:bvg").save
+    super(params.merge(:person_id => employee.id), "salary:bvg").save
 
     super(params, 'salary:invoice').save
 
-    super(params.merge(:person_id => company.id), "salary:kz").save
-    super(params.merge(:person_id => company.id), "salary:social:kz").save
+    super(params.merge(:person_id => employee.id), "salary:kz").save
+    super(params.merge(:person_id => employee.id), "salary:social:kz").save
   end
 end

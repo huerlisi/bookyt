@@ -1,9 +1,9 @@
-= semantic_form_for @salary, :remote => true do |f|
+= semantic_form_for @salary, :remote => request.xhr? do |f|
   = f.semantic_errors
   = f.inputs do
     = f.input :state, :collection => invoice_states_as_collection
-    = f.input :customer_id, :as => :hidden
-    = f.input :company_id, :as => :hidden
+    = f.input :employer, :as => :combobox
+    = f.input :employee, :as => :combobox
     = f.input :title
     = f.input :duration_from, :as => :date_field
     = f.input :duration_to, :as => :date_field

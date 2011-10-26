@@ -1,6 +1,13 @@
+// Combobox
+function addComboboxBehaviour() {
+  $("select.combobox").combobox();
+}
+
 // Autofocus element having attribute data-autofocus
 function addAutofocusBehaviour() {
-  $('*[data-autofocus=true]').first().focus();
+  $('*[data-autofocus=true]')
+    .filter(function() {return $(this).parents('.form-view').length < 1})
+    .first().focus();
 };
 
 // Add datepicker

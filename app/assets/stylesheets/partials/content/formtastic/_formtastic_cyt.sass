@@ -52,13 +52,16 @@ form.formtastic fieldset
     width: 15%
     margin-right: 0.5em
     text-align: right
+    font-weight: normal
+    color:       #808080
   > ol > li
     label
-      font-weight: bold
+      font-weight: normal
     &.required
       color: #484848
       abbr
         color: #bb0000
+        margin-left: 0.2em
     fieldset ol
       float: left
       width: 74%
@@ -81,3 +84,7 @@ form.formtastic fieldset
         background-position: 3px 3px
         padding: 3px
         padding-left: 20px
+
+// Fix textareas
+form.formtastic fieldset > ol > li.text textarea
+  width: 70%

@@ -1,8 +1,8 @@
 = semantic_form_for @invoice do |f|
   = f.semantic_errors
   = f.inputs do
-    = f.input :customer, :input_html => {:class => 'combobox'}
-    = f.input :company, :input_html => {:class => 'combobox'}
+    = f.input :customer, :as => :combobox
+    = f.input :company, :as => :combobox
     = f.input :title
     = f.input :amount
     = f.input :due_date, :as => :date_field
