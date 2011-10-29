@@ -2,7 +2,7 @@
 
 %h1= t_title
 
-= render 'persons/show'
+= render 'persons/show', :vcard => resource.vcard
 
 .contextual
   = icon_link_to :new, new_debit_invoice_path(:invoice => {:customer_id => resource})

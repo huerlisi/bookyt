@@ -5,8 +5,7 @@
 
 %h1= link_to @tenant.company, @tenant.company
 
-- @vcard = @tenant.company.vcard
-= render 'persons/show'
+= render 'persons/show', :vcard => @tenant.company.vcard
 %br
 = t_attr(:vat_number) + ": " + @tenant.vat_number
 
