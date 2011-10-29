@@ -88,3 +88,11 @@ form.formtastic fieldset
 // Fix textareas
 form.formtastic fieldset > ol > li.text textarea
   width: 70%
+
+// Use single-line for radio buttons
+form.formtastic fieldset > ol > li.radio fieldset ol li
+  display: inline-block
+
+form.formtastic li fieldset.choices .label
+  width: 100%
+  font-style: normal
