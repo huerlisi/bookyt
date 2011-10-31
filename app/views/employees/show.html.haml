@@ -4,7 +4,7 @@
 
 %h1= t_title
 
-= render 'persons/show'
+= render 'persons/show', :vcard => resource.vcard
 - @person = @employee
 = render 'persons/civil'
 
