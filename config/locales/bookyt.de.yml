@@ -24,6 +24,7 @@ de:
   activerecord:
     models:
       account: Konto
+      bank_account: Bankkonto
       account_type: Kontentyp
       booking: Buchung
       booking_template: Buchungsvorlage
