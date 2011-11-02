@@ -14,12 +14,11 @@ namespace :deploy do
   end
 end
 
-#Application
+# Application
 set :application, 'bookyt'
 set :repository,  'git@github.com:huerlisi/bookyt.git'
 
 # Staging
-#set :stages, %w(staging demo)
 set :default_stage, 'staging'
 
 # Deployment
