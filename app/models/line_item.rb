@@ -37,4 +37,9 @@ class LineItem < ActiveRecord::Base
       s = "#{currency_fmt(times)} #{I18n::translate(quantity, :scope => 'line_items.quantity')}"
     end
   end
+
+  # Vat Rate
+  def vat_rate
+    ChargeRate.current("vat:#{vat_rate_code}", invoice.value_date)
+  end
 end
