@@ -1,7 +1,6 @@
 %tr[line_item]
-  %td= line_item.title
   %td= line_item.date
-  %td.invoice-position= line_item.times
-  %td.invoice-position= t(line_item.quantity, :scope => 'line_items.quantity')
+  %td= line_item.title
+  %td.currency= line_item.times_to_s
   %td.currency= currency_fmt(line_item.price)
   %td.currency= currency_fmt(line_item.total_amount)
