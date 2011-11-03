@@ -40,6 +40,6 @@ class LineItem < ActiveRecord::Base
 
   # Vat Rate
   def vat_rate
-    ChargeRate.current("vat:#{vat_rate_code}", invoice.value_date)
+    ChargeRate.current(vat_rate_code, invoice.value_date)
   end
 end
