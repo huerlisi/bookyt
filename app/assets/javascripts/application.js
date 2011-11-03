@@ -28,6 +28,21 @@ function addDirtyForm() {
   $(".form-view").focusin(function() {makeEditForm($(this))});
 }
 
+function addNestedFormBehaviour() {
+  $(".delete-nested-form-item").live("click", function(event) {
+    var item = $(this).parents('.nested-form-item');
+    // Hide item
+    item.hide();
+    // Mark as ready to delete
+    item.find("input[name$='[_destroy]']").val("1");
+    // Drop input fields to prevent browser validation problems
+    item.find(":input").not("[name$='[_destroy]'], [name$='[id]']").remove();
+
+    // Don't follow link
+    event.preventDefault();
+  });
+}
+
 // Initialize behaviours
 function initializeBehaviours() {
   // from cyt.js
@@ -43,6 +58,7 @@ function initializeBehaviours() {
   // application
   addAlternateTableBehaviour();
   addDirtyForm();
+  addNestedFormBehaviour();
 }
 
 // Loads functions after DOM is ready

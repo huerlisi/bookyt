@@ -12,18 +12,19 @@
     = f.input :remarks, :input_html => {:rows => 2}
 
   = f.inputs t('title.line_items') do
-    %div
-      %span{:style => 'display: inline-block; padding: 2px; width: 85px'}= t_attr(:date, LineItem)
-      %span{:style => 'display: inline-block; padding: 2px; width: 30em'}= t_attr(:title, LineItem)
-      %span{:style => 'display: inline-block; padding: 2px; width: 3em'}= t_attr(:times, LineItem)
-      %span{:style => 'display: inline-block; padding: 0px; width: 6em'}= t_attr(:quantity, LineItem)
-      %span{:style => 'display: inline-block; padding: 2px; width: 3em'}= t_attr(:price, LineItem)
-      %span{:style => 'display: inline-block; padding: 2px; width: 6em'}= t_attr(:vat_rate, LineItem)
-    = f.fields_for :line_items do |line_item|
-      = render 'line_items/form', :line_item => line_item
-      = line_item.link_to_remove t_action(:delete), :class => 'icon-delete-text', :style => 'float: none; display: inline-block'
-    %div
-      = f.link_to_add t_action(:more), :line_items, :class => 'icon-add-text'
+    = link_to t_action(:more), new_debit_invoice_line_item_path(resource), :remote => true, :class => 'icon-add-text'
+    %table#line_items
+      %thead
+        %tr
+          %th{:style => 'padding: 2px; width: 85px'}= t_attr(:date, LineItem)
+          %th{:style => 'padding: 2px; width: 30em'}= t_attr(:title, LineItem)
+          %th{:style => 'padding: 2px; width: 3em'}= t_attr(:times, LineItem)
+          %th{:style => 'padding: 0px; width: 6em'}= t_attr(:quantity, LineItem)
+          %th{:style => 'padding: 2px; width: 3em'}= t_attr(:price, LineItem)
+          %th{:style => 'padding: 2px; width: 6em'}= t_attr(:vat_rate, LineItem)
+      %tbody
+        = f.fields_for :line_items do |line_item|
+          = render 'line_items/form', :line_item => line_item
 
   = f.inputs t('title.period') do
     = f.input :duration_from, :as => :date_field
