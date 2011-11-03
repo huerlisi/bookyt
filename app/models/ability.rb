@@ -23,12 +23,21 @@ class Ability
     alias_action :index, :to => :list
     alias_action :current, :to => :show
 
-    if user.role? :admin
-      can :manage, :all
-    elsif user.role? :accountant
-      can :manage, [Account, BookingTemplate, Customer, Employee, Invoice, Product, AccountType, Booking, Company, Day, Employment, Person, Profit]
-      can [:show, :list], [Tenant], :users => {:id => user.id}
-      can [:show, :update], User, :id => user.id
+    # Load the abilities for all roles.
+    user.roles.each do |role|
+      self.send(role.name)
     end
+  end
+  
+  # Admin abilities
+  def admin
+    can :manage, :all
+  end
+  
+  # Accountant abilities
+  def accountant
+    can :manage, [Account, BookingTemplate, Customer, Employee, Invoice, Product, AccountType, Booking, Company, Day, Employment, Person, Profit]
+    can [:show, :list], [Tenant], :users => {:id => user.id}
+    can [:show, :update], User, :id => user.id
   end
 end
