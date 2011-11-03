@@ -1,0 +1,9 @@
+%tr[charge_rate]
+  %td= link_to charge_rate.title, charge_rate
+  %td= charge_rate.code
+  %td= [charge_rate.duration_from, charge_rate.duration_to].compact.join(" - ")
+  %td= charge_rate.person
+  %td.number= charge_rate.rate_to_s
+  %td.action-links
+    = list_link_for(:edit, charge_rate)
+    = list_link_for(:delete, charge_rate)
