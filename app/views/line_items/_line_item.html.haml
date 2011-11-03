@@ -4,3 +4,4 @@
   %td.currency= line_item.times_to_s
   %td.currency= currency_fmt(line_item.price)
   %td.currency= currency_fmt(line_item.total_amount)
+  %td.currency= line_item.vat_rate.try(:rate_to_s)
