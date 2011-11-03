@@ -19,19 +19,19 @@ prawn_document(:page_size => 'A4',  :top_margin => 60, :left_margin => 50, :righ
   # Header
   pdf.header(sender)
 
-  pdf.move_down 60
-
   # Address
-  pdf.indent 320 do
-    pdf.full_address(receiver.vcard)
+  pdf.float do
+    pdf.canvas do
+      pdf.bounding_box [12.cm, pdf.bounds.top - 6.cm], :width => 10.cm do
+        pdf.full_address(receiver.vcard)
+      end
+    end
   end
 
-  pdf.move_down 60
+  pdf.move_down 4.cm
 
   # Place'n'Date
-  pdf.indent 320 do
-    pdf.text sender.vcard.locality + ", " + I18n.l(Date.today, :format => :long)
-  end
+  pdf.text sender.vcard.locality + ", " + I18n.l(Date.today, :format => :long)
 
   # Subject
   pdf.move_down 60

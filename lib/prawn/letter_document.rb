@@ -13,7 +13,7 @@ module Prawn
       
       # Default Font
       font  'Helvetica'
-      font_size 11
+      font_size 9.5
     end
 
     # Draws the full address of a vcard
@@ -82,7 +82,6 @@ module Prawn
       text " "
 
       text I18n.t('letters.greetings')
-      text " "
       text "#{sender.vcard.full_name}"
     end
 
@@ -114,6 +113,8 @@ module Prawn
         # General cell styling
         cells.valign  = :top
         cells.borders = []
+        cells.padding_bottom = 0
+        cells.padding_top = 0
 
         # Columns
         columns(2..4).align = :right
