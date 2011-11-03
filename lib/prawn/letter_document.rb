@@ -15,7 +15,38 @@ module Prawn
       font  'Helvetica'
       font_size 11
     end
+    
+    # Letter header with company logo, receiver address and place'n'date
+    def letter_header(sender, receiver, subject)
+      # Header
+      header(sender)
 
+      move_down 60
+
+      # Address
+      indent 320 do
+        full_address(receiver.vcard)
+      end
+
+      move_down 60
+
+      # Place'n'Date
+      indent 320 do
+        text sender.vcard.locality + ", " + I18n.l(Date.today, :format => :long)
+      end
+
+      # Subject
+      move_down 60
+      text subject, :style => :bold
+    end
+    
+    # Freetext
+    def free_text(text = "")
+      text " "
+      text text, :inline_format => true
+      text " "
+    end
+    
     # Draws the full address of a vcard
     def full_address(vcard)
       vcard.full_address_lines.each do |line|
@@ -75,9 +106,14 @@ module Prawn
       end
     end
 
-    def closing(sender, due_date)
+    def invoice_closing(sender, due_date)
+      text " "
       text I18n.t('letters.debit_invoice.closing', :due_date => due_date), :align => :justify
 
+      common_closing(sender)
+    end
+    
+    def common_closing(sender)
       text " "
       text " "
 
@@ -87,6 +123,7 @@ module Prawn
     end
 
     def line_items_table(invoice, line_items)
+      text " "
       content = line_items.collect do |item|
 
         if item.times == 1
@@ -101,14 +138,34 @@ module Prawn
           amount = "#{currency_fmt(item.times)} #{t(item.quantity, :scope => 'line_items.quantity')}"
         end
 
-       price = currency_fmt(item.price)
+        price = currency_fmt(item.price)
 
-       [item.title, item.date, amount, price, currency_fmt(item.total_amount)]
+        [item.title, item.date, amount, price, currency_fmt(item.total_amount)]
       end
 
-      total = ["Total", nil, nil, nil, currency_fmt(invoice.amount)]
+      rows = content + [total_row(currency_fmt(invoice.amount))]
 
-      rows = content + [total]
+      items_table(rows)
+    end
+    
+    def salary_table(direct_balance, direct_account, direct_bookings)
+      content = direct_bookings.inject([]) do |out, item|
+        title = item.title if item
+        out << [title, nil, nil, nil, currency_fmt(item.accounted_amount(direct_account))] if item.contra_account(direct_account)
+          
+        out
+      end
+
+      rows = content + [total_row(currency_fmt(direct_balance))]
+ 
+      items_table(rows)
+    end
+    
+    def total_row(amount)
+      ["Total", nil, nil, nil, amount]
+    end
+    
+    def items_table(rows)
       table(rows, :width => bounds.width) do
 
         # General cell styling
