@@ -66,7 +66,7 @@ module Bookyt
     # List of assets to precompile
     config.assets.precompile += %w( ie.css ie6.css print.css screen.css bookyt_stock.css bookyt_salary.css bookyt_projects.css)
 
-    config.middleware.use PDFKit::Middleware, {}, :except => %r[letter]
+    config.middleware.use PDFKit::Middleware, {}, :except => %r[(letter|payslip)]
 
     # Engines
     config.bookyt = ActiveSupport::OrderedOptions.new
