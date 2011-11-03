@@ -346,7 +346,7 @@ de:
     profit:           Gewinn
 
   letters:
-    greetings:        Mit freundlichen Grüssen,
+    greetings:        Freundlichen Grüsse
     debit_invoice:
       closing:        "Vielen Dank für die Zusammenarbeit.\n\nBitte begleichen Sie diese Rechnung bis zum %{due_date} mit beiliegendem Einzahlungsschein oder per E-Banking."
 
