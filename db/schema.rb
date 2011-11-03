@@ -168,6 +168,7 @@ ActiveRecord::Schema.define(:version => 20111104062828) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "person_id"
+    t.boolean  "relative"
   end
 
   add_index "charge_rates", ["person_id"], :name => "index_charge_rates_on_person_id"

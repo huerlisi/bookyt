@@ -96,8 +96,10 @@ de:
         code:            Code
         duration_from:   Gültig ab
         duration_to:     Gültig bis
-        rate:            Satz (%)
-        person_id:       Person
+        duration:        Gültigkeit
+        rate:            Satz
+        person:          Person
+        relative:        Relativ
       day:
         date:            Datum
         cash:            Bargeldumsatz
