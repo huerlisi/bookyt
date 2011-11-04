@@ -201,7 +201,7 @@ de:
         quantity:      Einheit
         price:         Betrag
         title:         Text
-        vat_rate:      MWSt. Satz
+        vat_rate:      MWSt.
       salary:
         amount:        Bruttolohn
         net_amount:    Nettolohn
