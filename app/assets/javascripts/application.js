@@ -43,6 +43,80 @@ function addNestedFormBehaviour() {
   });
 }
 
+function calculateTotalAmount(lineItem) {
+  var times_input = lineItem.find(":input[name$='[times]']");
+  var times = parseFloat(times_input.val());
+  var price_input = lineItem.find(":input[name$='[price]']");
+  var price = parseFloat(price_input.val());
+
+  return times * price;
+}
+
+function updateTotalAmount(lineItem) {
+  var total_amount_input = lineItem.find(".total_amount");
+  var total_amount = CommaFormatted(calculateTotalAmount(lineItem).toFixed(2));
+
+  // Update Element
+  total_amount_input.text(total_amount);
+}
+
+function AddCalculateTotalAmountBehaviour() {
+  $("#line_items").find(":input[name$='[times]'], :input[name$='[price]']").live('focusout', function() {
+    var line_item = $(this).parents('.line_item');
+    updateTotalAmount(line_item);
+  })
+}
+
+function calculateAmount(){
+  var offerAmount = 0;
+
+  $('.line_items li').each(function(){
+    var times_input = $(this).find('input.times');
+    var times = parseInt(times_input.val());
+    var amount_input = $(this).find('.amount input');
+    var amount = parseFloat(amount_input.val());
+
+    if(amount > 0){
+      offerAmount = offerAmount + (times * amount);
+    }
+  });
+
+  $('fieldset.option-group input:checked').each(function(){
+    var amount = parseFloat($(this).attr('data-amount'));
+    offerAmount = offerAmount + amount;
+  });
+
+  $('.price-tag').text(CommaFormatted(offerAmount.toFixed(2)));
+}
+
+/*
+* This function is copy pasted from: http://www.web-source.net/web_development/currency_formatting.htm
+ */
+function CommaFormatted(amount) {
+	var delimiter = "'"; // replace comma if desired
+	var a = amount.split('.',2)
+	var d = a[1];
+	var i = parseInt(a[0]);
+	if(isNaN(i)) { return ''; }
+	var minus = '';
+	if(i < 0) { minus = '-'; }
+	i = Math.abs(i);
+	var n = new String(i);
+	var a = [];
+	while(n.length > 3)
+	{
+		var nn = n.substr(n.length-3);
+		a.unshift(nn);
+		n = n.substr(0,n.length-3);
+	}
+	if(n.length > 0) { a.unshift(n); }
+	n = a.join(delimiter);
+	if(d.length < 1) { amount = n; }
+	else { amount = n + '.' + d; }
+	amount = minus + amount;
+	return amount;
+}
+
 // Initialize behaviours
 function initializeBehaviours() {
   // from cyt.js
@@ -59,6 +133,8 @@ function initializeBehaviours() {
   addAlternateTableBehaviour();
   addDirtyForm();
   addNestedFormBehaviour();
+
+  AddCalculateTotalAmountBehaviour();
 }
 
 // Loads functions after DOM is ready
