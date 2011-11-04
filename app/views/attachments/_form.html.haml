@@ -3,6 +3,7 @@
 
   = f.input :title
   = f.input :file, :as => :file
+  = f.input :code, :as => :select, :collection => Attachment.codes
   - if parent?
     - if parent
       - f.object.object = parent
