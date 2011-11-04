@@ -168,7 +168,7 @@ ActiveRecord::Schema.define(:version => 20111104062828) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "person_id"
-    t.string   "type"
+    t.boolean  "relative"
   end
 
   add_index "charge_rates", ["person_id"], :name => "index_charge_rates_on_person_id"
@@ -289,8 +289,8 @@ ActiveRecord::Schema.define(:version => 20111104062828) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date"
-    t.string   "quantity",                                   :default => "x"
-    t.string   "vat_rate"
+    t.string   "quantity",                                     :default => "x"
+    t.string   "vat_rate_code"
   end
 
   add_index "line_items", ["invoice_id"], :name => "index_line_items_on_invoice_id"
