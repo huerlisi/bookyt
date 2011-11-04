@@ -1,4 +1,5 @@
 require 'vesr'
+require 'prawn/measurement_extensions'
 
 module Prawn
   class LetterDocument < Prawn::Document
@@ -32,16 +33,18 @@ module Prawn
       move_down 60
 
       # Address
-      indent 320 do
-        full_address(receiver.vcard)
+      float do
+        canvas do
+          bounding_box [12.cm, bounds.top - 6.cm], :width => 10.cm do
+            full_address(receiver.vcard)
+          end
+        end
       end
 
-      move_down 60
+      move_down 4.cm
 
       # Place'n'Date
-      indent 320 do
-        text sender.vcard.locality + ", " + I18n.l(Date.today, :format => :long)
-      end
+      text sender.vcard.locality + ", " + I18n.l(Date.today, :format => :long)
 
       # Subject
       move_down 60
