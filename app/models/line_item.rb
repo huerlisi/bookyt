@@ -21,6 +21,7 @@ class LineItem < ActiveRecord::Base
   end
 
   def total_amount
+    return 0 if times.blank? or price.blank?
     times * price.to_f
   end
 
