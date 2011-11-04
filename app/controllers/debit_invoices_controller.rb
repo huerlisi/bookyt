@@ -49,7 +49,11 @@ class DebitInvoicesController < InvoicesController
       @invoice = DebitInvoice.new
     end
 
-    @line_item = @invoice.line_items.build
+    @line_item = @invoice.line_items.build(
+      :times         => 1,
+      :quantity      => 'x',
+      :vat_rate_code => 'vat:full'
+    )
 
     respond_with @line_item
   end
