@@ -10,4 +10,8 @@ class Attachment < ActiveRecord::Base
   def to_s(format = :default)
     title
   end
+  
+  def self.codes
+    [['Brief-Template', 'Prawn::LetterDocument']]
+  end
 end
