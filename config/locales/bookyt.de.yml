@@ -84,6 +84,14 @@ de:
         from:            Abrechnung von
         total:           Total
         calculate:       Ausrechnen
+      person:
+        date_of_birth:    Geburtsdatum
+        date_of_death:    Todestag
+        sex:              Geschlecht
+        type:             Typ
+        full_name:        Name
+        religion:         Religion
+        civil_status:     Zivilstand
       employee:
         full_name:        Name
         date_of_birth:    Geburtsdatum
@@ -114,14 +122,6 @@ de:
         holiday_premium:  Feiertagszuschlag
         sunday_premium:   Sonntagarbeitszuschlag
         night_premium:    Nachtarbeitszuschlag
-      person:
-        date_of_birth:    Geburtsdatum
-        date_of_death:    Todestag
-        sex:              Geschlecht
-        type:             Typ
-        full_name:        Name
-        religion:         Religion
-        civil_status:     Zivilstand
       company:
         full_name:        Name
         date_of_birth:    Geburtsdatum
