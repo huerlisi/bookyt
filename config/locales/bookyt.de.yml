@@ -92,11 +92,6 @@ de:
         full_name:        Name
         religion:         Religion
         civil_status:     Zivilstand
-      employee:
-        full_name:        Name
-        date_of_birth:    Geburtsdatum
-        date_of_death:    Todestag
-        sex:              Geschlecht
         post_office_box:  Postfach
         extended_address: Adresszusatz
         street_address:   Strasse
@@ -104,6 +99,7 @@ de:
         region:           Region
         postal_code:      PLZ
         country_name:     Land
+      employee:
         social_security_nr: AHV-Nr.
         social_security_nr_12: Alte AHV-Nr.
       employment:
@@ -122,30 +118,6 @@ de:
         holiday_premium:  Feiertagszuschlag
         sunday_premium:   Sonntagarbeitszuschlag
         night_premium:    Nachtarbeitszuschlag
-      company:
-        full_name:        Name
-        date_of_birth:    Geburtsdatum
-        date_of_death:    Todestag
-        sex:              Geschlecht
-        post_office_box:  Postfach            
-        extended_address: Adresszusatz
-        street_address:   Strasse             
-        locality:         Ort
-        region:           Region
-        postal_code:      PLZ
-        country_name:     Land 
-      customer:
-        full_name:        Name
-        date_of_birth:    Geburtsdatum
-        date_of_death:    Todestag
-        sex:              Geschlecht
-        post_office_box:  Postfach            
-        extended_address: Adresszusatz
-        street_address:   Strasse             
-        locality:         Ort
-        region:           Region
-        postal_code:      PLZ
-        country_name:     Land 
       invoice:
         direct_account:  Konto
         profit_account:  Erfolgskonto
