@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111025091156) do
+ActiveRecord::Schema.define(:version => 20111104062828) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20111025091156) do
     t.datetime "updated_at"
     t.integer  "object_id"
     t.string   "object_type"
+    t.string   "code"
   end
 
   add_index "attachments", ["object_id", "object_type"], :name => "index_attachments_on_object_id_and_object_type"
