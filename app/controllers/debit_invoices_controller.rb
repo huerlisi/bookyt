@@ -15,8 +15,8 @@ class DebitInvoicesController < InvoicesController
     @debit_invoice = DebitInvoice.new(invoice_params)
 
     @debit_invoice.line_items.build(
-      :quantity      => 1,
-      :price         => @debit_invoice.amount,
+      :times         => 1,
+      :quantity      => 'x',
       :vat_rate_code => 'vat:full'
     )
 
