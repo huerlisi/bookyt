@@ -9,6 +9,14 @@ module Prawn
     include EsrRecipe
 
     def initialize(opts = {})
+      opts.reverse_merge!(:page_size => 'A4',  
+                          :top_margin => 60, 
+                          :left_margin => 50, 
+                          :right_margin => 55)
+      # Set the template
+      letter_template = Attachment.find_by_code('Prawn::LetterDocument')
+      opts.reverse_merge!(:template => letter_template.file.current_path) if letter_template
+      
       super
       
       # Default Font
