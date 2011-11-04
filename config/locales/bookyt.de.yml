@@ -23,10 +23,6 @@ de:
 
   activerecord:
     models:
-      account: Konto
-      bank_account: Bankkonto
-      account_type: Kontentyp
-      booking: Buchung
       booking_template: Buchungsvorlage
       charge_booking_template: Bedingte Buchungsvorlage
       person: Person
@@ -52,35 +48,9 @@ de:
     attributes:
       title:            Titel
       amount:           Betrag
-      account:
-        code:           Nummer
-        title:          Titel
-        saldo:          Saldo
-        account_type:   Kontentyp
-      account_type:
-        name:           Name
-        title:          Titel
       attachment:
         title:          Titel
         file:           Dateiname
-      booking:
-        code:           Belegnr.
-        value_date:     Valutadatum
-        title:          Titel
-        amount:         Betrag
-        comments:       Bemerkungen
-        credit_account: Soll
-        debit_account:  Haben
-        reference:      Referenz
-        reference_type: Referenz Typ
-        reference_id:   Referenz ID
-        text:           Text
-        date:           Datum
-        balance:        Saldo
-        edit:           Editieren
-        destroy:        Löschen
-        valuta:         Valuta
-        value:          Betrag
       booking_template:
         value_date:        Valutadatum
         title:             Titel
