@@ -40,4 +40,17 @@ class DebitInvoicesController < InvoicesController
 
     create!
   end
+
+  # has_many :line_items
+  def new_line_item
+    if invoice_id = params[:id]
+      @invoice = Invoice.find(invoice_id)
+    else
+      @invoice = DebitInvoice.new
+    end
+
+    @line_item = @invoice.line_items.build
+
+    respond_with @line_item
+  end
 end

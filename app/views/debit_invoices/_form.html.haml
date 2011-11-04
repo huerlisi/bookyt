@@ -22,7 +22,7 @@
           %th{:style => 'padding: 2px; width: 3em'}= t_attr(:price, LineItem)
           %th.currency{:style => 'padding: 2px; width: 6em'}= t_attr(:total_amount, LineItem)
           %th{:style => 'padding: 2px; width: 6em'}= t_attr(:vat_rate, LineItem)
-          %th.action_links= link_to t_action(:more), new_debit_invoice_line_item_path(resource), :remote => true, :class => 'icon-add-text'
+          %th.action_links= link_to t_action(:more), [:new_line_item, resource.persisted? ? resource : :debit_invoices], :remote => true, :class => 'icon-add-text'
       %tbody
         = f.fields_for :line_items do |line_item|
           = render 'line_items/form', :line_item => line_item

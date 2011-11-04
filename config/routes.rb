@@ -56,6 +56,12 @@ Bookyt::Application.routes.draw do
 
     resources :attachments
     resources :line_items
+    member do
+      get :new_line_item
+    end
+    collection do
+      get :new_line_item
+    end
   end
 
   resources :salaries do
