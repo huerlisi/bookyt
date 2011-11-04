@@ -44,7 +44,7 @@ module Prawn
       move_down 4.cm
 
       # Place'n'Date
-      text [sender.vcard.try(locality), I18n.l(Date.today, :format => :long)].compact.join(', ')
+      text [sender.vcard.try(:locality), I18n.l(Date.today, :format => :long)].compact.join(', ')
 
       # Subject
       move_down 60
