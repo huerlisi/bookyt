@@ -46,23 +46,24 @@ de:
       note: Notizen
 
     attributes:
+      # Common
       title:            Titel
       amount:           Betrag
+      date:             Datum
+      comments:         Bemerkungen
+      state:            Status
+
+      # Per model
       attachment:
-        title:          Titel
         file:           Dateiname
       booking_template:
         value_date:        Valutadatum
-        title:             Titel
-        amount:            Betrag
-        comments:          Bemerkungen
         credit_account:    Soll
         debit_account:     Haben
         reference:         Referenz
         amount_relates_to: Relativ zu
         charge_rate_code:  Abgabesatz
       charge_rate:
-        title:           Titel
         code:            Code
         duration_from:   Gültig ab
         duration_to:     Gültig bis
@@ -71,7 +72,6 @@ de:
         person:          Person
         relative:        Relativ
       day:
-        date:            Datum
         cash:            Bargeldumsatz
         card_turnover:   Kreditkartenumsatz
         expenses:        Barausgabe
@@ -153,13 +153,10 @@ de:
         created_at:    Rechnungsdatum
         due_date:      Fälligkeit
         value_date:    Vom
-        state:         Status
         customer:      Kunde
         company:       Rechnungssteller
-        title:         Titel
         text:          Rechnungstext
         remarks:       Interne Bemerkungen
-        amount:        Betrag
         invoice:       Invoice
         open_amount:   Offener Betrag
         balance:       Saldo
@@ -168,7 +165,6 @@ de:
         duration_to:   Bis
         biller:        'Zugunsten von:'
       line_item:
-        date:          Datum
         times:         Anzahl
         quantity:      Einheit
         price:         Betrag
