@@ -1,0 +1,11 @@
+%table.list.charge_rates.collection
+  %thead
+    %tr
+      %th= t_attr :title
+      %th= t_attr :code
+      %th= t_attr :duration
+      %th= t_attr :person
+      %th.number= t_attr :rate
+      %th.action-links
+
+  = render collection

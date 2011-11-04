@@ -136,17 +136,7 @@ module Prawn
       text " "
       content = line_items.collect do |item|
 
-        if item.times == 1
-          if item.quantity == "x"
-            amount = ""
-          elsif item.quantity == "overall"
-            amount = t('line_items.quantity.overall')
-          else
-            amount = "#{item.times} #{t(item.quantity, :scope => 'line_items.quantity')}"
-          end
-        else
-          amount = "#{currency_fmt(item.times)} #{t(item.quantity, :scope => 'line_items.quantity')}"
-        end
+       amount = item.times_to_s
 
         price = currency_fmt(item.price)
 

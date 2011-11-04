@@ -5,9 +5,17 @@ class ChargeRate < ActiveRecord::Base
       when :long
         from = duration_from.nil? ? "" : I18n::localize(duration_from)
         to   = duration_to.nil? ? "" : I18n::localize(duration_to)
-        "%s: %.2f (%s - %s)" % [title, rate, from, to]
+        "%s: %s (%s - %s)" % [title, rate_to_s, from, to]
       else
-        "%s: %.2f" % [code, rate]
+        "%s: %s" % [title, rate_to_s]
+    end
+  end
+
+  def rate_to_s
+    if relative?
+      "%s%%" % rate.to_s
+    else
+      "%s" % rate.to_s
     end
   end
 

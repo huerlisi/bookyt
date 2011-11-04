@@ -96,8 +96,10 @@ de:
         code:            Code
         duration_from:   Gültig ab
         duration_to:     Gültig bis
-        rate:            Satz (%)
-        person_id:       Person
+        duration:        Gültigkeit
+        rate:            Satz
+        person:          Person
+        relative:        Relativ
       day:
         date:            Datum
         cash:            Bargeldumsatz
@@ -201,7 +203,8 @@ de:
         quantity:      Einheit
         price:         Betrag
         title:         Text
-        vat_rate:      MWSt. Satz
+        vat_rate:      MWSt.
+        total_amount:  Total
       salary:
         amount:        Bruttolohn
         net_amount:    Nettolohn
