@@ -55,7 +55,6 @@ Bookyt::Application.routes.draw do
     end
 
     resources :attachments
-    resources :line_items
     member do
       get :new_line_item
     end
