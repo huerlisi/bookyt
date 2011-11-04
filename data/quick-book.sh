@@ -75,3 +75,4 @@ cat "$file" | fix_csv | add_value_date | add_title 'Bareinzahlung' | grep -v 'Ge
 cat "$file" | fix_csv | add_value_date | add_title 'Einzahlung' | csv2booking 2 1
 cat "$file" | fix_csv | add_value_date | add_value_and_title | grep 'Aduno' | csv2booking 2 49
 cat "$file" | fix_csv | add_value_date | add_value_and_title | grep 'Gutschrift' | grep -v 'Aduno' | csv2booking 2 52
+cat "$file" | fix_csv | add_value_date | add_value_and_title | grep 'Postvergütung' | csv2booking 2 52
