@@ -204,6 +204,7 @@ de:
         price:         Betrag
         title:         Text
         vat_rate:      MWSt.
+        total_amount:  Total
       salary:
         amount:        Bruttolohn
         net_amount:    Nettolohn
