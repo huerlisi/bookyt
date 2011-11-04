@@ -1,6 +1,6 @@
 %tr[employment]
-  %td= link_to employment.employer, employment.employer
-  %td= link_to employment.employee, employment.employee
+  %td= employment.employer
+  %td= employment.employee
   %td= link_to ("%s - %s" % [employment.duration_from, employment.duration_to]), employment, {'data-href-container' => 'tr'}
   %td.currency= currency_fmt(employment.salary_amount)
   %td.currency= "%i%%" % employment.workload
