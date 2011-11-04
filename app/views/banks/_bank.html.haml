@@ -1,0 +1,7 @@
+%tr[bank]
+  %td= link_to bank.vcard.to_s, bank, {'data-href-container' => 'tr'}
+  %td= bank.clearing
+  %td= bank.swift
+  %td.action-links
+    = list_link_for(:edit, bank)
+    = list_link_for(:delete, bank)

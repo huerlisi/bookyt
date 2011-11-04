@@ -12,6 +12,7 @@ Bookyt::Application.routes.draw do
 
   # Accounting
   resources :account_types
+  resources :banks
 
   resources :tenants do
     collection do
