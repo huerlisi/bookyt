@@ -1,14 +1,7 @@
 = contextual_links
 
-%h1= @user
+%h2= @user
 
-%p
-  = @user.email
-
-  = render 'show'
+= render 'show'
 
 %p= t_attr(:locale) + ": " + @user.locale if @user.locale
-
-%ul#roles
-  - @user.roles.each do |role|
-    %li= role.to_s
