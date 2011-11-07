@@ -8,7 +8,7 @@ class Attachment < ActiveRecord::Base
 
   # String
   def to_s(format = :default)
-    title
+    title == nil ? "" : title
   end
   
   def self.codes
