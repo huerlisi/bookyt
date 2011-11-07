@@ -3,7 +3,7 @@ before_script:
   - DB=mysql bundle exec rake bookyt:setup
   - DB=mysql bundle exec rake db:schema:load
 
-script: "bundle exec rake test"
+script: "bundle exec rake spec"
 
 # whitelist
 branches:
