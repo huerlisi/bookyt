@@ -7,6 +7,11 @@ class AuthorizedController < InheritedResources::Base
     redirect_to :back
   end
 
+  # Redirect to the called path before the login
+  def after_sign_in_path_for(resource)
+      (session[:"user.return_to"].nil?) ? "/" : session[:"user.return_to"].to_s
+  end
+  
   # Responders
   respond_to :html, :js
 
