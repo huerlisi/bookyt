@@ -8,10 +8,11 @@ describe EmployeesController do
   end
 
   describe "GET index" do
-    pending "assigns all employees as @employees" do
-      Employee.stub(:all) { [mock_employee] }
+    it "assigns all employees as @employees" do
+      @employees = [Factory.create(:employee), Factory.create(:employee)]
+      Employee.stub(:all) { @employees }
       get :index
-      assigns(:employees).should eq([mock_employee])
+      assigns(:employees).should eq(@employees)
     end
   end
 

@@ -12,6 +12,9 @@ Capybara.default_selector = :css
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+# Paperclip helper
+require 'paperclip/matchers'
+
 RSpec.configure do |config|
   # == Mock Framework
   #
@@ -29,6 +32,9 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+  
+  # Paperclip
+  config.include Paperclip::Shoulda::Matchers
 
   # Devise
   config.include Devise::TestHelpers, :type => :controller

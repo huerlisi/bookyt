@@ -8,10 +8,11 @@ describe BookingImportsController do
   end
 
   describe "GET index" do
-    pending "assigns all booking_imports as @booking_imports" do
-      BookingImport.stub(:all) { [mock_booking_import] }
+    it "assigns all booking_imports as @booking_imports" do
+      @booking_imports = [Factory.create(:booking_import), Factory.create(:booking_import)]
+      BookingImport.stub(:all) { @booking_imports }
       get :index
-      assigns(:booking_imports).should eq([mock_booking_import])
+      assigns(:booking_imports).should eq(@booking_imports)
     end
   end
 

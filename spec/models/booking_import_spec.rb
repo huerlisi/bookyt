@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe BookingImport do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_attached_file(:csv) }
 end

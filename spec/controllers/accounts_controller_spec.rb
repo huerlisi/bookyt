@@ -8,20 +8,20 @@ describe AccountsController do
   end
 
   describe "GET index" do
-    pending "assigns all accounts as @accounts" do
-      Account.stub(:all) { [mock_account] }
+    it "assigns all accounts as @accounts" do
+      @accounts = [Factory.create(:account), Factory.create(:account)]
+      Account.stub(:all) { @accounts }
       get :index
-      assigns(:accounts).should eq([mock_account])
+      assigns(:accounts).should eq(@accounts)
     end
   end
 
   describe "GET show" do
     it "assigns the requested account as @account" do
-      pending "Problems with mock_model."
-
-      Account.stub(:find).with("37") { mock_account }
+      @account = Factory.create(:account)
+      Account.should_receive(:find).with("37") { @account }
       get :show, :id => "37"
-      assigns(:account).should be(mock_account)
+      assigns(:account).should be(@account)
     end
   end
 

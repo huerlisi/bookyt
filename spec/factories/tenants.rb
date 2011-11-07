@@ -1,5 +1,8 @@
-# Read about factories at http://github.com/thoughtbot/factory_girl
-
-Factory.define :tenant do |f|
-  f.person_id 1
+FactoryGirl.define do
+  factory :tenant do
+    incorporated_on Date.today
+    fiscal_year_ends_on Date.today
+    association :company
+  end
 end
+

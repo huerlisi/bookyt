@@ -8,10 +8,11 @@ describe TenantsController do
   end
 
   describe "GET index" do
-    pending "assigns all tenants as @tenants" do
-      Tenant.stub(:all) { [mock_tenant] }
+    it "assigns all tenants as @tenants" do
+      @tenants = [Factory.create(:tenant), Factory.create(:tenant)]
+      Tenant.stub(:all) { @tenants }
       get :index
-      assigns(:tenants).should eq([mock_tenant])
+      assigns(:tenants).should eq(@tenants)
     end
   end
 
