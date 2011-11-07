@@ -131,11 +131,13 @@ class Invoice < ActiveRecord::Base
   accepts_nested_attributes_for :line_items, :allow_destroy => true, :reject_if => proc { |attributes| attributes['quantity'].blank? or attributes['quantity'] == '0' }
 
   def amount
-    unless line_items.empty?
-      self[:amount] || line_items.sum('times * price').to_f
+    if line_items.empty?
+      value = self[:amount]
     else
-      self[:amount]
+      value = line_items.sum('times * price').to_f
     end
+
+    value.currency_round
   end
 
   def overdue?
