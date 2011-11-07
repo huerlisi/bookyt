@@ -1,8 +1,10 @@
-# Read about factories at http://github.com/thoughtbot/factory_girl
-
-Factory.define :charge_rate do |f|
-  f.code "MyString"
-  f.rate "9.99"
-  f.duration_from "2011-04-14"
-  f.duration_to "2011-04-14"
+# Charge rates factory
+FactoryGirl.define do
+  factory :charge_rate do
+    code "MyString"
+    title "Title"
+    rate "9.99"
+    duration_from "2011-04-14"
+    duration_to "2011-04-14"
+  end
 end

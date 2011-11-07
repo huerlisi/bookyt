@@ -5,6 +5,6 @@ FactoryGirl.define do
   end
   
   factory :user_role, :class => Role do
-    name 'user'
+    name 'accountant'
   end
 end

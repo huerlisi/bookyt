@@ -1,3 +1,6 @@
 # Company factories
-Factory.define :company do |f|
+FactoryGirl.define do
+  factory :company do
+    association :vcard
+  end
 end
