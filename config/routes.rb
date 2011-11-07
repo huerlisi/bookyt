@@ -12,6 +12,7 @@ Bookyt::Application.routes.draw do
 
   # Accounting
   resources :account_types
+  resources :banks
 
   resources :tenants do
     collection do
@@ -54,7 +55,12 @@ Bookyt::Application.routes.draw do
     end
 
     resources :attachments
-    resources :line_items
+    member do
+      get :new_line_item
+    end
+    collection do
+      get :new_line_item
+    end
   end
 
   resources :salaries do

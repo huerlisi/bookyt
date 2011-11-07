@@ -23,10 +23,6 @@ de:
 
   activerecord:
     models:
-      account: Konto
-      bank_account: Bankkonto
-      account_type: Kontentyp
-      booking: Buchung
       booking_template: Buchungsvorlage
       charge_booking_template: Bedingte Buchungsvorlage
       person: Person
@@ -50,49 +46,24 @@ de:
       note: Notizen
 
     attributes:
+      # Common
       title:            Titel
       amount:           Betrag
-      account:
-        code:           Nummer
-        title:          Titel
-        saldo:          Saldo
-        account_type:   Kontentyp
-      account_type:
-        name:           Name
-        title:          Titel
+      date:             Datum
+      comments:         Bemerkungen
+      state:            Status
+
+      # Per model
       attachment:
-        title:          Titel
         file:           Dateiname
-      booking:
-        code:           Belegnr.
-        value_date:     Valutadatum
-        title:          Titel
-        amount:         Betrag
-        comments:       Bemerkungen
-        credit_account: Soll
-        debit_account:  Haben
-        reference:      Referenz
-        reference_type: Referenz Typ
-        reference_id:   Referenz ID
-        text:           Text
-        date:           Datum
-        balance:        Saldo
-        edit:           Editieren
-        destroy:        Löschen
-        valuta:         Valuta
-        value:          Betrag
       booking_template:
         value_date:        Valutadatum
-        title:             Titel
-        amount:            Betrag
-        comments:          Bemerkungen
         credit_account:    Soll
         debit_account:     Haben
         reference:         Referenz
         amount_relates_to: Relativ zu
         charge_rate_code:  Abgabesatz
       charge_rate:
-        title:           Titel
         code:            Code
         duration_from:   Gültig ab
         duration_to:     Gültig bis
@@ -101,7 +72,6 @@ de:
         person:          Person
         relative:        Relativ
       day:
-        date:            Datum
         cash:            Bargeldumsatz
         card_turnover:   Kreditkartenumsatz
         expenses:        Barausgabe
@@ -114,11 +84,14 @@ de:
         from:            Abrechnung von
         total:           Total
         calculate:       Ausrechnen
-      employee:
-        full_name:        Name
+      person:
         date_of_birth:    Geburtsdatum
         date_of_death:    Todestag
         sex:              Geschlecht
+        type:             Typ
+        full_name:        Name
+        religion:         Religion
+        civil_status:     Zivilstand
         post_office_box:  Postfach
         extended_address: Adresszusatz
         street_address:   Strasse
@@ -126,6 +99,7 @@ de:
         region:           Region
         postal_code:      PLZ
         country_name:     Land
+      employee:
         social_security_nr: AHV-Nr.
         social_security_nr_12: Alte AHV-Nr.
       employment:
@@ -144,38 +118,6 @@ de:
         holiday_premium:  Feiertagszuschlag
         sunday_premium:   Sonntagarbeitszuschlag
         night_premium:    Nachtarbeitszuschlag
-      person:
-        date_of_birth:    Geburtsdatum
-        date_of_death:    Todestag
-        sex:              Geschlecht
-        type:             Typ
-        full_name:        Name
-        religion:         Religion
-        civil_status:     Zivilstand
-      company:
-        full_name:        Name
-        date_of_birth:    Geburtsdatum
-        date_of_death:    Todestag
-        sex:              Geschlecht
-        post_office_box:  Postfach            
-        extended_address: Adresszusatz
-        street_address:   Strasse             
-        locality:         Ort
-        region:           Region
-        postal_code:      PLZ
-        country_name:     Land 
-      customer:
-        full_name:        Name
-        date_of_birth:    Geburtsdatum
-        date_of_death:    Todestag
-        sex:              Geschlecht
-        post_office_box:  Postfach            
-        extended_address: Adresszusatz
-        street_address:   Strasse             
-        locality:         Ort
-        region:           Region
-        postal_code:      PLZ
-        country_name:     Land 
       invoice:
         direct_account:  Konto
         profit_account:  Erfolgskonto
@@ -183,13 +125,10 @@ de:
         created_at:    Rechnungsdatum
         due_date:      Fälligkeit
         value_date:    Vom
-        state:         Status
         customer:      Kunde
         company:       Rechnungssteller
-        title:         Titel
         text:          Rechnungstext
         remarks:       Interne Bemerkungen
-        amount:        Betrag
         invoice:       Invoice
         open_amount:   Offener Betrag
         balance:       Saldo
@@ -198,7 +137,6 @@ de:
         duration_to:   Bis
         biller:        'Zugunsten von:'
       line_item:
-        date:          Datum
         times:         Anzahl
         quantity:      Einheit
         price:         Betrag

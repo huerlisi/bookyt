@@ -1,3 +1,3 @@
 = fields_for @invoice do |invoice|
   = invoice.fields_for :line_items, @line_item, :child_index => DateTime.now.to_i do |line_item|
-    = render 'form', :line_item => line_item
+    = render 'line_items/form', :line_item => line_item

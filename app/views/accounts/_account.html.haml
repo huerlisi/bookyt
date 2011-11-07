@@ -1,6 +1,6 @@
 %tr[account]
   %td= account.code
-  %td= link_to account.title, account_path(account, :by_value_period => params[:by_value_period])
+  %td= link_to account.title, url_for(account), :by_value_period => params[:by_value_period]
   - if @date
     %td{:style => "text-align: right"}= currency_fmt(account.saldo(@date))
   - elsif params[:by_value_period]

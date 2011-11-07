@@ -1,0 +1,2 @@
+class BanksController < AuthorizedController
+end
