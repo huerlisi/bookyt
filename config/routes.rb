@@ -104,16 +104,21 @@ Bookyt::Application.routes.draw do
     resources :bookings
   end
 
-  # Booking templates
-  resources :booking_templates
-  resources :charge_booking_templates
-
-  # Charge rates
-  resources :charge_rates
-
   # Imports
   resources :booking_imports
 
   # Notes
   resources :notes
+
+  # Settings
+  resources "settings" do
+    collection do
+      get :vesr
+      post :vesr, :to => 'settings#update_vesr'
+    end
+  end
+
+  resources :charge_rates
+  resources :booking_templates
+  resources :charge_booking_templates
 end

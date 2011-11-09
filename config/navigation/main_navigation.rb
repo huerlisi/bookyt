@@ -79,29 +79,8 @@ SimpleNavigation::Configuration.run do |navigation|
                              :highlights_on => /\/companies($|\?|\/[0-9]*($|\?|\/.*))/
     end
 
-    primary.item :settings, t('bookyt.main_navigation.settings'), current_users_path,
+    primary.item :settings, t('bookyt.main_navigation.settings'), settings_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.settings'),
-                 :if => Proc.new { user_signed_in? } do |settings|
-      settings.item :current_user, t_title(:current, User), current_users_path,
-                             :tooltip => t('bookyt.main_navigation.tooltip.current_user'),
-                             :highlights_on => /\/users\/./
-      settings.item :user_index, t_title(:index, User), users_path, :if => lambda { can?(:index, User) },
-                             :tooltip => t('bookyt.main_navigation.tooltip.user_index'),
-                             :highlights_on => /\/users$/
-      settings.item :current_tenant, t_title(:current, Tenant), current_tenants_path, :if => lambda { can?(:current, current_user.tenant) },
-                             :tooltip => t('bookyt.main_navigation.tooltip.current_tenant')
-      settings.item :tenant_index, t_title(:index, Tenant), tenants_path, :if => lambda { can?(:index, Tenant) },
-                             :tooltip => t('bookyt.main_navigation.tooltip.tenant_index'),
-                             :highlights_on => /\/tenants($|\?)/
-      settings.item :account_types, t('bookyt.main_navigation.account_types'), account_types_path,
-                      :tooltip => t('bookyt.main_navigation.tooltip.account_types'),
-                      :highlights_on => /\/account_types/
-      settings.item :booking_templates, t_title(:index, BookingTemplate), booking_templates_path,
-                             :highlights_on => /\/booking_templates($|\/[0-9]*($|\/.*))/
-      settings.item :charge_booking_templates, t_title(:index, ChargeBookingTemplate), charge_booking_templates_path,
-                             :highlights_on => /\/charge_booking_templates($|\/[0-9]*($|\/.*))/
-      settings.item :charge_rates, t_title(:index, ChargeRate), charge_rates_path,
-                             :highlights_on => /\/charge_rates(\/|$)/
-    end
+                 :if => Proc.new { user_signed_in? }
   end
 end
