@@ -58,6 +58,10 @@ group :test do
   gem 'autotest'
   gem 'autotest-rails'
   gem 'ZenTest', '< 4.6.0' # Keep it working with gems < 1.8
+  
+  # Code coverage
+  gem 'rcov', :platforms => :ruby_18
+  gem 'simplecov', :require => false, :platforms => :ruby_19
 end
 
 group :test, :development do
