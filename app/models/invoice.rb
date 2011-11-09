@@ -137,7 +137,7 @@ class Invoice < ActiveRecord::Base
       value = line_items.sum('times * price').to_f
     end
 
-    value.currency_round
+    (value || 0.0).currency_round
   end
 
   def overdue?
