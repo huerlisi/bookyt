@@ -12,12 +12,16 @@ class SettingsController < ApplicationController
   def update_vesr
     @tenant          = Tenant.find(params[:vesr][:tenant][:id])
     @bank_account    = BankAccount.find(params[:vesr][:bank_account][:id])
-    @letter_template = Attachment.find(params[:vesr][:attachment][:id])
+    if params[:vesr][:attachment][:id].present?
+      @letter_template = Attachment.find(params[:vesr][:attachment][:id])
+      @letter_template.update_attributes(params[:vesr][:letter_template])
+    else
+      @letter_template = Attachment.new(params[:vesr][:attachment], :code => 'Prawn::LetterDocument')
+    end
 
     @tenant.update_attributes(params[:vesr][:tenant])
     @bank_account.update_attributes(params[:vesr][:bank_account])
-    @letter_template.update_attributes(params[:vesr][:letter_template])
-    
+
     render :action => 'vesr'
   end
 end
