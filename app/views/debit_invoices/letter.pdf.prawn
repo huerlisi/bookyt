@@ -30,6 +30,6 @@ prawn_document(:renderer => Prawn::LetterDocument) do |pdf|
 
   # Footer
   pdf.bounding_box [12 - pdf.bounds.absolute_left, 23 - pdf.bounds.absolute_bottom], :width => pdf.bounds.width do
-    pdf.esr_recipe(@debit_invoice, BankAccount.find_by_code('1020'), sender)
+    pdf.esr_recipe(@debit_invoice, BankAccount.find_by_code('1020'), sender, current_tenant.print_payment_for?)
   end
 end
