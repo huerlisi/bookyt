@@ -25,17 +25,17 @@ class Ability
 
     # Load the abilities for all roles.
     user.roles.each do |role|
-      self.send(role.name)
+      self.send(role.name, user)
     end
   end
   
   # Admin abilities
-  def admin
+  def admin(user)
     can :manage, :all
   end
   
   # Accountant abilities
-  def accountant
+  def accountant(user)
     can :manage, [Account, BookingTemplate, Customer, Employee, Invoice, Product, AccountType, Booking, Company, Day, Employment, Person, Profit]
     can [:show, :list], [Tenant], :users => {:id => user.id}
     can [:show, :update], User, :id => user.id
