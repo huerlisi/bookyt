@@ -1,27 +1,16 @@
 module ControllerMacros
   def login_admin
-    before do
-      @admin = Factory.create(:admin_user)
-      sign_in(@admin)
-    end
-    
-    after do
-      sign_out(@admin)
-      @admin.delete
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      sign_in Factory.create(:admin_user)
     end
   end
 
   def login_accountant
-    before do
-      @accountant = Factory.create(:accountant_user)
-      Ability.stub(:user).and_return(@accountant)
-      
-      sign_in(@accountant)
-    end
-    
-    after do
-      sign_out(@accountant)
-      @accountant.delete
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      accountant = Factory.create(:accountant_user)
+      sign_in accountant
     end
   end
 end
