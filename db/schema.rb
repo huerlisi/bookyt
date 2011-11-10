@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111104062828) do
+ActiveRecord::Schema.define(:version => 20111109094022) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20111104062828) do
     t.string   "title",           :limit => 100
     t.integer  "parent_id"
     t.integer  "account_type_id"
-    t.integer  "number"
+    t.string   "number"
     t.string   "code"
     t.string   "type"
     t.integer  "holder_id"
@@ -142,7 +142,7 @@ ActiveRecord::Schema.define(:version => 20111104062828) do
     t.integer  "credit_account_id"
     t.integer  "debit_account_id"
     t.date     "value_date"
-    t.string   "comments",                                                        :default => ""
+    t.text     "comments"
     t.string   "scan"
     t.string   "debit_currency",                                                  :default => "CHF"
     t.string   "credit_currency",                                                 :default => "CHF"
@@ -221,7 +221,7 @@ ActiveRecord::Schema.define(:version => 20111104062828) do
     t.string   "file"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "remarks",    :default => ""
+    t.text     "remarks"
   end
 
   create_table "esr_records", :force => true do |t|
@@ -241,8 +241,8 @@ ActiveRecord::Schema.define(:version => 20111104062828) do
     t.integer  "esr_file_id"
     t.integer  "booking_id"
     t.integer  "invoice_id"
-    t.string   "remarks",                                         :default => ""
-    t.string   "state",                                                           :null => false
+    t.text     "remarks"
+    t.string   "state",                                           :null => false
   end
 
   add_index "esr_records", ["booking_id"], :name => "index_esr_records_on_booking_id"
@@ -399,6 +399,8 @@ ActiveRecord::Schema.define(:version => 20111104062828) do
     t.date     "incorporated_on"
     t.date     "fiscal_year_ends_on"
     t.string   "vat_number"
+    t.boolean  "use_vesr"
+    t.boolean  "print_payment_for"
   end
 
   add_index "tenants", ["person_id"], :name => "index_tenants_on_person_id"

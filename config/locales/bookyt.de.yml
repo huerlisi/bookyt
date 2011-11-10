@@ -156,6 +156,8 @@ de:
         incorporated_on:           Gründung
         fiscal_year_ends_on: Ende des 1. Fiskaljahres
         vat_number:                MwSt.-Nummer
+        use_vesr:                  VESR für Debitoren-Rechnungen
+        print_payment_for:         '"Zugunsten von" auf Einzahlungschein drucken'
       user:
         email:                          E-Mail
         password:                       Passwort

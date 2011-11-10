@@ -12,7 +12,7 @@ class Invoice < ActiveRecord::Base
 
   # Validations
   validates_date :due_date, :value_date
-  validates_presence_of :customer, :company, :title, :amount, :state
+  validates_presence_of :customer, :company, :title, :state
 
   # String
   def to_s(format = :default)
@@ -131,10 +131,16 @@ class Invoice < ActiveRecord::Base
   accepts_nested_attributes_for :line_items, :allow_destroy => true, :reject_if => proc { |attributes| attributes['quantity'].blank? or attributes['quantity'] == '0' }
 
   def amount
-    unless line_items.empty?
-      self[:amount] || line_items.sum('times * price').to_f
+    if line_items.empty?
+      value = self[:amount]
     else
-      self[:amount]
+      value = line_items.sum('times * price').to_f
+    end
+
+    if value
+      return value.currency_round
+    else
+      return nil
     end
   end
 

@@ -43,27 +43,45 @@ function addNestedFormBehaviour() {
   });
 }
 
-function calculateTotalAmount(lineItem) {
+function calculateLineItemTotalAmount(lineItem) {
   var times_input = lineItem.find(":input[name$='[times]']");
   var times = parseFloat(times_input.val());
   var price_input = lineItem.find(":input[name$='[price]']");
   var price = parseFloat(price_input.val());
 
-  return times * price;
+  var value = times * price;
+  if (isNaN(value)) {
+    return 0.0;
+  } else {
+    return value;
+  }
 }
 
-function updateTotalAmount(lineItem) {
+function updateLineItemTotalAmount(lineItem) {
   var total_amount_input = lineItem.find(".total_amount");
-  var total_amount = CommaFormatted(calculateTotalAmount(lineItem).toFixed(2));
+  var total_amount = CommaFormatted(calculateLineItemTotalAmount(lineItem).toFixed(2));
 
   // Update Element
   total_amount_input.text(total_amount);
 }
 
+function updateTotalAmount(lineItems) {
+  var total_amount = 0;
+  $(line_items).find('.line_item').each(function() {
+    total_amount += calculateLineItemTotalAmount($(this));
+  });
+
+  // Update Element
+  $(".line_item_total .total_amount").text(CommaFormatted(total_amount.toFixed(2)));
+}
+
 function AddCalculateTotalAmountBehaviour() {
   $("#line_items").find(":input[name$='[times]'], :input[name$='[price]']").live('focusout', function() {
     var line_item = $(this).parents('.line_item');
-    updateTotalAmount(line_item);
+    updateLineItemTotalAmount(line_item);
+
+    var line_items = $(this).parents('.line_items');
+    updateTotalAmount(line_items);
   })
 }
 

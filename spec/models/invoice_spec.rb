@@ -7,7 +7,6 @@ describe Invoice do
   it { should validate_presence_of(:customer) }
   it { should validate_presence_of(:company) }
   it { should validate_presence_of(:title) }
-  it { should validate_presence_of(:amount) }
   it { should validate_presence_of(:state) }
 
   context "when new" do
