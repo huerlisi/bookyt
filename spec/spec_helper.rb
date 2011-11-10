@@ -2,7 +2,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
+require 'rspec/autorun' if $0 =~ /\brcov$/
 
 # Configure capybara for integration testing
 require "capybara/rails"
