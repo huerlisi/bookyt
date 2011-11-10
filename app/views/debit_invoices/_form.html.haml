@@ -14,15 +14,7 @@
   = f.inputs t('title.line_items') do
     %table#line_items
       %thead
-        %tr
-          %th{:style => 'padding: 2px; width: 80px'}= t_attr(:date, LineItem)
-          %th{:style => 'padding: 2px'}= t_attr(:title, LineItem)
-          %th{:style => 'padding: 2px; width: 3em'}= t_attr(:times, LineItem)
-          %th{:style => 'padding: 0px; width: 6em'}= t_attr(:quantity, LineItem)
-          %th{:style => 'padding: 2px; width: 3em'}= t_attr(:price, LineItem)
-          %th.currency{:style => 'padding: 2px; width: 6em'}= t_attr(:total_amount, LineItem)
-          %th{:style => 'padding: 2px; width: 6em'}= t_attr(:vat_rate, LineItem)
-          %th.action_links= link_to t_action(:more), [:new_line_item, resource.persisted? ? resource : :debit_invoices], :remote => true, :class => 'icon-add-text'
+        = render 'line_items/list_header', :invoice => resource
       %tbody
         = f.fields_for :line_items do |line_item|
           = render 'line_items/form', :line_item => line_item

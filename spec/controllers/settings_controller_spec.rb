@@ -9,4 +9,11 @@ describe SettingsController do
       response.should be_success
     end
   end
+
+  describe "GET 'vesr'" do
+    it "returns http success" do
+      get 'vesr'
+      response.should be_success
+    end
+  end
 end

@@ -4,7 +4,6 @@ class Invoice < ActiveRecord::Base
 
   # Scopes
   default_scope order(:due_date)
-  scope :overdue, where("due_date < NOW()")
 
   # Associations
   belongs_to :customer, :class_name => 'Person'
@@ -142,14 +141,5 @@ class Invoice < ActiveRecord::Base
     else
       return nil
     end
-  end
-
-  def overdue?
-    return true if state == 'booked' and due_date < Date.today
-    return true if state == 'reminded' and (reminder_due_date.nil? or reminder_due_date < Date.today)
-    return true if state == '2xreminded' and (second_reminder_due_date.nil? or second_reminder_due_date < Date.today)
-    return true if state == '3xreminded' and (third_reminder_due_date.nil? or third_reminder_due_date < Date.today)
-
-    false
   end
 end
