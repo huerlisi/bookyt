@@ -18,4 +18,21 @@ class InvoicesController < AuthorizedController
   def letter
     show!
   end
+
+  # has_many :line_items
+  def new_line_item
+    if invoice_id = params[:id]
+      @invoice = Invoice.find(invoice_id)
+    else
+      @invoice = resource_class.new
+    end
+
+    @line_item = @invoice.line_items.build(
+      :times         => 1,
+      :quantity      => 'x',
+      :vat_rate_code => 'vat:full'
+    )
+
+    respond_with @line_item
+  end
 end
