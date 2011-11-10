@@ -3,6 +3,10 @@ require 'spec_helper'
 describe AccountsController do
   login_admin
 
+  after(:each) do
+    Account.delete_all
+  end
+
   def mock_account(stubs={})
     @mock_account ||= mock_model(Account, stubs).as_null_object
   end
@@ -10,34 +14,44 @@ describe AccountsController do
   describe "GET index" do
     it "assigns all accounts as @accounts" do
       @accounts = [Factory.create(:account), Factory.create(:account)]
-      Account.stub(:all) { @accounts }
+
       get :index
+
+      response.should render_template(:index)
       assigns(:accounts).should eq(@accounts)
     end
   end
 
-  describe "GET show" do
-    it "assigns the requested account as @account" do
+  context "interact" do
+    before(:each) do
       @account = Factory.create(:account)
-      Account.should_receive(:find).with("37") { @account }
-      get :show, :id => "37"
-      assigns(:account).should be(@account)
+    end
+    
+    describe "GET show" do
+      it "assigns the requested account as @account" do
+        get :show, :id => @account.id
+
+        response.should render_template(:show)
+        assigns(:account).should eq(@account)
+      end
+    end
+    
+    describe "GET edit" do
+      it "assigns the requested account as @account" do
+        get :edit, :id => @account.id
+
+        response.should render_template(:edit)
+        assigns(:account).should eq(@account)
+      end
     end
   end
 
   describe "GET new" do
     it "assigns a new account as @account" do
-      Account.stub(:new) { mock_account }
       get :new
-      assigns(:account).should be(mock_account)
-    end
-  end
 
-  describe "GET edit" do
-    it "assigns the requested account as @account" do
-      Account.stub(:find).with("37") { mock_account }
-      get :edit, :id => "37"
-      assigns(:account).should be(mock_account)
+      response.should render_template(:new)
+      assigns(:account).should be_a_new(Account)
     end
   end
 
@@ -46,13 +60,17 @@ describe AccountsController do
     describe "with valid params" do
       it "assigns a newly created account as @account" do
         Account.stub(:new).with({'these' => 'params'}) { mock_account(:save => true) }
+
         post :create, :account => {'these' => 'params'}
+
         assigns(:account).should be(mock_account)
       end
 
       it "redirects to the created account" do
         Account.stub(:new) { mock_account(:save => true) }
+
         post :create, :account => {}
+
         response.should redirect_to(account_url(mock_account))
       end
     end
@@ -60,13 +78,17 @@ describe AccountsController do
     describe "with invalid params" do
       it "assigns a newly created but unsaved account as @account" do
         Account.stub(:new).with({'these' => 'params'}) { mock_account(:save => false) }
+
         post :create, :account => {'these' => 'params'}
+
         assigns(:account).should be(mock_account)
       end
 
       it "re-renders the 'new' template" do
         Account.stub(:new) { mock_account(:save => false) }
+
         post :create, :account => {}
+
         response.should render_template("new")
       end
     end
@@ -79,12 +101,15 @@ describe AccountsController do
       it "updates the requested account" do
         Account.should_receive(:find).with("37") { mock_account }
         mock_account.should_receive(:update_attributes).with({'these' => 'params'})
+
         put :update, :id => "37", :account => {'these' => 'params'}
       end
 
       it "assigns the requested account as @account" do
         Account.stub(:find) { mock_account(:update_attributes => true) }
+
         put :update, :id => "1"
+
         assigns(:account).should be(mock_account)
       end
 
