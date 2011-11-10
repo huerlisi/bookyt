@@ -6,6 +6,13 @@ FactoryGirl.define do
     roles {|roles| [roles.association :user_role] }
   end
 
+  factory :accountant_user, :class => User do
+    email    "accountant@example.com"
+    password "admin1234"
+    person
+    roles {|roles| [roles.association :accountant_role] }
+  end
+
   factory :admin_user, :class => User do
     email    "admin@example.com"
     password "admin1234"
