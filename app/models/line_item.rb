@@ -3,7 +3,6 @@ class LineItem < ActiveRecord::Base
   include ApplicationHelper
 
   # Associations
-  belongs_to :item, :polymorphic => true
   belongs_to :invoice, :touch => true
 
   # Validations
@@ -12,14 +11,6 @@ class LineItem < ActiveRecord::Base
   validate :title, :presence => true
   
   # Attributes
-  def assign_item=(value)
-    self.item = value
-
-    self.price = value.price
-    self.title = value.title
-    self.code  = value.code
-  end
-
   def total_amount
     return 0 if times.blank? or price.blank?
     times * price.to_f
@@ -42,5 +33,27 @@ class LineItem < ActiveRecord::Base
   # Vat Rate
   def vat_rate
     ChargeRate.current(vat_rate_code, invoice.value_date)
+  end
+
+  # Item templates
+  belongs_to :item, :polymorphic => true
+
+  def assign_item=(value)
+    self.item = value
+
+    self.price = value.price
+    self.title = value.title
+    self.code  = value.code
+  end
+
+  # Booking templates
+  belongs_to :booking_template
+
+  def assign_booking_template=(value)
+    self.booking_template = value
+
+    self.price = value.amount
+    self.title = value.title
+    self.code  = value.code
   end
 end
