@@ -5,13 +5,15 @@
 # If you're using the SQLite3 file-based database, all you have
 # to do is copy this file to database.yml.
 #
+# While you may use the SQLite3 database, it has some issues
+# with date handling. sometimes giving a strange amounts
+# in account views for opening balance etc.
+#
 # For production environments MySQL is a better fit. In this
 # case you need to setup the databases and adapt this file:
 #
 # 1. create the database and grant access
-# 2. change the '*sqlite' instances in the Environments section
-#    to '*mysql'
-# 3. add username and password and possibly host settings in
+# 3. set username and password and possibly host settings in
 #    the environment config.
 
 # Common settings
@@ -27,23 +29,23 @@ mysql: &mysql
   adapter:  mysql2
   encoding: utf8
   host:     localhost
-  username: 
-  database: bookyt_test
 
 # Environments
 # ============
 production:
   <<: *mysql
   database: bookyt_production
+  username: bookyt
+  password:
 
 development:
   <<: *mysql
   database: bookyt_development
-
-demo:
-  <<: *mysql
-  database: bookyt_demo
+  username: bookyt
+  password:
 
 test:
   <<: *mysql
   database: bookyt_test
+  username: bookyt
+  password:
