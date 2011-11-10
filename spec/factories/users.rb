@@ -1,22 +1,28 @@
 FactoryGirl.define do
   factory :user do
-    email    "user@example.com"
+    email    { Factory.next(:email) }
     password "user1234"
     person
     roles {|roles| [roles.association :user_role] }
   end
 
   factory :accountant_user, :class => User do
-    email    "accountant@example.com"
+    email    { Factory.next(:email) }
     password "admin1234"
     person
     roles {|roles| [roles.association :accountant_role] }
   end
 
   factory :admin_user, :class => User do
-    email    "admin@example.com"
+    email    { Factory.next(:email) }
     password "admin1234"
     person
     roles {|roles| [roles.association :admin_role] }
+  end
+  
+  Factory.sequence :email do |n|
+     names = %w[ joe bob sue amanda ]
+     # randomly select a name from the names array for the email, so you might get "Bob1@somewhere.com"
+     "#{names[rand 3]}#{n}@example.com"
   end
 end
