@@ -1,6 +1,8 @@
 class ChargeRate < ActiveRecord::Base
   # String
   def to_s(format = :default)
+    return "" if ((title and title.empty?) or (rate_to_s and rate_to_s.empty?))
+
     case format
       when :long
         from = duration_from.nil? ? "" : I18n::localize(duration_from)
