@@ -17,4 +17,8 @@ describe Person do
     @person.to_s(:default).should =="Muster Peter"
     @person.to_s(:long).should =="Muster Peter (Capital)"
   end
+
+  after(:all) do
+    Person.delete_all
+  end
 end
