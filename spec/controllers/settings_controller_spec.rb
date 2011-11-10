@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe SettingsController do
+  login_admin
 
   describe "GET 'index'" do
     it "returns http success" do
@@ -8,5 +9,4 @@ describe SettingsController do
       response.should be_success
     end
   end
-
 end
