@@ -12,7 +12,7 @@ class Invoice < ActiveRecord::Base
 
   # Validations
   validates_date :due_date, :value_date
-  validates_presence_of :customer, :company, :title, :amount, :state
+  validates_presence_of :customer, :company, :title, :state
 
   # String
   def to_s(format = :default)
