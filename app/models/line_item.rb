@@ -45,4 +45,15 @@ class LineItem < ActiveRecord::Base
     self.title = value.title
     self.code  = value.code
   end
+
+  # Booking templates
+  belongs_to :booking_template
+
+  def assign_booking_template=(value)
+    self.booking_template = value
+
+    self.price = value.amount
+    self.title = value.title
+    self.code  = value.code
+  end
 end
