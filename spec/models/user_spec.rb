@@ -7,7 +7,7 @@ describe User do
     its(:current_company) { should be_nil }
   end
 
-  context "when an admin" do
+  context "as admin" do
     subject { Factory.create :admin_user }
 
     specify { should be_valid }
@@ -15,16 +15,11 @@ describe User do
     its(:role_texts) { should == ["admin"] }
   end
 
-  context "edit" do
-    @admin = Factory.create(:user)
-    @admin.role_texts = "accountant"
-    @admin.save
+  context "as accountant" do
+    subject { Factory.create(:accountant_user) }
 
-    @admin.role_texts.should_not ==["admin"]
-    @admin.role_texts.should ==["accountant"]
-  end
-  
-  after(:all) do
-    Person.delete_all
+    specify { should be_valid }
+    specify { should be_role(:accountant) }
+    specify { should_not be_role(:admin) }
   end
 end
