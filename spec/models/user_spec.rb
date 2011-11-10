@@ -14,4 +14,17 @@ describe User do
     specify { should be_role(:admin) }
     its(:role_texts) { should == ["admin"] }
   end
+
+  context "edit" do
+    @admin = Factory.create(:user)
+    @admin.role_texts = "accountant"
+    @admin.save
+
+    @admin.role_texts.should_not ==["admin"]
+    @admin.role_texts.should ==["accountant"]
+  end
+  
+  after(:all) do
+    Person.delete_all
+  end
 end
