@@ -1,127 +1,30 @@
 require 'spec_helper'
 
 describe TenantsController do
-  login_admin
+  shared_examples "it does all controller actions" do
+    describe "GET current" do
+      pending "get the current tenant" do
+        get :current
+        assigns(:tenant).should eq(subject.current_user.tenant)
+      end
 
-  def mock_tenant(stubs={})
-    @mock_tenant ||= mock_model(Tenant, stubs).as_null_object
-  end
+      pending "get the profit sheet" do
+        get :profit_sheet
+      end
 
-  describe "GET index" do
-    it "assigns all tenants as @tenants" do
-      @tenants = [Factory.create(:tenant), Factory.create(:tenant)]
-      Tenant.stub(:all) { @tenants }
-      get :index
-      assigns(:tenants).should eq(@tenants)
-    end
-  end
-
-  describe "GET show" do
-    it "assigns the requested tenant as @tenant" do
-      Tenant.stub(:find).with("37") { mock_tenant }
-      get :show, :id => "37"
-      assigns(:tenant).should be(mock_tenant)
+      pending "get blance sheet" do
+        get :balance_sheet
+      end
     end
   end
 
-  describe "GET new" do
-    it "assigns a new tenant as @tenant" do
-      Tenant.stub(:new) { mock_tenant }
-      get :new
-      assigns(:tenant).should be(mock_tenant)
-    end
+  describe "as admin" do
+    login_admin
+    it_behaves_like "it does all controller actions"
   end
 
-  describe "GET edit" do
-    it "assigns the requested tenant as @tenant" do
-      Tenant.stub(:find).with("37") { mock_tenant }
-      get :edit, :id => "37"
-      assigns(:tenant).should be(mock_tenant)
-    end
+  describe "as accountant" do
+    login_accountant
+    it_behaves_like "it does all controller actions"
   end
-
-  describe "POST create" do
-
-    describe "with valid params" do
-      it "assigns a newly created tenant as @tenant" do
-        Tenant.stub(:new).with({'these' => 'params'}) { mock_tenant(:save => true) }
-        post :create, :tenant => {'these' => 'params'}
-        assigns(:tenant).should be(mock_tenant)
-      end
-
-      it "redirects to the created tenant" do
-        Tenant.stub(:new) { mock_tenant(:save => true) }
-        post :create, :tenant => {}
-        response.should redirect_to(tenant_url(mock_tenant))
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved tenant as @tenant" do
-        Tenant.stub(:new).with({'these' => 'params'}) { mock_tenant(:save => false) }
-        post :create, :tenant => {'these' => 'params'}
-        assigns(:tenant).should be(mock_tenant)
-      end
-
-      it "re-renders the 'new' template" do
-        Tenant.stub(:new) { mock_tenant(:save => false) }
-        post :create, :tenant => {}
-        response.should render_template("new")
-      end
-    end
-
-  end
-
-  describe "PUT update" do
-
-    describe "with valid params" do
-      it "updates the requested tenant" do
-        Tenant.should_receive(:find).with("37") { mock_tenant }
-        mock_tenant.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :tenant => {'these' => 'params'}
-      end
-
-      it "assigns the requested tenant as @tenant" do
-        Tenant.stub(:find) { mock_tenant(:update_attributes => true) }
-        put :update, :id => "1"
-        assigns(:tenant).should be(mock_tenant)
-      end
-
-      it "redirects to the tenant" do
-        Tenant.stub(:find) { mock_tenant(:update_attributes => true) }
-        put :update, :id => "1"
-        response.should redirect_to(tenant_url(mock_tenant))
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns the tenant as @tenant" do
-        Tenant.stub(:find) { mock_tenant(:update_attributes => false) }
-        put :update, :id => "1"
-        assigns(:tenant).should be(mock_tenant)
-      end
-
-      it "re-renders the 'edit' template" do
-        Tenant.stub(:find) { mock_tenant(:update_attributes => false) }
-        put :update, :id => "1"
-        response.should render_template("edit")
-      end
-    end
-
-  end
-
-  describe "DELETE destroy" do
-    it "destroys the requested tenant" do
-      Tenant.should_receive(:find).with("37") { mock_tenant }
-      mock_tenant.should_receive(:destroy)
-      delete :destroy, :id => "37"
-    end
-
-    it "redirects to the tenants list" do
-      Tenant.stub(:find) { mock_tenant }
-      delete :destroy, :id => "1"
-      response.should redirect_to(tenants_url)
-    end
-  end
-
 end

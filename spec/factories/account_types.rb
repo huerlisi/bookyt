@@ -12,5 +12,15 @@ FactoryGirl.define do
       name  "earnings"
       title "Earnings"
     end
+
+    factory :costs do
+      name  "costs"
+      title "Aufwand"
+    end
+
+    factory :outside_capital do
+      name  "outside_capital"
+      title "Fremdkapital"
+    end
   end
 end

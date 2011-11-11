@@ -22,4 +22,16 @@ FactoryGirl.define do
     code '3200'
     association :account_type, :factory => :earnings
   end
+  
+  factory :material_account, :class => Account do
+    title "Materialaufwand"
+    code  "4000"
+    association :account_type, :factory => :costs
+  end
+
+  factory :credit_account, :class => Account do
+    title "Kreditoren"
+    code  "2000"
+    association :account_type, :factory => :outside_capital
+  end
 end
