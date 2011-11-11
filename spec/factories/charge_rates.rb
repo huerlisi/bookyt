@@ -7,4 +7,12 @@ FactoryGirl.define do
     duration_from "2011-04-14"
     duration_to "2011-04-14"
   end
+
+  factory :vat_rate, :class => ChargeRate do
+    code "vat:normal"
+    title "MWSt."
+    rate "8.7"
+    duration_from "2011-11-11"
+    duration_to "2011-11-11"
+  end
 end
