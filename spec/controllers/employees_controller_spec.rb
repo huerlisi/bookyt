@@ -9,8 +9,7 @@ describe EmployeesController do
 
   describe "GET index" do
     it "assigns all employees as @employees" do
-      @employees = [Factory.create(:employee), Factory.create(:employee)]
-      Employee.stub(:all) { @employees }
+      @employees = [Factory.create(:employee)]
       get :index
       assigns(:employees).should eq(@employees)
     end
