@@ -1,7 +1,7 @@
 class ChargeRate < ActiveRecord::Base
   # String
   def to_s(format = :default)
-    return "" if ((title and title.empty?) or (rate_to_s and rate_to_s.empty?))
+    return "" if (title.blank? or rate_to_s.blank?)
 
     case format
       when :long
