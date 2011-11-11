@@ -49,8 +49,8 @@ class LineItem < ActiveRecord::Base
   # Booking templates
   belongs_to :booking_template
 
-  def assign_booking_template=(value)
-    self.booking_template = value
+  def booking_template=(value)
+    self[:booking_template] = value
 
     self.price = value.amount
     self.title = value.title
