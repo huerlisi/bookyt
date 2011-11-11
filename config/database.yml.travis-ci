@@ -1,0 +1,12 @@
+# MySQL
+mysql: &mysql
+  adapter:  mysql2
+  encoding: utf8
+  host:     localhost
+
+# Environments
+# ============
+test:
+  <<: *mysql
+  database: bookyt_test
+  user: root
