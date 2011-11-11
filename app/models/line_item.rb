@@ -38,19 +38,11 @@ class LineItem < ActiveRecord::Base
   # Item templates
   belongs_to :item, :polymorphic => true
 
-  def assign_item=(value)
-    self.item = value
-
-    self.price = value.price
-    self.title = value.title
-    self.code  = value.code
-  end
-
   # Booking templates
   belongs_to :booking_template
 
-  def assign_booking_template=(value)
-    self.booking_template = value
+  def booking_template=(value)
+    self[:booking_template] = value
 
     self.price = value.amount
     self.title = value.title
