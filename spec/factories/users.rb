@@ -4,6 +4,7 @@ FactoryGirl.define do
     password "user1234"
     person
     roles {|roles| [roles.association :user_role] }
+    association :tenant
   end
 
   factory :accountant_user, :class => User do
@@ -11,6 +12,7 @@ FactoryGirl.define do
     password "admin1234"
     person
     roles {|roles| [roles.association :accountant_role] }
+    association :tenant
   end
 
   factory :admin_user, :class => User do
