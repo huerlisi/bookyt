@@ -47,6 +47,12 @@ Bookyt::Application.routes.draw do
 
   resources :credit_invoices do
     resources :attachments
+    member do
+      get :new_line_item
+    end
+    collection do
+      get :new_line_item
+    end
   end
 
   resources :debit_invoices do
