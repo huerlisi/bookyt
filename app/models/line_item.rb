@@ -44,8 +44,13 @@ class LineItem < ActiveRecord::Base
   def booking_template=(value)
     self[:booking_template] = value
 
-    self.price = value.amount
-    self.title = value.title
-    self.code  = value.code
+    self.price ||= value.amount
+    self.title ||= value.title
+    self.code  ||= value.code
+  end
+
+  def booking_template_id=(value)
+    self[:booking_template_id] = value
+    self.booking_template = BookingTemplate.find(value)
   end
 end
