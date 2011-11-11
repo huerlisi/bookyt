@@ -14,6 +14,12 @@ class CreditInvoicesController < InvoicesController
 
     @credit_invoice = CreditInvoice.new(invoice_params)
 
+    @credit_invoice.line_items.build(
+      :times         => 1,
+      :quantity      => 'x',
+      :vat_rate_code => 'vat:full'
+    )
+
     # Prebuild an empty attachment instance
     @credit_invoice.attachments.build
 
