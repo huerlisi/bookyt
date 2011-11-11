@@ -6,7 +6,7 @@
   %td= line_item.text_field :price, :required => true, :style => 'width: 5em', :autocomplete => "off"
   %td.currency.total_amount= currency_fmt(line_item.object.total_amount)
   %td= line_item.select :vat_rate_code, vat_rates_as_collection
-  %td= line_item.select :booking_template_id, BookingTemplate.by_type(resource.class.name + '_position').collect{|booking_template| [booking_template.title, booking_template.id]}
+  %td= line_item.select :booking_template_id, BookingTemplate.by_type(resource_class.name.underscore + '_position').collect{|booking_template| [booking_template.title, booking_template.id]}
   %td.action_links
     = line_item.hidden_field :_destroy
     = link_to t_action(:delete), '#', :class => 'icon-delete-text delete-nested-form-item'
