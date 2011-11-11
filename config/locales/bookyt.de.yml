@@ -222,7 +222,7 @@ de:
 
   line_items:
     quantity:
-      times:   x
+      x:       x
       hours:   h
       overall: pauschal
 
