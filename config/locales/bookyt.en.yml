@@ -43,6 +43,7 @@ en:
       booking_import: booking import
       attachment: attachment
       salary: salary
+      setting: settings
       charge_rate: charge rate
       overview: overview
       session:  session
