@@ -139,7 +139,7 @@ class Invoice < ActiveRecord::Base
     if value
       return value.currency_round
     else
-      return nil
+      return 0.0
     end
   end
 end

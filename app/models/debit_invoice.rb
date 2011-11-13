@@ -13,12 +13,23 @@ class DebitInvoice < Invoice
     bookings.first.try(:debit_account)
   end
 
+  # Bookings
+  # ========
+
   # Callback hook
   def booking_saved(booking)
     if (self.state != 'canceled') and (self.state != 'reactivated') and (self.amount <= 0.0)
       update_attribute(:state, 'paid')
     elsif !self.overdue? and (self.amount > 0.0)
       update_attribute(:state, 'booked')
+    end
+  end
+
+  # We pass the value_date to the booking
+  def build_booking(params = {}, template_code = nil)
+    for line_item in line_items
+      # Build and assign booking
+      bookings << line_item.booking_template.build_booking(:title => line_item.title, :amount => line_item.total_amount, :value_date => self.value_date)
     end
   end
 end

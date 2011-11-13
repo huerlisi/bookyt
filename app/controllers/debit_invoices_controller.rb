@@ -34,9 +34,7 @@ class DebitInvoicesController < InvoicesController
     invoice_params.merge!(params[:debit_invoice]) if params[:debit_invoice]
 
     @debit_invoice = DebitInvoice.new(invoice_params)
-    if @debit_invoice.save
-      @debit_invoice.build_booking.save
-    end
+    @debit_invoice.build_booking
 
     create!
   end
