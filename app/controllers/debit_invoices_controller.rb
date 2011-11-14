@@ -48,4 +48,10 @@ class DebitInvoicesController < InvoicesController
 
     create!
   end
+
+  def copy
+    super
+
+    @debit_invoice = @invoice
+  end
 end
