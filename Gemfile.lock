@@ -124,9 +124,11 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
-    has_accounts (0.15.2)
+    has_accounts (0.16.0)
       has_vcards
+      inherited_resources
       rails (~> 3.1.0)
+      validates_timeliness
     has_scope (0.5.1)
     has_vcards (0.10.0)
     highline (1.6.2)
