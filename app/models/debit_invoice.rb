@@ -29,7 +29,13 @@ class DebitInvoice < Invoice
   def build_booking(params = {}, template_code = nil)
     for line_item in line_items
       # Build and assign booking
-      bookings << line_item.booking_template.build_booking(:title => line_item.title, :amount => line_item.total_amount, :value_date => self.value_date)
+      booking = bookings.build(
+        :title          => line_item.title,
+        :amount         => line_item.total_amount,
+        :value_date     => self.value_date,
+        :credit_account => direct_account,
+        :debit_account  => line_item.contra_account
+      )
     end
   end
 end
