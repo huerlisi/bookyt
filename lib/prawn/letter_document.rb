@@ -62,43 +62,45 @@ module Prawn
       end
     end
 
-    def footer(sender, bank_account)
-      repeat :all do
-        bounding_box [bounds.left, 35], :width => 120, :height => 40 do
-          font_size 7 do
-            vcard = sender.vcard
+    def footer(sender, bank_account, vat_number, vesr_included)
+      height = vesr_included ? 300 : 35
+      height -= 20 unless vat_number.present?
+    
+      bounding_box [bounds.left, height], :width => 120, :height => 40 do
+        font_size 7 do
+          vcard = sender.vcard
 
-            text "Begünstigter:"
+          text "Begünstigter:"
+          text vcard.full_name
+          text vcard.extended_address unless vcard.extended_address.blank?
+          text vcard.street_address
+          text vcard.postal_code + " " + vcard.locality
+        end
+      end
+
+      if bank_account and bank_account.bank
+        bounding_box [bounds.left + 190, height], :width => 120, :height => 40 do
+          font_size 7 do
+            vcard = bank_account.bank.vcard
+
+            text "Bank:"
             text vcard.full_name
-            text vcard.extended_address unless vcard.extended_address.blank?
-            text vcard.street_address
-            text vcard.postal_code + " " + vcard.locality
+            text vcard.street_address if vcard.street_address.present?
+            locality = [vcard.postal_code, vcard.locality].compact.join(', ')
+            text locality if locality.present?
           end
         end
 
-        if bank_account and bank_account.bank
-          bounding_box [bounds.left + 190, 35], :width => 120, :height => 40 do
-            font_size 7 do
-              vcard = bank_account.bank.vcard
+        bounding_box [bounds.left + 360, height], :width => 120, :height => 50 do
+          font_size 7 do
+            vcard = bank_account.bank.vcard
 
-              text "Bank:"
-              text vcard.full_name
-              text vcard.street_address if vcard.street_address.present?
-              locality = [vcard.postal_code, vcard.locality].compact.join(', ')
-              text locality if locality.present?
-            end
-          end
-
-          bounding_box [bounds.left + 360, 35], :width => 120, :height => 40 do
-            font_size 7 do
-              vcard = bank_account.bank.vcard
-
-              text "Konto:"
-              text "IBAN: " + bank_account.iban if bank_account.iban.present?
-              text "SWIFT: " + bank_account.bank.swift if bank_account.bank.swift.present?
-              text "Clearing: " + bank_account.bank.clearing if bank_account.bank.clearing.present?
-              text "PC-Konto: " + bank_account.pc_id if bank_account.pc_id.present?
-            end
+            text "Konto:"
+            text "IBAN: " + bank_account.iban if bank_account.iban.present?
+            text "SWIFT: " + bank_account.bank.swift if bank_account.bank.swift.present?
+            text "Clearing: " + bank_account.bank.clearing if bank_account.bank.clearing.present?
+            text "PC-Konto: " + bank_account.pc_id if bank_account.pc_id.present?
+            text "MWSt.-Nr.: " + vat_number if vat_number.present?
           end
         end
       end
