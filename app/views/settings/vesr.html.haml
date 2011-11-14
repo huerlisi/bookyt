@@ -2,13 +2,10 @@
 
 .form-view
   = semantic_form_for :vesr do |form|
+
     = form.inputs 'Allgemein' do
       = form.semantic_fields_for @tenant do |f|
-        = f.input :id, :as => :hidden
-        = f.semantic_errors
-
-        = f.input :use_vesr
-        = f.input :print_payment_for
+        = render :partial => 'form_fields', :locals => {:form => f}
 
     = form.inputs 'Konto' do
       = form.semantic_fields_for @bank_account do |f|

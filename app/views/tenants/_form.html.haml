@@ -13,5 +13,8 @@
     = f.input :fiscal_year_ends_on, :as => :date_field
     = f.input :vat_number
 
+  = f.inputs t('settings.vesr.title') do
+    = render :partial => 'settings/form_fields', :locals => {:form => f}
+
   = f.buttons do
     = f.commit_button
