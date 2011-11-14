@@ -377,3 +377,6 @@ de:
         account_types: Zeigt eine Liste aller Kontentypen (Anlagevermögen, Umlaufvermögen, ...)
     overview:
       title: Übersicht
+  settings:
+    vesr:
+      title: VESR Einstellungen
