@@ -39,3 +39,4 @@ public/system
 # Config
 config/initializers/bookyt.rb
 coverage/*
+system/*
