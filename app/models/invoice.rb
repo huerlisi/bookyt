@@ -142,4 +142,17 @@ class Invoice < ActiveRecord::Base
       return 0.0
     end
   end
+
+  # Ident
+  # =====
+  def ident
+    date_ident = updated_at.strftime("%y%m")
+    date_ident += "%03i" % id
+
+    date_ident
+  end
+
+  def long_ident
+    "#{ident} - #{customer.vcard.full_name} #{title}"
+  end
 end
