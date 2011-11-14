@@ -92,7 +92,7 @@ module Prawn
             bank_text_line = [
                                 bank_account.iban.present? ? "IBAN: #{bank_account.iban}" : nil,
                                 bank_account.bank.swift.present? ? "SWIFT: #{bank_account.bank.swift}" : nil,
-                                bank_account.bank.clearing.present? "Clearing: #{bank_account.bank.clearing}" : nil,
+                                bank_account.bank.clearing.present? ? "Clearing: #{bank_account.bank.clearing}" : nil,
                                 bank_account.pc_id.present? ? "PC-Konto: #{bank_account.pc_id}" : nil,
                                 vat_number.present? ? "MWSt.-Nr.: #{vat_number}" : nil
                               ].compact.join(" – ")
