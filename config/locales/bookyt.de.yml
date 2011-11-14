@@ -21,6 +21,14 @@ de:
       address: Adresse
       book_keeping: Buchhaltung
 
+  attributes:
+    # Common
+    title:            Titel
+    amount:           Betrag
+    date:             Datum
+    comments:         Bemerkungen
+    state:            Status
+
   activerecord:
     models:
       booking_template: Buchungsvorlage
@@ -47,13 +55,6 @@ de:
       setting: Einstellungen
 
     attributes:
-      # Common
-      title:            Titel
-      amount:           Betrag
-      date:             Datum
-      comments:         Bemerkungen
-      state:            Status
-
       # Per model
       attachment:
         file:           Dateiname
