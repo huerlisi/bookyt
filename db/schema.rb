@@ -277,8 +277,8 @@ ActiveRecord::Schema.define(:version => 20111114132314) do
   add_index "invoices", ["value_date"], :name => "index_invoices_on_value_date"
 
   create_table "line_items", :force => true do |t|
-    t.decimal  "times",               :precision => 10, :scale => 2
-    t.decimal  "price",               :precision => 10, :scale => 2
+    t.decimal  "times",             :precision => 10, :scale => 2
+    t.decimal  "price",             :precision => 10, :scale => 2
     t.string   "code"
     t.string   "title"
     t.string   "description"
@@ -289,8 +289,9 @@ ActiveRecord::Schema.define(:version => 20111114132314) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date"
-    t.string   "quantity",                                           :default => "x"
+    t.string   "quantity",                                         :default => "x"
     t.string   "vat_rate_code"
+    t.string   "amount_relates_to"
     t.integer  "contra_account_id"
   end
 
