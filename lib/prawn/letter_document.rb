@@ -63,7 +63,7 @@ module Prawn
     end
 
     def footer(sender, bank_account, vat_number, vesr_included)
-      height = vesr_included ? 300 : 35
+      height = vesr_included ? 325 : 35
       height -= 20 unless vat_number.present?
     
       bounding_box [bounds.left, height], :width => 120, :height => 40 do
