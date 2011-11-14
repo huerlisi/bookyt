@@ -2,7 +2,7 @@
   %td= line_item.text_field :date, :style => 'width: 85px', 'date-picker' => 'true'
   %td= line_item.text_field :title, :required => true, :style => 'width: 30em'
   %td= line_item.text_field :times, :required => true, :style => 'width: 3em', :autocomplete => "off"
-  %td= line_item.select :quantity, ['x', 'hours', 'overall'].map{|quantity| [t(quantity, :scope => 'line_items.quantity'), quantity]}, {}, :style => 'width: 6em'
+  %td= line_item.select :quantity, ['x', 'hours', 'overall', '%'].map{|quantity| [t(quantity, :scope => 'line_items.quantity'), quantity]}, {}, :style => 'width: 6em'
   %td= line_item.text_field :price, :required => true, :style => 'width: 5em', :autocomplete => "off"
   %td.currency.total_amount= currency_fmt(line_item.object.total_amount)
   %td= line_item.select :contra_account_id, accounts_as_collection(resource_class.available_contra_accounts), {}, :class => 'combobox'

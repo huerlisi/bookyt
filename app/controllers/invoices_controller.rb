@@ -36,4 +36,24 @@ class InvoicesController < AuthorizedController
 
     respond_with @line_item
   end
+
+  def copy
+    # Duplicate original invoice
+    original_invoice = Invoice.find(params[:id])
+    @invoice = original_invoice.dup
+
+    # Override some fields
+    @invoice.attributes = {
+      :state         => 'booked',
+      :value_date    => Date.today,
+      :due_date      => Date.today.in(30.days).to_date,
+      :duration_from => nil,
+      :duration_to   => nil
+    }
+
+    # Rebuild positions
+    @invoice.line_items = original_invoice.line_items.map{|line_item| line_item.dup}
+
+    render 'edit'
+  end
 end

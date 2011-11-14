@@ -227,6 +227,7 @@ de:
       x:       x
       hours:   h
       overall: pauschal
+      %:       % von
 
   vat_rates:
     code:

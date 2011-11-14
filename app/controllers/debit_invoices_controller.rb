@@ -21,6 +21,15 @@ class DebitInvoicesController < InvoicesController
       :contra_account => DebitInvoice.default_contra_account
     )
 
+    if current_tenant.vat_number.present?
+      @debit_invoice.line_items.build(
+        :title          => 'MWSt.',
+        :times          => 0.08,
+        :quantity       => '%',
+        :contra_account => Account.find_by_code('2206')
+      )
+    end
+
     # Prebuild an empty attachment instance
     @debit_invoice.attachments.build
 
@@ -38,5 +47,11 @@ class DebitInvoicesController < InvoicesController
     @debit_invoice.build_booking
 
     create!
+  end
+
+  def copy
+    super
+
+    @debit_invoice = @invoice
   end
 end
