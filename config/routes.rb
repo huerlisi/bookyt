@@ -2,6 +2,8 @@ Bookyt::Application.routes.draw do
   # Root
   root :to => "overview#index"
 
+  match "/uploads/:model/:id/:basename.:extension", :controller => "attachments", :action => "download", :conditions => { :method => :get }
+
   # Authorization
   devise_for :users
   resources :users do
