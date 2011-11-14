@@ -17,7 +17,8 @@ class CreditInvoicesController < InvoicesController
     @credit_invoice.line_items.build(
       :times         => 1,
       :quantity      => 'x',
-      :vat_rate_code => 'vat:full'
+      :vat_rate_code => 'vat:full',
+      :contra_account => Account.find_by_code('4000')
     )
 
     # Prebuild an empty attachment instance

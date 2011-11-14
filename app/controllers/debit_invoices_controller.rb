@@ -17,7 +17,8 @@ class DebitInvoicesController < InvoicesController
     @debit_invoice.line_items.build(
       :times         => 1,
       :quantity      => 'x',
-      :vat_rate_code => 'vat:full'
+      :vat_rate_code => 'vat:full',
+      :contra_account => Account.find_by_code('3200')
     )
 
     # Prebuild an empty attachment instance
