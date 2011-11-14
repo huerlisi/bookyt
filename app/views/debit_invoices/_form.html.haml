@@ -17,7 +17,7 @@
         = render 'line_items/list_header', :invoice => resource
       %tbody
         = f.fields_for :line_items do |line_item|
-          = render 'line_items/form', :line_item => line_item, :available_contra_accounts => Account.by_type(['earnings', 'outside_capital'])
+          = render 'line_items/form', :line_item => line_item
       %tfoot
         = render 'line_items/list_footer', :total_amount => resource.amount
 

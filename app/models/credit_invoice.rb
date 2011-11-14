@@ -22,6 +22,14 @@ class CreditInvoice < Invoice
     Account.find_by_code("2000")
   end
 
+  def self.available_contra_accounts
+    Account.by_type(['costs', 'current_assets', 'capital_assets'])
+  end
+
+  def self.default_contra_account
+    Account.find_by_code('4000')
+  end
+
   def balance_account
     bookings.first.try(:debit_account)
   end

@@ -18,7 +18,7 @@ class CreditInvoicesController < InvoicesController
       :times         => 1,
       :quantity      => 'x',
       :vat_rate_code => 'vat:full',
-      :contra_account => Account.find_by_code('4000')
+      :contra_account => CreditInvoice.default_contra_account
     )
 
     # Prebuild an empty attachment instance
