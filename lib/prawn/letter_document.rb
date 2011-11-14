@@ -62,43 +62,34 @@ module Prawn
       end
     end
 
-    def footer(sender, bank_account)
-      repeat :all do
-        bounding_box [bounds.left, 35], :width => 120, :height => 40 do
-          font_size 7 do
-            vcard = sender.vcard
+    def footer(sender, bank_account, vat_number, vesr_included)
+      height = vesr_included ? 310 : 20
+      height -= 20 unless bank_account and bank_account.bank
+      title_width = 45
+      sender_vcard = sender.vcard
+      bank_vcard = bank_account.bank.vcard
+      line_spacing = 2
 
-            text "Begünstigter:"
-            text vcard.full_name
-            text vcard.extended_address unless vcard.extended_address.blank?
-            text vcard.street_address
-            text vcard.postal_code + " " + vcard.locality
+      bounding_box [bounds.left, height], :width => title_width, :height => 40 do
+        font_size 7 do
+          text "Begünstigter:"
+          if bank_account and bank_account.bank
+            move_down line_spacing
+            text "Bank:"
+            move_down line_spacing
+            text "Konto:"
           end
         end
+      end
 
-        if bank_account and bank_account.bank
-          bounding_box [bounds.left + 190, 35], :width => 120, :height => 40 do
-            font_size 7 do
-              vcard = bank_account.bank.vcard
-
-              text "Bank:"
-              text vcard.full_name
-              text vcard.street_address if vcard.street_address.present?
-              locality = [vcard.postal_code, vcard.locality].compact.join(', ')
-              text locality if locality.present?
-            end
-          end
-
-          bounding_box [bounds.left + 360, 35], :width => 120, :height => 40 do
-            font_size 7 do
-              vcard = bank_account.bank.vcard
-
-              text "Konto:"
-              text "IBAN: " + bank_account.iban if bank_account.iban.present?
-              text "SWIFT: " + bank_account.bank.swift if bank_account.bank.swift.present?
-              text "Clearing: " + bank_account.bank.clearing if bank_account.bank.clearing.present?
-              text "PC-Konto: " + bank_account.pc_id if bank_account.pc_id.present?
-            end
+      bounding_box [bounds.left + title_width, height], :width => bounds.width - title_width, :height => 40 do
+        font_size 7 do
+          text "#{sender_vcard.full_name} – #{sender_vcard.extended_address + " – " unless sender_vcard.extended_address.blank?}#{sender_vcard.street_address} – #{sender_vcard.postal_code} #{sender_vcard.locality}"
+          if bank_account and bank_account.bank
+            move_down line_spacing
+            text "#{bank_vcard.full_name} – #{bank_vcard.street_address + " – " if bank_vcard.street_address.present?}#{bank_vcard.postal_code} #{bank_vcard.locality}"
+            move_down line_spacing
+            text "#{"IBAN: " + bank_account.iban + " – " if bank_account.iban.present?}#{"SWIFT: " + bank_account.bank.swift + " – " if bank_account.bank.swift.present?}#{"Clearing: " + bank_account.bank.clearing + " – " if bank_account.bank.clearing.present?}#{"PC-Konto: " + bank_account.pc_id + " – " if bank_account.pc_id.present?}#{"MWSt.-Nr.: " + vat_number if vat_number.present?}"
           end
         end
       end
