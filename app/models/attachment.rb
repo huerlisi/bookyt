@@ -14,4 +14,10 @@ class Attachment < ActiveRecord::Base
   def self.codes
     [['Brief-Template', 'Prawn::LetterDocument']]
   end
+  
+  before_save :create_title
+  private
+  def create_title
+    self.title = file.filename if title.blank?
+  end
 end
