@@ -139,4 +139,7 @@ Devise.setup do |config|
   #   end
   #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
   # end
+  # Speed up the tests.
+  # Snippet from: https://github.com/plataformatec/devise/wiki/Speed-up-your-unit-tests
+  config.stretches = Rails.env.test? ? 1 : 10
 end
