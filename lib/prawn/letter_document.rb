@@ -89,7 +89,15 @@ module Prawn
             move_down line_spacing
             text "#{bank_vcard.full_name} – #{bank_vcard.street_address + " – " if bank_vcard.street_address.present?}#{bank_vcard.postal_code} #{bank_vcard.locality}"
             move_down line_spacing
-            text "#{"IBAN: " + bank_account.iban + " – " if bank_account.iban.present?}#{"SWIFT: " + bank_account.bank.swift + " – " if bank_account.bank.swift.present?}#{"Clearing: " + bank_account.bank.clearing + " – " if bank_account.bank.clearing.present?}#{"PC-Konto: " + bank_account.pc_id + " – " if bank_account.pc_id.present?}#{"MWSt.-Nr.: " + vat_number if vat_number.present?}"
+            bank_text_line = [
+                                bank_account.iban.present? ? "IBAN: #{bank_account.iban}" : nil,
+                                bank_account.bank.swift.present? ? "SWIFT: #{bank_account.bank.swift}" : nil,
+                                bank_account.bank.clearing.present? ? "Clearing: #{bank_account.bank.clearing}" : nil,
+                                bank_account.pc_id.present? ? "PC-Konto: #{bank_account.pc_id}" : nil,
+                                vat_number.present? ? "MWSt.-Nr.: #{vat_number}" : nil
+                              ].compact.join(" – ")
+            
+            text bank_text_line
           end
         end
       end
