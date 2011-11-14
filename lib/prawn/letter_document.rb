@@ -27,9 +27,6 @@ module Prawn
     
     # Letter header with company logo, receiver address and place'n'date
     def letter_header(sender, receiver, subject)
-      # Header
-      header(sender)
-
       move_down 60
 
       # Address
@@ -62,16 +59,6 @@ module Prawn
     def full_address(vcard)
       vcard.full_address_lines.each do |line|
         text line
-      end
-    end
-
-    def header(sender)
-      repeat :all do
-        # TODO use uploaded file from tenant
-        # TODO think about requiring prawn-fast-png or only use PNGs with no transparency
-        # You better use a bigger file as it gives better resolution
-        logo = ::Rails.root.join("public/system/images/letter-logo.png")
-        image logo, :height => 50, :at => [0, bounds.top + 20] if logo.exist?
       end
     end
 
