@@ -31,7 +31,7 @@ class CreditInvoice < Invoice
   end
 
   # Bookings
-
+  # ========
   # We pass the value_date to the booking
   def build_booking(params = {}, template_code = nil)
     for line_item in line_items
