@@ -28,9 +28,10 @@ class InvoicesController < AuthorizedController
     end
 
     @line_item = @invoice.line_items.build(
-      :times         => 1,
-      :quantity      => 'x',
-      :vat_rate_code => 'vat:full'
+      :times          => 1,
+      :quantity       => 'x',
+      :vat_rate_code  => 'vat:full',
+      :contra_account => resource_class.default_contra_account
     )
 
     respond_with @line_item
