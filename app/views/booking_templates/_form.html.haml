@@ -1,12 +1,12 @@
 = semantic_form_for @booking_template do |f|
   = f.semantic_errors
   = f.inputs do
-    = f.input :amount, :input_html => {"data-autofocus" => true, :style => 'width: 6em'}
-    = f.input :amount_relates_to, :collection => amount_relations_as_collection
-    = f.input :code
     = f.input :title
+    = f.input :code
     = f.input :credit_account, :as => :combobox, :collection => Account.all.collect{|account| ["%s - %s" % [account.code, account.title], account.id]}
     = f.input :debit_account, :as => :combobox, :collection => Account.all.collect{|account| ["%s - %s" % [account.code, account.title], account.id]}
+    = f.input :amount, :input_html => {"data-autofocus" => true, :style => 'width: 6em'}
+    = f.input :amount_relates_to, :collection => amount_relations_as_collection
     = f.input :comments, :input_html => {:rows => 5}
   = f.buttons do
     = f.commit_button
