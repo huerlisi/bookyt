@@ -1,7 +1,7 @@
 class CreditInvoice < Invoice
   # String
   def to_s(format = :default)
-    return "" if amount.nil?
+    return "" if amount == 0.0
 
     identifier = title
     identifier += " / #{code}" if code.present?
