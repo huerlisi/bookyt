@@ -25,9 +25,10 @@ de:
     # Common
     title:            Titel
     amount:           Betrag
-    date:             Datum
     comments:         Bemerkungen
     state:            Status
+    date:             Datum
+    duration:         Dauer
 
   activerecord:
     models:
@@ -107,7 +108,6 @@ de:
       employment:
         employer:       Arbeitgeber
         employee:       Arbeitnehmer
-        duration:       Dauer
         duration_from:  Begin
         duration_to:    Ende
         salary_amount:  Brutto Lohn (CHF)
