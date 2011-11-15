@@ -33,7 +33,7 @@ class LineItem < ActiveRecord::Base
 
   # Vat Rate
   def vat_rate
-    ChargeRate.current(vat_rate_code, invoice.value_date)
+    invoice.present? ? ChargeRate.current(vat_rate_code, invoice.value_date) : 0
   end
 
   # Item templates
