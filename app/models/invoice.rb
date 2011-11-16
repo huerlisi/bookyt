@@ -3,7 +3,7 @@ class Invoice < ActiveRecord::Base
   include ApplicationHelper
 
   # Scopes
-  default_scope order(:due_date)
+  default_scope order("due_date DESC")
 
   # Associations
   belongs_to :customer, :class_name => 'Person'
