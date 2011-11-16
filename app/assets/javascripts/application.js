@@ -75,14 +75,26 @@ function updateTotalAmount(lineItems) {
   $(".line_item_total .total_amount").text(CommaFormatted(total_amount.toFixed(2)));
 }
 
-function AddCalculateTotalAmountBehaviour() {
-  $("#line_items").find(":input[name$='[times]'], :input[name$='[price]']").live('focusout', function() {
+// Recalculate after every key stroke
+function handleLineItemChange(event) {
+  // If character is <return>
+  if(event.keyCode == 13) {
+    // ...trigger form action
+    $(event.currentTarget).submit();
+  } else if(event.keyCode == 32) {
+    // ...trigger form action
+    $(event.currentTarget).submit();
+  } else {
     var line_item = $(this).parents('.line_item');
     updateLineItemTotalAmount(line_item);
 
     var line_items = $(this).parents('.line_items');
     updateTotalAmount(line_items);
-  })
+  }
+}
+
+function AddCalculateTotalAmountBehaviour() {
+  $("#line_items").find(":input[name$='[times]'], :input[name$='[price]']").live('keyup', handleLineItemChange);
 }
 
 function calculateAmount(){
