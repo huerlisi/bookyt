@@ -48,12 +48,12 @@ function calculateLineItemTotalAmount(lineItem) {
   var times_input = lineItem.find(":input[name$='[times]']");
   var times = parseFloat(times_input.val());
   var quantity_input = lineItem.find(":input[name$='[quantity]']");
+  var price_input = lineItem.find(":input[name$='[price]']");
+  var price = parseFloat(price_input.val());
+
   if (quantity_input.val() == '%') {
     times = times / 100;
   };
-
-  var price_input = lineItem.find(":input[name$='[price]']");
-  var price = parseFloat(price_input.val());
 
   var value = times * price;
   if (isNaN(value)) {
@@ -71,14 +71,18 @@ function updateLineItemTotalAmount(lineItem) {
   total_amount_input.text(total_amount);
 }
 
-function updateTotalAmount(lineItems) {
+function calculateTotalAmount(lineItems) {
   var total_amount = 0;
   $(line_items).find('.line_item').each(function() {
     total_amount += calculateLineItemTotalAmount($(this));
   });
 
+  return total_amount
+}
+
+function updateTotalAmount(lineItems) {
   // Update Element
-  $(".line_item_total .total_amount").text(CommaFormatted(total_amount.toFixed(2)));
+  $(".line_item_total .total_amount").text(CommaFormatted(calculateTotalAmount(lineItems).toFixed(2)));
 }
 
 // Recalculate after every key stroke
