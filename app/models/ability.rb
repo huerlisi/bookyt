@@ -37,7 +37,7 @@ class Ability
   # Accountant abilities
   def accountant(user)
     can :manage, [Account, BookingTemplate, Customer, Employee, Invoice, Product, AccountType, Booking, Company, Day, Employment, Person, Profit]
-    can [:show, :list], [Tenant], :users => {:id => user.id}
+    can [:show, :list, :balance_sheet, :profit_sheet], [Tenant], :users => {:id => user.id}
     can [:show, :update], User, :id => user.id
   end
 end
