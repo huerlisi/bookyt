@@ -23,6 +23,8 @@ class NotesController < AuthorizedController
     end
   end
 
+  private
+
   def find_note_of_sth
     params.each do |name, value|
       if name =~ /(.+)_id$/

@@ -92,6 +92,7 @@ GEM
       sass (~> 3.1)
     csv-mapper (0.5.1)
       fastercsv
+    database_cleaner (0.7.0)
     devise (1.4.9)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -210,6 +211,7 @@ GEM
     rspec-core (2.7.1)
     rspec-expectations (2.7.0)
       diff-lcs (~> 1.1.2)
+    rspec-instafail (0.1.9)
     rspec-mocks (2.7.0)
     rspec-rails (2.7.0)
       actionpack (~> 3.0)
@@ -240,6 +242,7 @@ GEM
       multi_json (~> 1.0.3)
       simplecov-html (~> 0.5.3)
     simplecov-html (0.5.3)
+    spork (0.9.0.rc9)
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -284,6 +287,7 @@ DEPENDENCIES
   carrierwave
   compass (= 0.12.alpha)
   csv-mapper
+  database_cleaner
   devise
   factory_girl_rails
   fancy-buttons
@@ -307,6 +311,7 @@ DEPENDENCIES
   rcov
   rdoc
   remotipart
+  rspec-instafail
   rspec-rails
   ruby_parser
   sass-rails
@@ -314,6 +319,7 @@ DEPENDENCIES
   show_for
   simple-navigation
   simplecov
+  spork (>= 0.9.0.rc2)
   sprockets
   sqlite3
   therubyracer

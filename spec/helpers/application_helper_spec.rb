@@ -1,9 +1,22 @@
 require 'spec_helper'
 
-describe ApplicationHelper do
-  describe "contextual_links" do
-    it "adds a div with class contextual" do
-      helper.contextual_links.should have_selector('div.contextual')
+shared_examples "current_tenant" do
+  context "current_tenant" do
+    it "returns the current tenant" do
+      helper.current_tenant.should eq(@current_user.tenant)
     end
+  end
+end
+
+describe ApplicationHelper do
+  context "as admin" do
+    login_admin
+    it_behaves_like "current_tenant"
+  end
+  
+  
+  context "as accountant" do
+    login_accountant
+    it_behaves_like "current_tenant"
   end
 end

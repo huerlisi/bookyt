@@ -39,10 +39,15 @@ group :development do
   gem 'capones_recipes'
 end
 
-# Test
-# ====
-group :test do
-  # Matchers/Helpers
+group :test, :development do
+  # Framework
+  gem 'rspec-rails'
+
+  # Integration
+  # gem 'cucumber-rails'
+  # gem 'cucumber'
+  
+    # Matchers/Helpers
   gem 'shoulda'
 
   # Fixtures
@@ -62,15 +67,10 @@ group :test do
   # Code coverage
   gem 'rcov', :platforms => :ruby_18
   gem 'simplecov', :require => false, :platforms => :ruby_19
-end
 
-group :test, :development do
-  # Framework
-  gem 'rspec-rails'
-
-  # Integration
-  # gem 'cucumber-rails'
-  # gem 'cucumber'
+  gem 'spork', '>=0.9.0.rc2'
+  gem 'database_cleaner'
+  gem 'rspec-instafail'
 end
 
 # Standard helpers

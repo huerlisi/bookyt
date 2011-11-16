@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe BookingHelper do
   describe "#reference_types_as_collection" do
-    context "returns the reference types" do
-      subject { helper.reference_types_as_collection }
-      its(["Rechnung"]) { should eq(Invoice.base_class)}
+    it "returns the reference types" do
+      helper.stub(:t_model).and_return('Rechnung')
+      helper.reference_types_as_collection.should eq({'Rechnung' => Invoice.base_class})
     end
   end
 end
