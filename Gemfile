@@ -68,7 +68,7 @@ group :test, :development do
   gem 'rcov', :platforms => :ruby_18
   gem 'simplecov', :require => false, :platforms => :ruby_19
 
-  gem 'spork'
+  gem 'spork', '>=0.9.0.rc2'
   gem 'database_cleaner'
   gem 'rspec-instafail'
 end
