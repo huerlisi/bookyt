@@ -3,4 +3,7 @@ class Employee < Person
   has_many :employments
   has_many :employers, :through => :employments
   has_many :salaries, :foreign_key => :company_id
+
+  # Charge Rates
+  has_many :charge_rates, :foreign_key => :person_id
 end
