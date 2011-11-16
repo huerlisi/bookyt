@@ -43,9 +43,15 @@ function addNestedFormBehaviour() {
   });
 }
 
+// Line Item caluclation
 function calculateLineItemTotalAmount(lineItem) {
   var times_input = lineItem.find(":input[name$='[times]']");
   var times = parseFloat(times_input.val());
+  var quantity_input = lineItem.find(":input[name$='[quantity]']");
+  if (quantity_input.val() == '%') {
+    times = times / 100;
+  };
+
   var price_input = lineItem.find(":input[name$='[price]']");
   var price = parseFloat(price_input.val());
 
