@@ -1,3 +1,6 @@
 # Customer factories
-Factory.define :customer do |f|
+FactoryGirl.define do
+  factory :customer do
+    vcard
+  end
 end
