@@ -11,9 +11,6 @@ FactoryGirl.define do
     amount 99.85
   end
 
-  factory :debit_invoice do
-  end
-
   factory :credit_invoice do
   end
 end
