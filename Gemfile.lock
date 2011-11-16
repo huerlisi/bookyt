@@ -11,12 +11,6 @@ GIT
   specs:
     pdfkit (0.5.2)
 
-GIT
-  remote: https://github.com/ryanb/nested_form.git
-  revision: 57f32788f1952bcd633057b4b56b69b51df17610
-  specs:
-    nested_form (0.1.1)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -60,7 +54,7 @@ GEM
     bookyt_projects (0.11.1)
       rails (~> 3.1.0)
       recurrence
-    bookyt_salary (0.2.4)
+    bookyt_salary (0.3.0)
     bookyt_stock (0.4.1)
     builder (3.0.0)
     cancan (1.6.7)
@@ -136,7 +130,7 @@ GEM
     hike (1.2.1)
     hpricot (0.8.4)
     i18n (0.6.0)
-    i18n_rails_helpers (0.16.0)
+    i18n_rails_helpers (0.17.0)
     inherited_resources (1.2.2)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)
@@ -309,7 +303,6 @@ DEPENDENCIES
   jquery-rails
   lyb_sidebar
   mysql2
-  nested_form!
   paperclip
   pdfkit!
   prawn

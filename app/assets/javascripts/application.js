@@ -43,11 +43,17 @@ function addNestedFormBehaviour() {
   });
 }
 
+// Line Item caluclation
 function calculateLineItemTotalAmount(lineItem) {
   var times_input = lineItem.find(":input[name$='[times]']");
   var times = parseFloat(times_input.val());
+  var quantity_input = lineItem.find(":input[name$='[quantity]']");
   var price_input = lineItem.find(":input[name$='[price]']");
   var price = parseFloat(price_input.val());
+
+  if (quantity_input.val() == '%') {
+    times = times / 100;
+  };
 
   var value = times * price;
   if (isNaN(value)) {
@@ -65,46 +71,40 @@ function updateLineItemTotalAmount(lineItem) {
   total_amount_input.text(total_amount);
 }
 
-function updateTotalAmount(lineItems) {
+function calculateTotalAmount(lineItems) {
   var total_amount = 0;
   $(line_items).find('.line_item').each(function() {
     total_amount += calculateLineItemTotalAmount($(this));
   });
 
-  // Update Element
-  $(".line_item_total .total_amount").text(CommaFormatted(total_amount.toFixed(2)));
+  return total_amount
 }
 
-function AddCalculateTotalAmountBehaviour() {
-  $("#line_items").find(":input[name$='[times]'], :input[name$='[price]']").live('focusout', function() {
+function updateTotalAmount(lineItems) {
+  // Update Element
+  $(".line_item_total .total_amount").text(CommaFormatted(calculateTotalAmount(lineItems).toFixed(2)));
+}
+
+// Recalculate after every key stroke
+function handleLineItemChange(event) {
+  // If character is <return>
+  if(event.keyCode == 13) {
+    // ...trigger form action
+    $(event.currentTarget).submit();
+  } else if(event.keyCode == 32) {
+    // ...trigger form action
+    $(event.currentTarget).submit();
+  } else {
     var line_item = $(this).parents('.line_item');
     updateLineItemTotalAmount(line_item);
 
     var line_items = $(this).parents('.line_items');
     updateTotalAmount(line_items);
-  })
+  }
 }
 
-function calculateAmount(){
-  var offerAmount = 0;
-
-  $('.line_items li').each(function(){
-    var times_input = $(this).find('input.times');
-    var times = parseInt(times_input.val());
-    var amount_input = $(this).find('.amount input');
-    var amount = parseFloat(amount_input.val());
-
-    if(amount > 0){
-      offerAmount = offerAmount + (times * amount);
-    }
-  });
-
-  $('fieldset.option-group input:checked').each(function(){
-    var amount = parseFloat($(this).attr('data-amount'));
-    offerAmount = offerAmount + amount;
-  });
-
-  $('.price-tag').text(CommaFormatted(offerAmount.toFixed(2)));
+function AddCalculateTotalAmountBehaviour() {
+  $("#line_items").find(":input[name$='[times]'], :input[name$='[price]']").live('keyup', handleLineItemChange);
 }
 
 /*
