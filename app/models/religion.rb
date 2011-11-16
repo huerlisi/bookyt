@@ -1,5 +1,5 @@
 class Religion < ActiveRecord::Base
   def to_s
-    name
+    name.present? ? name : ''
   end
 end
