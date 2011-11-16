@@ -26,8 +26,12 @@ shared_examples "customer actions" do
 end
 
 describe CustomersController do
-  before(:each) do
+  before(:all) do
     @customer = Factory.create(:customer)
+    (0..3).each do 
+      Factory.create(:open_debit_invoice, :customer => @customer)
+      Factory.create(:paid_debit_invoice, :customer => @customer)
+    end
   end
 
   context "as admin" do
