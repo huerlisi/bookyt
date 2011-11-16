@@ -97,28 +97,6 @@ function AddCalculateTotalAmountBehaviour() {
   $("#line_items").find(":input[name$='[times]'], :input[name$='[price]']").live('keyup', handleLineItemChange);
 }
 
-function calculateAmount(){
-  var offerAmount = 0;
-
-  $('.line_items li').each(function(){
-    var times_input = $(this).find('input.times');
-    var times = parseInt(times_input.val());
-    var amount_input = $(this).find('.amount input');
-    var amount = parseFloat(amount_input.val());
-
-    if(amount > 0){
-      offerAmount = offerAmount + (times * amount);
-    }
-  });
-
-  $('fieldset.option-group input:checked').each(function(){
-    var amount = parseFloat($(this).attr('data-amount'));
-    offerAmount = offerAmount + amount;
-  });
-
-  $('.price-tag').text(CommaFormatted(offerAmount.toFixed(2)));
-}
-
 /*
 * This function is copy pasted from: http://www.web-source.net/web_development/currency_formatting.htm
  */
