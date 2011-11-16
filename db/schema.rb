@@ -291,7 +291,6 @@ ActiveRecord::Schema.define(:version => 20111114134140) do
     t.date     "date"
     t.string   "quantity",                                         :default => "x"
     t.string   "vat_rate_code"
-    t.string   "amount_relates_to"
     t.integer  "contra_account_id"
   end
 
