@@ -1,11 +1,17 @@
 require 'rubygems'
 require 'spork'
 
+ENV["RAILS_ENV"] = 'test'
+
 Spork.prefork do
-  ENV["RAILS_ENV"] ||= 'test'
+  require "rails/application"
+  # Code snippet from: https://github.com/sporkrb/spork/wiki/Spork.trap_method-Jujutsu
+  Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
+  
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'rspec/autorun' if $0 =~ /\brcov$/
+  require 'shoulda/integrations/rspec2'
   
   # Configure capybara for integration testing
   require "capybara/rails"
@@ -42,7 +48,9 @@ Spork.prefork do
   
     # Devise
     config.include Devise::TestHelpers, :type => :controller
+    config.include Devise::TestHelpers, :type => :helper
     config.extend ControllerMacros, :type => :controller
+    config.extend ControllerMacros, :type => :helper
   end
   
   require 'database_cleaner'
@@ -51,4 +59,6 @@ end
 
 Spork.each_run do
   DatabaseCleaner.clean
+  FactoryGirl.reload
+  I18n.backend.reload!
 end
