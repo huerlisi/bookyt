@@ -31,6 +31,5 @@ class NotesController < AuthorizedController
         return $1.classify.constantize.find(value)
       end
     end
-    nil
   end
 end
