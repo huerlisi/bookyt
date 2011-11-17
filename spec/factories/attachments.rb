@@ -1,6 +1,6 @@
-# Read about factories at http://github.com/thoughtbot/factory_girl
-
-Factory.define :attachment do |f|
-  f.title "MyString"
-  f.file "MyString"
+FactoryGirl.define do
+  factory :attachment do
+    title "MyString"
+    file  { File.open(File.join(Rails.root, 'spec', 'lib', 'templates', 'letter.pdf')) }
+  end
 end
