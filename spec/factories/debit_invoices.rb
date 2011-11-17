@@ -7,6 +7,8 @@ FactoryGirl.define do
     title "DebitInvoice"
     state 'open'
     amount 99.85
+    value_date '2010-09-20'
+    due_date '2010-10-20'
   end
 
   factory :open_debit_invoice, :class => DebitInvoice do

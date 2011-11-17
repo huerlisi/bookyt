@@ -31,6 +31,38 @@ describe AccountsController do
 
         response.should render_template(:show)
         assigns(:account).should eq(@account)
+        assigns(:bookings).should_not be_nil
+      end
+
+      it "assigns the requested account as @account only credit bookings" do
+        @account = Factory.create(:account)
+        
+        get :show, {:id => @account.id, :only_credit_bookings => true}
+
+        response.should render_template(:show)
+        assigns(:account).should eq(@account)
+        assigns(:bookings).should_not be_nil
+      end
+
+      it "assigns the requested account as @account only debit bookings" do
+        @account = Factory.create(:account)
+        
+        get :show, {:id => @account.id, :only_debit_bookings => true}
+
+        response.should render_template(:show)
+        assigns(:account).should eq(@account)
+        assigns(:bookings).should_not be_nil
+      end
+    end
+    
+    describe "GET csv_bookings" do
+      it "exports the bookings as csv file." do
+        @account_booking = Factory.create(:account_booking)
+        get :csv_bookings, {:id => @account_booking.credit_account.id}
+        assigns(:account).should_not be_nil
+        assigns(:account).should eq(@account_booking.credit_account)
+        assigns(:bookings).should_not be_nil
+        assigns(:bookings).should_not be_empty
       end
     end
   end
@@ -57,6 +89,26 @@ describe AccountsController do
 
         response.should render_template(:show)
         assigns(:account).should eq(@account)
+      end
+
+      it "assigns the requested account as @account only credit bookings" do
+        @account = Factory.create(:account)
+        
+        get :show, {:id => @account.id, :only_credit_bookings => true}
+
+        response.should render_template(:show)
+        assigns(:account).should eq(@account)
+        assigns(:bookings).should_not be_nil
+      end
+
+      it "assigns the requested account as @account only debit bookings" do
+        @account = Factory.create(:account)
+        
+        get :show, {:id => @account.id, :only_debit_bookings => true}
+
+        response.should render_template(:show)
+        assigns(:account).should eq(@account)
+        assigns(:bookings).should_not be_nil
       end
     end
   end

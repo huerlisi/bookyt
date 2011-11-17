@@ -4,6 +4,24 @@ FactoryGirl.define do
     code '1000'
     association :account_type, :factory => :current_assets
   end
+  
+  factory :account_booking, :class => Booking do
+    title 'test booking'
+    amount 23.86
+    value_date Date.today
+    comments 'commentar'
+    scan 'rs:bla'
+    code '187'
+    association :reference, :factory => :debit_invoice
+    association :credit_account, :factory => :food_account
+    association :debit_account, :factory => :material_account
+  end
+
+  factory :bank_account, :class => BankAccount do
+    title 'Bank'
+    code '1020'
+    association :account_type, :factory => :current_assets
+  end
 
   factory :cash_account, :class => Account do
     title 'Kasse Laden'
