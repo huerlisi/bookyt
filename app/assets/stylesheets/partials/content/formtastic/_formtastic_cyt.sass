@@ -103,6 +103,28 @@ form.formtastic fieldset > ol > li.boolean label
   input
     width: 1em
 
+// Two field columns
+html[xmlns] form.formtastic fieldset > ol > li
+  &.col1
+    float: left
+    display: inline-block
+    width:   40%
+    label
+      width: 38%
+    input, textarea
+      width: 55%
+    select
+      width: 56.5%
+  &.col2
+    display: inline-block
+    width:   50%
+    label
+      width: 35%
+    input, textarea
+      width: 55%
+    select
+      width: 56.5%
+
 // Fields in table support
 form.formtastic
   td, th
