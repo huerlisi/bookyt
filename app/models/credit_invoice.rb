@@ -37,20 +37,4 @@ class CreditInvoice < Invoice
   def profit_account
     bookings.first.try(:credit_account)
   end
-
-  # Bookings
-  # ========
-  # We pass the value_date to the booking
-  def build_booking(params = {}, template_code = nil)
-    for line_item in line_items
-      # Build and assign booking
-      booking = bookings.build(
-        :title          => line_item.title,
-        :amount         => line_item.total_amount,
-        :value_date     => self.value_date,
-        :credit_account => direct_account,
-        :debit_account  => line_item.contra_account
-      )
-    end
-  end
 end

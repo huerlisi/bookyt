@@ -143,6 +143,22 @@ class Invoice < ActiveRecord::Base
     end
   end
 
+  # Bookings
+  # ========
+  # We pass the value_date to the booking
+  def build_booking(params = {}, template_code = nil)
+    line_items.each do |line_item|
+      # Build and assign booking
+      booking = bookings.build(
+        :title          => line_item.title,
+        :amount         => line_item.total_amount,
+        :value_date     => self.value_date,
+        :credit_account => direct_account,
+        :debit_account  => line_item.contra_account
+      )
+    end
+  end
+
   # Ident
   # =====
   def ident
