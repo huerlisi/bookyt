@@ -16,7 +16,7 @@ describe User do
       its(:role_texts) { should == ["admin"] }
     end
 
-    pending "should add it to the accountant role" do
+    it "should add it to the accountant role" do
       admin = Factory.create(:admin_user)
       admin.role_texts << ['accountant']
       admin.should be_valid
@@ -34,8 +34,8 @@ describe User do
       specify { should_not be_role(:admin) }
     end
     
-    pending "should add it to the admin role" do
-      accountant = Factory.create!(:accountant_user)
+    it "should add it to the admin role" do
+      accountant = Factory.create(:accountant_user)
       accountant.role_texts << ['admin']
       accountant.should be_valid
       accountant.should be_role(:accountant)
