@@ -18,5 +18,8 @@
     = f.input :religion, :wrapper_html => {:class => 'col2'}
     = f.input :social_security_nr
 
+  = f.semantic_fields_for @employee.employments.current do |employment|
+    = render 'employments/fields', :f => employment
+
   = f.buttons do
     = f.commit_button
