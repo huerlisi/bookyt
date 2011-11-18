@@ -5,7 +5,6 @@
     = render 'vcards/form', :f => f
 
   = f.inputs t('form.person.civil') do
-    = f.input :code
     = f.input :sex, :as => :select, :collection => { t('sex.male') => Person::MALE, t('sex.female') => Person::FEMALE}, :wrapper_html => {:class => 'col1'}
     = f.input :date_of_birth, :as => :date_field, :wrapper_html => {:class => 'col2'}
     = f.input :civil_status, :wrapper_html => {:class => 'col1'}
