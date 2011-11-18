@@ -4,7 +4,7 @@
   = f.inputs t('form.person.address') do
     = render 'vcards/form', :f => f
 
-  = f.inputs t('phone_number.list.title') do
+  = f.inputs t_model(PhoneNumber) do
     = link_to t_action(:more), [:new_phone_number, resource.persisted? ? resource : controller_name], :remote => true, :class => 'icon-add-text', :style => 'float: right'
     .nested-form.list.contacts
       = f.fields_for :vcard do |vcard|
