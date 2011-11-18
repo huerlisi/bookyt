@@ -11,7 +11,8 @@ describe EmployeesController do
     it "assigns all employees as @employees" do
       @employees = [Factory.create(:employee)]
       get :index
-      assigns(:employees).should eq(@employees)
+      assigns(:employees).should_not be_empty
+      assigns(:employees).first.should be_a_kind_of(Employee)
     end
   end
 
