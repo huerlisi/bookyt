@@ -1,4 +1,6 @@
 class DebitInvoicesController < InvoicesController
+  defaults :resource_class => DebitInvoice
+
   # Actions
   def new
     # Allow pre-seeding some parameters

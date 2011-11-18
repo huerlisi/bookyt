@@ -1,4 +1,6 @@
 class CreditInvoicesController < InvoicesController
+  defaults :resource_class => CreditInvoice
+
   # Actions
   def new
     # Allow pre-seeding some parameters
