@@ -27,6 +27,12 @@ Bookyt::Application.routes.draw do
   end
   resources :companies do
     resources :attachments
+    member do
+      get :new_phone_number
+    end
+    collection do
+      get :new_phone_number
+    end
   end
 
   # Attachments
@@ -35,6 +41,12 @@ Bookyt::Application.routes.draw do
   # Contacts
   resources :people do
     resources :attachments
+    member do
+      get :new_phone_number
+    end
+    collection do
+      get :new_phone_number
+    end
   end
   resources :employees do
     resources :attachments
@@ -82,6 +94,12 @@ Bookyt::Application.routes.draw do
   resources :customers do
     resources :invoices
     resources :attachments
+    member do
+      get :new_phone_number
+    end
+    collection do
+      get :new_phone_number
+    end
   end
 
   # Bookings
