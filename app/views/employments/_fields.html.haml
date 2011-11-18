@@ -1,0 +1,17 @@
+= f.inputs t_model(Employment) do
+  = f.input :duration_from, :as => :date_field
+  = f.input :duration_to, :as => :date_field
+  = f.input :temporary
+
+= f.inputs do
+  = f.input :salary_amount, :input_html => {:style => 'width: 6em'}, :hint => 'CHF'
+  = f.input :workload, :input_html => {:style => 'width: 6em'}
+  = f.input :daily_workload, :as => :string, :input_html => {:style => 'width: 6em'}
+  = f.input :hourly_paid
+  =# f.input :overtime_premium, :input_html => {:style => 'width: 6em'}
+  =# f.input :holiday_premium, :input_html => {:style => 'width: 6em'}
+  =# f.input :sunday_premium, :input_html => {:style => 'width: 6em'}
+  =# f.input :night_premium, :input_html => {:style => 'width: 6em'}
+
+= f.inputs do
+  = f.input :kids, :input_html => {:style => 'width: 6em'}
