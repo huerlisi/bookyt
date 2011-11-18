@@ -50,6 +50,12 @@ Bookyt::Application.routes.draw do
   end
   resources :employees do
     resources :attachments
+    member do
+      get :new_phone_number
+    end
+    collection do
+      get :new_phone_number
+    end
     resources :notes
   end
   resources :employments
