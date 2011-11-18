@@ -1,8 +1,0 @@
-= semantic_form_for @customer do |f|
-  = f.semantic_errors
-
-  = f.inputs t('form.person.address') do
-    = render 'vcards/form', :f => f
-
-  = f.buttons do
-    = f.commit_button

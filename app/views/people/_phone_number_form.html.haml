@@ -1,0 +1,4 @@
+= fields_for @person do |person|
+  = person.fields_for :vcard, @vcard do |vcard|
+    = vcard.fields_for :contacts, @item, :child_index => DateTime.now.to_i do |item|
+      = render 'phone_numbers/form', :item => item

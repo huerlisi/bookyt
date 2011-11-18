@@ -1,6 +1,2 @@
-= render 'vcards/address', :vcard => vcard
-
-.contextual
-  = icon_link_to :new, new_vcard_phone_number_url(vcard), :remote => true
-%h2= t_model PhoneNumber
-= render 'phone_numbers/list', :phone_numbers => vcard.contacts
+.form-view
+  = render "form"
