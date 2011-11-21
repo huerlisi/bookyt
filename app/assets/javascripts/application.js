@@ -16,7 +16,7 @@ function addAlternateTableBehaviour() {
 // Dirty Form
 function makeEditForm(form) {
   var buttons = form.find("fieldset.buttons");
-  buttons.fadeIn('slow');
+  buttons.animate({opacity: 1}, 1000);
 }
 
 function addDirtyForm() {
