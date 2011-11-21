@@ -4,6 +4,9 @@ class EmployeesController < PeopleController
   def new
     @employee = Employee.new(params[:employee])
 
+    @employee.build_vcard
+
+    # Prebuild an employment
     @employee.employments.build(
       :employer => current_tenant.company
     )
