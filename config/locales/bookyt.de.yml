@@ -108,7 +108,7 @@ de:
       employment:
         employer:       Arbeitgeber
         employee:       Arbeitnehmer
-        duration_from:  Begin
+        duration_from:  Anfang
         duration_to:    Ende
         salary_amount:  Brutto Lohn (CHF)
         kids:           Kinder
