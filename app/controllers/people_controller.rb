@@ -1,6 +1,6 @@
 class PeopleController < AuthorizedController
   def index
-    @people = Person.search(params[:by_text], :star => true)
+    @people = Person.search(params[:by_text], :star => true, :page => params[:page])
   end
 
   def show

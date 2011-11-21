@@ -6,7 +6,7 @@ class InvoicesController < AuthorizedController
   respond_to :html, :pdf
 
   def index
-    @invoices = Invoice.search(params[:by_text], :star => true)
+    @invoices = Invoice.search(params[:by_text], :star => true, :page => params[:page])
   end
 
   # Actions
