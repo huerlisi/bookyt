@@ -1,4 +1,8 @@
 class PeopleController < AuthorizedController
+  def index
+    @people = Person.search(params[:by_text], :star => true)
+  end
+
   def show
     @credit_invoices = resource.credit_invoices
     @debit_invoices = resource.debit_invoices

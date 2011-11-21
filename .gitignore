@@ -31,6 +31,11 @@ config/database.yml
 # Capistrano
 config/deploy/*.rb
 
+# Sphinx Freetext Search
+db/sphinx
+config/*.sphinx.conf
+config/sphinx/
+
 # Bookyt Data
 # ===========
 public/booking_imports

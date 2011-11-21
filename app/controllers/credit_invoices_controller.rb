@@ -1,6 +1,10 @@
 class CreditInvoicesController < InvoicesController
   defaults :resource_class => CreditInvoice
 
+  def index
+    @credit_invoices = CreditInvoice.search(params[:by_text], :star => true, :page => params[:page])
+  end
+
   # Actions
   def new
     # Allow pre-seeding some parameters

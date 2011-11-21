@@ -1,10 +1,13 @@
 class InvoicesController < AuthorizedController
   # States
   has_scope :by_state, :default => 'booked', :only => :index
-  has_scope :by_text
   has_scope :overdue, :type => :boolean
 
   respond_to :html, :pdf
+
+  def index
+    @invoices = Invoice.search(params[:by_text], :star => true)
+  end
 
   # Actions
   def new

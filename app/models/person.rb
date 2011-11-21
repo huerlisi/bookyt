@@ -34,6 +34,19 @@ class Person < ActiveRecord::Base
     includes(:vcard).where("(vcards.given_name LIKE :query) OR (vcards.family_name LIKE :query) OR (vcards.full_name LIKE :query)", :query => "%#{value}%")
   }
 
+  define_index do
+    indexes social_security_nr
+    indexes social_security_nr_12
+    indexes date_of_birth
+    indexes date_of_death
+
+    indexes vcards.full_name
+    indexes vcards.nickname
+    indexes vcards.family_name
+    indexes vcards.given_name
+    indexes vcards.additional_name
+  end
+
   # Constructor
   def initialize(attributes = nil, options = {})
     super

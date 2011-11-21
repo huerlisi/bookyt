@@ -1,6 +1,10 @@
 class DebitInvoicesController < InvoicesController
   defaults :resource_class => DebitInvoice
 
+  def index
+    @debit_invoices = DebitInvoice.search(params[:by_text], :star => true, :page => params[:page])
+  end
+
   # Actions
   def new
     # Allow pre-seeding some parameters

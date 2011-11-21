@@ -127,6 +127,9 @@ gem 'csv-mapper'
 # ESR support
 gem 'vesr'
 
+# Search
+gem 'thinking-sphinx', :git => 'https://github.com/freelancing-god/thinking-sphinx.git'
+
 # Plugins
 # =======
 # Uncomment to enable plugins

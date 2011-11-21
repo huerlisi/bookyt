@@ -11,6 +11,15 @@ GIT
   specs:
     pdfkit (0.5.2)
 
+GIT
+  remote: https://github.com/freelancing-god/thinking-sphinx.git
+  revision: 7c17c3a64f9e08040656af21853a9b45f7c569ac
+  specs:
+    thinking-sphinx (2.0.10)
+      activerecord (>= 3.0.3)
+      builder (>= 2.1.2)
+      riddle (>= 1.5.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -204,6 +213,7 @@ GEM
       i18n
     remotipart (1.0)
     responders (0.6.4)
+    riddle (1.5.0)
     rspec (2.7.0)
       rspec-core (~> 2.7.0)
       rspec-expectations (~> 2.7.0)
@@ -323,6 +333,7 @@ DEPENDENCIES
   sprockets
   sqlite3
   therubyracer
+  thinking-sphinx!
   uglifier
   validates_timeliness
   vesr
