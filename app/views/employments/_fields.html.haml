@@ -1,13 +1,12 @@
 = f.inputs t_model(Employment) do
-  = f.input :duration_from, :as => :date_field
-  = f.input :duration_to, :as => :date_field
-  = f.input :temporary
+  = f.input :duration_from, :as => :date_field, :wrapper_html => {:class => 'col1'}
+  = f.input :duration_to, :as => :date_field, :wrapper_html => {:class => 'col2'}
+  = f.input :temporary, :wrapper_html => {:class => 'col1'}
+  = f.input :hourly_paid, :wrapper_html => {:class => 'col2'}
 
-= f.inputs do
-  = f.input :salary_amount, :input_html => {:style => 'width: 6em'}, :hint => 'CHF'
-  = f.input :workload, :input_html => {:style => 'width: 6em'}
+  = f.input :salary_amount, :input_html => {:style => 'width: 6em'}, :wrapper_html => {:class => 'col1'}
+  = f.input :workload, :input_html => {:style => 'width: 6em'}, :wrapper_html => {:class => 'col2'}
   = f.input :daily_workload, :as => :string, :input_html => {:style => 'width: 6em'}
-  = f.input :hourly_paid
   =# f.input :overtime_premium, :input_html => {:style => 'width: 6em'}
   =# f.input :holiday_premium, :input_html => {:style => 'width: 6em'}
   =# f.input :sunday_premium, :input_html => {:style => 'width: 6em'}
