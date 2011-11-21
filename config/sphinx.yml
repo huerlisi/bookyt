@@ -10,6 +10,9 @@ common: &common
 development:
   <<: *common
   pid_file: tmp/pids/searchd.development.pid
+  indexed_models:
+    - Invoice
+    - Person
 
 test:
   <<: *common
