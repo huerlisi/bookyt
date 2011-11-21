@@ -1,4 +1,5 @@
 require 'capones_recipes/cookbook/rails'
+require 'capones_recipes/tasks/thinking_sphinx'
 
 load 'deploy/assets'
 
