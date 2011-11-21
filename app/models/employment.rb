@@ -1,6 +1,6 @@
 class Employment < ActiveRecord::Base
   # Associations
-  belongs_to :employee
+  belongs_to :employee, :inverse_of => :employments
   belongs_to :employer, :class_name => 'Company'
 
   # Validations

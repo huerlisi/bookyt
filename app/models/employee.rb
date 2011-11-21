@@ -6,6 +6,7 @@ class Employee < Person
   has_many :charge_rates, :foreign_key => :person_id
 
   # Employments
-  has_many :employments
+  has_many :employments, :inverse_of => :employee
+  accepts_nested_attributes_for :employments
   has_many :employers, :through => :employments
 end
