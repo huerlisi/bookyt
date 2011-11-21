@@ -2,8 +2,8 @@
 
 %table.list#people_list
   %tr
-    %th= t_attr :type
     %th= t_attr :full_name
+    %th= t_attr :contacts
     %th.action-links
 
   = render :partial => 'people/person', :collection => collection
