@@ -12,7 +12,12 @@ development:
   pid_file: tmp/pids/searchd.development.pid
   indexed_models:
     - Invoice
+    - DebitInvoice
+    - CreditInvoice
     - Person
+    - Company
+    - Customer
+    - Employee
 
 test:
   <<: *common
