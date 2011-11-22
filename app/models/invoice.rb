@@ -60,6 +60,9 @@ class Invoice < ActiveRecord::Base
   }
 
   define_index do
+    indexes state, :as => :by_state
+
+    indexes code
     indexes title
     indexes remarks
     indexes value_date

@@ -1,12 +1,17 @@
 class InvoicesController < AuthorizedController
   # States
-  has_scope :by_state, :default => 'booked', :only => :index
+  has_scope :by_state, :default => proc {|controller| 'booked' if controller.params[:by_text].nil?}, :only => :index
   has_scope :overdue, :type => :boolean
 
   respond_to :html, :pdf
 
   def index
-    @invoices = Invoice.search(params[:by_text], :star => true, :page => params[:page])
+    set_collection_ivar resource_class.search(
+      params[:by_text],
+      :star => true,
+      :page => params[:page],
+      :conditions => current_scopes
+    )
   end
 
   # Actions
