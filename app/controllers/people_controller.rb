@@ -1,6 +1,10 @@
 class PeopleController < AuthorizedController
   def index
-    @people = Person.search(params[:by_text], :star => true, :page => params[:page])
+    set_collection_ivar resource_class.search(
+      params[:by_text],
+      :star => true,
+      :page => params[:page]
+    )
   end
 
   def show

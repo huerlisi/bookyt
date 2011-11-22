@@ -1,5 +1,6 @@
 %tr[customer]
   %td= link_to customer.vcard.try(:full_name), customer, {'data-href-container' => 'tr'}
+  %td= [ customer.vcard.address_lines.join(", "), customer.vcard.contacts.map{|contact| contact.to_s(': ', :label)}.join(', ') ].compact.join("<br/>").html_safe
   %td.action-links
     = list_link_for(:edit, customer)
     = list_link_for(:delete, customer)
