@@ -60,6 +60,9 @@ class Invoice < ActiveRecord::Base
   }
 
   define_index do
+    # Delta index
+    set_property :delta => true
+
     indexes state, :as => :by_state
 
     indexes code

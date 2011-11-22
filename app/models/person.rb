@@ -35,6 +35,9 @@ class Person < ActiveRecord::Base
   }
 
   define_index do
+    # Delta index
+    set_property :delta => true
+
     indexes social_security_nr
     indexes social_security_nr_12
     indexes date_of_birth
