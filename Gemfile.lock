@@ -12,8 +12,8 @@ GIT
     pdfkit (0.5.2)
 
 GIT
-  remote: https://github.com/freelancing-god/thinking-sphinx.git
-  revision: 7c17c3a64f9e08040656af21853a9b45f7c569ac
+  remote: https://github.com/huerlisi/thinking-sphinx.git
+  revision: 2ba37e6fd1f96c34f6dcb23250e63904ef9e211a
   specs:
     thinking-sphinx (2.0.10)
       activerecord (>= 3.0.3)

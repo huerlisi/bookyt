@@ -9,6 +9,7 @@ common: &common
 # Environments
 development:
   <<: *common
+  use_socket: true
   pid_file: tmp/pids/searchd.development.pid
   indexed_models:
     - Invoice

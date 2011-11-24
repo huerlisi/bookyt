@@ -128,7 +128,7 @@ gem 'csv-mapper'
 gem 'vesr'
 
 # Search
-gem 'thinking-sphinx', :git => 'https://github.com/freelancing-god/thinking-sphinx.git'
+gem 'thinking-sphinx', :git => 'https://github.com/huerlisi/thinking-sphinx.git'
 
 # Plugins
 # =======
