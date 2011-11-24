@@ -12,6 +12,7 @@ development:
   <<: *common
   pid_file: tmp/pids/searchd.development.pid
   indexed_models:
+    - Salary
     - Invoice
     - DebitInvoice
     - CreditInvoice
