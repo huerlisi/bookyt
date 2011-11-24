@@ -1,5 +1,5 @@
 before "deploy:setup", "bookyt:setup"
-after "deploy:update_code", "bookyt:symlink"
+after "deploy:finalize_update", "bookyt:symlink"
 
 namespace :bookyt do
   desc "Create bookyt config initializer in capistrano shared path"
