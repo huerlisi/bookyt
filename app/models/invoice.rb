@@ -59,32 +59,6 @@ class Invoice < ActiveRecord::Base
     where("title LIKE :text OR code LIKE :text OR remarks LIKE :text OR amount = :amount OR date(value_date) = :date OR date(due_date) = :date OR company_id IN (:people) OR customer_id IN (:people)", :text => text, :amount => amount, :date => date, :people => people)
   }
 
-  define_index do
-    # Delta index
-    set_property :delta => true
-
-    indexes state, :as => :by_state
-
-    indexes code
-    indexes title
-    indexes remarks
-    indexes value_date
-    indexes due_date
-    indexes text
-
-    indexes customer.vcards.full_name
-    indexes customer.vcards.nickname
-    indexes customer.vcards.family_name
-    indexes customer.vcards.given_name
-    indexes customer.vcards.additional_name
-
-    indexes company.vcards.full_name
-    indexes company.vcards.nickname
-    indexes company.vcards.family_name
-    indexes company.vcards.given_name
-    indexes company.vcards.additional_name
-  end
-
   # Attachments
   # ===========
   has_many :attachments, :as => :object
@@ -180,5 +154,32 @@ class Invoice < ActiveRecord::Base
 
   def long_ident
     "#{ident} - #{customer.vcard.full_name} #{title}"
+  end
+
+  # Sphinx Search
+  define_index do
+    # Delta index
+    set_property :delta => true
+
+    indexes state, :as => :by_state
+
+    indexes code
+    indexes title
+    indexes remarks
+    indexes value_date
+    indexes due_date
+    indexes text
+
+    indexes customer.vcards.full_name
+    indexes customer.vcards.nickname
+    indexes customer.vcards.family_name
+    indexes customer.vcards.given_name
+    indexes customer.vcards.additional_name
+
+    indexes company.vcards.full_name
+    indexes company.vcards.nickname
+    indexes company.vcards.family_name
+    indexes company.vcards.given_name
+    indexes company.vcards.additional_name
   end
 end
