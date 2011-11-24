@@ -73,7 +73,7 @@ class Person < ActiveRecord::Base
   accepts_nested_attributes_for :attachments, :reject_if => proc { |attributes| attributes['file'].blank? }
 
   # Others
-  # ===========
+  # ======
   belongs_to :civil_status
   belongs_to :religion
   has_many :notes, :as => :note_of_sth
