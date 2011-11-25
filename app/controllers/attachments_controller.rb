@@ -16,7 +16,7 @@ class AttachmentsController < AuthorizedController
   def download
     @attachment = Attachment.find(params[:id])
 
-    path = "/#{@attachment.file}"
+    path = @attachment.file.current_path
     send_file path, :x_sendfile=>true
   end
 end
