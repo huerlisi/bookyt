@@ -27,7 +27,7 @@ set :server, :passenger
 set :user, "deployer"                               # The server's user for deploys
 
 # Sync directories
-set :sync_directories, ["public/system"]
+set :sync_directories, ["system"]
 set :sync_backups, 3
 
 # Configuration
