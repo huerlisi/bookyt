@@ -11,6 +11,5 @@ namespace :bookyt do
   desc "Make symlink for config initializer"
   task :symlink do
     run "ln -nfs #{shared_path}/config/initializers/bookyt.rb #{release_path}/config/initializers/bookyt.rb"
-    run "ln -nfs #{shared_path}/system #{release_path}/system"
   end
 end
