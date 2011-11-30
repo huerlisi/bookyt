@@ -36,13 +36,14 @@ db/sphinx
 config/*.sphinx.conf
 config/sphinx/
 
+# Carrierwave
+uploads/
+
 # Bookyt Data
 # ===========
 public/booking_imports
-public/system
 
 # Config
 config/initializers/bookyt.rb
 coverage/*
-system/*
 lour

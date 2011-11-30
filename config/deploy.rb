@@ -4,6 +4,7 @@ set :repository,  'git@github.com:huerlisi/bookyt.git'
 
 require 'capones_recipes/cookbook/rails'
 require 'capones_recipes/tasks/thinking_sphinx'
+require 'capones_recipes/tasks/carrier_wave'
 
 load 'deploy/assets'
 
@@ -27,7 +28,7 @@ set :server, :passenger
 set :user, "deployer"                               # The server's user for deploys
 
 # Sync directories
-set :sync_directories, ["system"]
+set :sync_directories, ['uploads']
 set :sync_backups, 3
 
 # Configuration
