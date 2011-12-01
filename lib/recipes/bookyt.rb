@@ -1,9 +1,8 @@
-before "deploy:setup", "bookyt:setup"
 after "deploy:finalize_update", "bookyt:symlink"
 
 namespace :bookyt do
   desc "Create bookyt config initializer in capistrano shared path"
-  task :setup do
+  task :prepare_config do
     run "mkdir -p #{shared_path}/config/initializers"
     upload "config/initializers/bookyt.rb.example", "#{shared_path}/config/initializers/bookyt.rb", :via => :scp
   end
