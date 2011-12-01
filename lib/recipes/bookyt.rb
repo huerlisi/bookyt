@@ -1,14 +1,22 @@
+require 'capones_recipes/tasks/utilities'
+
 after "deploy:finalize_update", "bookyt:symlink"
 
 namespace :bookyt do
-  desc "Create bookyt config initializer in capistrano shared path"
-  task :prepare_config do
-    run "mkdir -p #{shared_path}/config/initializers"
-    upload "config/initializers/bookyt.rb.example", "#{shared_path}/config/initializers/bookyt.rb", :via => :scp
+  desc "Interactive configuration"
+  task :prepare_config, :roles => :app do
+    modules = [:pos, :salary, :stock, :projects].inject([]) do |out, pos|
+      out << "bookyt_#{pos.to_s}" if Utilities.yes? "Install bookyt_#{pos.to_s}"
+
+      out
+    end
+    modules = modules.map {|item| "'#{item}'" }.join(', ')
+    initializer_template = File.expand_path(File.dirname(__FILE__) + '/templates/bookyt.rb')
+    puts Utilities.init_file(initializer_template, "<%%>", modules), "#{shared_path}/initializer/bookyt.rb"
   end
 
-  desc "Make symlink for config initializer"
+  desc "Make symlink for shared bookyt initializer"
   task :symlink do
-    run "ln -nfs #{shared_path}/config/initializers/bookyt.rb #{release_path}/config/initializers/bookyt.rb"
+    run "ln -nfs #{shared_path}/initializer/bookyt.rb #{release_path}/initializer/bookyt.rb"
   end
 end
