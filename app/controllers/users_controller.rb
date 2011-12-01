@@ -3,6 +3,13 @@
 # Provides a user/account management interface.
 class UsersController < AuthorizedController
   # Actions
+  def create
+    @user = User.new(params[:user])
+    @user.tenant = current_tenant
+
+    create!
+  end
+
   def update
     @user = User.find(params[:id])
 
