@@ -32,7 +32,7 @@ prawn_document(:filename => "#{t_model} #{@debit_invoice.long_ident}.pdf", :rend
   pdf.footer(sender, bank_account, current_tenant.vat_number, current_tenant.use_vesr?)
 
   # Footer
-  pdf.bounding_box [12 - pdf.bounds.absolute_left, 23 - pdf.bounds.absolute_bottom], :width => pdf.bounds.width do
-    pdf.esr_recipe(@debit_invoice, bank_account, sender, current_tenant.print_payment_for?)
-  end if current_tenant.use_vesr?
+  if current_tenant.use_vesr?
+    pdf.draw_esr(@debit_invoice, bank_account, sender, current_tenant.print_payment_for?)
+  end
 end

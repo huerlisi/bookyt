@@ -9,20 +9,27 @@ module Prawn
     include Prawn::Measurements
     include EsrRecipe
 
+    def initialize_fonts
+      font 'Helvetica'
+      font_size 9.5
+    end
+
+    def default_options
+      {:page_size => 'A4'}
+    end
+
     def initialize(opts = {})
-      opts.reverse_merge!(:page_size => 'A4',  
-                          :top_margin => 60, 
-                          :left_margin => 50, 
-                          :right_margin => 55)
+      # Default options
+      opts.reverse_merge!(default_options)
+
       # Set the template
-      letter_template = Attachment.find_by_code('Prawn::LetterDocument')
+      letter_template = Attachment.find_by_code(self.class.name)
       opts.reverse_merge!(:template => letter_template.file.current_path) if letter_template
       
       super
       
       # Default Font
-      font  'Helvetica'
-      font_size 9.5
+      initialize_fonts
     end
     
     # Letter header with company logo, receiver address and place'n'date
@@ -33,7 +40,7 @@ module Prawn
       float do
         canvas do
           bounding_box [12.cm, bounds.top - 6.cm], :width => 10.cm do
-            full_address(receiver.vcard)
+            draw_address(receiver.vcard)
           end
         end
       end
@@ -56,8 +63,11 @@ module Prawn
     end
     
     # Draws the full address of a vcard
-    def full_address(vcard)
-      vcard.full_address_lines.each do |line|
+    def draw_address(vcard)
+      lines = [vcard.full_name, vcard.extended_address, vcard.street_address, vcard.post_office_box, "#{vcard.postal_code} #{vcard.locality}"]
+      lines = lines.map {|line| line.strip unless (line.nil? or line.strip.empty?)}.compact
+
+      lines.each do |line|
         text line
       end
     end
