@@ -38,6 +38,9 @@ function addNestedFormBehaviour() {
     // Drop input fields to prevent browser validation problems
     item.find(":input").not("[name$='[_destroy]'], [name$='[id]']").remove();
 
+    var line_items = $(this).parents('.line_items');
+    updateTotalAmount(line_items);
+
     // Don't follow link
     event.preventDefault();
   });
