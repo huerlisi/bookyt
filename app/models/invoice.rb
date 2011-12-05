@@ -133,7 +133,7 @@ class Invoice < ActiveRecord::Base
     if line_items.empty?
       value = self[:amount]
     else
-      value = line_items.sum('times * price').to_f
+      value = line_items.sum("times * price * IF(quantity = '%', 0.01, 1.0)").to_f
     end
 
     if value

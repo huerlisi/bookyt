@@ -14,7 +14,13 @@ class LineItem < ActiveRecord::Base
   # Attributes
   def total_amount
     return 0 if times.blank? or price.blank?
-    times * price.to_f
+    if quantity == "%"
+      effective_times = times / 100
+    else
+      effective_times = times
+    end
+
+    effective_times * price.to_f
   end
 
   def times_to_s
