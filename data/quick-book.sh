@@ -60,6 +60,7 @@ local debit_account="$2"
 
 cat "$file" | fix_csv | add_value_date | parse_chf_ebanking 'E-Banking' | grep -v 'Details unterdrückt' | csv2booking 40 2
 cat "$file" | fix_csv | add_value_date | parse_chf_ebanking 'Lohn' | grep 'Details unterdrückt' | csv2booking 32 2
+cat "$file" | fix_csv | add_value_date | parse_chf_ebanking 'E-Banking Auftrag' | grep 'Details unterdrückt' | csv2booking 32 2
 cat "$file" | fix_csv | add_value_date | add_title "Sollzins" | csv2booking 39 2
 cat "$file" | fix_csv | add_value_date | add_title "Kreditkommission" | csv2booking 39 2
 cat "$file" | fix_csv | add_value_date | add_title "Habenzins" | csv2booking 2 38
