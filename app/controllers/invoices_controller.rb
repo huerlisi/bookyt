@@ -9,6 +9,8 @@ class InvoicesController < AuthorizedController
     set_collection_ivar resource_class.search(
       params[:by_text],
       :star => true,
+      :order => :due_date,
+      :sort_mode => :desc,
       :page => params[:page],
       :conditions => current_scopes
     )

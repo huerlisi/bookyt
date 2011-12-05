@@ -166,8 +166,8 @@ class Invoice < ActiveRecord::Base
     indexes code
     indexes title
     indexes remarks
-    indexes value_date
-    indexes due_date
+    indexes value_date, :sortable => true
+    indexes due_date, :sortable => true
     indexes text
 
     indexes customer.vcards.full_name
