@@ -29,7 +29,7 @@ class DebitInvoice < Invoice
       # Build and assign booking
       booking = bookings.build(
         :title          => line_item.title,
-        :amount         => line_item.total_amount,
+        :amount         => line_item.total_amount.currency_round,
         :value_date     => self.value_date,
         :credit_account => direct_account,
         :debit_account  => line_item.contra_account
