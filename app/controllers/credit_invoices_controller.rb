@@ -35,10 +35,4 @@ class CreditInvoicesController < InvoicesController
 
     create!
   end
-
-  def copy
-    super
-
-    @debit_invoice = @invoice
-  end
 end
