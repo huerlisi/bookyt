@@ -24,10 +24,15 @@ class DebitInvoice < Invoice
   # Bookings
   # ========
   # We pass the value_date to the booking
-  def build_booking(params = {}, template_code = nil)
-    line_items.each do |line_item|
+  def update_bookings
+    # Start fresh
+    # TODO: works badly if validation fails
+    bookings.destroy_all
+
+    # Build a booking per line item
+    line_items(true).each do |line_item|
       # Build and assign booking
-      booking = bookings.build(
+      booking = bookings.create(
         :title          => line_item.title,
         :amount         => line_item.total_amount.currency_round,
         :value_date     => self.value_date,
