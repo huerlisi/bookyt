@@ -5,6 +5,7 @@ set :repository,  'git@github.com:huerlisi/bookyt.git'
 require 'capones_recipes/cookbook/rails'
 require 'capones_recipes/tasks/thinking_sphinx'
 require 'capones_recipes/tasks/carrier_wave'
+require 'capones_recipes/tasks/sync'
 
 load 'deploy/assets'
 
