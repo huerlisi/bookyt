@@ -1,4 +1,3 @@
-require 'vesr'
 require 'prawn/measurement_extensions'
 
 module Prawn
@@ -7,7 +6,6 @@ module Prawn
     include ApplicationHelper
     include ActionView::Helpers::TranslationHelper
     include Prawn::Measurements
-    include EsrRecipe
 
     def initialize_fonts
       font 'Helvetica'

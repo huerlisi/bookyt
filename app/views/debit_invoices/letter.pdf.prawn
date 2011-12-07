@@ -1,4 +1,3 @@
-require 'prawn/measurement_extensions'
 # Unescape HTML
 def html_unescape(value)
   # Return an empty string when value is nil.
@@ -12,7 +11,7 @@ def html_unescape(value)
   return result
 end
 
-prawn_document(:filename => "#{t_model} #{@debit_invoice.long_ident}.pdf", :renderer => Prawn::LetterDocument) do |pdf|
+prawn_document(:filename => "#{t_model} #{@debit_invoice.long_ident}.pdf", :renderer => Prawn::DebitInvoice) do |pdf|
   receiver = @debit_invoice.customer
   sender = @debit_invoice.company
   bank_account = BankAccount.find_by_code('1020')
