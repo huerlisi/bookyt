@@ -37,6 +37,9 @@ group :development do
 
   # Capistrano
   gem 'capones_recipes'
+
+  # Debugger
+  gem 'ruby-debug'
 end
 
 group :test, :development do

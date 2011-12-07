@@ -124,6 +124,19 @@ class Invoice < ActiveRecord::Base
     super(invoice_params, template_code)
   end
 
+  # Callback hook
+  def booking_saved(booking)
+
+    if (self.state != 'canceled') and (self.state != 'reactivated') and (self.balance <= 0.0)
+      new_state = 'paid'
+    elsif !self.overdue? and (self.balance > 0.0)
+      new_state = 'booked'
+    end
+
+    self.state = new_state
+    self.update_column(:state, new_state) if self.persisted?
+  end
+
   # Line Items
   # ==========
   has_many :line_items, :autosave => true
