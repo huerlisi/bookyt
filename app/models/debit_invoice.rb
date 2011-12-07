@@ -23,14 +23,23 @@ class DebitInvoice < Invoice
 
   # Bookings
   # ========
-  # We pass the value_date to the booking
   def update_bookings
-    # Start fresh
-    # TODO: works badly if validation fails
-    bookings.destroy_all
+    return unless changed_for_autosave?
+
+    # Get rid of line_items to be destroyed by nested attributes assignment
+    new_line_items = line_items.reject{|line_item| line_item.marked_for_destruction?}
+
+    # Delere all current bookings
+    # We need to use mark_for_destruction for two reasons:
+    # 1. Don't delete before record is validated and saved
+    # 2. Don't trigger callbacks from bookings
+    bookings.map{|b| b.mark_for_destruction}
 
     # Build a booking per line item
-    line_items(true).each do |line_item|
+    new_line_items.map do |line_item|
+
+    # Build a booking per line item
+    new_line_items.each do |line_item|
       # Build and assign booking
       booking = bookings.create(
         :title          => line_item.title,
@@ -39,15 +48,6 @@ class DebitInvoice < Invoice
         :credit_account => direct_account,
         :debit_account  => line_item.contra_account
       )
-    end
-  end
-
-  # Callback hook
-  def booking_saved(booking)
-    if (self.state != 'canceled') and (self.state != 'reactivated') and (self.amount <= 0.0)
-      update_attribute(:state, 'paid')
-    elsif !self.overdue? and (self.amount > 0.0)
-      update_attribute(:state, 'booked')
     end
   end
 end

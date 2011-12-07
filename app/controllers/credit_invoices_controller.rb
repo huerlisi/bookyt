@@ -27,13 +27,11 @@ class CreditInvoicesController < InvoicesController
     @credit_invoice.attachments.build
 
     new!
-    @credit_invoice.update_bookings
   end
 
   def create
     @credit_invoice = CreditInvoice.new(params[:credit_invoice])
 
     create!
-    @credit_invoice.update_bookings
   end
 end
