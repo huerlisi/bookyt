@@ -11,10 +11,17 @@ class Attachment < ActiveRecord::Base
     title == nil ? "" : title
   end
   
-  def self.codes
-    [['Brief-Template', 'Prawn::LetterDocument']]
+  def code(format = :db)
+    raw = read_attribute(:code)
+
+    case format
+      when :text
+        I18n::translate(raw, :scope => 'activerecord.attributes.attachments.code_enum')
+      else
+        raw
+    end
   end
-  
+
   before_save :create_title
   private
   def create_title

@@ -4,7 +4,7 @@
   = f.inputs do
     = f.input :title
     = f.input :file, :as => :file
-    = f.input :code, :as => :select, :collection => Attachment.codes
+    = f.input :code, :collection => attachment_code_collection
     - if parent?
       - if parent
         - f.object.object = parent
