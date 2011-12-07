@@ -228,6 +228,11 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.7.0)
+    ruby-debug (0.10.4)
+      columnize (>= 0.1)
+      ruby-debug-base (~> 0.10.4.0)
+    ruby-debug-base (0.10.4)
+      linecache (>= 0.3)
     ruby_parser (2.3.1)
       sexp_processor (~> 3.0)
     rubyzip (0.9.4)
@@ -323,6 +328,7 @@ DEPENDENCIES
   remotipart
   rspec-instafail
   rspec-rails
+  ruby-debug
   ruby_parser
   sass-rails
   shoulda
