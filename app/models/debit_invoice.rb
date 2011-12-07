@@ -23,6 +23,9 @@ class DebitInvoice < Invoice
 
   # Bookings
   # ========
+  before_save :update_bookings
+  accepts_nested_attributes_for :bookings, :allow_destroy => true
+
   def update_bookings
     return unless changed_for_autosave?
 
