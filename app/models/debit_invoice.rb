@@ -36,9 +36,6 @@ class DebitInvoice < Invoice
     bookings.map{|b| b.mark_for_destruction}
 
     # Build a booking per line item
-    new_line_items.map do |line_item|
-
-    # Build a booking per line item
     new_line_items.each do |line_item|
       # Build and assign booking
       booking = bookings.create(
