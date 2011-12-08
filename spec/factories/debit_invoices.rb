@@ -38,7 +38,7 @@ FactoryGirl.define do
     debit_currency  "CHF"
     credit_currency "CHF"
     exchange_rate   1.0
-    
+
     association :credit_account, :factory => :food_account
     association :debit_account, :factory => :cash_account
   end
@@ -50,7 +50,7 @@ FactoryGirl.define do
     debit_currency  "CHF"
     credit_currency "CHF"
     exchange_rate   1.0
-    
+
     association :credit_account, :factory => :food_account
     association :debit_account, :factory => :cash_account
   end

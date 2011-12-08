@@ -10,7 +10,7 @@ class LineItem < ActiveRecord::Base
   validate :times, :presence => true, :numericality => true
   validate :price, :presence => true, :numericality => true
   validate :title, :presence => true
-  
+
   # Attributes
   def total_amount
     return 0 if times.blank? or price.blank?

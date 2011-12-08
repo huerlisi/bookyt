@@ -29,7 +29,7 @@ show == "true" {
   print amount
   print comment
   print to
-  
+
 }
 
 

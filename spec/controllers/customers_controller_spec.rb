@@ -30,7 +30,7 @@ end
 describe CustomersController do
   before(:all) do
     @customer = Factory.create(:customer)
-    (0..2).each do 
+    (0..2).each do
       Factory.create(:open_debit_invoice, :customer => @customer)
       Factory.create(:paid_debit_invoice, :customer => @customer)
     end

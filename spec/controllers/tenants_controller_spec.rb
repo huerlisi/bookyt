@@ -35,7 +35,7 @@ shared_examples "it does all controller actions" do
       assigns(:start_date).should eq(start_date)
       assigns(:dates).should eq([start_date..end_date])
     end
-    
+
     it "of a fiscal year" do
       years = [Date.today.year]
       period = @current_user.tenant.fiscal_period(Date.today.year.to_i)

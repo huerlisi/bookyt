@@ -7,7 +7,7 @@ class ComboboxInput < Formtastic::Inputs::SelectInput
 
   def link_fragment
     reference = object.send(reflection.name)
-    
+
     return unless reference
 
     template.content_tag('span', template.link_to('show', @object.send(reflection.name), :class => 'icon-combolink-text'), :class => 'combobox-link')

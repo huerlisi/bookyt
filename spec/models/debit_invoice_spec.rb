@@ -32,7 +32,7 @@ describe DebitInvoice do
           Factory.create(name)
         end
       end
-      
+
       subject { DebitInvoice }
 
       it "returns the direct account" do
@@ -48,7 +48,7 @@ describe DebitInvoice do
       end
     end
   end
-  
+
   describe "as an instance" do
     subject { Factory.create(:debit_invoice, :due_date => Date.yesterday,
                                              :value_date => Date.yesterday) }

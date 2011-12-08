@@ -14,7 +14,7 @@ shared_examples "direct booking actions" do
       credit_account = Factory.create(:credit_account)
       debit_account = Factory.create(:service_account)
       comment = 'Schon wieder gemahnt.'
-      xhr :post, :create, :direct_booking => {:title => 'Mahnung', 
+      xhr :post, :create, :direct_booking => {:title => 'Mahnung',
                                               :debit_account_id => debit_account.id,
                                               :credit_account_id => credit_account.id,
                                               :reference_id => invoice.id,

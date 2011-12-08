@@ -12,7 +12,7 @@ en:
   sex:
     male:   Mr.
     female: Mrs.
-    
+
   form:
     person:
      address: address
@@ -143,25 +143,25 @@ en:
         date_of_birth:    date of birth
         date_of_death:    date of death
         sex:              sex
-        post_office_box:  p.o. box            
+        post_office_box:  p.o. box
         extended_address: extended address
-        street_address:   street address             
+        street_address:   street address
         locality:         locality
         region:           region
         postal_code:      zip
-        country_name:     country 
+        country_name:     country
       customer:
         full_name:        mame
         date_of_birth:    date of birth
         date_of_death:    date of death
         sex:              sex
-        post_office_box:  p.o. box            
+        post_office_box:  p.o. box
         extended_address: extended address
-        street_address:   street address            
+        street_address:   street address
         locality:         locality
         region:           region
         postal_code:      zip
-        country_name:     country 
+        country_name:     country
       invoice:
         direct_account:  account
         profit_account:  profit account
@@ -215,12 +215,12 @@ en:
         date_of_birth:                  date of birth
         date_of_death:                  date of death
         sex:                            sex
-        post_office_box:                p.o. box  
+        post_office_box:                p.o. box
         extended_address:               extended address
         street_address:                 street address
         locality:                       locality
         region:                         region
-        postal_code:                    zip  
+        postal_code:                    zip
         country_name:                   country
       vcard:
         full_name:                      full name
@@ -259,17 +259,17 @@ en:
       reference_amount:  'original amount'
       reference_balance: 'balance'
       reference_amount_minus_balance: 'open amount'
-    
+
   formtastic:
     hints:
       user:
         password: "leave blank to leave password unchanged"
-          
+
   cancan:
     roles:
       admin:      'administrator'
       accountant: 'accountant'
-      
+
   crud:
     action:
       only_credit_bookings: 'only credit'

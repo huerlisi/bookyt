@@ -49,7 +49,7 @@ group :test, :development do
   # Integration
   # gem 'cucumber-rails'
   # gem 'cucumber'
-  
+
     # Matchers/Helpers
   gem 'shoulda'
 
@@ -66,7 +66,7 @@ group :test, :development do
   gem 'autotest'
   gem 'autotest-rails'
   gem 'ZenTest', '< 4.6.0' # Keep it working with gems < 1.8
-  
+
   # Code coverage
   gem 'rcov', :platforms => :ruby_18
   gem 'simplecov', :require => false, :platforms => :ruby_19

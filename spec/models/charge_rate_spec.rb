@@ -11,7 +11,7 @@ describe ChargeRate do
       @charge_rate.to_s(:long).should == ""
     end
   end
-  
+
   context "when properly initialized" do
     it "should return as string the title" do
       @charge_rate = Factory.build(:charge_rate)

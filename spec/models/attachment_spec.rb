@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe Attachment do
   it { should belong_to(:object) }
-  
+
   it { should validate_presence_of(:file) }
-  
+
   it "show the avaible codes" do
     Attachment.codes.should eq([['Brief-Template', 'Prawn::LetterDocument']])
   end
@@ -14,13 +14,13 @@ describe Attachment do
 
     its(:to_s) { should == "" }
   end
-  
+
   context "when file is nil" do
     before(:all) { subject.file = nil }
 
     its(:to_s) { should == "" }
   end
-  
+
   context "when properly initialized" do
     subject { Factory.build :attachment }
 

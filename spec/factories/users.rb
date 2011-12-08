@@ -22,7 +22,7 @@ FactoryGirl.define do
     roles {|roles| [roles.association :admin_role] }
     association :tenant
   end
-  
+
   Factory.sequence :email do |n|
      names = %w[ joe bob sue amanda ]
      # randomly select a name from the names array for the email, so you might get "Bob1@somewhere.com"

@@ -13,8 +13,8 @@ describe ApplicationHelper do
     login_admin
     it_behaves_like "current_tenant"
   end
-  
-  
+
+
   context "as accountant" do
     login_accountant
     it_behaves_like "current_tenant"

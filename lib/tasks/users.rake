@@ -38,7 +38,7 @@ namespace :users do
     puts "Please give company credentials:"
     full_name = ask('Name: ')
     company = Company.create(:vcard => Vcard.new(:full_name => full_name))
-   
+
     # Create tenant
     tenant = Tenant.create(:company => company, :incorporated_on => Date.today, :fiscal_year_ends_on => Date.today.end_of_year)
     tenant.users << user

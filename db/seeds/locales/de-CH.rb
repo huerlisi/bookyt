@@ -11,9 +11,9 @@ ChargeRate.create!([
 ])
 
 CivilStatus.create!([
-  {:name => "Ledig"}, 
+  {:name => "Ledig"},
   {:name => "Verheiratet"},
-  {:name => "Geschieden"}, 
+  {:name => "Geschieden"},
   {:name => "Verwitwet"}
 ])
 

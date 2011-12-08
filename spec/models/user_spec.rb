@@ -15,7 +15,7 @@ describe User do
 
   describe "as admin" do
     subject { Factory.create :admin_user }
-    
+
     describe "should be valid" do
       specify { should be_valid }
       specify { should be_role(:admin) }
@@ -34,13 +34,13 @@ describe User do
 
   describe "as accountant" do
     subject { Factory.create(:accountant_user) }
-    
+
     describe "should be valid" do
       specify { should be_valid }
       specify { should be_role(:accountant) }
       specify { should_not be_role(:admin) }
     end
-    
+
     it "should add it to the admin role" do
       accountant = Factory.create(:accountant_user)
       accountant.role_texts = ['admin', 'accountant']

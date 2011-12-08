@@ -22,7 +22,7 @@ describe SettingsController do
 
     context "without attachment" do
       it "updates the values" do
-        post :update_vesr, {:vesr => {:tenant => {:id => @current_user.tenant.id}, 
+        post :update_vesr, {:vesr => {:tenant => {:id => @current_user.tenant.id},
                                       :bank_account => {:id => @bank_account.id},
                                       :attachment => {}}}
         assigns(:tenant).should_not be_nil
@@ -39,7 +39,7 @@ describe SettingsController do
       it "updates the values" do
         attachment = Factory.create(:attachment)
         attachment_title = '2cb'
-        post :update_vesr, {:vesr => {:tenant => {:id => @current_user.tenant.id}, 
+        post :update_vesr, {:vesr => {:tenant => {:id => @current_user.tenant.id},
                                       :bank_account => {:id => @bank_account.id},
                                       :attachment => {:id => attachment.id},
                                       :letter_template => {:title => attachment_title}}}

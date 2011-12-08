@@ -16,7 +16,7 @@ shared_examples "note actions" do
       assigns(:note).should be_a_kind_of(Note)
       assigns(:note).user.should eq(@current_user)
     end
-    
+
     it "should create a note" do
       post :create, {:employee_id => @employee.id, :note => {:content => 'Comment'}}
       response.should redirect_to(employee_notes_path(@employee))

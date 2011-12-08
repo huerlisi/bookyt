@@ -23,13 +23,13 @@ module Prawn
       # Set the template
       letter_template = Attachment.find_by_code(self.class.name)
       opts.reverse_merge!(:template => letter_template.file.current_path) if letter_template
-      
+
       super
-      
+
       # Default Font
       initialize_fonts
     end
-    
+
     # Letter header with company logo, receiver address and place'n'date
     def letter_header(sender, receiver, subject)
       move_down 60
@@ -52,14 +52,14 @@ module Prawn
       move_down 60
       text subject, :style => :bold
     end
-    
+
     # Freetext
     def free_text(text = "")
       text " "
       text text, :inline_format => true
       text " "
     end
-    
+
     # Draws the full address of a vcard
     def draw_address(vcard)
       lines = [vcard.full_name, vcard.extended_address, vcard.street_address, vcard.post_office_box, "#{vcard.postal_code} #{vcard.locality}"]
@@ -104,7 +104,7 @@ module Prawn
                                 bank_account.pc_id.present? ? "PC-Konto: #{bank_account.pc_id}" : nil,
                                 vat_number.present? ? "MWSt.-Nr.: #{vat_number}" : nil
                               ].compact.join(" – ")
-            
+
             text bank_text_line
           end
         end
@@ -117,7 +117,7 @@ module Prawn
 
       common_closing(sender)
     end
-    
+
     def common_closing(sender)
       text " "
       text " "
@@ -141,24 +141,24 @@ module Prawn
 
       items_table(rows)
     end
-    
+
     def salary_table(direct_balance, direct_account, direct_bookings)
       content = direct_bookings.inject([]) do |out, item|
         title = item.title if item
         out << [title, nil, nil, nil, currency_fmt(item.accounted_amount(direct_account))] if item.contra_account(direct_account)
-          
+
         out
       end
 
       rows = content + [total_row(currency_fmt(direct_balance))]
- 
+
       items_table(rows)
     end
-    
+
     def total_row(amount)
       ["Total", nil, nil, nil, amount]
     end
-    
+
     def items_table(rows)
       table(rows, :width => bounds.width) do
 

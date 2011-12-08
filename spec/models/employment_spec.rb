@@ -15,7 +15,7 @@ describe Employment do
       Employment.current.should_not be_nil
     end
   end
-  
+
   context "when new" do
     its(:to_s) { should eq(' bei  von  - ') }
   end

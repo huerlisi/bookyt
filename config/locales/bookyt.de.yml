@@ -12,7 +12,7 @@ de:
   sex:
     male:   Mann
     female: Frau
-    
+
   form:
     person:
      address: Adresse
@@ -178,12 +178,12 @@ de:
         date_of_birth:                  Geburtsdatum
         date_of_death:                  Todestag
         sex:                            Geschlecht
-        post_office_box:                Postfach  
+        post_office_box:                Postfach
         extended_address:               Adresszusatz
         street_address:                 Strasse
         locality:                       Ort
         region:                         Region
-        postal_code:                    PLZ   
+        postal_code:                    PLZ
         country_name:                   Land
         locale:                         Sprache
       vcard:
@@ -245,17 +245,17 @@ de:
       reference_amount:  'Ursprünglicher Betrag'
       reference_balance: 'Aktueller Saldo'
       reference_amount_minus_balance: 'Differenz Betrag'
-    
+
   formtastic:
     hints:
       user:
         password: "Leer lassen um Passwort nicht zu ändern."
-          
+
   cancan:
     roles:
       admin:      'Administrator'
       accountant: 'Buchhalter'
-      
+
   crud:
     action:
       only_credit_bookings: 'Nur Soll'

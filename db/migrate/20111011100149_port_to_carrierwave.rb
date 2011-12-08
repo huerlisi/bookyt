@@ -4,7 +4,7 @@ class PortToCarrierwave < ActiveRecord::Migration
     remove_column :esr_files, :content_type
     remove_column :esr_files, :size
   end
-  
+
   def down
     add_column :esr_files, :size, :integer
     add_column :esr_files, :content_type, :string

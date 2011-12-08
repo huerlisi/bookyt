@@ -22,7 +22,7 @@ class AuthorizedController < InheritedResources::Base
   def after_sign_in_path_for(resource)
       (session[:"user.return_to"].nil?) ? "/" : session[:"user.return_to"].to_s
   end
-  
+
   # Responders
   respond_to :html, :js
 

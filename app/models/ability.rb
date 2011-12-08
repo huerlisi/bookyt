@@ -28,12 +28,12 @@ class Ability
       self.send(role.name, user)
     end
   end
-  
+
   # Admin abilities
   def admin(user)
     can :manage, :all
   end
-  
+
   # Accountant abilities
   def accountant(user)
     admin(user)

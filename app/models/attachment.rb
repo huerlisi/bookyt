@@ -10,7 +10,7 @@ class Attachment < ActiveRecord::Base
   def to_s(format = :default)
     title == nil ? "" : title
   end
-  
+
   def code(format = :db)
     raw = read_attribute(:code)
 

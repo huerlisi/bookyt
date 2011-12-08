@@ -4,7 +4,7 @@ FactoryGirl.define do
     code '1000'
     association :account_type, :factory => :current_assets
   end
-  
+
   factory :account_booking, :class => Booking do
     title 'test booking'
     amount 23.86

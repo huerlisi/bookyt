@@ -17,9 +17,9 @@ shared_examples "booking template" do
       matcher = 'test'
       credit_account = Factory.create(:eft_account)
       debit_account = Factory.create(:service_account)
-      post :create, {:booking_template => {:title => title, 
-                                           :code => code, 
-                                           :matcher => matcher, 
+      post :create, {:booking_template => {:title => title,
+                                           :code => code,
+                                           :matcher => matcher,
                                            :credit_account_id => credit_account.id,
                                            :debit_account_id => debit_account.id}}
       response.should redirect_to('/booking_templates')
@@ -47,7 +47,7 @@ describe BookingTemplatesController do
     login_admin
     it_behaves_like "booking template"
   end
-  
+
   context "as accountant" do
     login_accountant
     it_behaves_like "booking template"
