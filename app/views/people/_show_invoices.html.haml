@@ -1,0 +1,9 @@
+- unless @credit_invoices.blank?
+  %h2= t_title :index, CreditInvoice
+  = render 'credit_invoices/list'
+
+- unless @debit_invoices.blank?
+  %h2= t_title :index, DebitInvoice
+  = render 'debit_invoices/list'
+
+= render 'invoices/sidebar'
