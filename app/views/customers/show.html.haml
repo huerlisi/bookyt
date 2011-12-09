@@ -13,10 +13,4 @@
 %h2= t('title.paid_invoices')
 = render 'debit_invoices/list', :debit_invoices => @paid_debit_invoices
 
-.contextual
-  = icon_link_to :new, new_customer_attachment_path(resource), :remote => true
-%h3= t('title.attachments')
-
-- @attachments = resource.attachments
-#attachments_list
-  = render 'attachments/list' unless @attachments.empty?
+= render 'show_attachments'

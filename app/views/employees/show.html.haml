@@ -28,10 +28,4 @@
 - @charge_rates = @employee.charge_rates.valid.latest + ChargeRate.where("code LIKE 'salary:%'").where(:person_id => nil).valid.latest
 = render 'charge_rates/list'
 
-.contextual
-  = icon_link_to :new, new_employee_attachment_path(resource), :remote => true
-%h3= t('title.attachments')
-
-- @attachments = resource.attachments
-#attachments_list
-  = render 'attachments/list' unless @attachments.empty?
+= render 'show_attachments'
