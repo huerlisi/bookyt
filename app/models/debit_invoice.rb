@@ -41,7 +41,7 @@ class DebitInvoice < Invoice
     # Build a booking per line item
     new_line_items.each do |line_item|
       # Build and assign booking
-      booking = bookings.create(
+      bookings.build(
         :title          => line_item.title,
         :amount         => line_item.total_amount.currency_round,
         :value_date     => self.value_date,
