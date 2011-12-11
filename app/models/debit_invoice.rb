@@ -32,7 +32,7 @@ class DebitInvoice < Invoice
     # Get rid of line_items to be destroyed by nested attributes assignment
     new_line_items = line_items.reject{|line_item| line_item.marked_for_destruction?}
 
-    # Delere all current bookings
+    # Delete all current bookings
     # We need to use mark_for_destruction for two reasons:
     # 1. Don't delete before record is validated and saved
     # 2. Don't trigger callbacks from bookings
