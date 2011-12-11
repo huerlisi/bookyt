@@ -46,7 +46,7 @@
   = render resource.line_items
   = render 'line_items/list_footer', :total_amount => resource.amount
 
-= render 'bookyt_stock/invoices/show' if controller.template_exists? 'show', 'bookyt_stock/invoices', true
+= render 'bookyt_stock/invoices/show' if Bookyt::Engine.engines.include?('bookyt_stock')
 
 .contextual
   = icon_link_to :new, new_invoice_attachment_path(resource), :remote => true
