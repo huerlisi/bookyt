@@ -67,4 +67,13 @@ Initialize the database:
 bundle exec rake db:setup
 </pre>
 
-To print invoices wkhtmltopdf needs to be installed (download manually to /urs/local/bin)
+For some PDF views wkhtmltopdf needs to be installed (download manually to /urs/local/bin). This is not needed for
+PDF invoices, though:-)
+
+h2. Setup admin user
+
+There's a rake task to setup an admin user:
+
+<pre>
+bundle exec rake users:admin
+</pre>
