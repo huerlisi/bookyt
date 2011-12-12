@@ -4,22 +4,12 @@ class ChargeBookingTemplate < BookingTemplate
     ChargeRate.by_person(params[:person_id]).current(charge_rate_code, date)
   end
 
-  def amount(date = nil, params = {})
-    rate = charge_rate(date, params)
-    return 0.0 unless rate
-
-    if self.amount_relates_to.present?
-      return rate.rate / 100
-    else
-      return rate.rate
-    end
-  end
-
-  def booking_parameters(params = {})
-    person_id = params.delete(:person_id)
-
+  def xbooking_parameters(params = {})
     # Prepare parameters set by template
     booking_params = attributes.reject!{|key, value| !["title", "comments", "credit_account_id", "debit_account_id"].include?(key)}
+
+    # Calculate amount
+    booking_amount = BigDecimal.new(attributes['amount'] || '0')
 
     params.stringify_keys!
 
@@ -52,6 +42,6 @@ class ChargeBookingTemplate < BookingTemplate
     booking_params['amount'] = booking_amount
 
     # Override by passed in parameters
-    booking_params.merge!(params)
+    HashWithIndifferentAccess.new(booking_params.merge!(params))
   end
 end

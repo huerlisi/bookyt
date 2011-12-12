@@ -26,14 +26,25 @@ class BookingTemplate < ActiveRecord::Base
     end
   end
 
+  def amount(date = nil, params = {})
+    rate = charge_rate(date, params)
+    return 0.0 unless rate
+
+    if self.amount_relates_to.present?
+      return rate.rate / 100
+    else
+      return rate.rate
+    end
+  end
+
   def booking_parameters(params = {})
+    params = HashWithIndifferentAccess.new(params)
+
     # Prepare parameters set by template
     booking_params = attributes.reject!{|key, value| !["title", "comments", "credit_account_id", "debit_account_id"].include?(key)}
 
     # Calculate amount
     booking_amount = BigDecimal.new(attributes['amount'] || '0')
-
-    params.stringify_keys!
 
     # Lookup reference
     reference = params['reference']
@@ -45,7 +56,12 @@ class BookingTemplate < ActiveRecord::Base
       end
     end
 
+    person_id = params.delete(:person_id)
+
     if reference
+      # Calculate amount
+      booking_amount = self.amount(reference.value_date, :person_id => person_id) if person_id
+
       case self.amount_relates_to
         when 'reference_amount'
           booking_amount *= reference.amount unless reference.amount.nil?
@@ -60,7 +76,7 @@ class BookingTemplate < ActiveRecord::Base
     booking_params['amount'] = booking_amount
 
     # Override by passed in parameters
-    booking_params.merge!(params)
+    HashWithIndifferentAccess.new(booking_params.merge!(params))
   end
 
   # Factory methods
