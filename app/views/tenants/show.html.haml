@@ -5,14 +5,7 @@
 
 %h1= link_to @tenant.company, @tenant.company
 
-= render 'people/show', :vcard => @tenant.company.vcard
-%br
-= t_attr(:vat_number) + ": " + @tenant.vat_number.to_s if @tenant.vat_number
+.form-view
+  = render "form"
 
-.contextual
-  = icon_link_to :new, new_tenant_attachment_path(resource), :remote => true
-%h3= t('title.attachments')
-
-- @attachments = resource.attachments
-#attachments_list
-  = render 'attachments/list' unless @attachments.empty?
+= render 'people/show_attachments'
