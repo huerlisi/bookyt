@@ -17,7 +17,7 @@ namespace :deploy do
   end
 
   task :setup_db, :roles => :app do
-    run "cd #{current_path}; /usr/bin/env bundle exec rake db:setup RAILS_ENV=#{rails_env}"
+    run "cd #{release_path}; /usr/bin/env bundle exec rake db:setup RAILS_ENV=#{rails_env}"
   end
 end
 
