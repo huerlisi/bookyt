@@ -10,7 +10,7 @@ namespace :bookyt do
   end
 
   desc "Interactive configuration"
-  task :setup, :roles => :app do
+  task :configure, :roles => :app do
     modules = [:pos, :salary, :stock, :projects].inject([]) do |out, pos|
       out << "bookyt_#{pos.to_s}" if Utilities.yes? "Install bookyt_#{pos.to_s}"
 
