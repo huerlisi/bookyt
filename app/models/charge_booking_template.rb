@@ -4,6 +4,17 @@ class ChargeBookingTemplate < BookingTemplate
     ChargeRate.by_person(params[:person_id]).current(charge_rate_code, date)
   end
 
+  def amount(date = nil, params = {})
+    rate = charge_rate(date, params)
+    return 0.0 unless rate
+
+    if self.amount_relates_to.present?
+      return rate.rate / 100
+    else
+      return rate.rate
+    end
+  end
+
   def xbooking_parameters(params = {})
     # Prepare parameters set by template
     booking_params = attributes.reject!{|key, value| !["title", "comments", "credit_account_id", "debit_account_id"].include?(key)}
