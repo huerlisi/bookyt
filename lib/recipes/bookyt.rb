@@ -4,7 +4,7 @@ after "deploy:finalize_update", "bookyt:symlink"
 
 namespace :bookyt do
   desc "Interactive configuration"
-  task :prepare_config, :roles => :app do
+  task :setup, :roles => :app do
     modules = [:pos, :salary, :stock, :projects].inject([]) do |out, pos|
       out << "bookyt_#{pos.to_s}" if Utilities.yes? "Install bookyt_#{pos.to_s}"
 
