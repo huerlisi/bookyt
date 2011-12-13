@@ -17,4 +17,13 @@ class BookingTemplatesController < AuthorizedController
       success.html { redirect_to collection_path }
     end
   end
+
+  def new_booking
+    booking_params = params[:booking] || {}
+    booking_params[:value_date] ||= Date.today
+    booking_params[:code]       ||= (Booking.maximum(:code) || 0) + 1
+    @booking = @booking_template.build_booking(booking_params)
+
+    redirect_to @booking.to_param
+  end
 end
