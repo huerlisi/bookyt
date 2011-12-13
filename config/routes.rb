@@ -114,9 +114,10 @@ Bookyt::Application.routes.draw do
   resources :bookings do
     collection do
       post :select
+      get :simple_edit
     end
     member do
-      get :select_booking, :select_booking_template
+      get :select_booking
       get :copy
     end
   end
@@ -151,6 +152,10 @@ Bookyt::Application.routes.draw do
   end
 
   resources :charge_rates
-  resources :booking_templates
+  resources :booking_templates do
+    member do
+      get :new_booking
+    end
+  end
   resources :charge_booking_templates
 end

@@ -28,14 +28,7 @@ class BookingsController < AuthorizedController
     render :action => 'simple_edit'
   end
 
-  def select_booking_template
-    @booking_template = BookingTemplate.find(params[:id])
-
-    booking_params = params[:booking] || {}
-    booking_params[:value_date] ||= Date.today
-    booking_params[:code]       ||= (Booking.maximum(:code) || 0) + 1
-    @booking = @booking_template.build_booking(booking_params)
-
+  def simple_edit
     render :action => 'simple_edit'
   end
 
