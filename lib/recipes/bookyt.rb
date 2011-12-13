@@ -1,8 +1,14 @@
 require 'capones_recipes/tasks/utilities'
 
+before "deploy:setup", "bookyt:prepare_config"
 after "deploy:finalize_update", "bookyt:symlink"
 
 namespace :bookyt do
+  desc "Prepare directories"
+  task :prepare_config do
+    run "mkdir -p #{shared_path}/config/initializers"
+  end
+
   desc "Interactive configuration"
   task :setup, :roles => :app do
     modules = [:pos, :salary, :stock, :projects].inject([]) do |out, pos|
