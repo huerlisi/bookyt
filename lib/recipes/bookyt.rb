@@ -12,7 +12,7 @@ namespace :bookyt do
     end
     modules = modules.map {|item| "'#{item}'" }.join(', ')
     initializer_template = File.expand_path(File.dirname(__FILE__) + '/templates/bookyt.rb')
-    puts Utilities.init_file(initializer_template, "<%%>", modules), "#{shared_path}/config/initializers/bookyt.rb"
+    put Utilities.init_file(initializer_template, "<%%>", modules), "#{shared_path}/config/initializers/bookyt.rb"
   end
 
   desc "Make symlink for shared bookyt initializer"
