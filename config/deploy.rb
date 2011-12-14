@@ -9,18 +9,6 @@ require 'capones_recipes/tasks/sync'
 
 load 'deploy/assets'
 
-namespace :deploy do
-  task :cold do       # Overriding the default deploy:cold
-    update
-    setup_db
-    start
-  end
-
-  task :setup_db, :roles => :app do
-    run "cd #{current_path}; /usr/bin/env bundle exec rake db:setup RAILS_ENV=#{rails_env}"
-  end
-end
-
 # Staging
 set :default_stage, 'staging'
 

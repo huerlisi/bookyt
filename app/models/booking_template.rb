@@ -26,17 +26,6 @@ class BookingTemplate < ActiveRecord::Base
     end
   end
 
-  def amount(date = nil, params = {})
-    rate = charge_rate(date, params)
-    return 0.0 unless rate
-
-    if self.amount_relates_to.present?
-      return rate.rate / 100
-    else
-      return rate.rate
-    end
-  end
-
   def booking_parameters(params = {})
     params = HashWithIndifferentAccess.new(params)
 
@@ -60,7 +49,7 @@ class BookingTemplate < ActiveRecord::Base
 
     if reference
       # Calculate amount
-      booking_amount = self.amount(reference.value_date, :person_id => person_id) if person_id
+      booking_amount = amount(reference.value_date, :person_id => person_id) if person_id
 
       case self.amount_relates_to
         when 'reference_amount'
