@@ -3,7 +3,7 @@ class LineItem < ActiveRecord::Base
   include ApplicationHelper
 
   # Associations
-  belongs_to :invoice, :touch => true
+  belongs_to :invoice, :touch => true, :inverse_of => :line_items
   belongs_to :contra_account, :class_name => 'Account'
 
   # Validations
