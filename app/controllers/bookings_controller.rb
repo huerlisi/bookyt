@@ -29,7 +29,7 @@ class BookingsController < AuthorizedController
   end
 
   def simple_edit
-    render :action => 'simple_edit'
+    new!
   end
 
   def select

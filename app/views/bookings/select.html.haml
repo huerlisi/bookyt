@@ -4,7 +4,7 @@
 = render 'form'
 
 %h3= t_model(BookingTemplate)
-= render 'booking_templates/list', :item_action => lambda{|object| select_booking_template_booking_path(object, :booking => params[:booking])}
+= render 'booking_templates/list', :item_action => lambda{|object| new_booking_booking_template_path(object)}
 
 %h3= t_model(Booking)
 = render 'bookings/list', :item_action => lambda{|object| select_booking_booking_path(object, :booking => params[:booking])}
