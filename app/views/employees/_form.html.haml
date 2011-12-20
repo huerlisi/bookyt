@@ -14,10 +14,11 @@
 
   = f.inputs t('form.person.civil') do
     = f.input :sex, :as => :select, :collection => { t('sex.male') => Person::MALE, t('sex.female') => Person::FEMALE}, :wrapper_html => {:class => 'col1'}
-    = f.input :date_of_birth, :as => :date_field, :wrapper_html => {:class => 'col2'}
-    = f.input :civil_status, :wrapper_html => {:class => 'col1'}
+    = f.input :civil_status, :wrapper_html => {:class => 'col2'}
+    = f.input :nationality, :wrapper_html => {:class => 'col1'}
     = f.input :religion, :wrapper_html => {:class => 'col2'}
-    = f.input :social_security_nr
+    = f.input :date_of_birth, :as => :date_field, :wrapper_html => {:class => 'col1'}
+    = f.input :social_security_nr, :wrapper_html => {:class => 'col2'}
 
   = f.semantic_fields_for :employments do |employment|
     = employment.input :employer_id, :as => :hidden

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111220143349) do
+ActiveRecord::Schema.define(:version => 20111220145418) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -305,6 +305,7 @@ ActiveRecord::Schema.define(:version => 20111220143349) do
     t.integer  "civil_status_id"
     t.integer  "religion_id"
     t.boolean  "delta",                 :default => true, :null => false
+    t.string   "nationality"
   end
 
   add_index "people", ["type"], :name => "index_people_on_type"
