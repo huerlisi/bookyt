@@ -22,8 +22,8 @@ class BookingTemplatesController < AuthorizedController
     booking_params = params[:booking] || {}
     booking_params[:value_date] ||= Date.today
     booking_params[:code]       ||= (Booking.maximum(:code) || 0) + 1
-    @booking = @booking_template.build_booking(booking_params)
+    booking_parameters = @booking_template.booking_parameters(booking_params)
 
-    redirect_to @booking.to_param
+    redirect_to simple_edit_bookings_path(:booking => booking_parameters)
   end
 end

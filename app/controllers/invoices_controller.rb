@@ -17,6 +17,8 @@ class InvoicesController < AuthorizedController
       :page => params[:page],
       :conditions => conditions
     )
+
+    index!
   end
 
   # Actions

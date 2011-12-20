@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206094628) do
+ActiveRecord::Schema.define(:version => 20111216111457) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -425,6 +425,7 @@ ActiveRecord::Schema.define(:version => 20111206094628) do
     t.integer  "person_id"
     t.integer  "tenant_id"
     t.string   "locale"
+    t.string   "authentication_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
