@@ -9,7 +9,7 @@ describe ChargeBookingTemplate do
     @template.booking_parameters.should == {"comments" => nil,
                                             "debit_account_id" => nil,
                                             "title" => nil,
-                                            "amount" => nil,
+                                            "amount" => 0.0,
                                             "credit_account_id" => nil}
   end
 end
