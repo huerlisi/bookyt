@@ -28,7 +28,7 @@ describe DebitInvoice do
 
     context "with correct accounts loaded" do
       before(:all) do
-        [:account_1100, :credit_account, :service_account].each do |name|
+        [:debit_account, :credit_account, :service_account].each do |name|
           Factory.create(name)
         end
       end

@@ -36,19 +36,19 @@ FactoryGirl.define do
     credit_currency "CHF"
     exchange_rate   1.0
 
-    association :credit_account, :factory => :food_account
-    association :debit_account, :factory => :cash_account
+    association :credit_account, :factory => :debit_account
+    association :debit_account, :factory => :food_account
   end
 
-  factory :paid_booking, :class => Booking do
+  factory :payment_booking, :class => Booking do
     title           "Lanna Thai"
-    amount          0.0
+    amount          20.25
     value_date      "2006-11-21"
     debit_currency  "CHF"
     credit_currency "CHF"
     exchange_rate   1.0
 
-    association :credit_account, :factory => :food_account
-    association :debit_account, :factory => :cash_account
+    association :credit_account, :factory => :bank_account
+    association :debit_account, :factory => :debit_account
   end
 end
