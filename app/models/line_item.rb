@@ -44,4 +44,20 @@ class LineItem < ActiveRecord::Base
 
   # Item templates
   belongs_to :item, :polymorphic => true
+
+  # Booking templates
+  belongs_to :booking_template
+
+  def booking_template=(value)
+    self[:booking_template] = value
+
+    self.price ||= value.amount
+    self.title ||= value.title
+    self.code  ||= value.code
+  end
+
+  def booking_template_id=(value)
+    self[:booking_template_id] = value
+    self.booking_template = BookingTemplate.find(value)
+  end
 end
