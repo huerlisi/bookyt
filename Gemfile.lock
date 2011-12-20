@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/huerlisi/thinking-sphinx.git
-  revision: 2ba37e6fd1f96c34f6dcb23250e63904ef9e211a
+  revision: dfe8913410553c8f63958fa626686a4cdf541617
   specs:
     thinking-sphinx (2.0.10)
       activerecord (>= 3.0.3)
