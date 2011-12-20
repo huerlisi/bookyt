@@ -8,13 +8,9 @@ describe AttachmentsController do
 
     it "recognizes and generates #download" do
       {
-        :get => "/uploads/#{@attachment.object.class.to_s.underscore}/#{@attachment.id}/letter.pdf"
+        :get => "/attachments/#{@attachment.id}/download"
       }.should route_to(:controller =>  "attachments",
                         :action =>      "download",
-                        :model =>       'employee',
-                        :basename =>    'letter',
-                        :extension =>   'pdf',
-                        :conditions =>  {'method' => :get},
                         :id =>          @attachment.id.to_s)
     end
   end
