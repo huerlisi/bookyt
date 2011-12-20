@@ -16,8 +16,6 @@ describe Invoice do
   end
 
   context "when amount is nil" do
-    before(:all) { subject.amount = nil }
-
     its(:to_s) { should == "" }
   end
 
