@@ -5,10 +5,6 @@ describe Attachment do
 
   it { should validate_presence_of(:file) }
 
-  it "show the avaible codes" do
-    Attachment.codes.should eq([['Brief-Template', 'Prawn::LetterDocument']])
-  end
-
   context "when new" do
     specify { should_not be_valid }
 
