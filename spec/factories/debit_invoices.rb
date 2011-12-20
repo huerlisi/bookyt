@@ -28,7 +28,7 @@ FactoryGirl.define do
     title "New Invoice"
   end
 
-  factory :booked_booking, :class => Booking do
+  factory :debit_invoice_booking, :class => Booking do
     title           "Lanna Thai"
     amount          20.25
     value_date      "2006-11-21"
