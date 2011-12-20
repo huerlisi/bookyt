@@ -6,7 +6,6 @@ FactoryGirl.define do
     association :company
     title "DebitInvoice"
     state 'open'
-    amount 99.85
     value_date '2010-09-20'
     due_date '2010-10-20'
   end
@@ -18,7 +17,6 @@ FactoryGirl.define do
     due_date '2010-10-20'
     state 'booked'
     title "New Invoice"
-    amount 99.85
   end
 
   factory :paid_debit_invoice, :class => DebitInvoice do
@@ -28,7 +26,6 @@ FactoryGirl.define do
     due_date '2010-10-20'
     state 'paid'
     title "New Invoice"
-    amount 99.85
   end
 
   factory :booked_booking, :class => Booking do

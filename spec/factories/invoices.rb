@@ -8,7 +8,6 @@ FactoryGirl.define do
     due_date '2010-10-20'
     state "new"
     title "New Invoice"
-    amount 99.85
   end
 
   factory :credit_invoice do
