@@ -55,6 +55,10 @@ Spork.prefork do
 
   require 'database_cleaner'
   DatabaseCleaner.strategy = :truncation
+
+  # Thinking Sphinx integration
+  require 'thinking_sphinx/test'
+  ThinkingSphinx::Test.init
 end
 
 Spork.each_run do
