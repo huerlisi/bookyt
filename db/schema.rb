@@ -71,21 +71,6 @@ ActiveRecord::Schema.define(:version => 20111220143349) do
 
   add_index "addresses", ["vcard_id"], :name => "addresses_vcard_id_index"
 
-  create_table "assets", :force => true do |t|
-    t.string   "title"
-    t.text     "remarks"
-    t.decimal  "amount",              :precision => 10, :scale => 2
-    t.string   "state"
-    t.integer  "purchase_invoice_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "selling_invoice_id"
-  end
-
-  add_index "assets", ["purchase_invoice_id"], :name => "index_assets_on_purchase_invoice_id"
-  add_index "assets", ["selling_invoice_id"], :name => "index_assets_on_selling_invoice_id"
-  add_index "assets", ["state"], :name => "index_assets_on_state"
-
   create_table "attachments", :force => true do |t|
     t.string   "title"
     t.string   "file"
