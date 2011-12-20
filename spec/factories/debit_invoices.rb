@@ -5,7 +5,7 @@ FactoryGirl.define do
     association :customer
     association :company
     title "DebitInvoice"
-    state 'open'
+    state 'booked'
     value_date '2010-09-20'
     due_date '2010-10-20'
   end
