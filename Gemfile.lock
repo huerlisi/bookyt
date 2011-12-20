@@ -77,7 +77,7 @@ GEM
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     capistrano_colors (0.5.5)
-    capones_recipes (1.11.4)
+    capones_recipes (1.13.4)
       cap-recipes
       capistrano
       capistrano-ext
@@ -136,7 +136,7 @@ GEM
       validates_timeliness
     has_scope (0.5.1)
     has_vcards (0.12.3)
-    highline (1.6.8)
+    highline (1.6.9)
     hike (1.2.1)
     hpricot (0.8.5)
     i18n (0.6.0)
