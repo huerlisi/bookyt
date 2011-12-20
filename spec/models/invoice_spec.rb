@@ -22,7 +22,7 @@ describe Invoice do
   context "when properly initialized" do
     subject { Factory.build :invoice }
 
-    its(:to_s) { should =~ /New Invoice/ }
+    its(:to_s) { should == '' }
   end
 
   context "with bookings" do
