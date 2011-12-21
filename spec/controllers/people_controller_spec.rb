@@ -13,20 +13,12 @@ shared_examples "people actions" do
       get :show, :id => 200000
       response.should render_template('show')
       assigns(:debit_invoices).should be_empty
-=begin
-      assigns(:debit_invoices).count.should be(3)
-      assigns(:debit_invoices).first.should be_an_instance_of(DebitInvoice)
-=end
     end
 
     it "the credit invoices" do
       get :show, :id => 200000
       response.should render_template('show')
       assigns(:credit_invoices).should be_empty
-=begin
-      assigns(:credit_invoices).count.should be(3)
-      assigns(:credit_invoices).first.should be_an_instance_of(DebitInvoice)
-=end
     end
   end
 end
