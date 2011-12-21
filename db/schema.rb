@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111216111457) do
+ActiveRecord::Schema.define(:version => 20111220145418) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -70,21 +70,6 @@ ActiveRecord::Schema.define(:version => 20111216111457) do
   end
 
   add_index "addresses", ["vcard_id"], :name => "addresses_vcard_id_index"
-
-  create_table "assets", :force => true do |t|
-    t.string   "title"
-    t.text     "remarks"
-    t.decimal  "amount",              :precision => 10, :scale => 2
-    t.string   "state"
-    t.integer  "purchase_invoice_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "selling_invoice_id"
-  end
-
-  add_index "assets", ["purchase_invoice_id"], :name => "index_assets_on_purchase_invoice_id"
-  add_index "assets", ["selling_invoice_id"], :name => "index_assets_on_selling_invoice_id"
-  add_index "assets", ["state"], :name => "index_assets_on_state"
 
   create_table "attachments", :force => true do |t|
     t.string   "title"
@@ -320,6 +305,7 @@ ActiveRecord::Schema.define(:version => 20111216111457) do
     t.integer  "civil_status_id"
     t.integer  "religion_id"
     t.boolean  "delta",                 :default => true, :null => false
+    t.string   "nationality"
   end
 
   add_index "people", ["type"], :name => "index_people_on_type"
@@ -404,6 +390,8 @@ ActiveRecord::Schema.define(:version => 20111216111457) do
     t.string   "vat_number"
     t.boolean  "use_vesr"
     t.boolean  "print_payment_for"
+    t.string   "uid_number"
+    t.string   "ahv_number"
   end
 
   add_index "tenants", ["person_id"], :name => "index_tenants_on_person_id"
