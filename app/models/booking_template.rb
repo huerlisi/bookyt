@@ -30,7 +30,7 @@ class BookingTemplate < ActiveRecord::Base
     params = HashWithIndifferentAccess.new(params)
 
     # Prepare parameters set by template
-    booking_params = attributes.reject!{|key, value| !["title", "comments", "credit_account_id", "debit_account_id"].include?(key)}
+    booking_params = attributes.reject{|key, value| !["title", "comments", "credit_account_id", "debit_account_id"].include?(key)}
 
     # Calculate amount
     booking_amount = BigDecimal.new(attributes['amount'] || '0')
