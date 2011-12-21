@@ -5,7 +5,7 @@ FactoryGirl.define do
     association :customer
     association :company
     title "DebitInvoice"
-    state 'open'
+    state 'booked'
     value_date '2010-09-20'
     due_date '2010-10-20'
   end
@@ -28,7 +28,7 @@ FactoryGirl.define do
     title "New Invoice"
   end
 
-  factory :booked_booking, :class => Booking do
+  factory :debit_invoice_booking, :class => Booking do
     title           "Lanna Thai"
     amount          20.25
     value_date      "2006-11-21"
@@ -36,19 +36,19 @@ FactoryGirl.define do
     credit_currency "CHF"
     exchange_rate   1.0
 
-    association :credit_account, :factory => :food_account
-    association :debit_account, :factory => :cash_account
+    association :credit_account, :factory => :debit_account
+    association :debit_account, :factory => :food_account
   end
 
-  factory :paid_booking, :class => Booking do
+  factory :payment_booking, :class => Booking do
     title           "Lanna Thai"
-    amount          0.0
+    amount          20.25
     value_date      "2006-11-21"
     debit_currency  "CHF"
     credit_currency "CHF"
     exchange_rate   1.0
 
-    association :credit_account, :factory => :food_account
-    association :debit_account, :factory => :cash_account
+    association :credit_account, :factory => :bank_account
+    association :debit_account, :factory => :debit_account
   end
 end
