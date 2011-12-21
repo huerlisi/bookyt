@@ -11,4 +11,14 @@ class EmployeesController < PeopleController
       :employer => current_tenant.company
     )
   end
+
+  def edit
+    if resource.employments.empty?
+      resource.employments.build(
+        :employer => current_tenant.company
+      )
+    end
+
+    edit!
+  end
 end
