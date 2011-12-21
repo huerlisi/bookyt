@@ -33,7 +33,7 @@ class BookingTemplate < ActiveRecord::Base
     booking_params = attributes.reject{|key, value| !["title", "comments", "credit_account_id", "debit_account_id"].include?(key)}
 
     # Calculate amount
-    booking_amount = BigDecimal.new(attributes['amount'] || '0')
+    booking_amount = BigDecimal.new(self.amount.to_s || '0')
 
     # Lookup reference
     reference = params['reference']
