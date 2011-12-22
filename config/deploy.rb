@@ -22,7 +22,6 @@ set :sync_backups, 3
 
 # Configuration
 set :scm, :git
-set :branch, "master"
 ssh_options[:forward_agent] = true
 set :use_sudo, false
 set :deploy_via, :remote_cache
