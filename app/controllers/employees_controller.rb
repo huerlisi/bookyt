@@ -8,17 +8,25 @@ class EmployeesController < PeopleController
 
     # Prebuild an employment
     @employee.employments.build(
-      :employer => current_tenant.company
+      :duration_from => Date.today,
+      :employer      => current_tenant.company
     )
 
+    # We've got only the freshly created employment
+    @employments = @employee.employments
     new!
   end
 
   def edit
-    if resource.employments.empty?
-      resource.employments.build(
-        :employer => current_tenant.company
+    # Prebuild an employment if there's no valid one
+    @employments = @employee.employments.valid
+    if @employments.empty?
+      new_employment = resource.employments.build(
+        :duration_from => Date.today,
+        :employer      => current_tenant.company
       )
+      # Add new employment to be shown in form
+      @employments = [new_employment]
     end
 
     edit!

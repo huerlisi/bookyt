@@ -20,7 +20,7 @@
     = f.input :date_of_birth, :as => :date_field, :wrapper_html => {:class => 'col1'}
     = f.input :social_security_nr, :wrapper_html => {:class => 'col2'}
 
-  = f.semantic_fields_for :employments do |employment|
+  = f.semantic_fields_for :employments, (@employments || f.object.employments.valid) do |employment|
     = employment.input :employer_id, :as => :hidden
 
     = render 'employments/fields', :f => employment
