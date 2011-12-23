@@ -10,6 +10,8 @@ class EmployeesController < PeopleController
     @employee.employments.build(
       :employer => current_tenant.company
     )
+
+    new!
   end
 
   def edit
