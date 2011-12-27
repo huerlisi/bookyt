@@ -5,7 +5,8 @@
   %td= line_item.select :quantity, ['x', 'hours', 'overall', '%'].map{|quantity| [t(quantity, :scope => 'line_items.quantity'), quantity]}, {}, :style => 'width: 6em'
   %td= line_item.text_field :price, :required => true, :style => 'width: 5em', :autocomplete => "off"
   %td.currency.total_amount= currency_fmt(line_item.object.total_amount)
-  %td= line_item.select :contra_account_id, accounts_as_collection(resource_class.available_contra_accounts), {}, :class => 'combobox'
+  %td= line_item.select :credit_account_id, accounts_as_collection(resource_class.available_credit_accounts), {}, :class => 'combobox'
+  %td= line_item.select :debit_account_id, accounts_as_collection(resource_class.available_debit_accounts), {}, :class => 'combobox'
   %td.action_links
     = line_item.hidden_field :_destroy
     = link_to t_action(:delete), '#', :class => 'icon-delete-text delete-nested-form-item'

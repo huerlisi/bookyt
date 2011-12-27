@@ -7,6 +7,7 @@ class BookingTemplate < ActiveRecord::Base
   scope :by_type, lambda{|value| where("code LIKE ?", value + ':%')}
 
   # Standard methods
+  include ApplicationHelper
   def to_s(format = :default)
     case format
     when :short
@@ -23,6 +24,14 @@ class BookingTemplate < ActiveRecord::Base
         title.present? ? title : '?',
         comments.present? ? comments : '?'
       ]
+    end
+  end
+
+  def amount_to_s
+    if amount_relates_to.present?
+      return "%.2f%%" % (amount.to_f * 100)
+    else
+      return currency_fmt(amount)
     end
   end
 

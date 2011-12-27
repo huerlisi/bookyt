@@ -1,5 +1,5 @@
 .contextual
-  = link_to t_action('new', Salary), new_salary_path(:salary => {:employee_id => @employee.id}), :class => "icon icon-add"
+  = link_to t_action('new', Salary), select_employee_salaries_path(:salary => {:employee_id => @employee.id}), :class => "icon icon-add"
 %h2= t_title :index, Salary
 
 - @salaries = @employee.salaries

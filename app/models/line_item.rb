@@ -4,7 +4,8 @@ class LineItem < ActiveRecord::Base
 
   # Associations
   belongs_to :invoice, :touch => true, :inverse_of => :line_items
-  belongs_to :contra_account, :class_name => 'Account'
+  belongs_to :debit_account, :class_name => 'Account'
+  belongs_to :credit_account, :class_name => 'Account'
 
   # Validations
   validate :times, :presence => true, :numericality => true

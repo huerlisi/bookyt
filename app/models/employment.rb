@@ -2,6 +2,7 @@ class Employment < ActiveRecord::Base
   # Associations
   belongs_to :employee, :inverse_of => :employments
   belongs_to :employer, :class_name => 'Company'
+  scope :by_employee, lambda {|value| where(:employee_id => value)}
 
   # Validations
   validates_presence_of :employee, :employer

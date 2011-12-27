@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111220145418) do
+ActiveRecord::Schema.define(:version => 20111227100728) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -116,6 +116,13 @@ ActiveRecord::Schema.define(:version => 20111220145418) do
     t.string   "amount_relates_to"
     t.string   "type"
     t.string   "charge_rate_code"
+    t.boolean  "for_gross_income"
+    t.boolean  "for_ahv"
+    t.boolean  "for_uvg"
+    t.boolean  "for_uvgz"
+    t.boolean  "for_ktg"
+    t.boolean  "for_deduction_at_source"
+    t.string   "salary_declaration_code"
   end
 
   add_index "booking_templates", ["credit_account_id"], :name => "index_booking_templates_on_credit_account_id"
@@ -277,10 +284,12 @@ ActiveRecord::Schema.define(:version => 20111220145418) do
     t.date     "date"
     t.string   "quantity",                                         :default => "x"
     t.string   "vat_rate_code"
-    t.integer  "contra_account_id"
+    t.integer  "credit_account_id"
+    t.integer  "debit_account_id"
   end
 
-  add_index "line_items", ["contra_account_id"], :name => "index_line_items_on_contra_account_id"
+  add_index "line_items", ["credit_account_id"], :name => "index_line_items_on_credit_account_id"
+  add_index "line_items", ["debit_account_id"], :name => "index_line_items_on_debit_account_id"
   add_index "line_items", ["invoice_id"], :name => "index_line_items_on_invoice_id"
   add_index "line_items", ["item_id", "item_type"], :name => "index_line_items_on_item_id_and_item_type"
 
