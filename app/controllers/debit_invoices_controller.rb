@@ -17,10 +17,11 @@ class DebitInvoicesController < InvoicesController
     @debit_invoice = DebitInvoice.new(invoice_params)
 
     @debit_invoice.line_items.build(
-      :times         => 1,
-      :quantity      => 'x',
-      :vat_rate_code => 'vat:full',
-      :contra_account => DebitInvoice.default_contra_account
+      :times          => 1,
+      :quantity       => 'x',
+      :vat_rate_code  => 'vat:full',
+      :credit_account => DebitInvoice.default_credit_account,
+      :debit_account  => DebitInvoice.default_debit_account
     )
 
     if current_tenant.vat_number.present?
@@ -28,7 +29,8 @@ class DebitInvoicesController < InvoicesController
         :title          => 'MWSt.',
         :times          => 0.08,
         :quantity       => '%',
-        :contra_account => Account.find_by_code('2206')
+        :credit_account => DebitInvoice.default_credit_account,
+        :debit_account  => Account.find_by_code('2206')
       )
     end
 

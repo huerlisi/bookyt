@@ -46,7 +46,8 @@ class InvoicesController < AuthorizedController
       :times          => 1,
       :quantity       => 'x',
       :vat_rate_code  => 'vat:full',
-      :contra_account => resource_class.default_contra_account
+      :credit_account => resource_class.default_credit_account,
+      :debit_account  => resource_class.default_debit_account
     )
 
     respond_with @line_item

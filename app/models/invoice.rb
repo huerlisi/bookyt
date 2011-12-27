@@ -112,18 +112,6 @@ class Invoice < ActiveRecord::Base
   # ========
   include HasAccounts::Model
 
-  # Build booking
-  #
-  # We pass the value_date to the booking
-  def build_booking(params = {}, template_code = nil)
-    invoice_params = {:value_date => self.value_date}
-    template_code ||= self.class.to_s.underscore + ':invoice'
-
-    invoice_params.merge!(params)
-
-    super(invoice_params, template_code)
-  end
-
   # Callback hook
   def booking_saved(booking)
 
@@ -135,6 +123,34 @@ class Invoice < ActiveRecord::Base
 
     self.state = new_state
     self.update_column(:state, new_state) if self.persisted?
+  end
+
+  before_save :update_bookings
+  accepts_nested_attributes_for :bookings, :allow_destroy => true
+
+  def update_bookings
+    return unless changed_for_autosave?
+
+    # Get rid of line_items to be destroyed by nested attributes assignment
+    new_line_items = line_items.reject{|line_item| line_item.marked_for_destruction?}
+
+    # Delete all current bookings
+    # We need to use mark_for_destruction for two reasons:
+    # 1. Don't delete before record is validated and saved
+    # 2. Don't trigger callbacks from bookings
+    bookings.map{|b| b.mark_for_destruction}
+
+    # Build a booking per line item
+    new_line_items.each do |line_item|
+      # Build and assign booking
+      bookings.build(
+        :title          => line_item.title,
+        :amount         => line_item.total_amount,
+        :value_date     => self.value_date,
+        :credit_account => line_item.credit_account,
+        :debit_account  => line_item.debit_account
+      )
+    end
   end
 
   # Line Items
