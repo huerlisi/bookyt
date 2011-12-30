@@ -43,4 +43,3 @@ public/booking_imports
 # Config
 config/initializers/bookyt.rb
 coverage/*
-lour
