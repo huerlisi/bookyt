@@ -1,14 +1,6 @@
 require 'spec_helper'
 
 describe DebitInvoice do
-  it { should belong_to(:customer) }
-  it { should belong_to(:company) }
-
-  it { should validate_presence_of(:customer) }
-  it { should validate_presence_of(:company) }
-  it { should validate_presence_of(:title) }
-  it { should validate_presence_of(:state) }
-
   describe "as class" do
     subject {DebitInvoice}
 
