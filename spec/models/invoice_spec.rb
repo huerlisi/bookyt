@@ -25,7 +25,11 @@ describe Invoice do
     its(:to_s) { should == '' }
   end
 
-  context "with bookings" do
+  context "Attachments" do
+    it { should have_many(:attachments) }
+  end
+
+  context "Bookings" do
     it { should have_many(:bookings) }
   end
 end
