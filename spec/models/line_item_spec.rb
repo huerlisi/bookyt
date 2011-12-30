@@ -6,7 +6,7 @@ describe LineItem do
   it { should belong_to :debit_account }
   it { should belong_to :credit_account }
 
-  context "when new" do
+  context "amounts" do
     describe "blank attributes" do
       subject { LineItem.new }
       its(:total_amount) { should eq(0) }
