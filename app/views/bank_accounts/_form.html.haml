@@ -6,5 +6,6 @@
     = f.input :esr_id, :input_html => {:size => 6}
     = f.input :title
     = f.input :account_type, :as => :combobox, :collection => options_from_collection_for_select(AccountType.all, :id, :title, @bank_account.account_type_id)
+    = f.input :bank, :as => :combobox
   = f.buttons do
     = f.commit_button
