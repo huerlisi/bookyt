@@ -20,6 +20,8 @@ de:
     company:
       address: Adresse
       book_keeping: Buchhaltung
+    bank:
+      money_transfer: Bankverbindung
 
   attributes:
     # Common

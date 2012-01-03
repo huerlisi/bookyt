@@ -12,7 +12,7 @@
         - vcard.fields_for :contacts do |contact|
           = render 'phone_numbers/form', :item => contact
 
-  = f.inputs t('form.bank.info') do
+  = f.inputs t('form.bank.money_transfer') do
     = f.input :swift
     = f.input :clearing
 
