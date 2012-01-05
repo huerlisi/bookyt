@@ -5,8 +5,5 @@ FactoryGirl.define do
     code "MyString"
     title "MyString"
     description "MyString"
-    item nil
-    type ""
-    invoice nil
   end
 end
