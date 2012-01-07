@@ -1,12 +1,9 @@
-// Blueprint
-@import "blueprint/reset";
-@import "blueprint";
-
 // CyT
 @import 'partials/base';
-@import 'partials/layout';
-@import 'partials/content';
-@import 'partials/sidebar';
+@import 'partials/content/icons';
+@import 'partials/content/combobox';
+@import 'partials/content/overview';
+@import 'partials/content/app';
 
 // jQuery UI
 @import 'partials/jquery';
