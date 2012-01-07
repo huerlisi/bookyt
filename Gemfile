@@ -85,6 +85,7 @@ gem 'simple-navigation'
 
 # Styling
 gem 'lyb_sidebar'
+gem 'twitter-bootstrap-rails'
 
 # Form framework
 gem 'formtastic'
