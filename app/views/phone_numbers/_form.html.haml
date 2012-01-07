@@ -1,5 +1,7 @@
-%li.phone_number.nested-form-item
-  %label= item.select :phone_number_type, ['Tel. geschäft', 'Tel. privat', 'Handy', 'Fax', 'E-Mail', 'Webseite']
-  = item.text_field :number, :size => 12, :autocomplete => 'off'
-  %div{:style => 'display: inline-block'}= link_to t_action(:delete), '#', :class => 'icon-delete-text delete-nested-form-item'
+%div.phone_number.clearfix
+  %label.select= item.select :phone_number_type, ['Tel. geschäft', 'Tel. privat', 'Handy', 'Fax', 'E-Mail', 'Webseite']
+  .input
+    = item.text_field :number, :size => 6, :autocomplete => 'off'
+    %span
+      = link_to t_action(:delete), '#'
   = item.hidden_field :_destroy
