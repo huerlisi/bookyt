@@ -1,4 +1,4 @@
-class HourFieldInput < Formtastic::Inputs::StringInput
+class HourFieldInput < FormtasticBootstrap::Inputs::StringInput
   def input_html_options
     super.merge(:class => "#{super[:class]} hasCheckHours", :alt => 'time', 'data-check-hours' => true)
   end

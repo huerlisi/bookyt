@@ -1,4 +1,4 @@
-class ComboboxInput < Formtastic::Inputs::SelectInput
+class ComboboxInput < FormtasticBootstrap::Inputs::SelectInput
   include ActionView::Helpers::UrlHelper
 
   def input_html_options
@@ -14,8 +14,7 @@ class ComboboxInput < Formtastic::Inputs::SelectInput
   end
 
   def to_html
-    input_wrapping do
-      label_html <<
+    generic_input_wrapping do
       (options[:group_by] ? grouped_select_html : select_html) <<
       link_fragment
     end

@@ -124,6 +124,9 @@ GEM
     ffi (1.0.11)
     formtastic (2.0.2)
       rails (~> 3.0)
+    formtastic-bootstrap (1.1.2)
+      formtastic
+      rails (~> 3.1.0)
     fssm (0.2.7)
     haml (3.1.4)
     haml-rails (0.3.4)
@@ -322,6 +325,7 @@ DEPENDENCIES
   factory_girl_rails
   fancy-buttons
   formtastic
+  formtastic-bootstrap
   haml
   haml-rails
   has_accounts
