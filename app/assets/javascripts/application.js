@@ -158,6 +158,11 @@ function initializeBehaviours() {
   addNestedFormBehaviour();
 
   AddCalculateTotalAmountBehaviour();
+
+  $(function () {
+    $('.tabs').tabs()
+  })
+
 }
 
 // Loads functions after DOM is ready
