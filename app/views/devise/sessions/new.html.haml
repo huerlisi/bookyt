@@ -1,13 +1,14 @@
 = render 'users/demo' if Rails.env.demo?
 
-= semantic_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  = f.semantic_errors
-  = f.inputs do
-    = f.input :email
-    = f.input :password, :hint => false
-    - if devise_mapping.rememberable?
-      = f.input :remember_me, :as => :boolean
-  = f.buttons do
-    = f.commit_button t('devise.sign_in')
+.span8.offset4.well
+  = semantic_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    = f.semantic_errors
+    = f.inputs do
+      = f.input :email
+      = f.input :password, :hint => false
+      - if devise_mapping.rememberable?
+        = f.input :remember_me, :as => :boolean
+    = f.buttons do
+      = f.commit_button t('devise.sign_in')
 
-= render "devise/shared/links"
+  = render "devise/shared/links"
