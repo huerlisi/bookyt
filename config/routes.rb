@@ -10,6 +10,9 @@ Bookyt::Application.routes.draw do
     end
   end
 
+  # Search
+  get "search" => "search#search"
+
   # Accounting
   resources :account_types
   resources :banks
