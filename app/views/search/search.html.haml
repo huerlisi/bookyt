@@ -2,8 +2,8 @@
   %h1= t_title
 
 %ul.tabs
-  %li.active= link_to 'Kontakte', '#contacts-tab'
-  %li= link_to 'Rechnungen', '#invoices-tab'
+  %li.active= link_to "Kontakte (#{@people.count})", '#contacts-tab'
+  %li= link_to "Rechnungen (#{@invoices.count})", '#invoices-tab'
 
 .tab-content
   #contacts-tab.active= render 'list', :records => @people
