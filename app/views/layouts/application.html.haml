@@ -35,9 +35,10 @@
       .content
         .row
           - if notice
-            #flash.flash.notice= notice
+            .alert-message.success= notice
           - if alert
-            #alert.flash.alert= alert
+            .alert-message.error= alert
+        .row
           = yield
 
     = javascript_include_tag "application"
