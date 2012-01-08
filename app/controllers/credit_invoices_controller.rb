@@ -17,10 +17,11 @@ class CreditInvoicesController < InvoicesController
     @credit_invoice = CreditInvoice.new(invoice_params)
 
     @credit_invoice.line_items.build(
-      :times         => 1,
-      :quantity      => 'x',
-      :vat_rate_code => 'vat:full',
-      :contra_account => CreditInvoice.default_contra_account
+      :times          => 1,
+      :quantity       => 'x',
+      :vat_rate_code  => 'vat:full',
+      :credit_account => CreditInvoice.default_credit_account,
+      :debit_account  => CreditInvoice.default_debit_account
     )
 
     # Prebuild an empty attachment instance

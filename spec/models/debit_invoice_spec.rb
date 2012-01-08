@@ -10,42 +10,28 @@ describe DebitInvoice do
   it { should validate_presence_of(:state) }
 
   describe "as class" do
+    subject {DebitInvoice}
+
     context "without the accounts" do
-      subject { DebitInvoice }
-
-      it "returns the direct account" do
-        subject.direct_account.should be_nil
-      end
-
-      it "returns the avaible contra accounts" do
-        subject.available_contra_accounts.should be_empty
-      end
-
-      it "returns the default contra account" do
-        subject.default_contra_account.should be_nil
-      end
+      its(:direct_account) {should be_nil}
+      its(:available_debit_accounts) {should be_empty}
+      its(:default_debit_account) {should be_nil}
+      its(:available_credit_accounts) {should be_empty}
+      its(:default_credit_account) {should be_nil}
     end
 
     context "with correct accounts loaded" do
       before(:all) do
-        [:account_1100, :credit_account, :service_account].each do |name|
+        [:debit_account, :credit_account, :service_account].each do |name|
           Factory.create(name)
         end
       end
 
-      subject { DebitInvoice }
-
-      it "returns the direct account" do
-        subject.direct_account.code.should eq('1100')
-      end
-
-      it "returns the avaible contra accounts" do
-        subject.available_contra_accounts.should_not be_empty
-      end
-
-      it "returns the default contra account" do
-        subject.default_contra_account.code.should eq('3200')
-      end
+      its(:direct_account) {should == Account.find_by_code('1100')}
+      its(:available_debit_accounts) {should_not be_empty}
+      its(:default_debit_account) {should == Account.find_by_code('3200')}
+      its(:available_credit_accounts) {should_not be_empty}
+      its(:default_credit_account) {should == Account.find_by_code('1100')}
     end
   end
 
@@ -58,15 +44,20 @@ describe DebitInvoice do
       its(:profit_account) { should be_nil }
     end
 
-    context "does a booking" do
-      it "as booked" do
-        subject.booking_saved(Factory.create(:booked_booking))
+    context "changes the state" do
+      it "to 'booked' with an amount over 0" do
+        subject.bookings << Factory.create(:debit_invoice_booking)
+        subject.save
+
         subject.state.should eq('booked')
       end
 
-      it "as paid" do
-        subject.amount = 0.0
-        subject.booking_saved(Factory.create(:paid_booking))
+      it "to 'paid' with an amount equal 0" do
+        subject.bookings << Factory.create(:debit_invoice_booking)
+        subject.bookings << Factory.create(:payment_booking)
+        subject.save
+        subject.reload
+
         subject.state.should eq('paid')
       end
     end

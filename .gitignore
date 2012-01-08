@@ -28,9 +28,6 @@ config/database.yml
 
 # Plugins
 # =======
-# Capistrano
-config/deploy/*.rb
-
 # Sphinx Freetext Search
 db/sphinx
 config/*.sphinx.conf

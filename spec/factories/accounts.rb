@@ -59,7 +59,7 @@ FactoryGirl.define do
     association :account_type, :factory => :outside_capital
   end
 
-  factory :account_1100, :class => Account do
+  factory :debit_account, :class => Account do
     title 'direct account'
     code '1100'
     association :account_type, :factory => :current_assets

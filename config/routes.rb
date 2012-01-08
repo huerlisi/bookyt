@@ -62,6 +62,16 @@ Bookyt::Application.routes.draw do
   end
   resources :employments
 
+  resources :banks do
+    resources :attachments
+    member do
+      get :new_phone_number
+    end
+    collection do
+      get :new_phone_number
+    end
+  end
+
   # Invoices
   resources :invoices do
     resources :attachments

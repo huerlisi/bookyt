@@ -24,7 +24,7 @@ class AuthorizedController < InheritedResources::Base
   end
 
   # Responders
-  respond_to :html, :js
+  respond_to :html, :js, :json
 
   # Set the user locale
   before_filter :set_locale

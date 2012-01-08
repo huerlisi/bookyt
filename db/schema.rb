@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206094628) do
+ActiveRecord::Schema.define(:version => 20111230121259) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -71,21 +71,6 @@ ActiveRecord::Schema.define(:version => 20111206094628) do
 
   add_index "addresses", ["vcard_id"], :name => "addresses_vcard_id_index"
 
-  create_table "assets", :force => true do |t|
-    t.string   "title"
-    t.text     "remarks"
-    t.decimal  "amount",              :precision => 10, :scale => 2
-    t.string   "state"
-    t.integer  "purchase_invoice_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "selling_invoice_id"
-  end
-
-  add_index "assets", ["purchase_invoice_id"], :name => "index_assets_on_purchase_invoice_id"
-  add_index "assets", ["selling_invoice_id"], :name => "index_assets_on_selling_invoice_id"
-  add_index "assets", ["state"], :name => "index_assets_on_state"
-
   create_table "attachments", :force => true do |t|
     t.string   "title"
     t.string   "file"
@@ -98,16 +83,6 @@ ActiveRecord::Schema.define(:version => 20111206094628) do
 
   add_index "attachments", ["code"], :name => "index_attachments_on_code"
   add_index "attachments", ["object_id", "object_type"], :name => "index_attachments_on_object_id_and_object_type"
-
-  create_table "banks", :force => true do |t|
-    t.integer  "vcard_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "swift"
-    t.string   "clearing"
-  end
-
-  add_index "banks", ["vcard_id"], :name => "index_banks_on_vcard_id"
 
   create_table "booking_imports", :force => true do |t|
     t.string   "csv_file_name"
@@ -131,6 +106,13 @@ ActiveRecord::Schema.define(:version => 20111206094628) do
     t.string   "amount_relates_to"
     t.string   "type"
     t.string   "charge_rate_code"
+    t.boolean  "for_gross_income"
+    t.boolean  "for_ahv"
+    t.boolean  "for_uvg"
+    t.boolean  "for_uvgz"
+    t.boolean  "for_ktg"
+    t.boolean  "for_deduction_at_source"
+    t.string   "salary_declaration_code"
   end
 
   add_index "booking_templates", ["credit_account_id"], :name => "index_booking_templates_on_credit_account_id"
@@ -292,10 +274,12 @@ ActiveRecord::Schema.define(:version => 20111206094628) do
     t.date     "date"
     t.string   "quantity",                                         :default => "x"
     t.string   "vat_rate_code"
-    t.integer  "contra_account_id"
+    t.integer  "credit_account_id"
+    t.integer  "debit_account_id"
   end
 
-  add_index "line_items", ["contra_account_id"], :name => "index_line_items_on_contra_account_id"
+  add_index "line_items", ["credit_account_id"], :name => "index_line_items_on_credit_account_id"
+  add_index "line_items", ["debit_account_id"], :name => "index_line_items_on_debit_account_id"
   add_index "line_items", ["invoice_id"], :name => "index_line_items_on_invoice_id"
   add_index "line_items", ["item_id", "item_type"], :name => "index_line_items_on_item_id_and_item_type"
 
@@ -320,6 +304,9 @@ ActiveRecord::Schema.define(:version => 20111206094628) do
     t.integer  "civil_status_id"
     t.integer  "religion_id"
     t.boolean  "delta",                 :default => true, :null => false
+    t.string   "nationality"
+    t.string   "swift"
+    t.string   "clearing"
   end
 
   add_index "people", ["type"], :name => "index_people_on_type"
@@ -404,6 +391,8 @@ ActiveRecord::Schema.define(:version => 20111206094628) do
     t.string   "vat_number"
     t.boolean  "use_vesr"
     t.boolean  "print_payment_for"
+    t.string   "uid_number"
+    t.string   "ahv_number"
   end
 
   add_index "tenants", ["person_id"], :name => "index_tenants_on_person_id"
@@ -425,6 +414,7 @@ ActiveRecord::Schema.define(:version => 20111206094628) do
     t.integer  "person_id"
     t.integer  "tenant_id"
     t.string   "locale"
+    t.string   "authentication_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,0 +1,20 @@
+= semantic_form_for resource do |f|
+  = f.semantic_errors
+
+  = f.inputs t('form.person.address') do
+    = render 'vcards/form', :f => f
+
+  = f.inputs t_model(PhoneNumber) do
+    = link_to t_action(:more), [:new_phone_number, resource.persisted? ? resource : controller_name], :remote => true, :class => 'icon-add-text', :style => 'float: right'
+    .nested-form.list.contacts
+      = f.fields_for :vcard do |vcard|
+        - vcard.object.contacts.build_defaults
+        - vcard.fields_for :contacts do |contact|
+          = render 'phone_numbers/form', :item => contact
+
+  = f.inputs t('form.bank.money_transfer') do
+    = f.input :swift
+    = f.input :clearing
+
+  = f.buttons do
+    = f.commit_button

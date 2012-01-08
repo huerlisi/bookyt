@@ -16,15 +16,13 @@ describe Invoice do
   end
 
   context "when amount is nil" do
-    before(:all) { subject.amount = nil }
-
     its(:to_s) { should == "" }
   end
 
   context "when properly initialized" do
     subject { Factory.build :invoice }
 
-    its(:to_s) { should =~ /New Invoice/ }
+    its(:to_s) { should == '' }
   end
 
   context "with bookings" do

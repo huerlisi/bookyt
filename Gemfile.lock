@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/huerlisi/thinking-sphinx.git
-  revision: 2ba37e6fd1f96c34f6dcb23250e63904ef9e211a
+  revision: dfe8913410553c8f63958fa626686a4cdf541617
   specs:
     thinking-sphinx (2.0.10)
       activerecord (>= 3.0.3)
@@ -63,7 +63,7 @@ GEM
     bookyt_projects (0.11.1)
       rails (~> 3.1.0)
       recurrence
-    bookyt_salary (0.4.0)
+    bookyt_salary (0.5.0)
     bookyt_stock (0.4.1)
     builder (3.0.0)
     cancan (1.6.7)
@@ -77,7 +77,7 @@ GEM
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     capistrano_colors (0.5.5)
-    capones_recipes (1.11.6)
+    capones_recipes (1.13.4)
       cap-recipes
       capistrano
       capistrano-ext
@@ -129,14 +129,14 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
-    has_accounts (0.16.0)
+    has_accounts (0.17.0)
       has_vcards
       inherited_resources
       rails (~> 3.1.0)
       validates_timeliness
     has_scope (0.5.1)
     has_vcards (0.12.3)
-    highline (1.6.8)
+    highline (1.6.9)
     hike (1.2.1)
     hpricot (0.8.5)
     i18n (0.6.0)
@@ -147,7 +147,7 @@ GEM
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
-    json (1.6.3)
+    json (1.6.4)
     libv8 (3.3.10.4)
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
@@ -182,7 +182,7 @@ GEM
     prawn_rails (0.0.7)
       prawn (>= 0.11.1)
       rails (>= 3.0.0)
-    rack (1.3.5)
+    rack (1.3.6)
     rack-cache (1.1)
       rack (>= 0.4)
     rack-mount (0.8.3)
@@ -209,7 +209,7 @@ GEM
     rake (0.9.2.2)
     rbx-require-relative (0.0.5)
     rcov (0.9.11)
-    rdoc (3.11)
+    rdoc (3.12)
       json (~> 1.4)
     recurrence (1.2.0)
       activesupport (>= 2.3.0)
@@ -278,9 +278,9 @@ GEM
     uglifier (1.1.0)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
-    validates_timeliness (3.0.7)
-      timeliness (~> 0.3.3)
-    vesr (0.8.0)
+    validates_timeliness (3.0.8)
+      timeliness (~> 0.3.4)
+    vesr (0.8.1)
     warden (1.1.0)
       rack (>= 1.0)
     wkhtmltopdf-binary (0.9.5.3)
