@@ -1,0 +1,6 @@
+%table
+  %tbody
+    - records.each do |r|
+      %tr
+        %td= t_model(r)
+        %td= link_to r.to_s, r

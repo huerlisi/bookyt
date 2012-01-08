@@ -1,9 +1,10 @@
 .page-header
   %h1= t_title
 
-%table
-  %tbody
-    - @records.each do |r|
-      %tr
-        %td= t_model(r)
-        %td= link_to r.to_s, r
+%ul.tabs
+  %li.active= link_to 'Kontakte', '#contacts-tab'
+  %li= link_to 'Rechnungen', '#invoices-tab'
+
+.tab-content
+  #contacts-tab.active= render 'list', :records => @people
+  #invoices-tab= render 'list', :records => @invoices
