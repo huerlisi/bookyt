@@ -1,5 +1,9 @@
-.form-view
-  = render "form"
+%ul.tabs
+  %li.active= link_to 'Kontakt', '#contact'
+  %li= link_to 'Rechnungen', '#invoic'
+  %li= link_to 'Dokumente', '#attachments'
 
-= render 'show_invoices'
-= render 'show_attachments'
+.tab-content
+  #contact.active= render "form"
+  #invoic= render 'show_invoices'
+  #attachments= render 'show_attachments'
