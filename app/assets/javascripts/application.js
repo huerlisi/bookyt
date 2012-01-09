@@ -160,10 +160,11 @@ function initializeBehaviours() {
 
   AddCalculateTotalAmountBehaviour();
 
+  // twitter bootstrap
   $(function () {
     $('.tabs').tabs()
+    $(".alert-message").alert()
   })
-
 }
 
 // Loads functions after DOM is ready
