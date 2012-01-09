@@ -14,9 +14,6 @@ SimpleNavigation::Configuration.run do |navigation|
                  :tooltip => t('bookyt.main_navigation.tooltip.overview'),
                  :if => Proc.new { user_signed_in? }
 
-    # Hack to get engine navigations included
-    Bookyt::Engine.setup_navigation(self, primary)
-
     primary.item :accounting, t('bookyt.main_navigation.accounting'), new_booking_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.accounting'),
                  :if => Proc.new { user_signed_in? } do |accounting|
@@ -78,6 +75,9 @@ SimpleNavigation::Configuration.run do |navigation|
                              :tooltip => t('bookyt.main_navigation.tooltip.companies'),
                              :highlights_on => /\/companies($|\?|\/[0-9]*($|\?|\/.*))/
     end
+
+    # Hack to get engine navigations included
+    Bookyt::Engine.setup_navigation(self, primary)
 
     primary.item :settings, t('bookyt.main_navigation.settings'), settings_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.settings'),
