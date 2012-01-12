@@ -145,19 +145,12 @@ class Invoice < ActiveRecord::Base
     # 2. Don't trigger callbacks from bookings
     bookings.map{|b| b.mark_for_destruction}
 
-    # Build a booking per line item
     new_line_items.each do |line_item|
       # Don't build booking if accounts are not set
       next unless line_item.credit_account and line_item.debit_account
 
       # Build and assign booking
-      bookings.build(
-        :title          => line_item.title,
-        :amount         => line_item.total_amount,
-        :value_date     => self.value_date,
-        :credit_account => line_item.credit_account,
-        :debit_account  => line_item.debit_account
-      )
+      bookings << line_item.build_booking(:value_date => self.value_date)
     end
   end
 

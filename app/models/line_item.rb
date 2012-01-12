@@ -98,6 +98,18 @@ class LineItem < ActiveRecord::Base
   # Tagging
   acts_as_taggable_on :include_in_saldo
 
+  # Bookings
+  has_one :booking, :as => :template
+
+  def build_booking(*params)
+    build(
+      :title          => self.title,
+      :amount         => self.total_amount,
+      :credit_account => self.credit_account,
+      :debit_account  => self.debit_account
+    )
+  end
+
   # Booking templates
   belongs_to :booking_template
 

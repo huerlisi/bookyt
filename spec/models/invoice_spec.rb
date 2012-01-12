@@ -32,4 +32,36 @@ describe Invoice do
   context "Bookings" do
     it { should have_many(:bookings) }
   end
+
+  context "line_items" do
+    it { should have_many(:line_items) }
+
+    subject { Factory.build(:invoice) }
+
+    it "should be empty for new instance" do
+      subject.line_items.should be_empty
+    end
+
+    it "should create one booking per line_item" do
+      subject.line_items << Factory.build(:banana)
+      subject.line_items << Factory.build(:vat)
+      puts "PRE-TEST"
+      puts subject.bookings.inspect
+      subject.save
+
+      subject.bookings.size.should == 2
+      puts "TEST"
+      puts subject.bookings.inspect
+    end
+
+    it "should build booking with value_date of invoice" do
+      subject.line_items << Factory.build(:banana)
+      subject.line_items << Factory.build(:contracting, :date => '2000-01-01')
+      subject.save
+
+      subject.bookings.each do |booking|
+        booking.value_date.should == subject.value_date
+      end
+    end
+  end
 end

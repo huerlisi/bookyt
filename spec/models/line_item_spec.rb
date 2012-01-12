@@ -6,6 +6,20 @@ describe LineItem do
   it { should belong_to :debit_account }
   it { should belong_to :credit_account }
 
+  context "bookings" do
+    it { should have_one :booking }
+
+    describe "#build_booking" do
+      let(:banana) { Factory.build(:banana) }
+
+      subject { banana.build_booking }
+      its(:title) { should == banana.title }
+      its(:amount) { should == banana.total_amount }
+      its(:credit_account) { should == banana.credit_account }
+      its(:debit_account) { should == banana.debit_account }
+    end
+  end
+
   context "amounts" do
     describe "blank attributes" do
       subject { LineItem.new }

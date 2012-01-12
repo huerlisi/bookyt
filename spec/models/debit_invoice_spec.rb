@@ -38,10 +38,11 @@ describe DebitInvoice do
 
     context "changes the state" do
       it "to 'booked' with an amount over 0" do
-        subject.bookings << Factory.create(:debit_invoice_booking)
-        subject.save
+        Factory.create(:debit_invoice_booking, :reference => subject)
 
-        subject.state.should eq('booked')
+        subject.bookings.reload
+        subject.bookings.count.should == 1
+        subject.balance.should > 0
       end
 
       it "to 'paid' with an amount equal 0" do
