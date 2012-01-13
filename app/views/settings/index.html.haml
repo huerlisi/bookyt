@@ -4,25 +4,25 @@
   %li#overview-invoicing
     = t_model(Invoice)
     %ul.overview-list.level-2
-      %li= link_to "VESR", vesr_settings_path
-      %li= link_to "Fälligkeiten"
+      %li= link_to t('bookyt.settings.vesr.title'), vesr_settings_path
+      %li= link_to t('bookyt.settings.due.title')
 
   %li#overview-contacts
     = t_model(User)
     %ul.overview-list.level-2
-      %li= link_to "Persönliche Einstellungen", current_user
-      %li= link_to "Benutzerverwaltung", users_path if current_user.role?(:admin)
-      %li= link_to "Mandant", current_tenant
+      %li= link_to t('bookyt.settings.user.title'), current_user
+      %li= link_to t('bookyt.settings.users.title'), users_path if current_user.role?(:admin)
+      %li= link_to t('bookyt.settings.tenant.title'), current_tenant
 
   %li#overview-accounting
-    = "Buchhaltung"
+    = t('bookyt.settings.book_keeping.title')
     %ul.overview-list.level-2
-      %li= link_to t('bookyt.main_navigation.account_types'), account_types_path
-      %li= link_to t_title(:index, BookingTemplate), booking_templates_path
-      %li= link_to t_title(:index, ChargeBookingTemplate), charge_booking_templates_path
-      %li= link_to t_title(:index, ChargeRate), charge_rates_path
+      %li= link_to t('bookyt.settings.account_types.title'), account_types_path
+      %li= link_to t('bookyt.settings.booking_templates.title'), booking_templates_path
+      %li= link_to t('bookyt.settings.charge_booking_templates.title'), charge_booking_templates_path
+      %li= link_to t('bookyt.settings.charge_rates.title'), charge_rates_path
 
   %li#overview-projects
     = t_model(Project)
     %ul.overview-list.level-2
-      %li= link_to "Projektstati", project_states_path
+      %li= link_to t('bookyt.settings.project_states.title'), project_states_path

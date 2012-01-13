@@ -10,10 +10,6 @@ SimpleNavigation::Configuration.run do |navigation|
   # Define the primary navigation
   navigation.items do |primary|
     # bookyt navigation
-    primary.item :overview, t('bookyt.main_navigation.overview'), root_path,
-                 :tooltip => t('bookyt.main_navigation.tooltip.overview'),
-                 :if => Proc.new { user_signed_in? }
-
     primary.item :contacts, t('bookyt.main_navigation.contacts'), people_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.contacts'),
                  :if => Proc.new { user_signed_in? } do |contacts|
@@ -78,9 +74,5 @@ SimpleNavigation::Configuration.run do |navigation|
 
     # Hack to get engine navigations included
     Bookyt::Engine.setup_navigation(self, primary)
-
-    primary.item :settings, t('bookyt.main_navigation.settings'), settings_path,
-                 :tooltip => t('bookyt.main_navigation.tooltip.settings'),
-                 :if => Proc.new { user_signed_in? }
   end
 end
