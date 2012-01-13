@@ -1,6 +1,11 @@
-.form-view
-  = render "form"
+%ul.tabs
+  %li.active= link_to t_model, '#tab-employee'
+  %li= link_to t_model(Salary), '#tab-salaries'
+  %li= link_to t_model(Invoice), '#tab-invoices'
+  %li= link_to t_model(Attachment), '#tab-attachments'
 
-= render 'show_salaries'
-= render 'show_invoices'
-= render 'show_attachments'
+.tab-content
+  #tab-employee.active= render "form"
+  #tab-salaries= render 'show_salaries'
+  #tab-invoices= render 'show_invoices'
+  #tab-attachments= render 'show_attachments'
