@@ -1,5 +1,9 @@
-.form-view
-  = render "form"
+%ul.tabs
+  %li.active= link_to t_model, '#tab-customer'
+  %li= link_to t_model(Invoice), '#tab-invoices'
+  %li= link_to t_model(Attachment), '#tab-attachments'
 
-= render 'show_invoices'
-= render 'show_attachments'
+.tab-content
+  #tab-customer.active= render "form"
+  #tab-invoices= render 'show_invoices'
+  #tab-attachments= render 'show_attachments'
