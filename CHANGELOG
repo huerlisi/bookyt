@@ -1,3 +1,62 @@
+1.1.0 (unreleased)
+=====
+New features:
+* Invoice search mentions filtered away invoices
+* Search for invoices takes state filter into account
+* Updating an invoice updates associated booking
+* Two fields for post office box and extended address in vcard
+  form
+* User can set his own language for the app
+* Allow specifying balance account when creating asset from
+  invoice
+* Support different earning accounts for invoices per position
+* Contact Options
+* Redirect to attachments list after new attachment creation
+* When a attachement is added without a name it should take the
+  file name
+* Hide "assets" section in credit invoice view if bookyt_stock
+  not enabled
+
+Bugs fixed:
+* Filterlink should reset pagination
+* rake task db:users:admin fails to save user
+* The PeopleControllers don't show the right people.
+* CanCan and inherited_resources has a problem with the collection.
+* "% of" line items produce wrong bookings in (debit) invoices.
+* Print a invoice doesn't work
+* Failed to allocate a customer to a "debitoren"-bill.
+
+1.0.0
+=====
+New features:
+
+* New attachment creation should use AJAX instead of showing
+  attachment view
+* PDF for Invoice opens in dedicated tab
+* Show a simple bookings list for every involved balance
+  account
+
+Bugs fixed:
+
+* Exception instead of validation error if salary created with no
+  amount
+* Delete attachment opens attachment instead of updating list
+* Attachments open twice
+* Image notice.png not found
+* Tenant view not working
+* Form Layout in Tenant broken
+* Form problems in User
+
+Plugins:
+
+* Daily cash up is factored out into new 'pos' plugin
+
+0.9.1
+=====
+Feature:
+
+* Invoice line items now support different quantities
+
 0.9.0
 =====
 Bugfixes:
