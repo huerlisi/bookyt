@@ -26,7 +26,7 @@ class BootstrapTopbarList < SimpleNavigation::Renderer::Base
     if skip_if_empty? && item_container.empty?
       ''
     else
-      content_tag(:ul, list_content, { :id => item_container.dom_id, :class => [item_container.dom_class, ul_class].flatten.compact.join(' ') })
+      content_tag(:ul, list_content, { :id => item_container.dom_id, :class => [item_container.dom_class, ul_class].flatten.compact.join(' '), 'data-dropdown' => 'dropdown' })
     end
   end
 

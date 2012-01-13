@@ -22,12 +22,10 @@
         .container-fluid
           = link_to root_path, :class => 'brand' do
             book<span id="logo-yt">yt</span>
-          %div{'data-dropdown' => 'dropdown'}
-            = render_navigation(:context => :main, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
-          = form_tag "/search", :method => :get do
+          = render_navigation(:context => :main, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
+          = form_tag "/search", :method => :get, :class => 'pull-right' do
             = text_field_tag "query", params[:query], :placeholder => "Suche"
-          .pull-right{'data-dropdown' => 'dropdown'}
-            = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
+          = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
     .container-fluid
       .sidebar
         = render_sidebars
