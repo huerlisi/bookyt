@@ -1,5 +1,16 @@
 1.1.0 (unreleased)
 =====
+We did a major restyling of bookyt. It now looks less cluttered and
+more to the point. The most frequently used functions are now
+reachable withing 2 clicks. Freetext search for invoices and contacts
+is available directly in the titlebar.
+
+Much more control on bookings is provided by the new invoice
+form interface. VESR setup and configuration has a new UI. Lots
+of work has been put into pixel-perfect invoice printing.
+
+Have fun with out best release up to now!
+
 New features:
 * Invoice search mentions filtered away invoices
 * Search for invoices takes state filter into account
