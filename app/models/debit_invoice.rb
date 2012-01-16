@@ -28,4 +28,13 @@ class DebitInvoice < Invoice
   def profit_account
     bookings.first.try(:debit_account)
   end
+
+  # Code
+  before_save :update_code
+  def update_code
+    code = value_date.strftime("%y%m")
+    code += "%04i" % id
+
+    self.code = code
+  end
 end
