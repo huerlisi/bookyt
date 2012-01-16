@@ -57,17 +57,18 @@ SimpleNavigation::Configuration.run do |navigation|
                  :tooltip => t('bookyt.main_navigation.tooltip.invoicing'),
                  :if => Proc.new { user_signed_in? },
                  :highlights_on => /\/(credit_|debit_)?invoices.*/ do |invoicing|
-      invoicing.item :invoices, t('bookyt.main_navigation.invoices'), invoices_path,
-                     :tooltip => t('bookyt.main_navigation.tooltip.invoices'),
-                     :highlights_on => /\/invoices$/
       invoicing.item :credit_invoices, t('bookyt.main_navigation.credit_invoices'), credit_invoices_path,
                      :highlights_on => /\/credit_invoices$/
       invoicing.item :new_credit_invoice, t('bookyt.main_navigation.new_credit_invoice'), new_credit_invoice_path,
                      :highlights_on => /\/credit_invoices\/new$/
+      invoicing.item :divider, "", :class => 'divider'
       invoicing.item :debit_invoices, t('bookyt.main_navigation.debit_invoices'), debit_invoices_path,
                      :highlights_on => /\/debit_invoices$/
       invoicing.item :new_debit_invoice, t('bookyt.main_navigation.new_debit_invoice'), new_debit_invoice_path,
                      :highlights_on => /\/debit_invoices\/new$/
+      invoicing.item :divider, "", :class => 'divider'
+      invoicing.item :new_esr_file, t('bookyt.main_navigation.new_esr_file'), new_esr_file_path
+      invoicing.item :esr_files, t('bookyt.main_navigation.esr_files'), esr_files_path
     end
 
     # Hack to get engine navigations included

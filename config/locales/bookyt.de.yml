@@ -347,6 +347,8 @@ de:
       new_debit_invoice:        Neue Debitoren Rechnung
       debit_invoices:           Debitoren
       invoices:                 Rechnungen
+      new_esr_file:             VESR verbuchen
+      esr_files:                VESR Journal
       settings:                 Einstellungen
       overview:                 Übersicht
       importer:                 Importer
