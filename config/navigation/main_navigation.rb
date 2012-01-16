@@ -68,8 +68,6 @@ SimpleNavigation::Configuration.run do |navigation|
                      :highlights_on => /\/debit_invoices$/
       invoicing.item :new_debit_invoice, t('bookyt.main_navigation.new_debit_invoice'), new_debit_invoice_path,
                      :highlights_on => /\/debit_invoices\/new$/
-      invoicing.item :new_customer, t('bookyt.main_navigation.new_customer'), new_customer_path,
-                     :tooltip => t('bookyt.main_navigation.tooltip.new_customer')
     end
 
     # Hack to get engine navigations included
