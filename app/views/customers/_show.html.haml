@@ -1,9 +1,9 @@
 %ul.tabs
-  %li.active= link_to t_model, '#tab-customer'
-  %li= link_to t_model(Invoice), '#tab-invoices'
-  %li= link_to t_model(Attachment), '#tab-attachments'
+  %li.active= link_to t_model, '#tab-contact'
+  %li= link_to t_title(:list, Invoice), '#tab-invoices'
+  %li= link_to t_title(:list, Attachment), '#tab-attachments'
 
 .tab-content
-  #tab-customer.active= render "form"
+  #tab-contact.active= render "form"
   #tab-invoices= render 'show_invoices'
   #tab-attachments= render 'show_attachments'

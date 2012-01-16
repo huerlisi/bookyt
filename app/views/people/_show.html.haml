@@ -1,9 +1,9 @@
 %ul.tabs
-  %li.active= link_to 'Kontakt', '#contact'
-  %li= link_to 'Rechnungen', '#invoic'
-  %li= link_to 'Dokumente', '#attachments'
+  %li.active= link_to t_model(Vcard), '#tab-contact'
+  %li= link_to t_title(:list, Invoice), '#tab-invoices'
+  %li= link_to t_title(:list, Attachment), '#tab-attachments'
 
 .tab-content
-  #contact.active= render "form"
-  #invoic= render 'show_invoices'
-  #attachments= render 'show_attachments'
+  #tab-contact.active= render "form"
+  #tab-invoices= render 'show_invoices'
+  #tab-attachments= render 'show_attachments'

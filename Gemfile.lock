@@ -140,7 +140,7 @@ GEM
       rails (~> 3.1)
       validates_timeliness
     has_scope (0.5.1)
-    has_vcards (0.12.3)
+    has_vcards (0.12.4)
     highline (1.6.9)
     hike (1.2.1)
     hpricot (0.8.5)

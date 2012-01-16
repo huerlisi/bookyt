@@ -227,6 +227,14 @@ de:
       written_off: Abgeschriebene Rechnung
       overdue:     Überfällige Rechnung
 
+  attachments:
+    list:
+      title:    Dokumente
+
+  invoices:
+    list:
+      title:    Rechnungen
+
   line_items:
     quantity:
       x:       x
