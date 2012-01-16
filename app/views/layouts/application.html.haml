@@ -19,7 +19,7 @@
   %body{:style => "padding-top: 60px"}
     .topbar
       .topbar-inner
-        .container-fluid
+        .container
           = link_to root_path, :class => 'brand' do
             book<span id="logo-yt">yt</span>
           = render_navigation(:context => :main, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
