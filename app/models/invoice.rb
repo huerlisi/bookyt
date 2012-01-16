@@ -30,14 +30,6 @@ class Invoice < ActiveRecord::Base
     end
   end
 
-  before_save :update_code
-  def update_code
-    code = value_date.strftime("%y%m")
-    code += "%04i" % id
-
-    self.code = code
-  end
-
   # Search
   # ======
   scope :by_text, lambda {|value|
