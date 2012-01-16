@@ -113,6 +113,9 @@ class Invoice < ActiveRecord::Base
       new_state = 'booked'
     end
 
+    # Guard as we don't only set new_state if some conditions match
+    return unless new_state
+
     self.state = new_state
     self.update_column(:state, new_state) if self.persisted?
   end
