@@ -2,10 +2,12 @@
   %li.active= link_to t_model, '#tab-contact'
   %li= link_to t_model(Employment), '#tab-employments'
   %li= link_to t_title(:list, Invoice), '#tab-invoices'
+  %li= link_to t_title(:list, Activity), '#tab-activities' if Bookyt::Engine.engines.include?('bookyt_projects')
   %li= link_to t_title(:list, Attachment), '#tab-attachments'
 
 .tab-content
   #tab-contact.active= render "form"
   #tab-employments= render 'show_employments'
   #tab-invoices= render 'show_invoices'
+  #tab-activities= render 'show_activities' if Bookyt::Engine.engines.include?('bookyt_projects')
   #tab-attachments= render 'show_attachments'
