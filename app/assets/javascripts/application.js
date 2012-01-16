@@ -162,8 +162,11 @@ function initializeBehaviours() {
 
   // twitter bootstrap
   $(function () {
-    $('.tabs').tabs()
-    $(".alert-message").alert()
+    $('.tabs').tabs();
+    $(".alert-message").alert();
+    $("*[rel=popover]").popover({
+      offset: 10
+    });
   })
 }
 
