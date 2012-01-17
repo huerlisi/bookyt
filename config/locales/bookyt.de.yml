@@ -133,7 +133,7 @@ de:
         balance_account: Bilanzkonto
         created_at:    Rechnungsdatum
         due_date:      Fälligkeit
-        value_date:    Vom
+        value_date:    Rechnungsdatum
         customer:      Kunde
         company:       Rechnungssteller
         text:          Rechnungstext
