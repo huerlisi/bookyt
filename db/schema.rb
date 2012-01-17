@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117071234) do
+ActiveRecord::Schema.define(:version => 20120117080313) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -46,13 +46,12 @@ ActiveRecord::Schema.define(:version => 20120117071234) do
 
   create_table "activities", :force => true do |t|
     t.date     "date"
-    t.datetime "duration_from"
-    t.datetime "duration_to"
     t.integer  "person_id"
     t.integer  "project_id"
     t.text     "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "duration",   :precision => 4, :scale => 2
   end
 
   create_table "addresses", :force => true do |t|
