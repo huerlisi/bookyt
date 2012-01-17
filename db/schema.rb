@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111230222702) do
+ActiveRecord::Schema.define(:version => 20120117071234) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20111230222702) do
     t.datetime "duration_to"
     t.integer  "person_id"
     t.integer  "project_id"
-    t.string   "comment"
+    t.text     "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -339,7 +339,7 @@ ActiveRecord::Schema.define(:version => 20111230222702) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
-    t.text     "comment"
+    t.text     "remarks"
     t.date     "duration_from"
     t.date     "duration_to"
     t.integer  "project_state_id"
