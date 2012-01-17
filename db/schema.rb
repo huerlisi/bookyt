@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117080313) do
+ActiveRecord::Schema.define(:version => 20120117122047) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -368,6 +368,19 @@ ActiveRecord::Schema.define(:version => 20120117080313) do
 
   add_index "roles_users", ["role_id"], :name => "index_roles_users_on_role_id"
   add_index "roles_users", ["user_id"], :name => "index_roles_users_on_user_id"
+
+  create_table "salary_booking_templates_salary_templates", :id => false, :force => true do |t|
+    t.integer "salary_template_id"
+    t.integer "salary_booking_template_id"
+  end
+
+  create_table "salary_templates", :force => true do |t|
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.text     "remarks"
+  end
 
   create_table "stocks", :force => true do |t|
     t.string   "title"
