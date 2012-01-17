@@ -28,6 +28,7 @@ de:
     title:            Titel
     amount:           Betrag
     comments:         Bemerkungen
+    remarks:          Bemerkungen
     state:            Status
     date:             Datum
     duration:         Dauer
