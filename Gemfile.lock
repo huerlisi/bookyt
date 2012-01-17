@@ -63,7 +63,7 @@ GEM
     bookyt_projects (0.13.0)
       rails (~> 3.1.0)
       recurrence
-    bookyt_salary (0.7.0)
+    bookyt_salary (0.7.1)
       rails (~> 3.1.0)
       recurrence
     bookyt_stock (0.4.1)
@@ -154,7 +154,7 @@ GEM
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
-    json (1.6.4)
+    json (1.6.5)
     less (2.0.8)
       commonjs (~> 0.2.0)
       therubyracer (~> 0.9.9)
