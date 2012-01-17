@@ -58,7 +58,7 @@ class LineItem < ActiveRecord::Base
     self.debit_account  ||= value.debit_account
     if value.amount.match(/%/)
       self.quantity = '%'
-      self.times    = value.amount
+      self.times    = value.amount.delete('%')
       self.price    = invoice.amount
     else
       self.quantity = 'x'
