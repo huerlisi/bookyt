@@ -2,7 +2,7 @@
 
 %tr[booking_template]
   %td
-    = link_to "%s (%s)" % [booking_template.title, booking_template.code], item_action.call(booking_template)
+    = link_to "%s (%s)" % [booking_template.title, booking_template.code], item_action.call(booking_template), 'data-href-container' => 'tr'
     - if booking_template.comments.present?
       %hr{:style => "height: 1px; margin: 0"}/
       %i= booking_template.comments
