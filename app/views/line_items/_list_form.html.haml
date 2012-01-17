@@ -1,0 +1,9 @@
+= f.inputs t('title.line_items') do
+  %table#line_items
+    %thead
+      = render 'line_items/list_header', :invoice => invoice
+    %tbody
+      = f.fields_for :line_items do |line_item|
+        = render 'line_items/form', :line_item => line_item
+    %tfoot
+      = render 'line_items/list_footer', :total_amount => invoice.amount
