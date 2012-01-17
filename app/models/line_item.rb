@@ -52,9 +52,19 @@ class LineItem < ActiveRecord::Base
   def booking_template=(value)
     self[:booking_template] = value
 
-    self.price ||= value.amount
-    self.title ||= value.title
-    self.code  ||= value.code
+    self.title          ||= value.title
+    self.code           ||= value.code
+    self.credit_account ||= value.credit_account
+    self.debit_account  ||= value.debit_account
+    if value.amount.match(/%/)
+      self.quantity = '%'
+      self.times    = value.amount
+      self.price    = invoice.amount
+    else
+      self.quantity = 'x'
+      self.times    = 1
+      self.price    = value.amount
+    end
   end
 
   def booking_template_id=(value)
