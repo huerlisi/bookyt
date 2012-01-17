@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117122047) do
+ActiveRecord::Schema.define(:version => 20120117225649) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -262,8 +262,8 @@ ActiveRecord::Schema.define(:version => 20120117122047) do
   add_index "invoices", ["value_date"], :name => "index_invoices_on_value_date"
 
   create_table "line_items", :force => true do |t|
-    t.decimal  "times",             :precision => 10, :scale => 2
-    t.decimal  "price",             :precision => 10, :scale => 2
+    t.decimal  "times",               :precision => 10, :scale => 2
+    t.decimal  "price",               :precision => 10, :scale => 2
     t.string   "code"
     t.string   "title"
     t.string   "description"
@@ -274,12 +274,14 @@ ActiveRecord::Schema.define(:version => 20120117122047) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date"
-    t.string   "quantity",                                         :default => "x"
+    t.string   "quantity",                                           :default => "x"
     t.string   "vat_rate_code"
     t.integer  "credit_account_id"
     t.integer  "debit_account_id"
+    t.integer  "booking_template_id"
   end
 
+  add_index "line_items", ["booking_template_id"], :name => "index_line_items_on_booking_template_id"
   add_index "line_items", ["credit_account_id"], :name => "index_line_items_on_credit_account_id"
   add_index "line_items", ["debit_account_id"], :name => "index_line_items_on_debit_account_id"
   add_index "line_items", ["invoice_id"], :name => "index_line_items_on_invoice_id"

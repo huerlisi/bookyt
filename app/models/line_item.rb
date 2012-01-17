@@ -49,8 +49,8 @@ class LineItem < ActiveRecord::Base
   # Booking templates
   belongs_to :booking_template
 
-  def booking_template=(value)
-    self[:booking_template] = value
+  def set_booking_template(value)
+    self.booking_template = value
 
     self.title          ||= value.title
     self.code           ||= value.code
@@ -65,10 +65,5 @@ class LineItem < ActiveRecord::Base
       self.times    = 1
       self.price    = value.amount
     end
-  end
-
-  def booking_template_id=(value)
-    self[:booking_template_id] = value
-    self.booking_template = BookingTemplate.find(value)
   end
 end
