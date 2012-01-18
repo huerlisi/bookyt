@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117225649) do
+ActiveRecord::Schema.define(:version => 20120118141059) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -51,7 +51,8 @@ ActiveRecord::Schema.define(:version => 20120117225649) do
     t.text     "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "duration",   :precision => 4, :scale => 2
+    t.decimal  "duration",    :precision => 4, :scale => 2
+    t.integer  "work_day_id"
   end
 
   create_table "addresses", :force => true do |t|
@@ -376,6 +377,18 @@ ActiveRecord::Schema.define(:version => 20120117225649) do
     t.integer "salary_booking_template_id"
   end
 
+  create_table "salary_items", :force => true do |t|
+    t.integer  "salary_booking_template_id"
+    t.integer  "salary_template_id"
+    t.decimal  "times",                      :precision => 10, :scale => 2
+    t.decimal  "price",                      :precision => 10, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "salary_items", ["salary_booking_template_id"], :name => "index_salary_items_on_salary_booking_template_id"
+  add_index "salary_items", ["salary_template_id"], :name => "index_salary_items_on_salary_template_id"
+
   create_table "salary_templates", :force => true do |t|
     t.integer  "person_id"
     t.datetime "created_at"
@@ -455,5 +468,13 @@ ActiveRecord::Schema.define(:version => 20120117225649) do
   end
 
   add_index "vcards", ["object_id", "object_type"], :name => "index_vcards_on_object_id_and_object_type"
+
+  create_table "work_days", :force => true do |t|
+    t.integer  "person_id"
+    t.date     "date"
+    t.decimal  "daily_workload", :precision => 10, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
