@@ -63,10 +63,10 @@ GEM
     bookyt_projects (0.13.0)
       rails (~> 3.1.0)
       recurrence
-    bookyt_salary (0.7.1)
+    bookyt_salary (0.8.0)
       rails (~> 3.1.0)
       recurrence
-    bookyt_stock (0.4.1)
+    bookyt_stock (0.4.2)
     builder (3.0.0)
     cancan (1.6.7)
     cap-recipes (0.3.36)
