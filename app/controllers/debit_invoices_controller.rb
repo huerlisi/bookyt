@@ -4,11 +4,12 @@ class DebitInvoicesController < InvoicesController
   # Actions
   def new
     # Allow pre-seeding some parameters
+    month_name = t('date.month_names')[Date.today.month]
     invoice_params = {
       :company_id => current_tenant.company.id,
       :value_date => Date.today,
       :due_date   => Date.today.in(30.days).to_date,
-      :title      => "Rechnung " + Date.today.strftime('%B')
+      :title      => "Rechnung " + month_name
     }
 
     # Set default parameters
