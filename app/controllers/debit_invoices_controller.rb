@@ -35,9 +35,6 @@ class DebitInvoicesController < InvoicesController
       )
     end
 
-    # Prebuild an empty attachment instance
-    @debit_invoice.attachments.build
-
     new!
   end
 

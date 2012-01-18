@@ -21,11 +21,5 @@
       .span8= f.input :duration_from, :as => :date_field
       .span8= f.input :duration_to, :as => :date_field
 
-  = f.inputs t_title(:list, Attachment) do
-    = f.semantic_fields_for :attachments do |a|
-      .row
-        .span8= a.input :title
-        .span8= a.input :file, :as => :file
-
   = f.buttons do
     = f.commit_button

@@ -24,9 +24,6 @@ class CreditInvoicesController < InvoicesController
       :debit_account  => CreditInvoice.default_debit_account
     )
 
-    # Prebuild an empty attachment instance
-    @credit_invoice.attachments.build
-
     new!
   end
 
