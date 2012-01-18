@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117225649) do
+ActiveRecord::Schema.define(:version => 20120118124603) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -375,6 +375,18 @@ ActiveRecord::Schema.define(:version => 20120117225649) do
     t.integer "salary_template_id"
     t.integer "salary_booking_template_id"
   end
+
+  create_table "salary_items", :force => true do |t|
+    t.integer  "salary_booking_template_id"
+    t.integer  "salary_template_id"
+    t.decimal  "times",                      :precision => 10, :scale => 2
+    t.decimal  "price",                      :precision => 10, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "salary_items", ["salary_booking_template_id"], :name => "index_salary_items_on_salary_booking_template_id"
+  add_index "salary_items", ["salary_template_id"], :name => "index_salary_items_on_salary_template_id"
 
   create_table "salary_templates", :force => true do |t|
     t.integer  "person_id"
