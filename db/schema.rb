@@ -51,7 +51,8 @@ ActiveRecord::Schema.define(:version => 20120118155749) do
     t.text     "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "duration",   :precision => 4, :scale => 2
+    t.decimal  "duration",    :precision => 4, :scale => 2
+    t.integer  "work_day_id"
   end
 
   create_table "addresses", :force => true do |t|
@@ -469,5 +470,13 @@ ActiveRecord::Schema.define(:version => 20120118155749) do
   end
 
   add_index "vcards", ["object_id", "object_type"], :name => "index_vcards_on_object_id_and_object_type"
+
+  create_table "work_days", :force => true do |t|
+    t.integer  "person_id"
+    t.date     "date"
+    t.decimal  "daily_workload", :precision => 10, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
