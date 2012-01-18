@@ -109,7 +109,7 @@ function handleLineItemChange(event) {
   }
 }
 
-function AddCalculateTotalAmountBehaviour() {
+function addCalculateTotalAmountBehaviour() {
   $("#line_items").find(":input[name$='[times]'], :input[name$='[price]']").live('keyup', handleLineItemChange);
 }
 
@@ -158,7 +158,7 @@ function initializeBehaviours() {
   addDirtyForm();
   addNestedFormBehaviour();
 
-  AddCalculateTotalAmountBehaviour();
+  addCalculateTotalAmountBehaviour();
 
   // twitter bootstrap
   $(function () {
