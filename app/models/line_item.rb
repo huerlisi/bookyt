@@ -59,7 +59,8 @@ class LineItem < ActiveRecord::Base
     if value.amount.match(/%/)
       self.quantity = '%'
       self.times    = value.amount.delete('%')
-      self.price    = invoice.amount
+      # TODO: hack
+      self.price    = invoice.line_items.first.total_amount
     else
       self.quantity = 'x'
       self.times    = 1
