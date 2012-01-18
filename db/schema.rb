@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120118155749) do
+ActiveRecord::Schema.define(:version => 20120118204423) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20120118155749) do
     t.boolean  "for_ktg"
     t.boolean  "for_deduction_at_source"
     t.string   "salary_declaration_code"
+    t.integer  "position"
   end
 
   add_index "booking_templates", ["credit_account_id"], :name => "index_booking_templates_on_credit_account_id"
@@ -280,6 +281,7 @@ ActiveRecord::Schema.define(:version => 20120118155749) do
     t.integer  "credit_account_id"
     t.integer  "debit_account_id"
     t.integer  "booking_template_id"
+    t.integer  "position"
   end
 
   add_index "line_items", ["booking_template_id"], :name => "index_line_items_on_booking_template_id"
