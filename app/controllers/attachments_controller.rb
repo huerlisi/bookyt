@@ -1,5 +1,8 @@
 class AttachmentsController < AuthorizedController
   belongs_to :invoice, :polymorphic => true, :optional => true
+  belongs_to :debit_invoice, :polymorphic => true, :optional => true
+  belongs_to :credit_invoice, :polymorphic => true, :optional => true
+  belongs_to :salary, :polymorphic => true, :optional => true
   belongs_to :employee, :polymorphic => true, :optional => true
   belongs_to :company, :polymorphic => true, :optional => true
   belongs_to :customer, :polymorphic => true, :optional => true
