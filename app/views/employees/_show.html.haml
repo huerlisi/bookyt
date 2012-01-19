@@ -1,6 +1,6 @@
 %ul.tabs
   %li.active= link_to t_model, '#tab-contact'
-  %li= link_to t_model(Salary), '#tab-salaries'
+  %li= link_to t_model(Salary), '#tab-salaries' if Bookyt::Engine.engines.include?('bookyt_salary')
   %li= link_to t_title(:list, Invoice), '#tab-invoices'
   %li= link_to t_title(:list, Activity), '#tab-activities' if Bookyt::Engine.engines.include?('bookyt_projects')
   %li= link_to t_title(:timesheet, Activity), '#tab-timesheet' if Bookyt::Engine.engines.include?('bookyt_projects')
@@ -8,7 +8,7 @@
 
 .tab-content
   #tab-contact.active= render "form"
-  #tab-salaries= render 'show_salaries'
+  #tab-salaries= render 'show_salaries' if Bookyt::Engine.engines.include?('bookyt_salary')
   #tab-invoices= render 'show_invoices'
   #tab-activities= render 'show_activities' if Bookyt::Engine.engines.include?('bookyt_projects')
   #tab-timesheet= render 'show_timesheet' if Bookyt::Engine.engines.include?('bookyt_projects')
