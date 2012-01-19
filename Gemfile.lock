@@ -13,9 +13,9 @@ GIT
 
 GIT
   remote: https://github.com/huerlisi/thinking-sphinx.git
-  revision: dfe8913410553c8f63958fa626686a4cdf541617
+  revision: 4ddd5f26c44b0a97cb9a8f2d173a76834d764752
   specs:
-    thinking-sphinx (2.0.10)
+    thinking-sphinx (2.0.11)
       activerecord (>= 3.0.3)
       builder (>= 2.1.2)
       riddle (>= 1.5.0)
