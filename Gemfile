@@ -135,6 +135,9 @@ gem 'vesr'
 # Search
 gem 'thinking-sphinx', :git => 'https://github.com/huerlisi/thinking-sphinx.git'
 
+# Tagging
+gem 'acts-as-taggable-on'
+
 # Plugins
 # =======
 # Uncomment to enable plugins
