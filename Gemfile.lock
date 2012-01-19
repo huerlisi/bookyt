@@ -60,10 +60,10 @@ GEM
       ZenTest (= 4.5)
     bcrypt-ruby (3.0.1)
     bookyt_pos (0.2.0)
-    bookyt_projects (0.18.1)
+    bookyt_projects (0.18.2)
       rails (~> 3.1.0)
       recurrence
-    bookyt_salary (0.10.1)
+    bookyt_salary (0.10.2)
       rails (~> 3.1.0)
       recurrence
     bookyt_stock (0.4.2)
@@ -142,7 +142,7 @@ GEM
       rails (~> 3.1)
       validates_timeliness
     has_scope (0.5.1)
-    has_vcards (0.12.4)
+    has_vcards (0.12.6)
     highline (1.6.9)
     hike (1.2.1)
     hpricot (0.8.5)

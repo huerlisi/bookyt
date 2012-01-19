@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120118204423) do
+ActiveRecord::Schema.define(:version => 20120119093124) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -54,6 +54,11 @@ ActiveRecord::Schema.define(:version => 20120118204423) do
     t.decimal  "duration",    :precision => 4, :scale => 2
     t.integer  "work_day_id"
   end
+
+  add_index "activities", ["date"], :name => "index_activities_on_date"
+  add_index "activities", ["person_id"], :name => "index_activities_on_person_id"
+  add_index "activities", ["project_id"], :name => "index_activities_on_project_id"
+  add_index "activities", ["work_day_id"], :name => "index_activities_on_work_day_id"
 
   create_table "addresses", :force => true do |t|
     t.string   "post_office_box",  :limit => 50
@@ -116,8 +121,10 @@ ActiveRecord::Schema.define(:version => 20120118204423) do
     t.integer  "position"
   end
 
+  add_index "booking_templates", ["code"], :name => "index_booking_templates_on_code"
   add_index "booking_templates", ["credit_account_id"], :name => "index_booking_templates_on_credit_account_id"
   add_index "booking_templates", ["debit_account_id"], :name => "index_booking_templates_on_debit_account_id"
+  add_index "booking_templates", ["position"], :name => "index_booking_templates_on_position"
   add_index "booking_templates", ["type"], :name => "index_booking_templates_on_type"
 
   create_table "bookings", :force => true do |t|
@@ -158,6 +165,9 @@ ActiveRecord::Schema.define(:version => 20120118204423) do
     t.boolean  "relative"
   end
 
+  add_index "charge_rates", ["code"], :name => "index_charge_rates_on_code"
+  add_index "charge_rates", ["duration_from"], :name => "index_charge_rates_on_duration_from"
+  add_index "charge_rates", ["duration_to"], :name => "index_charge_rates_on_duration_to"
   add_index "charge_rates", ["person_id"], :name => "index_charge_rates_on_person_id"
 
   create_table "civil_statuses", :force => true do |t|
@@ -201,6 +211,8 @@ ActiveRecord::Schema.define(:version => 20120118204423) do
     t.decimal  "night_premium",    :precision => 10, :scale => 0
   end
 
+  add_index "employments", ["duration_from"], :name => "index_employments_on_duration_from"
+  add_index "employments", ["duration_to"], :name => "index_employments_on_duration_to"
   add_index "employments", ["employee_id"], :name => "index_employments_on_employee_id"
   add_index "employments", ["employer_id"], :name => "index_employments_on_employer_id"
 
@@ -285,10 +297,14 @@ ActiveRecord::Schema.define(:version => 20120118204423) do
   end
 
   add_index "line_items", ["booking_template_id"], :name => "index_line_items_on_booking_template_id"
+  add_index "line_items", ["code"], :name => "index_line_items_on_code"
   add_index "line_items", ["credit_account_id"], :name => "index_line_items_on_credit_account_id"
+  add_index "line_items", ["date"], :name => "index_line_items_on_date"
   add_index "line_items", ["debit_account_id"], :name => "index_line_items_on_debit_account_id"
   add_index "line_items", ["invoice_id"], :name => "index_line_items_on_invoice_id"
   add_index "line_items", ["item_id", "item_type"], :name => "index_line_items_on_item_id_and_item_type"
+  add_index "line_items", ["position"], :name => "index_line_items_on_position"
+  add_index "line_items", ["type"], :name => "index_line_items_on_type"
 
   create_table "notes", :force => true do |t|
     t.text     "content"
@@ -298,6 +314,9 @@ ActiveRecord::Schema.define(:version => 20120118204423) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "notes", ["note_of_sth_id", "note_of_sth_type"], :name => "index_notes_on_note_of_sth_id_and_note_of_sth_type"
+  add_index "notes", ["user_id"], :name => "index_notes_on_user_id"
 
   create_table "people", :force => true do |t|
     t.datetime "created_at"
@@ -316,6 +335,8 @@ ActiveRecord::Schema.define(:version => 20120118204423) do
     t.string   "clearing"
   end
 
+  add_index "people", ["civil_status_id"], :name => "index_people_on_civil_status_id"
+  add_index "people", ["religion_id"], :name => "index_people_on_religion_id"
   add_index "people", ["type"], :name => "index_people_on_type"
 
   create_table "phone_numbers", :force => true do |t|
@@ -351,6 +372,9 @@ ActiveRecord::Schema.define(:version => 20120118204423) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "projects", ["client_id"], :name => "index_projects_on_client_id"
+  add_index "projects", ["project_state_id"], :name => "index_projects_on_project_state_id"
 
   create_table "religions", :force => true do |t|
     t.string   "name"
@@ -400,6 +424,8 @@ ActiveRecord::Schema.define(:version => 20120118204423) do
     t.string   "title"
     t.text     "remarks"
   end
+
+  add_index "salary_templates", ["person_id"], :name => "index_salary_templates_on_person_id"
 
   create_table "stocks", :force => true do |t|
     t.string   "title"
@@ -451,6 +477,7 @@ ActiveRecord::Schema.define(:version => 20120118204423) do
     t.string   "authentication_token"
   end
 
+  add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["person_id"], :name => "index_users_on_person_id"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
@@ -471,6 +498,7 @@ ActiveRecord::Schema.define(:version => 20120118204423) do
     t.datetime "updated_at"
   end
 
+  add_index "vcards", ["active"], :name => "index_vcards_on_active"
   add_index "vcards", ["object_id", "object_type"], :name => "index_vcards_on_object_id_and_object_type"
 
   create_table "work_days", :force => true do |t|
@@ -480,5 +508,8 @@ ActiveRecord::Schema.define(:version => 20120118204423) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "work_days", ["date"], :name => "index_work_days_on_date"
+  add_index "work_days", ["person_id"], :name => "index_work_days_on_person_id"
 
 end
