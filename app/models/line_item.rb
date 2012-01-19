@@ -2,6 +2,9 @@ class LineItem < ActiveRecord::Base
   # Aspects
   include ApplicationHelper
 
+  # Ordering
+  default_scope order(:position)
+
   # Associations
   belongs_to :invoice, :touch => true, :inverse_of => :line_items
   belongs_to :debit_account, :class_name => 'Account'
@@ -56,10 +59,13 @@ class LineItem < ActiveRecord::Base
     self.code           ||= value.code
     self.credit_account ||= value.credit_account
     self.debit_account  ||= value.debit_account
+    self.position       ||= value.position
+
     if value.amount.match(/%/)
       self.quantity = '%'
       self.times    = value.amount.delete('%')
-      self.price    = invoice.amount
+      # TODO: hack
+      self.price    = invoice.line_items.first.total_amount
     else
       self.quantity = 'x'
       self.times    = 1

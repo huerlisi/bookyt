@@ -37,6 +37,9 @@ class User < ActiveRecord::Base
     person.try(:employers).try(:first)
   end
 
+  # Locale
+  attr_accessible :locale
+
   # Helpers
   def to_s
     person.try(:to_s) || ""
