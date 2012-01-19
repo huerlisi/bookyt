@@ -62,6 +62,10 @@ class Person < ActiveRecord::Base
   belongs_to :religion
   has_many :notes, :as => :note_of_sth
 
+  # bookyt_projects
+  # ===============
+  include BookytProjects::Person
+
   # Sphinx Search
   # =============
   define_index do

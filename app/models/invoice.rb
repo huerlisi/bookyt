@@ -180,7 +180,12 @@ class Invoice < ActiveRecord::Base
     "#{ident} - #{customer.vcard.full_name} #{title}"
   end
 
+  # bookyt_stock
+  # ============
+  include BookytStock::Invoice
+
   # Sphinx Search
+  # =============
   define_index do
     # Delta index
     set_property :delta => true
