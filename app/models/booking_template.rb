@@ -72,6 +72,7 @@ class BookingTemplate < ActiveRecord::Base
 
     booking_amount = booking_amount.try(:round, 2)
     booking_params['amount'] = booking_amount
+    booking_params['include_in_saldo'] = self.include_in_saldo
 
     # Override by passed in parameters
     HashWithIndifferentAccess.new(booking_params.merge!(params))
@@ -93,6 +94,9 @@ class BookingTemplate < ActiveRecord::Base
   def self.create_booking(code, params = {})
     find_by_code(code).try(:create_booking, params)
   end
+
+  # Tagging
+  acts_as_taggable_on :include_in_saldo
 
   # Importer
   def self.import(struct)

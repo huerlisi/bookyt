@@ -10,5 +10,6 @@
   %td.action_links
     = line_item.hidden_field :position
     = line_item.hidden_field :booking_template_id
+    = line_item.hidden_field :include_in_saldo_list
     = line_item.hidden_field :_destroy
     = link_to t_action(:delete), '#', :class => 'icon-delete-text delete-nested-form-item'

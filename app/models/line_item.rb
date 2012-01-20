@@ -49,6 +49,9 @@ class LineItem < ActiveRecord::Base
   # Item templates
   belongs_to :item, :polymorphic => true
 
+  # Tagging
+  acts_as_taggable_on :include_in_saldo
+
   # Booking templates
   belongs_to :booking_template
 
@@ -60,12 +63,13 @@ class LineItem < ActiveRecord::Base
     self.credit_account ||= value.credit_account
     self.debit_account  ||= value.debit_account
     self.position       ||= value.position
+    self.include_in_saldo_list = value.include_in_saldo_list
 
     if value.amount.match(/%/)
       self.quantity = '%'
       self.times    = value.amount.delete('%')
       # TODO: hack
-      self.price    = invoice.line_items.first.total_amount
+      self.price    = invoice.line_items.select{|item| item.include_in_saldo_list.include?(value.amount_relates_to)}.sum(&:total_amount)
     else
       self.quantity = 'x'
       self.times    = 1

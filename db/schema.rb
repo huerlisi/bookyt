@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120119222109) do
+ActiveRecord::Schema.define(:version => 20120119230824) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -112,12 +112,6 @@ ActiveRecord::Schema.define(:version => 20120119222109) do
     t.string   "amount_relates_to"
     t.string   "type"
     t.string   "charge_rate_code"
-    t.boolean  "for_gross_income"
-    t.boolean  "for_ahv"
-    t.boolean  "for_uvg"
-    t.boolean  "for_uvgz"
-    t.boolean  "for_ktg"
-    t.boolean  "for_deduction_at_source"
     t.string   "salary_declaration_code"
     t.integer  "position"
   end
