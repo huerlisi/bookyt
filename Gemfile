@@ -138,6 +138,11 @@ gem 'thinking-sphinx', :git => 'https://github.com/huerlisi/thinking-sphinx.git'
 # Tagging
 gem 'acts-as-taggable-on'
 
+# Tracking of demo
+group :demo do
+  gem 'rack-google_analytics'
+end
+
 # Plugins
 # =======
 # Uncomment to enable plugins
