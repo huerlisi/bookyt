@@ -87,7 +87,7 @@ gem 'simple-navigation'
 gem 'lyb_sidebar'
 gem 'twitter-bootstrap-rails'
 gem 'formtastic-bootstrap'
-gem 'bootstrap-will_paginate', :git => 'https://github.com/greggersh/bootstrap-will_paginate.git'
+gem 'bootstrap-will_paginate'
 
 # Form framework
 gem 'formtastic'
