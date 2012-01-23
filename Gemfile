@@ -18,7 +18,7 @@ group :assets do
   # gem 'coffee-rails', "~> 3.1.0.rc"
   gem 'therubyracer'
   gem 'uglifier'
-  gem 'compass', '0.12.alpha'
+  gem 'compass', '~> 0.12.alpha'
   gem 'fancy-buttons'
 end
 

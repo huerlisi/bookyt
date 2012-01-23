@@ -101,7 +101,7 @@ GEM
     columnize (0.3.6)
     commonjs (0.2.0)
       therubyracer (~> 0.9.9)
-    compass (0.12.alpha.0)
+    compass (0.12.alpha.4)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
@@ -327,7 +327,7 @@ DEPENDENCIES
   capones_recipes
   capybara
   carrierwave
-  compass (= 0.12.alpha)
+  compass (~> 0.12.alpha)
   csv-mapper
   database_cleaner
   devise
