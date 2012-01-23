@@ -5,7 +5,7 @@
 = paginated_section @bookings, :params => url_params.merge(:query => params[:query]) do
   %table#booking_list.list.booking_list
     = render 'accounts/booking_list_header'
-    - @saldo = @account.saldo(@bookings.first, false)
+    - @saldo = @account.saldo(@carry_booking, false)
 
     = render 'accounts/carry_booking' unless @saldo == 0
 

@@ -18,6 +18,7 @@ class AccountsController < AuthorizedController
       @bookings = @bookings.where(:debit_account_id => @account.id)
     end
     @bookings = @bookings.paginate(:page => params['page'], :per_page => params['per_page'], :order => 'value_date, id')
+    @carry_booking = @bookings.all.first
 
     show!
   end
