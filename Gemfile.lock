@@ -5,6 +5,13 @@ GIT
     pdfkit (0.5.2)
 
 GIT
+  remote: https://github.com/greggersh/bootstrap-will_paginate.git
+  revision: da548d874e0314b0ac1c0d033158c61902de92dd
+  specs:
+    bootstrap-will_paginate (0.0.3)
+      will_paginate
+
+GIT
   remote: https://github.com/huerlisi/thinking-sphinx.git
   revision: 4ddd5f26c44b0a97cb9a8f2d173a76834d764752
   specs:
@@ -315,6 +322,7 @@ DEPENDENCIES
   bookyt_projects
   bookyt_salary
   bookyt_stock
+  bootstrap-will_paginate!
   cancan
   capones_recipes
   capybara
