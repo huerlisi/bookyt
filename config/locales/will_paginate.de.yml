@@ -1,0 +1,5 @@
+de:
+  will_paginate:
+    next_label: Weiter →
+    page_gap: ! '&hellip;'
+    previous_label: ← Vorige
