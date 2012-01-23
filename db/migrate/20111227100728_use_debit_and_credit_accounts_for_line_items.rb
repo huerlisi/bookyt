@@ -6,7 +6,7 @@ class UseDebitAndCreditAccountsForLineItems < ActiveRecord::Migration
     add_column :line_items, :debit_account_id, :integer
     add_index :line_items, :debit_account_id
 
-    LineItem.all.each do |line_item|
+    LineItem.find_each do |line_item|
       invoice = line_item.invoice
       case invoice.class.name
       when "DebitInvoice"
