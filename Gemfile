@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 
 # Rails
 # =====
-gem 'rails', "~> 3.1.0"
+gem 'rails', "~> 3.2.0"
 
 # Database
 gem 'mysql2'
@@ -92,7 +92,7 @@ gem 'formtastic-bootstrap'
 gem 'formtastic'
 
 # CRUD
-gem 'will_paginate', :git => 'git://github.com/huerlisi/will_paginate.git', :branch => 'rails3'
+gem 'will_paginate'
 gem 'inherited_resources'
 gem 'has_scope'
 gem 'i18n_rails_helpers'
