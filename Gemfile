@@ -97,6 +97,7 @@ gem 'will_paginate'
 gem 'inherited_resources'
 gem 'has_scope'
 gem 'i18n_rails_helpers'
+gem 'responders'
 
 # Access Control
 gem 'devise'

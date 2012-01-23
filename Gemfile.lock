@@ -355,6 +355,7 @@ DEPENDENCIES
   rcov
   rdoc
   remotipart
+  responders
   rspec-instafail
   rspec-rails
   ruby-debug
