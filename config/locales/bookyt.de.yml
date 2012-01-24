@@ -64,8 +64,8 @@ de:
         file:           Dateiname
         code:           Verwenden als
         code_enum:
-          'Prawn::LetterDocument': Briefvorlage
-          'Prawn::DebitInvoice':   Rechnungsvorlage
+          LetterDocument:       Briefvorlage
+          DebitInvoiceDocument: Rechnungsvorlage
       booking_template:
         value_date:        Valutadatum
         credit_account:    Soll
