@@ -5,7 +5,7 @@ after "deploy:finalize_update", "bookyt:symlink"
 
 namespace :bookyt do
   desc "Prepare directories"
-  task :prepare_config do
+  task :prepare_config, :roles => :app do
     run "mkdir -p #{shared_path}/config/initializers"
   end
 
@@ -22,7 +22,7 @@ namespace :bookyt do
   end
 
   desc "Make symlink for shared bookyt initializer"
-  task :symlink do
-    run "ln -nfs #{shared_path}/config/initializers/bookyt.rb #{release_path}/config/initializers/bookyt.rb"
+  task :symlink, :roles => :app do
+    run "ln -nfs #{shared_path}/config/initializers/bookyt.rb #{latest_release}/config/initializers/bookyt.rb"
   end
 end
