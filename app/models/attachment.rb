@@ -22,6 +22,22 @@ class Attachment < ActiveRecord::Base
     end
   end
 
+  # Lookup attachment for class
+  #
+  # Returns attachment with code set to the name of the klass. Walks the inheritance
+  # tree upwards to look for defaults.
+  def self.for_class(klass)
+    if attachment = find_by_code(klass.name)
+     return attachment
+   end
+
+    while klass = klass.superclass do
+      if attachment = find_by_code(klass.name)
+        return attachment
+      end
+    end
+  end
+
   before_save :create_title
   private
   def create_title
