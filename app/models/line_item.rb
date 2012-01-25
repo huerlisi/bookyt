@@ -15,16 +15,42 @@ class LineItem < ActiveRecord::Base
   validate :price, :presence => true, :numericality => true
   validate :title, :presence => true
 
-  # Attributes
-  def total_amount
-    return 0 if times.blank? or price.blank?
-    if quantity == "%"
-      effective_times = times / 100
+  # String
+  def to_s
+    if quantity == "saldo_of"
+      "%s: %s (%s %s)" % [self.title, self.total_amount, self.quantity, self.reference_code]
     else
-      effective_times = times
+      "%s: %s (%s %s %s)" % [self.title, self.total_amount, self.times, self.quantity, self.effective_price]
+    end
+  end
+
+  # Attributes
+  def effective_price
+    return price unless price.nil?
+
+    if reference_code
+      # TODO: matches all to many items when reference_code is null
+      price_line_item = invoice.line_items.select{|item| item.code == reference_code}.first
+      return price_line_item.try(:total_amount) || 0
+    else
+      return 0
+    end
+  end
+
+  def total_amount
+    if quantity == "saldo_of"
+      included = invoice.line_items.select{|item|
+        item.include_in_saldo_list.include?(reference_code)
+      }
+      return included.sum(&:total_amount)
     end
 
-    effective_times * price.to_f
+    return 0 if times.blank?
+    if quantity == "%"
+      return times / 100 * effective_price
+    else
+      return times * effective_price
+    end
   end
 
   def times_to_s
@@ -64,12 +90,14 @@ class LineItem < ActiveRecord::Base
     self.debit_account  ||= value.debit_account
     self.position       ||= value.position
     self.include_in_saldo_list = value.include_in_saldo_list
+    self.reference_code ||= value.amount_relates_to
 
     if value.amount.match(/%/)
       self.quantity = '%'
       self.times    = value.amount.delete('%')
       # TODO: hack
-      self.price    = invoice.line_items.select{|item| item.include_in_saldo_list.include?(value.amount_relates_to)}.sum(&:total_amount)
+    elsif value.amount_relates_to.present?
+      self.quantity = 'saldo_of'
     else
       self.quantity = 'x'
       self.times    = 1
