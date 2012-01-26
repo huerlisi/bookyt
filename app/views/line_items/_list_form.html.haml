@@ -2,7 +2,7 @@
   %table#line_items
     %thead
       = render 'line_items/list_header', :invoice => invoice
-    %tbody
+    %tbody.sortable
       = f.fields_for :line_items do |line_item|
         = render 'line_items/form', :line_item => line_item
     %tfoot
