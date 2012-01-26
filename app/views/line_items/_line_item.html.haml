@@ -3,4 +3,4 @@
   %td= line_item.title
   %td.currency= line_item.times_to_s
   %td.currency= currency_fmt(line_item.price)
-  %td.currency= currency_fmt(line_item.total_amount)
+  %td.currency= currency_fmt(line_item.accounted_amount)

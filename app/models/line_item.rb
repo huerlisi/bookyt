@@ -53,6 +53,14 @@ class LineItem < ActiveRecord::Base
     end
   end
 
+  def accounted_amount
+    if credit_account == invoice.direct_account
+      return -(total_amount)
+    else
+      return total_amount
+    end
+  end
+
   def times_to_s
     if times == 1
       if quantity == "x"
