@@ -204,6 +204,10 @@ de:
 
   # Title customizations
 
+  sessions:
+    new:
+      title: Anmelden
+
   invoice:
     state:
       booked:      offen

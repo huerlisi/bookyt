@@ -2,7 +2,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
   # user navigation
   navigation.items do |primary|
-    primary.item :logout, t('bookyt.main_navigation.new_user_session'), new_user_session_path, :highlights_on => /\/users\/sign_in/, :unless => Proc.new { user_signed_in? }
+    primary.item :login, t('sessions.new.title'), new_user_session_path, :highlights_on => /\/users\/sign_in/, :unless => Proc.new { user_signed_in? }
     primary.item :settings, t('bookyt.main_navigation.settings'), settings_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.settings'),
                  :if => Proc.new { user_signed_in? } do |settings|
