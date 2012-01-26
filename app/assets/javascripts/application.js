@@ -168,6 +168,18 @@ function initializeBehaviours() {
       offset: 10
     });
   })
+
+  // jQuery UI
+  $(".sortable").sortable({
+    placeholder: "ui-state-highlight",
+    forcePlaceholderSize: true,
+    stop:        function(event, ui) {
+      $(this).find('tr').each(function(index, element) {
+        $(this).find("input[id$='_position']").val(index + 1)
+      });
+    }
+  });
+  $(".sortable").disableSelection();
 }
 
 // Loads functions after DOM is ready
