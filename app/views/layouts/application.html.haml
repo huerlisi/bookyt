@@ -46,4 +46,13 @@
       .sidebar
         = render_sidebars
 
+    %footer.footer
+      .container-fluid
+        %p.pull-right
+          = link_to "Deutsch", :locale => 'de-CH'
+          = link_to "English", :locale => 'en'
+        %p
+          Bookyt is built by <a href="http://cyt.ch" target="_blank">CyT GmbH</a>.
+          Code licensed under the <a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank">GNU AGPL 3</a>.
+
     = javascript_include_tag "application"
