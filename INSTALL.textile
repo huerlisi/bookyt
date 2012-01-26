@@ -1,37 +1,18 @@
 We currently support installing on Debian 5.0 Lenny and Ubuntu 11.10 systems.
 
-h2. Install rubygems
-
-To get access to the binaries provided by rails and other gems you need to extend your PATH.
-
-<pre>
-export PATH=/var/lib/gems/1.8/bin:$PATH
-</pre>
-
-<pre>
-sudo apt-add-repository ppa:huerlisi/ppa
-</pre>
-
-Now install the rubygems package:
-
-<pre>
-sudo apt-get install rubygems
-</pre>
-
 h2. Install Ruby'n'Rails
 
-bookyt is developed and tested using Rails 3.1 and Ruby 1.8. It currently won't work with Ruby 1.9, but it should only
+bookyt is developed and tested using Rails 3.2 and Ruby 1.8. It currently won't work with Ruby 1.9, but it should only
 be small fixes. Patches welcome!
 
-Install packages to support installing rails:
+Install packages needed:
 
 <pre>
-sudo apt-get install irb ruby libruby-extras sqlite3 libsqlite3-dev libmysqlclient-dev libxml2-dev libxslt-dev ruby-dev build-essential
+sudo apt-get install rubygems irb libruby-extras sqlite3 libsqlite3-dev libmysqlclient-dev libxml2-dev libxslt-dev ruby-dev build-essential
 sudo apt-get install sphinxsearch
 </pre>
 
-Install rails using gem:
-
+Then some gems:
 <pre>
 sudo gem install rake bundler
 </pre>
@@ -43,7 +24,6 @@ Install current bookyt from git repository. We'll use this checkout as working d
 <pre>
 git clone http://github.com/huerlisi/bookyt.git
 cd bookyt
-mkdir -p tmp log
 </pre>
 
 Install dependency gems:
@@ -67,8 +47,11 @@ Initialize the database:
 bundle exec rake db:setup
 </pre>
 
-For some PDF views wkhtmltopdf needs to be installed (download manually to /urs/local/bin). This is not needed for
-PDF invoices, though:-)
+Inititalize the sphinx freetext search index:
+
+<pre>
+bundle exec rake ts:rebuild
+</pre>
 
 h2. Setup admin user
 
@@ -77,3 +60,15 @@ There's a rake task to setup an admin user:
 <pre>
 bundle exec rake users:admin
 </pre>
+
+h3. Run
+
+You should now be able to start bookyt:
+
+<pre>
+rails server
+</pre>
+
+bookyt is now available at http://localhost:3000
+
+Enjoy!
