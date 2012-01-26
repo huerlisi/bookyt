@@ -34,20 +34,14 @@ Code is available at "github":http://github.com/huerlisi/bookyt.
 
 Issue tracking is done using "Redmine":http://redmine.cyt.ch/projects/bookyt/issues.
 
-To get an idea on what we're currently focus on visit the "Roadmap":http://redmine.cyt.ch/projects/bookyt/roadmap.
-
-Find out what we want to do next on "Sprints":http://redmine.cyt.ch/projects/bookyt/wiki/Sprints
-
-To get to know what bookyt should cover see "User Stories":http://redmine.cyt.ch/projects/bookyt/wiki/User_Stories
-
 h2. License
 
 Read the "human-readable summary":http://creativecommons.org/licenses/GPL/2.0 to get an idea
 of your right to use this software.
 
-Copyright 2007-2011 Simon Hürlimann <simon.huerlimann@cyt.ch>
-Copyright 2010-2011 Ramon Egloff <ramon.egloff@cyt.ch>
-Copyright 2010-2011 Roman Simecek <roman.simecek@cyt.ch>
+Copyright 2007-2012 Simon Hürlimann <simon.huerlimann@cyt.ch>
+Copyright 2010-2012 Ramon Egloff <ramon.egloff@cyt.ch>
+Copyright 2010-2012 Roman Simecek <roman.simecek@cyt.ch>
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
