@@ -228,6 +228,11 @@ en:
         csv:                            csv
         created_at:                     imported at
 
+  # Title customizations
+  sessions:
+    new:
+      title: Login
+
   invoice:
     state:
       2xreminded:  reminded twice
