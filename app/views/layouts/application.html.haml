@@ -26,7 +26,7 @@
           .pull-right
             - if user_signed_in?
               = form_tag "/search", :method => :get do
-                = text_field_tag "query", params[:query], :placeholder => "Suche"
+                = text_field_tag "query", params[:query], :placeholder => t('placeholder.search')
             = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
 
     .container-fluid

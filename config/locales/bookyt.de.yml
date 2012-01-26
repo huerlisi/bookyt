@@ -299,6 +299,9 @@ de:
     flash:
       created_html: %{message} angelegt
 
+  placeholder:
+    search:           Suche
+
   title:
     bookings:         Buchungen
     attachments:      Anhänge

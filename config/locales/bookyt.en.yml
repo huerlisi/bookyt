@@ -305,6 +305,9 @@ en:
     flash:
       created_html:         created %{message}
 
+  placeholder:
+    search:           Search
+
   title:
     bookings:         bookings
     attachments:      attachments
