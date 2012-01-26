@@ -7,6 +7,7 @@ en:
 
   devise:
     failure:
+      already_authenticated: 'You are already signed in.'
       unauthenticated: 'You need to sign in or sign up before continuing.'
       unconfirmed: 'You have to confirm your account before continuing.'
       locked: 'Your account is locked.'
@@ -37,3 +38,7 @@ en:
         subject: 'Reset password instructions'
       unlock_instructions:
         subject: 'Unlock Instructions'
+
+    sign_up:               Register
+    sign_in:               Login
+    forgot_your_password:  Password lost?
