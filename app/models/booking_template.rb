@@ -3,6 +3,9 @@ class BookingTemplate < ActiveRecord::Base
   belongs_to :debit_account, :foreign_key => 'debit_account_id', :class_name => "Account"
   belongs_to :credit_account, :foreign_key => 'credit_account_id', :class_name => "Account"
 
+  # Default ordering
+  default_scope order(:code)
+
   # Scopes
   scope :by_type, lambda{|value| where("code LIKE ?", value + ':%')}
 
