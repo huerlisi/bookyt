@@ -24,8 +24,9 @@
             book<span id="logo-yt">yt</span>
           = render_navigation(:context => :main, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
           .pull-right
-            = form_tag "/search", :method => :get do
-              = text_field_tag "query", params[:query], :placeholder => "Suche"
+            - if user_signed_in?
+              = form_tag "/search", :method => :get do
+                = text_field_tag "query", params[:query], :placeholder => "Suche"
             = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
 
     .container-fluid
