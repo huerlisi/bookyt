@@ -29,7 +29,9 @@ class AuthorizedController < InheritedResources::Base
   # Set the user locale
   before_filter :set_locale
   def set_locale
-    I18n.locale = current_user.locale if current_user
+    locale = params[:locale] || cookies[:locale]
+    I18n.locale = locale.to_s
+    cookies[:locale] = locale unless (cookies[:locale] && cookies[:locale] == locale)
   end
 
   # Resource setup

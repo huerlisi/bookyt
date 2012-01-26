@@ -2,6 +2,9 @@ Bookyt::Application.routes.draw do
   # Root
   root :to => "overview#index"
 
+  # I18n
+  filter 'locale'
+
   # Authorization
   devise_for :users
   resources :users do

@@ -108,6 +108,9 @@ gem 'validates_timeliness'
 
 gem 'show_for'
 
+# Locale setting
+gem 'routing-filter'
+
 # Bookyt
 # ======
 # Accounting

@@ -229,6 +229,8 @@ GEM
     remotipart (1.0.1)
     responders (0.6.4)
     riddle (1.5.1)
+    routing-filter (0.3.0)
+      actionpack
     rspec (2.8.0)
       rspec-core (~> 2.8.0)
       rspec-expectations (~> 2.8.0)
@@ -351,6 +353,7 @@ DEPENDENCIES
   rdoc
   remotipart
   responders
+  routing-filter
   rspec-instafail
   rspec-rails
   ruby-debug
