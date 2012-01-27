@@ -26,12 +26,20 @@ class LineItem < ActiveRecord::Base
 
   # Attributes
   def effective_price
+    # If a price is set, use it
     return price unless price.nil?
 
+    # If a reference_code is given...
     if reference_code
-      # TODO: matches all to many items when reference_code is null
-      price_line_item = invoice.line_items.select{|item| item.code == reference_code}.first
-      return price_line_item.try(:total_amount) || 0
+      # ...and it references a line item...
+      if price_line_item = invoice.line_items.select{|item| item.code == reference_code}.first
+        # Return the total_amount
+        return price_line_item.total_amount
+      else
+        # Sum over items to be included by tag
+        included = invoice.line_items.select{|item| item.include_in_saldo_list.include?(reference_code) }
+        return included.sum(&:total_amount)
+      end
     else
       return 0
     end
