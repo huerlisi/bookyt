@@ -80,7 +80,7 @@ function updateLineItemTotalAmount(lineItem) {
 function calculateTotalAmount(lineItems) {
   var total_amount = 0;
   $(line_items).find('.line_item').each(function() {
-    total_amount += calculateLineItemTotalAmount($(this));
+    total_amount += parseFloat($(this).find(".total_amount").text().replace("'", ""));
   });
 
   return total_amount
