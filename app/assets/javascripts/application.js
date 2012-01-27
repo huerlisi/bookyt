@@ -75,11 +75,21 @@ function calculateLineItemTotalAmount(lineItem) {
   var price_input = lineItem.find(":input[name$='[price]']");
   var price = parseFloat(price_input.val());
 
+  var direct_account_id = $('#line_items').data('direct-account-id');
+
+  var factor = 0;
+  if (lineItem.find(":input[name$='[credit_account_id]']").val() == direct_account_id) {
+    factor = -1;
+  }
+  else if (lineItem.find(":input[name$='[debit_account_id]']").val() == direct_account_id) {
+    factor = 1;
+  };
+
   if (quantity_input.val() == '%') {
     times = times / 100;
   };
 
-  var value = times * price;
+  var value = times * price * factor;
   if (isNaN(value)) {
     return 0.0;
   } else {
