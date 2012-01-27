@@ -49,7 +49,18 @@ function addNestedFormBehaviour() {
   });
 }
 
-// Line Item caluclation
+// Currency helpers
+function currencyRound(value) {
+  if (isNaN(value)) {
+    return 0.0;
+  };
+
+  rounded = Math.round(value * 20) / 20;
+
+  return rounded.toFixed(2);
+}
+
+// Line Item calculation
 function updateLineItemPrice(lineItem) {
   var list = lineItem.parent();
   var reference_code = lineItem.find(":input[name$='[reference_code]']").val();
@@ -58,7 +69,7 @@ function updateLineItemPrice(lineItem) {
     var included_items = list.find(":input[name$='[include_in_saldo_list]'][value*='" + reference_code + "']").parents('.line_item');
     var price_input = lineItem.find(":input[name$='[price]']");
 
-    price_input.val(calculateLineItemTotalAmount(included_items).toFixed(2));
+    price_input.val(currencyRound(calculateLineItemTotalAmount(included_items)));
   }
 }
 
@@ -89,17 +100,12 @@ function calculateLineItemTotalAmount(lineItem) {
     times = times / 100;
   };
 
-  var value = times * price * factor;
-  if (isNaN(value)) {
-    return 0.0;
-  } else {
-    return value;
-  }
+  return currencyRound(times * price * factor);
 }
 
 function updateLineItemTotalAmount(lineItem) {
   var total_amount_input = lineItem.find(".total_amount");
-  var total_amount = CommaFormatted(calculateLineItemTotalAmount(lineItem).toFixed(2));
+  var total_amount = CommaFormatted(calculateLineItemTotalAmount(lineItem));
 
   // Update Element
   total_amount_input.text(total_amount);
@@ -111,12 +117,12 @@ function calculateTotalAmount(lineItems) {
     total_amount += parseFloat($(this).find(".total_amount").text().replace("'", ""));
   });
 
-  return total_amount
+  return total_amount.toFixed(2);
 }
 
 function updateTotalAmount(lineItems) {
   // Update Element
-  $(".line_item_total .total_amount").text(CommaFormatted(calculateTotalAmount(lineItems).toFixed(2)));
+  $(".line_item_total .total_amount").text(CommaFormatted(calculateTotalAmount(lineItems)));
 }
 
 // Recalculate after every key stroke
@@ -147,6 +153,7 @@ function addCalculateTotalAmountBehaviour() {
 * This function is copy pasted from: http://www.web-source.net/web_development/currency_formatting.htm
  */
 function CommaFormatted(amount) {
+        amount = amount.toString();
 	var delimiter = "'"; // replace comma if desired
 	var a = amount.split('.',2)
 	var d = a[1];
