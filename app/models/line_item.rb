@@ -62,11 +62,11 @@ class LineItem < ActiveRecord::Base
   end
 
   def accounted_amount
-    if credit_account == invoice.direct_account
-      return -(total_amount)
-    else
-      return total_amount
-    end
+    factor = 0
+    factor = -1 if credit_account == invoice.direct_account
+    factor = 1 if debit_account == invoice.direct_account
+
+    return factor * total_amount
   end
 
   def times_to_s
