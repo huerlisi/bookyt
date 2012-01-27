@@ -92,7 +92,7 @@ function calculateLineItemTotalAmount(lineItem) {
   if (lineItem.find(":input[name$='[credit_account_id]']").val() == direct_account_id) {
     factor = -1;
   }
-  else if (lineItem.find(":input[name$='[debit_account_id]']").val() == direct_account_id) {
+  if (lineItem.find(":input[name$='[debit_account_id]']").val() == direct_account_id) {
     factor = 1;
   };
 
