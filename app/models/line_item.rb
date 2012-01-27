@@ -25,9 +25,9 @@ class LineItem < ActiveRecord::Base
   end
 
   # Attributes
-  def effective_price
+  def price
     # If a price is set, use it
-    return price unless price.nil?
+    return self[:price] unless self[:price].blank?
 
     # If a reference_code is given...
     if reference_code
@@ -50,14 +50,14 @@ class LineItem < ActiveRecord::Base
       included = invoice.line_items.select{|item|
         item.include_in_saldo_list.include?(reference_code)
       }
-      return included.sum(&:total_amount)
+      return included.sum(&:total_amount).currency_round
     end
 
     return 0 if times.blank?
     if quantity == "%"
-      return times / 100 * effective_price
+      return (times / 100 * price).currency_round
     else
-      return times * effective_price
+      return (times * price).currency_round
     end
   end
 
@@ -112,8 +112,11 @@ class LineItem < ActiveRecord::Base
       self.quantity = '%'
       self.times    = value.amount.delete('%')
       # TODO: hack
+      self.price    = self.price
     elsif value.amount_relates_to.present?
       self.quantity = 'saldo_of'
+      # TODO: hack
+      self.price    = self.price
     else
       self.quantity = 'x'
       self.times    = 1
