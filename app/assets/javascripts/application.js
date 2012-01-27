@@ -50,6 +50,24 @@ function addNestedFormBehaviour() {
 }
 
 // Line Item caluclation
+function updateLineItemPrice(lineItem) {
+  var list = lineItem.parent();
+  var reference_code = lineItem.find(":input[name$='[reference_code]']").val();
+  if (reference_code) {
+    // Should match using ~= but acts_as_taggable_adds_colons between tags
+    var included_items = list.find(":input[name$='[include_in_saldo_list]'][value*='" + reference_code + "']").parents('.line_item');
+    var price_input = lineItem.find(":input[name$='[price]']");
+
+    price_input.val(calculateLineItemTotalAmount(included_items).toFixed(2));
+  }
+}
+
+function updateAllLineItemPrices() {
+  $('.line_item').each(function() {
+    updateLineItemPrice($(this));
+  });
+}
+
 function calculateLineItemTotalAmount(lineItem) {
   var times_input = lineItem.find(":input[name$='[times]']");
   var times = parseFloat(times_input.val());
@@ -101,8 +119,10 @@ function handleLineItemChange(event) {
     // ...trigger form action
     $(event.currentTarget).submit();
   } else {
-    var line_item = $(this).parents('.line_item');
-    updateLineItemTotalAmount(line_item);
+    $('.line_item').each(function() {
+      updateLineItemPrice($(this));
+      updateLineItemTotalAmount($(this));
+    });
 
     var line_items = $(this).parents('.line_items');
     updateTotalAmount(line_items);
