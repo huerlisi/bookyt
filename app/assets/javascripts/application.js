@@ -69,7 +69,7 @@ function updateLineItemPrice(lineItem) {
     var included_items = list.find(":input[name$='[include_in_saldo_list]'][value*='" + reference_code + "']").parents('.line_item');
     var price_input = lineItem.find(":input[name$='[price]']");
 
-    price_input.val(currencyRound(calculateLineItemTotalAmount(included_items)));
+    price_input.val(calculateTotalAmount(included_items));
   }
 }
 
@@ -113,16 +113,16 @@ function updateLineItemTotalAmount(lineItem) {
 
 function calculateTotalAmount(lineItems) {
   var total_amount = 0;
-  $(line_items).find('.line_item').each(function() {
+  $(lineItems).each(function() {
     total_amount += parseFloat($(this).find(".total_amount").text().replace("'", ""));
   });
 
-  return total_amount.toFixed(2);
+  return currencyRound(total_amount);
 }
 
 function updateTotalAmount(lineItems) {
   // Update Element
-  $(".line_item_total .total_amount").text(CommaFormatted(calculateTotalAmount(lineItems)));
+  $(".line_item_total .total_amount").text(CommaFormatted(calculateTotalAmount('#line_items .line_item')));
 }
 
 // Recalculate after every key stroke
@@ -140,8 +140,7 @@ function handleLineItemChange(event) {
       updateLineItemTotalAmount($(this));
     });
 
-    var line_items = $(this).parents('.line_items');
-    updateTotalAmount(line_items);
+    updateTotalAmount();
   }
 }
 
