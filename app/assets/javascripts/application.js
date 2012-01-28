@@ -82,6 +82,10 @@ function updateAllLineItemPrices() {
 function calculateLineItemTotalAmount(lineItem) {
   var times_input = lineItem.find(":input[name$='[times]']");
   var times = parseFloat(times_input.val());
+  if (isNaN(times)) {
+    times = 1;
+  };
+
   var quantity_input = lineItem.find(":input[name$='[quantity]']");
   var price_input = lineItem.find(":input[name$='[price]']");
   var price = parseFloat(price_input.val());
