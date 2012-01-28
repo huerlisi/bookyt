@@ -152,6 +152,7 @@ de:
         title:         Text
         vat_rate:      MWSt.
         total_amount:  Total
+        accounted_amount: Betrag
       salary:
         amount:        Bruttolohn
         net_amount:    Nettolohn
