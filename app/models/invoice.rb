@@ -137,6 +137,9 @@ class Invoice < ActiveRecord::Base
 
     # Build a booking per line item
     new_line_items.each do |line_item|
+      # Don't build booking if accounts are not set
+      next unless line_item.credit_account and line_item.debit_account
+
       # Build and assign booking
       bookings.build(
         :title          => line_item.title,
