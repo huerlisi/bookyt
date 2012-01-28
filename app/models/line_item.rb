@@ -34,11 +34,11 @@ class LineItem < ActiveRecord::Base
       # ...and it references a line item...
       if price_line_item = invoice.line_items.select{|item| item.code == reference_code}.first
         # Return the total_amount
-        return price_line_item.total_amount
+        return price_line_item.accounted_amount
       else
         # Sum over items to be included by tag
         included = invoice.line_items.select{|item| item.include_in_saldo_list.include?(reference_code) }
-        return included.sum(&:total_amount)
+        return included.sum(&:accounted_amount)
       end
     else
       return 0
@@ -50,7 +50,7 @@ class LineItem < ActiveRecord::Base
       included = invoice.line_items.select{|item|
         item.include_in_saldo_list.include?(reference_code)
       }
-      return included.sum(&:total_amount).currency_round
+      return included.sum(&:accounted_amount).currency_round
     end
 
     return 0 if times.blank?
