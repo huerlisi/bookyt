@@ -70,6 +70,8 @@ class LineItem < ActiveRecord::Base
   end
 
   def times_to_s
+    return "" if quantity == "saldo_of"
+
     if times == 1
       if quantity == "x"
         s = ""

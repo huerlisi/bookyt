@@ -149,7 +149,7 @@ de:
         times:         Anzahl
         quantity:      Einheit
         price:         Betrag
-        title:         Text
+        title:         Bezeichnung
         vat_rate:      MWSt.
         total_amount:  Total
         accounted_amount: Betrag
@@ -242,10 +242,11 @@ de:
 
   line_items:
     quantity:
-      x:       x
-      hours:   h
-      overall: pauschal
-      %:       % von
+      x:        x
+      hours:    h
+      overall:  pauschal
+      %:        % von
+      saldo_of: Summe
 
   vat_rates:
     code:
