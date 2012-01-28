@@ -4,6 +4,7 @@ class LetterDocument < Prawn::Document
 
   include ApplicationHelper
   include ActionView::Helpers::TranslationHelper
+  include I18nRailsHelpers
   include Prawn::Measurements
 
   def initialize_fonts
