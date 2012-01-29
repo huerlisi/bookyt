@@ -91,11 +91,6 @@ class LineItem < ActiveRecord::Base
     end
   end
 
-  # Vat Rate
-  def vat_rate
-    invoice.present? ? ChargeRate.current(vat_rate_code, invoice.value_date) : 0
-  end
-
   # Item templates
   belongs_to :item, :polymorphic => true
 

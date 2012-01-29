@@ -45,7 +45,7 @@ class InvoicesController < AuthorizedController
     @line_item = @invoice.line_items.build(
       :times          => 1,
       :quantity       => 'x',
-      :vat_rate_code  => 'vat:full',
+      :include_in_saldo_list => ['vat:full'],
       :credit_account => resource_class.default_credit_account,
       :debit_account  => resource_class.default_debit_account
     )
