@@ -92,10 +92,15 @@ function calculateLineItemTotalAmount(lineItem) {
 
   var direct_account_id = $('#line_items').data('direct-account-id');
 
+  // For 'saldo_of' items, we don't take accounts into account
+  if (quantity_input.val() == "saldo_of") {
+    return currencyRound(price);
+  };
+
   var factor = 0;
   if (lineItem.find(":input[name$='[credit_account_id]']").val() == direct_account_id) {
     factor = -1;
-  }
+  };
   if (lineItem.find(":input[name$='[debit_account_id]']").val() == direct_account_id) {
     factor = 1;
   };
@@ -126,7 +131,15 @@ function calculateTotalAmount(lineItems) {
 
 function updateTotalAmount(lineItems) {
   // Update Element
-  $(".line_item_total .total_amount").text(CommaFormatted(calculateTotalAmount('#line_items .line_item')));
+  var total_amount = 0;
+  $(lineItems).each(function() {
+    var line_item = $(this);
+    if (line_item.find(":input[name$='[quantity]']").val() != 'saldo_of') {
+      total_amount += parseFloat(line_item.find(".total_amount").text().replace("'", ""));
+    };
+  });
+  
+  $(".line_item_total .total_amount").text(CommaFormatted(currencyRound(total_amount)));
 }
 
 // Recalculate after every key stroke
