@@ -28,7 +28,7 @@ class DebitInvoicesController < InvoicesController
     if current_tenant.vat_number.present?
       @debit_invoice.line_items.build(
         :title          => 'MWSt.',
-        :times          => 0.08,
+        :times          => 8,
         :quantity       => '%',
         :credit_account => DebitInvoice.default_credit_account,
         :debit_account  => Account.find_by_code('2206')
