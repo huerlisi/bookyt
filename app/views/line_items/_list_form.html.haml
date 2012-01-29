@@ -1,5 +1,5 @@
 = f.inputs t('title.line_items') do
-  %table#line_items{'data-direct-account-id' => resource.direct_account.id}
+  %table#line_items{'data-direct-account-id' => resource.direct_account.id}.nested-form-container
     %thead
       = render 'line_items/list_header', :invoice => invoice
     %tbody.sortable

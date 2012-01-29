@@ -38,9 +38,12 @@ function addNestedFormBehaviour() {
     item.hide();
     // Mark as ready to delete
     item.find("input[name$='[_destroy]']").val("1");
+    item.addClass('delete');
     // Drop input fields to prevent browser validation problems
     item.find(":input").not("[name$='[_destroy]'], [name$='[id]']").remove();
 
+    // TODO: should be callbacks
+    updatePositions($(this).parents('.nested-form-container'));
     var line_items = $(this).parents('.line_items');
     updateTotalAmount(line_items);
 
@@ -194,6 +197,30 @@ function CommaFormatted(amount) {
 	return amount;
 }
 
+// Sorting
+function updatePositions(collection) {
+  var items = collection.find('.nested-form-item').not('.delete');
+  items.each(function(index, element) {
+    $(this).find("input[id$='_position']").val(index + 1)
+  });
+}
+
+// Override generic version in cyt.js
+function addSortableBehaviour() {
+  $(".sortable").sortable({
+    placeholder: "ui-state-highlight",
+    forcePlaceholderSize: true,
+    stop:        function(event, ui) {
+      updatePositions($(this));
+    }
+  });
+  $(".sortable").disableSelection();
+
+  $('.nested-form-container').each(function() {
+    updatePositions($(this));
+  });
+}
+
 // Initialize behaviours
 function initializeBehaviours() {
   // from cyt.js
@@ -221,18 +248,6 @@ function initializeBehaviours() {
       offset: 10
     });
   })
-
-  // jQuery UI
-  $(".sortable").sortable({
-    placeholder: "ui-state-highlight",
-    forcePlaceholderSize: true,
-    stop:        function(event, ui) {
-      $(this).find('tr').each(function(index, element) {
-        $(this).find("input[id$='_position']").val(index + 1)
-      });
-    }
-  });
-  $(".sortable").disableSelection();
 }
 
 // Loads functions after DOM is ready
