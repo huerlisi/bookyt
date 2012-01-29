@@ -129,10 +129,10 @@ function calculateTotalAmount(lineItems) {
   return currencyRound(total_amount);
 }
 
-function updateTotalAmount(lineItems) {
+function updateTotalAmount() {
   // Update Element
   var total_amount = 0;
-  $(lineItems).each(function() {
+  $("#line_items .line_item").each(function() {
     var line_item = $(this);
     if (line_item.find(":input[name$='[quantity]']").val() != 'saldo_of') {
       total_amount += parseFloat(line_item.find(".total_amount").text().replace("'", ""));
