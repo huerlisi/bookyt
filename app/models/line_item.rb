@@ -24,6 +24,10 @@ class LineItem < ActiveRecord::Base
     end
   end
 
+  # Scopes
+  scope :saldo_items, where(:quantity => 'saldo_of')
+  scope :non_saldo_items, where("quantity != 'saldo_of'")
+
   # Attributes
   def price
     # If a price is set, use it

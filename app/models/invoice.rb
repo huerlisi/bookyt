@@ -160,7 +160,8 @@ class Invoice < ActiveRecord::Base
     if line_items.empty?
       value = self[:amount]
     else
-      value = line_items.to_a.sum(&:accounted_amount)
+      # Need to use to_a as not all line items are persisted for sure
+      value = line_items.non_saldo_items.to_a.sum(&:accounted_amount)
     end
 
     if value
