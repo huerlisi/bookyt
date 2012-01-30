@@ -72,7 +72,7 @@ class LineItem < ActiveRecord::Base
     factor = 1 if credit_account == invoice.direct_account
     factor = -1 if debit_account == invoice.direct_account
 
-    return factor * total_amount
+    return factor * total_amount * invoice.direct_account_factor
   end
 
   def times_to_s
