@@ -35,7 +35,7 @@ class DebitInvoicesController < InvoicesController
         :reference_code => 'vat:full',
         :position       => 100000,
         :credit_account => DebitInvoice.default_credit_account,
-        :debit_account  => Account.find_by_code('2206')
+        :debit_account  => Account.find_by_code('2200')
       )
     end
 
