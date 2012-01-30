@@ -7,6 +7,7 @@ class DebitInvoicesController < InvoicesController
     month_name = t('date.month_names')[Date.today.month]
     invoice_params = {
       :company_id => current_tenant.company.id,
+      :state      => 'booked',
       :value_date => Date.today,
       :due_date   => Date.today.in(30.days).to_date,
       :title      => "Rechnung " + month_name
@@ -44,7 +45,6 @@ class DebitInvoicesController < InvoicesController
 
   def create
     invoice_params = {
-      :state      => 'booked'
     }
 
     invoice_params.merge!(params[:debit_invoice]) if params[:debit_invoice]
