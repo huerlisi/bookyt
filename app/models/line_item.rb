@@ -24,6 +24,13 @@ class LineItem < ActiveRecord::Base
     end
   end
 
+  # Copying
+  def copy
+    new_item = dup
+    new_item.include_in_saldo_list = include_in_saldo_list
+    new_item
+  end
+
   # Scopes
   scope :saldo_items, where(:quantity => 'saldo_of')
   scope :non_saldo_items, where("quantity != 'saldo_of'")

@@ -56,7 +56,7 @@ class InvoicesController < AuthorizedController
   def copy
     # Duplicate original invoice
     original_invoice = Invoice.find(params[:id])
-    invoice = original_invoice.dup
+    invoice = original_invoice.copy
 
     # Override some fields
     invoice.attributes = {
@@ -68,7 +68,7 @@ class InvoicesController < AuthorizedController
     }
 
     # Rebuild positions
-    invoice.line_items = original_invoice.line_items.map{|line_item| line_item.dup}
+    invoice.line_items = original_invoice.line_items.map{|line_item| line_item.copy}
     set_resource_ivar invoice
 
     render 'edit'

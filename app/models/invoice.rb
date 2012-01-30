@@ -30,6 +30,12 @@ class Invoice < ActiveRecord::Base
     end
   end
 
+  # Copying
+  # =======
+  def copy
+    dup
+  end
+
   # Search
   # ======
   scope :by_text, lambda {|value|

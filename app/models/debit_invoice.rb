@@ -30,11 +30,11 @@ class DebitInvoice < Invoice
   end
 
   # Code
-  before_save :update_code
+  after_save :update_code
   def update_code
     code = value_date.strftime("%y%m")
     code += "%04i" % id
 
-    self.code = code
+    update_column(:code, code)
   end
 end
