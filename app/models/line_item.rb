@@ -69,8 +69,8 @@ class LineItem < ActiveRecord::Base
     return total_amount if quantity == "saldo_of"
 
     factor = 0
-    factor = -1 if credit_account == invoice.direct_account
-    factor = 1 if debit_account == invoice.direct_account
+    factor = 1 if credit_account == invoice.direct_account
+    factor = -1 if debit_account == invoice.direct_account
 
     return factor * total_amount
   end

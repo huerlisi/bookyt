@@ -151,6 +151,10 @@ class Invoice < ActiveRecord::Base
     end
   end
 
+  def direct_account_factor
+    direct_account.is_asset_account? ? 1 : -1
+  end
+
   # Line Items
   # ==========
   has_many :line_items, :autosave => true, :inverse_of => :invoice

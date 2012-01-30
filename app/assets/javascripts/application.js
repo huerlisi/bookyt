@@ -93,26 +93,27 @@ function calculateLineItemTotalAmount(lineItem) {
   var price_input = lineItem.find(":input[name$='[price]']");
   var price = parseFloat(price_input.val());
 
-  var direct_account_id = $('#line_items').data('direct-account-id');
-
   // For 'saldo_of' items, we don't take accounts into account
   if (quantity_input.val() == "saldo_of") {
     return currencyRound(price);
   };
 
+  var direct_account_id = $('#line_items').data('direct-account-id');
+  var direct_account_factor = $('#line_items').data('direct-account-factor');
+
   var factor = 0;
   if (lineItem.find(":input[name$='[credit_account_id]']").val() == direct_account_id) {
-    factor = -1;
+    factor = 1;
   };
   if (lineItem.find(":input[name$='[debit_account_id]']").val() == direct_account_id) {
-    factor = 1;
+    factor = -1;
   };
 
   if (quantity_input.val() == '%') {
     times = times / 100;
   };
 
-  return currencyRound(times * price * factor);
+  return currencyRound(times * price * factor * direct_account_factor);
 }
 
 function updateLineItemTotalAmount(lineItem) {
