@@ -68,10 +68,13 @@ function updateLineItemPrice(lineItem) {
   var list = lineItem.parent();
   var reference_code = lineItem.find(":input[name$='[reference_code]']").val();
   if (reference_code) {
-    // Should match using ~= but acts_as_taggable_adds_colons between tags
-    var included_items = list.find(":input[name$='[include_in_saldo_list]'][value*='" + reference_code + "']").parents('.line_item');
-    var price_input = lineItem.find(":input[name$='[price]']");
+    var included_items = list.find(":input[name$='[code]'][value='" + reference_code + "']").parents('.line_item');
+    if (included_items.length == 0) {
+      // Should match using ~= but acts_as_taggable_adds_colons between tags
+      var included_items = list.find(":input[name$='[include_in_saldo_list]'][value*='" + reference_code + "']").parents('.line_item');
+    };
 
+    var price_input = lineItem.find(":input[name$='[price]']");
     price_input.val(calculateTotalAmount(included_items));
   }
 }
