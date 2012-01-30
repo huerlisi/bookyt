@@ -149,6 +149,15 @@ function updateTotalAmount() {
   $(".line_item_total .total_amount").text(CommaFormatted(currencyRound(total_amount)));
 }
 
+function updateLineItems() {
+  $('.line_item').each(function() {
+    updateLineItemPrice($(this));
+    updateLineItemTotalAmount($(this));
+  });
+
+  updateTotalAmount();
+}
+
 // Recalculate after every key stroke
 function handleLineItemChange(event) {
   // If character is <return>
@@ -159,12 +168,7 @@ function handleLineItemChange(event) {
     // ...trigger form action
     $(event.currentTarget).submit();
   } else {
-    $('.line_item').each(function() {
-      updateLineItemPrice($(this));
-      updateLineItemTotalAmount($(this));
-    });
-
-    updateTotalAmount();
+    updateLineItems();
   }
 }
 
