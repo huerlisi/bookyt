@@ -127,6 +127,7 @@ de:
         holiday_premium:  Feiertagszuschlag (%)
         sunday_premium:   Sonntagarbeitszuschlag (%)
         night_premium:    Nachtarbeitszuschlag (%)
+        payment_to:       Auszahlung an
       invoice:
         direct_account:  Konto
         profit_account:  Erfolgskonto

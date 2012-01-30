@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120129234325) do
+ActiveRecord::Schema.define(:version => 20120130122137) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -204,6 +204,7 @@ ActiveRecord::Schema.define(:version => 20120129234325) do
     t.decimal  "holiday_premium",  :precision => 10, :scale => 0
     t.decimal  "sunday_premium",   :precision => 10, :scale => 0
     t.decimal  "night_premium",    :precision => 10, :scale => 0
+    t.text     "payment_to"
   end
 
   add_index "employments", ["duration_from"], :name => "index_employments_on_duration_from"
