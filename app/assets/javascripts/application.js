@@ -150,12 +150,14 @@ function updateTotalAmount() {
 }
 
 function updateLineItems() {
-  $('.line_item').each(function() {
-    updateLineItemPrice($(this));
-    updateLineItemTotalAmount($(this));
-  });
+  if ($('#line_items').length > 0) {
+    $('.line_item').each(function() {
+      updateLineItemPrice($(this));
+      updateLineItemTotalAmount($(this));
+    });
 
-  updateTotalAmount();
+    updateTotalAmount();
+  };
 }
 
 // Recalculate after every key stroke
@@ -247,6 +249,8 @@ function initializeBehaviours() {
   addNestedFormBehaviour();
 
   addCalculateTotalAmountBehaviour();
+
+  updateLineItems();
 
   // twitter bootstrap
   $(function () {
