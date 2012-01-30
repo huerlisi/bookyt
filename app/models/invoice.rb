@@ -157,7 +157,7 @@ class Invoice < ActiveRecord::Base
 
   # Line Items
   # ==========
-  has_many :line_items, :autosave => true, :inverse_of => :invoice
+  has_many :line_items, :autosave => true, :inverse_of => :invoice, :dependent => :destroy
   accepts_nested_attributes_for :line_items, :allow_destroy => true, :reject_if => proc { |attributes| attributes['quantity'].blank? or attributes['quantity'] == '0' }
 
   def amount

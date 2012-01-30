@@ -98,6 +98,9 @@ class BookingTemplate < ActiveRecord::Base
     find_by_code(code).try(:create_booking, params)
   end
 
+  # LineItems
+  has_many :line_items
+
   # Tagging
   acts_as_taggable_on :include_in_saldo
 
