@@ -46,8 +46,7 @@ function addNestedFormBehaviour() {
 
     // TODO: should be callbacks
     updatePositions($(this).parents('.nested-form-container'));
-    var line_items = $(this).parents('.line_items');
-    updateTotalAmount(line_items);
+    updateLineItems();
 
     // Don't follow link
     event.preventDefault();
