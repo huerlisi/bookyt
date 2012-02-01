@@ -54,10 +54,10 @@ GEM
       ZenTest (= 4.5)
     bcrypt-ruby (3.0.1)
     bookyt_pos (0.2.0)
-    bookyt_projects (0.19.8)
+    bookyt_projects (0.19.9)
       rails (~> 3.1)
       recurrence
-    bookyt_salary (0.15.0)
+    bookyt_salary (0.15.1)
       rails (~> 3.1)
       recurrence
     bookyt_stock (0.5.0)
