@@ -246,7 +246,7 @@ de:
       x:        x
       hours:    h
       overall:  pauschal
-      %:        % von
+      %:        %
       saldo_of: Summe
 
   vat_rates:
