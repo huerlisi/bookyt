@@ -17,11 +17,7 @@ class LineItem < ActiveRecord::Base
 
   # String
   def to_s
-    if quantity == "saldo_of"
-      "%s: %s (%s %s)" % [self.title, self.total_amount, self.quantity, self.reference_code]
-    else
-      "%s: %s (%s %s %s)" % [self.title, self.total_amount, self.times, self.quantity, self.effective_price]
-    end
+    "%s: %s (%s %s %s)" % [self.title, self.accounted_amount, self.times, self.quantity, self.price]
   end
 
   # Copying
@@ -35,13 +31,21 @@ class LineItem < ActiveRecord::Base
   scope :saldo_items, where(:quantity => 'saldo_of')
   scope :non_saldo_items, where("quantity != 'saldo_of'")
 
-  # Attributes
+  # Price getter
+  #
+  # Sum accounted amount over reverenced line items. Referencing can be using code or
+  # saldo inclusion flags.
+  #
+  # Result is currency rounded. 0.0 is returned if no invoice is assigned.
   def price
     # If a price is set, use it
     return self[:price] unless self[:price].blank?
 
     # If a reference_code is given...
     if reference_code
+      # Guard against missing invoice
+      return 0.0 unless invoice
+
       # ...and it references a line item...
       if price_line_item = invoice.line_items.select{|item| item.code == reference_code}.first
         # Return the total_amount
@@ -57,14 +61,8 @@ class LineItem < ActiveRecord::Base
   end
 
   def total_amount
-    if quantity == "saldo_of"
-      included = invoice.line_items.select{|item|
-        item.include_in_saldo_list.include?(reference_code)
-      }
-      return included.sum(&:accounted_amount).currency_round
-    end
-
     return 0 if times.blank?
+
     if quantity == "%"
       return (times / 100 * price).currency_round
     else
@@ -73,8 +71,6 @@ class LineItem < ActiveRecord::Base
   end
 
   def accounted_amount
-    return total_amount if quantity == "saldo_of"
-
     factor = 0
     factor = 1 if credit_account == invoice.direct_account
     factor = -1 if debit_account == invoice.direct_account
@@ -83,8 +79,6 @@ class LineItem < ActiveRecord::Base
   end
 
   def times_to_s
-    return "" if quantity == "saldo_of"
-
     if times == 1
       if quantity == "x"
         s = ""

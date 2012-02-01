@@ -1,18 +1,33 @@
+# Saldo Line Item
+#
+# Specializes LineItem to return saldo
 class SaldoLineItem < LineItem
+  # We need a reference_code
+  validates :reference_code, :presence => true
+
+  # String
+  def to_s
+    "%s: %s (sum of %s)" % [self.title, self.total_amount, self.reference_code]
+  end
+
+  # Times getter
+  #
+  # Hardcoded as 1.
   def times
+    1
+  end
+
+  # Times as string
+  #
+  # Is always empty.
+  def times_to_s
     ""
   end
 
-  def price
-    # Guard against missing invoice
-    return 0.0 unless invoice
-    
-    invoice.line_items.select{|item|
-      item.include_in_saldo_list.include?(self.quantity)
-    }.sum(&:total_amount)
-  end
-
-  def total_amount
-    price
+  # Accounted amount
+  #
+  # Simply return total amount, direct_account is not relevant.
+  def accounted_amount
+    total_amount
   end
 end
