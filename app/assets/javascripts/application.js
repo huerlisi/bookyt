@@ -9,6 +9,8 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require twitter/bootstrap
+//= require accounting
+//= require accounting-jquery
 //= require_tree .
 
 // Application specific behaviour
@@ -87,14 +89,14 @@ function updateAllLineItemPrices() {
 
 function calculateLineItemTotalAmount(lineItem) {
   var times_input = lineItem.find(":input[name$='[times]']");
-  var times = parseFloat(times_input.val());
+  var times = accounting.parse(times_input.val());
   if (isNaN(times)) {
     times = 1;
   };
 
   var quantity_input = lineItem.find(":input[name$='[quantity]']");
   var price_input = lineItem.find(":input[name$='[price]']");
-  var price = parseFloat(price_input.val());
+  var price = accounting.parse(price_input.val());
 
   // For 'saldo_of' items, we don't take accounts into account
   if (quantity_input.val() == "saldo_of") {
@@ -121,7 +123,7 @@ function calculateLineItemTotalAmount(lineItem) {
 
 function updateLineItemTotalAmount(lineItem) {
   var total_amount_input = lineItem.find(".total_amount");
-  var total_amount = CommaFormatted(calculateLineItemTotalAmount(lineItem));
+  var total_amount = accounting.formatNumber(calculateLineItemTotalAmount(lineItem));
 
   // Update Element
   total_amount_input.text(total_amount);
@@ -130,7 +132,7 @@ function updateLineItemTotalAmount(lineItem) {
 function calculateTotalAmount(lineItems) {
   var total_amount = 0;
   $(lineItems).each(function() {
-    total_amount += parseFloat($(this).find(".total_amount").text().replace("'", ""));
+    total_amount += accounting.parse($(this).find(".total_amount").text());
   });
 
   return currencyRound(total_amount);
@@ -142,11 +144,11 @@ function updateTotalAmount() {
   $("#line_items .line_item").each(function() {
     var line_item = $(this);
     if (line_item.find(":input[name$='[quantity]']").val() != 'saldo_of') {
-      total_amount += parseFloat(line_item.find(".total_amount").text().replace("'", ""));
+      total_amount += accounting.parse(line_item.find(".total_amount").text());
     };
   });
   
-  $(".line_item_total .total_amount").text(CommaFormatted(currencyRound(total_amount)));
+  $(".line_item_total .total_amount").text(accounting.formatNumber(currencyRound(total_amount)));
 }
 
 function updateLineItems() {
@@ -178,35 +180,6 @@ function addCalculateTotalAmountBehaviour() {
   $("#line_items").find(":input[name$='[times]'], :input[name$='[price]']").live('keyup', handleLineItemChange);
 }
 
-/*
-* This function is copy pasted from: http://www.web-source.net/web_development/currency_formatting.htm
- */
-function CommaFormatted(amount) {
-        amount = amount.toString();
-	var delimiter = "'"; // replace comma if desired
-	var a = amount.split('.',2)
-	var d = a[1];
-	var i = parseInt(a[0]);
-	if(isNaN(i)) { return ''; }
-	var minus = '';
-	if(i < 0) { minus = '-'; }
-	i = Math.abs(i);
-	var n = new String(i);
-	var a = [];
-	while(n.length > 3)
-	{
-		var nn = n.substr(n.length-3);
-		a.unshift(nn);
-		n = n.substr(0,n.length-3);
-	}
-	if(n.length > 0) { a.unshift(n); }
-	n = a.join(delimiter);
-	if(d.length < 1) { amount = n; }
-	else { amount = n + '.' + d; }
-	amount = minus + amount;
-	return amount;
-}
-
 // Sorting
 function updatePositions(collection) {
   var items = collection.find('.nested-form-item').not('.delete');
@@ -231,8 +204,30 @@ function addSortableBehaviour() {
   });
 }
 
+function initAccounting() {
+  // accounting.js
+  // Settings object that controls default parameters for library methods:
+  accounting.settings = {
+          currency: {
+                  symbol : "",   // default currency symbol is '$'
+                  format: "%v", // controls output: %s = symbol, %v = value/number (can be object: see below)
+                  decimal : ".",  // decimal point separator
+                  thousand: "'",  // thousands separator
+                  precision : 2   // decimal places
+          },
+          number: {
+                  precision : 2,  // default precision on numbers is 0
+                  thousand: "'",
+                  decimal : "."
+          }
+  }
+}
+
 // Initialize behaviours
 function initializeBehaviours() {
+  // Init settings
+  initAccounting();
+
   // from cyt.js
   addComboboxBehaviour();
   addAutofocusBehaviour();
