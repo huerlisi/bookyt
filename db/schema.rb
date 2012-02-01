@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120130122137) do
+ActiveRecord::Schema.define(:version => 20120201112805) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -76,6 +76,17 @@ ActiveRecord::Schema.define(:version => 20120130122137) do
   end
 
   add_index "addresses", ["vcard_id"], :name => "addresses_vcard_id_index"
+
+  create_table "assets", :force => true do |t|
+    t.string   "title"
+    t.text     "remarks"
+    t.decimal  "amount",              :precision => 10, :scale => 0
+    t.string   "state"
+    t.integer  "purchase_invoice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "selling_invoice_id"
+  end
 
   create_table "attachments", :force => true do |t|
     t.string   "title"
@@ -175,13 +186,13 @@ ActiveRecord::Schema.define(:version => 20120130122137) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date"
-    t.decimal  "cash",            :precision => 10, :scale => 2, :default => 0.0
-    t.decimal  "card_turnover",   :precision => 10, :scale => 2, :default => 0.0
-    t.decimal  "gross_turnover",  :precision => 10, :scale => 2, :default => 0.0
-    t.decimal  "net_turnover",    :precision => 10, :scale => 2, :default => 0.0
-    t.integer  "client_count",                                   :default => 0
-    t.integer  "product_count",                                  :default => 0
-    t.decimal  "expenses",        :precision => 10, :scale => 2, :default => 0.0
+    t.decimal  "cash",            :precision => 10, :scale => 2
+    t.decimal  "card_turnover",   :precision => 10, :scale => 2
+    t.decimal  "gross_turnover",  :precision => 10, :scale => 2
+    t.decimal  "net_turnover",    :precision => 10, :scale => 2
+    t.integer  "client_count"
+    t.integer  "product_count"
+    t.decimal  "expenses",        :precision => 10, :scale => 2
     t.decimal  "credit_turnover", :precision => 10, :scale => 2, :default => 0.0
     t.decimal  "discount",        :precision => 10, :scale => 2, :default => 0.0
   end
@@ -473,7 +484,6 @@ ActiveRecord::Schema.define(:version => 20120130122137) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
