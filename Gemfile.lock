@@ -229,7 +229,7 @@ GEM
       activesupport (>= 2.3.0)
       i18n
     remotipart (1.0.1)
-    responders (0.6.4)
+    responders (0.6.5)
     riddle (1.5.1)
     routing-filter (0.3.0)
       actionpack
