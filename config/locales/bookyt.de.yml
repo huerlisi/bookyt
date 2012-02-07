@@ -110,7 +110,8 @@ de:
         postal_code:      PLZ
         country_name:     Land
       employee:
-        social_security_nr: AHV-Nr.
+        ssn:                   AHV-Nr.
+        social_security_nr:    AHV-Nr.
         social_security_nr_12: Alte AHV-Nr.
       employment:
         employer:       Arbeitgeber
