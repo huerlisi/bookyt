@@ -246,7 +246,7 @@ de:
       x:        x
       hours:    h
       overall:  pauschal
-      %:        %
+      '%':      '%'
       saldo_of: Summe
 
   vat_rates:
@@ -289,18 +289,18 @@ de:
       profit_sheet:         'Erfolgsrechnung'
       more:                 'Mehr'
     title:
-      select_booking_template: %{model} anlegen
-      select_booking: %{model} anlegen
-      current: Aktueller %{model}
+      select_booking_template: '%{model} anlegen'
+      select_booking: '%{model} anlegen'
+      current: 'Aktueller %{model}'
       search:               'Suche'
       letter:               'Brief'
-      copy:                 %{model} kopieren
+      copy:                 '%{model} kopieren'
       statistics:           'Statistiken'
       write_downs:          Abschreibungen
       balance_sheet:        'Bilanz'
       profit_sheet:         'Erfolgsrechnung'
     flash:
-      created_html: %{message} angelegt
+      created_html: '%{message} angelegt'
 
   placeholder:
     search:           Suche
@@ -329,8 +329,8 @@ de:
     total:            Total
     difference:       Differenz
     back:             Zurück
-    back_to:          Zurück zu %{name}
-    balance_report_for: Bilanz für %{company}
+    back_to:          'Zurück zu %{name}'
+    balance_report_for: 'Bilanz für %{company}'
     assets:             Aktiva
     current_assets:     Umlaufvermögen
     capital_assets:     Anlagevermögen
@@ -339,10 +339,10 @@ de:
     outside_capital:    Fremdkapital
     costs:              Aufwand
     earnings:           Ertrag
-    profit_report_for:  Erfolgsrechnung für %{company} per %{per}
+    profit_report_for:  'Erfolgsrechnung für %{company} per %{per}'
     carry_booking:    Übertrag
     invoices:
-      payment_no:             Rechnung Nr. %{payment_no}
+      payment_no:             'Rechnung Nr. %{payment_no}'
       invoicing_party:        Rechnungssteller
     main_navigation:
       new_booking:              Neue Buchung
