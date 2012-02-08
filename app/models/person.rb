@@ -6,6 +6,14 @@ class Person < ActiveRecord::Base
   # sex enumeration
   MALE   = 1
   FEMALE = 2
+  def sex_to_s(format = :default)
+    case sex
+    when MALE
+      "M"
+    when FEMALE
+      "F"
+    end
+  end
 
   # String
   def to_s(format = :default)
