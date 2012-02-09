@@ -14,13 +14,13 @@ class BookingTemplate < ActiveRecord::Base
   def to_s(format = :default)
     case format
     when :short
-      "%s / %s CHF %s" % [
+      "%s / %s %s" % [
         credit_account ? credit_account.to_s(:short) : '?',
         debit_account ? debit_account.to_s(:short) : '?',
         amount ? "%0.2f" % amount.to_f : '?',
       ]
     else
-      "%s an %s CHF %s, %s (%s)" % [
+      "%s an %s %s, %s (%s)" % [
         credit_account ? credit_account.to_s : '?',
         debit_account ? debit_account.to_s : '?',
         amount ? "%0.2f" % amount.to_f : '?',
