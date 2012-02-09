@@ -181,6 +181,22 @@ class Invoice < ActiveRecord::Base
     end
   end
 
+  def amount_of(code)
+   # Can't use arel as not all line items are persisted for sure
+   if line_item = line_items.select{|item| item.code == code}.first
+      # Return the total_amount
+      return line_item.accounted_amount
+    else
+      # Sum over items to be included by tag
+      included = line_items.select{|item| item.include_in_saldo_list.include?(code) }
+      return included.sum(&:accounted_amount)
+    end
+
+    return 0.0 unless line_item
+
+    line_item.accounted_amount
+  end
+
   # Ident
   # =====
   def ident
