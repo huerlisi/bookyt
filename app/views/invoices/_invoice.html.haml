@@ -1,6 +1,9 @@
 %tr[invoice]
   %td= link_to invoice.customer, invoice.customer
-  %td= link_to invoice.title, invoice, {'data-href-container' => 'tr'}
+  %td
+    = link_to invoice, {'data-href-container' => 'tr'} do
+      = invoice.to_s
+      = invoice_label(invoice)
   %td= invoice.amount
   %td.action-links
     = list_link_for(:edit, invoice)

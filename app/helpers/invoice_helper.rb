@@ -6,4 +6,19 @@ module InvoiceHelper
       result
     end
   end
+
+  def invoice_label(invoice)
+    type = case invoice.state
+    when 'canceled', 'reactivated'
+      nil
+    when 'paid'
+      'success'
+    when 'reminded', '2xreminded', '3xreminded', 'encashment'
+      'important'
+    when 'booked', 'writte_off'
+      'notice'
+    end
+
+    boot_label(t(invoice.state, :scope => 'invoice.state'), type)
+  end
 end
