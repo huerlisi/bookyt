@@ -57,7 +57,7 @@ GEM
     bookyt_projects (0.19.9)
       rails (~> 3.1)
       recurrence
-    bookyt_salary (0.15.1)
+    bookyt_salary (0.16.0)
       rails (~> 3.1)
       recurrence
     bookyt_stock (0.5.0)
