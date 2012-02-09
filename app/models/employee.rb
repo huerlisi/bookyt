@@ -12,7 +12,7 @@ class Employee < Person
 
   # Caluclated fields
   def ssn
-    social_security_nr_12 || social_security_nr
+    social_security_nr_12.presence || social_security_nr
   end
 
   # bookyt_salary
