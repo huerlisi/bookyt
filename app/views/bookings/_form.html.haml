@@ -4,7 +4,7 @@
     = f.input :code
     = f.input :value_date, :as => :date_field, :input_html => {"data-autofocus" => true}
     = f.input :title
-    = f.input :amount, :input_html => {:size => 12}
+    = f.input :amount, :as => :string, :input_html => {:size => 12}
     = f.input :credit_account, :as => :combobox, :collection => accounts_as_collection
     = f.input :debit_account, :as => :combobox, :collection => accounts_as_collection
     = f.input :reference_type, :as => :select, :collection => reference_types_as_collection

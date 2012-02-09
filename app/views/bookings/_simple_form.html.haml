@@ -4,7 +4,7 @@
     = f.input :code
     = f.input :value_date, :as => :date_field, :input_html => {"data-autofocus" => true}
     = f.input :title
-    = f.input :amount, :input_html => {:size => 12}
+    = f.input :amount, :as => :string, :input_html => {:size => 12}
     = f.input :comments, :input_html => {:rows => 5}
     = f.input :credit_account_id, :as => :hidden
     = f.input :debit_account_id, :as => :hidden
