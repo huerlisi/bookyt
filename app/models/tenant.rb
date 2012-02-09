@@ -28,12 +28,9 @@ class Tenant < ActiveRecord::Base
     first_year = fiscal_year_ends_on.year
     final_year = Date.today.year + 1
 
-    years = {}
     (first_year..final_year).map{|year|
-      years[year] = fiscal_period(year)
+      fiscal_period(year)
     }
-
-    return years
   end
 
   # Attachments

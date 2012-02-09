@@ -3,5 +3,5 @@
     %h3 Filter
     %ul
       %li= link_to t('bookyt.all'), url_for(params.merge(:by_value_period => nil))
-      - for year, period in current_tenant.fiscal_years
-        %li= link_to year, url_for(params.merge({:by_value_period => {:from => period[:from].to_s(:db), :to => period[:to].to_s(:db)}}))
+      - for period in current_tenant.fiscal_years.reverse
+        %li= link_to period[:to].year, url_for(params.merge({:by_value_period => {:from => period[:from].to_s(:db), :to => period[:to].to_s(:db)}}))
