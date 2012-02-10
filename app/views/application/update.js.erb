@@ -1,3 +1,3 @@
 $('#<%= resource.class.name.underscore %>_form').remove();
-$('#<%= "#{resource.class.name.underscore}_#{resource.to_param}" %>').replaceWith('<%=j render resource %>');
+$('#<%= "#{resource.class.name.underscore}_#{resource.to_param}" %>').replaceWith('<%=escape_javascript render resource %>');
 initializeBehaviours();
