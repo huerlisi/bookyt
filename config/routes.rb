@@ -143,14 +143,18 @@ Bookyt::Application.routes.draw do
   resources :accounts do
     member do
       get :csv_bookings
+      get :edit_bookings
+      post :update_bookings
     end
     resources :bookings
+    resources :attachments
   end
   resources :bank_accounts do
     member do
       get :csv_bookings
     end
     resources :bookings
+    resources :attachments
   end
 
   # Imports

@@ -210,6 +210,14 @@ de:
     new:
       title: Anmelden
 
+  accounts:
+    info:
+      title:       Kontodaten
+    journal:
+      title:       Auszug
+    edit_bookings:
+      title:       Buchungen
+
   invoice:
     state:
       booked:      offen

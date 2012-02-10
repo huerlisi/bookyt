@@ -1,0 +1,11 @@
+%ul.tabs
+  %li.active= link_to t_title(:journal, Account), '#tab-bookings'
+  %li= link_to t_title(:edit_bookings, Account), '#edit-bookings'
+  %li= link_to t_title(:info, Account), '#tab-info'
+  %li= link_to t_title(:list, Attachment), '#tab-attachments'
+
+.tab-content
+  #tab-bookings.active= render 'show_bookings'
+  #edit-bookings= render 'edit_bookings'
+  #tab-info= render "form"
+  #tab-attachments= render 'show_attachments'

@@ -8,6 +8,8 @@ class AttachmentsController < AuthorizedController
   belongs_to :customer, :polymorphic => true, :optional => true
   belongs_to :person, :polymorphic => true, :optional => true
   belongs_to :tenant, :polymorphic => true, :optional => true
+  belongs_to :account, :polymorphic => true, :optional => true
+  belongs_to :bank_account, :polymorphic => true, :optional => true
 
   def create
     create! {
