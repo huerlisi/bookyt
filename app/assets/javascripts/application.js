@@ -176,7 +176,7 @@ function handleLineItemChange(event) {
 }
 
 function addCalculateTotalAmountBehaviour() {
-  $("#line_items").find(":input[name$='[times]'], :input[name$='[price]']").live('keyup', handleLineItemChange);
+  $("#line_items").find(":input[name$='[times]'], :input[name$='[price]'], input[name$='[reference_code]']").live('keyup', handleLineItemChange);
 }
 
 // Sorting
