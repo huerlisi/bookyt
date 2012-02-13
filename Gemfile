@@ -152,6 +152,6 @@ end
 # =======
 # Uncomment to enable plugins
 gem 'bookyt_pos'
-gem 'bookyt_salary'
+gem 'bookyt_salary', :path => '../bookyt_salary'
 gem 'bookyt_stock'
 gem 'bookyt_projects'

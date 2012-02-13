@@ -13,6 +13,13 @@ GIT
       builder (>= 2.1.2)
       riddle (>= 1.5.0)
 
+PATH
+  remote: ../bookyt_salary
+  specs:
+    bookyt_salary (0.16.0)
+      rails (~> 3.1)
+      recurrence
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -55,9 +62,6 @@ GEM
     bcrypt-ruby (3.0.1)
     bookyt_pos (0.2.0)
     bookyt_projects (0.19.9)
-      rails (~> 3.1)
-      recurrence
-    bookyt_salary (0.16.0)
       rails (~> 3.1)
       recurrence
     bookyt_stock (0.5.0)
@@ -320,7 +324,7 @@ DEPENDENCIES
   autotest-rails
   bookyt_pos
   bookyt_projects
-  bookyt_salary
+  bookyt_salary!
   bookyt_stock
   bootstrap-will_paginate
   cancan

@@ -44,7 +44,7 @@ class LineItem < ActiveRecord::Base
     # If a reference_code is given...
     if reference_code
       # Guard against missing invoice
-      return 0.0 unless invoice
+      return 0 unless invoice
 
       # ...and it references a line item...
       if price_line_item = invoice.line_items.select{|item| item.code == reference_code}.first
@@ -100,31 +100,4 @@ class LineItem < ActiveRecord::Base
 
   # Booking templates
   belongs_to :booking_template
-
-  def set_booking_template(value)
-    self.booking_template = value
-
-    self.title          ||= value.title
-    self.code           ||= value.code
-    self.credit_account ||= value.credit_account
-    self.debit_account  ||= value.debit_account
-    self.position       ||= value.position
-    self.include_in_saldo_list = value.include_in_saldo_list
-    self.reference_code ||= value.amount_relates_to
-
-    if value.amount.match(/%/)
-      self.quantity = '%'
-      self.times    = value.amount.delete('%')
-      # TODO: hack
-      self.price    = self.price
-    elsif value.amount_relates_to.present?
-      self.quantity = 'saldo_of'
-      # TODO: hack
-      self.price    = self.price
-    else
-      self.quantity = 'x'
-      self.times    = 1
-      self.price    = value.amount
-    end
-  end
 end

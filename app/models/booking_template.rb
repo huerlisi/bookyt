@@ -101,6 +101,42 @@ class BookingTemplate < ActiveRecord::Base
   # LineItems
   has_many :line_items
 
+  def build_line_item
+    if self.amount.match(/%/) or self.amount_relates_to.blank?
+      line_item_class = LineItem
+    else
+      line_item_class = SaldoLineItem
+    end
+
+    line_item = line_item_class.new(
+      :booking_template      => self,
+      :title                 => self.title,
+      :code                  => self.code,
+      :credit_account        => self.credit_account,
+      :debit_account         => self.debit_account,
+      :position              => self.position,
+      :include_in_saldo_list => self.include_in_saldo_list,
+      :reference_code        => self.amount_relates_to
+    )
+
+    if self.amount.match(/%/)
+      line_item.quantity = '%'
+      line_item.times    = self.amount.delete('%')
+      # TODO: hack
+      line_item.price    = line_item.price
+    elsif self.amount_relates_to.present?
+      line_item.quantity = 'saldo_of'
+      # TODO: hack
+      line_item.price    = line_item.price
+    else
+      line_item.quantity = 'x'
+      line_item.times    = 1
+      line_item.price    = self.amount
+    end
+
+    line_item
+  end
+
   # Tagging
   acts_as_taggable_on :include_in_saldo
 

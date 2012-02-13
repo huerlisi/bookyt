@@ -69,10 +69,10 @@ function updateLineItemPrice(lineItem) {
   var list = lineItem.parent();
   var reference_code = lineItem.find(":input[name$='[reference_code]']").val();
   if (reference_code) {
-    var included_items = list.find(":input[name$='[code]'][value='" + reference_code + "']").parents('.line_item');
+    var included_items = list.find(":input[name$='[code]'][value='" + reference_code + "']").parents('.line_item, .saldo_line_item');
     if (included_items.length == 0) {
       // Should match using ~= but acts_as_taggable_adds_colons between tags
-      var included_items = list.find(":input[name$='[include_in_saldo_list]'][value*='" + reference_code + "']").parents('.line_item');
+      var included_items = list.find(":input[name$='[include_in_saldo_list]'][value*='" + reference_code + "']").parents('.line_item, .saldo_line_item');
     };
 
     var price_input = lineItem.find(":input[name$='[price]']");
@@ -81,7 +81,7 @@ function updateLineItemPrice(lineItem) {
 }
 
 function updateAllLineItemPrices() {
-  $('.line_item').each(function() {
+  $('.line_item, .saldo_line_item').each(function() {
     updateLineItemPrice($(this));
   });
 }
@@ -140,7 +140,7 @@ function calculateTotalAmount(lineItems) {
 function updateTotalAmount() {
   // Update Element
   var total_amount = 0;
-  $("#line_items .line_item").each(function() {
+  $("#line_items").filter(".saldo_line_iten, .line_item").each(function() {
     var line_item = $(this);
     if (line_item.find(":input[name$='[quantity]']").val() != 'saldo_of') {
       total_amount += accounting.parse(line_item.find(".total_amount").text());
@@ -152,7 +152,7 @@ function updateTotalAmount() {
 
 function updateLineItems() {
   if ($('#line_items').length > 0) {
-    $('.line_item').each(function() {
+    $('.line_item, .saldo_line_item').each(function() {
       updateLineItemPrice($(this));
       updateLineItemTotalAmount($(this));
     });
