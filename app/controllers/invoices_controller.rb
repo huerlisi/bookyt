@@ -42,13 +42,21 @@ class InvoicesController < AuthorizedController
       @invoice = resource_class.new
     end
 
-    @line_item = @invoice.line_items.build(
+    case params[:klass]
+    when 'SaldoLineItem'
+      klass = SaldoLineItem
+    else
+      klass = LineItem
+    end
+
+    @line_item = klass.new(
       :times          => 1,
       :quantity       => 'x',
       :include_in_saldo_list => ['vat:full'],
       :credit_account => resource_class.default_credit_account,
       :debit_account  => resource_class.default_debit_account
     )
+    @invoice.line_items << @line_item
 
     respond_with @line_item
   end
