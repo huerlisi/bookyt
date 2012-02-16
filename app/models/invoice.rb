@@ -111,7 +111,7 @@ class Invoice < ActiveRecord::Base
   include HasAccounts::Model
 
   # Callback hook
-  def booking_saved(booking)
+  def calculate_state
 
     if (self.state != 'canceled') and (self.state != 'reactivated') and (self.balance <= 0.0)
       new_state = 'paid'
