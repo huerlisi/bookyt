@@ -7,6 +7,19 @@ class LetterDocument < Prawn::Document
   include I18nRailsHelpers
   include Prawn::Measurements
 
+  # Unescape HTML
+  def html_unescape(value)
+    # Return an empty string when value is nil.
+    return '' unless value
+
+    result = value
+
+    result.gsub!(/<div>|<p>|<br>/, '')
+    result.gsub!(/<\/div>|<\/p>|<\/br>|<br[ ]*\/>/, "\n")
+
+    return result
+  end
+
   def initialize_fonts
     font 'Helvetica'
     font_size 9.5
@@ -55,8 +68,10 @@ class LetterDocument < Prawn::Document
 
   # Freetext
   def free_text(text = "")
+    return unless text.present?
+
     text " "
-    text text, :inline_format => true
+    text html_unescape(text), :inline_format => true
     text " "
   end
 
