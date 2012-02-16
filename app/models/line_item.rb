@@ -100,4 +100,14 @@ class LineItem < ActiveRecord::Base
 
   # Booking templates
   belongs_to :booking_template
+
+  before_save :set_type
+private
+  def set_type
+    if self.quantity == 'saldo_of'
+      self.type = "SaldoLineItem"
+    else
+      self.type = "LineItem"
+    end
+  end
 end
