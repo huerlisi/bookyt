@@ -23,4 +23,3 @@
 
   = f.buttons do
     = f.commit_button
-    = link_to t_action(:more), [:new_line_item, resource.persisted? ? resource : resource.class.name.underscore.pluralize.to_sym], :remote => true, :class => 'btn'
