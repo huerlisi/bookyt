@@ -9,7 +9,8 @@
     .clearfix
       .input-prepend
         .add-on Σ
-        = line_item.text_field :reference_code
+        = line_item.text_field :reference_code, :class => 'span5'
+
   %td.action_links
     = line_item.hidden_field :position
     = line_item.hidden_field :code
