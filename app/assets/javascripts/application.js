@@ -68,13 +68,19 @@ function currencyRound(value) {
 function updateLineItemPrice(lineItem) {
   var list = lineItem.parent();
   var reference_code = lineItem.find(":input[name$='[reference_code]']").val();
-  if (reference_code) {
-    var included_items = list.find(":input[name$='[code]'][value='" + reference_code + "']").parents('.line_item, .saldo_line_item');
-    if (included_items.length == 0) {
+  var quantity = lineItem.find(":input[name$='[quantity]']").val();
+  if (quantity == '%' || quantity == 'saldo_of') {
+    var included_items;
+    if (reference_code == '') {
+      included_items = lineItem.prevAll('.line_item');
+    } else {
       // Should match using ~= but acts_as_taggable_adds_colons between tags
-      var included_items = list.find(":input[name$='[include_in_saldo_list]'][value*='" + reference_code + "']").parents('.line_item, .saldo_line_item');
-    };
-
+      included_items = list.find(":input[name$='[code]'][value='" + reference_code + "']").parents('.line_item, .saldo_line_item');
+      if (included_items.length == 0) {
+        // Should match using ~= but acts_as_taggable_adds_colons between tags
+        included_items = list.find(":input[name$='[include_in_saldo_list]'][value*='" + reference_code + "']").parents('.line_item, .saldo_line_item');
+      }
+    }
     var price_input = lineItem.find(":input[name$='[price]']");
     price_input.val(calculateTotalAmount(included_items));
   }
