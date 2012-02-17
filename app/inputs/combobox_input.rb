@@ -8,9 +8,14 @@ class ComboboxInput < FormtasticBootstrap::Inputs::SelectInput
   def link_fragment
     reference = object.send(reflection.name)
 
-    return unless reference
-
-    template.content_tag('span', template.link_to('show', @object.send(reflection.name), :class => 'icon-combolink-text'), :class => 'combobox-link')
+    if reference
+      template.content_tag('span', template.link_to('show', @object.send(reflection.name), :class => 'icon-combolink-text'), :class => 'combobox-link')
+    else
+      url_method = "new_#{reflection.name}_#{object.class.model_name.underscore.pluralize}_url"
+      if template.respond_to?(url_method)
+        template.content_tag('span', template.link_to('new', template.send(url_method), :remote => true, :class => 'icon-add-text'), :class => "combobox-link new_#{reflection.name}")
+      end
+    end
   end
 
   def to_html
