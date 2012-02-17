@@ -1,0 +1,3 @@
+var link = $(".combobox-link.new_customer");
+var row = link.closest('.row');
+row.after('<%= escape_javascript render("customer_form") %>');

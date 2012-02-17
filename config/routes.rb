@@ -97,6 +97,7 @@ Bookyt::Application.routes.draw do
     end
     collection do
       get :new_line_item
+      get :new_company
     end
   end
 
@@ -112,6 +113,7 @@ Bookyt::Application.routes.draw do
     end
     collection do
       get :new_line_item
+      get :new_customer
     end
   end
 

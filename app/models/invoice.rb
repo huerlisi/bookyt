@@ -7,7 +7,9 @@ class Invoice < ActiveRecord::Base
 
   # Associations
   belongs_to :customer, :class_name => 'Person'
+  accepts_nested_attributes_for :customer
   belongs_to :company, :class_name => 'Person'
+  accepts_nested_attributes_for :company
 
   # Validations
   validates_date :due_date, :value_date
