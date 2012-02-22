@@ -22,6 +22,8 @@ bookyt is a web application implementing double-entry bookkeeping providing:
 * Depreciation
 * Setting up tax tables
 
+Find more information about bookyt on its "homepage":http://bookyt.ch
+
 bookyt is built on "Ruby On Rails":http://www.rubyonrails.org and released as "Open Source":http://www.opensource.org.
 
 h2. Documentation
