@@ -29,7 +29,7 @@
                 = text_field_tag "query", params[:query], :placeholder => t('placeholder.search')
             = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
 
-    .container
+    .container-fluid
       .content
         .row
           - if notice
