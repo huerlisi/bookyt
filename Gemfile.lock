@@ -267,6 +267,7 @@ GEM
       ffi (~> 1.0.9)
       multi_json (~> 1.0.4)
       rubyzip
+    settingslogic (2.0.8)
     sexp_processor (3.0.10)
     shoulda (2.11.3)
     show_for (0.2.4)
@@ -362,6 +363,7 @@ DEPENDENCIES
   ruby-debug
   ruby_parser
   sass-rails
+  settingslogic
   shoulda
   show_for
   simple-navigation

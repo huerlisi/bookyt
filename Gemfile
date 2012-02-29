@@ -155,3 +155,17 @@ gem 'bookyt_pos'
 gem 'bookyt_salary'
 gem 'bookyt_stock'
 gem 'bookyt_projects'
+
+# Monitoring
+# ==========
+gem 'settingslogic'
+group :demo do
+  # Traffic
+  gem 'rack-google_analytics'
+
+  # Performance
+  #gem 'newrelic_rpm'
+
+  # Exceptions
+  #gem 'airbrake'
+end
