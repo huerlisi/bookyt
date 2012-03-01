@@ -1,5 +1,7 @@
 %tr[attachment]
-  %td= link_to attachment.title, download_attachment_url(attachment), {'data-href-container' => 'tr'}
+  %td
+    = link_to attachment.title, download_attachment_url(attachment), {'data-href-container' => 'tr'}
+    = boot_label(attachment.code(:text))
   %td.action-links
     = list_link_for(:edit, attachment)
     = icon_delete_link_to attachment, attachment_url(attachment)
