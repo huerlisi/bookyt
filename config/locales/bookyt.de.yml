@@ -250,6 +250,22 @@ de:
     list:
       title:    Rechnungen
 
+  people:
+    index:
+      title:    Adressen
+
+  employees:
+    index:
+      title:    Mitarbeiter
+
+  companies:
+    index:
+      title:    Firmen
+
+  customers:
+    index:
+      title:    Kunden
+
   line_items:
     quantity:
       x:        x
@@ -359,10 +375,7 @@ de:
       profit:                   Erfolgsrechnung
       accounts:                 Konten
       bookings:                 Journal
-      employees:                Mitarbeiter
-      people:                   Personen
-      companies:                Firmen
-      customers:                Kunden
+      all:                      Alle
       destroy_user_session:     Abmelden
       new_user_session:         Anmelden
       store:                    Laden
@@ -379,8 +392,6 @@ de:
       settings:                 Einstellungen
       overview:                 Übersicht
       importer:                 Importer
-      new_employee:             Neuer Mitarbeiter
-      new_customer:             Neuer Kunde
       account_types:            Kontenarten
       tooltip:
         new_booking: Hier können Sie eine neue Buchung für die Finanzbuchhaltung erstellen
