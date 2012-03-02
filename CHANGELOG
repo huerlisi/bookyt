@@ -1,4 +1,20 @@
-1.1.0 (unreleased)
+1.2.0
+=====
+This release brings functions for salary management. With this module
+you can create salary reports and payslips by entering just a little
+bit of information. It's currently tailored to swiss law, but the
+framework will handle other requirements with ease.
+
+Localization for english has been improved and there's now a working
+language switcher.
+
+Invoices can now contain summary line items and calculations for relative
+amounts are done in realtime while entering data.
+
+Too many bugs fixed to mention:-)
+
+
+1.1.0
 =====
 We did a major restyling of bookyt. It now looks less cluttered and
 more to the point. The most frequently used functions are now
