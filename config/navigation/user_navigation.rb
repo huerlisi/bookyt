@@ -13,7 +13,6 @@ SimpleNavigation::Configuration.run do |navigation|
       settings.item :tentant,                   t('bookyt.settings.tenant.title'), tenant_path(current_tenant)
       settings.item :divider_two,               "", :class => 'divider'
       settings.item :vesr_settings,             t('bookyt.settings.vesr.title'), vesr_settings_path
-      settings.item :due,                       t('bookyt.settings.due.title'), '#'
       settings.item :divider_three,             "", :class => 'divider'
       settings.item :account_types,             t('bookyt.settings.account_types.title'), account_types_path
       settings.item :booking_templates,         t('bookyt.settings.booking_templates.title'), booking_templates_path
