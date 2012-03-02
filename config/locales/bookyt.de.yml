@@ -401,7 +401,7 @@ de:
         bookings: Im Journal finden Sie alle Buchungen die erstellt wurden
         people: Hier finden Sie eine Liste aller Kontakte
         employees: Hier finden Sie eine Liste aller Mitarbeiter
-        companies:  Hier finden Sie eine Liste aller Firmen (Mandanten)
+        companies:  Hier finden Sie eine Liste aller Firmen
         customers: Hier finden Sie eine Liste aller Kunden
         destroy_user_session:  Hier können Sie sich von Bookyt abmelden
         new_user_session:  Hier können Sie sich bei Bookyt anmelden
@@ -415,7 +415,7 @@ de:
         overview: Gibt Ihnen eine Übersicht über die Funktionen
         importer: Importiert Buchungsdaten aus einer .csv Datei
         new_customer: Erstellt einen neuen Kunden
-        new_employee: Erstellt einen neuen Mitarbeiter an
+        new_employee: Erstellt einen neuen Mitarbeiter
         current_user: Zeigt die Details des aktuell angemeldeten Benutzers
         user_index: Zeigt eine Liste aller Benutzer
         current_tenant: Zeigt die Details des aktiven Mandanten
