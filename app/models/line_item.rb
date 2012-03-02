@@ -42,7 +42,7 @@ class LineItem < ActiveRecord::Base
     return self[:price] unless self[:price].blank?
 
     # If a reference_code is given...
-    if reference_code
+    if reference_code.present?
       # Guard against missing invoice
       return 0 unless invoice
 

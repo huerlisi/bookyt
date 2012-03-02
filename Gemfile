@@ -135,6 +135,7 @@ gem 'paperclip'
 gem 'csv-mapper'
 
 # ESR support
+gem 'aasm'
 gem 'vesr'
 
 # Search

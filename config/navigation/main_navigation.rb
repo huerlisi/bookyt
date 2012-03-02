@@ -13,22 +13,22 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :contacts, t('bookyt.main_navigation.contacts'), people_path,
                  :tooltip => t('bookyt.main_navigation.tooltip.contacts'),
                  :if => Proc.new { user_signed_in? } do |contacts|
-      contacts.item :people, t('bookyt.main_navigation.people'), people_path,
+      contacts.item :people, t_title(:index, Person), people_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.people'),
                              :highlights_on => /\/people($|\?|\/[0-9]*($|\?|\/.*))/
-      contacts.item :employees, t('bookyt.main_navigation.employees'), employees_path,
+      contacts.item :employees, t_title(:index, Employee), employees_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.employees'),
                              :highlights_on => /\/employees($|\?|\/[0-9]*($|\?|\/.*))/
-      contacts.item :new_employee, t('bookyt.main_navigation.new_employee'), new_employee_path,
+      contacts.item :new_employee, t_title(:new, Employee), new_employee_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.new_employee'),
                              :highlights_on => /\/employees\/new$/
-      contacts.item :customers, t('bookyt.main_navigation.customers'), customers_path,
+      contacts.item :customers, t_title(:index, Customer), customers_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.customers'),
                              :highlights_on => /\/customers($|\?|\/[0-9]*($|\?|\/.*))/
-      contacts.item :new_customer, t('bookyt.main_navigation.new_customer'), new_customer_path,
+      contacts.item :new_customer, t_title(:new, Customer), new_customer_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.new_customer'),
                              :highlights_on => /\/customers\/new$/
-      contacts.item :companies, t('bookyt.main_navigation.companies'), companies_path,
+      contacts.item :companies, t_title(:index, Company), companies_path,
                              :tooltip => t('bookyt.main_navigation.tooltip.companies'),
                              :highlights_on => /\/companies($|\?|\/[0-9]*($|\?|\/.*))/
     end

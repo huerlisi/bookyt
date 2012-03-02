@@ -16,7 +16,7 @@ class Attachment < ActiveRecord::Base
 
     case format
       when :text
-        I18n::translate(raw, :scope => 'activerecord.attributes.attachments.code_enum')
+        raw.present? ? I18n::translate(raw, :scope => 'activerecord.attributes.attachment.code_enum') : ""
       else
         raw
     end

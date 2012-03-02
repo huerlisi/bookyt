@@ -11,7 +11,8 @@ class BookingsController < AuthorizedController
 
   def new
     @booking = Booking.new(:value_date => Date.today)
-    @booking_templates = BookingTemplate.where("NOT(code LIKE '%:%')").paginate(:page => params[:page])
+    # Only include base class records
+    @booking_templates = BookingTemplate.where(:type => [nil, 'BookingTemplate']).where("NOT(code LIKE '%:%')").paginate(:page => params[:page])
     new!
   end
 

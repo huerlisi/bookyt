@@ -240,7 +240,6 @@ function initializeBehaviours() {
   addDatePickerBehaviour();
   addSortableBehaviour();
   addLinkifyContainersBehaviour();
-  addOverviewTooltipBehaviour();
   addIconTooltipBehaviour();
   addTimeCheckBehaviour();
 
@@ -259,6 +258,9 @@ function initializeBehaviours() {
     $(".alert-message").alert();
     $("*[rel=popover]").popover({
       offset: 10
+    });
+    $('.small-tooltip').twipsy({
+      placement: 'right'
     });
   })
 }

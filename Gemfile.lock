@@ -18,6 +18,8 @@ GEM
   specs:
     Ascii85 (1.0.1)
     ZenTest (4.5.0)
+    aasm (3.0.2)
+      activerecord
     actionmailer (3.2.1)
       actionpack (= 3.2.1)
       mail (~> 2.4.0)
@@ -303,7 +305,7 @@ GEM
       multi_json (>= 1.0.2)
     validates_timeliness (3.0.8)
       timeliness (~> 0.3.4)
-    vesr (0.10.0)
+    vesr (0.11.0)
     warden (1.1.0)
       rack (>= 1.0)
     will_paginate (3.0.3)
@@ -316,6 +318,7 @@ PLATFORMS
 
 DEPENDENCIES
   ZenTest (< 4.6.0)
+  aasm
   acts-as-taggable-on
   autotest
   autotest-rails

@@ -104,6 +104,8 @@ class Invoice < ActiveRecord::Base
     return false
   end
 
+  include Invoice::Actions
+
   # Period
   # ======
   scope :active_at, lambda {|value| Invoice.where("date(duration_from) < :date AND date(duration_to) > :date", :date => value)}
