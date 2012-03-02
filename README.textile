@@ -1,14 +1,16 @@
-h1. bookyt
+h1. Bookyt
 
-bookyt is a simple but powerful financial accounting software.
+Bookyt is a bookkeeping/ERP application designed for small-to-medium-sized companies.
+
+It can handle debit invoices, credit invoices, projects with timelogs, swiss salary management, and much more.
 
 h2. Demo
 
-Here you find a demo installation of "bookyt":http://bookyt.demo.cyt.ch.
+Here you find a demo installation of "Bookyt":http://bookyt.demo.cyt.ch.
 
-h2. About bookyt
+h2. About Bookyt
 
-bookyt is a web application implementing double-entry bookkeeping providing:
+Bookyt is a web application implementing double-entry bookkeeping providing:
 
 * Customizable accounts
 * Booking wizard
@@ -22,9 +24,9 @@ bookyt is a web application implementing double-entry bookkeeping providing:
 * Depreciation
 * Setting up tax tables
 
-Find more information about bookyt on its "homepage":http://bookyt.ch
+Find more information about Bookyt on its "homepage":http://bookyt.ch
 
-bookyt is built on "Ruby On Rails":http://www.rubyonrails.org and released as "Open Source":http://www.opensource.org.
+Bookyt is built on "Ruby On Rails":http://www.rubyonrails.org and released as "Open Source":http://www.opensource.org.
 
 h2. Documentation
 
@@ -32,9 +34,9 @@ h2. Documentation
 
 h2. Contributing
 
-Code is available at "github":http://github.com/huerlisi/bookyt.
+Code is available at "github":https://github.com/huerlisi/bookyt.
 
-Issue tracking is done using "Redmine":http://redmine.cyt.ch/projects/bookyt/issues.
+Issue tracking is done using "Redmine":https://redmine.cyt.ch/projects/bookyt/issues.
 
 h2. License
 
