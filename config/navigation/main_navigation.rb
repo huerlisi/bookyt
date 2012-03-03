@@ -39,18 +39,19 @@ SimpleNavigation::Configuration.run do |navigation|
       accounting.item :booking, t('bookyt.main_navigation.new_booking'), new_booking_path,
                       :tooltip => t('bookyt.main_navigation.tooltip.new_booking'),
                       :highlights_on => /\/bookings\/.*$/
-      accounting.item :balance, t('bookyt.main_navigation.balance'), balance_sheet_tenant_path(current_user.tenant, :by_value_period => params[:by_value_period]),
-                      :tooltip => t('bookyt.main_navigation.tooltip.balance'),
-                      :highlights_on => /#{Regexp.escape(balance_sheet_tenant_path(current_user.tenant))}($|\?)/
-      accounting.item :profit, t('bookyt.main_navigation.profit'), profit_sheet_tenant_path(current_user.tenant, :by_value_period => params[:by_value_period]),
-                      :tooltip => t('bookyt.main_navigation.tooltip.profit'),
-                      :highlights_on => /#{Regexp.escape(profit_sheet_tenant_path(current_user.tenant))}($|\?)/
       accounting.item :accounts, t('bookyt.main_navigation.accounts'), accounts_path,
                       :tooltip => t('bookyt.main_navigation.tooltip.accounts'),
                       :highlights_on => /\/accounts/
       accounting.item :bookings, t('bookyt.main_navigation.bookings'), bookings_path,
                       :tooltip => t('bookyt.main_navigation.tooltip.bookings'),
                       :highlights_on => /\/bookings($|\?)/
+      accounting.item :accounting_divider, "", :class => 'divider'
+      accounting.item :balance, t('bookyt.main_navigation.balance'), balance_sheet_tenant_path(current_user.tenant, :by_value_period => params[:by_value_period]),
+                      :tooltip => t('bookyt.main_navigation.tooltip.balance'),
+                      :highlights_on => /#{Regexp.escape(balance_sheet_tenant_path(current_user.tenant))}($|\?)/
+      accounting.item :profit, t('bookyt.main_navigation.profit'), profit_sheet_tenant_path(current_user.tenant, :by_value_period => params[:by_value_period]),
+                      :tooltip => t('bookyt.main_navigation.tooltip.profit'),
+                      :highlights_on => /#{Regexp.escape(profit_sheet_tenant_path(current_user.tenant))}($|\?)/
     end
 
     primary.item :invoicing, t('bookyt.main_navigation.invoicing'), invoices_path,
