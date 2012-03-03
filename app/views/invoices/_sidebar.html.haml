@@ -4,8 +4,8 @@
   - content_for :sidebar do
     .sub-tabs
       %h3 Rechnungsfilter
-      %ul
-        %li= link_to t('bookyt.all'), url_for(:by_state => 'all', :overdue => nil)
+      %ul{:style => 'list-style: none'}
+        - current_state = current_scopes[:by_state]
+        %li= link_to invoice_state_label('all', current_state.nil?), url_for(:by_state => 'all')
         - for state in Invoice::STATES
-          %li= link_to t(state, :scope => 'invoice.state'), url_for(:by_state => state, :overdue => nil)
-        %li= link_to t(:overdue, :scope => 'invoice.state'), url_for(:by_state => nil, :overdue => true)
+          %li= link_to invoice_state_label(state, state.to_s == current_state), url_for(:by_state => state)

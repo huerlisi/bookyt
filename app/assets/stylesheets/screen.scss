@@ -11,3 +11,8 @@
 
 // jQuery UI
 @import 'partials/jquery';
+
+.label.disabled {
+  background-color: transparent;
+  color:            #404040;
+}

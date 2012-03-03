@@ -220,6 +220,7 @@ de:
 
   invoice:
     state:
+      all:         Alle
       booked:      offen
       canceled:    storniert
       paid:        bezahlt
