@@ -1,3 +1,33 @@
+1.2.1
+=====
+Mainly focusing on small usability bugs and enhancements.
+
+One outstanding feature did slip in though: not matching payments
+bookings, imported from bank, can now be cleaned up by simply
+clicking on action buttons. You may write off, book as extra
+earning etc.
+
+Oh, yes! There's another one: most pages will now produce sensible
+print outs. Simply use your browsers 'print' action or press
+<ctrl-p>.
+
+Give it a try at https://bookyt-demo.cyt.ch!
+
+Other Improvements:
+* Login user field gets autofocus
+* Active invoice filter is highlighted
+* Ability to create new customer while creating a new invoice
+* Balance and profit sheets have whole row linking to accounts
+* Show "use as" information in attachment list
+* Top menu cleanup
+* Use twitter bootstrap style tooltips in overview
+* Don't clutter template list in new booking form with
+  salary related booking templates
+
+Major bugfixes:
+* Stack overflow when empty DebitInvoice is created
+
+
 1.2.0
 =====
 This release brings functions for salary management. With this module
