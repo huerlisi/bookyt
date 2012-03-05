@@ -1,3 +1,3 @@
 $('#new_<%= resource.class.name.underscore %>').remove();
-$('#<%= resource.class.name.tableize %>_list').before('<%=j render "form" %>');
+$('.<%= resource_class.model_name.tableize %>.collection').before('<%=j render "form" %>');
 initializeBehaviours();
