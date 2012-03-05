@@ -3,5 +3,8 @@
 %h3= t('title.attachments')
 
 - @attachments = resource.attachments
-#attachments_list
+- if @attachments.empty?
+  = boot_alert(t('attachments.alerts.empty'))
+  .attachments.collection
+- else
   = render 'attachments/list' unless @attachments.empty?

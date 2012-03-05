@@ -264,6 +264,8 @@ de:
   attachments:
     list:
       title:    Dokumente
+    alerts:
+      empty:    Keine Dokumente vorhanden.
 
   invoices:
     list:
