@@ -242,7 +242,10 @@ de:
       encashment:  Inkasso
       written_off: Abgeschriebene Rechnung
       overdue:     Überfällige Rechnung
-
+  accounts:
+    index:
+      title:       Konten
+      
   attachments:
     list:
       title:    Dokumente
