@@ -242,12 +242,26 @@ de:
       encashment:  Inkasso
       written_off: Abgeschriebene Rechnung
       overdue:     Überfällige Rechnung
+  
   accounts:
     index:
       title:    Konten
+  
   bookings:
     index:
       title:    Journal
+
+  credit_invoices:
+    index:
+      title:    Kreditoren
+
+  esr_files:
+    index:
+      title:    VESR Journal
+  
+  debit_invoices:
+    index:
+      title:    Debitoren
 
   attachments:
     list:
