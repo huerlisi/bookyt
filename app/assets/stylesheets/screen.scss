@@ -12,7 +12,17 @@
 // jQuery UI
 @import 'partials/jquery';
 
+ul.pager {
+  list-style: none;
+  margin-left: 0;
+}
+
 .label.disabled {
   background-color: transparent;
   color:            #404040;
+}
+
+.label.disabled:hover {
+  background-color: #BFBFBF;
+  color:            white;
 }
