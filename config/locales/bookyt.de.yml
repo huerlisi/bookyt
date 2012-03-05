@@ -366,6 +366,19 @@ de:
     debit_invoice:
       closing:        "Vielen Dank für die Zusammenarbeit.\n\nBitte begleichen Sie diese Rechnung bis zum %{due_date} mit beiliegendem Einzahlungsschein oder per E-Banking."
 
+  tenants:
+    user:
+      title:  Benutzer
+  
+    tenant:
+      title:  Mandant
+
+    bookings:
+      title:  Buchhaltung
+
+    vesr:
+      title:  VESR
+
   bookyt:
     all:              Alle
     edit:             Editieren
