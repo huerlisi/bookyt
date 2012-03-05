@@ -244,8 +244,11 @@ de:
       overdue:     Überfällige Rechnung
   accounts:
     index:
-      title:       Konten
-      
+      title:    Konten
+  bookings:
+    index:
+      title:    Journal
+
   attachments:
     list:
       title:    Dokumente
