@@ -344,6 +344,7 @@ DEPENDENCIES
   capones_recipes
   capybara
   carrierwave
+  coffee-rails
   compass-rails
   csv-mapper
   database_cleaner
@@ -389,7 +390,7 @@ DEPENDENCIES
   sqlite3
   therubyracer
   thinking-sphinx!
-  twitter-bootstrap-rails (~> 1.4.3)
+  twitter-bootstrap-rails
   uglifier
   validates_timeliness
   vesr
