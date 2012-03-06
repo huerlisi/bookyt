@@ -49,6 +49,7 @@ class BootstrapTopbarList < SimpleNavigation::Renderer::Base
   def link_options_for(item)
     special_options = {:method => item.method}.reject {|k, v| v.nil? }
     link_options = item.html_options[:link] || {}
+    link_options['data-toggle'] = 'dropdown'
     opts = special_options.merge(link_options)
     opts[:class] = [link_options[:class], item.selected_class, dropdown_link_class(item)].flatten.compact.join(' ')
     opts.delete(:class) if opts[:class].nil? || opts[:class] == ''

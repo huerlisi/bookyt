@@ -15,7 +15,7 @@ gem 'sqlite3'
 group :assets do
   gem 'sass-rails'
   gem 'sprockets'
-  # gem 'coffee-rails', "~> 3.1.0.rc"
+  gem 'coffee-rails'
   gem 'therubyracer'
   gem 'uglifier'
   gem 'compass-rails'
