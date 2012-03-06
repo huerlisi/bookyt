@@ -6,16 +6,16 @@
 %h1= link_to @tenant.company, @tenant.company
 
 %ul.tabs
-  %li.active= link_to t_title(:user), '#tab-users'
-  %li= link_to t_title(:tenant), '#tab-tenant'
+  %li.active= link_to t_title(:tenant), '#tab-tenant'
+  %li= link_to t_title(:user), '#tab-users'
   %li= link_to t_title(:bookings), '#tab-bookings'
   %li= link_to t_title(:vesr), '#tab-vesr'
   %li= link_to t_title(:list, Attachment), '#tab-attachments'
 
 = semantic_form_for @tenant do |f|
   .tab-content
-    #tab-users.active= render "form_users", :f => f
-    #tab-tenant= render "form_tenant", :f => f
+    #tab-tenant.active= render "form_tenant", :f => f
+    #tab-users= render "form_users", :f => f
     #tab-bookings= render "form_bookings", :f => f    
     #tab-vesr= render "form_vesr", :f => f
     #tab-attachments= render 'show_attachments'
