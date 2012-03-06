@@ -1,6 +1,8 @@
-%table.list#attachments_list
-  %tr
-    %th= t_attr :title, Attachment
-    %th.action-links
+%table.zebra-striped.attachments.collection
+  %thead
+    %tr
+      %th= t_attr :title, Attachment
+      %th.action-links
 
-  = render @attachments
+  %tbody
+    = render @attachments

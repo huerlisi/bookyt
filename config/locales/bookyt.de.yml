@@ -211,6 +211,8 @@ de:
       title: Anmelden
 
   accounts:
+    index:
+      title:    Konten
     info:
       title:       Kontodaten
     journal:
@@ -243,10 +245,6 @@ de:
       written_off: Abgeschriebene Rechnung
       overdue:     Überfällige Rechnung
   
-  accounts:
-    index:
-      title:    Konten
-  
   bookings:
     index:
       title:    Journal
@@ -266,6 +264,8 @@ de:
   attachments:
     list:
       title:    Dokumente
+    alerts:
+      empty:    Keine Dokumente vorhanden.
 
   invoices:
     list:

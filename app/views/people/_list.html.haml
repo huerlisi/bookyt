@@ -1,6 +1,8 @@
-%table.list#people_list
-  %tr
-    %th= t_attr :full_name
-    %th
+%table.zebra-striped#people_list
+  %thead
+    %tr
+      %th= t_attr :full_name
+      %th
 
-  = render collection
+  %tbody
+    = render collection
