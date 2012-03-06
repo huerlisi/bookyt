@@ -4,22 +4,23 @@
 
 %h1= t('bookyt.profit_report_for', :company => @company, :per => @end_date)
 
-%table{:width => "100%"}
-  %tr
-    %th{:colspan => "2"}
-    -for @date in @dates
-      %th{:style => "text-align: right"}
-        %h2= @date.last.year
+%table.zebra-striped.collection{:width => "100%"}
+  %thead
+    %tr
+      %th{:colspan => "2"}
+      -for @date in @dates
+        %th{:style => "text-align: right"}
+          %h2= @date.last.year
 
-  = render 'account_group_sheet', :group => 'costs'
-  = render 'account_group_sheet', :group => 'earnings'
+    = render 'account_group_sheet', :group => 'costs'
+    = render 'account_group_sheet', :group => 'earnings'
+  %thead
+    %tr
+      %th{:colspan => "2"}
+        %h3= t('title.profit')
 
-  %tr
-    %th{:colspan => "2"}
-      %h3= t('title.profit')
-
-    - for @date in @dates
-      %th{:style => "text-align: right"}
-        %h3= currency_fmt(Account.by_type('earnings').saldo(@date) - Account.by_type('costs').saldo(@date))
+      - for @date in @dates
+        %th{:style => "text-align: right"}
+          %h3= currency_fmt(Account.by_type('earnings').saldo(@date) - Account.by_type('costs').saldo(@date))
 
 = render 'bookings/sidebar'

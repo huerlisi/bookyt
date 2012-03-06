@@ -1,4 +1,4 @@
-%table.list.charge_rates.collection
+%table.zebra-striped.charge_rates.collection
   %thead
     %tr
       %th= t_attr :title
@@ -7,5 +7,5 @@
       %th= t_attr :person
       %th.right= t_attr :rate
       %th.action-links
-
-  = render @charge_rates
+  %tbody
+    = render @charge_rates

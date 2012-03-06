@@ -1,7 +1,8 @@
-%table.list#booking_import_list
-  %tr
-    %th= t_attr :csv
-    %th= t_attr :created_at
-    %th.action-links
-
-  = render @booking_imports
+%table.zebra-striped.booking_imports.collection
+  %thead
+    %tr
+      %th= t_attr :csv
+      %th= t_attr :created_at
+      %th.action-links
+  %tbody
+    = render @booking_imports

@@ -1,7 +1,8 @@
-%table.list#tenant_list
-  %tr
-    %th= t_attr :company, Tenant
-    %th= t_attr :users, Tenant
-    %th.action-links
-
-  = render @tenants
+%table.zebra-striped.tenants.collection
+  %thead
+    %tr
+      %th= t_attr :company, Tenant
+      %th= t_attr :users, Tenant
+      %th.action-links
+  %tbody
+    = render @tenants

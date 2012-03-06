@@ -1,11 +1,12 @@
-%table.list#bookings_list
-  %tr
-    %th= t_attr :valuta
-    %th= t_attr :title
-    %th= t_attr :reference
-    %th= t_attr :credit_account
-    %th= t_attr :debit_account
-    %th.currency= t_attr 'amount'
-    %th.action-links
-
-  = render collection, :item_action => (item_action ||= nil)
+%table.zebra-striped.bookings.collection
+  %thead
+    %tr
+      %th= t_attr :valuta
+      %th= t_attr :title
+      %th= t_attr :reference
+      %th= t_attr :credit_account
+      %th= t_attr :debit_account
+      %th.currency= t_attr 'amount'
+      %th.action-links
+  %tbody
+    = render collection, :item_action => (item_action ||= nil)

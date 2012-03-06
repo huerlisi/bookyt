@@ -1,7 +1,8 @@
-%table.list#account_types_list
-  %tr
-    %th= t_attr :name
-    %th= t_attr :title
-    %th.action-links
-
-  = render @account_types
+%table.zebra-striped.account_types.collection
+  %thead
+    %tr
+      %th= t_attr :name
+      %th= t_attr :title
+      %th.action-links
+  %tbody
+    = render @account_types

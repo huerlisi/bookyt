@@ -1,8 +1,10 @@
 = contextual_links
 
 %h1= t_title
-%table.list#accounts_list
-  = render 'list_header'
-  = render @accounts
+%table.zebra-striped.accounts.collection
+  %thead
+    = render 'list_header'
+  %tbody
+    = render @accounts
 
 = render 'bookings/sidebar'

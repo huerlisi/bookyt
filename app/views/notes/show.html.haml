@@ -3,10 +3,12 @@
 
 %h1= t_title
 
-%table{:class => "#{collection.first.class.to_s.downcase} detail"}
-  %tr
-    %th= t_attr(:content)
-    %td= resource.content
-  %tr
-    %th= t_attr(:user)
-    %td= resource.user
+%table.zebra-striped{:class => "#{collection.first.class.to_s.downcase} detail"}
+  %thead  
+    %tr
+      %th= t_attr(:content)
+      %td= resource.content
+  %tbody
+    %tr
+      %th= t_attr(:user)
+      %td= resource.user

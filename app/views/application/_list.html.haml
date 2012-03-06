@@ -1,5 +1,5 @@
 - @attributes ||= collection.first.attribute_names - ['id', 'created_at', 'updated_at']
-%table.list{:class => "#{collection.first.class.to_s.downcase.pluralize} collection"}
+%table.zebra-striped{:class => "#{collection.first.class.to_s.downcase.pluralize} collection"}
   %thead
     %tr
       - @attributes.each do |field|

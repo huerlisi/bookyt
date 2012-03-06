@@ -1,11 +1,12 @@
-%table.list#employments_list
-  %tr
-    %th= t_attr :employer, Employment
-    %th= t_attr :employee, Employment
-    %th= t_attr :duration, Employment
-    %th.currency= t_attr :salary_amount, Employment
-    %th.currency= t_attr :workload, Employment
-    %th.currency= t_attr :kids, Employment
-    %th.action-links
-
-  = render @employments
+%table.zebra-striped.employments.collection
+  %thead
+    %tr
+      %th= t_attr :employer, Employment
+      %th= t_attr :employee, Employment
+      %th= t_attr :duration, Employment
+      %th.currency= t_attr :salary_amount, Employment
+      %th.currency= t_attr :workload, Employment
+      %th.currency= t_attr :kids, Employment
+      %th.action-links
+  %tbody
+    = render @employments
