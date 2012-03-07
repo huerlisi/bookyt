@@ -11,16 +11,17 @@
 - debit_accounts = bookings.select('debit_account_id').group('debit_account_id').map{|account| account.debit_account}
 - accounts = (credit_accounts + debit_accounts).uniq
 
-%ul.tabs
-  %li.active= link_to t_model, '#tab-main'
-  %li= link_to t_title(:list, Attachment), '#tab-attachments'
-  %li= link_to t_title(:list, Stock), '#tab-stocks' if Bookyt::Engine.engines.include?('bookyt_stock')
-  - accounts.each do |account|
-    %li= link_to account.to_s, "#tab-account-#{account.id}"
+.tabbable
+  %ul.nav.nav-tabs
+    %li.active= link_to t_model, '#tab-main', {:data => {:toggle => 'tab'}}
+    %li= link_to t_title(:list, Attachment), '#tab-attachments', {:data => {:toggle => 'tab'}}
+    %li= link_to t_title(:list, Stock), '#tab-stocks', {:data => {:toggle => 'tab'}} if Bookyt::Engine.engines.include?('bookyt_stock')
+    - accounts.each do |account|
+      %li= link_to account.to_s, "#tab-account-#{account.id}", {:data => {:toggle => 'tab'}}
 
 .tab-content
-  #tab-main.active= render "form"
-  #tab-attachments= render 'show_attachments'
-  #tab-stocks= render 'bookyt_stock/invoices/show' if Bookyt::Engine.engines.include?('bookyt_stock')
+  #tab-main.tab-pane.active= render "form"
+  #tab-attachments.tab-pane= render 'show_attachments'
+  #tab-stocks.tab-pane= render 'bookyt_stock/invoices/show' if Bookyt::Engine.engines.include?('bookyt_stock')
   - accounts.each do |account|
     %div{:id => "tab-account-#{account.id}"}= render 'direct_bookings/show', :reference => resource, :direct_account => account
