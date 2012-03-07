@@ -23,13 +23,15 @@
           = link_to root_path, :class => 'brand' do
             book<span id="logo-yt">yt</span>
           = render_navigation(:context => :main, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
-          .pull-right
-            - if user_signed_in?
-              = form_tag "/search", :method => :get do
-                = text_field_tag "query", params[:query], :placeholder => t('placeholder.search')
+          - if user_signed_in?
+            %form.navbar-search.pull-left
+              %input.search-query
+                //= form_tag "/search", :method => :get do
+                //  = text_field_tag "search-query", params[:query], :placeholder => t('placeholder.search')
+          .pull-right      
             = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
-
     .container-fluid
+      .container-left
       .content
         .row
           - if notice
@@ -40,11 +42,10 @@
             .alert-message.block-message.fade.in.error{'data-alert' => 'alert'}
               %a.close{:href => '#'} &times;
               = alert
-        .row
-          = yield
-
-      .sidebar
-        = render_sidebars
+        = yield
+      .container-right
+        .sidebar
+          = render_sidebars
 
     %footer.footer
       .container-fluid
