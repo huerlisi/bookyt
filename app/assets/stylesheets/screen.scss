@@ -26,3 +26,73 @@ ul.pager {
   background-color: #BFBFBF;
   color:            white;
 }
+
+.container-left, .container-right {
+	max-width: 50%;
+	margin: 0;
+	float: left;
+	display: inline-block;
+	position: relative;
+}
+
+.container-right {
+	float: none;
+}
+
+.footer,
+.container-fluid > .content{
+	max-width: 1170px;
+	margin: 0 auto;
+	position: relative;
+	padding: 10px 10px 11px;
+}
+.container-fluid {
+	max-width: 100%;
+	margin: 0 !important;
+	min-height: 0%;
+}
+
+#new_user {
+	clear: both;
+}
+
+#new_user li {
+	list-style: none;
+}
+
+#new_user ul {
+	margin: 0;
+}
+
+#new_user label {
+	padding: 10px 10px 0px;
+	margin-bottom: 0;
+}
+
+#new_user input {
+	margin: 2px 11px;
+	float: left;
+}
+
+#user_remember_me input{
+	padding-left:0;
+	margin-right: 0;
+}
+
+#new_user label input {
+  margin: 0 10px 10px 0;
+}
+
+.btn input {
+	float: none;
+	clear: both;
+}
+
+.content > a {
+  clear: both;
+  display: block;
+  float: none;
+  margin: 10px;
+  padding: 10px 0;
+}
+
