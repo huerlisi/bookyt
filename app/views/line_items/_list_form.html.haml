@@ -1,5 +1,5 @@
 = f.inputs t('title.line_items') do
-  %table#line_items.zebra-striped.nested-form-container{'data-direct-account-id' => resource.direct_account.id, 'data-direct-account-factor' => resource.direct_account_factor}
+  %table#line_items.table.table-striped{'data-direct-account-id' => resource.direct_account.id, 'data-direct-account-factor' => resource.direct_account_factor}
     %thead
       = render 'line_items/list_header', :invoice => invoice
     %tbody.sortable

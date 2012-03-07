@@ -1,7 +1,7 @@
 - @debit_invoices = debit_invoices if defined?(debit_invoices)
 = render 'invoices/sidebar'
 
-%table.zebra-striped.invoices.collection
+%table.table.table-striped.invoices.collection
   %thead
     %tr
       %th= t_attr :value_date, Invoice
