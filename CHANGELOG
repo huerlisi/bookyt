@@ -13,6 +13,14 @@ And much more...
 
 Check it out at https://bookyt-demo.cyt.ch!
 
+Other Improvements:
+* Much nicer and consistent booking entry
+
+Major bugfixes:
+* In invoice forms, the 'total' in the line item footer did not update,
+  using a generic saldo line item now
+
+
 1.2.1
 =====
 Mainly focusing on small usability bugs and enhancements.
