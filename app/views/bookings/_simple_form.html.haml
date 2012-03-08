@@ -1,12 +1,27 @@
 = semantic_form_for @booking do |f|
   = f.semantic_errors
+
   = f.inputs do
-    = f.input :code
-    = f.input :value_date, :as => :date_field, :input_html => {"data-autofocus" => true}
-    = f.input :title
-    = f.input :amount, :as => :string, :input_html => {:size => 12}
-    = f.input :comments, :input_html => {:rows => 5}
-    = f.input :credit_account_id, :as => :hidden
-    = f.input :debit_account_id, :as => :hidden
+    .row
+      .span8
+        = f.input :title, :input_html => {"data-autofocus" => true}
+      .span8
+        = f.input :value_date, :as => :date_field
+    .row
+      .span8
+        = f.input :amount, :as => :string, :input_html => {:size => 12}
+      .span8
+        = f.input :code
+
+    .row
+      .span12
+        = f.input :comments, :input_html => {:rows => 4, :class => 'span12'}
+
+    .row
+      .span8
+        = f.input :credit_account, :as => :combobox
+      .span8
+        = f.input :debit_account, :as => :combobox
+
   = f.buttons do
     = f.commit_button
