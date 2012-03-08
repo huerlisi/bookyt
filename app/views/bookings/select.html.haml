@@ -8,4 +8,3 @@
 
 %h3= t_model(Booking)
 = render 'bookings/list', :item_action => lambda{|object| select_booking_booking_path(object, :booking => params[:booking])}
-
