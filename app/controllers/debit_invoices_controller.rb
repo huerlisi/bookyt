@@ -25,7 +25,7 @@ class DebitInvoicesController < InvoicesController
       :debit_account  => DebitInvoice.default_debit_account
     )
 
-    # Add vat line item at very last position
+    # Add vat line item at second last position
     # TODO: debit account should not be hard coded
     if current_tenant.vat_number.present?
       @debit_invoice.line_items.build(
@@ -33,18 +33,20 @@ class DebitInvoicesController < InvoicesController
         :times          => 8,
         :quantity       => '%',
         :reference_code => 'vat:full',
-        :position       => 100000,
         :credit_account => DebitInvoice.default_credit_account,
         :debit_account  => Account.find_by_code('2200')
       )
     end
 
+    # Add a total saldo line item last
+    @debit_invoice.line_items <<
+      SaldoLineItem.new(:title => I18n::translate('bookyt.total'))
+
     new!
   end
 
   def create
-    invoice_params = {
-    }
+    invoice_params = {}
 
     invoice_params.merge!(params[:debit_invoice]) if params[:debit_invoice]
 
