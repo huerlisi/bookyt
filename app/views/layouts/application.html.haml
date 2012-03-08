@@ -13,7 +13,7 @@
     = csrf_meta_tag
     %title
       - if current_user
-        = "#{current_user.tenant} #{t_page_head} - #{t('application.title')}"
+        = "#{current_user.tenant}: #{content_for :page_title} - #{t('application.title')}"
       - else
         = "#{t_page_head} - #{t('application.title')}"
   %body{:style => "padding-top: 60px"}

@@ -1,4 +1,12 @@
 module BootstrapHelper
+  def boot_page_title(action = nil, model = nil)
+    title = t_title(action, model)
+    content_for :page_title, title
+    content_tag(:div, :class => 'page-header') do
+      content_tag(:h1, title)
+    end
+  end
+
   def boot_label(content, type = nil)
     return "" unless content.present?
 
