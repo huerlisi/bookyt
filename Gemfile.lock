@@ -168,7 +168,7 @@ GEM
       rbx-require-relative (> 0.0.4)
     lyb_sidebar (0.1.1)
       rails (~> 3.1)
-    mail (2.4.1)
+    mail (2.4.3)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
