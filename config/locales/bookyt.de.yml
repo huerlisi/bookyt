@@ -248,6 +248,8 @@ de:
   bookings:
     index:
       title:    Journal
+    simple_edit:
+      title:    Buchung erfassen
 
   credit_invoices:
     index:
