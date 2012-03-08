@@ -143,27 +143,12 @@ function calculateTotalAmount(lineItems) {
   return currencyRound(total_amount);
 }
 
-function updateTotalAmount() {
-  // Update Element
-  var total_amount = 0;
-  $("#line_items").filter(".saldo_line_iten, .line_item").each(function() {
-    var line_item = $(this);
-    if (line_item.find(":input[name$='[quantity]']").val() != 'saldo_of') {
-      total_amount += accounting.parse(line_item.find(".total_amount").text());
-    };
-  });
-  
-  $(".line_item_total .total_amount").text(accounting.formatNumber(currencyRound(total_amount)));
-}
-
 function updateLineItems() {
   if ($('#line_items').length > 0) {
     $('.line_item, .saldo_line_item').each(function() {
       updateLineItemPrice($(this));
       updateLineItemTotalAmount($(this));
     });
-
-    updateTotalAmount();
   };
 }
 
