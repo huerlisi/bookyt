@@ -3,7 +3,7 @@
 %tr[booking]
   %td= booking.value_date
   %td
-    = link_to booking.title, item_action.call(booking)
+    = link_to booking.title, item_action.call(booking), 'data-href-container' => 'tr'
     - if booking.comments.present?
       %hr{:style => "height: 1px; margin: 0"}/
       %i= booking.comments
