@@ -1,3 +1,18 @@
+1.2.2
+=====
+Another polishing release. It's the little things that make a big
+difference!
+
+Using zebrastriped lists is a small thing, but enhances usability
+quite a bit. Better translations make it simpler to find what
+you're looking for. Hints when a list contains no items tell you
+why this list exists in the first place. Unified, cleaner design
+of sidebar filters and pagers tell you what you see in no time.
+
+And much more...
+
+Check it out at https://bookyt-demo.cyt.ch!
+
 1.2.1
 =====
 Mainly focusing on small usability bugs and enhancements.
