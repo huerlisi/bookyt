@@ -248,7 +248,7 @@ de:
   bookings:
     index:
       title:    Journal
-    simple_edit:
+    new:
       title:    Buchung erfassen
 
   credit_invoices:
