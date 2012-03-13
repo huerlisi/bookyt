@@ -99,15 +99,20 @@ class LineItem < ActiveRecord::Base
   acts_as_taggable_on :include_in_saldo
 
   # Bookings
-  has_one :booking, :as => :template
+  has_one :booking, :as => :template, :dependent => :destroy, :autosave => true
 
-  def build_booking(*params)
-    build(
+  before_save do
+    return unless self.credit_account && self.debit_account
+
+    new_booking = booking || build_booking
+    new_booking.attributes = {
       :title          => self.title,
       :amount         => self.total_amount,
+      :value_date     => self.invoice.value_date,
       :credit_account => self.credit_account,
-      :debit_account  => self.debit_account
-    )
+      :debit_account  => self.debit_account,
+      :reference      => self.invoice
+    }
   end
 
   # Booking templates

@@ -130,29 +130,7 @@ class Invoice < ActiveRecord::Base
     self.update_column(:state, new_state) if self.persisted?
   end
 
-  before_save :update_bookings
   accepts_nested_attributes_for :bookings, :allow_destroy => true
-
-  def update_bookings
-    return unless changed_for_autosave?
-
-    # Get rid of line_items to be destroyed by nested attributes assignment
-    new_line_items = line_items.reject{|line_item| line_item.marked_for_destruction?}
-
-    # Delete all current bookings
-    # We need to use mark_for_destruction for two reasons:
-    # 1. Don't delete before record is validated and saved
-    # 2. Don't trigger callbacks from bookings
-    bookings.map{|b| b.mark_for_destruction}
-
-    new_line_items.each do |line_item|
-      # Don't build booking if accounts are not set
-      next unless line_item.credit_account and line_item.debit_account
-
-      # Build and assign booking
-      bookings << line_item.build_booking(:value_date => self.value_date)
-    end
-  end
 
   def direct_account_factor
     direct_account.is_asset_account? ? 1 : -1
