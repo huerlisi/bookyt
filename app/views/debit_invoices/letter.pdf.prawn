@@ -4,7 +4,7 @@ prawn_document(:filename => "#{t_model} #{@debit_invoice.long_ident}.pdf", :rend
   bank_account = BankAccount.find_by_code('1020')
 
   # Header
-  pdf.letter_header(sender, receiver, @debit_invoice.to_s)
+  pdf.letter_header(sender, receiver, @debit_invoice.to_s, @debit_invoice.value_date)
 
   # Free text
   pdf.free_text(@debit_invoice.text)

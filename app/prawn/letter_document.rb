@@ -44,7 +44,7 @@ class LetterDocument < Prawn::Document
   end
 
   # Letter header with company logo, receiver address and place'n'date
-  def letter_header(sender, receiver, subject)
+  def letter_header(sender, receiver, subject, date = Date.today)
     move_down 60
 
     # Address
@@ -59,7 +59,7 @@ class LetterDocument < Prawn::Document
     move_down 4.cm
 
     # Place'n'Date
-    text [sender.vcard.try(:locality), I18n.l(Date.today, :format => :long)].compact.join(', ')
+    text [sender.vcard.try(:locality), I18n.l(date, :format => :long)].compact.join(', ')
 
     # Subject
     move_down 60
