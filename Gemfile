@@ -85,7 +85,7 @@ gem 'simple-navigation'
 
 # Styling
 gem 'lyb_sidebar'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', '~> 1.4.3'
 gem 'formtastic-bootstrap'
 gem 'bootstrap-will_paginate'
 
