@@ -53,13 +53,11 @@ class DebitInvoicesController < InvoicesController
     @debit_invoice = DebitInvoice.new(invoice_params)
 
     create!
-    @debit_invoice.update_bookings
   end
 
   def update
     @debit_invoice = DebitInvoice.find(params[:id])
 
     update!
-    @debit_invoice.update_bookings
   end
 end
