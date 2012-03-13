@@ -19,7 +19,9 @@ Other Improvements:
 Major bugfixes:
 * In invoice forms, the 'total' in the line item footer did not update,
   using a generic saldo line item now
-
+* Manual bookings could get lost if assigned invoice gets updated
+* Debit invoice PDF used today in text, now correctly using
+  value date.
 
 1.2.1
 =====
