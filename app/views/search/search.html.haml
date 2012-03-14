@@ -7,4 +7,4 @@
 
 .tab-content
   #contacts-tab.active= render 'list', :records => @people
-  #invoices-tab= render 'list', :records => @invoices
+  #invoices-tab= render 'invoices/list', :collection => @invoices
