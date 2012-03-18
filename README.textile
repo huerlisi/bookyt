@@ -43,6 +43,7 @@ h2. License
 Copyright 2007-2012 Simon Hürlimann <simon.huerlimann@cyt.ch>
 Copyright 2010-2012 Ramon Egloff <ramon.egloff@cyt.ch>
 Copyright 2010-2012 Roman Simecek <roman.simecek@cyt.ch>
+Copyright 2011-2012 Andi Staub <andi.staub@cyt.ch>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
