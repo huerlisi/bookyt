@@ -59,10 +59,10 @@ GEM
     bookyt_projects (0.19.13)
       rails (~> 3.1)
       recurrence
-    bookyt_salary (0.16.2)
+    bookyt_salary (0.16.3)
       rails (~> 3.1)
       recurrence
-    bookyt_stock (0.5.0)
+    bookyt_stock (0.5.1)
     bootstrap-will_paginate (0.0.6)
       will_paginate
     builder (3.0.0)
@@ -170,7 +170,7 @@ GEM
       rbx-require-relative (> 0.0.4)
     lyb_sidebar (0.1.1)
       rails (~> 3.1)
-    mail (2.4.3)
+    mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)

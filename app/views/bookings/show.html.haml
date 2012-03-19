@@ -2,26 +2,6 @@
   = contextual_links_for
   = icon_link_to :copy
 
-%h1= t_title
+= boot_page_title
 
-.box
-  %table{:style => "width: 100%"}
-    %tr
-      %th= t_attr(:value_date, Booking)
-      %td= l(resource.value_date) if resource.value_date
-      %th= t_attr(:title, Booking)
-      %td= resource.title
-    %tr
-      %th= t_attr(:debit_account, Booking)
-      %td= link_to resource.debit_account, resource.debit_account
-      %th= t_attr(:credit_account, Booking)
-      %td= link_to resource.credit_account, resource.credit_account
-    %tr
-      %th= t_attr(:reference, Booking)
-      %td= link_to resource.reference, resource.reference if resource.reference
-      %th= t_attr(:amount, Booking)
-      %td= currency_fmt(resource.amount)
-    %tr
-      %th= t_attr(:comments)
-    %tr
-      %td{:style => 'white-space: pre-line; padding-left: 2em', :colspan => 4}<= resource.comments
+= render 'show'
