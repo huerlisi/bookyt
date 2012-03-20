@@ -1,7 +1,7 @@
 .contextual
   = link_to t_action(:index), eval("#{parent_type}_notes_path(#{resource.id})")
 
-%h1= t_title
+= boot_page_title
 
 %table.zebra-striped{:class => "#{collection.first.class.to_s.downcase} detail"}
   %thead  

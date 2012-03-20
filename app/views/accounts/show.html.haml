@@ -4,7 +4,7 @@
   = icon_link_to 'all_bookings', @account if params[:only_credit_bookings] || params[:only_debit_bookings]
   = contextual_links_for
 
-%h1= @account
+= boot_page_title
 = render 'show'
 
 = render 'bookings/sidebar'

@@ -173,3 +173,8 @@ de-CH:
         title: "Bedingte Buchungsvorlagen"
       charge_rates:
         title: "Abgabesätze"
+
+  bookings:
+    BookingTemplate:
+      title: "Neue Buchung"
+  
