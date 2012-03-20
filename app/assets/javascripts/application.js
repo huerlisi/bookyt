@@ -188,7 +188,6 @@ function addSortableBehaviour() {
       updatePositions($(this));
     }
   });
-  $(".sortable").disableSelection();
 
   $('.nested-form-container').each(function() {
     updatePositions($(this));
