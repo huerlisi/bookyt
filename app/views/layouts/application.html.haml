@@ -35,11 +35,11 @@
       .content
         .row
           - if notice
-            .alert-message.block-message.fade.in.success{'data-alert' => 'alert'}
+            .alert.alert-block.alert-success{'data-alert' => 'alert'}
               %a.close{:href => '#'} &times;
               = notice
           - if alert
-            .alert-message.block-message.fade.in.error{'data-alert' => 'alert'}
+            .alert.alert-block.alert-error{'data-alert' => 'alert'}
               %a.close{:href => '#'} &times;
               = alert
         = yield
