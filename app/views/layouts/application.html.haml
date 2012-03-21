@@ -32,6 +32,8 @@
             = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
     .container-fluid
       .container-left
+        .sidebar
+          = render_sidebars    
       .content
         .row
           - if notice
@@ -43,9 +45,6 @@
               %a.close{:href => '#'} &times;
               = alert
         = yield
-      .container-right
-        .sidebar
-          = render_sidebars
 
     %footer.footer
       .container-fluid

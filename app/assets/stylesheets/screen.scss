@@ -27,16 +27,16 @@ ul.pager {
   color:            white;
 }
 
-.container-left, .container-right {
-	max-width: 50%;
-	margin: 0;
-	float: left;
-	display: inline-block;
-	position: relative;
+.container-left {
+    display: block;
+    float: left;
+    max-width: 313px;
+    padding-top: 23px;
+    position: fixed;
 }
 
-.container-right {
-	float: none;
+.sidebar {
+	float: right;
 }
 
 .footer,
