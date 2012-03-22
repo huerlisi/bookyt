@@ -31,6 +31,14 @@ class LineItem < ActiveRecord::Base
   scope :saldo_items, where(:quantity => 'saldo_of')
   scope :non_saldo_items, where("quantity != 'saldo_of'")
 
+  def price=(value)
+    if value.is_a? String
+      self['price'] = BigDecimal.new(value)
+    else
+      self['price'] = value
+    end
+  end
+
   # Price getter
   #
   # Sum accounted amount over reverenced line items. Referencing can be using code or
