@@ -312,7 +312,7 @@ GEM
       multi_json (>= 1.0.2)
     validates_timeliness (3.0.8)
       timeliness (~> 0.3.4)
-    vesr (0.11.6)
+    vesr (0.11.7)
     warden (1.1.1)
       rack (>= 1.0)
     will_paginate (3.0.3)
