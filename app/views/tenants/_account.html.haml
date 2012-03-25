@@ -1,6 +1,6 @@
 - zero_balance_row = @dates.select{|date| account.saldo(@date) != 0.0}.empty?
 
-%tr[account]{:class => (zero_balance_row ? 'zero_balance' : '')}
+%tr[account]{:class => (zero_balance_row ? 'zero-balance' : '')}
   %td= account.code
   %td= account.title
 
