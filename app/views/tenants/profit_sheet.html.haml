@@ -12,12 +12,14 @@
         %th.right
           %h2= @date.last.year
 
+  %tbody
     = render 'account_group_sheet', :group => 'costs'
     = render 'account_group_sheet', :group => 'earnings'
-  %thead
+
+  %tfoot
     %tr
       %th{:colspan => "2"}
-        %h3= t('title.profit')
+        %h3= t('bookyt.difference')
 
       - for @date in @dates
         %th.right

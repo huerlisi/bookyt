@@ -28,9 +28,11 @@
         %th.right
           %h2= currency_fmt(Account.by_type('outside_capital').saldo(@date) + Account.by_type('equity_capital').saldo(@date))
 
+  %tbody
     = render 'account_group_sheet', :group => 'outside_capital'
     = render 'account_group_sheet', :group => 'equity_capital'
-  %thead
+
+  %tfoot
     %tr
       %th{:colspan => "2"}
         %h3= t('bookyt.difference')
