@@ -39,4 +39,4 @@
         %th{:style => "text-align: right"}
           %h3= currency_fmt(Account.by_type('current_assets').saldo(@date) + Account.by_type('capital_assets').saldo(@date) - Account.by_type('outside_capital').saldo(@date) - Account.by_type('equity_capital').saldo(@date))
 
-= render 'bookings/sidebar'
+= render 'fiscal_year_filter'
