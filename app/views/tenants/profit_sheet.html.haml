@@ -9,7 +9,7 @@
     %tr
       %th{:colspan => "2"}
       -for @date in @dates
-        %th{:style => "text-align: right"}
+        %th.currency
           %h2= @date.last.year
 
     = render 'account_group_sheet', :group => 'costs'
@@ -20,7 +20,7 @@
         %h3= t('title.profit')
 
       - for @date in @dates
-        %th{:style => "text-align: right"}
+        %th.currency
           %h3= currency_fmt(Account.by_type('earnings').saldo(@date) - Account.by_type('costs').saldo(@date))
 
 = render 'bookings/sidebar'
