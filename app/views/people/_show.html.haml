@@ -6,7 +6,11 @@
     %li= link_to t_title(:list, Attachment), '#tab-attachments', {:data => {:toggle => 'tab'}}
   
   .tab-content
-    #tab-contact.tab-pane.active= render "form"
-    #tab-invoices.tab-pane= render 'show_invoices'
-    #tab-activities.tab-pane= render 'show_activities' if Bookyt::Engine.engines.include?('bookyt_projects')
-    #tab-attachments.tab-pane= render 'show_attachments'
+    #tab-contact.tab-pane.active
+      = render "form"
+    #tab-invoices.tab-pane
+      = render 'show_invoices'
+    #tab-activities.tab-pane
+      = render 'show_activities' if Bookyt::Engine.engines.include?('bookyt_projects')
+    #tab-attachments.tab-pane
+      = render 'show_attachments'
