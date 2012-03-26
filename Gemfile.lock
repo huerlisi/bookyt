@@ -62,7 +62,7 @@ GEM
     bookyt_salary (0.16.6)
       rails (~> 3.1)
       recurrence
-    bookyt_stock (0.5.2)
+    bookyt_stock (0.5.3)
     bootstrap-will_paginate (0.0.6)
       will_paginate
     builder (3.0.0)

@@ -3,7 +3,7 @@
     %th{:colspan => "2"}
       %h3= t(group, :scope => 'bookyt')
     -for @date in @dates
-      %th{:style => "text-align: right"}
+      %th.right
         %h3= currency_fmt(Account.by_type(group).saldo(@date))
 %tbody
   = render :partial => 'account', :collection => Account.by_type(group)
