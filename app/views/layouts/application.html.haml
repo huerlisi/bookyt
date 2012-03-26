@@ -16,18 +16,23 @@
         = "#{current_user.tenant}: #{content_for :page_title} - #{t('application.title')}"
       - else
         = "#{t_page_head} - #{t('application.title')}"
-  %body{:style => "padding-top: 60px"}
+  %body
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
+          %a.btn.btn-navbar{"data-toggle" => "collapse", "data-target" => ".nav-collapse"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
           = link_to root_path, :class => 'brand' do
             book<span id="logo-yt">yt</span>
-          = render_navigation(:context => :main, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
-          - if user_signed_in?
-            = form_tag "/search", :method => :get, :class => "navbar-search pull-left" do
-              = text_field_tag "query", params[:query], :placeholder => t('placeholder.search'), :class => "search-query"
-          .pull-right      
-            = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
+          .nav-collapse
+            = render_navigation(:context => :main, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
+            - if user_signed_in?
+              = form_tag "/search", :method => :get, :class => "navbar-search pull-left" do
+                = text_field_tag "query", params[:query], :placeholder => t('placeholder.search'), :class => "search-query"
+            .pull-right      
+              = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
     .container-fluid
       .container-left
         .sidebar

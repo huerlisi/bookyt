@@ -8,3 +8,7 @@
  *= require vesr
  *= require screen
 */
+
+body {
+  padding-top: 60px;
+}
