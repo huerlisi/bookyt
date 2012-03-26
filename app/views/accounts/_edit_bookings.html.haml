@@ -1,7 +1,7 @@
 - url_params = {:controller => 'accounts', :action => 'show', :id => params[:account_id] || params[:id]}
 = paginated_section @bookings, :params => url_params.merge(:query => params[:query]) do
   = semantic_form_for :bookings, :url => update_bookings_account_path do |f|
-    %table.zebra-striped
+    %table.table.table-striped
       %thead
         %tr
           %th= t_attr :value_date, Booking

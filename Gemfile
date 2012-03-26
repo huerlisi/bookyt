@@ -15,7 +15,7 @@ gem 'sqlite3'
 group :assets do
   gem 'sass-rails'
   gem 'sprockets'
-  # gem 'coffee-rails', "~> 3.1.0.rc"
+  gem 'coffee-rails'
   gem 'therubyracer'
   gem 'uglifier'
   gem 'compass-rails'
@@ -85,7 +85,7 @@ gem 'simple-navigation'
 
 # Styling
 gem 'lyb_sidebar'
-gem 'twitter-bootstrap-rails', '~> 1.4.3'
+gem 'twitter-bootstrap-rails'
 gem 'formtastic-bootstrap'
 gem 'bootstrap-will_paginate'
 

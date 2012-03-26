@@ -95,6 +95,13 @@ GEM
       ffi (~> 1.0.6)
     chunky_png (1.2.5)
     cocaine (0.2.1)
+    coffee-rails (3.2.2)
+      coffee-script (>= 2.2.0)
+      railties (~> 3.2.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.2.0)
     columnize (0.3.6)
     commonjs (0.2.0)
       therubyracer (~> 0.9.9)
@@ -301,11 +308,10 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     ttfunk (1.0.3)
-    twitter-bootstrap-rails (1.4.3)
-      actionpack
-      jquery-rails (>= 1.0)
-      less-rails (~> 2.1.0)
-      railties
+    twitter-bootstrap-rails (2.0.3)
+      actionpack (>= 3.1)
+      less-rails (~> 2.1.6)
+      railties (>= 3.1)
     tzinfo (0.3.32)
     uglifier (1.2.3)
       execjs (>= 0.3.0)
@@ -338,6 +344,7 @@ DEPENDENCIES
   capones_recipes
   capybara
   carrierwave
+  coffee-rails
   compass-rails
   csv-mapper
   database_cleaner
@@ -383,7 +390,7 @@ DEPENDENCIES
   sqlite3
   therubyracer
   thinking-sphinx!
-  twitter-bootstrap-rails (~> 1.4.3)
+  twitter-bootstrap-rails
   uglifier
   validates_timeliness
   vesr

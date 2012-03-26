@@ -17,34 +17,32 @@
       - else
         = "#{t_page_head} - #{t('application.title')}"
   %body{:style => "padding-top: 60px"}
-    .topbar
-      .topbar-inner
+    .navbar.navbar-fixed-top
+      .navbar-inner
         .container
           = link_to root_path, :class => 'brand' do
             book<span id="logo-yt">yt</span>
           = render_navigation(:context => :main, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
-          .pull-right
-            - if user_signed_in?
-              = form_tag "/search", :method => :get do
-                = text_field_tag "query", params[:query], :placeholder => t('placeholder.search')
+          - if user_signed_in?
+            = form_tag "/search", :method => :get, :class => "navbar-search pull-left" do
+              = text_field_tag "query", params[:query], :placeholder => t('placeholder.search'), :class => "search-query"
+          .pull-right      
             = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
-
     .container-fluid
+      .container-left
+        .sidebar
+          = render_sidebars    
       .content
         .row
           - if notice
-            .alert-message.block-message.fade.in.success{'data-alert' => 'alert'}
+            .alert.alert-block.alert-success{'data-alert' => 'alert'}
               %a.close{:href => '#'} &times;
               = notice
           - if alert
-            .alert-message.block-message.fade.in.error{'data-alert' => 'alert'}
+            .alert.alert-block.alert-error{'data-alert' => 'alert'}
               %a.close{:href => '#'} &times;
               = alert
-        .row
-          = yield
-
-      .sidebar
-        = render_sidebars
+        = yield
 
     %footer.footer
       .container-fluid

@@ -4,7 +4,7 @@
   - content_for :sidebar do
     .sub-tabs
       %h3 Rechnungsfilter
-      %ul.pager
+      %ul.filter_style
         - current_state = current_scopes[:by_state]
         %li= link_to invoice_state_label('all', current_state.nil?), url_for(:by_state => 'all')
         - for state in Invoice::STATES

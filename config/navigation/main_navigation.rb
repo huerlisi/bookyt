@@ -9,8 +9,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
   # Define the primary navigation
   navigation.items do |primary|
-    # bookyt navigation
-    primary.item :contacts, t('bookyt.main_navigation.contacts'), people_path,
+    primary.item :contacts, t('bookyt.main_navigation.contacts'), '#',
                  :tooltip => t('bookyt.main_navigation.tooltip.contacts'),
                  :if => Proc.new { user_signed_in? } do |contacts|
       contacts.item :people, t_title(:index, Person), people_path,
@@ -33,7 +32,7 @@ SimpleNavigation::Configuration.run do |navigation|
                              :highlights_on => /\/companies($|\?|\/[0-9]*($|\?|\/.*))/
     end
 
-    primary.item :accounting, t('bookyt.main_navigation.accounting'), new_booking_path,
+    primary.item :accounting, t('bookyt.main_navigation.accounting'), '#',
                  :tooltip => t('bookyt.main_navigation.tooltip.accounting'),
                  :if => Proc.new { user_signed_in? } do |accounting|
       accounting.item :booking, t('bookyt.main_navigation.new_booking'), new_booking_path,
@@ -54,7 +53,7 @@ SimpleNavigation::Configuration.run do |navigation|
                       :highlights_on => /#{Regexp.escape(profit_sheet_tenant_path(current_user.tenant))}($|\?)/
     end
 
-    primary.item :invoicing, t('bookyt.main_navigation.invoicing'), invoices_path,
+    primary.item :invoicing, t('bookyt.main_navigation.invoicing'), '#',
                  :tooltip => t('bookyt.main_navigation.tooltip.invoicing'),
                  :if => Proc.new { user_signed_in? },
                  :highlights_on => /\/(credit_|debit_)?invoices.*/ do |invoicing|

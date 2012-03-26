@@ -1,9 +1,13 @@
 = boot_page_title
 
-%ul.tabs
-  %li.active= link_to "Kontakte (#{@people.count})", '#contacts-tab'
-  %li= link_to "Rechnungen (#{@invoices.count})", '#invoices-tab'
+.tabbable
+  %ul.nav.nav-tabs
+    %li.active= link_to "Kontakte (#{@people.count})", '#tab-contacts', {:data => {:toggle => 'tab'}}
+    %li= link_to "Rechnungen (#{@invoices.count})", '#tab-invoices', {:data => {:toggle => 'tab'}}
 
 .tab-content
-  #contacts-tab.active= render 'list', :records => @people
-  #invoices-tab= render 'invoices/list', :collection => @invoices
+  #tab-contacts.tab-pane.active
+    = render 'list', :records => @people
+  #tab-invoices.tab-pane
+    = render 'invoices/list', :collection => @invoices
+    

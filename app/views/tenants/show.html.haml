@@ -5,18 +5,19 @@
 
 %h1= link_to @tenant.company, @tenant.company
 
-%ul.tabs
-  %li.active= link_to t_title(:tenant), '#tab-tenant'
-  %li= link_to t_title(:user), '#tab-users'
-  %li= link_to t_title(:bookings), '#tab-bookings'
-  %li= link_to t_title(:vesr), '#tab-vesr'
-  %li= link_to t_title(:list, Attachment), '#tab-attachments'
+.tabbable
+  %ul.nav.nav-tabs
+    %li.active= link_to t_title(:tenant), '#tab-tenant', {:data => {:toggle => 'tab'}}
+    %li= link_to t_title(:user), '#tab-users', {:data => {:toggle => 'tab'}}
+    %li= link_to t_title(:bookings), '#tab-bookings', {:data => {:toggle => 'tab'}}
+    %li= link_to t_title(:vesr), '#tab-vesr', {:data => {:toggle => 'tab'}}
+    %li= link_to t_title(:list, Attachment), '#tab-attachments', {:data => {:toggle => 'tab'}}
 
 = semantic_form_for @tenant do |f|
   .tab-content
-    #tab-tenant.active= render "form_tenant", :f => f
-    #tab-users= render "form_users", :f => f
-    #tab-bookings= render "form_bookings", :f => f    
-    #tab-vesr= render "form_vesr", :f => f
-    #tab-attachments= render 'show_attachments'
+    #tab-tenant.tab-pane.active= render "form_tenant", :f => f
+    #tab-users.tab-pane= render "form_users", :f => f
+    #tab-bookings.tab-pane= render "form_bookings", :f => f    
+    #tab-vesr.tab-pane= render "form_vesr", :f => f
+    #tab-attachments.tab-pane= render 'show_attachments'
 = render 'tenants/sidebar'

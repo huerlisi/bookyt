@@ -20,7 +20,7 @@ module InvoiceHelper
     when 'reminded', '2xreminded', '3xreminded', 'encashment'
       'important'
     when 'booked', 'written_off'
-      'notice'
+      'info'
     end
 
     type = 'disabled' unless active

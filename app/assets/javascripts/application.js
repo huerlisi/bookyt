@@ -5,7 +5,6 @@
 // the compiled file.
 //
 //= require jquery
-//= require jquery-ui
 //= require jquery_ujs
 //= require jquery-ui
 //= require twitter/bootstrap
@@ -239,11 +238,11 @@ function initializeBehaviours() {
   // twitter bootstrap
   $(function () {
     $('.tabs').tabs();
-    $(".alert-message").alert();
+    $(".alert").alert();
     $("*[rel=popover]").popover({
       offset: 10
     });
-    $('.small-tooltip').twipsy({
+    $('.small-tooltip').tooltip({
       placement: 'right'
     });
   })

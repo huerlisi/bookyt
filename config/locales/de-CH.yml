@@ -178,3 +178,6 @@ de-CH:
     BookingTemplate:
       title: "Neue Buchung"
   
+  employees:
+    Lohnvorlage:
+      title:  "Lohnvorlagen"

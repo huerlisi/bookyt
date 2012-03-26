@@ -1,12 +1,12 @@
 = f.inputs t_model(Employment) do
   .row
-    .span8
+    .span6
       = f.input :duration_from, :as => :date_field
       = f.input :temporary
       = f.input :workload
       = f.input :salary_amount
 
-    .span8
+    .span6
       = f.input :duration_to, :as => :date_field
       = f.input :hourly_paid
       = f.input :daily_workload, :as => :string
@@ -14,4 +14,4 @@
       = f.input :kids
 
   .row
-    .span16= f.input :payment_to, :input_html => {:rows => 1, :class => 'span12'}
+    .span12= f.input :payment_to, :input_html => {:rows => 1, :class => 'span12'}

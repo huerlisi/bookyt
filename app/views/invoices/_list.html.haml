@@ -1,6 +1,6 @@
 = render 'invoices/sidebar'
 
-%table.zebra-striped.invoices.collection
+%table.table.table-striped.invoices.collection
   %thead
     %tr
       %th= t_attr :value_date, Invoice
@@ -18,4 +18,3 @@
       %th{:colspan => 3}= t('bookyt.total')
       %th.currency= currency_fmt(@invoices.to_a.sum(&:amount))
       %th.currency= currency_fmt(@invoices.to_a.sum(&:balance))
-      %th
