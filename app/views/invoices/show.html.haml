@@ -3,8 +3,7 @@
   = contextual_link_to :copy
   = contextual_links_for
 
-.page-header
-  %h1= resource
+= boot_page_title
 
 - bookings = Booking.by_reference(resource)
 - credit_accounts = bookings.select('credit_account_id').group('credit_account_id').map{|account| account.credit_account}
