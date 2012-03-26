@@ -117,3 +117,18 @@ form {
     margin: 0 0 18px;
     max-width: 100%;
 }
+
+.filter_style {
+  display: block; 
+  list-style: none;
+}
+
+.filter_style li{
+  list-style: none;
+  padding: 5px 0 0 0 ;
+  text-decoration: none;
+}
+
+.filter_style li a{
+  text-decoration: none;
+}
