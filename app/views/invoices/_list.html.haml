@@ -18,4 +18,3 @@
       %th{:colspan => 3}= t('bookyt.total')
       %th.currency= currency_fmt(@invoices.to_a.sum(&:amount))
       %th.currency= currency_fmt(@invoices.to_a.sum(&:balance))
-      %th
