@@ -12,11 +12,6 @@
 // jQuery UI
 @import 'partials/jquery';
 
-ul.pager {
-  list-style: none;
-  margin-left: 0;
-}
-
 .label.disabled {
   background-color: transparent;
   color:            #404040;
@@ -25,31 +20,6 @@ ul.pager {
 .label.disabled:hover {
   background-color: #BFBFBF;
   color:            white;
-}
-
-.container-left {
-    display: block;
-    float: left;
-    max-width: 313px;
-    padding-top: 23px;
-    position: fixed;
-}
-
-.sidebar {
-	float: right;
-}
-
-.footer,
-.container-fluid > .content{
-	max-width: 1170px;
-	margin: 0 auto;
-	position: relative;
-	padding: 10px 10px 11px;
-}
-.container-fluid {
-	max-width: 100%;
-	margin: 0 !important;
-	min-height: 0%;
 }
 
 #new_user {
