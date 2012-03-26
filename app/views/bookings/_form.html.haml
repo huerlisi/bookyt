@@ -3,14 +3,14 @@
 
   = f.inputs do
     .row
-      .span8
+      .span6
         = f.input :title, :input_html => {"data-autofocus" => true}
-      .span8
+      .span6
         = f.input :value_date, :as => :date_field
     .row
-      .span8
+      .span6
         = f.input :amount, :as => :string, :input_html => {:size => 12}
-      .span8
+      .span6
         = f.input :code
 
     .row
@@ -18,15 +18,15 @@
         = f.input :comments, :input_html => {:rows => 4, :class => 'span12'}
 
     .row
-      .span8
+      .span6
         = f.input :credit_account, :as => :combobox
-      .span8
+      .span6
         = f.input :debit_account, :as => :combobox
 
     .row
-      .span8
+      .span6
         = f.input :reference_type, :as => :select, :collection => reference_types_as_collection
-      .span8
+      .span6
         = f.input :reference_id, :as => :string
 
   = f.buttons do
