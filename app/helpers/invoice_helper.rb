@@ -11,6 +11,10 @@ module InvoiceHelper
     invoice_state_label(invoice.state)
   end
 
+  def t_invoice_filter(state)
+    t(state, :scope => 'invoice.state')
+  end
+
   def invoice_state_label(state, active = true)
     type = case state.to_s
     when 'canceled', 'reactivated'

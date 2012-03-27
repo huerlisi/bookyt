@@ -67,7 +67,7 @@ class Invoice < ActiveRecord::Base
   # States
   # ======
   STATES = ['booked', 'canceled', 'paid', 'reactivated', 'reminded', '2xreminded', '3xreminded', 'encashment', 'written_off']
-  scope :by_state, lambda {|value|
+  scope :invoice_state, lambda {|value|
     where(:state => value) unless (value.nil? or value == 'all')
   }
 
@@ -195,7 +195,7 @@ class Invoice < ActiveRecord::Base
     # Delta index
     set_property :delta => true
 
-    indexes state, :as => :by_state
+    indexes state, :as => :invoice_state
 
     indexes code
     indexes title

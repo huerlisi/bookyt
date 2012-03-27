@@ -1,12 +1,6 @@
+- filter_name = :by_value_period
 - content_for :sidebar do
-  %ul.nav.nav-list
-    %li.nav-header= t('bookings.filter.title')
-    - filter_param = :by_value_period
-    - current_filter = params[filter_param]
-    %li{:class => (current_filter.blank? ? "active" : "")}= link_to t('bookyt.all'), url_for(params.merge(:by_value_period => nil))
-    - for period in current_tenant.fiscal_years.reverse
-      - filter_value = {"from" => period[:from].to_s(:db), "to" => period[:to].to_s(:db)}
-      - filter_title = period[:to].year
-      - is_current = (filter_value == current_filter)
-      %li{:class => (is_current ? "active" : "")}
-        = link_to filter_title, url_for(params.merge({filter_param => filter_value}))
+  - filters = current_tenant.fiscal_years.reverse.map do |period|
+    - value = {"from" => period[:from].to_s(:db), "to" => period[:to].to_s(:db)}
+    - {:value => value, :title => period[:to].year}
+  = boot_nav_filter(filter_name, [{:title => :all, :value => nil}] + filters)

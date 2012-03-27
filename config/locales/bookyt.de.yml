@@ -221,7 +221,7 @@ de:
       title:       Buchungen
 
   invoice:
-    state:
+    state: &invoice_state
       all:         Alle
       booked:      offen
       canceled:    storniert
@@ -250,8 +250,10 @@ de:
       title:    Journal
     new:
       title:    Buchung erfassen
-    filter:
-      title:    Buchungsfilter
+
+  by_value_period:
+    title:    Buchungsfilter
+    all:      Alle
 
   credit_invoices:
     index:
@@ -274,8 +276,10 @@ de:
   invoices:
     list:
       title:    Rechnungen
-    filter:
-      title:    Rechnungsfilter
+
+  invoice_state:
+    title:    Rechnungsfilter
+    <<:       *invoice_state
 
   people:
     index:
