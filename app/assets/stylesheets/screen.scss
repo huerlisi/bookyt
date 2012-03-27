@@ -22,6 +22,11 @@
   color:            white;
 }
 
+// Styles
+.page-header {
+  margin-top:        0;
+}
+
 // Login
 #new_user {
 	clear: both;
@@ -69,6 +74,10 @@
 }
 
 // Pagination
+.pagination {
+  margin: 0;
+}
+
 .pagination ul {
     float: right;
 }
