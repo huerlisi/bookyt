@@ -250,6 +250,8 @@ de:
       title:    Journal
     new:
       title:    Buchung erfassen
+    filter:
+      title:    Buchungsfilter
 
   credit_invoices:
     index:
@@ -272,6 +274,8 @@ de:
   invoices:
     list:
       title:    Rechnungen
+    filter:
+      title:    Rechnungsfilter
 
   people:
     index:

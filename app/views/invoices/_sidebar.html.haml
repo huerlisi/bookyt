@@ -2,10 +2,14 @@
   - @invoice_sidebar = true
 
   - content_for :sidebar do
-    .sub-tabs
-      %h3 Rechnungsfilter
-      %ul.filter_style
-        - current_state = current_scopes[:by_state]
-        %li= link_to invoice_state_label('all', current_state.nil?), url_for(:by_state => 'all')
-        - for state in Invoice::STATES
-          %li= link_to invoice_state_label(state, state.to_s == current_state), url_for(:by_state => state)
+    %ul.nav.nav-list
+      %li.nav-header= t('invoices.filter.title')
+      - filter_param = :by_state
+      - current_filter = current_scopes[filter_param]
+      %li{:class => (current_filter.blank? ? "active" : "")}= link_to 'all', url_for(:by_state => 'all')
+      - for state in Invoice::STATES
+        - filter_value = state.to_s
+        - filter_title = state
+        - is_current = (filter_value == current_filter)
+        %li{:class => (is_current ? "active" : "")}
+          = link_to filter_title, url_for(params.merge({filter_param => filter_value}))
