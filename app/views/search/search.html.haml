@@ -7,7 +7,7 @@
 
 .tab-content
   #tab-contacts.tab-pane.active
-    = render 'list', :records => @people
+    = render 'people/list', :collection => @people
   #tab-invoices.tab-pane
     = render 'invoices/list', :collection => @invoices
     
