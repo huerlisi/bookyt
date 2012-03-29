@@ -1,9 +1,9 @@
-- zero_balance_row = @dates.select{|date| account.saldo(@date) != 0.0}.empty?
+- zero_balance_row = @dates.all? {|date| account.saldo(date) == 0.0}
 
 %tr[account]{:class => (zero_balance_row ? 'zero-balance' : '')}
   %td= account.code
   %td= account.title
 
-  - for @date in @dates
+  - for date in @dates
     %td.right
-      = link_to currency_fmt(account.saldo(@date)), account_path(account, :by_value_period => @date.respond_to?(:first) ? {:from => @date.first.to_s(:db), :to => @date.last.to_s(:db)} : {:to => @date.to_s(:db)}), 'data-href-container' => 'tr'
+      = link_to currency_fmt(account.saldo(date)), account_path(account, :by_value_period => date.respond_to?(:first) ? {:from => date.first.to_s(:db), :to => date.last.to_s(:db)} : {:to => date.to_s(:db)}), 'data-href-container' => 'tr'
