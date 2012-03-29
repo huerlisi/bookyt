@@ -251,10 +251,6 @@ de:
     new:
       title:    Buchung erfassen
 
-  by_value_period:
-    title:    Buchungsfilter
-    all:      Alle
-
   credit_invoices:
     index:
       title:    Kreditoren
@@ -276,10 +272,6 @@ de:
   invoices:
     list:
       title:    Rechnungen
-
-  invoice_state:
-    title:    Rechnungsfilter
-    <<:       *invoice_state
 
   people:
     index:
@@ -317,6 +309,15 @@ de:
       reference_amount:  'Ursprünglicher Betrag'
       reference_balance: 'Aktueller Saldo'
       reference_amount_minus_balance: 'Differenz Betrag'
+
+  # Filters
+  invoice_state:
+    title:    Rechnungsfilter
+    <<:       *invoice_state
+
+  by_value_period:
+    title:    Buchungsfilter
+    all:      Alle
 
   formtastic:
     hints:
