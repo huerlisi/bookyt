@@ -31,7 +31,7 @@ module BootstrapHelper
   def boot_nav_li(filter_name, param_value, title = nil, param_name = filter_name, current_value = params[param_name], classes = [], &content)
     classes << "active" if current_value == param_value
     title ||= param_value
-    title = t("#{filter_name.to_s}.#{title}") if title.is_a? Symbol
+    title = t("#{filter_name.to_s}.#{title}", :default => title)
 
     if block_given?
       content_tag(:li, :class => classes, &content)
