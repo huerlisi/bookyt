@@ -7,6 +7,8 @@ module BootstrapHelper
     end
   end
 
+  # Labels
+  # ======
   def boot_label(content, type = nil)
     return "" unless content.present?
 
@@ -14,21 +16,34 @@ module BootstrapHelper
     content_tag(:span, content, :class => classes)
   end
 
+  # Messages
+  # ========
   def boot_alert(content, type = 'info')
     content_tag(:div, :class => "alert alert-block alert-info") do
       link_to('&times;'.html_safe, '#', :class => 'close') + content
     end
   end
 
-  def boot_nav_header(title)
+  # Navigation
+  # ==========
+  def boot_nav_header(title, refresh_action = false)
     if title.is_a? Symbol
       title = t("#{title}.title")
     end
 
-    content_tag(:li, title, :class => 'nav-header')
+    content_tag(:li, :class => 'nav-header') do
+      content = [title]
+      if refresh_action
+        content << content_tag(:button, :type => "submit", :style => 'border: none; background-color: transparent; float: right') do
+          content_tag(:i, "", :class => 'icon-refresh')
+        end
+      end
+
+      content.join("\n").html_safe
+    end
   end
 
-  def boot_nav_li(filter_name, param_value, title = nil, param_name = filter_name, current_value = params[param_name], classes = [], &content)
+  def boot_nav_li_link(filter_name, param_value, title = nil, param_name = filter_name, current_value = params[param_name], classes = [], &content)
     classes << "active" if current_value == param_value
     title ||= param_value
     title = t("#{filter_name.to_s}.#{title}", :default => title)
@@ -43,16 +58,46 @@ module BootstrapHelper
     end
   end
 
-  def boot_nav_filter(name, values)
+  def boot_nav_li_checkbox(filter_name, param_value, title = nil, param_name = filter_name, current_value = params[param_name], classes = [], &content)
+    active = current_value.include? param_value.to_s
+    title ||= param_value
+    title = t("#{filter_name.to_s}.#{title}", :default => title)
+
+    if block_given?
+      content_tag(:li, :class => classes, &content)
+    else
+      content_tag(:li, :class => classes) do
+        content_tag 'label', :class => 'checkbox' do
+          content = []
+          content << content_tag('input', '', :type => 'checkbox', :checked => active, :name => "#{param_name}[]", :value => param_value)
+          content << title
+
+          content.join("\n").html_safe
+        end
+      end
+    end
+  end
+
+  def boot_nav_filter(name, entries, type = :link)
+    refresh_action = (type == :checkbox)
+
     content_tag(:ul, :class => ['nav', 'nav-list']) do
       content = []
-      content << boot_nav_header(name)
+      content << boot_nav_header(name, refresh_action)
 
-      values.each do |value|
-        if value.is_a? Hash
-          content << boot_nav_li(name, value[:value], value[:title])
+      entries.each do |entry|
+        if entry.is_a? Hash
+          title = entry[:title]
+          value = entry[:value]
         else
-          content << boot_nav_li(name, value)
+          title = value = entry
+        end
+
+        case type
+        when :link
+          content << boot_nav_li_link(name, value, title)
+        when :checkbox
+          content << boot_nav_li_checkbox(name, value, title)
         end
       end
 
