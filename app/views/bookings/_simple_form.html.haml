@@ -3,24 +3,24 @@
 
   = f.inputs do
     .row
-      .span6
+      .span5
         = f.input :title, :input_html => {"data-autofocus" => true}
-      .span6
+      .span5
         = f.input :value_date, :as => :date_field
     .row
-      .span6
+      .span5
         = f.input :amount, :as => :string, :input_html => {:size => 12}
-      .span6
+      .span5
         = f.input :code
 
     .row
-      .span12
-        = f.input :comments, :input_html => {:rows => 4, :class => 'span12'}
+      .span10
+        = f.input :comments, :input_html => {:rows => 4, :class => 'span10'}
 
     .row
-      .span6
+      .span5
         = f.input :credit_account, :as => :combobox
-      .span6
+      .span5
         = f.input :debit_account, :as => :combobox
 
   = f.buttons do

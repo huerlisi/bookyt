@@ -3,23 +3,23 @@
   = f.inputs do
     = f.input :customer_id, :as => :hidden
     .row
-      .span6= f.input :title
-      .span6= f.input :code
+      .span5= f.input :title
+      .span5= f.input :code
     .row
-      .span6= f.input :company, :as => :combobox, :input_html => {'data-autofocus' => true}
-      .span6= f.input :state, :collection => invoice_states_as_collection
+      .span5= f.input :company, :as => :combobox, :input_html => {'data-autofocus' => true}
+      .span5= f.input :state, :collection => invoice_states_as_collection
     .row
-      .span6= f.input :value_date, :as => :date_field
-      .span6= f.input :due_date, :as => :date_field
+      .span5= f.input :value_date, :as => :date_field
+      .span5= f.input :due_date, :as => :date_field
     .row
-      .span12= f.input :remarks, :input_html => {:rows => 4, :class => 'span12'}
+      .span10= f.input :remarks, :input_html => {:rows => 4, :class => 'span10'}
 
   = render 'line_items/list_form', :f => f, :invoice => resource
 
   = f.inputs t('title.period') do
     .row
-      .span6= f.input :duration_from, :as => :date_field
-      .span6= f.input :duration_to, :as => :date_field
+      .span5= f.input :duration_from, :as => :date_field
+      .span5= f.input :duration_to, :as => :date_field
 
   = f.buttons do
     = f.commit_button

@@ -1,7 +1,7 @@
 %tr
   = f.fields_for "", edit_booking do |f|
     %td.span2= f.text_field :value_date, :style => 'width: 96%'
-    %td.span6
+    %td.span5
       = f.text_field :title, :style => 'width: 98%'
       = f.text_field :comments, :style => 'width: 98%'
     %td.span1= f.text_field :amount, :style => 'width: 94%'

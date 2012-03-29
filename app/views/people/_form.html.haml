@@ -2,11 +2,11 @@
   = f.semantic_errors
 
   .row
-    .span6
+    .span5
       = f.inputs t('form.person.address') do
         = render 'vcards/form', :f => f
 
-    .span6
+    .span5
       = f.inputs t_model(PhoneNumber) do
         = link_to t_action(:more), [:new_phone_number, resource.persisted? ? resource : controller_name], :remote => true, :class => 'icon-add-text', :style => 'float: right'
       .nested-form.list.contacts
