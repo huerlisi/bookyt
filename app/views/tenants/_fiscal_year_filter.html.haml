@@ -1,13 +1,7 @@
+- filter_name = :years
+- params[filter_name] ||= []
+
 - content_for :sidebar do
-  .sub-tabs
-    %h3 Fiskaljahr
-    %ul
-      - current_years = params[:years] || []
-      - for period in current_tenant.fiscal_years.reverse
-        - years = current_years
-        - year = period[:to].year.to_s
-        - if current_years.include?(year)
-          - years -= [year]
-        - else
-          - years += [year]
-        %li= link_to year, url_for(params.merge({:years => years}))
+  - filters = current_tenant.fiscal_years.reverse.collect {|period| period[:to].year}
+  = form_tag url_for(), :method => :get do
+    = boot_nav_filter(filter_name, filters, :checkbox)

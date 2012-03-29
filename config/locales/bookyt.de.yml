@@ -319,6 +319,9 @@ de:
     title:    Buchungsfilter
     all:      Alle
 
+  years:
+    title:    Periode
+
   formtastic:
     hints:
       user:
