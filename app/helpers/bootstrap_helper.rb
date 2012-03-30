@@ -60,6 +60,8 @@ module BootstrapHelper
 
   def boot_nav_li_checkbox(filter_name, param_value, title = nil, param_name = filter_name, current_value = params[param_name], classes = [], &content)
     active = current_value.include? param_value.to_s
+    classes << "active" if active
+
     title ||= param_value
     title = t("#{filter_name.to_s}.#{title}", :default => title)
 
