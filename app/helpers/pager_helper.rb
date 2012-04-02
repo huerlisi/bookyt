@@ -19,6 +19,16 @@ module PagerHelper
     end
   end
 
+  def month_periods(count = 12)
+    (0..count-1).collect do |i|
+      period = Time.now.months_ago(i).all_month
+      {
+        :title => month_title(period),
+        :value => {"from" => period.first.to_date.to_s(:db), "to" => period.last.to_date.to_s(:db)}
+      }
+    end
+  end
+
   def month_pages(param_key)
     links = (0..11).collect do |i|
       period = Time.now.months_ago(i).all_month
