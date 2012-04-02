@@ -2,22 +2,22 @@
   = f.semantic_errors
 
   = f.inputs do
-    .row
+    .row-fluid
       .span5
         = f.input :title, :input_html => {"data-autofocus" => true}
       .span5
         = f.input :value_date, :as => :date_field
-    .row
+    .row-fluid
       .span5
         = f.input :amount, :as => :string, :input_html => {:size => 12}
       .span5
         = f.input :code
 
-    .row
+    .row-fluid
       .span10
         = f.input :comments, :input_html => {:rows => 4, :class => 'span10'}
 
-    .row
+    .row-fluid
       .span5
         = f.input :credit_account, :as => :combobox
       .span5

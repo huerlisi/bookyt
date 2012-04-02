@@ -1,7 +1,7 @@
 = semantic_form_for @employee do |f|
   = f.semantic_errors
 
-  .row
+  .row-fluid
     .span5
       = f.inputs t('form.person.address') do
         = render 'vcards/form', :f => f
@@ -16,7 +16,7 @@
               = render 'phone_numbers/form', :item => contact
 
   = f.inputs t('form.person.civil') do
-    .row
+    .row-fluid
       .span5
         = f.input :sex, :as => :select, :collection => { t('sex.male') => Person::MALE, t('sex.female') => Person::FEMALE }
         = f.input :nationality

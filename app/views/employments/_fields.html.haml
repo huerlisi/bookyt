@@ -1,5 +1,5 @@
 = f.inputs t_model(Employment) do
-  .row
+  .row-fluid
     .span5
       = f.input :duration_from, :as => :date_field
       = f.input :temporary
@@ -13,5 +13,5 @@
 
       = f.input :kids
 
-  .row
+  .row-fluid
     .span10= f.input :payment_to, :input_html => {:rows => 1, :class => 'span10'}

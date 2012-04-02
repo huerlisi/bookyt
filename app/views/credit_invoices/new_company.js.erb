@@ -1,3 +1,3 @@
 var link = $(".combobox-link.new_company");
-var row = link.closest('.row');
+var row = link.closest('.row-fluid');
 row.after('<%= escape_javascript render("company_form") %>');

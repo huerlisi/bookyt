@@ -2,22 +2,22 @@
   = f.semantic_errors
   = f.inputs do
     = f.input :company_id, :as => :hidden
-    .row
+    .row-fluid
       .span10= f.input :title, :input_html => {:class => 'span10'}
-    .row
+    .row-fluid
       .span5= f.input :customer, :as => :combobox, :input_html => {'data-autofocus' => true}
       .span5= f.input :state, :collection => invoice_states_as_collection
-    .row
+    .row-fluid
       .span5= f.input :value_date, :as => :date_field
       .span5= f.input :due_date, :as => :date_field
-    .row
+    .row-fluid
       .span10= f.input :text, :input_html => {:rows => 4, :class => 'span10'}
       .span10= f.input :remarks, :input_html => {:rows => 4, :class => 'span10'}
 
   = render 'line_items/list_form', :f => f, :invoice => resource
 
   = f.inputs t('title.period') do
-    .row
+    .row-fluid
       .span5= f.input :duration_from, :as => :date_field
       .span5= f.input :duration_to, :as => :date_field
 
