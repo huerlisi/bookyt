@@ -3,24 +3,24 @@
 
   = f.inputs do
     .row-fluid
-      .span5
+      .span6
         = f.input :title, :input_html => {"data-autofocus" => true}
-      .span5
+      .span6
         = f.input :value_date, :as => :date_field
     .row-fluid
-      .span5
+      .span6
         = f.input :amount, :as => :string, :input_html => {:size => 12}
-      .span5
+      .span6
         = f.input :code
 
     .row-fluid
-      .span10
-        = f.input :comments, :input_html => {:rows => 4, :class => 'span10'}
+      .span12
+        = f.input :comments, :input_html => {:rows => 4, :class => 'span12'}
 
     .row-fluid
-      .span5
+      .span6
         = f.input :credit_account, :as => :combobox
-      .span5
+      .span6
         = f.input :debit_account, :as => :combobox
 
   = f.buttons do

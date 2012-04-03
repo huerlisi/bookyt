@@ -3,6 +3,6 @@
 = semantic_fields_for @invoice do |invoice|
   = invoice.fields_for :customer do |f|
     .row-fluid
-      .span5
+      .span6
         = f.inputs t('form.person.address') do
           = render 'vcards/form', :f => f
