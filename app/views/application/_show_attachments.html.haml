@@ -1,9 +1,9 @@
-.contextual
-  = icon_link_to :new, [:new, resource, :attachment], :remote => true
-
 - @attachments = resource.attachments
 - if @attachments.empty?
   = boot_alert(t('attachments.alerts.empty'))
   .attachments.collection
 - else
   = render 'attachments/list' unless @attachments.empty?
+
+.form-actions
+  = icon_link_to :new, [:new, resource, :attachment], :remote => true
