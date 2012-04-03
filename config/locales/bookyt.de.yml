@@ -23,6 +23,11 @@ de:
     bank:
       money_transfer: Bankverbindung
 
+  helpers:
+    submit:
+      create: "%{model} anlegen"
+      update: "%{model} aktualisieren"
+
   attributes:
     # Common
     title:            Titel
