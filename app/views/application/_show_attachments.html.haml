@@ -1,6 +1,5 @@
 .contextual
   = icon_link_to :new, [:new, resource, :attachment], :remote => true
-%h3= t('title.attachments')
 
 - @attachments = resource.attachments
 - if @attachments.empty?
