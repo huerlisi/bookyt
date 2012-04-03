@@ -56,13 +56,13 @@ GEM
       ZenTest (~> 4.5)
     bcrypt-ruby (3.0.1)
     bookyt_pos (0.2.0)
-    bookyt_projects (0.19.18)
+    bookyt_projects (0.19.19)
       rails (~> 3.1)
       recurrence
-    bookyt_salary (0.16.7)
+    bookyt_salary (0.16.8)
       rails (~> 3.1)
       recurrence
-    bookyt_stock (0.5.4)
+    bookyt_stock (0.5.5)
     bootstrap-will_paginate (0.0.7)
       will_paginate
     builder (3.0.0)
@@ -319,7 +319,7 @@ GEM
       multi_json (>= 1.0.2)
     validates_timeliness (3.0.10)
       timeliness (~> 0.3.5)
-    vesr (0.11.8)
+    vesr (0.11.9)
     warden (1.1.1)
       rack (>= 1.0)
     will_paginate (3.0.3)
