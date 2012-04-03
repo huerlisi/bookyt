@@ -19,8 +19,8 @@ module BootstrapHelper
   # Messages
   # ========
   def boot_alert(content, type = 'info')
-    content_tag(:div, :class => "alert alert-block alert-info") do
-      link_to('&times;'.html_safe, '#', :class => 'close') + content
+    content_tag(:div, :class => "alert alert-block alert-#{type} fade in") do
+      link_to('&times;'.html_safe, '#', :class => 'close', 'data-dismiss' => 'alert') + content
     end
   end
 

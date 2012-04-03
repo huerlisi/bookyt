@@ -41,13 +41,9 @@
         .span10
           .content
             - if notice
-              .alert.alert-block.alert-success{'data-alert' => 'alert'}
-                %a.close{:href => '#'} &times;
-                = notice
+              = boot_alert(notice, 'success')
             - if alert
-              .alert.alert-block.alert-error{'data-alert' => 'alert'}
-                %a.close{:href => '#'} &times;
-                = alert
+              = boot_alert(alert, 'error')
             = yield
 
     %footer.footer

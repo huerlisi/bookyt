@@ -55,6 +55,7 @@ group :test, :development do
 
   # Fixtures
   gem "factory_girl_rails"
+  gem "factory_girl", '< 3.0.0' # For ruby 1.8
 
   # Mocking
   # gem 'mocha'
