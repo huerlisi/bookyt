@@ -3,7 +3,7 @@
   = f.input :code
   = f.input :title
   = f.input :charge_rate_code, :collection => codes_as_collection
-  = f.input :credit_account, :as => :combobox, :collection => accounts_as_collection
-  = f.input :debit_account, :as => :combobox, :collection => accounts_as_collection
+  = f.association :credit_account, :as => :combobox, :collection => accounts_as_collection
+  = f.association :debit_account, :as => :combobox, :collection => accounts_as_collection
   = f.input :comments, :input_html => {:rows => 5}
   = f.button :submit

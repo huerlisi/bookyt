@@ -4,7 +4,7 @@
     .span6= f.input :title
     .span6= f.input :code
   .row-fluid
-    .span6= f.input :company, :as => :combobox, :input_html => {'data-autofocus' => true}
+    .span6= f.association :company, :as => :combobox, :input_html => {'data-autofocus' => true}
     .span6= f.input :state, :collection => invoice_states_as_collection
   .row-fluid
     .span6= f.input :value_date, :as => :date_field

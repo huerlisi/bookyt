@@ -1,6 +1,6 @@
 = simple_form_for @employment do |f|
-  = f.input :employee, :as => :combobox
-  = f.input :employer, :as => :combobox
+  = f.association :employee, :as => :combobox
+  = f.association :employer, :as => :combobox
 
   = render 'fields', :f => f
 
