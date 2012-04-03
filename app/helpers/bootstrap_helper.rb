@@ -7,6 +7,12 @@ module BootstrapHelper
     end
   end
 
+  # Icons
+  # =====
+  def boot_icon(type)
+    content_tag(:i, '', :class => "icon-#{type}")
+  end
+
   # Labels
   # ======
   def boot_label(content, type = nil)
