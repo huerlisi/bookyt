@@ -340,6 +340,7 @@ de:
       pdf:                  'PDF'
       print:                'Drucken'
       search:               'Suche'
+      filter:               'Filtern'
       book_manual:          'Manuell buchen'
       copy:                 'Kopieren'
       payslip:              'Lohnabrechnung'
