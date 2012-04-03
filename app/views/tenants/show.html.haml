@@ -13,7 +13,7 @@
     %li= link_to t_title(:vesr), '#tab-vesr', {:data => {:toggle => 'tab'}}
     %li= link_to t_title(:list, Attachment), '#tab-attachments', {:data => {:toggle => 'tab'}}
 
-= semantic_form_for @tenant do |f|
+= simple_form_for @tenant do |f|
   .tab-content
     #tab-tenant.tab-pane.active= render "form_tenant", :f => f
     #tab-users.tab-pane= render "form_users", :f => f

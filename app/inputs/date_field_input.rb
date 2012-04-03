@@ -1,5 +1,6 @@
-class DateFieldInput < FormtasticBootstrap::Inputs::StringInput
-  def input_html_options
-    super.merge("date-picker" => true)
+class DateFieldInput < SimpleForm::Inputs::StringInput
+  def input
+    input_html_options['date-picker'] = true
+    super
   end
 end

@@ -1,25 +1,23 @@
-= semantic_form_for resource do |f|
-  = f.semantic_errors
-  = f.inputs do
-    = f.input :company_id, :as => :hidden
-    .row-fluid
-      .span12= f.input :title, :input_html => {:class => 'span12'}
-    .row-fluid
-      .span6= f.input :customer, :as => :combobox, :input_html => {'data-autofocus' => true}
-      .span6= f.input :state, :collection => invoice_states_as_collection
-    .row-fluid
-      .span6= f.input :value_date, :as => :date_field
-      .span6= f.input :due_date, :as => :date_field
-    .row-fluid
-      .span12= f.input :text, :input_html => {:rows => 4, :class => 'span12'}
-      .span12= f.input :remarks, :input_html => {:rows => 4, :class => 'span12'}
+= simple_form_for resource do |f|
+  = f.input :company_id, :as => :hidden
+  .row-fluid
+    .span12= f.input :title
+  .row-fluid
+    .span6= f.input :customer, :as => :combobox, :input_html => {'data-autofocus' => true}
+    .span6= f.input :state, :collection => invoice_states_as_collection
+  .row-fluid
+    .span6= f.input :value_date, :as => :date_field
+    .span6= f.input :due_date, :as => :date_field
+  .row-fluid
+    .span12= f.input :text, :input_html => {:rows => 4}
+  .row-fluid
+    .span12= f.input :remarks, :input_html => {:rows => 4}
 
   = render 'line_items/list_form', :f => f, :invoice => resource
 
-  = f.inputs t('title.period') do
-    .row-fluid
-      .span6= f.input :duration_from, :as => :date_field
-      .span6= f.input :duration_to, :as => :date_field
+  %h3= t('title.period')
+  .row-fluid
+    .span6= f.input :duration_from, :as => :date_field
+    .span6= f.input :duration_to, :as => :date_field
 
-  = f.buttons do
-    = f.commit_button
+  = f.button :submit

@@ -1,7 +1,6 @@
 - f.object.build_company unless f.object.company
-= f.inputs t('form.company.address') do
-  = f.semantic_fields_for :company do |p|
-    = render 'vcards/form', :f => p
+%h3= t('form.company.address')
+= f.fields_for :company do |p|
+  = render 'vcards/form', :f => p
 
-= f.buttons do
-  = f.commit_button
+= f.button :submit

@@ -1,12 +1,9 @@
-= semantic_form_for resource do |f|
-  = f.semantic_errors
-  = f.inputs do
-    = f.input :amount_relates_to, :collection => amount_relations_as_collection
-    = f.input :code
-    = f.input :title
-    = f.input :charge_rate_code, :collection => codes_as_collection
-    = f.input :credit_account, :as => :combobox, :collection => accounts_as_collection
-    = f.input :debit_account, :as => :combobox, :collection => accounts_as_collection
-    = f.input :comments, :input_html => {:rows => 5}
-  = f.buttons do
-    = f.commit_button
+= simple_form_for resource do |f|
+  = f.input :amount_relates_to, :collection => amount_relations_as_collection
+  = f.input :code
+  = f.input :title
+  = f.input :charge_rate_code, :collection => codes_as_collection
+  = f.input :credit_account, :as => :combobox, :collection => accounts_as_collection
+  = f.input :debit_account, :as => :combobox, :collection => accounts_as_collection
+  = f.input :comments, :input_html => {:rows => 5}
+  = f.button :submit

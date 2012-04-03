@@ -1,29 +1,26 @@
 = boot_page_title
 
 .form-view
-  = semantic_form_for :vesr do |form|
+  = simple_form_for :vesr do |form|
 
-    = form.inputs 'Allgemein' do
-      = form.semantic_fields_for @tenant do |f|
-        = render :partial => 'form_fields', :locals => {:form => f}
+    %h3= 'Allgemein'
+    = form.fields_for @tenant do |f|
+      = render :partial => 'form_fields', :locals => {:form => f}
 
-    = form.inputs 'Konto' do
-      = form.semantic_fields_for @bank_account do |f|
-        = f.input :id, :as => :hidden
-        = f.semantic_errors
+    %h3= 'Konto'
+    = form.fields_for @bank_account do |f|
+      = f.input :id, :as => :hidden
+     
+      = f.input :number
+      = f.input :iban
+      = f.input :pc_id
+      = f.input :esr_id, :input_html => { :maxlength => 21 }
+      
+    %h3= 'Vorlage'
+    = form.fields_for @letter_template do |f|
+      = f.input :id, :as => :hidden
 
-        = f.input :number
-        = f.input :iban
-        = f.input :pc_id
-        = f.input :esr_id, :input_html => { :maxlength => 21 }
+      = f.input :title
+      = f.input :file
 
-    = form.inputs 'Vorlage' do
-      = form.semantic_fields_for @letter_template do |f|
-        = f.input :id, :as => :hidden
-        = f.semantic_errors
-
-        = f.input :title
-        = f.input :file
-
-    = form.buttons do
-      = form.commit_button
+    = form.button :submit

@@ -132,11 +132,6 @@ GEM
       compass (>= 0.11)
     fastercsv (1.5.4)
     ffi (1.0.11)
-    formtastic (2.1.1)
-      actionpack (~> 3.0)
-    formtastic-bootstrap (1.1.1)
-      formtastic
-      rails (~> 3.1)
     fssm (0.2.8.1)
     haml (3.1.4)
     haml-rails (0.3.4)
@@ -290,6 +285,9 @@ GEM
     show_for (0.2.4)
     simple-navigation (3.7.0)
       activesupport (>= 2.3.2)
+    simple_form (2.0.1)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     simplecov (0.6.1)
       multi_json (~> 1.0)
       simplecov-html (~> 0.5.3)
@@ -353,8 +351,6 @@ DEPENDENCIES
   factory_girl (< 3.0.0)
   factory_girl_rails
   fancy-buttons
-  formtastic
-  formtastic-bootstrap
   haml
   haml-rails
   has_accounts
@@ -386,6 +382,7 @@ DEPENDENCIES
   shoulda
   show_for
   simple-navigation
+  simple_form
   simplecov
   spork (>= 0.9.0.rc2)
   sprockets

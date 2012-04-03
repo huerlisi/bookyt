@@ -127,7 +127,7 @@
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
 
-label {
-    float: left;
-    width: 130px;
+input, textarea {
+  background-color: #fff;
+  width: 98%;
 }

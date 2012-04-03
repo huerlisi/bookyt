@@ -1,17 +1,17 @@
-= f.inputs t_model(Employment) do
-  .row-fluid
-    .span6
-      = f.input :duration_from, :as => :date_field
-      = f.input :temporary
-      = f.input :workload
-      = f.input :salary_amount
+%h3= t_model(Employment)
+.row-fluid
+  .span6
+    = f.input :duration_from, :as => :date_field
+    = f.input :temporary
+    = f.input :workload
+    = f.input :salary_amount
 
-    .span6
-      = f.input :duration_to, :as => :date_field
-      = f.input :hourly_paid
-      = f.input :daily_workload, :as => :string
+  .span6
+    = f.input :duration_to, :as => :date_field
+    = f.input :hourly_paid
+    = f.input :daily_workload, :as => :string
 
-      = f.input :kids
+    = f.input :kids
 
-  .row-fluid
-    .span12= f.input :payment_to, :input_html => {:rows => 1, :class => 'span12'}
+.row-fluid
+  .span12= f.input :payment_to, :input_html => {:rows => 1}

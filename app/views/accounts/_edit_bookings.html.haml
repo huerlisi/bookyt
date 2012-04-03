@@ -1,6 +1,6 @@
 - url_params = {:controller => 'accounts', :action => 'show', :id => params[:account_id] || params[:id]}
 = paginated_section @bookings, :params => url_params.merge(:query => params[:query]) do
-  = semantic_form_for :bookings, :url => update_bookings_account_path do |f|
+  = simple_form_for :bookings, :url => update_bookings_account_path do |f|
     %table.table.table-striped
       %thead
         %tr
@@ -12,5 +12,4 @@
       %tbody
         = render :partial => 'edit_booking', :collection => @bookings, :locals => {:f => f}
 
-    = f.buttons do
-      = f.commit_button
+    = f.button :submit

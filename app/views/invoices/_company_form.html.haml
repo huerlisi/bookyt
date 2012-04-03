@@ -1,8 +1,8 @@
 - @invoice = resource_class.new
 - @invoice.build_company
-= semantic_fields_for @invoice do |invoice|
+= fields_for @invoice do |invoice|
   = invoice.fields_for :company do |f|
     .row-fluid
       .span6
-        = f.inputs t('form.person.address') do
+        %h3= f.inputs t('form.person.address')
           = render 'vcards/form', :f => f

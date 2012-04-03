@@ -1,25 +1,19 @@
-.well
-  = semantic_form_for parent? ? [parent, resource] : resource, :class => 'well' do |f|
-    = f.semantic_errors
+= simple_form_for parent? ? [parent, resource] : resource do |f|
+  .row-fluid
+    = f.input :title
 
-    = f.inputs do
-      .row-fluid
-        = f.input :title, :input_html => {:class => 'span12'}
+  .row-fluid
+    .span6
+      = f.input :file, :as => :file
+    .span6
+      = f.input :code, :collection => attachment_code_collection
 
-      .row-fluid
-        .span6
-          = f.input :file, :as => :file
-        .span6
-          = f.input :code, :collection => attachment_code_collection
+    - if parent?
+      - if parent
+        - f.object.object = parent
+        = f.input :object_id, :as => :hidden
+        = f.input :object_type, :as => :hidden
+      - else
+        = f.input :object, :collection => parent_class.all
 
-        - if parent?
-          - if parent
-            - f.object.object = parent
-            = f.input :object_id, :as => :hidden
-            = f.input :object_type, :as => :hidden
-          - else
-            = f.input :object, :collection => parent_class.all
-
-    .form-actions
-      = f.buttons do
-        = f.commit_button
+  = f.button :submit

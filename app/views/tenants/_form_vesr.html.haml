@@ -1,6 +1,5 @@
 
-= f.inputs t('settings.vesr.title') do
-  = render :partial => 'settings/form_fields', :locals => {:form => f}
+%h3= t('settings.vesr.title')
+= render :partial => 'settings/form_fields', :locals => {:form => f}
 
-= f.buttons do
-  = f.commit_button
+= f.button :submit

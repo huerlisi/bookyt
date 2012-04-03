@@ -1,7 +1,4 @@
-= semantic_form_for @account_type do |f|
-  = f.semantic_errors
-  = f.inputs do
-    = f.input :name
-    = f.input :title
-  = f.buttons do
-    = f.commit_button
+= simple_form_for @account_type do |f|
+  = f.input :name
+  = f.input :title
+  = f.button :submit

@@ -1,6 +1,5 @@
 #direct_booking_form
-  = semantic_form_for @direct_booking, :as => :direct_booking, :url => direct_bookings_path, :remote => true do |booking|
-    = booking.semantic_errors
+  = simple_form_for @direct_booking, :as => :direct_booking, :url => direct_bookings_path, :remote => true do |booking|
     = booking.hidden_field :title
     = booking.hidden_field :debit_account_id
     = booking.hidden_field :credit_account_id
