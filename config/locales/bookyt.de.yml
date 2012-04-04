@@ -327,11 +327,6 @@ de:
   years:
     title:    Periode
 
-  formtastic:
-    hints:
-      user:
-        password: "Leer lassen um Passwort nicht zu ändern."
-
   cancan:
     roles:
       admin:      'Administrator'

@@ -265,11 +265,6 @@ en:
       reference_balance: 'balance'
       reference_amount_minus_balance: 'open amount'
 
-  formtastic:
-    hints:
-      user:
-        password: "leave blank to leave password unchanged"
-
   cancan:
     roles:
       admin:      'administrator'
