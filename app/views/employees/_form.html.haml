@@ -21,8 +21,8 @@
       = f.input :nationality
       = f.input :date_of_birth, :as => :date_field
     .span6
-      = f.input :civil_status
-      = f.input :religion
+      = f.association :civil_status
+      = f.association :religion
       = f.input :social_security_nr
 
   = f.fields_for :employments, (@employments || f.object.employments.valid) do |employment|
