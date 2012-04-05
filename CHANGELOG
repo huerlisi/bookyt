@@ -1,3 +1,42 @@
+1.3.0
+=====
+We streamlined the interface and made it much nicer on smaller devices
+like tablets and phones.
+
+Beside dozens of usability fixes, balance/profit sheet reporting got
+much more powerful. We now provide year by year comparison and better
+print support. Search result now provide more information and all
+sidebar filters are now unified in look and functionality.
+
+Enabling mobile devices has been simplified tremendously by open source
+components like Twitter Bootstrap 2 and simple_form. A big "Thank You!"
+to all those involved in these and other projects!
+
+Check it out, it's the best Bookyt ever:-)
+
+To support you setting up your own instance, join us on the following
+channels:
+* IRC:         freenode.net #bookyt
+* Mailinglist: http://groups.google.com/group/bookyt
+* Mail:        info@cyt.ch
+
+
+Behind the scene:
+* Update to twitter bootstrap 2
+* Port to simple_form
+* Update to Rails 3.2.3
+
+Major bugfixes:
+* Fields don't get focus in invoice form on firefox
+* Don't fail if activity is recorded for person not of type
+  employee
+* Mark invoices as paid on vesr import when needed
+* Top Bar hides most right part if screen resolution too small
+* Add new salary booking template to salary template doesn't work
+* Salary Booking Template form fails
+* Update of invoices with saldo line items sometimes fail
+* Stocks/Assets broken
+
 1.2.2
 =====
 Another polishing release. It's the little things that make a big
