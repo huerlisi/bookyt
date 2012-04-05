@@ -130,7 +130,6 @@
 // Forms
 input, textarea, select {
   background-color: #fff;
-  width: 98%;
 }
 
 input, textarea {
@@ -139,4 +138,16 @@ input, textarea {
 
 select {
   width: 100%;
+}
+
+// jQuery UI
+.ui-widget-content{
+  border: 1px solid #e4e4e4 !important;
+  background-color: #fff !important;
+  background-image: none;
+}
+  
+.ui-widget-content a{
+  background-color: #fff;
+  color: #222222
 }

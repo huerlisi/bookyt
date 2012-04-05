@@ -1,7 +1,8 @@
-- unless @credit_invoices.blank?
-  = render 'credit_invoices/list'
+- @invoices = resource.invoices
+- if @invoices.empty?
+  = boot_alert(t('invoices.alerts.empty'))
+  .invoices.collection
 
-- unless @debit_invoices.blank?
-  = render 'debit_invoices/list'
-
-= render 'invoices/sidebar'
+- else
+  = render 'invoices/list' unless @invoices.empty?
+  = render 'invoices/sidebar'
