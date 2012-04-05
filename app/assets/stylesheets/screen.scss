@@ -140,6 +140,10 @@ select {
   width: 100%;
 }
 
+.input-prepend .add-on {
+  float: left;
+}
+
 // jQuery UI
 .ui-widget-content{
   border: 1px solid #e4e4e4 !important;
