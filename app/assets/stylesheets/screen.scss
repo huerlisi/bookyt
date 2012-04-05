@@ -60,6 +60,11 @@
     float: left;
 }
 
+.well .form-actions {
+  background-color: inherit;
+  padding-bottom:   0px;
+}
+
 // Sidebar
 .sidebar.well {
   padding: 8px 0;
