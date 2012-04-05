@@ -32,38 +32,6 @@
   overflow: visible;
 }
 
-// Login
-#new_user {
-	clear: both;
-}
-
-#new_user li {
-	list-style: none;
-}
-
-#new_user ul {
-	margin: 0;
-}
-
-#new_user label {
-	padding: 10px 10px 0px;
-	margin-bottom: 0;
-}
-
-#new_user input {
-	margin: 2px 11px;
-	float: left;
-}
-
-#user_remember_me input{
-	padding-left:0;
-	margin-right: 0;
-}
-
-#new_user label input {
-  margin: 0 10px 10px 0;
-}
-
 // Buttons
 .btn input {
 	float: none;
