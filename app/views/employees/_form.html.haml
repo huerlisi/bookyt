@@ -1,20 +1,5 @@
 = simple_form_for @employee do |f|
-
-  .row-fluid
-    .span6
-      %h3= t('form.person.address')
-      = render 'vcards/form', :f => f
-
-    .span6
-      %h3= t_model(PhoneNumber)
-      .nested-form.list.contacts
-        = f.fields_for :vcard do |vcard|
-          - vcard.object.contacts.build_defaults
-          - vcard.fields_for :contacts do |contact|
-            = render 'phone_numbers/form', :item => contact
-      = link_to [:new_phone_number, resource.persisted? ? resource : controller_name], :remote => true, :class => 'btn' do
-        %i.icon-plus
-        =t_action(:more)
+  = render 'address_form', :f => f
 
   %h3= t('form.person.civil')
   .row-fluid
