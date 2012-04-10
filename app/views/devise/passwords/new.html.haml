@@ -1,11 +1,9 @@
-%h2
-  = t('devise.forgot_your_password')
-= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
-  = devise_error_messages!
-  %p
-    = f.label :email
-    %br/
-    = f.text_field :email
-  %p
-    = f.submit t('devise.send_reset_instructions')
+= boot_page_title t('devise.forgot_your_password')
+
+= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+  = f.input :email
+
+  .form-actions
+    = f.button :submit, t('devise.send_reset_instructions')
+
 = render "devise/shared/links"
