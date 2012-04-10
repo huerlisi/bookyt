@@ -27,6 +27,7 @@ de:
     submit:
       create: "%{model} anlegen"
       update: "%{model} aktualisieren"
+      submit: "%{model} speichern"
 
   attributes:
     # Common
