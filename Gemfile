@@ -79,7 +79,7 @@ end
 
 # Standard helpers
 # ================
-gem 'haml'
+gem 'haml', :git => 'https://github.com/jcoleman/haml.git', :branch => 'issue-497-textarea-leading-newline-breakage'
 
 # Navigation
 gem 'simple-navigation'

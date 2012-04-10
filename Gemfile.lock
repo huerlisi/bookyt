@@ -13,6 +13,13 @@ GIT
       builder (>= 2.1.2)
       riddle (>= 1.5.0)
 
+GIT
+  remote: https://github.com/jcoleman/haml.git
+  revision: 36b51155e5b1783d98cb4024a35228f2f7bfba12
+  branch: issue-497-textarea-leading-newline-breakage
+  specs:
+    haml (3.1.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -133,7 +140,6 @@ GEM
     fastercsv (1.5.4)
     ffi (1.0.11)
     fssm (0.2.8.1)
-    haml (3.1.4)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
@@ -351,7 +357,7 @@ DEPENDENCIES
   factory_girl (< 3.0.0)
   factory_girl_rails
   fancy-buttons
-  haml
+  haml!
   haml-rails
   has_accounts
   has_scope
