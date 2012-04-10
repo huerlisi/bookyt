@@ -6,9 +6,6 @@
   - content_for :class_sidebar_column do
     display-none
 
-  - content_for :page_title do
-    = t('bookyt.overview.title')
-
-  = boot_page_title 'bookyt.overview.title'
+  = boot_page_title t('bookyt.overview.title')
 
   = render_navigation(:context => 'main', :expand_all => true, :renderer => SimpleNavigation::Renderer::Overview)
