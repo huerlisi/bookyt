@@ -1,3 +1,5 @@
+= boot_page_title t('devise.sign_in')
+
 = render 'users/demo' if Rails.env.demo?
 
 = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
