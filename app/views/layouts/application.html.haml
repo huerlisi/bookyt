@@ -15,7 +15,7 @@
       - if current_user
         = "#{current_user.tenant}: #{content_for :page_title} - #{t('application.title')}"
       - else
-        = "#{t_page_head} - #{t('application.title')}"
+        = "#{content_for :page_title} - #{t('application.title')}"
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
