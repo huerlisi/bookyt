@@ -1,6 +1,11 @@
 module BootstrapHelper
-  def boot_page_title(action = nil, model = nil)
-    title = t_title(action, model)
+  def boot_page_title(action_or_title = nil, model = nil)
+    if action_or_title.is_a? String
+      title = action_or_title
+    else
+      title = t_title(action, model)
+    end
+
     content_for :page_title, title
     content_tag(:div, :class => 'page-header') do
       content_tag(:h1, title)
