@@ -379,7 +379,8 @@ de:
   letters:
     greetings:        Freundliche Grüsse
     debit_invoice:
-      closing:        "Vielen Dank für die Zusammenarbeit.\n\nBitte begleichen Sie diese Rechnung bis zum %{due_date} mit beiliegendem Einzahlungsschein oder per E-Banking."
+      closing:        "Bitte begleichen Sie diese Rechnung bis zum %{due_date} mit beiliegendem Einzahlungsschein oder per E-Banking."
+      greetings:      "Vielen Dank für die Zusammenarbeit und freundliche Grüsse."
 
   tenants:
     user:
