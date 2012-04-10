@@ -3,7 +3,7 @@ module BootstrapHelper
     if action_or_title.is_a? String
       title = action_or_title
     else
-      title = t_title(action, model)
+      title = t_title(action_or_title, model)
     end
 
     content_for :page_title, title
