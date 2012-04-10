@@ -2,9 +2,6 @@
 #
 # Specializes LineItem to return saldo
 class SaldoLineItem < LineItem
-  # We need a reference_code
-  validates :reference_code, :presence => true
-
   # String
   def to_s
     "%s: %s (sum of %s)" % [self.title, self.total_amount, self.reference_code]
