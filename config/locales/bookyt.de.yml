@@ -396,6 +396,10 @@ de:
     vesr:
       title:  VESR
 
+  settings:
+    vesr:
+      title: VESR Einstellungen
+
   bookyt:
     all:              Alle
     edit:             Editieren
