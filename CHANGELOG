@@ -10,6 +10,7 @@ Major bugfixes:
 * Fix projects form to use association for project_state.
 * Password reminder form has bad style
 * Bad submit button label in login form
+* VESR upload fails
 
 1.3.0
 =====
