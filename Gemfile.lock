@@ -63,7 +63,7 @@ GEM
       ZenTest (~> 4.5)
     bcrypt-ruby (3.0.1)
     bookyt_pos (0.2.0)
-    bookyt_projects (0.19.22)
+    bookyt_projects (0.19.23)
       rails (~> 3.1)
       recurrence
     bookyt_salary (0.17.3)
@@ -317,7 +317,7 @@ GEM
       actionpack (>= 3.1)
       less-rails (~> 2.1.8)
       railties (>= 3.1)
-    tzinfo (0.3.32)
+    tzinfo (0.3.33)
     uglifier (1.2.4)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
