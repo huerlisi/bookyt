@@ -1,6 +1,7 @@
 = simple_form_for @account do |f|
-
-  = f.input :code, :input_html => {:size => 6}
+  = f.input :code
   = f.input :title
-  = f.input :account_type, :as => :string, :collection => options_from_collection_for_select(AccountType.all, :id, :title, @account.account_type_id)
-  = f.button :submit
+  = f.association :account_type, :label_method => :title
+
+  .form-actions
+    = f.button :submit
