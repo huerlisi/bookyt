@@ -3,7 +3,12 @@ module BootstrapHelper
     if action_or_title.is_a? String
       title = action_or_title
     else
-      title = t_title(action_or_title, model)
+      action = action_or_title || action_name
+      if action.to_s == 'show' && defined?(resource) && resource.present?
+        title = resource.to_s
+      else
+        title = t_title(action, model)
+      end
     end
 
     content_for :page_title, title
