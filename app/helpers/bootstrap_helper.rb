@@ -55,7 +55,7 @@ module BootstrapHelper
   end
 
   def boot_nav_li_link(filter_name, param_value, title = nil, param_name = filter_name, current_value = params[param_name], classes = [], &content)
-    classes << "active" if current_value == param_value
+    classes << "active" if current_value.to_s == param_value.to_s
     title ||= param_value
     title = t("#{filter_name.to_s}.#{title}", :default => title)
 
