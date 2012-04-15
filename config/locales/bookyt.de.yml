@@ -327,6 +327,8 @@ de:
 
   years:
     title:    Periode
+  by_period:
+    title:    Periode
 
   cancan:
     roles:
