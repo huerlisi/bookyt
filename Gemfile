@@ -130,8 +130,6 @@ gem 'prawn'
 gem 'prawn_rails'
 
 # Raiffeisen BookingImport
-gem 'remotipart'
-gem 'paperclip', '< 3.0.0'
 gem 'csv-mapper'
 
 # ESR support
