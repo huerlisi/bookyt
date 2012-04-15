@@ -159,9 +159,6 @@ Bookyt::Application.routes.draw do
     resources :attachments
   end
 
-  # Imports
-  resources :booking_imports
-
   # Notes
   resources :notes
 

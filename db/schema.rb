@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120313214939) do
+ActiveRecord::Schema.define(:version => 20120415191034) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -100,15 +100,6 @@ ActiveRecord::Schema.define(:version => 20120313214939) do
 
   add_index "attachments", ["code"], :name => "index_attachments_on_code"
   add_index "attachments", ["object_id", "object_type"], :name => "index_attachments_on_object_id_and_object_type"
-
-  create_table "booking_imports", :force => true do |t|
-    t.string   "csv_file_name"
-    t.string   "csv_content_type"
-    t.integer  "csv_file_size"
-    t.datetime "csv_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "booking_templates", :force => true do |t|
     t.string   "title"
