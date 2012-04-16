@@ -204,3 +204,19 @@ Bugfixes:
 * New attachment link doesn't work
 * reference should be cleared for new booking based on existing
 * Invoice view fails if invoice booking has been deleted
+
+
+0.5.0
+=====
+User visible changes include:
+
+* Booking templates, fully customizable by the user
+* Booking wizard: allows creation of new bookings based on templates or old bookings
+* New design/layout: a bit more modern, a bit more consistent, but still a work in progress
+
+Changes for the developers include:
+
+* New commiter Roman Simecek <roman.simecek@cyt.ch>. A big hug for this guy!
+  He's responsible for porting to HAML, SASS, and lots of Rails 3 fixes.
+* Much more tests...
+* Ported to REST using InheritedResources
