@@ -38,10 +38,6 @@ class DebitInvoicesController < InvoicesController
       )
     end
 
-    # Add a total saldo line item last
-    @debit_invoice.line_items <<
-      SaldoLineItem.new(:title => I18n::translate('bookyt.total'))
-
     new!
   end
 
