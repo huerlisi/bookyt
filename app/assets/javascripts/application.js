@@ -188,7 +188,7 @@ function addSortableBehaviour() {
     }
   });
 
-  $('.nested-form-container').each(function() {
+  $('.sortable').each(function() {
     updatePositions($(this));
   });
 }
