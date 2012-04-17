@@ -56,13 +56,13 @@ class LetterDocument < Prawn::Document
       end
     end
 
-    move_down 4.cm
+    move_down 3.5.cm
 
     # Place'n'Date
     text [sender.vcard.try(:locality), I18n.l(date, :format => :long)].compact.join(', ')
 
     # Subject
-    move_down 60
+    move_down 35
     text subject, :style => :bold
   end
 
@@ -72,7 +72,6 @@ class LetterDocument < Prawn::Document
 
     text " "
     text html_unescape(text), :inline_format => true
-    text " "
   end
 
   # Draws the full address of a vcard
