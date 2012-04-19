@@ -7,6 +7,10 @@ class LetterDocument < Prawn::Document
   include I18nRailsHelpers
   include Prawn::Measurements
 
+  def h(s)
+    return s
+  end
+
   # Unescape HTML
   def html_unescape(value)
     # Return an empty string when value is nil.
@@ -75,9 +79,12 @@ class LetterDocument < Prawn::Document
   end
 
   # Draws the full address of a vcard
-  def draw_address(vcard)
+    def draw_address(vcard, include_honorific_prefix = false)
     lines = [vcard.full_name, vcard.extended_address, vcard.street_address, vcard.post_office_box, "#{vcard.postal_code} #{vcard.locality}"]
-    lines = lines.map {|line| line.strip unless (line.nil? or line.strip.empty?)}.compact
+    lines.unshift(vcard.honorific_prefix) if include_honorific_prefix
+
+    # Strip all whitespace
+    lines = lines.map {|line| line.strip if line.present?}.compact
 
     lines.each do |line|
       text line
