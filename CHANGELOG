@@ -3,7 +3,7 @@
 We've given the timetracking module some love: filters in lists,
 clever forms to do batch entries, nicer timelog. Directly printing
 pages and reports in the browser now works great even in tabbed views.
-Better view and form headings give quickly tell you what you look at.
+Better view and form headings quickly tell you what you look at.
 The salary pay slips had a major bugfix regarding bad rounding.
 
 We have some great news for developers, too: We're working hard to
