@@ -56,9 +56,9 @@ class Person < ActiveRecord::Base
   has_many :debit_invoices, :class_name => 'Invoice', :foreign_key => :company_id, :order => 'value_date DESC'
   
   def invoices
-    credit_invoices + debit_invoices
+    Invoice.order('value_date DESC').where("invoices.customer_id = :id OR invoices.company_id = :id", :id => self.id)
   end
-  
+
   # Charge Rates
   # ============
   has_many :charge_rates

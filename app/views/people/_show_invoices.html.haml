@@ -1,4 +1,4 @@
-- @invoices = resource.invoices
+- @invoices = resource.invoices.invoice_state(params[:invoice_state])
 - if @invoices.empty?
   = boot_no_entry_alert
   .invoices.collection
