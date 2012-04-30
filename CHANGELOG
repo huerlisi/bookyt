@@ -1,3 +1,9 @@
+1.3.2 (unreleased)
+=====
+* Allow specifying since when timesheets should calculate saldo when opened
+  for the first time.
+* Fix invoice filter in people view.
+
 1.3.1
 =====
 We've given the timetracking module some love: filters in lists,
