@@ -40,6 +40,10 @@ module BootstrapHelper
     end
   end
 
+  def boot_no_entry_alert
+    boot_alert t('alerts.empty')
+  end
+
   # Navigation
   # ==========
   def boot_nav_header(title, refresh_action = false)

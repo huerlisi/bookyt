@@ -272,8 +272,6 @@ de:
   attachments:
     list:
       title:    Dokumente
-    alerts:
-      empty:    Keine Dokumente vorhanden.
 
   invoices:
     list:
@@ -315,6 +313,10 @@ de:
       reference_amount:  'Ursprünglicher Betrag'
       reference_balance: 'Aktueller Saldo'
       reference_amount_minus_balance: 'Differenz Betrag'
+
+  # Alerts
+  alerts:
+    empty:    Keine Einträge vorhanden.
 
   # Filters
   invoice_state:

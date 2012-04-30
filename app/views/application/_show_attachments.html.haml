@@ -1,6 +1,6 @@
 - @attachments = resource.attachments
 - if @attachments.empty?
-  = boot_alert(t('attachments.alerts.empty'))
+  = boot_no_entry_alert
   .attachments.collection
 - else
   = render 'attachments/list' unless @attachments.empty?

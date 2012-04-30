@@ -1,6 +1,6 @@
 - @invoices = resource.invoices
 - if @invoices.empty?
-  = boot_alert(t('invoices.alerts.empty'))
+  = boot_no_entry_alert
   .invoices.collection
 
 - else
