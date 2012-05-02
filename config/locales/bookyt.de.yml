@@ -41,6 +41,7 @@ de:
 
   activerecord:
     models:
+      expense:          Ausgabe
       booking_template: Buchungsvorlage
       charge_booking_template: Bedingte Buchungsvorlage
       person: Person
