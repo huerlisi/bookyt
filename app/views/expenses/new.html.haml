@@ -3,10 +3,10 @@
     .span6
       = f.input :title, :input_html => {"data-autofocus" => true}
     .span6
-      = f.input :value_date, :as => :date_field
+      = f.input :amount, :as => :string, :label => t('expenses.labels.amount')
   .row-fluid
     .span6
-      = f.input :amount, :as => :string, :label => t('expenses.labels.amount')
+      = f.input :value_date, :as => :date_field
     .span6
       = f.association :credit_account, :collection => accounts_as_collection(Account.all), :as => :combobox, :label => t('expenses.labels.credit_account')
 
