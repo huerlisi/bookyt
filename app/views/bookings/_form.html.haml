@@ -11,14 +11,14 @@
       = f.input :code
 
   .row-fluid
-    .span12
-      = f.input :comments, :input_html => {:rows => 4}
-
-  .row-fluid
     .span6
       = f.association :credit_account, :as => :combobox
     .span6
       = f.association :debit_account, :as => :combobox
+
+  .row-fluid
+    .span12
+      = f.input :comments, :input_html => {:rows => 4}
 
   .row-fluid
     .span6
