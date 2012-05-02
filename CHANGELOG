@@ -1,7 +1,18 @@
-1.3.2 (unreleased)
+1.3.2
 =====
-* Allow specifying since when timesheets should calculate saldo when opened
-  for the first time.
+Tracking expenses with VAT got much, much easier. We've built a custom
+form helping you to enter all those retailer recipes quickly.
+
+Some bugfixes and the possibility to specify since when timesheets
+should calculate the saldo for employees also made it into this release.
+
+To support you setting up your own instance, join us on the following
+channels:
+* IRC:         freenode.net #bookyt
+* Mailinglist: http://groups.google.com/group/bookyt
+* Mail:        info@cyt.ch
+
+Other notable changes:
 * Fix invoice filter in people view.
 * Include account code in account comboboxes in booking forms.
 
