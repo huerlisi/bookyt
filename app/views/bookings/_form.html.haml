@@ -12,9 +12,9 @@
 
   .row-fluid
     .span6
-      = f.association :credit_account, :as => :combobox
+      = f.association :credit_account, :collection => accounts_as_collection(Account.all), :as => :combobox
     .span6
-      = f.association :debit_account, :as => :combobox
+      = f.association :debit_account, :collection => accounts_as_collection(Account.all), :as => :combobox
 
   .row-fluid
     .span12
