@@ -319,7 +319,7 @@ de:
       amount:         Betrag inkl. MwSt.
       credit_account: Aufwandskonto
       debit_account:  Bezahlkonto
-      vat_account:    Vorsteuer
+      vat_account:    Vorsteuerkonto
 
   # Alerts
   alerts:
