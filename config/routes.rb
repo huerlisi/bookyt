@@ -130,6 +130,7 @@ Bookyt::Application.routes.draw do
 
   # Expenses
   get "expenses/new" => "expenses#new", :as => :new_expense
+  get "expenses/new_vat" => "expenses#new_vat", :as => :new_vat_expense
   post "expenses" => "expenses#create", :as => :create_expense
 
   # Bookings

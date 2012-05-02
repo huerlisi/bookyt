@@ -1,4 +1,4 @@
-= simple_form_for @booking, :url => create_expense_path do |f|
+= simple_form_for @booking, :url => new_vat_expense_path, :method => :get do |f|
   .row-fluid
     .span6
       = f.input :title, :input_html => {"data-autofocus" => true}
@@ -6,22 +6,8 @@
       = f.input :value_date, :as => :date_field
   .row-fluid
     .span6
-      = f.input :amount, :as => :string, :input_html => {:size => 12}
-    .span6
-      = f.input :code
-
-  .row-fluid
+      = f.input :amount, :as => :string
     .span6
       = f.association :credit_account, :collection => accounts_as_collection(Account.all), :as => :combobox
-    .span6
-      = f.association :debit_account, :collection => accounts_as_collection(Account.all), :as => :combobox
-
-  .row-fluid
-    .span12
-      = f.input :comments, :input_html => {:rows => 4}
-
-  = render 'vat_booking_form', :vat_booking => :vat_full_booking
-  = render 'vat_booking_form', :vat_booking => :vat_reduced_booking
-  = render 'vat_booking_form', :vat_booking => :vat_special_booking
 
   = f.button :submit
