@@ -437,6 +437,7 @@ de:
       invoicing_party:        Rechnungssteller
     main_navigation:
       new_booking:              Neue Buchung
+      new_expense:              Neue Ausgabe
       balance:                  Bilanz
       profit:                   Erfolgsrechnung
       accounts:                 Konten
