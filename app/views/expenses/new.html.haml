@@ -1,0 +1,32 @@
+= simple_form_for @booking, :url => create_expense_path do |f|
+  .row-fluid
+    .span6
+      = f.input :title, :input_html => {"data-autofocus" => true}
+    .span6
+      = f.input :value_date, :as => :date_field
+  .row-fluid
+    .span6
+      = f.input :amount, :as => :string, :input_html => {:size => 12}
+    .span6
+      = f.input :code
+
+  .row-fluid
+    .span6
+      = f.association :credit_account, :collection => accounts_as_collection(Account.all), :as => :combobox
+    .span6
+      = f.association :debit_account, :collection => accounts_as_collection(Account.all), :as => :combobox
+
+  .row-fluid
+    .span12
+      = f.input :comments, :input_html => {:rows => 4}
+
+  = simple_fields_for :vat_booking, @vat_booking do |v|
+    .row-fluid
+      .span4
+        = v.input :title
+      .span4
+        = v.input :amount, :as => :string
+      .span4
+        = v.association :credit_account, :collection => accounts_as_collection(Account.find_all_by_code(['1170', '1171'])), :as => :combobox
+
+  = f.button :submit

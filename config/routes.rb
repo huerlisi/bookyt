@@ -128,6 +128,10 @@ Bookyt::Application.routes.draw do
     end
   end
 
+  # Expenses
+  get "expenses/new" => "expenses#new", :as => :new_expense
+  post "expenses" => "expenses#create", :as => :create_expense
+
   # Bookings
   resources :bookings do
     collection do
