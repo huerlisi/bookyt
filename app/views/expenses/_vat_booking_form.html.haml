@@ -1,8 +1,8 @@
-= simple_fields_for vat_booking, instance_variable_get("@#{vat_booking.to_s}") do |v|
+- booking = instance_variable_get("@#{vat_booking.to_s}")
+= simple_fields_for vat_booking, booking do |v|
   .row-fluid
-    .span4
-      = v.input :title
-    .span4
-      = v.input :amount, :as => :string
-    .span4
-      = v.association :credit_account, :collection => accounts_as_collection(Account.find_all_by_code(['1170', '1171'])), :as => :combobox
+    .span6
+      = v.input :amount, :as => :string, :label => booking.title, :required => false
+      = v.input :title, :as => :hidden, :required => false
+    .span6
+      = v.association :credit_account, :collection => accounts_as_collection(Account.find_all_by_code(['1170', '1171'])), :as => :combobox, :label => t('expenses.labels.vat_account')

@@ -6,8 +6,8 @@
       = f.input :value_date, :as => :date_field
   .row-fluid
     .span6
-      = f.input :amount, :as => :string
+      = f.input :amount, :as => :string, :label => t('expenses.labels.amount')
     .span6
-      = f.association :credit_account, :collection => accounts_as_collection(Account.all), :as => :combobox
+      = f.association :credit_account, :collection => accounts_as_collection(Account.all), :as => :combobox, :label => t('expenses.labels.credit_account')
 
   = f.button :submit

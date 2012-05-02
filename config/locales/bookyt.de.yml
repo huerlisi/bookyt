@@ -314,6 +314,13 @@ de:
       reference_balance: 'Aktueller Saldo'
       reference_amount_minus_balance: 'Differenz Betrag'
 
+  expenses:
+    labels:
+      amount:         Betrag inkl. MwSt.
+      credit_account: Aufwandskonto
+      debit_account:  Bezahlkonto
+      vat_account:    Vorsteuer
+
   # Alerts
   alerts:
     empty:    Keine Einträge vorhanden.
