@@ -59,7 +59,13 @@ class ExpensesController < ApplicationController
     @vat_special_booking.debit_account = @booking.debit_account
 
     if @booking.valid? && @vat_full_booking.valid? && @vat_reduced_booking.valid? && @vat_special_booking.valid?
-      @booking.save && @vat_full_booking.save && @vat_reduced_booking.save && @vat_special_booking.valid?
+      @booking.save
+
+      # Only save vat bookings if they have an amount <> 0
+      @vat_full_booking.save unless @vat_full_booking.amount == 0
+      @vat_reduced_booking.save unless @vat_reduced_booking.amount == 0
+      @vat_special_booking.save unless @vat_special_booking.amount == 0
+
       redirect_to "/expenses/new"
     else
       render :action => 'new_vat'
