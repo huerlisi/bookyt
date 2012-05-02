@@ -7,7 +7,7 @@ class ExpensesController < ApplicationController
     @booking = Booking.new(params[:booking])
 
     # Guard to ensure all needed fields are filled in
-    if @booking.amount.blank?
+    if @booking.title.blank? or @booking.amount.blank?
       @booking.valid?
       render :action => 'new'
       return
@@ -18,21 +18,24 @@ class ExpensesController < ApplicationController
     # Calculate VAT bookings
     @vat_full_rate = ChargeRate.current('vat:full', @booking.value_date)
     @vat_full_booking = Booking.new(
-      :title => @vat_full_rate.to_s,
+      :title => @booking.title,
+      :comments => @vat_full_rate.to_s,
       :amount => (@booking.amount * (@vat_full_rate.rate) / (100 + @vat_full_rate.rate)).round(2),
       :debit_account => Account.find_by_code('1000'),
       :credit_account => Account.find_by_code('1170')
     )
     @vat_reduced_rate = ChargeRate.current('vat:reduced', @booking.value_date)
     @vat_reduced_booking = Booking.new(
-      :title => @vat_reduced_rate.to_s,
+      :title => @booking.title,
+      :comments => @vat_reduced_rate.to_s,
       :amount => 0,
       :debit_account => Account.find_by_code('1000'),
       :credit_account => Account.find_by_code('1170')
     )
     @vat_special_rate = ChargeRate.current('vat:special', @booking.value_date)
     @vat_special_booking = Booking.new(
-      :title => @vat_special_rate.to_s,
+      :title => @booking.title,
+      :comments => @vat_special_rate.to_s,
       :amount => 0,
       :debit_account => Account.find_by_code('1000'),
       :credit_account => Account.find_by_code('1170')
