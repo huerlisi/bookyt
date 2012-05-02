@@ -6,6 +6,13 @@ class ExpensesController < ApplicationController
   def new_vat
     @booking = Booking.new(params[:booking])
 
+    # Guard to ensure all needed fields are filled in
+    if @booking.amount.blank?
+      @booking.valid?
+      render :action => 'new'
+      return
+    end
+
     @booking.debit_account = Account.find_by_code('1000')
 
     # Calculate VAT bookings
