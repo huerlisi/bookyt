@@ -20,31 +20,8 @@
     .span12
       = f.input :comments, :input_html => {:rows => 4}
 
-  = simple_fields_for :vat_full_booking, @vat_full_booking do |v|
-    .row-fluid
-      .span4
-        = v.input :title
-      .span4
-        = v.input :amount, :as => :string
-      .span4
-        = v.association :credit_account, :collection => accounts_as_collection(Account.find_all_by_code(['1170', '1171'])), :as => :combobox
-
-  = simple_fields_for :vat_reduced_booking, @vat_reduced_booking do |v|
-    .row-fluid
-      .span4
-        = v.input :title
-      .span4
-        = v.input :amount, :as => :string
-      .span4
-        = v.association :credit_account, :collection => accounts_as_collection(Account.find_all_by_code(['1170', '1171'])), :as => :combobox
-
-  = simple_fields_for :vat_special_booking, @vat_special_booking do |v|
-    .row-fluid
-      .span4
-        = v.input :title
-      .span4
-        = v.input :amount, :as => :string
-      .span4
-        = v.association :credit_account, :collection => accounts_as_collection(Account.find_all_by_code(['1170', '1171'])), :as => :combobox
+  = render 'vat_booking_form', :vat_booking => :vat_full_booking
+  = render 'vat_booking_form', :vat_booking => :vat_reduced_booking
+  = render 'vat_booking_form', :vat_booking => :vat_special_booking
 
   = f.button :submit
