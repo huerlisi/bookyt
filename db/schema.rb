@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120425095353) do
+ActiveRecord::Schema.define(:version => 20120503121203) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -253,7 +253,9 @@ ActiveRecord::Schema.define(:version => 20120425095353) do
     t.date     "reminder_due_date"
     t.date     "second_reminder_due_date"
     t.date     "third_reminder_due_date"
-    t.boolean  "delta",                    :default => true, :null => false
+    t.boolean  "delta",                                                  :default => true, :null => false
+    t.decimal  "leave_days_balance",       :precision => 4, :scale => 2
+    t.decimal  "used_leave_days",          :precision => 4, :scale => 2
   end
 
   add_index "invoices", ["company_id"], :name => "index_invoices_on_company_id"

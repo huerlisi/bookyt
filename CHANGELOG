@@ -1,5 +1,6 @@
 1.3.3 (unreleased)
 =====
+* Add support for leave day tracking for salaries.
 * Only set calculated code for debit_invoice if not set, yet.
 * Fix debit invoice still showing up in list of open invoices after payment
   by ESR.
