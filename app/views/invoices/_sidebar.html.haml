@@ -1,4 +1,1 @@
-- filter_name = :invoice_state
-- params[filter_name] ||= 'booked'
-- content_for :sidebar do
-  = boot_nav_filter(filter_name, ['all'] + Invoice::STATES)
+= render 'filters/invoice_state'

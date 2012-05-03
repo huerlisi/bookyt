@@ -1,0 +1,4 @@
+- filter_name = :invoice_state
+- define_filter filter_name do
+  - params[filter_name] ||= 'booked'
+  = boot_nav_filter(filter_name, ['all'] + Invoice::STATES)

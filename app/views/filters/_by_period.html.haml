@@ -1,0 +1,4 @@
+- filter_name = :by_period
+- define_filter filter_name do
+  - filters = month_periods
+  = boot_nav_filter(filter_name, [{:title => t('bookyt.all'), :value => nil}] + filters)
