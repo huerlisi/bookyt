@@ -1,6 +1,8 @@
 1.3.3 (unreleased)
 =====
 * Only set calculated code for debit_invoice if not set, yet.
+* Fix debit invoice still showing up in list of open invoices after payment
+  by ESR.
 
 1.3.2
 =====

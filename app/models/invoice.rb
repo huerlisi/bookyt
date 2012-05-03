@@ -127,7 +127,6 @@ class Invoice < ActiveRecord::Base
     return unless new_state
 
     self.state = new_state
-    self.update_column(:state, new_state) if self.persisted?
   end
 
   accepts_nested_attributes_for :bookings, :allow_destroy => true
