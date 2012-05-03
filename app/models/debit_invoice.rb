@@ -32,6 +32,9 @@ class DebitInvoice < Invoice
   # Code
   after_save :update_code
   def update_code
+    # Only set calculated code if not set, yet
+    return unless code.blank?
+
     code = value_date.strftime("%y%m")
     code += "%04i" % id
 
