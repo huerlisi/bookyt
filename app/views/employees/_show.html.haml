@@ -2,7 +2,7 @@
   %ul.nav.nav-tabs
     %li.active= link_to t_model, '#tab-contact', {:data => {:toggle => 'tab'}}
     %li= link_to t_model(Salary), '#tab-salaries', {:data => {:toggle => 'tab'}} if Bookyt::Engine.engines.include?('bookyt_salary')
-    %li= link_to t_title(:list, Invoice), '#tab-invoices', {:data => {:toggle => 'tab'}}
+    %li= link_to t_title(:list, Invoice), '#tab-invoices', {:data => {:toggle => 'tab'}} unless @invoices.empty?
     %li= link_to t_title(:list, Activity), '#tab-activities', {:data => {:toggle => 'tab'}} if Bookyt::Engine.engines.include?('bookyt_projects')
     %li= link_to t_title(:timesheet, Activity), '#tab-timesheet', {:data => {:toggle => 'tab'}} if Bookyt::Engine.engines.include?('bookyt_projects')
     %li= link_to t_title(:list, Attachment), '#tab-attachments', {:data => {:toggle => 'tab'}}
@@ -10,7 +10,7 @@
 .tab-content
   #tab-contact.tab-pane.active= render "form"
   #tab-salaries.tab-pane= render 'show_salaries' if Bookyt::Engine.engines.include?('bookyt_salary')
-  #tab-invoices.tab-pane= render 'show_invoices'
+  #tab-invoices.tab-pane= render 'show_invoices' unless @invoices.empty?
   #tab-activities.tab-pane= render 'show_activities' if Bookyt::Engine.engines.include?('bookyt_projects')
   #tab-timesheet.tab-pane= render 'show_timesheet' if Bookyt::Engine.engines.include?('bookyt_projects')
   #tab-attachments.tab-pane= render 'show_attachments'

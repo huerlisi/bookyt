@@ -8,13 +8,8 @@ class PeopleController < AuthorizedController
   end
 
   def show
-    @credit_invoices = resource.credit_invoices.reorder('due_date DESC')
-    @debit_invoices = resource.debit_invoices.reorder('due_date DESC')
-
     # Invoice scoping by state
-    invoice_state = params[:invoice_state]
-    @credit_invoices = @credit_invoices.invoice_state(invoice_state)
-    @debit_invoices = @debit_invoices.invoice_state(invoice_state)
+    @invoices = resource.invoices.where("type != 'Salary'").invoice_state(params[:invoice_state])
 
     show!
   end
