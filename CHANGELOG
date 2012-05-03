@@ -5,6 +5,7 @@
   by ESR.
 * Tabular design for time saldo overview in payslip.
 * Include saldo from previous month in time saldo in payslip.
+* No filter sidebars in employees when current month has no activities.
 
 1.3.2
 =====
