@@ -9,6 +9,7 @@
 * No filter sidebars in employees when current month has no activities.
 * Don't show salaries as invoices tab for employees.
 * Hide invoices tabs if empty in employee view.
+* Fix ChargeRate.valid_at for rates no duration_from.
 
 1.3.2
 =====
