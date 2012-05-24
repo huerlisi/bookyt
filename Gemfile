@@ -79,7 +79,7 @@ end
 
 # Standard helpers
 # ================
-gem 'haml', :git => 'https://github.com/jcoleman/haml.git', :branch => 'issue-497-textarea-leading-newline-breakage'
+gem 'haml'
 
 # Navigation
 gem 'simple-navigation'
@@ -137,7 +137,7 @@ gem 'aasm'
 gem 'vesr'
 
 # Search
-gem 'thinking-sphinx', :git => 'https://github.com/huerlisi/thinking-sphinx.git'
+gem 'thinking-sphinx'
 
 # Tagging
 gem 'acts-as-taggable-on'
