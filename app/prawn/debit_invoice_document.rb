@@ -58,7 +58,7 @@ class DebitInvoiceDocument < LetterDocument
       amount = item.times_to_s
       price = currency_fmt(item.price)
 
-      [item.title, item.date, amount, price, currency_fmt(item.total_amount)]
+      [item.title, item.date, amount, price, currency_fmt(item.accounted_amount)]
     end
 
     rows = content + [total_row(currency_fmt(invoice.amount))]
