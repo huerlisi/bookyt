@@ -55,9 +55,7 @@ class DebitInvoiceDocument < LetterDocument
   def line_items_table(invoice, line_items)
     text " "
     content = line_items.collect do |item|
-
-     amount = item.times_to_s
-
+      amount = item.times_to_s
       price = currency_fmt(item.price)
 
       [item.title, item.date, amount, price, currency_fmt(item.total_amount)]
