@@ -1,5 +1,13 @@
-1.3.3 (unreleased)
+1.3.3
 =====
+Our salary module now supports tracking of leave days and the payslip
+got some design love. You now may use alternative payment methods for
+partial amounts of debit invoices.
+
+Give it a try on https://demo.bookyt.ch and send your thoughts and
+critical questions to info@cyt.ch!
+
+Notable fixes:
 * Add support for leave day tracking for salaries.
 * Only set calculated code for debit_invoice if not set, yet.
 * Fix debit invoice still showing up in list of open invoices after payment
@@ -10,6 +18,9 @@
 * Don't show salaries as invoices tab for employees.
 * Hide invoices tabs if empty in employee view.
 * Fix ChargeRate.valid_at for rates no duration_from.
+* More informative titles for ESR file view.
+* Fix debit invoice PDF to handle line items with the debit account on the
+  right side
 
 1.3.2
 =====
