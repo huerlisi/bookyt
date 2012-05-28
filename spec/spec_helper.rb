@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'spork'
+require 'shoulda'
 
 ENV["RAILS_ENV"] = 'test'
 
