@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 
 # Rails
 # =====
-gem 'rails', "~> 3.2.0"
+gem 'rails', '~> 3.2.0'
 
 # Database
 gem 'mysql2'
@@ -55,8 +55,8 @@ group :test, :development do
   gem 'shoulda'
 
   # Fixtures
-  gem "factory_girl_rails"
-  gem "factory_girl", '< 3.0.0' # For ruby 1.8
+  gem 'factory_girl_rails'
+  gem 'factory_girl', '< 3.0.0' # For ruby 1.8
 
   # Mocking
   # gem 'mocha'
