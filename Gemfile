@@ -39,7 +39,8 @@ group :development do
   gem 'capones_recipes'
 
   # Debugger
-  gem 'ruby-debug'
+  gem 'ruby-debug', :platforms => :ruby_18
+  gem 'ruby-debug19', :platforms => :ruby_19
 end
 
 group :test, :development do
