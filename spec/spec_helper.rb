@@ -4,6 +4,11 @@ require 'spork'
 ENV["RAILS_ENV"] = 'test'
 
 Spork.prefork do
+  if ENV['COVERAGE']
+    require 'simplecov'
+    SimpleCov.start 'rails'
+  end
+
   require "rails/application"
   # Code snippet from: https://github.com/sporkrb/spork/wiki/Spork.trap_method-Jujutsu
   Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
