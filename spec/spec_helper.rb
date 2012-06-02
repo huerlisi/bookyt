@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'spork'
-require 'shoulda'
 
 ENV["RAILS_ENV"] = 'test'
 
@@ -11,8 +10,6 @@ Spork.prefork do
 
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
-  require 'rspec/autorun' if $0 =~ /\brcov$/
-  require 'shoulda/integrations/rspec2'
 
   # Configure capybara for integration testing
   require "capybara/rails"
