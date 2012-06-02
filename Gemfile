@@ -118,7 +118,7 @@ gem 'routing-filter'
 gem 'has_accounts'
 
 # Addresses
-gem 'has_vcards'
+gem 'has_vcards', github: 'huerlisi/has_vcards'
 
 # Uploads
 gem 'carrierwave'
