@@ -3,7 +3,7 @@ FactoryGirl.define do
     email    { Factory.next(:email) }
     password "user1234"
     person
-    roles {|roles| [roles.association :user_role] }
+    roles {|roles| [roles.association(:user_role)] }
     association :tenant
   end
 
@@ -11,7 +11,7 @@ FactoryGirl.define do
     email    { Factory.next(:email) }
     password "admin1234"
     person
-    roles {|roles| [roles.association :accountant_role] }
+    roles {|roles| [roles.association(:accountant_role)] }
     association :tenant
   end
 
@@ -19,7 +19,7 @@ FactoryGirl.define do
     email    { Factory.next(:email) }
     password "admin1234"
     person
-    roles {|roles| [roles.association :admin_role] }
+    roles {|roles| [roles.association(:admin_role)] }
     association :tenant
   end
 
