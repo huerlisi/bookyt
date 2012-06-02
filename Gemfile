@@ -52,7 +52,7 @@ group :test, :development do
   # gem 'cucumber'
 
     # Matchers/Helpers
-  gem 'shoulda', :require => false
+  gem 'shoulda-matchers'
 
   # Fixtures
   gem 'factory_girl_rails'

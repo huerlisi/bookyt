@@ -291,10 +291,6 @@ GEM
       rubyzip
     settingslogic (2.0.8)
     sexp_processor (3.1.0)
-    shoulda (3.0.1)
-      shoulda-context (~> 1.0.0)
-      shoulda-matchers (~> 1.0.0)
-    shoulda-context (1.0.0)
     shoulda-matchers (1.0.0)
     show_for (0.2.4)
     simple-navigation (3.7.0)
@@ -394,7 +390,7 @@ DEPENDENCIES
   ruby_parser
   sass-rails
   settingslogic
-  shoulda
+  shoulda-matchers
   show_for
   simple-navigation
   simple_form
