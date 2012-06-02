@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CreditInvoice < Invoice
   # String
   def to_s(format = :default)
