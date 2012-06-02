@@ -66,6 +66,7 @@ group :test, :development do
 
   # Autotest
   gem 'guard-rspec'
+  gem 'guard-bundler'
 
   # Code coverage
   gem 'rcov', :platforms => :ruby_18
