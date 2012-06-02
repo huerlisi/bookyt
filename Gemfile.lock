@@ -16,7 +16,6 @@ GEM
   remote: http://rubygems.org/
   specs:
     Ascii85 (1.0.1)
-    ZenTest (4.5.0)
     aasm (3.0.4)
       activerecord
     actionmailer (3.2.3)
@@ -51,10 +50,6 @@ GEM
     addressable (2.2.7)
     archive-tar-minitar (0.5.2)
     arel (3.0.2)
-    autotest (4.4.6)
-      ZenTest (>= 4.4.1)
-    autotest-rails (4.1.2)
-      ZenTest (~> 4.5)
     bcrypt-ruby (3.0.1)
     bookyt_pos (0.2.0)
     bookyt_projects (1.1.0)
@@ -133,6 +128,11 @@ GEM
     fastercsv (1.5.4)
     ffi (1.0.11)
     fssm (0.2.9)
+    guard (1.1.0)
+      listen (>= 0.4.2)
+      thor (>= 0.14.6)
+    guard-rspec (0.7.3)
+      guard (>= 0.10.0)
     haml (3.1.6)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -171,6 +171,10 @@ GEM
       rbx-require-relative (> 0.0.4)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
+    listen (0.4.2)
+      rb-fchange (~> 0.0.5)
+      rb-fsevent (~> 0.9.1)
+      rb-inotify (~> 0.8.8)
     lyb_sidebar (0.1.1)
       rails (~> 3.1)
     mail (2.4.4)
@@ -224,6 +228,11 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.6)
     rake (0.9.2.2)
+    rb-fchange (0.0.5)
+      ffi
+    rb-fsevent (0.9.1)
+    rb-inotify (0.8.8)
+      ffi (>= 0.5.0)
     rbx-require-relative (0.0.9)
     rcov (1.0.0)
     rdoc (3.12)
@@ -338,11 +347,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ZenTest (< 4.6.0)
   aasm
   acts-as-taggable-on
-  autotest
-  autotest-rails
   bookyt_pos
   bookyt_projects
   bookyt_salary
@@ -360,6 +366,7 @@ DEPENDENCIES
   factory_girl (< 3.0.0)
   factory_girl_rails
   fancy-buttons
+  guard-rspec
   haml
   haml-rails
   has_accounts

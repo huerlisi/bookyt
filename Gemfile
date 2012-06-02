@@ -65,9 +65,7 @@ group :test, :development do
   gem 'capybara'
 
   # Autotest
-  gem 'autotest'
-  gem 'autotest-rails'
-  gem 'ZenTest', '< 4.6.0' # Keep it working with gems < 1.8
+  gem 'guard-rspec'
 
   # Code coverage
   gem 'rcov', :platforms => :ruby_18
