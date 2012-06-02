@@ -395,7 +395,7 @@ DEPENDENCIES
   simple-navigation
   simple_form
   simplecov
-  spork (>= 0.9.0.rc2)
+  spork (~> 1.0rc)
   sprockets
   sqlite3
   therubyracer
