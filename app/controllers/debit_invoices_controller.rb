@@ -27,7 +27,7 @@ class DebitInvoicesController < InvoicesController
 
     # Add vat line item at second last position
     # TODO: debit account should not be hard coded
-    if current_tenant.vat_number.present?
+    if current_tenant.vat_obligation?
       @debit_invoice.line_items.build(
         :title          => 'MWSt.',
         :times          => 8,
