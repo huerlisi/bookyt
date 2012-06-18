@@ -76,7 +76,7 @@ class ExpensesController < ApplicationController
       end
 
       flash[:notice] = t('flash.actions.create.notice', :resource_name => t('activerecord.models.expense'))
-      redirect_to "/expenses/new"
+      redirect_to new_expense_path
     else
       render :action => 'new_vat'
     end
