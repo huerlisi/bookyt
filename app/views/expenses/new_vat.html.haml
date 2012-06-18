@@ -16,9 +16,10 @@
     .span6
       = f.association :debit_account, :collection => accounts_as_collection(Account.all), :as => :combobox, :label => t('expenses.labels.debit_account')
 
-  = render 'vat_booking_form', :vat_booking => :vat_full_booking
-  = render 'vat_booking_form', :vat_booking => :vat_reduced_booking
-  = render 'vat_booking_form', :vat_booking => :vat_special_booking
+  - if current_tenant.vat_obligation?
+    = render 'vat_booking_form', :vat_booking => :vat_full_booking
+    = render 'vat_booking_form', :vat_booking => :vat_reduced_booking
+    = render 'vat_booking_form', :vat_booking => :vat_special_booking
 
   .row-fluid
     .span12
