@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/huerlisi/has_vcards.git
-  revision: 67d47bcedbc93270f5121d9aa42fa12a43a0a6a3
-  specs:
-    has_vcards (0.14.0)
-      inherited_resources
-      rails (~> 3.0)
-
-GIT
   remote: http://github.com/huerlisi/PDFKit.git
   revision: e4a8a67a69394be211358b04235bb3ce28a33d52
   specs:
@@ -148,6 +140,9 @@ GEM
       rails (~> 3.1)
       validates_timeliness
     has_scope (0.5.1)
+    has_vcards (0.14.1)
+      inherited_resources
+      rails (~> 3.0)
     highline (1.6.11)
     hike (1.2.1)
     hpricot (0.8.6)
@@ -371,7 +366,7 @@ DEPENDENCIES
   haml-rails
   has_accounts
   has_scope
-  has_vcards!
+  has_vcards
   hpricot
   i18n_rails_helpers
   inherited_resources
