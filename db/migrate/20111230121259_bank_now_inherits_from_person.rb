@@ -21,6 +21,9 @@ class BankNowInheritsFromPerson < ActiveRecord::Migration
       else
         person.build_vcard.save
       end
+
+      # Accounts
+      BankAccount.where(:bank_id => bank.id).update_all(:bank_id => person.id)
     end
 
     drop_table :banks

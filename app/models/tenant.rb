@@ -33,6 +33,10 @@ class Tenant < ActiveRecord::Base
     }
   end
 
+  def vat_obligation?
+    vat_number.present?
+  end
+
   # Attachments
   # ===========
   has_many :attachments, :as => :object
