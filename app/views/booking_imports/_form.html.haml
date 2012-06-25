@@ -1,0 +1,9 @@
+= simple_form_for resource do |f|
+  .row-fluid
+    = f.input :title
+
+  .row-fluid
+    .span6
+      = f.input :file, :as => :file
+
+  = f.button :submit
