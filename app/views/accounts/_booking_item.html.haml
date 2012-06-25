@@ -11,5 +11,5 @@
   %td.currency= currency_fmt(@saldo)
   %td.action-links
     = list_link_for(:edit, [@account, @booking])
-    = list_link_for(:delete, [@account, @booking])
+    = list_link_for(:delete, [@account, @booking], :remote => true)
     = list_link_for(:copy, @booking)
