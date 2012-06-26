@@ -3,7 +3,7 @@
 class CreditInvoice < Invoice
   # String
   def to_s(format = :default)
-    return "" if amount == 0.0
+    return "" if amount.nil?
 
     identifier = title
     identifier += " / #{code}" if code.present?
