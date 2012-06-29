@@ -8,6 +8,7 @@ Install packages needed:
 
 <pre>
 sudo apt-get install rubygems irb libruby-extras sqlite3 libsqlite3-dev libmysqlclient-dev libxml2-dev libxslt-dev ruby-dev build-essential
+sudo apt-get install git
 sudo apt-get install sphinxsearch
 </pre>
 
