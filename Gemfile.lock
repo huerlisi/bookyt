@@ -360,6 +360,7 @@ DEPENDENCIES
   factory_girl (< 3.0.0)
   factory_girl_rails
   fancy-buttons
+  fastercsv
   guard-bundler
   guard-rspec
   haml

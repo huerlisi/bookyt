@@ -130,6 +130,7 @@ gem 'prawn'
 gem 'prawn_rails'
 
 # Raiffeisen BookingImport
+gem 'fastercsv', :platforms => :ruby_18
 gem 'csv-mapper'
 
 # ESR support
