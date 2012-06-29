@@ -17,9 +17,9 @@ Then some gems:
 sudo gem install rake bundler
 </pre>
 
-h2. Install bookyt
+h2. Install Bookyt
 
-Install current bookyt from git repository. We'll use this checkout as working directory from now on:
+Install current Bookyt from git repository. We'll use this checkout as working directory from now on:
 
 <pre>
 git clone http://github.com/huerlisi/bookyt.git
@@ -63,7 +63,7 @@ bundle exec rake users:admin
 
 h3. Run
 
-You should now be able to start bookyt:
+You should now be able to start Bookyt:
 
 <pre>
 rails server
