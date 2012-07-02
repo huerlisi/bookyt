@@ -142,18 +142,15 @@ class Invoice < ActiveRecord::Base
   has_many :line_items, :autosave => true, :inverse_of => :invoice, :dependent => :destroy
   accepts_nested_attributes_for :line_items, :allow_destroy => true, :reject_if => proc { |attributes| attributes['quantity'].blank? or attributes['quantity'] == '0' }
 
-  def amount
-    if line_items.empty?
-      value = self[:amount]
-    else
-      # Need to use to_a as not all line items are persisted for sure
-      value = line_items.non_saldo_items.to_a.sum(&:accounted_amount)
-    end
+  before_save :update_amount
+  def update_amount
+    # Need to use to_a as not all line items are persisted for sure
+    value = line_items.non_saldo_items.to_a.sum(&:accounted_amount)
 
     if value
-      return value.currency_round
+      self.amount = value.currency_round
     else
-      return 0.0
+      self.amount = 0.0
     end
   end
 
