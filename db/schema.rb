@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120630212326) do
+ActiveRecord::Schema.define(:version => 20120702112651) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
