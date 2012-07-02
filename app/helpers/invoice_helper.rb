@@ -9,7 +9,10 @@ module InvoiceHelper
 
   def suggested_invoices_for_booking(booking)
     invoices = Invoice.open_balance.where(:amount => booking.amount)
+
+    # Include currently referenced invoice
     invoices << booking.reference if booking.reference
+    invoices = invoices.uniq
 
     invoices.collect{|invoice| [invoice.to_s(:long), invoice.id]}
   end
