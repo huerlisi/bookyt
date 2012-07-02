@@ -19,7 +19,7 @@ class Invoice < ActiveRecord::Base
 
   # String
   def to_s(format = :default)
-    return "" if amount == 0.0
+    return "" if amount.nil?
 
     identifier = title
     identifier += " / #{code}" if code.present?
@@ -28,7 +28,7 @@ class Invoice < ActiveRecord::Base
       when :reference
         return identifier + " (#{customer.to_s})"
       when :long
-        return "%s: %s für %s à %s"  % [I18n::localize(value_date), ident, customer, currency_fmt(amount)]
+        return "%s: %s für %s à %s"  % [I18n::localize(value_date), identifier, customer, currency_fmt(amount)]
       else
         return identifier
     end
