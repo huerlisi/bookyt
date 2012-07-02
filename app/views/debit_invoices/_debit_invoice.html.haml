@@ -7,7 +7,7 @@
   %td= link_to debit_invoice.customer, debit_invoice.customer
   %td= debit_invoice.due_date
   %td.currency= currency_fmt(debit_invoice.amount)
-  %td.currency= currency_fmt(debit_invoice.balance)
+  %td.currency= currency_fmt(debit_invoice.due_amount)
   %td.action-links
     = list_link_for(:edit, debit_invoice)
     = list_link_for(:copy, debit_invoice)
