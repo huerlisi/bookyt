@@ -8,7 +8,7 @@ module InvoiceHelper
   end
 
   def suggested_invoices_for_booking(booking)
-    Invoice.where(:amount => booking.amount)
+    Invoice.open.where(:amount => booking.amount)
   end
 
   def invoice_label(invoice)

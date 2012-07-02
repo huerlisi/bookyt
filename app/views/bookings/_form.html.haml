@@ -24,6 +24,6 @@
     .span6
       = f.input :reference_type, :as => :select, :collection => reference_types_as_collection
     .span6
-      = f.input :reference_id, :collection => suggested_invoices_for_booking(@booking), :as => :combobox
+      = f.association :reference, :collection => suggested_invoices_for_booking(@booking), :as => :combobox
 
   = f.button :submit
