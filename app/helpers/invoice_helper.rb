@@ -7,6 +7,10 @@ module InvoiceHelper
     end
   end
 
+  def suggested_invoices_for_booking(booking)
+    Invoice.where(:amount => booking.amount)
+  end
+
   def invoice_label(invoice)
     invoice_state_label(invoice.state)
   end
