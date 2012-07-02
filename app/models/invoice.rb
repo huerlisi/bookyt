@@ -80,6 +80,7 @@ class Invoice < ActiveRecord::Base
   scope :open, :conditions => "NOT(state IN ('reactivated', 'canceled', 'paid'))"
   scope :overdue, :conditions => ["(state = 'booked' AND due_date < :today) OR (state = 'reminded' AND reminder_due_date < :today) OR (state = '2xreminded' AND second_reminder_due_date < :today)", {:today => Date.today}]
   scope :in_encashment, :conditions => ["state = 'encashment'"]
+  scope :open_balance, where("due_amount != 0")
 
   def active
     !(state == 'canceled' or state == 'reactivated' or state == 'written_off')
@@ -142,6 +143,8 @@ class Invoice < ActiveRecord::Base
   has_many :line_items, :autosave => true, :inverse_of => :invoice, :dependent => :destroy
   accepts_nested_attributes_for :line_items, :allow_destroy => true, :reject_if => proc { |attributes| attributes['quantity'].blank? or attributes['quantity'] == '0' }
 
+  # Amount caching
+  # ==============
   before_save :calculate_amount
   def calculate_amount
     # Need to use to_a as not all line items are persisted for sure
@@ -158,6 +161,17 @@ class Invoice < ActiveRecord::Base
   after_touch :update_amount
   def update_amount
     update_column(:amount, calculate_amount)
+  end
+
+  before_save :calculate_due_amount
+  def calculate_due_amount
+    self.amount = self.balance
+  end
+
+  # Handle touching by line_items
+  after_touch :update_due_amount
+  def update_due_amount
+    update_column(:due_amount, calculate_due_amount)
   end
 
   def amount_of(code)
