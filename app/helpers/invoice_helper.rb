@@ -8,7 +8,8 @@ module InvoiceHelper
   end
 
   def suggested_invoices_for_booking(booking)
-    invoices = Invoice.open_balance.where(:amount => booking.amount)
+    # Explicit loading (.all) as .uniq whould clear the added in booking.reference
+    invoices = Invoice.open_balance.where(:amount => booking.amount).all
 
     # Include currently referenced invoice
     invoices << booking.reference if booking.reference
