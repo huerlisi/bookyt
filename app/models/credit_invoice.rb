@@ -12,7 +12,7 @@ class CreditInvoice < Invoice
       when :reference
         return identifier + " (#{company.to_s})"
       when :long
-        return "%s: %s für %s à %s"  % [I18n::localize(value_date), ident, company, currency_fmt(amount)]
+        return "%s: %s von %s à %s"  % [I18n::localize(value_date), identifier, company, currency_fmt(amount)]
       else
         return identifier
     end
