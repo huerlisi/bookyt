@@ -21,9 +21,8 @@
       = f.input :comments, :input_html => {:rows => 4}
 
   .row-fluid
-    .span6
-      = f.input :reference_type, :as => :select, :collection => reference_types_as_collection
-    .span6
+    .span12
+      = f.input :reference_type, :as => :hidden, :input_html => {:value => 'Invoice'}
       = f.association :reference, :collection => suggested_invoices_for_booking(@booking), :as => :combobox
 
   = f.button :submit
