@@ -89,10 +89,12 @@ class Person < ActiveRecord::Base
     indexes date_of_birth
     indexes date_of_death
 
-    indexes vcards.full_name
+    indexes vcards.full_name, :sortable => true
     indexes vcards.nickname
-    indexes vcards.family_name
-    indexes vcards.given_name
+    indexes vcards.family_name, :sortable => true
+    indexes vcards.given_name, :sortable => true
     indexes vcards.additional_name
+
+    indexes "IFNULL(vcards.full_name, vcards.family_name + ' ' + vcards.given_name)", :as => :sort_name, :sortable => true
   end
 end
