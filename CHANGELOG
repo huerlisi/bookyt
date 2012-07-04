@@ -1,3 +1,11 @@
+1.4.1 (unreleased)
+=====
+Features:
+* Add sorting to free text search
+
+Bugs:
+* Don't forget reference when updating a booking with an assigned reference
+
 1.4.0
 =====
 We've been working on all aspects this time: much faster invoice lists,
