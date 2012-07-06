@@ -134,7 +134,7 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
-    has_accounts (0.18.1)
+    has_accounts (0.18.2)
       has_vcards
       inherited_resources
       rails (~> 3.1)
