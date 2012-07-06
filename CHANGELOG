@@ -9,6 +9,7 @@ Changes:
 
 Bugs:
 * Don't forget reference when updating a booking with an assigned reference
+* Allow setting invoices with not matching amounts as booking references
 
 1.4.0
 =====
