@@ -326,6 +326,12 @@ de:
   alerts:
     empty:    Keine Einträge vorhanden.
 
+  # Flash messages
+  flash:
+    actions:
+      create:
+        notice_html: '%{resource_name} wurde erfasst. %{resource_link}'
+
   # Filters
   invoice_state:
     title:    Rechnungsfilter

@@ -43,7 +43,9 @@ class BookingsController < AuthorizedController
     @booking = Booking.new(params[:booking])
 
     create! do |success, failure|
-      success.html {redirect_to new_booking_path(:notice => render_to_string(:partial => 'layouts/flash_new', :locals => {:object => @booking}))}
+      success.html do
+        redirect_to new_booking_path
+      end
       failure.html {render 'edit'}
     end
   end
