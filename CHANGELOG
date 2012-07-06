@@ -2,6 +2,10 @@
 =====
 Features:
 * Add sorting to free text search
+* Add link to view new object in flash message after creation
+
+Changes:
+* No 'total' line gets added when creating a credit invoice
 
 Bugs:
 * Don't forget reference when updating a booking with an assigned reference
