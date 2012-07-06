@@ -7,15 +7,20 @@ module InvoiceHelper
     end
   end
 
-  def suggested_invoices_for_booking(booking)
+  def suggested_invoices_for_booking(booking, include_all = false)
     # Explicit loading (.all) as .uniq whould clear the added in booking.reference
     invoices = Invoice.open_balance.where(:amount => booking.amount).all
 
-    # Include currently referenced invoice
-    invoices << booking.reference if booking.reference
-    invoices = invoices.uniq
+    if include_all
+      # Include all invoice
+      invoices += Invoice.all
+    else
+      # Include currently referenced invoice
+      invoices << booking.reference if booking.reference
+      invoices = invoices.uniq
+    end
 
-    invoices.collect{|invoice| [invoice.to_s(:long), invoice.id]}
+    invoices.map{|invoice| [invoice.to_s(:long), invoice.id]}
   end
 
   def invoice_label(invoice)
