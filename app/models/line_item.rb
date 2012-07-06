@@ -109,7 +109,8 @@ class LineItem < ActiveRecord::Base
   # Bookings
   has_one :booking, :as => :template, :dependent => :destroy, :autosave => true
 
-  before_save do
+  before_save :update_booking
+  def update_booking
     return unless self.credit_account && self.debit_account
 
     new_booking = booking || build_booking
