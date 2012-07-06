@@ -24,10 +24,6 @@ class CreditInvoicesController < InvoicesController
       :debit_account  => CreditInvoice.default_debit_account
     )
 
-    # Add a total saldo line item last
-    @credit_invoice.line_items <<
-      SaldoLineItem.new(:title => I18n::translate('bookyt.total'))
-
     new!
   end
 
