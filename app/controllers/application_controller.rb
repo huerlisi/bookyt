@@ -13,6 +13,12 @@ class ApplicationController < ActionController::Base
     cookies[:locale] = locale unless (cookies[:locale] && cookies[:locale] == locale)
   end
 
+  # Mail
+  before_filter :set_email_host
+  def set_email_host
+    ActionMailer::Base.default_url_options = {:host => request.host_with_port}
+  end
+
   # Tenancy
   def current_tenant
     current_user.tenant
