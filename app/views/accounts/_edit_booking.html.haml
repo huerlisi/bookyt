@@ -7,6 +7,12 @@
       = f.hidden_field :reference_type, :value => 'Invoice'
       = f.select :reference_id, suggested_invoices_for_booking(f.object), :include_blank => true, :style => 'width: 98%', :class => 'combobox'
     %td.span1= f.text_field :amount, :style => 'width: 94%'
-    %td.span1= f.text_field :credit_account_code, :style => 'width: 94%'
-    %td.span1= f.text_field :debit_account_code, :style => 'width: 94%'
+
+    %td.span1= f.association :credit_account, :collection => accounts_as_collection(Account.all), :as => :combobox, :style => 'width: 94%', :wrapper => :inline
+    %td.span1= f.association :debit_account, :collection => accounts_as_collection(Account.all), :as => :combobox, :style => 'width: 94%', :wrapper => :inline
+
     %td{:style => 'display:none'}= f.hidden_field :id
+
+
+
+    .span6
