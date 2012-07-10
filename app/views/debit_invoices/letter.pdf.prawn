@@ -15,7 +15,8 @@ prawn_document(:filename => "#{t_model} #{@debit_invoice.long_ident}.pdf", :rend
   # Closing
   pdf.invoice_closing(@debit_invoice.company, @debit_invoice.due_date)
 
-  pdf.footer(sender, bank_account, current_tenant.vat_number, current_tenant.use_vesr?)
+  pdf.footer(sender, bank_account, current_tenant.vat_number, current_tenant.uid_number,
+ current_tenant.use_vesr?)
 
   # Footer
   if current_tenant.use_vesr?

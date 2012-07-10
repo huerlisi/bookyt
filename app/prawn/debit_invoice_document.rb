@@ -13,7 +13,7 @@ class DebitInvoiceDocument < LetterDocument
     text "#{sender.vcard.full_name}"
   end
 
-  def footer(sender, bank_account, vat_number, vesr_included)
+  def footer(sender, bank_account, vat_number, uid_number, vesr_included)
     height = vesr_included ? 310 : 20
     height -= 20 unless bank_account and bank_account.bank
     title_width = 45
@@ -44,11 +44,16 @@ class DebitInvoiceDocument < LetterDocument
                               bank_account.iban.present? ? "IBAN: #{bank_account.iban}" : nil,
                               bank_account.bank.swift.present? ? "SWIFT: #{bank_account.bank.swift}" : nil,
                               bank_account.bank.clearing.present? ? "Clearing: #{bank_account.bank.clearing}" : nil,
-                              bank_account.pc_id.present? ? "PC-Konto: #{bank_account.pc_id}" : nil,
-                              vat_number.present? ? "MWSt.-Nr.: #{vat_number}" : nil
-                            ].compact.join(" – ")
-
+                              bank_account.pc_id.present? ? "PC-Konto: #{bank_account.pc_id}" : nil
+                            ].compact.join(" – ")  
           text bank_text_line
+
+          company_text_line = [  
+                                vat_number.present? ? "MWSt.-Nr.: #{vat_number}" : nil,
+                                uid_number.present? ? "UID: #{uid_number}" : nil
+                              ].compact.join(" – ")
+
+          text company_text_line
         end
       end
     end
