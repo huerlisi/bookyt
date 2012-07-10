@@ -6,6 +6,7 @@ require 'capones_recipes/cookbook/rails'
 require 'capones_recipes/tasks/settings_logic'
 require 'capones_recipes/tasks/database/setup'
 require 'capones_recipes/tasks/thinking_sphinx'
+require 'capones_recipes/tasks/email'
 require 'capones_recipes/tasks/carrier_wave'
 require 'capones_recipes/tasks/sync'
 
