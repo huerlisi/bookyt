@@ -1,4 +1,4 @@
-- cache [:overview_index, current_user.try(:locale)] do
+- cache [:overview_index, I18n.locale] do
   = boot_page_title t('bookyt.overview.title')
 
   = render_navigation(:context => 'main', :expand_all => true, :renderer => SimpleNavigation::Renderer::Overview)
