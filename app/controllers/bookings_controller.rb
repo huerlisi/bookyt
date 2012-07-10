@@ -21,8 +21,8 @@ class BookingsController < AuthorizedController
 
     # Clear reference
     @booking.reference  = nil
-    # Increment code
-    @booking.code       = (Booking.maximum(:code) || 0) + 1
+
+    increment_booking_code
     # Take value date from form
     @booking.value_date = params[:booking][:value_date]
 
@@ -35,6 +35,7 @@ class BookingsController < AuthorizedController
 
   def select
     @booking = Booking.new(params[:booking])
+    increment_booking_code
     @booking_templates = BookingTemplate.where(:type => [nil, 'BookingTemplate']).where("NOT(code LIKE '%:%')").paginate(:page => params[:page])
     @bookings = Booking.where("title LIKE ?", '%' + @booking.title + '%').order('value_date DESC').paginate(:page => params[:page])
   end
@@ -56,5 +57,11 @@ class BookingsController < AuthorizedController
     @booking = original_booking.dup
 
     render 'edit'
+  end
+
+  private
+
+  def increment_booking_code
+    @booking.code = (Booking.maximum(:code) || 0) + 1
   end
 end
