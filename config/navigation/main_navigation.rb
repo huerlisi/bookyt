@@ -70,6 +70,9 @@ SimpleNavigation::Configuration.run do |navigation|
       invoicing.item :divider, "", :class => 'divider'
       invoicing.item :new_esr_file, t('bookyt.main_navigation.new_esr_file'), new_esr_file_path
       invoicing.item :esr_files, t('bookyt.main_navigation.esr_files'), esr_files_path
+      invoicing.item :divider, "", :class => 'divider'
+      invoicing.item :booking_imports, t_title(:new, BookingImport), new_booking_import_path
+
     end
 
     # Hack to get engine navigations included

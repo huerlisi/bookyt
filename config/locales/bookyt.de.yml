@@ -309,6 +309,10 @@ de:
       special:  Spezial
       excluded: Befreit
 
+  booking_imports:
+    new:
+      title:  'Buchungen importieren'
+
   booking_template:
     relation:
       reference_amount:  'Ursprünglicher Betrag'
