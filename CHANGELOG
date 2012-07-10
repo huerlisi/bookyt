@@ -11,6 +11,8 @@ Bugs:
 * Don't forget reference when updating a booking with an assigned reference
 * Allow setting invoices with not matching amounts as booking references
 * Fix cached amount updating for invoices when booking reference is changed
+* Fixed bad locale used in overview when set in user
+* Fixed password reminder email sending
 
 1.4.0
 =====
