@@ -6,6 +6,9 @@ prawn_document(:filename => "#{t_model} #{@debit_invoice.long_ident}.pdf", :rend
   # Header
   pdf.letter_header(sender, receiver, @debit_invoice.to_s, @debit_invoice.value_date)
 
+  #Period
+  pdf.period(@debit_invoice.duration_from.to_s, @debit_invoice.duration_to.to_s)
+
   # Free text
   pdf.free_text(@debit_invoice.text)
 

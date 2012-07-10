@@ -78,6 +78,15 @@ class LetterDocument < Prawn::Document
     text html_unescape(text), :inline_format => true
   end
 
+  def period(from, to)
+    if from.present? && to.present?
+      text "\nRechnungsperiode vom #{from} - #{to}\n"
+    else
+      text ""
+    end
+
+  end
+
   # Draws the full address of a vcard
     def draw_address(vcard, include_honorific_prefix = false)
     lines = [vcard.full_name, vcard.extended_address, vcard.street_address, vcard.post_office_box, "#{vcard.postal_code} #{vcard.locality}"]
