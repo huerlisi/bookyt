@@ -5,6 +5,7 @@ class ExpensesController < ApplicationController
 
   def new_vat
     @booking = Booking.new(params[:booking])
+    increment_booking_code
 
     # Guard to ensure all needed fields are filled in
     if @booking.title.blank? or @booking.amount.blank?
@@ -80,5 +81,11 @@ class ExpensesController < ApplicationController
     else
       render :action => 'new_vat'
     end
+  end
+
+  private
+
+  def increment_booking_code
+    @booking.code = (Booking.maximum(:code) || 0) + 1
   end
 end
