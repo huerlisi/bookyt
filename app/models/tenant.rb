@@ -4,6 +4,17 @@ class Tenant < ActiveRecord::Base
   accepts_nested_attributes_for :company
   has_many :users
 
+  # Settings
+  has_settings
+
+  def payment_period
+    settings.payment_period / 24 / 3600
+  end
+  def payment_period=(value)
+    settings.payment_period = value.to_i.days
+  end
+
+
   # Validations
   validates_presence_of :company
   validates_date :incorporated_on

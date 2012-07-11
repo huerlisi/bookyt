@@ -20,6 +20,7 @@ de:
     company:
       address: Adresse
       book_keeping: Buchhaltung
+      invoicing: Rechnungseinstellungen
     bank:
       money_transfer: Bankverbindung
 
@@ -179,6 +180,7 @@ de:
         ahv_number:                AHV Abrechnungsnr.
         use_vesr:                  VESR für Debitoren-Rechnungen
         print_payment_for:         '"Zugunsten von" auf Einzahlungschein drucken'
+        payment_period:            Zahlungsfrist in Tagen
       user:
         email:                          E-Mail
         password:                       Passwort

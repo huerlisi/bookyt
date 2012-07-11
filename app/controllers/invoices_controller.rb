@@ -69,7 +69,7 @@ class InvoicesController < AuthorizedController
     invoice.attributes = {
       :state         => 'booked',
       :value_date    => Date.today,
-      :due_date      => Date.today.in(Settings.payment_period).to_date,
+      :due_date      => Date.today.in(current_tenant.payment_period.days).to_date,
       :duration_from => nil,
       :duration_to   => nil
     }

@@ -8,7 +8,7 @@ class DebitInvoicesController < InvoicesController
       :company_id => current_tenant.company.id,
       :state      => 'booked',
       :value_date => Date.today,
-      :due_date   => Date.today.in(Settings.payment_period).to_date,
+      :due_date   => Date.today.in(current_tenant.payment_period.days).to_date,
       :title      => "Rechnung Nr."
     }
 
