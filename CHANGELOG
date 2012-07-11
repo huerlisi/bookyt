@@ -3,6 +3,13 @@
 Features:
 * Add sorting to free text search
 * Add link to view new object in flash message after creation
+* Added UID to debit invoice letter
+* Added menu entry for bookings importer
+* If period is present, it will be printed on the letter
+* Booking code is now also generated automatically in expenses
+* Tenant can make settings for payment period
+* Created default settings for due_date
+* Added ledermann-rails-settings gem
 
 Changes:
 * No 'total' line gets added when creating a credit invoice
@@ -13,6 +20,8 @@ Bugs:
 * Fix cached amount updating for invoices when booking reference is changed
 * Fixed bad locale used in overview when set in user
 * Fixed password reminder email sending
+* Changed account inputfields to combox in assign bookings
+* Booking increment code works again
 
 1.4.0
 =====
