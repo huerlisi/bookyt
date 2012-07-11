@@ -111,6 +111,9 @@ gem 'show_for'
 # Locale setting
 gem 'routing-filter'
 
+# Application Settings
+gem 'ledermann-rails-settings', :require => 'rails-settings'
+
 # Bookyt
 # ======
 # Accounting
