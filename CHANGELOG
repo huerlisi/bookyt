@@ -1,5 +1,16 @@
-1.4.1 (unreleased)
+1.4.1
 =====
+You talk and we listen! Based on user feedback, we're now allow
+setting custom payment periods for debit invoices, show an incrementing
+ID in recipe bookings, and add a link to newly created objects in
+the flash message.
+
+Quite some bugs have been fixed, too. So give this release a try at
+https://demo.bookyt.ch and report any issues or wishes in our mailing list:
+http://groups.google.com/group/bookyt
+
+Have fun with our best release up to now!
+
 Features:
 * Add sorting to free text search
 * Add link to view new object in flash message after creation
@@ -8,8 +19,7 @@ Features:
 * If period is present, it will be printed on the letter
 * Booking code is now also generated automatically in expenses
 * Tenant can make settings for payment period
-* Created default settings for due_date
-* Added ledermann-rails-settings gem
+* Changed account inputfields to combox in assign bookings
 
 Changes:
 * No 'total' line gets added when creating a credit invoice
@@ -20,7 +30,6 @@ Bugs:
 * Fix cached amount updating for invoices when booking reference is changed
 * Fixed bad locale used in overview when set in user
 * Fixed password reminder email sending
-* Changed account inputfields to combox in assign bookings
 * Booking increment code works again
 
 1.4.0
