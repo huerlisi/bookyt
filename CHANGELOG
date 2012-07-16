@@ -8,6 +8,7 @@ Bugs:
   due_amount. Got triggered during VESR import
 * Fixed double pagination links in VESR list
 * Fixed wrong deletion confirmation message for bookings in account view
+* Broken layout in bookings form in account view
 
 1.4.1
 =====
