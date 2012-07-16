@@ -7,6 +7,7 @@ Bugs:
 * Fix a bug where the cached Invoice amount would be set to the current
   due_amount. Got triggered during VESR import
 * Fixed double pagination links in VESR list
+* Fixed wrong deletion confirmation message for bookings in account view
 
 1.4.1
 =====
