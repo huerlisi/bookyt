@@ -1,8 +1,12 @@
 1.4.2 (unreleased)
 =====
+Features:
+* Use descending date sorting for VESR list
+
 Bugs:
 * Fix a bug where the cached Invoice amount would be set to the current
-  due_amount. Got triggered during VESR import.
+  due_amount. Got triggered during VESR import
+* Fixed double pagination links in VESR list
 
 1.4.1
 =====
