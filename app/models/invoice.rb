@@ -165,7 +165,7 @@ class Invoice < ActiveRecord::Base
 
   before_save :calculate_due_amount
   def calculate_due_amount
-    self.amount = self.balance
+    self.due_amount = self.balance
   end
 
   # Handle touching by line_items
