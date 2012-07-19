@@ -1,0 +1,6 @@
+global:
+  telsearch_key:    "your telsearch API key"
+  data_directory:   "A path to where you want your data files stored, relative paths are relative to PROJECT_ROOT"
+  cache_directory:  "A path to where swissmatch should store its cache"
+development:
+  # same keys as for global, you can have environment specific settings here

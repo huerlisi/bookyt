@@ -128,7 +128,12 @@ gem 'ledermann-rails-settings', :require => 'rails-settings'
 gem 'has_accounts'
 
 # Addresses
-gem 'has_vcards'
+gem 'has_vcards', :path => '../has_vcards'
+gem 'unicode_utils'
+gem 'swissmatch', :git => 'https://github.com/apeiros/swissmatch.git'
+gem 'swissmatch-location', :git => 'https://github.com/huerlisi/swissmatch-location.git'
+gem 'swissmatch-directories', :git => 'https://github.com/huerlisi/swissmatch-directories.git'
+gem 'swissmatch-rails', :git => 'https://github.com/apeiros/swissmatch-rails.git'
 
 # Uploads
 gem 'carrierwave'

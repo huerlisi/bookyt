@@ -36,6 +36,9 @@ config/sphinx/
 # Carrierwave
 uploads/
 
+# SwissMatch
+config/swissmatch.yml
+
 # Bookyt Data
 # ===========
 public/booking_imports

@@ -32,6 +32,15 @@ module BootstrapHelper
     content_tag(:span, content, :class => classes)
   end
 
+  # Modal
+  # =====
+  def modal_header(title)
+    content_tag(:div, :class => 'modal-header') do
+      content_tag(:button, '&times;'.html_safe, :type => 'button', :class => 'close', 'data-dismiss' => 'modal') +
+      content_tag(:h3, title)
+    end
+  end
+
   # Messages
   # ========
   def boot_alert(content, type = 'info')
