@@ -6,7 +6,7 @@ prawn_document(:filename => "#{t_model} #{@debit_invoice.long_ident}.pdf", :rend
   # Header
   pdf.letter_header(sender, receiver, @debit_invoice.to_s, @debit_invoice.value_date)
 
-  #Period
+  # Period
   pdf.period(@debit_invoice.duration_from.to_s, @debit_invoice.duration_to.to_s)
 
   # Free text
@@ -18,8 +18,7 @@ prawn_document(:filename => "#{t_model} #{@debit_invoice.long_ident}.pdf", :rend
   # Closing
   pdf.invoice_closing(@debit_invoice.company, @debit_invoice.due_date)
 
-  pdf.footer(sender, bank_account, current_tenant.vat_number, current_tenant.uid_number,
- current_tenant.use_vesr?)
+  pdf.footer(sender, bank_account, current_tenant.vat_number, current_tenant.uid_number, current_tenant.use_vesr?)
 
   # Footer
   if current_tenant.use_vesr?
