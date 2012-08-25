@@ -9,6 +9,7 @@ require 'capones_recipes/tasks/thinking_sphinx'
 require 'capones_recipes/tasks/email'
 require 'capones_recipes/tasks/carrier_wave'
 require 'capones_recipes/tasks/sync'
+require 'capistrano-unicorn'
 
 load 'deploy/assets'
 
@@ -16,7 +17,6 @@ load 'deploy/assets'
 set :default_stage, 'staging'
 
 # Deployment
-set :server, :passenger
 set :user, "deployer"                               # The server's user for deploys
 
 # Sync directories

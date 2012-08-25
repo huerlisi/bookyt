@@ -5,6 +5,7 @@ source 'http://rubygems.org'
 # Rails
 # =====
 gem 'rails', '~> 3.2.0'
+gem 'unicorn'
 
 # Database
 gem 'mysql2'
@@ -37,6 +38,7 @@ group :development do
 
   # Capistrano
   gem 'capones_recipes'
+  gem 'capistrano-unicorn', :git => 'git://github.com/sosedoff/capistrano-unicorn.git', :require => false
 
   # Debugger
   gem 'ruby-debug', :platforms => :ruby_18
