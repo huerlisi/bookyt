@@ -123,6 +123,8 @@ class LineItem < ActiveRecord::Base
       :debit_account  => self.debit_account,
       :reference      => self.invoice
     }
+
+    new_booking
   end
 
   # Booking templates
