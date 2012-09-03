@@ -66,17 +66,20 @@ group :test, :development do
   # Browser
   gem 'capybara'
 
-  # Autotest
-  gem 'guard-rspec'
-  gem 'guard-bundler'
-
   # Code coverage
   gem 'rcov', :platforms => :ruby_18
   gem 'simplecov', :require => false, :platforms => :ruby_19
 
-  gem 'spork', '~> 1.0rc'
+  # Spork
+  gem 'spork-rails'
+
   gem 'database_cleaner'
   gem 'rspec-instafail'
+end
+
+group :tools do
+  gem 'guard-spork'
+  gem 'guard-rspec'
 end
 
 # Standard helpers
