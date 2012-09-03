@@ -1,14 +1,15 @@
 FactoryGirl.define do
   factory :line_item do
+    credit_account
+    debit_account
+    invoice
+
     factory :banana do
       times "1"
       quantity "x"
       price "0.99"
       title "Banana"
       description "Most delicious banana of all time!"
-      invoice
-      credit_account
-      debit_account
     end
 
     factory :vat do
