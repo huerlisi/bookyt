@@ -9,10 +9,20 @@ describe LineItem do
   context "bookings" do
     it { should have_one :booking }
 
-    describe "#build_booking" do
+    describe "#update_booking" do
       let(:banana) { Factory.build(:banana) }
 
-      subject { banana.build_booking }
+      it "should return nil if credit_account is empty" do
+        banana.credit_account = nil
+        banana.update_booking.should be_nil
+      end
+
+      it "should return nil if debit_account is empty" do
+        banana.debit_account = nil
+        banana.update_booking.should be_nil
+      end
+
+      subject { banana.update_booking }
       its(:title) { should == banana.title }
       its(:amount) { should == banana.total_amount }
       its(:credit_account) { should == banana.credit_account }
@@ -25,14 +35,12 @@ describe LineItem do
       subject { LineItem.new }
       its(:total_amount) { should eq(0) }
       its(:times_to_s) { should eq(" x") }
-      its(:vat_rate) { should eq(0) }
     end
 
     describe "with x quantity" do
       subject { LineItem.new(:quantity => 'x', :times => 1, :price => 12.25) }
       its(:times) { should eq(1) }
       its(:times_to_s) { should eq('') }
-      its(:vat_rate) { should eq(0) }
       its(:total_amount) { should eq(12.25) }
       its(:price) { should eq(12.25) }
     end
@@ -41,7 +49,6 @@ describe LineItem do
       subject { LineItem.new(:quantity => 'overall', :times => 1, :price => 12.25) }
       its(:times) { should eq(1) }
       its(:times_to_s) { should eq(I18n::translate('line_items.quantity.overall')) }
-      its(:vat_rate) { should eq(0) }
       its(:total_amount) { should eq(12.25) }
       its(:price) { should eq(12.25) }
     end
@@ -50,7 +57,6 @@ describe LineItem do
       subject { LineItem.new(:quantity => 'hours', :times => 1.0, :price => 12.25) }
       its(:times) { should eq(1) }
       its(:times_to_s) { should eq("1.0 #{I18n::translate('line_items.quantity.hours')}") }
-      its(:vat_rate) { should eq(0) }
       its(:total_amount) { should eq(12.25) }
       its(:price) { should eq(12.25) }
     end
