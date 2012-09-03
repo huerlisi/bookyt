@@ -1,0 +1,509 @@
+# Dutch translations for Bookyt
+# by Egbert Pot (egbert@weboak.nl)
+
+# Dutch locale
+nl:
+  # Application
+  application:
+    title: Bookyt
+
+  # Views
+  debit_invoices:
+    letter:
+      signature: "Bedankt voor de samenwerking.\nGelieve de factuur binnen 30 dagen te voldoen."
+
+  sex:
+    male:   Dhr.
+    female: Mevr.
+
+  form:
+    person:
+     address: adres
+     civil:   Personalien
+    company:
+      address: adres
+      book_keeping: boekhouding
+      invoicing: factureren
+    bank:
+      money_transfer: bank koppeling
+
+  helpers:
+    submit:
+      create: "%{model} aanmaken"
+      update: "%{model} bijwerken"
+      submit: "%{model} opslaan"
+
+  attributes:
+    # Common
+    title:            Titel
+    amount:           Betrag
+    comments:         Bemerkungen
+    remarks:          Bemerkungen
+    state:            Status
+    date:             Datum
+    duration:         Dauer
+
+  activerecord:
+    models:
+      expense:          Ausgabe
+      booking_template: Buchungsvorlage
+      charge_booking_template: Bedingte Buchungsvorlage
+      person: Person
+      company: Firma
+      customer: Kunde
+      day: Tagesabschluss
+      employee: Mitarbeiter
+      employment: Anstellung
+      invoice: Rechnung
+      credit_invoice: Kreditoren Rechnung
+      debit_invoice:  Debitoren Rechnung
+      line_item: Position
+      tenant: Mandant
+      user: Benutzer
+      booking_import: Buchungsimport
+      attachment: Anhang
+      salary: Lohn
+      charge_rate: Abgabe Satz
+      overview: Übersicht
+      session:  Anmeldung
+      note: Notizen
+      setting: Einstellungen
+
+    attributes:
+      # Per model
+      attachment:
+        file:           Dateiname
+        code:           Verwenden als
+        code_enum:
+          LetterDocument:       Briefvorlage
+          DebitInvoiceDocument: Rechnungsvorlage
+      booking_template:
+        value_date:        Valutadatum
+        credit_account:    Soll
+        debit_account:     Haben
+        reference:         Referenz
+        amount_relates_to: Relativ zu
+        charge_rate_code:  Abgabesatz
+      charge_rate:
+        code:            Code
+        duration_from:   Gültig ab
+        duration_to:     Gültig bis
+        duration:        Gültigkeit
+        rate:            Satz
+        person:          Person
+        relative:        Relativ
+      day:
+        cash:            Bargeldumsatz
+        card_turnover:   Kreditkartenumsatz
+        expenses:        Barausgabe
+        gross_turnover:  Bruttoumsatz
+        net_turnover:    Nettoumsatz
+        client_count:    Anzahl Verkäufe
+        product_count:   Verkaufte Produkte
+        credit_turnover: Kreditumsatz
+        discount:        Rabatt
+        from:            Abrechnung von
+        total:           Total
+        calculate:       Ausrechnen
+      person:
+        date_of_birth:    Geburtsdatum
+        date_of_death:    Todestag
+        sex:              Geschlecht
+        type:             Typ
+        full_name:        Name
+        religion:         Religion
+        civil_status:     Zivilstand
+        post_office_box:  Postfach
+        extended_address: Adresszusatz
+        street_address:   Strasse
+        locality:         Ort
+        region:           Region
+        postal_code:      PLZ
+        country_name:     Land
+      employee:
+        ssn:                   AHV-Nr.
+        social_security_nr:    AHV-Nr.
+        social_security_nr_12: Alte AHV-Nr.
+      employment:
+        employer:       Arbeitgeber
+        employee:       Arbeitnehmer
+        duration_from:  Anfang
+        duration_to:    Ende
+        salary_amount:  Brutto Lohn (CHF)
+        kids:           Kinder
+        workload:       Pensum (%)
+        daily_workload: Tagesarbeitszeit (h)
+        temporary:      Temporär
+        hourly_paid:    Stundenlohn
+        overtime_premium: Überstundenzuschlag (%)
+        holiday_premium:  Feiertagszuschlag (%)
+        sunday_premium:   Sonntagarbeitszuschlag (%)
+        night_premium:    Nachtarbeitszuschlag (%)
+        payment_to:       Auszahlung an
+      invoice:
+        direct_account:  Konto
+        profit_account:  Erfolgskonto
+        balance_account: Bilanzkonto
+        created_at:    Rechnungsdatum
+        due_date:      Fälligkeit
+        value_date:    Rechnungsdatum
+        customer:      Kunde
+        company:       Rechnungssteller
+        text:          Rechnungstext
+        remarks:       Interne Bemerkungen
+        invoice:       Invoice
+        open_amount:   Offener Betrag
+        balance:       Saldo
+        code:          Rechnungsnr.
+        duration_from: Von
+        duration_to:   Bis
+        biller:        'Zugunsten von:'
+      line_item:
+        times:         Anzahl
+        quantity:      Einheit
+        price:         Betrag
+        title:         Bezeichnung
+        vat_rate:      MWSt.
+        total_amount:  Total
+        accounted_amount: Betrag
+      salary:
+        amount:        Bruttolohn
+        net_amount:    Nettolohn
+        bvg_amount:    BVG
+        social_amount: AHV/IV/EO/ALV/NBU
+        customer:      Arbeitgeber
+        company:       Arbeitnehmer
+      tenant:
+        company:                   Firma
+        users:                     Benutzer
+        incorporated_on:           Gründung
+        fiscal_year_ends_on: Ende des 1. Fiskaljahres
+        vat_number:                MwSt.-Nummer
+        uid_number:                UID-Nummer
+        ahv_number:                AHV Abrechnungsnr.
+        use_vesr:                  VESR für Debitoren-Rechnungen
+        print_payment_for:         '"Zugunsten von" auf Einzahlungschein drucken'
+        payment_period:            Zahlungsfrist in Tagen
+      user:
+        email:                          E-Mail
+        password:                       Passwort
+        password_confirmation:          Passwort Bestätigung
+        current_password:               Aktuelles Passwort
+        remember_me:                    Angemeldet bleiben
+        created_at:                     Registriert seit
+        roles:                          Rollen
+        role_texts:                     Rollen
+        name:                           Name
+        full_name:                      Name
+        date_of_birth:                  Geburtsdatum
+        date_of_death:                  Todestag
+        sex:                            Geschlecht
+        post_office_box:                Postfach
+        extended_address:               Adresszusatz
+        street_address:                 Strasse
+        locality:                       Ort
+        region:                         Region
+        postal_code:                    PLZ
+        country_name:                   Land
+        locale:                         Sprache
+      vcard:
+        full_name:                      Name
+      booking_import:
+        csv:                            CSV-Datei
+        created_at:                     Importiert am
+      note:
+        created_at: Erfasst am
+        updated_at: Letzte Änderung
+        user: Verfasser
+        content: Notiz
+
+  # Title customizations
+  sessions:
+    new:
+      title: Anmelden
+
+  accounts:
+    index:
+      title:    Konten
+    info:
+      title:       Kontodaten
+    journal:
+      title:       Auszug
+    edit_bookings:
+      title:       Buchungen
+
+  invoice:
+    state: &invoice_state
+      all:         Alle
+      booked:      offen
+      canceled:    storniert
+      paid:        bezahlt
+      reactivated: reaktiviert
+      reminded:    1x gemahnt
+      2xreminded:  2x gemahnt
+      3xreminded:  3x gemahnt
+      encashment:  in Inkasso
+      written_off: abgeschrieben
+      overdue:     überfällig
+    state_noun:
+      booked:      Verbuchte Rechnung
+      canceled:    Stornierte Rechnung
+      paid:        Bezahlte Rechnung
+      reactivated: Reaktivierte Rechnung
+      reminded:    1. Mahnung
+      2xreminded:  2. Mahnung
+      3xreminded:  3. Mahnung
+      encashment:  Inkasso
+      written_off: Abgeschriebene Rechnung
+      overdue:     Überfällige Rechnung
+  
+  bookings:
+    index:
+      title:    Journal
+    new:
+      title:    Buchung erfassen
+
+  credit_invoices:
+    index:
+      title:    Kreditoren
+
+  esr_files:
+    index:
+      title:    VESR Journal
+  
+  debit_invoices:
+    index:
+      title:    Debitoren
+
+  attachments:
+    list:
+      title:    Dokumente
+
+  invoices:
+    list:
+      title:    Rechnungen
+
+  people:
+    index:
+      title:    Adressen
+
+  employees:
+    index:
+      title:    Mitarbeiter
+
+  companies:
+    index:
+      title:    Firmen
+
+  customers:
+    index:
+      title:    Kunden
+
+  line_items:
+    quantity:
+      x:        x
+      hours:    h
+      overall:  pauschal
+      '%':      '%'
+      saldo_of: Summe
+
+  vat_rates:
+    code:
+      full:     Normal
+      reduced:  Reduziert
+      special:  Spezial
+      excluded: Befreit
+
+  booking_imports:
+    new:
+      title:  'Buchungen importieren'
+
+  booking_template:
+    relation:
+      reference_amount:  'Ursprünglicher Betrag'
+      reference_balance: 'Aktueller Saldo'
+      reference_amount_minus_balance: 'Differenz Betrag'
+
+  expenses:
+    labels:
+      amount:         Betrag inkl. MwSt.
+      credit_account: Aufwandskonto
+      debit_account:  Bezahlkonto
+      vat_account:    Vorsteuerkonto
+
+  # Alerts
+  alerts:
+    empty:    Keine Einträge vorhanden.
+
+  # Flash messages
+  flash:
+    actions:
+      create:
+        notice_html: '%{resource_name} wurde erfasst. %{resource_link}'
+
+  # Filters
+  invoice_state:
+    title:    Rechnungsfilter
+    <<:       *invoice_state
+
+  by_value_period:
+    title:    Buchungsfilter
+    all:      Alle
+
+  years:
+    title:    Periode
+  by_period:
+    title:    Periode
+
+  cancan:
+    roles:
+      admin:      'Administrator'
+      accountant: 'Buchhalter'
+
+  crud:
+    action:
+      only_credit_bookings: 'Nur Soll'
+      only_debit_bookings:  'Nur Haben'
+      all_bookings:         'Alle Buchungen'
+      pdf:                  'PDF'
+      print:                'Drucken'
+      search:               'Suche'
+      filter:               'Filtern'
+      book_manual:          'Manuell buchen'
+      copy:                 'Kopieren'
+      payslip:              'Lohnabrechnung'
+      letter:               'Rechnung'
+      statistics:           'Statistiken'
+      balance_sheet:        'Bilanz'
+      profit_sheet:         'Erfolgsrechnung'
+      more:                 'Mehr'
+    title:
+      select_booking_template: '%{model} anlegen'
+      select_booking: '%{model} anlegen'
+      current: 'Aktueller %{model}'
+      search:               'Suche'
+      letter:               'Brief'
+      copy:                 '%{model} kopieren'
+      statistics:           'Statistiken'
+      write_downs:          Abschreibungen
+      balance_sheet:        'Bilanz'
+      profit_sheet:         'Erfolgsrechnung'
+    flash:
+      created_html: '%{message} angelegt'
+
+  placeholder:
+    search:           Suche
+
+  title:
+    bookings:         Buchungen
+    attachments:      Anhänge
+    period:           Periode
+    invoices:         Belege
+    line_items:       Positionen
+    open_invoices:    Offene Rechnungen
+    paid_invoices:    Bezahlte Rechnungen
+    profit:           Gewinn
+
+  letters:
+    greetings:        Freundliche Grüsse
+    debit_invoice:
+      closing:        "Bitte begleichen Sie diese Rechnung bis zum %{due_date} mit beiliegendem Einzahlungsschein oder per E-Banking."
+      greetings:      "Vielen Dank für die Zusammenarbeit und freundliche Grüsse."
+
+  tenants:
+    user:
+      title:  Benutzer
+  
+    tenant:
+      title:  Mandant
+
+    bookings:
+      title:  Buchhaltung
+
+    vesr:
+      title:  VESR
+
+  settings:
+    vesr:
+      title: VESR Einstellungen
+
+  bookyt:
+    all:              Alle
+    edit:             Editieren
+    destroy:          Löschen
+    greetings:        Mit freundlichen Grüssen,
+    show:             Anzeigen
+    total:            Total
+    difference:       Differenz
+    back:             Zurück
+    back_to:          'Zurück zu %{name}'
+    balance_report_for: 'Bilanz für %{company}'
+    assets:             Aktiva
+    current_assets:     Umlaufvermögen
+    capital_assets:     Anlagevermögen
+    capital:            Passiva
+    equity_capital:     Eigenkapital
+    outside_capital:    Fremdkapital
+    costs:              Aufwand
+    earnings:           Ertrag
+    profit_report_for:  'Erfolgsrechnung für %{company} per %{per}'
+    carry_booking:    Übertrag
+    invoices:
+      payment_no:             'Rechnung Nr. %{payment_no}'
+      invoicing_party:        Rechnungssteller
+    main_navigation:
+      new_booking:              Neue Buchung
+      new_expense:              Neue Ausgabe
+      balance:                  Bilanz
+      profit:                   Erfolgsrechnung
+      accounts:                 Konten
+      bookings:                 Journal
+      all:                      Alle
+      destroy_user_session:     Abmelden
+      new_user_session:         Anmelden
+      store:                    Laden
+      accounting:               Buchhaltung
+      contacts:                 Adressen
+      invoicing:                Rechnungen
+      credit_invoices:          Kreditoren
+      new_credit_invoice:       Neue Kreditoren Rechnung
+      new_debit_invoice:        Neue Debitoren Rechnung
+      debit_invoices:           Debitoren
+      invoices:                 Rechnungen
+      new_esr_file:             VESR verbuchen
+      esr_files:                VESR Journal
+      settings:                 Einstellungen
+      overview:                 Übersicht
+      importer:                 Importer
+      account_types:            Kontenarten
+      tooltip:
+        new_booking: Hier können Sie eine neue Buchung für die Finanzbuchhaltung erstellen
+        balance: Hier können Sie die Bilanz aufrufen
+        profit:  Hier können Sie die Erfolgsrechnung aufrufen
+        accounts: Hier finden Sie eine Liste aller Konten der Finanzbuchhaltung
+        bookings: Im Journal finden Sie alle Buchungen die erstellt wurden
+        people: Hier finden Sie eine Liste aller Kontakte
+        employees: Hier finden Sie eine Liste aller Mitarbeiter
+        companies:  Hier finden Sie eine Liste aller Firmen
+        customers: Hier finden Sie eine Liste aller Kunden
+        destroy_user_session:  Hier können Sie sich von Bookyt abmelden
+        new_user_session:  Hier können Sie sich bei Bookyt anmelden
+        store: Hier finden Sie alle Funktionen welche Sie im Laden brauchen
+        accounting: Hier finden Sie sämtliche Funktionen für die Finanzbuchhaltung
+        contacts: Hier können Sie Kontakte (Stammdaten) anzeigen und bearbeiten
+        invoicing: Hier können Sie Rechnungen erstellen und überwachen
+        new_invoice: Erstellt eine neue Rechnung
+        invoices: Listet alle Rechnungen auf
+        settings: Hier können die nötigen Einstellungen für Bookyt gemacht werden
+        overview: Gibt Ihnen eine Übersicht über die Funktionen
+        importer: Importiert Buchungsdaten aus einer .csv Datei
+        new_customer: Erstellt einen neuen Kunden
+        new_employee: Erstellt einen neuen Mitarbeiter
+        current_user: Zeigt die Details des aktuell angemeldeten Benutzers
+        user_index: Zeigt eine Liste aller Benutzer
+        current_tenant: Zeigt die Details des aktiven Mandanten
+        tenant_index: Zeigt eine Liste aller Mandanten
+        account_types: Zeigt eine Liste aller Kontentypen (Anlagevermögen, Umlaufvermögen, ...)
+    overview:
+      title: Übersicht
+
