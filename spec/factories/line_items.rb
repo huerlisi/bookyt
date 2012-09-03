@@ -6,6 +6,9 @@ FactoryGirl.define do
       price "0.99"
       title "Banana"
       description "Most delicious banana of all time!"
+      invoice
+      credit_account
+      debit_account
     end
 
     factory :vat do
