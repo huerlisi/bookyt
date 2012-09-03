@@ -45,13 +45,9 @@ describe Invoice do
     it "should create one booking per line_item" do
       subject.line_items << Factory.build(:banana)
       subject.line_items << Factory.build(:vat)
-      puts "PRE-TEST"
-      puts subject.bookings.inspect
       subject.save
 
       subject.bookings.size.should == 2
-      puts "TEST"
-      puts subject.bookings.inspect
     end
 
     it "should build booking with value_date of invoice" do
