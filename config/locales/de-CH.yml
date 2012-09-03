@@ -152,35 +152,3 @@ de-CH:
         odd: "muss ungerade sein"
         even: "muss gerade sein"
         record_invalid: "Gültigkeitsprüfung ist fehlgeschlagen: %{errors}"
-  bookyt:
-    settings:
-      vesr:
-        title: VESR Einstellungen
-      user:
-        title: "Benutzereinstellungen"
-      users:
-        title: "Benutzerverwaltung"
-      tenant:
-        title: "Mandant"
-      project_states:
-        title: "Projektstati"
-      due:
-        title: "Fälligkeiten"
-      account_types:
-        title: Kontonarten
-      book_keeping:
-        title: "Buchhaltung"
-      booking_templates:
-        title: Buchungsvorlagen
-      charge_booking_templates:
-        title: "Bedingte Buchungsvorlagen"
-      charge_rates:
-        title: "Abgabesätze"
-
-  bookings:
-    BookingTemplate:
-      title: "Neue Buchung"
-  
-  employees:
-    Lohnvorlage:
-      title:  "Lohnvorlagen"

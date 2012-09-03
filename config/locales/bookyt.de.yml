@@ -259,6 +259,8 @@ de:
       title:    Journal
     new:
       title:    Buchung erfassen
+    BookingTemplate:
+      title: "Neue Buchung"
 
   credit_invoices:
     index:
@@ -501,6 +503,28 @@ de:
         current_tenant: Zeigt die Details des aktiven Mandanten
         tenant_index: Zeigt eine Liste aller Mandanten
         account_types: Zeigt eine Liste aller Kontentypen (Anlagevermögen, Umlaufvermögen, ...)
+    settings:
+      user:
+        title: "Benutzereinstellungen"
+      users:
+        title: "Benutzerverwaltung"
+      tenant:
+        title: "Mandant"
+      project_states:
+        title: "Projektstati"
+      due:
+        title: "Fälligkeiten"
+      account_types:
+        title: Kontonarten
+      book_keeping:
+        title: "Buchhaltung"
+      booking_templates:
+        title: Buchungsvorlagen
+      charge_booking_templates:
+        title: "Bedingte Buchungsvorlagen"
+      charge_rates:
+        title: "Abgabesätze"
+
     overview:
       title: Übersicht
 
