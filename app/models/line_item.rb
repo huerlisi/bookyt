@@ -11,6 +11,7 @@ class LineItem < ActiveRecord::Base
   belongs_to :credit_account, :class_name => 'Account'
 
   # Validations
+  validate :invoice, :presence => true
   validate :times, :presence => true, :numericality => true
   validate :price, :presence => true, :numericality => true
   validate :title, :presence => true
