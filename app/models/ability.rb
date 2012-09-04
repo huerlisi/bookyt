@@ -36,7 +36,8 @@ class Ability
 
   # Accountant abilities
   def accountant(user)
-    admin(user)
+    can :manage, :all
+    cannot :manage, Role
     cannot :manage, User
     can [:show, :update], User, :id => user.id
   end

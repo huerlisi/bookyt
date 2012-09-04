@@ -1,25 +1,5 @@
 require 'spec_helper'
 
-shared_examples "user actions" do
-  describe "the current user" do
-    it "change the password" do
-      new_password = '1234567890'
-      current_password = @current_user.current_password
-      put :update, {:id => @current_user.id, :user => {:password => new_password, :password_confirmation => new_password, :current_password => current_password}}
-      assigns(:user).should_not be_nil
-      assigns(:user).password.should eq(new_password)
-      assigns(:user).password.should_not eq(current_password)
-    end
-  end
-
-  describe "get user" do
-    it "returns the current user" do
-      get :current
-      response.should redirect_to(@current_user)
-    end
-  end
-end
-
 describe UsersController do
   before(:each) do
     request.env["HTTP_REFERER"] = 'where_i_am_from'
@@ -29,7 +9,7 @@ describe UsersController do
     context "as admin" do
       login_admin
 
-      it "can update other users without current password" do
+      it "can update other users password without current password" do
         user = Factory.create(:accountant_user)
         new_password = '1234567890'
         put :update, {:id => user.id, :user => {:password => new_password, :password_confirmation => new_password}}
@@ -39,6 +19,18 @@ describe UsersController do
 
         user.reload
         user.valid_password?(new_password)
+      end
+
+      it "can update other users person without password" do
+        user = Factory.create(:accountant_user)
+        person = Factory.create(:person)
+        put :update, {:id => user.id, :user => {:person_id => person.id}}
+
+        user = assigns(:user)
+        user.errors.should be_empty
+
+        user.reload
+        user.person.should == person
       end
 
       it "cannot update other users if confirmation does not match" do
@@ -77,7 +69,7 @@ describe UsersController do
     context "as accountant" do
       login_accountant
 
-      it "can not update another user" do
+      it "cannot update another user" do
         user = Factory.create(:accountant_user)
         new_password = '1234567890'
         current_password = user.current_password
@@ -96,6 +88,18 @@ describe UsersController do
 
         user.reload
         user.valid_password?(new_password).should be_true
+      end
+
+      it "cannot update roles" do
+        user = @current_user
+        current_password = 'accountant1234'
+        role_texts = ['admin']
+        put :update, {:id => user.id, :user => {:role_texts => role_texts, :current_password => current_password}}
+
+        user = assigns(:user)
+
+        user.reload
+        user.role_texts.should =~ ['accountant']
       end
 
       it "cannot update itself without current_password" do
