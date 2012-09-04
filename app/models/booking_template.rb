@@ -75,7 +75,6 @@ class BookingTemplate < ActiveRecord::Base
 
     booking_amount = booking_amount.try(:round, 2)
     booking_params['amount'] = booking_amount
-    booking_params['include_in_saldo'] = self.include_in_saldo
 
     # Override by passed in parameters
     HashWithIndifferentAccess.new(booking_params.merge!(params))
