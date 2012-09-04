@@ -246,6 +246,10 @@ en:
       reminded:    reminded once
       overdue:     overdue
 
+  bookings:
+    BookingTemplate:
+      title: "New booking"
+
   line_items:
     quantity:
       times:   x
@@ -331,9 +335,9 @@ en:
     assets:             assets
     current_assets:     current assets
     capital_assets:     capital assets
-    capital:            capital
-    equity_capital:     equity capital
-    outside_capital:    outside capital
+    capital:            liabilites and equity
+    equity_capital:     owners' equity
+    outside_capital:    liabilities
     costs:              costs
     earnings:           eranings
     profit_report_for:  profit sheet for %{company} as of %{per}
@@ -397,5 +401,30 @@ en:
         current_tenant: show details of current tenant (company)
         tenant_index: list all tentants
         account_types: list all account types (current assets, equity capital, ...)
+    settings:
+      vesr:
+        title: VESR Einstellungen
+      user:
+        title: "User preferences"
+      users:
+        title: "User management"
+      tenant:
+        title: "Client"
+      project_states:
+        title: "Project status"
+      due:
+        title: "Maturities"
+      account_types:
+        title: Account types
+      book_keeping:
+        title: "Book keeping"
+      booking_templates:
+        title: "Booking templates"
+      charge_booking_templates:
+        title: "Conditional booking templates"
+      charge_rates:
+        title: "Levy rates"
+
+
     overview:
       title: overview
