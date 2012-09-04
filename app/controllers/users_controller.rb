@@ -15,7 +15,7 @@ class UsersController < AuthorizedController
 
     # Don't try to update password if not provided
     if params[:user][:password].blank?
-      [:password, :password_confirmation, :current_password].collect{|p| params[:user].delete(p) }
+      [:password, :password_confirmation].collect{|p| params[:user].delete(p) }
     end
 
     # Test if user is allowed to change roles
@@ -24,7 +24,21 @@ class UsersController < AuthorizedController
     # Set the locale explicitly to the user cause it wasn't saved.
     @user.locale = params[:user][:locale] if params[:user][:locale]
 
-    update!
+    # Special case if user can manage other users
+    successfully_updated = if can? :manage, @user
+      params[:user].delete(:current_password)
+      @user.update_attributes(params[:user])
+    else
+      @user.update_with_password(params[:user])
+    end
+
+    if successfully_updated
+      # Sign in the user bypassing validation in case his password changed
+      sign_in @user, :bypass => true
+      redirect_to user_path(@user)
+    else
+      render "edit"
+    end
   end
 
   def current

@@ -9,7 +9,7 @@ FactoryGirl.define do
 
   factory :accountant_user, :class => User do
     email    { Factory.next(:email) }
-    password "admin1234"
+    password "accountant1234"
     person
     roles {|roles| [roles.association(:accountant_role)] }
     association :tenant
