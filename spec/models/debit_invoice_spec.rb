@@ -35,24 +35,5 @@ describe DebitInvoice do
       its(:balance_account) { should be_nil }
       its(:profit_account) { should be_nil }
     end
-
-    context "changes the state" do
-      it "to 'booked' with an amount over 0" do
-        Factory.create(:debit_invoice_booking, :reference => subject)
-
-        subject.bookings.reload
-        subject.bookings.count.should == 1
-        subject.balance.should > 0
-      end
-
-      it "to 'paid' with an amount equal 0" do
-        subject.bookings << Factory.create(:debit_invoice_booking)
-        subject.bookings << Factory.create(:payment_booking)
-        subject.save
-        subject.reload
-
-        subject.state.should eq('paid')
-      end
-    end
   end
 end
