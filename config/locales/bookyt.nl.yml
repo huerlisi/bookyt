@@ -19,7 +19,7 @@ nl:
   form:
     person:
      address: adres
-     civil:   Personalien
+     civil:   bijzonderheden
     company:
       address: adres
       book_keeping: boekhouding
@@ -35,39 +35,39 @@ nl:
 
   attributes:
     # Common
-    title:            Titel
-    amount:           Betrag
-    comments:         Bemerkungen
-    remarks:          Bemerkungen
-    state:            Status
-    date:             Datum
-    duration:         Dauer
+    title:            titel
+    amount:           bedrag
+    comments:         opmerkingen
+    remarks:          opmerkingen
+    state:            status
+    date:             datum
+    duration:         duur
 
   activerecord:
     models:
-      expense:          Ausgabe
-      booking_template: Buchungsvorlage
-      charge_booking_template: Bedingte Buchungsvorlage
-      person: Person
-      company: Firma
-      customer: Kunde
-      day: Tagesabschluss
-      employee: Mitarbeiter
-      employment: Anstellung
-      invoice: Rechnung
-      credit_invoice: Kreditoren Rechnung
-      debit_invoice:  Debitoren Rechnung
-      line_item: Position
-      tenant: Mandant
-      user: Benutzer
-      booking_import: Buchungsimport
-      attachment: Anhang
-      salary: Lohn
-      charge_rate: Abgabe Satz
-      overview: Übersicht
-      session:  Anmeldung
-      note: Notizen
-      setting: Einstellungen
+      expense:          uitgave
+      booking_template: boekingssjabloon
+      charge_booking_template: voorwaardelijke boekingssjabloon
+      person: persoon
+      company: bedrijf
+      customer: klant
+      day: einde van de dag
+      employee: medewerker
+      employment: functie
+      invoice: rekening
+      credit_invoice: crediteuren rekening
+      debit_invoice:  debiteuren rekening
+      line_item: positie
+      tenant: huurder
+      user: gebruiker
+      booking_import: importeer boeking
+      attachment: bijlage
+      salary: slaris
+      charge_rate: belastingtarief
+      overview: overzicht
+      session:  registratie
+      note: notities
+      setting: instellingen
 
     attributes:
       # Per model

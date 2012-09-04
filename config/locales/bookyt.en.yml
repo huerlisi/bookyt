@@ -7,7 +7,7 @@ en:
   # Views
   debit_invoices:
     letter:
-      signature: "Vielen Dank für die Zusammenarbeit.\nBitte begleichen Sie diese Rechnung innert 30 Tagen mit beiliegendem Einzahlungsschein oder per E-Banking auf unten stehendes Konto."
+      signature: "Thanks for your cooperation. \nPlease pay the invoice within 30 days using the paying-in slip or bank transfer on the account as seen below"
 
   sex:
     male:   Mr.
@@ -16,7 +16,7 @@ en:
   form:
     person:
      address: address
-     civil:   Personalien
+     civil:   particulars
     company:
       address: address
       book_keeping: book keeping
@@ -316,7 +316,7 @@ en:
   letters:
     greetings:        kind regards,
     debit_invoice:
-      closing:        "It was a pleasur to work together. Please pay this invoice up to %{due_date} using the payment slip or by e-banking to below account."
+      closing:        "It was a pleasure working together. Please pay this invoice up to %{due_date} using the payment slip or by e-banking to below account."
 
   bookyt:
     all:              all
