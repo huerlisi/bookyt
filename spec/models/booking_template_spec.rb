@@ -5,10 +5,10 @@ describe BookingTemplate do
     subject { BookingTemplate.new }
 
     specify { should be_valid }
-    its(:to_s) { should == "? an ? CHF ?, ? (?)" }
+    its(:to_s) { should == "? an ? ?, ? (?)" }
     context "to_s(:short)" do
-      it "should == \"? / ? CHF ?\"" do
-        subject.to_s(:short).should == "? / ? CHF ?"
+      it "should == \"? / ? ?\"" do
+        subject.to_s(:short).should == "? / ? ?"
       end
     end
   end
@@ -18,8 +18,8 @@ describe BookingTemplate do
 
     its(:to_s) { should =~ /Test/ }
     context "to_s(:short)" do
-      it "should == \"? / ? CHF ?\"" do
-        subject.to_s(:short).should == "? / ? CHF ?"
+      it "should == \"? / ? ?\"" do
+        subject.to_s(:short).should == "? / ? ?"
       end
     end
   end
@@ -27,10 +27,10 @@ describe BookingTemplate do
   context "with blank title" do
     subject { BookingTemplate.new(:title => "")}
 
-    its(:to_s) { should == "? an ? CHF ?, ? (?)" }
+    its(:to_s) { should == "? an ? ?, ? (?)" }
     context "to_s(:short)" do
-      it "should == \"? / ? CHF ?\"" do
-        subject.to_s(:short).should == "? / ? CHF ?"
+      it "should == \"? / ? ?\"" do
+        subject.to_s(:short).should == "? / ? ?"
       end
     end
   end
@@ -50,10 +50,10 @@ describe BookingTemplate do
     }
     subject { BookingTemplate.new(:credit_account => credit_account, :debit_account => debit_account)}
 
-    its(:to_s) { should == "Credit Account (1000) an Debit Account (2000) CHF ?, ? (?)" }
+    its(:to_s) { should == "Credit Account (1000) an Debit Account (2000) ?, ? (?)" }
     context "to_s(:short)" do
-      it "should == \"1000 / 2000 CHF ?\"" do
-        subject.to_s(:short).should == "1000 / 2000 CHF ?"
+      it "should == \"1000 / 2000 ?\"" do
+        subject.to_s(:short).should == "1000 / 2000 ?"
       end
     end
   end
