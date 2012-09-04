@@ -97,15 +97,11 @@ end
 
 # module for extending ActionController
 module ExcelCSVExporter
-  BOM = "\377\376" #Byte Order Mark, Appease Excel Gods
-
   def send_csv(kollection, options={})
     filename = options.delete(:filename) || I18n.l(Time.now, :format => :short) + ".csv"
 
     content = kollection.to_csv(options)
 
-    # Appease Excel Gods
-    content = BOM + Iconv.conv("utf-16le", "utf-8", content)
     send_data content, :filename => filename
   end
 end
