@@ -31,6 +31,9 @@ group :development do
   # RDoc
   gem 'rdoc'
 
+  # UML documentation
+  gem 'rails-erd'
+
   # Haml generators
   gem 'haml-rails'
   gem 'hpricot'

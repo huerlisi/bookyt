@@ -87,6 +87,7 @@ GEM
       activesupport (>= 3.2.0)
     childprocess (0.3.3)
       ffi (~> 1.0.6)
+    choice (0.1.6)
     chunky_png (1.2.5)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -223,6 +224,11 @@ GEM
       activesupport (= 3.2.8)
       bundler (~> 1.0)
       railties (= 3.2.8)
+    rails-erd (1.0.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      choice (~> 0.1.6)
+      ruby-graphviz (~> 1.0.4)
     railties (3.2.8)
       actionpack (= 3.2.8)
       activesupport (= 3.2.8)
@@ -268,6 +274,7 @@ GEM
       ruby-debug-base (~> 0.10.4.0)
     ruby-debug-base (0.10.4)
       linecache (>= 0.3)
+    ruby-graphviz (1.0.8)
     ruby-rc4 (0.1.5)
     ruby_parser (2.3.1)
       sexp_processor (~> 3.0)
@@ -387,6 +394,7 @@ DEPENDENCIES
   prawn_rails
   rack-google_analytics
   rails (~> 3.2.0)
+  rails-erd
   rcov
   rdoc
   responders
