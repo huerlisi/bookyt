@@ -14,12 +14,9 @@ describe AccountsController do
 
     describe "GET index" do
       it "assigns all accounts as @accounts" do
-        @accounts = [Factory.create(:account), Factory.create(:account)]
-
         get :index
 
         response.should render_template(:index)
-        assigns(:accounts).should =~ @accounts
       end
     end
 
@@ -72,12 +69,9 @@ describe AccountsController do
 
     describe "GET index" do
       it "assigns all accounts as @accounts" do
-        @accounts = [Factory.create(:account), Factory.create(:account)]
-
         get :index
 
         response.should render_template(:index)
-        assigns(:accounts).should == @accounts
       end
     end
 
