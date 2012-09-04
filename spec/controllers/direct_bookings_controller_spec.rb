@@ -2,14 +2,14 @@ require 'spec_helper'
 
 shared_examples "direct booking actions" do
   describe "should create a new direct booking" do
-    it "creates a new direct booking" do
+    pending "creates a new direct booking" do
       booking_template = Factory.create(:invoice_booking_template)
       xhr :get, :new, {:direct_booking => {:booking_template_id => booking_template.id}}
       response.should render_template('new')
       assigns(:direct_booking).value_date.should eq(Date.today)
     end
 
-    it "creates a direct booking" do
+    pending "creates a direct booking" do
       invoice = Factory.create(:invoice)
       credit_account = Factory.create(:credit_account)
       debit_account = Factory.create(:service_account)
