@@ -343,6 +343,7 @@ en:
       invoicing_party:        invoicing party
     main_navigation:
       new_booking:              new booking
+      new_expense:              new expense
       balance:                  balance sheet
       profit:                   profit sheet
       accounts:                 accounts

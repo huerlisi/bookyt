@@ -1,5 +1,8 @@
-# German locale
-de:
+# Dutch translations for Bookyt
+# by Egbert Pot (egbert@weboak.nl)
+
+# Dutch locale
+nl:
   # Application
   application:
     title: Bookyt
@@ -7,28 +10,28 @@ de:
   # Views
   debit_invoices:
     letter:
-      signature: "Vielen Dank für die Zusammenarbeit.\nBitte begleichen Sie diese Rechnung innert 30 Tagen mit beiliegendem Einzahlungsschein oder per E-Banking auf unten stehendes Konto."
+      signature: "Bedankt voor de samenwerking.\nGelieve de factuur binnen 30 dagen te voldoen."
 
   sex:
-    male:   Mann
-    female: Frau
+    male:   Dhr.
+    female: Mevr.
 
   form:
     person:
-     address: Adresse
+     address: adres
      civil:   Personalien
     company:
-      address: Adresse
-      book_keeping: Buchhaltung
-      invoicing: Rechnungseinstellungen
+      address: adres
+      book_keeping: boekhouding
+      invoicing: factureren
     bank:
-      money_transfer: Bankverbindung
+      money_transfer: bank koppeling
 
   helpers:
     submit:
-      create: "%{model} anlegen"
-      update: "%{model} aktualisieren"
-      submit: "%{model} speichern"
+      create: "%{model} aanmaken"
+      update: "%{model} bijwerken"
+      submit: "%{model} opslaan"
 
   attributes:
     # Common
@@ -259,8 +262,6 @@ de:
       title:    Journal
     new:
       title:    Buchung erfassen
-    BookingTemplate:
-      title: "Neue Buchung"
 
   credit_invoices:
     index:
@@ -503,28 +504,6 @@ de:
         current_tenant: Zeigt die Details des aktiven Mandanten
         tenant_index: Zeigt eine Liste aller Mandanten
         account_types: Zeigt eine Liste aller Kontentypen (Anlagevermögen, Umlaufvermögen, ...)
-    settings:
-      user:
-        title: "Benutzereinstellungen"
-      users:
-        title: "Benutzerverwaltung"
-      tenant:
-        title: "Mandant"
-      project_states:
-        title: "Projektstati"
-      due:
-        title: "Fälligkeiten"
-      account_types:
-        title: Kontonarten
-      book_keeping:
-        title: "Buchhaltung"
-      booking_templates:
-        title: Buchungsvorlagen
-      charge_booking_templates:
-        title: "Bedingte Buchungsvorlagen"
-      charge_rates:
-        title: "Abgabesätze"
-
     overview:
       title: Übersicht
 

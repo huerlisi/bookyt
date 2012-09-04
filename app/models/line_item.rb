@@ -11,6 +11,7 @@ class LineItem < ActiveRecord::Base
   belongs_to :credit_account, :class_name => 'Account'
 
   # Validations
+  validate :invoice, :presence => true
   validate :times, :presence => true, :numericality => true
   validate :price, :presence => true, :numericality => true
   validate :title, :presence => true
@@ -122,6 +123,8 @@ class LineItem < ActiveRecord::Base
       :debit_account  => self.debit_account,
       :reference      => self.invoice
     }
+
+    new_booking
   end
 
   # Booking templates

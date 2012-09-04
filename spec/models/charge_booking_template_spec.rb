@@ -10,7 +10,7 @@ describe ChargeBookingTemplate do
                                              "comments"          => nil,
                                              "debit_account_id"  => nil,
                                              "title"             => nil,
-                                             "amount"            => BigDecimal(0),
+                                             "amount"            => BigDecimal("0"),
                                              "credit_account_id" => nil,
                                              "include_in_saldo"  =>[],
                                             }

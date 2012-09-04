@@ -1,5 +1,9 @@
 FactoryGirl.define do
   factory :line_item do
+    credit_account
+    debit_account
+    invoice
+
     factory :banana do
       times "1"
       quantity "x"
