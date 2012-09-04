@@ -19,7 +19,7 @@ describe AccountsController do
         get :index
 
         response.should render_template(:index)
-        assigns(:accounts).should eq(@accounts)
+        assigns(:accounts).should =~ @accounts
       end
     end
 
@@ -30,7 +30,7 @@ describe AccountsController do
         get :show, :id => @account.id
 
         response.should render_template(:show)
-        assigns(:account).should eq(@account)
+        assigns(:account).should == @account
         assigns(:bookings).should_not be_nil
       end
 
@@ -40,7 +40,7 @@ describe AccountsController do
         get :show, {:id => @account.id, :only_credit_bookings => true}
 
         response.should render_template(:show)
-        assigns(:account).should eq(@account)
+        assigns(:account).should == @account
         assigns(:bookings).should_not be_nil
       end
 
@@ -50,7 +50,7 @@ describe AccountsController do
         get :show, {:id => @account.id, :only_debit_bookings => true}
 
         response.should render_template(:show)
-        assigns(:account).should eq(@account)
+        assigns(:account).should == @account
         assigns(:bookings).should_not be_nil
       end
     end
@@ -60,7 +60,7 @@ describe AccountsController do
         @account_booking = Factory.create(:account_booking)
         get :csv_bookings, {:id => @account_booking.credit_account.id}
         assigns(:account).should_not be_nil
-        assigns(:account).should eq(@account_booking.credit_account)
+        assigns(:account).should == @account_booking.credit_account
         assigns(:bookings).should_not be_nil
         assigns(:bookings).should_not be_empty
       end
@@ -77,7 +77,7 @@ describe AccountsController do
         get :index
 
         response.should render_template(:index)
-        assigns(:accounts).should eq(@accounts)
+        assigns(:accounts).should == @accounts
       end
     end
 
@@ -88,7 +88,7 @@ describe AccountsController do
         get :show, :id => @account.id
 
         response.should render_template(:show)
-        assigns(:account).should eq(@account)
+        assigns(:account).should == @account
       end
 
       it "assigns the requested account as @account only credit bookings" do
@@ -97,7 +97,7 @@ describe AccountsController do
         get :show, {:id => @account.id, :only_credit_bookings => true}
 
         response.should render_template(:show)
-        assigns(:account).should eq(@account)
+        assigns(:account).should == @account
         assigns(:bookings).should_not be_nil
       end
 
@@ -107,7 +107,7 @@ describe AccountsController do
         get :show, {:id => @account.id, :only_debit_bookings => true}
 
         response.should render_template(:show)
-        assigns(:account).should eq(@account)
+        assigns(:account).should == @account
         assigns(:bookings).should_not be_nil
       end
     end
