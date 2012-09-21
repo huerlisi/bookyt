@@ -1,7 +1,19 @@
-1.4.2 (unreleased)
+1.4.2
 =====
+We start to get international! We've got some initial contributions from
+the Egbert Pot to improve the english translations. He also started to
+translate to Dutch and triggered some refactoring of the way we handle
+translations.
+
+This is also the first release we run using ruby 1.9.3 in our production
+systems.
+
+Join us on http://groups.google.com/group/bookyt if you have questions
+or want to help translating Bookyt.
+
 Features:
 * Use descending date sorting for VESR list
+* Add initial translation for Bookyt for nl locale. Thanks to Egbert Pot!
 
 Bugs:
 * Fix a bug where the cached Invoice amount would be set to the current
