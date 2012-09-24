@@ -1,7 +1,7 @@
-1.4.3 (unreleased)
+1.4.3
 =====
-Bugs fixed:
-* Migration issue from older installations.
+This release fixes a single update issue where the database migration
+fails.
 
 
 1.4.2
