@@ -1,3 +1,9 @@
+1.4.3 (unreleased)
+=====
+Bugs fixed:
+* Migration issue from older installations.
+
+
 1.4.2
 =====
 We start to get international! We've got some initial contributions from
