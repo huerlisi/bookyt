@@ -1,4 +1,5 @@
 # Monkey patch Invoice to adjust for new model
+Invoice
 class Invoice
   def calculate_amount ; end
   def update_amount ; end
