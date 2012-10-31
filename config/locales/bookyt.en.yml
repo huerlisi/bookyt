@@ -1,41 +1,53 @@
 # Translation file for Bookyt.
 --- 
 en: 
+  activemodel:
+    errors:
+      template:
+        header:
+          one:    "Could not save %{model}: An error."
+          other:  "Could not save %{model}: %{count} errors."
+        body: "Please check the following fields:"
+
   accounts: 
     edit_bookings: 
-      title: Buchungen
+      title: Reservations
     index: 
-      title: Konten
+      title: Accounts
     info: 
-      title: Kontodaten
+      title: Account Data
     journal: 
-      title: Auszug
+      title: Journal
   activerecord: 
     attributes: 
+      account:
+        saldo: "Balance"
       attachment: 
-        code: "Verwenden als"
+        code: "Use as"
         code_enum: 
-          DebitInvoiceDocument: Rechnungsvorlage
-          LetterDocument: Briefvorlage
-        file: filename
+          DebitInvoiceDocument: Invoice template
+          LetterDocument: Letter template
+        file: Filename
+      booking:
+        valuta: "Value date"
       booking_import: 
         created_at: "imported at"
         csv: csv
       booking_template: 
-        amount_relates_to: "amount relates to"
+        amount_relates_to: "Amount Relates to"
         charge_rate_code: "charge rate code"
-        credit_account: credit
-        debit_account: debit
+        credit_account: Credit
+        debit_account: Debit
         reference: Reference
-        value_date: "value date"
+        value_date: "Value date"
       charge_rate: 
         code: code
-        duration: Gültigkeit
+        duration: Duration
         duration_from: "valid from"
         duration_to: "valid until"
         person: Person
         rate: "rate (%)"
-        relative: Relativ
+        relative: Relative
       day: 
         calculate: calculate
         card_turnover: "card turnover"
@@ -50,71 +62,110 @@ en:
         product_count: "products sold"
         total: total
       employee: 
-        social_security_nr: "social security no."
-        social_security_nr_12: "old social security no."
-        ssn: AHV-Nr.
+        social_security_nr: "Social Security no."
+        social_security_nr_12: "Old Social Security no."
+        ssn: SSN-No.
       employment: 
-        daily_workload: "Tagesarbeitszeit (h)"
-        duration_from: Anfang
-        duration_to: Ende
+        daily_workload: "Daily working time (h)"
+        duration_from: Beginning
+        duration_to: End
         employee: employee
         employer: employer
-        holiday_premium: "Feiertagszuschlag (%)"
-        hourly_paid: Stundenlohn
-        kids: children
-        night_premium: "Nachtarbeitszuschlag (%)"
-        overtime_premium: "Überstundenzuschlag (%)"
-        payment_to: "Auszahlung an"
-        salary_amount: "gross salary amount"
-        sunday_premium: "Sonntagarbeitszuschlag (%)"
-        temporary: Temporär
-        workload: "workload (%)"
+        holiday_premium: "Holiday surcharge (%)"
+        hourly_paid: Hourly wage
+        kids: Children
+        night_premium: "Nigh work supplement (%)"
+        overtime_premium: "Overtime allowance (%)"
+        payment_to: "Payments to"
+        salary_amount: "Gross Salary Amount"
+        sunday_premium: "Sunday premium (%)"
+        temporary: Temporary
+        workload: "Workload (%)"
+      errors:
+        template:
+          header:
+            one:    "Could not save %{model}: An error."
+            other:  "Could not save %{model}: %{count} errors."
+          body: "Please check the following fields:"
+
+        messages:
+          inclusion: "is not a valid Value"
+          exclusion: "not available"
+          invalid: "not available"
+          confirmation: "does not coincide with the confirmation"
+          accepted: "must be accepted"
+          empty: "must be completed"
+          blank: "must be completed"
+          too_long: "is too long (no more than %{count} characters))"
+          too_short: "is too short (not less than %{count} characters)"
+          wrong_length: "is the wrong length (must be exactly %{count} characters)"
+          taken: "is already taken"
+          not_a_number: "is not a number"
+          greater_than: "must be greater than %{count} be"
+          greater_than_or_equal_to: "must be greater than or equal to %{count} be"
+          equal_to: "must be exactly %{count}"
+          less_than: "must be less than %{count} be"
+          less_than_or_equal_to: "must be less than or equal to %{count} be"
+          odd: "must be odd"
+          even: "must be even"
+          record_invalid: "Validation failed: %{errors}"
+      esr_file:
+        remarks:    Remarks
+        file:       Filename
+        updated_at: Updated at
+        bookings:   Bookings
+        invalid_bookings: Invalid Bookings
+        missing_bookings: Missing Bookings
+        total_amount: Total (incl. faulty)
+        uploaded_data: File        
       invoice: 
-        balance: balance
+        balance: Balance
         balance_account: "balance account"
-        biller: "Zugunsten von:"
-        code: "invoice number"
-        company: company
-        created_at: "invoice date"
-        customer: customer
+        biller: "Favor of:"
+        code: "Invoice number"
+        company: Company
+        created_at: "Invoice date"
+        customer: Customer
         direct_account: account
-        due_date: "due date"
+        due_date: "Due date"
         duration_from: from
         duration_to: to
         invoice: invoice
         open_amount: "open amount"
         profit_account: "profit account"
-        remarks: "internal remarks"
+        remarks: "Internal remarks"
         text: text
-        value_date: "value date"
+        value_date: "Value date"
       line_item: 
-        accounted_amount: Betrag
-        price: price
-        quantity: quantity
-        times: times
-        title: text
+        accounted_amount: Amount
+        price: Price
+        quantity: Quantity
+        times: Times
+        title: Text
         total_amount: Total
         vat_rate: "VAT rate"
       note: 
-        content: Notiz
-        created_at: "Erfasst am"
-        updated_at: "Letzte Änderung"
-        user: Verfasser
+        content: Content
+        created_at: "Created at"
+        updated_at: "Updated at"
+        user: User
       person: 
-        civil_status: Zivilstand
+        civil_status: Civil Status
         country_name: Land
         date_of_birth: "date of birth"
         date_of_death: "date of death"
-        extended_address: Adresszusatz
-        full_name: name
-        locality: Ort
-        post_office_box: Postfach
-        postal_code: PLZ
+        extended_address: Address
+        full_name: Name
+        locality: Place
+        post_office_box: Post Office
+        postal_code: Zip code
         region: Region
         religion: Religion
-        sex: sex
-        street_address: Strasse
+        sex: Sex
+        street_address: Street
         type: type
+      phone_number:
+        website: Website
       salary: 
         amount: "gross amount"
         bvg_amount: BVG
@@ -123,23 +174,23 @@ en:
         net_amount: "net amount"
         social_amount: AHV/IV/EO/ALV/NBU
       tenant: 
-        ahv_number: "AHV Abrechnungsnr."
+        ahv_number: "AHV Billing No."
         company: company
         fiscal_year_ends_on: "end of first fiscal year"
         incorporated_on: "incorporation date"
-        payment_period: "Zahlungsfrist in Tagen"
-        print_payment_for: "\"Zugunsten von\" auf Einzahlungschein drucken"
+        payment_period: "Payment term in days"
+        print_payment_for: "\"In favor of\" pay-in slip to print"
         uid_number: UID-Nummer
-        use_vesr: "VESR für Debitoren-Rechnungen"
+        use_vesr: "VESR for accounts receivable invoices"
         users: users
-        vat_number: MwSt.-Nummer
+        vat_number: VAT No.
       user: 
-        country_name: country
+        country_name: Country
         created_at: "created at"
         current_password: "current password"
-        date_of_birth: "date of birth"
-        date_of_death: "date of death"
-        email: e-mail
+        date_of_birth: "Date of birth"
+        date_of_death: "Date of death"
+        email: E-mail
         extended_address: "extended address"
         full_name: "full name"
         locale: Sprache
@@ -156,49 +207,66 @@ en:
         sex: sex
         street_address: "street address"
       vcard: 
-        full_name: "full name"
+        full_name: "Full name"
+        extended_address: "Address"
+      address:
+        post_office_box:  Post Office Box
+        extended_address: Extended address
+        extended_address: Address
+        street_address:   Street
+        locality:         Locality
+        region:           Region
+        postal_code:      Postal code
+        country_name:     Country
+        address_type:     Art
+      phone_number:
+        number:           Number
+        phone_number_type: Number Type
+
     models: 
-      attachment: attachment
-      booking_import: "booking import"
-      booking_template: "booking template"
-      charge_booking_template: "charge booking template"
-      charge_rate: "charge rate"
-      company: company
-      credit_invoice: "credit invoice"
-      customer: customer
-      day: "daily balance"
-      debit_invoice: "debit invoice"
-      employee: employee
-      employment: employment
-      expense: Ausgabe
-      invoice: invoice
-      line_item: "line item"
-      note: Notizen
-      overview: overview
-      person: person
-      salary: salary
-      session: session
-      setting: settings
-      tenant: tenant
-      user: user
+      attachment: Attachment
+      booking_import: "Booking import"
+      booking_template: "Booking template"
+      charge_booking_template: "Charge booking template"
+      charge_rate: "Charge rate"
+      company: Company
+      credit_invoice: "Credit invoice"
+      customer: Customer
+      day: "Daily balance"
+      debit_invoice: "Debit invoice"
+      employee: Employee
+      employment: Employment
+      esr_file: ESR-File
+      expense: Expense
+      invoice: Invoice
+      line_item: "Line Item"
+      note: Note
+      overview: Overview
+      person: Person
+      project_state: Project Status
+      salary: Salary
+      session: Session
+      setting: Settings
+      tenant: Tenant
+      user: User
   alerts: 
-    empty: "Keine Einträge vorhanden."
+    empty: "No Entries to print"
   application: 
     title: bookyt
   attachments: 
     list: 
-      title: Dokumente
+      title: Attachment
   attributes: 
-    amount: Betrag
-    comments: Bemerkungen
-    date: Datum
-    duration: Dauer
-    remarks: Bemerkungen
+    amount: Amount
+    comments: Comments
+    date: Date
+    duration: Duration
+    remarks: Remarks
     state: Status
-    title: Titel
+    title: Title
   booking_imports: 
     new: 
-      title: "Buchungen importieren"
+      title: "Bookings import"
   booking_template: 
     relation: 
       reference_amount: "original amount"
@@ -206,56 +274,56 @@ en:
       reference_balance: balance
   bookings: 
     BookingTemplate: 
-      title: "New booking"
+      title: "New Booking"
     index: 
       title: Journal
     new: 
-      title: "Buchung erfassen"
+      title: "Booking record"
   bookyt: 
     all: all
-    assets: assets
+    assets: Assets
     back: back
-    back_to: "Zurück zu %{name}"
-    balance_report_for: "balance sheet for %{company}"
-    capital: "liabilites and equity"
-    capital_assets: "capital assets"
-    carry_booking: transfer
-    costs: costs
-    current_assets: "current assets"
+    back_to: "Back to %{name}"
+    balance_report_for: "Balance sheet for %{company}"
+    capital: "Liabilites and Equity"
+    capital_assets: "Capital assets"
+    carry_booking: Transfer
+    costs: Costs
+    current_assets: "Current assets"
     destroy: delete
-    difference: difference
-    earnings: eranings
+    difference: Difference
+    earnings: Earnings
     edit: edit
-    equity_capital: "owners' equity"
-    greetings: "kind regards,"
+    equity_capital: "Owner's equity"
+    greetings: "Kind regards,"
     invoices: 
       invoicing_party: "invoicing party"
       payment_no: "payment no. %{payment_no}"
     main_navigation: 
       account_types: "account types"
-      accounting: accounting
-      accounts: accounts
-      all: Alle
-      balance: "balance sheet"
-      bookings: "booking journal"
-      contacts: contacts
-      credit_invoices: "credit invoices"
-      debit_invoices: "debit invoices"
-      destroy_user_session: "log out"
+      accounting: Accounting
+      accounts: Accounts
+      all: All
+      balance: "Balance sheet"
+      bookings: "Journal"
+      contacts: Contacts
+      credit_invoices: "Credit invoices"
+      debit_invoices: "Debit invoices"
+      destroy_user_session: "Log out"
       esr_files: "VESR Journal"
-      importer: importer
-      invoices: invoices
-      invoicing: invoicing
-      new_booking: "new booking"
-      new_credit_invoice: "new credit invoice"
-      new_debit_invoice: "new debit invoice"
-      new_esr_file: "VESR verbuchen"
-      new_expense: "new expense"
-      new_user_session: "log in"
-      overview: overview
-      profit: "profit sheet"
-      settings: settings
-      store: store
+      importer: Importer
+      invoices: Invoices
+      invoicing: Invoicing
+      new_booking: "New Booking"
+      new_credit_invoice: "New Credit invoice"
+      new_debit_invoice: "New Debit invoice"
+      new_esr_file: "VESR Post"
+      new_expense: "New Expense"
+      new_user_session: "Log in"
+      overview: Overview
+      profit: "Profit sheet"
+      settings: Settings
+      store: Store
       tooltip: 
         account_types: "list all account types (current assets, equity capital, ...)"
         accounting: "find all functions for accounting here"
@@ -284,10 +352,10 @@ en:
         store: "find all functions for your store here"
         tenant_index: "list all tentants"
         user_index: "list all users"
-    outside_capital: liabilities
+    outside_capital: Liabilities
     overview: 
-      title: overview
-    profit_report_for: "profit sheet for %{company} as of %{per}"
+      title: Overview
+    profit_report_for: "Profit sheet for %{company} as of %{per}"
     settings: 
       account_types: 
         title: "Account types"
@@ -310,37 +378,39 @@ en:
       users: 
         title: "User management"
     show: show
-    total: total
+    total: Total
   by_period: 
-    title: Periode
+    title: Period
   by_value_period: 
-    all: Alle
-    title: Buchungsfilter
+    all: All
+    title: Booking Filter
   cancan: 
     roles: 
       accountant: accountant
       admin: administrator
   companies: 
     index: 
-      title: Firmen
+      title: Companies
   credit_invoices: 
     index: 
-      title: Kreditoren
+      title: Payable
+    new:
+      title: New Credit invoice
   crud: 
     action: 
-      all_bookings: "all bookings"
-      balance_sheet: "balance sheet"
-      book_manual: "book manually"
+      all_bookings: "All Bookings"
+      balance_sheet: "Balance sheet"
+      book_manual: "Book Manually"
       copy: copy
-      filter: Filtern
+      filter: Filter
       letter: letter
       more: more
-      only_credit_bookings: "only credit"
-      only_debit_bookings: "only debit"
+      only_credit_bookings: "Only Credit"
+      only_debit_bookings: "Only Debit"
       payslip: payslip
       pdf: pdf
       print: print
-      profit_sheet: "profit sheet"
+      profit_sheet: "Profit sheet"
       search: find
       statistics: statistics
     flash: 
@@ -350,7 +420,7 @@ en:
       copy: "copy %{model}"
       current: "current %{model}"
       letter: letter
-      profit_sheet: "profit sheet"
+      profit_sheet: "Profit sheet"
       search: find
       select_booking: "new %{model}"
       select_booking_template: "new %{model}"
@@ -358,85 +428,145 @@ en:
       write_downs: "write downs"
   customers: 
     index: 
-      title: Kunden
+      title: Customers
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+      only_day: "%e"
+
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Sunday]
+    abbr_day_names: [Su, Mo, Tu, We, Th, Fr, Sa]
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    order: 
+      - :day
+      - :month
+      - :year
+  datetime:
+    distance_in_words:
+      half_a_minute: 'half a minute'
+      less_than_x_seconds:
+        one: 'less than a second'
+        other: 'seconds less than %{count}'
+      x_seconds:
+        one: 'one second'
+        other: '%{count} second'
+      less_than_x_minutes:
+        one: 'less than one minute'
+        other: 'minutes less than %{count}'
+      x_minutes:
+        one: 'one minute'
+        other: '%{count} minutes'
+      about_x_hours:
+        one: 'about one hour'
+        other: 'about %{count} hours'
+      x_days:
+        one: 'one day'
+        other: '%{count} days'
+      about_x_months:
+        one: 'about one month'
+        other: 'about %{count} months'
+      x_months:
+        one: 'one month'
+        other: '%{count} months'
+      almost_x_years:
+        one: 'almost a year'
+        other: 'about %{count} years'
+      about_x_years:
+        one: 'about one year'
+        other: 'about %{count} years'
+      over_x_years:
+        one: 'more than one year'
+        other: 'more than %{count} years'
+    prompts:
+      second: "Second"
+      minute: "Minute"
+      hour: "Hour"
+      day: "Day"
+      month: "Month"
+      year: "Year"
   debit_invoices: 
     index: 
-      title: Debitoren
+      title: Debit invoices
   employees: 
     index: 
-      title: Mitarbeiter
+      title: Employees
   esr_files: 
     index: 
       title: "VESR Journal"
+    new:
+      title: "New ESR File"
   expenses: 
     labels: 
-      amount: "Betrag inkl. MwSt."
-      credit_account: Aufwandskonto
-      debit_account: Bezahlkonto
-      vat_account: Vorsteuerkonto
+      amount: "Amount of sales tax."
+      credit_account: Credit account
+      debit_account: Debit account
+      vat_account: VAT account
   flash: 
     actions: 
       create: 
-        notice_html: "%{resource_name} wurde erfasst. %{resource_link}"
+        notice_html: "%{resource_name} recorded. %{resource_link}"
   form: 
     bank: 
-      money_transfer: Bankverbindung
+      money_transfer: Bank
     company: 
       address: address
       book_keeping: "book keeping"
-      invoicing: Rechnungseinstellungen
+      invoicing: Billing preferences
     person: 
-      address: address
-      civil: particulars
+      address: Address
+      civil: Particulars
   helpers: 
     submit: 
-      create: "%{model} anlegen"
-      submit: "%{model} speichern"
-      update: "%{model} aktualisieren"
+      create: "%{model} create"
+      submit: "%{model} submit"
+      update: "%{model} update"
   invoice: 
     state: 
-      2xreminded: "reminded twice"
-      3xreminded: "3x gemahnt"
-      all: Alle
-      booked: open
-      canceled: canceled
-      encashment: "in encashment"
-      overdue: overdue
-      paid: paid
-      reactivated: reactivated
-      reminded: "reminded once"
-      written_off: abgeschrieben
+      2xreminded: "Reminded twice"
+      3xreminded: "3x reminded"
+      all: All
+      booked: Open
+      canceled: Cancelled
+      encashment: "In Encashment"
+      overdue: Overdue
+      paid: Paid
+      reactivated: Reactivated
+      reminded: "Reminded once"
+      written_off: Written off
     state_noun: 
-      2xreminded: "2. Mahnung"
-      3xreminded: "3. Mahnung"
-      booked: "Verbuchte Rechnung"
-      canceled: "Stornierte Rechnung"
-      encashment: Inkasso
-      overdue: "Überfällige Rechnung"
-      paid: "Bezahlte Rechnung"
-      reactivated: "Reaktivierte Rechnung"
-      reminded: "1. Mahnung"
-      written_off: "Abgeschriebene Rechnung"
+      2xreminded: "2. reminded"
+      3xreminded: "3. reminded"
+      booked: "Recorded statement"
+      canceled: "Voided bill"
+      encashment: Collection
+      overdue: "Overdue accounts"
+      paid: "Received on account"
+      reactivated: "Reactivated account"
+      reminded: "1. reminded"
+      written_off: "Written-off accounts"
   invoice_state: 
-    2xreminded: "2x gemahnt"
-    3xreminded: "3x gemahnt"
-    all: Alle
-    booked: offen
-    canceled: storniert
-    encashment: "in Inkasso"
-    overdue: überfällig
-    paid: bezahlt
-    reactivated: reaktiviert
-    reminded: "1x gemahnt"
-    title: Rechnungsfilter
-    written_off: abgeschrieben
+    2xreminded: "2x reminded"
+    3xreminded: "3x reminded"
+    all: All
+    booked: Open
+    canceled: Cancelled
+    encashment: "In Collection"
+    overdue: Overdue
+    paid: Paid
+    reactivated: Re-activated
+    reminded: "1x reminded"
+    title: Invoice filter
+    written_off: Depreciated
   invoices: 
     list: 
-      title: Rechnungen
+      title: Invoices
   letters: 
     debit_invoice: 
       closing: "It was a pleasure working together. Please pay this invoice up to %{due_date} using the payment slip or by e-banking to below account."
-      greetings: "Vielen Dank für die Zusammenarbeit und freundliche Grüsse."
+      greetings: "Thank you for the cooperation and friendly greetings."
     greetings: "kind regards,"
   line_items: 
     quantity: 
@@ -444,11 +574,47 @@ en:
       : "%"
       hours: h
       overall: overall
-      saldo_of: Summe
+      saldo_of: Sum
       x: x
+    neue_position: "New Position"
+    neue_zwischensumme: "New Subtotal"
+  number:
+    format:
+      precision: 2
+      separator: '.'
+      delimiter: ","
+    currency:
+      format:
+        unit: '$'
+        format: '%u %n'
+        separator: 
+        delimiter: 
+        precision:
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
   people: 
     index: 
-      title: Adressen
+      title: Addresses
   placeholder: 
     search: Search
   sessions: 
@@ -456,27 +622,43 @@ en:
       title: Login
   settings: 
     vesr: 
-      title: "VESR Einstellungen"
+      title: "VESR settings"
   sex: 
     female: Mrs.
     male: Mr.
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " and "
+      last_word_connector: " and "
+    select:
+      prompt: "Please select:"
   tenants: 
     bookings: 
-      title: Buchhaltung
+      title: Bookings
     tenant: 
-      title: Mandant
+      title: Tenant
     user: 
-      title: Benutzer
+      title: User
     vesr: 
       title: VESR
+  time:
+    formats:
+      default: "%A, %d. %B %Y, %H:%M"
+      short: "%d. %B, %H:%M"
+      long: "%A, %d. %B %Y, %H:%M"
+      time: "%H:%M"
+
+    am: "in the morning"
+    pm: "in the afternoon"
   title: 
     attachments: attachments
     bookings: bookings
     invoices: invoices
-    line_items: "line items"
+    line_items: "Line Items"
     open_invoices: "open invoices"
     paid_invoices: "paid invoices"
-    period: period
+    period: Period
     profit: profit
   vat_rates: 
     code: 
@@ -484,5 +666,7 @@ en:
       full: normal
       reduced: reduced
       special: special
+  vcards: 
+    tel_private: 'Tel. private'
   years: 
-    title: Periode
+    title: Period
