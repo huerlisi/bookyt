@@ -446,6 +446,8 @@ de:
       overall: pauschal
       saldo_of: Summe
       x: x
+    new_position: "Neue Position"
+    new_subtotal: "Neue Zwischensumme"
   people: 
     index: 
       title: Adressen
