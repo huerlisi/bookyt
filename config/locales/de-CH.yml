@@ -72,6 +72,9 @@ de-CH:
       month: "Monat"
       year: "Jahr"
 
+  line_items:
+    new_position: "Neue Position"
+    new_subtotal: "Neue Zwischensumme"
   number:
     format:
       precision: 2

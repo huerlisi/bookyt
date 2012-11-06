@@ -1,17 +1,9 @@
 # Translation file for Bookyt.
 --- 
 en: 
-  activemodel:
-    errors:
-      template:
-        header:
-          one:    "Could not save %{model}: An error."
-          other:  "Could not save %{model}: %{count} errors."
-        body: "Please check the following fields:"
-
   accounts: 
     edit_bookings: 
-      title: Reservations
+      title: Bookings
     index: 
       title: Accounts
     info: 
@@ -81,12 +73,6 @@ en:
         sunday_premium: "Sunday premium (%)"
         temporary: Temporary
         workload: "Workload (%)"
-      errors:
-        template:
-          header:
-            one:    "Could not save %{model}: An error."
-            other:  "Could not save %{model}: %{count} errors."
-          body: "Please check the following fields:"
 
         messages:
           inclusion: "is not a valid Value"
@@ -152,8 +138,8 @@ en:
       person: 
         civil_status: Civil Status
         country_name: Land
-        date_of_birth: "date of birth"
-        date_of_death: "date of death"
+        date_of_birth: "Date of birth"
+        date_of_death: "Date of death"
         extended_address: Address
         full_name: Name
         locality: Place
@@ -162,7 +148,6 @@ en:
         region: Region
         religion: Religion
         sex: Sex
-        street_address: Street
         type: type
       phone_number:
         website: Website
@@ -200,7 +185,7 @@ en:
         password_confirmation: "password confirmation"
         post_office_box: "p.o. box"
         postal_code: zip
-        region: region
+        region: Region
         remember_me: "remember me"
         role_texts: "role text"
         roles: roles
@@ -255,7 +240,7 @@ en:
     title: bookyt
   attachments: 
     list: 
-      title: Attachment
+      title: Attachments
   attributes: 
     amount: Amount
     comments: Comments
@@ -266,7 +251,7 @@ en:
     title: Title
   booking_imports: 
     new: 
-      title: "Bookings import"
+      title: "Import bookings"
   booking_template: 
     relation: 
       reference_amount: "original amount"
@@ -576,8 +561,8 @@ en:
       overall: overall
       saldo_of: Sum
       x: x
-    neue_position: "New Position"
-    neue_zwischensumme: "New Subtotal"
+    new_position: "New Position"
+    new_subtotal: "New Subtotal"
   number:
     format:
       precision: 2
