@@ -25,7 +25,7 @@ class Ability
 
     # Load the abilities for all roles.
     user.roles.each do |role|
-      self.send(role.name, user)
+      self.send(role.name, user) if self.respond_to? role.name
     end
   end
 

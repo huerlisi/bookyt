@@ -46,12 +46,6 @@ SimpleNavigation::Configuration.run do |navigation|
       accounting.item :bookings, t('bookyt.main_navigation.bookings'), bookings_path,
                       :tooltip => t('bookyt.main_navigation.tooltip.bookings'),
                       :highlights_on => /\/bookings($|\?)/
-      accounting.item :balance, t('bookyt.main_navigation.balance'), balance_sheet_tenant_path(current_user.tenant, :by_value_period => params[:by_value_period]),
-                      :tooltip => t('bookyt.main_navigation.tooltip.balance'),
-                      :highlights_on => /#{Regexp.escape(balance_sheet_tenant_path(current_user.tenant))}($|\?)/
-      accounting.item :profit, t('bookyt.main_navigation.profit'), profit_sheet_tenant_path(current_user.tenant, :by_value_period => params[:by_value_period]),
-                      :tooltip => t('bookyt.main_navigation.tooltip.profit'),
-                      :highlights_on => /#{Regexp.escape(profit_sheet_tenant_path(current_user.tenant))}($|\?)/
     end
 
     primary.item :invoicing, t('bookyt.main_navigation.invoicing'), '#',

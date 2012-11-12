@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable, :lockable and :timeoutable
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
+  # Strategies
+  devise :database_authenticatable, :recoverable, :trackable, :timeoutable, :lockable, :rememberable, :validatable, :token_authenticatable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
