@@ -61,7 +61,7 @@ GEM
     builder (3.0.0)
     cancan (1.6.8)
     cap-recipes (0.3.39)
-    capistrano (2.13.3)
+    capistrano (2.13.5)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -149,7 +149,7 @@ GEM
     has_vcards (0.17.1)
       inherited_resources
       rails (~> 3.0)
-    highline (1.6.14)
+    highline (1.6.15)
     hike (1.2.1)
     hpricot (0.8.6)
     i18n (0.6.1)
@@ -192,7 +192,7 @@ GEM
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
       net-ssh (>= 2.0.9)
-    net-ssh (2.5.2)
+    net-ssh (2.6.1)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
     nokogiri (1.5.5)
