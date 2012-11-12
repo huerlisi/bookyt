@@ -365,9 +365,6 @@ de:
   employees: 
     index: 
       title: Mitarbeiter
-  esr_files: 
-    index: 
-      title: "VESR Journal"
   expenses: 
     labels: 
       amount: "Betrag inkl. MwSt."

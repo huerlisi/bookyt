@@ -478,9 +478,6 @@ en:
   employees: 
     index: 
       title: Employees
-  esr_files: 
-    index: 
-      title: "VESR Journal"
     new:
       title: "New ESR File"
   expenses: 
