@@ -1,8 +1,15 @@
+1.4.4
+=====
+We got some major english translation updates from India:-) Thanx to Praveen
+Rachabathuni!
+
+We also added some views to help filling in salary statements for
+the swiss tax authority.
+
 1.4.3
 =====
 This release fixes a single update issue where the database migration
 fails.
-
 
 1.4.2
 =====
