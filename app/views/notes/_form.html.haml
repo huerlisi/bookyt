@@ -1,8 +1,0 @@
-= simple_form_for resource do |f|
-  
-  = f.input :content
-  %input{:type => 'hidden', :name => "#{parent_type}_id", :value => "#{parent.id}"}
-  = f.input :user_id, :as => :hidden
-
-
-  = f.button :submit

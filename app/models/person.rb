@@ -72,7 +72,6 @@ class Person < ActiveRecord::Base
   # ======
   belongs_to :civil_status
   belongs_to :religion
-  has_many :notes, :as => :note_of_sth
 
   # bookyt_projects
   # ===============
