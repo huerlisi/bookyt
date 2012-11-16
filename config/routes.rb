@@ -64,7 +64,6 @@ Bookyt::Application.routes.draw do
     collection do
       get :new_phone_number
     end
-    resources :notes
   end
   resources :employments
 
@@ -166,9 +165,6 @@ Bookyt::Application.routes.draw do
 
   # Booking import
   resources :booking_imports
-
-  # Notes
-  resources :notes
 
   # Settings
   resources "settings" do

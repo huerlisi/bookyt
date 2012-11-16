@@ -365,9 +365,6 @@ de:
   employees: 
     index: 
       title: Mitarbeiter
-  esr_files: 
-    index: 
-      title: "VESR Journal"
   expenses: 
     labels: 
       amount: "Betrag inkl. MwSt."
@@ -446,6 +443,8 @@ de:
       overall: pauschal
       saldo_of: Summe
       x: x
+    new_position: "Neue Position"
+    new_subtotal: "Neue Zwischensumme"
   people: 
     index: 
       title: Adressen

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120711063252) do
+ActiveRecord::Schema.define(:version => 20121113120533) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -298,18 +298,6 @@ ActiveRecord::Schema.define(:version => 20120711063252) do
   add_index "line_items", ["item_id", "item_type"], :name => "index_line_items_on_item_id_and_item_type"
   add_index "line_items", ["position"], :name => "index_line_items_on_position"
   add_index "line_items", ["type"], :name => "index_line_items_on_type"
-
-  create_table "notes", :force => true do |t|
-    t.text     "content"
-    t.integer  "user_id"
-    t.integer  "note_of_sth_id"
-    t.string   "note_of_sth_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "notes", ["note_of_sth_id", "note_of_sth_type"], :name => "index_notes_on_note_of_sth_id_and_note_of_sth_type"
-  add_index "notes", ["user_id"], :name => "index_notes_on_user_id"
 
   create_table "people", :force => true do |t|
     t.datetime "created_at"

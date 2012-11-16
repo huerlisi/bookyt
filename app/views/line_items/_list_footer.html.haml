@@ -1,4 +1,4 @@
 %tr.line_item_total
   %th{:colspan => 2}
-    = link_to 'Neue Position', [:new_line_item, resource.persisted? ? resource : resource.class.name.underscore.pluralize.to_sym], :remote => true, :class => 'btn'
-    = link_to 'Neue Zwischensumme', polymorphic_url([:new_line_item, resource.persisted? ? resource : resource.class.name.underscore.pluralize.to_sym], :klass => 'SaldoLineItem'), :remote => true, :class => 'btn'
+    = link_to t('new_position', scope: 'line_items'), [:new_line_item, resource.persisted? ? resource : resource.class.name.underscore.pluralize.to_sym], :remote => true, :class => 'btn'
+    = link_to t('new_subtotal', scope: 'line_items'), polymorphic_url([:new_line_item, resource.persisted? ? resource : resource.class.name.underscore.pluralize.to_sym], :klass => 'SaldoLineItem'), :remote => true, :class => 'btn'
