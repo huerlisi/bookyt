@@ -6,6 +6,12 @@ GIT
       capistrano
 
 GIT
+  remote: http://github.com./CyTeam/mt940_parser.git
+  revision: 0f4125b4956761ce1b7e01b53fbccd3239a2f29a
+  specs:
+    mt940_parser (1.1.0)
+
+GIT
   remote: http://github.com/huerlisi/PDFKit.git
   revision: e4a8a67a69394be211358b04235bb3ce28a33d52
   specs:
@@ -389,6 +395,7 @@ DEPENDENCIES
   jquery-rails
   ledermann-rails-settings
   lyb_sidebar
+  mt940_parser!
   mysql2
   pdfkit!
   prawn
