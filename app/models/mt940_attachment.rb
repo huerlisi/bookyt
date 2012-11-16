@@ -64,6 +64,9 @@ class Mt940Attachment < Attachment
   end
 
   def to_s
-    "%s: %s - %s" % [account, start_date, end_date]
+    begin
+      "%s: %s - %s" % [account, start_date, end_date]
+    rescue
+    end
   end
 end
