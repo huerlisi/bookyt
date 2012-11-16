@@ -160,7 +160,7 @@ de:
         full_name: Name
     models: 
       attachment: Anhang
-      booking_import: Buchungsimport
+      booking_import: Bankdaten
       booking_template: Buchungsvorlage
       charge_booking_template: "Bedingte Buchungsvorlage"
       charge_rate: "Abgabe Satz"

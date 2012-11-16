@@ -52,6 +52,9 @@ SimpleNavigation::Configuration.run do |navigation|
       accounting.item :profit, t('bookyt.main_navigation.profit'), profit_sheet_tenant_path(current_user.tenant, :by_value_period => params[:by_value_period]),
                       :tooltip => t('bookyt.main_navigation.tooltip.profit'),
                       :highlights_on => /#{Regexp.escape(profit_sheet_tenant_path(current_user.tenant))}($|\?)/
+      accounting.item :divider, "", :class => 'divider'
+      accounting.item :mt940_import, t_title(:import, Mt940Attachment), new_mt940_attachment_path
+      accounting.item :booking_imports, t_title(:import, BookingImport), new_booking_import_path
     end
 
     primary.item :invoicing, t('bookyt.main_navigation.invoicing'), '#',
@@ -70,9 +73,6 @@ SimpleNavigation::Configuration.run do |navigation|
       invoicing.item :divider, "", :class => 'divider'
       invoicing.item :new_esr_file, t('bookyt.main_navigation.new_esr_file'), new_esr_file_path
       invoicing.item :esr_files, t('bookyt.main_navigation.esr_files'), esr_files_path
-      invoicing.item :divider, "", :class => 'divider'
-      invoicing.item :booking_imports, t_title(:new, BookingImport), new_booking_import_path
-
     end
 
     # Hack to get engine navigations included
