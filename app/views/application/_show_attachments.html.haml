@@ -3,7 +3,7 @@
   = boot_no_entry_alert
   .attachments.collection
 - else
-  = render 'attachments/list' unless @attachments.empty?
+  = render 'attachments/list', :collection => @attachments
 
 .form-actions
   = icon_link_to :new, [:new, resource, :attachment], :remote => true

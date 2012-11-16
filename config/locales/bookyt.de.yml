@@ -95,6 +95,7 @@ de:
         title: Bezeichnung
         total_amount: Total
         vat_rate: MWSt.
+      mt940_attachment:
       note: 
         content: Notiz
         created_at: "Erfasst am"
@@ -173,6 +174,7 @@ de:
       expense: Ausgabe
       invoice: Rechnung
       line_item: Position
+      mt940_attachment: MT940 Bankdaten
       note: Notizen
       overview: Übersicht
       person: Person
@@ -333,6 +335,7 @@ de:
       book_manual: "Manuell buchen"
       copy: Kopieren
       filter: Filtern
+      import: Importieren
       letter: Rechnung
       more: Mehr
       only_credit_bookings: "Nur Soll"
@@ -348,6 +351,7 @@ de:
     title: 
       balance_sheet: Bilanz
       copy: "%{model} kopieren"
+      import: "%{model} importieren"
       current: "Aktueller %{model}"
       letter: Brief
       profit_sheet: Erfolgsrechnung
@@ -445,6 +449,9 @@ de:
       x: x
     new_position: "Neue Position"
     new_subtotal: "Neue Zwischensumme"
+  mt940_attachments:
+    new:
+      title: MT940 Bankdaten importieren
   people: 
     index: 
       title: Adressen
