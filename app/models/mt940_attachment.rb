@@ -2,7 +2,7 @@ class Mt940Attachment < Attachment
   def mt940
     return @mt940 if @mt940
 
-    @mt940 = MT940.parse(File.read(file.current_path)).first
+    @mt940 = MT940.parse(File.read(file.current_path, :encoding => self.encoding)).first
   end
 
   def by_class(klass)
