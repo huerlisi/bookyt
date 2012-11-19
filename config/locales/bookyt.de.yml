@@ -100,6 +100,7 @@ de:
         total_amount: Total
         vat_rate: MWSt.
       mt940_attachment:
+      mt940_import:
       note: 
         content: Notiz
         created_at: "Erfasst am"
@@ -179,6 +180,7 @@ de:
       invoice: Rechnung
       line_item: Position
       mt940_attachment: MT940 Bankdaten
+      mt940_import: MT940 Bankdaten
       note: Notizen
       overview: Übersicht
       person: Person

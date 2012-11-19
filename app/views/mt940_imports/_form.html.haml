@@ -1,0 +1,30 @@
+= simple_form_for resource do |f|
+  = f.input :mt940_attachment_id, :as => :hidden
+
+  .row-fluid
+    .span6
+      = f.input :reference
+
+  .row-fluid
+    .span6
+      = f.input :start_date, :as => :date_field
+    .span6
+      = f.input :end_date, :as => :date_field
+
+  .row-fluid
+    .span6
+      = f.association :account
+
+  .row-fluid.form-actions
+    = f.button :submit
+
+  = f.fields_for :bookings do |b|
+    .row-fluid
+      .span3= b.input :value_date, :as => :string, :readonly => true
+      .span6= b.input :title
+      .span3= b.input :amount, :as => :string, :readonly => true
+    .row-fluid
+      .span12= b.input :comments, :input_html => {:class => 'span12', :rows => 2}
+    .row-fluid
+      .span6= b.association :credit_account
+      .span6= b.association :debit_account
