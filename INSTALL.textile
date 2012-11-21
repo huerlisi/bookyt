@@ -2,7 +2,7 @@ We currently support installing on Debian 5.0 Lenny and Ubuntu 12.04 systems.
 
 h2. Install Ruby'n'Rails
 
-Bookyt is developed and tested using Rails 3.2 and both Ruby 1.8 and 1.9.
+Bookyt is developed and tested using Rails 3.2 and Ruby 1.9.3.
 
 Install packages needed:
 
