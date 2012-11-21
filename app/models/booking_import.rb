@@ -3,10 +3,16 @@
 class BookingImport < Attachment
   # Transformation
   # ==============
+  def encoding
+    'ISO-8859-15'
+  end
+
+  def content
+    File.read(file.current_path, :encoding => self.encoding)
+  end
+
   def rows
-    csv = Iconv.iconv('utf-8', 'ISO-8859-1', file.read)[0]
-    
-    CSV.parse(csv, :headers => true, :col_sep => ';')
+    CSV.parse(content, :headers => true, :col_sep => ';')
   end
 
   # Import
