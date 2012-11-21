@@ -1,4 +1,7 @@
 class Attachment < ActiveRecord::Base
+  # Default ordering
+  default_scope order('updated_at DESC')
+
   # Association
   belongs_to :object, :polymorphic => true
 
