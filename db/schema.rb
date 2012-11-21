@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121119111659) do
+ActiveRecord::Schema.define(:version => 20121121124344) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -304,14 +304,14 @@ ActiveRecord::Schema.define(:version => 20121119111659) do
     t.date     "start_date"
     t.date     "end_date"
     t.string   "reference"
-    t.integer  "mt940_attachment_id"
+    t.integer  "booking_import_attachment_id"
     t.integer  "account_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   add_index "mt940_imports", ["account_id"], :name => "index_mt940_imports_on_account_id"
-  add_index "mt940_imports", ["mt940_attachment_id"], :name => "index_mt940_imports_on_mt940_attachment_id"
+  add_index "mt940_imports", ["booking_import_attachment_id"], :name => "index_mt940_imports_on_mt940_attachment_id"
 
   create_table "people", :force => true do |t|
     t.datetime "created_at"

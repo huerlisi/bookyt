@@ -99,7 +99,7 @@ de:
         title: Bezeichnung
         total_amount: Total
         vat_rate: MWSt.
-      mt940_attachment:
+      booking_import_attachment:
       mt940_import:
       note: 
         content: Notiz
@@ -179,7 +179,7 @@ de:
       expense: Ausgabe
       invoice: Rechnung
       line_item: Position
-      mt940_attachment: MT940 Bankdaten
+      booking_import_attachment: Bankdaten
       mt940_import: MT940 Bankdaten
       note: Notizen
       overview: Übersicht
@@ -455,9 +455,9 @@ de:
       x: x
     new_position: "Neue Position"
     new_subtotal: "Neue Zwischensumme"
-  mt940_attachments:
+  booking_import_attachments:
     new:
-      title: MT940 Bankdaten importieren
+      title: Bankdaten importieren
   people: 
     index: 
       title: Adressen

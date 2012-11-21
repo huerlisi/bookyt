@@ -1,6 +1,6 @@
 class Mt940Import < ActiveRecord::Base
   # Attachment
-  belongs_to :mt940_attachment
+  belongs_to :booking_import_attachment
 
   # Records
   has_many :mt940_records, :inverse_of => :mt940_import
@@ -32,7 +32,7 @@ class Mt940Import < ActiveRecord::Base
   def mt940
     return @mt940 if @mt940
 
-    @mt940 = MT940.parse(mt940_attachment.content).first
+    @mt940 = MT940.parse(booking_import_attachment.content).first
   end
 
   def by_class(klass)

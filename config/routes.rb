@@ -165,7 +165,7 @@ Bookyt::Application.routes.draw do
 
   # Booking import
   resources :booking_imports
-  resources :mt940_attachments do
+  resources :booking_import_attachments do
     resource :mt940_import
   end
   resources :mt940_imports

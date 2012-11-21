@@ -1,4 +1,4 @@
-class Mt940Attachment < Attachment
+class BookingImportAttachment < Attachment
   # MT940 Import
   has_many :mt940_imports
 
