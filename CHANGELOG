@@ -2,6 +2,7 @@
 =====
 Bugs fixed:
 * Fix default locale fallback.
+* Only delete bookings generated from line items when destroying invoices.
 
 1.4.4
 =====
