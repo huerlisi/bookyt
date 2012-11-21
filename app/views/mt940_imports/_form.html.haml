@@ -18,13 +18,12 @@
   .row-fluid.form-actions
     = f.button :submit
 
-  = f.fields_for :bookings do |b|
-    .row-fluid
-      .span3= b.input :value_date, :as => :string, :readonly => true
-      .span6= b.input :title
-      .span3= b.input :amount, :as => :string, :readonly => true
-    .row-fluid
-      .span12= b.input :comments, :input_html => {:class => 'span12', :rows => 2}
-    .row-fluid
-      .span6= b.association :credit_account
-      .span6= b.association :debit_account
+  %table.table.table-striped.table-condensed
+    = f.fields_for :bookings do |b|
+      %tr[b.object]
+        %td.value_date= b.object.value_date
+        %td.amount= currency_fmt(b.object.amount)
+        %td.title= b.input :title, :wrapper => :inline
+        %td.comments= b.input :comments, :wrapper => :inline, :input_html => {:rows => 2}
+        %td.credit_account= b.association :credit_account, :wrapper => :inline
+        %td.debit_account= b.association :debit_account, :wrapper => :inline

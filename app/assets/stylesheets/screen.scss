@@ -128,3 +128,10 @@ select {
   background-color: #fff;
   color: #222222
 }
+
+// Bookings
+tr.booking {
+  .amount {
+    text-align: right;
+  }
+}
