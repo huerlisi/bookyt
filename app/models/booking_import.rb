@@ -1,8 +1,6 @@
 # encoding: utf-8
 
 class BookingImport < Attachment
-  require 'csv'
-
   # Transformation
   # ==============
   def rows
