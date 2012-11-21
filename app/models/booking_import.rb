@@ -6,27 +6,12 @@ class BookingImport < Attachment
   # Default ordering
   default_scope order('created_at DESC')
 
-  # Helper
-  def to_s
-    name = I18n::translate(self.class.model_name.underscore, :scope => 'activerecord.models')
-    "%s (%s)" % [name, created_at]
-  end
-
   # Transformation
   # ==============
-  def parser
-    # Use FasterCSV even in Ruby 1.8
-    if CSV.const_defined? :Reader
-      parser = FasterCSV
-    else
-      parser = CSV
-    end
-  end
-
   def rows
     csv = Iconv.iconv('utf-8', 'ISO-8859-1', file.read)[0]
     
-    parser.parse(csv, :headers => true, :col_sep => ';')
+    CSV.parse(csv, :headers => true, :col_sep => ';')
   end
 
   # Import

@@ -8,7 +8,8 @@ class Attachment < ActiveRecord::Base
 
   # String
   def to_s(format = :default)
-    title == nil ? "" : title
+    name = I18n::translate(self.class.model_name.underscore, :scope => 'activerecord.models')
+    "%s (%s)" % [title.presence || name, created_at]
   end
 
   def code(format = :db)
