@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121124344) do
+ActiveRecord::Schema.define(:version => 20121121142852) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -92,6 +92,21 @@ ActiveRecord::Schema.define(:version => 20121121124344) do
 
   add_index "attachments", ["code"], :name => "index_attachments_on_code"
   add_index "attachments", ["object_id", "object_type"], :name => "index_attachments_on_object_id_and_object_type"
+
+  create_table "booking_imports", :force => true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "reference"
+    t.integer  "booking_import_attachment_id"
+    t.integer  "account_id"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.string   "type"
+  end
+
+  add_index "booking_imports", ["account_id"], :name => "index_mt940_imports_on_account_id"
+  add_index "booking_imports", ["booking_import_attachment_id"], :name => "index_mt940_imports_on_mt940_attachment_id"
+  add_index "booking_imports", ["type"], :name => "index_booking_imports_on_type"
 
   create_table "booking_templates", :force => true do |t|
     t.string   "title"
@@ -299,19 +314,6 @@ ActiveRecord::Schema.define(:version => 20121121124344) do
   add_index "line_items", ["item_id", "item_type"], :name => "index_line_items_on_item_id_and_item_type"
   add_index "line_items", ["position"], :name => "index_line_items_on_position"
   add_index "line_items", ["type"], :name => "index_line_items_on_type"
-
-  create_table "mt940_imports", :force => true do |t|
-    t.date     "start_date"
-    t.date     "end_date"
-    t.string   "reference"
-    t.integer  "booking_import_attachment_id"
-    t.integer  "account_id"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-  end
-
-  add_index "mt940_imports", ["account_id"], :name => "index_mt940_imports_on_account_id"
-  add_index "mt940_imports", ["booking_import_attachment_id"], :name => "index_mt940_imports_on_mt940_attachment_id"
 
   create_table "people", :force => true do |t|
     t.datetime "created_at"

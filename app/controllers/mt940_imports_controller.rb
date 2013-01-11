@@ -1,6 +1,4 @@
-class Mt940ImportsController < AuthorizedController
-  belongs_to :booking_import_attachment, :optional => true
-
+class Mt940ImportsController < BookingImportsController
   before_filter :only => :new do
     resource.parse
   end

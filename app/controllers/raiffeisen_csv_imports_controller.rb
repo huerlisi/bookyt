@@ -1,0 +1,2 @@
+class RaiffeisenCsvImportsController < BookingImportsController
+end

@@ -25,6 +25,9 @@ de:
       booking_import: 
         created_at: "Importiert am"
         csv: CSV-Datei
+        type_enum:
+          Mt940Import: MT940 Bankdaten
+          RaiffeisenCsvImport: Raiffeisen CSV Bankdaten
       booking_template: 
         amount_relates_to: "Relativ zu"
         charge_rate_code: Abgabesatz

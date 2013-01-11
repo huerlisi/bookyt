@@ -165,10 +165,9 @@ Bookyt::Application.routes.draw do
 
   # Booking import
   resources :booking_imports
-  resources :booking_import_attachments do
-    resource :mt940_import
-  end
+  resources :booking_import_attachments
   resources :mt940_imports
+  resources :raiffeisen_csv_imports
 
   # Settings
   resources "settings" do

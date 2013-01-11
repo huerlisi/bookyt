@@ -6,4 +6,8 @@ module AttachmentHelper
   def encoding_collection
     t('activerecord.attributes.attachment.encoding_enum').invert
   end
+
+  def booking_import_type_collection
+    t('activerecord.attributes.booking_import.type_enum').invert
+  end
 end

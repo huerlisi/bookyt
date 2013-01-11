@@ -4,6 +4,12 @@
       = f.input :file, :as => :file
     .span6
       = f.input :encoding, :collection => encoding_collection
+  = f.fields_for :booking_import do |i|
+    .row-fluid
+      .span6
+        = i.input :type, :collection => booking_import_type_collection
+      .span6
+        = i.association :account
 
     - if parent?
       - if parent
@@ -13,4 +19,5 @@
       - else
         = f.input :object, :collection => parent_class.all
 
-  = f.button :submit
+  .form-actions
+    = f.button :submit

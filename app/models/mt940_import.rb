@@ -1,22 +1,10 @@
-class Mt940Import < ActiveRecord::Base
-  # Attachment
-  belongs_to :booking_import_attachment
-
+class Mt940Import < BookingImport
   # Records
   has_many :mt940_records, :inverse_of => :mt940_import
 
   # Account
-  belongs_to :account
   def account_identifier
     by_class(MT940::AccountIdentification).first.account_identifier
-  end
-
-  # String helper
-  def to_s
-    begin
-      "%s: %s - %s" % [account, start_date, end_date]
-    rescue
-    end
   end
 
   # Parsing
@@ -40,9 +28,6 @@ class Mt940Import < ActiveRecord::Base
   end
 
   # Bookings
-  has_many :bookings, :as => :template
-  accepts_nested_attributes_for :bookings
-  
   def build_bookings
     todo_account = Account.find_by_code('1080')
     booking = nil
@@ -70,8 +55,10 @@ class Mt940Import < ActiveRecord::Base
 
       if line.class == MT940::InformationToAccountOwner
         narrative = line.narrative
-        narrative[0].match(/BENM\/(.*)/)
+        narrative[0].match(/REMI\/(.*)/)
         booking.comments = $1
+        narrative[0].match(/BENM\/(.*)/)
+        booking.comments ||= $1
       end
     end
   end

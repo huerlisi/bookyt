@@ -1,50 +1,26 @@
 # encoding: utf-8
 
-class BookingImport < Attachment
-  # Transformation
-  # ==============
-  def encoding
-    'ISO-8859-15'
-  end
+class BookingImport < ActiveRecord::Base
+  # Access Restrictions
+  attr_accessible :type, :account_id, :reference, :start_date, :end_date
 
-  def content
-    File.read(file.current_path, :encoding => self.encoding)
-  end
+  # Attachment
+  belongs_to :booking_import_attachment
+  attr_accessible :booking_import_attachment_id
 
-  def rows
-    CSV.parse(content, :headers => true, :col_sep => ';')
-  end
+  # Account
+  belongs_to :account
 
-  # Import
-  after_create :start_import
+  # Bookings
+  has_many :bookings, :as => :template
+  accepts_nested_attributes_for :bookings
+  attr_accessible :bookings_attributes
 
-  def start_import
-    booking = nil
-
-    rows.each do |row|
-      if row['Booked At']
-        booking = Booking.new(
-          :value_date => row['Valuta Date'],
-          :amount     => row['Credit/Debit Amount'],
-          :title      => row['Text']
-        )
-
-        if booking.amount < 0
-          # Outgoing payment
-          booking.credit_account = Account.find_by_code('1080')
-          booking.debit_account = Account.find_by_code('1020')
-          booking.amount = -booking.amount
-        else
-          # Incomming payment
-          booking.credit_account = Account.find_by_code('1020')
-          booking.debit_account = Account.find_by_code('1080')
-        end
-      else
-        booking.comments = row['Text']
-      end
-
-      # Save booking, raise exception if something fails
-      booking.save!
+  # String helper
+  def to_s
+    begin
+      "%s: %s - %s" % [account, start_date, end_date]
+    rescue
     end
   end
 end
