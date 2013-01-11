@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 
 # Rails
 # =====
-gem 'rails', '~> 3.2.0'
+gem 'rails'
 gem 'unicorn'
 
 # Database
