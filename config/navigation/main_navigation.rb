@@ -54,7 +54,6 @@ SimpleNavigation::Configuration.run do |navigation|
                       :highlights_on => /#{Regexp.escape(profit_sheet_tenant_path(current_user.tenant))}($|\?)/
       accounting.item :divider, "", :class => 'divider'
       accounting.item :mt940_import, t_title(:import, BookingImportAttachment), new_booking_import_attachment_path
-      accounting.item :booking_imports, t_title(:import, BookingImport), new_booking_import_path
     end
 
     primary.item :invoicing, t('bookyt.main_navigation.invoicing'), '#',
