@@ -32,9 +32,27 @@ module BootstrapHelper
     content_tag(:span, content, :class => classes)
   end
 
+  # Modal
+  # =====
+  def modal_header(title)
+    content_tag(:div, :class => 'modal-header') do
+      content_tag(:button, '&times;'.html_safe, :type => 'button', :class => 'close', 'data-dismiss' => 'modal') +
+      content_tag(:h3, title)
+    end
+  end
+
   # Messages
   # ========
-  def boot_alert(content, type = 'info')
+  def boot_alert(*args, &block)
+    if block_given?
+      type = args[0]
+      content = capture(&block)
+    else
+      content = args[0]
+      type    = args[1]
+    end
+
+    type ||= 'info'
     content_tag(:div, :class => "alert alert-block alert-#{type} fade in") do
       link_to('&times;'.html_safe, '#', :class => 'close', 'data-dismiss' => 'alert') + content
     end
