@@ -1,0 +1,42 @@
+application = "<%= "#{client}.#{domain}" %>"
+environment = "<%= rails_env %>"
+shared_dir  = "<%= shared_path %>"
+current_dir = "<%= current_path %>"
+
+ENV["RAILS_ENV"] = environment
+
+Bluepill.application(application, :log_file => "#{shared_dir}/log/bluepill.log") do |app|
+  app.working_dir = current_dir
+
+  app.process("#{application}: unicorn") do |process|
+    process.pid_file = "#{shared_dir}/pids/unicorn.pid"
+
+    process.start_command = "/usr/local/bin/bundle exec unicorn -c #{current_dir}/config/unicorn.rb -E #{environment} -D"
+    process.stop_command = "kill -QUIT {{PID}}"
+    process.restart_command = "kill -USR2 {{PID}}"
+
+    process.start_grace_time = 30.seconds
+    process.stop_grace_time = 30.seconds
+    process.restart_grace_time = 30.seconds
+
+
+    process.monitor_children do |child_process|
+      child_process.stop_command = "kill -QUIT {{PID}}"
+
+      child_process.checks :mem_usage, :every => 30.seconds, :below => 200.megabytes, :times => [3,4], :fires => :stop
+      child_process.checks :cpu_usage, :every => 30.seconds, :below => 40, :times => [3,4], :fires => :stop
+    end
+  end
+
+  app.process("#{application}: sphinx") do |process|
+    process.pid_file = "#{shared_dir}/pids/searchd.#{environment}.pid"
+
+    process.start_command = "/usr/local/bin/bundle exec rake ts:start"
+
+    process.start_grace_time = 30.seconds
+    process.stop_grace_time = 30.seconds
+    process.restart_grace_time = 30.seconds
+  end
+end
+
+

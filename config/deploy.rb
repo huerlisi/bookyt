@@ -9,7 +9,7 @@ require 'capones_recipes/tasks/thinking_sphinx'
 require 'capones_recipes/tasks/email'
 require 'capones_recipes/tasks/carrier_wave'
 require 'capones_recipes/tasks/sync'
-require 'capistrano-unicorn'
+require 'capones_recipes/tasks/bluepill'
 
 load 'deploy/assets'
 
