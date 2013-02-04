@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/sosedoff/capistrano-unicorn.git
-  revision: bafc12cd8235307d30b5c85259914d17c5ece2d3
-  specs:
-    capistrano-unicorn (0.1.6)
-      capistrano
-
-GIT
   remote: http://github.com./CyTeam/mt940_parser.git
   revision: 0f4125b4956761ce1b7e01b53fbccd3239a2f29a
   specs:
@@ -76,7 +69,7 @@ GEM
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     capistrano_colors (0.5.5)
-    capones_recipes (1.17.0)
+    capones_recipes (1.18.0)
       cap-recipes
       capistrano
       capistrano-ext
@@ -369,7 +362,6 @@ DEPENDENCIES
   bookyt_stock
   bootstrap-will_paginate
   cancan
-  capistrano-unicorn!
   capones_recipes
   capybara
   carrierwave
