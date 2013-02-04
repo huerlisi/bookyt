@@ -1,3 +1,11 @@
+1.4.6
+=====
+This is a security update fixing a critical issue, you should update
+as soon as possible!
+
+If you do not update, attackers might work around access restrictions.
+Take it seriously!
+
 1.4.5
 =====
 This is a security update fixing an extremely critical issue, you should
