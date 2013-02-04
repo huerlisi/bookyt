@@ -1,6 +1,33 @@
-1.4.6 (unreleased)
+1.5.0
 =====
-Bugs fixed:
+We provide a major rework of the Bank Statement importer. It's now possible
+to import some MT940 attachments. Please report back if your Bank's statement
+is not yet supported.
+
+* IRC:         freenode.net #bookyt
+* Github:      http://github.com/huerlisi/bookyt
+* Mailinglist: http://groups.google.com/group/bookyt
+* Mail:        info@cyt.ch
+
+This is the first version that drops support for Ruby 1.8.7. Please use
+Ruby 1.9.3 now. We might revert these changes if someone helps us with keeping
+1.8.7 support;-)
+
+We reworked our internal deployment at CyT and now use Unicorn, Bluepill, and
+capistrano. We checked in some files to support that. Just ask if you'd like to
+use those. We might add some words about it in the readme...
+
+There's lots of minor bugs fixed and features implemented:
+* Show IBAN field in bank account form.
+* Document Ruby 1.9.3 as only runtime.
+* Better default title for attachments.
+* Add default ordering descending updated_at for Attachment.
+* Preset encoding to ISO-8859-15 for booking import attachments.
+* Drop title field in booking import attachment form.
+* Allow setting encoding on mt940 attachments.
+* Move booking import actions to accounting submenu; add mt940 booking import action.
+* Major refactoring of MT940 importer.
+* Security update for devise.
 * Fix default locale fallback.
 * Only delete bookings generated from line items when destroying invoices.
 
