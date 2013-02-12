@@ -1,3 +1,19 @@
+1.5.1
+=====
+This is yet another security update fixing a critical issue. You should update
+as soon as possible!
+
+If you do not update, attackers might work around access restrictions, run code
+on your webservers and much more. Take it seriously!
+
+There's been a number of security updates in the last few weeks. This is the
+result of a critical view on some parts of the underlying framework Ruby on Rails.
+While the high number of issues is disturbing, it is also a sign that the
+framework is actually reviewed and flaws are found and fixed.
+
+There is also a point release 1.4.7 for those who stay on Ruby 1.8 or like to stay
+on Bookyt 1.4 for some reason.
+
 1.5.0
 =====
 We provide a major rework of the Bank Statement importer. It's now possible
