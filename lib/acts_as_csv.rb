@@ -1,5 +1,4 @@
 require "fastercsv"
-require "iconv"
 
 # Excel info from: http://blog.plataformatec.com.br/2009/09/exporting-data-to-csv-and-excel-in-your-rails-app/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed:+PlataformaBlog+(Plataforma+Blog)
 # Original post: http://www.brynary.com/2007/4/28/export-activerecords-to-csv
