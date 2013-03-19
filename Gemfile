@@ -44,26 +44,18 @@ group :development do
 
   # Debugger
   gem 'ruby-debug', :platforms => :ruby_18
-#  gem 'ruby-debug19', :platforms => :ruby_19
 end
 
 group :test, :development do
   # Framework
   gem 'rspec-rails'
 
-  # Integration
-  # gem 'cucumber-rails'
-  # gem 'cucumber'
-
-    # Matchers/Helpers
+  # Matchers/Helpers
   gem 'shoulda-matchers'
 
   # Fixtures
   gem 'factory_girl_rails'
   gem 'factory_girl', '< 3.0.0' # For ruby 1.8
-
-  # Mocking
-  # gem 'mocha'
 
   # Browser
   gem 'capybara'
@@ -76,7 +68,6 @@ group :test, :development do
   gem 'spork-rails'
 
   gem 'database_cleaner'
-  gem 'rspec-instafail'
 end
 
 group :tools do
