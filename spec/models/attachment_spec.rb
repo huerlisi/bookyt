@@ -8,13 +8,13 @@ describe Attachment do
   context "when new" do
     specify { should_not be_valid }
 
-    its(:to_s) { should == "" }
+    its(:to_s) { should == "Anhang ()" }
   end
 
   context "when file is nil" do
     before(:all) { subject.file = nil }
 
-    its(:to_s) { should == "" }
+    its(:to_s) { should == "Anhang ()" }
   end
 
   context "when properly initialized" do
