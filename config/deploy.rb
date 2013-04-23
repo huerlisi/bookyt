@@ -30,3 +30,16 @@ set :use_sudo, false
 set :deploy_via, :remote_cache
 set :git_enable_submodules, 1
 set :copy_exclude, [".git", "spec"]
+
+# Dependencies
+depend :remote, :gem, 'bundler', '> 0'
+depend :remote, :gem, 'bluepill', ''
+
+# Headers for gem compilation
+depend :remote, :deb, "build-essential", ''
+depend :remote, :deb, "ruby1.9.1-dev", ''
+depend :remote, :deb, "libmysqlclient-dev", ''
+depend :remote, :deb, "libsqlite3-dev", ''
+depend :remote, :deb, "libxml2-dev", ''
+depend :remote, :deb, "libxslt1-dev", ''
+depend :remote, :deb, "sphinxsearch", ''
