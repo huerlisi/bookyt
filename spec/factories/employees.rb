@@ -5,7 +5,5 @@ FactoryGirl.define do
     vcard
   end
 
-  factory :employee, :parent => :person_vcard, :class => Employee do
-    notes {|notes| [notes.association(:note), notes.association(:note)]}
-  end
+  factory :employee, :parent => :person_vcard, :class => Employee
 end
