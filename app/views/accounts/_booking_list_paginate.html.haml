@@ -1,5 +1,0 @@
-%tr
-  - ## TODO: See http://groups.google.com/group/will_paginate/browse_thread/thread/5d702999d78e47e5
-  - url_params = {:controller => 'accounts', :action => 'show', :id => params[:account_id] || params[:id]}
-  %th{:colspan => "6", :style => "text-align: right"}= will_paginate @bookings, :params => url_params.merge(:query => params[:query])
-  %th
