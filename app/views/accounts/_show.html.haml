@@ -1,12 +1,10 @@
 .tabbable
   %ul.nav.nav-tabs  
     %li.active= link_to t_title(:journal, Account), '#tab-bookings', {:data => {:toggle => 'tab'}}
-    %li= link_to t_title(:edit_bookings, Account), '#edit-bookings', {:data => {:toggle => 'tab'}}
     %li= link_to t_title(:info, Account), '#tab-info', {:data => {:toggle => 'tab'}}
     %li= link_to t_title(:list, Attachment), '#tab-attachments', {:data => {:toggle => 'tab'}}
 
 .tab-content
   #tab-bookings.tab-pane.active= render 'show_bookings'
-  #edit-bookings.tab-pane= render 'edit_bookings'
   #tab-info.tab-pane= render "form"
   #tab-attachments.tab-pane= render 'show_attachments'
