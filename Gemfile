@@ -17,7 +17,6 @@ group :assets do
   gem 'sass-rails'
   gem 'sprockets'
   gem 'coffee-rails'
-  gem 'therubyracer'
   gem 'uglifier'
   gem 'compass-rails'
   gem 'fancy-buttons'
@@ -84,7 +83,7 @@ gem 'simple-navigation'
 
 # Styling
 gem 'lyb_sidebar'
-gem 'twitter-bootstrap-rails'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
 gem 'bootstrap-will_paginate'
 
 # Form framework
