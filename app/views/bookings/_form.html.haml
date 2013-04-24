@@ -1,28 +1,29 @@
 = simple_form_for @booking do |f|
-  .row-fluid
-    .span6
-      = f.input :title, :input_html => {"data-autofocus" => true}
-    .span6
-      = f.input :value_date, :as => :date_field
-  .row-fluid
-    .span6
-      = f.input :amount, :as => :string, :input_html => {:size => 12}
-    .span6
-      = f.input :code
+  .form-inputs
+    .row-fluid
+      .span6
+        = f.input :title, :input_html => {"data-autofocus" => true}
+      .span6
+        = f.input :value_date, :as => :date_field
+    .row-fluid
+      .span6
+        = f.input :amount, :as => :string, :input_html => {:size => 12}
+      .span6
+        = f.input :code
 
-  .row-fluid
-    .span6
-      = f.association :credit_account, :collection => accounts_as_collection(Account.all), :as => :combobox
-    .span6
-      = f.association :debit_account, :collection => accounts_as_collection(Account.all), :as => :combobox
+    .row-fluid
+      .span6
+        = f.association :credit_account, :collection => accounts_as_collection(Account.all), :as => :combobox
+      .span6
+        = f.association :debit_account, :collection => accounts_as_collection(Account.all), :as => :combobox
 
-  .row-fluid
-    .span12
-      = f.input :comments, :input_html => {:rows => 4}
+    .row-fluid
+      .span12
+        = f.input :comments, :input_html => {:rows => 4}
 
-  .row-fluid
-    .span12
-      = f.input :reference_type, :as => :hidden, :input_html => {:value => 'Invoice'}
-      = f.association :reference, :collection => suggested_invoices_for_booking(@booking, :include_all => true), :as => :combobox, :include_blank => true
-
-  = f.button :submit
+    .row-fluid
+      .span12
+        = f.input :reference_type, :as => :hidden, :input_html => {:value => 'Invoice'}
+        = f.association :reference, :collection => suggested_invoices_for_booking(@booking, :include_all => true), :as => :combobox, :include_blank => true
+  .form-actions
+    = f.button :submit
