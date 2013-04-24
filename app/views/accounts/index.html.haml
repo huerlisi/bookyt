@@ -1,9 +1,14 @@
 = contextual_links
 = boot_page_title
+
 %table.table.table-striped.accounts.collection
   %thead
-    = render 'list_header'
+    %tr
+      %th= t_attr(:code, Account)
+      %th= t_attr(:title, Account)
+      %th{:style => "text-align: right"}= t_attr(:saldo, Account)
+      %th.action-links
   %tbody
-    = render @accounts
+    = render collection
 
 = render 'bookings/sidebar'

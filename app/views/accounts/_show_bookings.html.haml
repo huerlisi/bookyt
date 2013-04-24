@@ -3,7 +3,14 @@
 = paginated_section @bookings, :params => url_params.merge(:query => params[:query]) do
   %table.table.table-striped.bookings.collection
     %thead
-      = render 'accounts/booking_list_header'
+      %tr
+        %th= t_attr :date, Booking
+        %th= t_attr :text, Booking
+        %th= t_attr :reference, Booking
+        %th.currency= t_attr :credit_account, Booking
+        %th.currency= t_attr :debit_account, Booking
+        %th.currency= t_attr :balance, Booking
+        %th.action-links.count-3
       - @saldo = @account.saldo(@carry_booking, false)
     %tbody
       = render 'accounts/carry_booking' unless @saldo == 0
