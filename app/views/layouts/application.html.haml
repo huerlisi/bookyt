@@ -1,14 +1,11 @@
-!!! 5
-%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+!!!
+%html
   %head
-    %meta{:charset => 'utf-8'}/
-    %meta{:content => "Simon Huerlimann &lt;simon.huerlimann@cyt.ch&gt;", :name => "author"}/
-
     %link{:rel => "shortcut icon", :href => image_path('favicon.ico')}/
 
-    = stylesheet_link_tag 'application', :media => 'screen, projection, print'
+    = stylesheet_link_tag 'application', :media => 'all'
     = engine_stylesheet_link_tag :media => 'screen, projection, print'
-    = stylesheet_link_tag 'print', :media => 'print'
+    = javascript_include_tag "application"
 
     = csrf_meta_tag
     %title
@@ -20,19 +17,14 @@
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
-          %a.btn.btn-navbar{"data-toggle" => "collapse", "data-target" => ".nav-collapse"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
           = link_to root_path, :class => 'brand' do
             book<span id="logo-yt">yt</span>
-          .nav-collapse
-            = render_navigation(:context => :main, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
-            - if user_signed_in?
-              = form_tag "/search", :method => :get, :class => "navbar-search pull-left" do
-                = text_field_tag "query", params[:query], :placeholder => t('placeholder.search'), :class => "search-query"
-            .pull-right      
-              = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
+          = render_navigation(:context => :main, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
+          - if user_signed_in?
+            = form_tag "/search", :method => :get, :class => "navbar-search pull-left" do
+              = text_field_tag "query", params[:query], :placeholder => t('placeholder.search'), :class => "search-query"
+          .pull-right
+            = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
     .container-fluid
       .row-fluid
         .span2
@@ -46,13 +38,11 @@
               = boot_alert(alert, 'error')
             = yield
 
-    %footer.footer
-      .container-fluid
+    #footer
+      .container
         %p.pull-right
           = link_to "Deutsch", :locale => 'de-CH'
           = link_to "English", :locale => 'en'
         %p
           Bookyt is built by <a href="http://cyt.ch" target="_blank">CyT GmbH</a>.
           Code licensed under the <a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank">GNU AGPL 3</a>.
-
-    = javascript_include_tag "application"
