@@ -80,7 +80,7 @@ describe UsersController do
       it "can update itself with correct current_password" do
         user = @current_user
         new_password = '1234567890'
-        current_password = 'accountant1234'
+        current_password = @current_user.password
         put :update, {:id => user.id, :user => {:password => new_password, :password_confirmation => new_password, :current_password => current_password}}
 
         user = assigns(:user)

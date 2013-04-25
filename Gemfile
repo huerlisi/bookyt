@@ -63,15 +63,18 @@ group :test, :development do
   gem 'rcov', :platforms => :ruby_18
   gem 'simplecov', :require => false, :platforms => :ruby_19
 
-  # Spork
-  gem 'spork-rails'
-
   gem 'database_cleaner'
 end
 
 group :tools do
-  gem 'guard-spork'
+  # Zeus
+  gem 'zeus'
+
+  # Guard
   gem 'guard-rspec'
+  gem 'guard-zeus'
+
+  gem 'rb-inotify'
 end
 
 # Standard helpers

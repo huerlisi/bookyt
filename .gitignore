@@ -36,6 +36,9 @@ config/sphinx/
 # Carrierwave
 uploads/
 
+# guard
+tmp/rspec_guard_result
+
 # Bookyt Data
 # ===========
 public/booking_imports
