@@ -1,3 +1,20 @@
+1.5.4 (unreleased)
+=====
+This is a polishing release. We will drop some functionality to get everything
+polished. Speak up if you need one of those features. We'll move it up in
+our priority queue then;-)
+
+Dropped Features:
+* Batch editing of bookings in account view.
+
+Fixes:
+* Add encoding hint to de-CH seed.
+
+Development Features:
+* Add dependency checks to deploy.rb.
+* Refactor test suite to use zeus instead of sport and fix some specs.
+* Drop support for Ruby 1.8.7 in travis config.
+
 1.5.3
 =====
 This is a security update. Everyone is advised to update.
