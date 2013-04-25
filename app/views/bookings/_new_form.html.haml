@@ -1,5 +1,0 @@
-= simple_form_for @booking, :url => select_bookings_path do |f|
-  = hidden_field_tag :stage, 'select'
-  = f.input :title, :input_html => {'data-autofocus' => true}
-  = f.input :value_date, :as => :date_field, :input_html => {:size => 10, :style => 'text-align: right'}
-  = f.button :submit
