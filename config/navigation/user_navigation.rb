@@ -17,8 +17,6 @@ SimpleNavigation::Configuration.run do |navigation|
       settings.item :account_types,             t('bookyt.settings.account_types.title'), account_types_path
       settings.item :booking_templates,         t('bookyt.settings.booking_templates.title'), booking_templates_path
       settings.item :divider_four,              "", :class => 'divider'
-      settings.item :project_states, t_model(ProjectState), project_states_path, :highlights_on => /\/project_states($|\/([0-9]*|new)($|\/.*))/ 
-      settings.item :divider_five,             "", :class => 'divider'
       settings.item :logout,                    t('bookyt.main_navigation.destroy_user_session'), destroy_user_session_path, :method => :delete, :highlights_on => /\/users\/sign_out/, :if => Proc.new { user_signed_in? }
     end
 
