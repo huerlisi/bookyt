@@ -8,6 +8,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require twitter/bootstrap
+//= require select2
 //= require accounting
 //= require accounting-jquery
 //= require_tree .
@@ -246,6 +247,11 @@ function initializeBehaviours() {
       placement: 'right'
     });
   })
+
+  // select2
+  $('.select2').select2({
+      allowClear: true
+  });
 }
 
 // Loads functions after DOM is ready

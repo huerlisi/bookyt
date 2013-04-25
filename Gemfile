@@ -91,6 +91,7 @@ gem 'bootstrap-will_paginate'
 
 # Form framework
 gem 'simple_form'
+gem 'select2-rails'
 
 # CRUD
 gem 'will_paginate'
