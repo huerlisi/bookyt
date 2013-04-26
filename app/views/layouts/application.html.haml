@@ -18,17 +18,16 @@
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
-        .container
+        .container-fluid
           = link_to root_path, :class => 'brand' do
             = t('application.title')
 
           = render_navigation(:context => :main, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
+          = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
           - if user_signed_in?
             = form_tag "/search", :method => :get, :class => "navbar-search pull-left" do
               = text_field_tag "query", params[:query], :placeholder => t('placeholder.search'), :class => "search-query"
-          .pull-right
-            = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
-            %div= render 'users/user_bar'
+          %div= render 'users/user_bar'
 
     #content.container-fluid
       .row-fluid
