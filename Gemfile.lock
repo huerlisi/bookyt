@@ -181,6 +181,7 @@ GEM
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
     lumberjack (1.0.3)
+    lyb_devise_admin (0.3.6)
     lyb_sidebar (0.1.1)
       rails (~> 3.1)
     mail (2.5.3)
@@ -389,6 +390,7 @@ DEPENDENCIES
   inherited_resources
   jquery-rails
   ledermann-rails-settings
+  lyb_devise_admin
   lyb_sidebar
   mt940_parser!
   mysql2

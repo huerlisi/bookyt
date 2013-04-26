@@ -103,6 +103,7 @@ gem 'responders'
 # Access Control
 gem 'devise'
 gem 'cancan'
+gem 'lyb_devise_admin'
 
 # Date/Time handling
 gem 'validates_timeliness'

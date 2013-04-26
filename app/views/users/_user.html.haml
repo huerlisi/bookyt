@@ -1,7 +1,0 @@
-%tr[user]
-  %td= link_to user, user, {'data-href-container' => 'tr'}
-  %td= user.email
-  %td= user.roles.map{|role| t(role.name, :scope => 'cancan.roles')}.join(', ')
-  %td= user.created_at.to_date
-
-  = list_item_actions_for(user)
