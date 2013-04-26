@@ -16,6 +16,7 @@ class ComboboxInput < SimpleForm::Inputs::CollectionSelectInput
   end
 
   def input
+    input_html_classes.push 'span'
     super + link_fragment
   end
 end

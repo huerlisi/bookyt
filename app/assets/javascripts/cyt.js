@@ -1,6 +1,8 @@
 // Combobox
 function addComboboxBehaviour() {
-  $("select.combobox").combobox();
+  $("select.combobox").select2({
+    allowClear: true
+  });
 }
 
 // Autofocus element having attribute data-autofocus

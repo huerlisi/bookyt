@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121142852) do
+ActiveRecord::Schema.define(:version => 20130425131957) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -252,6 +252,12 @@ ActiveRecord::Schema.define(:version => 20121121142852) do
   add_index "esr_records", ["booking_id"], :name => "index_esr_records_on_booking_id"
   add_index "esr_records", ["esr_file_id"], :name => "index_esr_records_on_esr_file_id"
   add_index "esr_records", ["invoice_id"], :name => "index_esr_records_on_invoice_id"
+
+  create_table "honorific_prefixes", :force => true do |t|
+    t.integer "sex"
+    t.string  "name"
+    t.integer "position"
+  end
 
   create_table "invoices", :force => true do |t|
     t.integer  "customer_id"
