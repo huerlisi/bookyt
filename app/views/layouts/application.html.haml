@@ -30,13 +30,13 @@
           %div= render 'users/user_bar'
 
     #content.container-fluid
+      - if notice
+        = boot_alert(notice, 'success')
+      - if alert
+        = boot_alert(alert, 'error')
       .row-fluid
         .span10
           .content
-            - if notice
-              = boot_alert(notice, 'success')
-            - if alert
-              = boot_alert(alert, 'error')
             = yield
         .span2
           .sidebar.well= render_sidebars
