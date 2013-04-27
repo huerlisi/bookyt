@@ -29,6 +29,10 @@ class BookingsController < AuthorizedController
     render :action => 'simple_edit'
   end
 
+  def simple_edit
+    new!
+  end
+
   def select
     @booking = Booking.new(params[:booking])
     increment_booking_code
