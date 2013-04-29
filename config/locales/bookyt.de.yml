@@ -1,20 +1,20 @@
 # Translation file for Bookyt.
---- 
-de: 
-  accounts: 
-    edit_bookings: 
+---
+de:
+  accounts:
+    edit_bookings:
       title: Buchungen
-    index: 
+    index:
       title: Konten
-    info: 
+    info:
       title: Kontodaten
-    journal: 
+    journal:
       title: Auszug
-  activerecord: 
-    attributes: 
-      attachment: 
+  activerecord:
+    attributes:
+      attachment:
         code: "Verwenden als"
-        code_enum: 
+        code_enum:
           DebitInvoiceDocument: Rechnungsvorlage
           LetterDocument: Briefvorlage
         encoding: Zeichensatz
@@ -22,20 +22,20 @@ de:
           ISO-8859-15: ISO-8859-15
           UTF-8: UTF-8
         file: Dateiname
-      booking_import: 
+      booking_import:
         created_at: "Importiert am"
         csv: CSV-Datei
         type_enum:
           Mt940Import: MT940 Bankdaten
           RaiffeisenCsvImport: Raiffeisen CSV Bankdaten
-      booking_template: 
+      booking_template:
         amount_relates_to: "Relativ zu"
         charge_rate_code: Abgabesatz
         credit_account: Soll
         debit_account: Haben
         reference: Referenz
         value_date: Valutadatum
-      charge_rate: 
+      charge_rate:
         code: Code
         duration: Gültigkeit
         duration_from: "Gültig ab"
@@ -43,7 +43,7 @@ de:
         person: Person
         rate: Satz
         relative: Relativ
-      day: 
+      day:
         calculate: Ausrechnen
         card_turnover: Kreditkartenumsatz
         cash: Bargeldumsatz
@@ -56,11 +56,11 @@ de:
         net_turnover: Nettoumsatz
         product_count: "Verkaufte Produkte"
         total: Total
-      employee: 
+      employee:
         social_security_nr: AHV-Nr.
         social_security_nr_12: "Alte AHV-Nr."
         ssn: AHV-Nr.
-      employment: 
+      employment:
         daily_workload: "Tagesarbeitszeit (h)"
         duration_from: Anfang
         duration_to: Ende
@@ -76,7 +76,7 @@ de:
         sunday_premium: "Sonntagarbeitszuschlag (%)"
         temporary: Temporär
         workload: "Pensum (%)"
-      invoice: 
+      invoice:
         balance: Saldo
         balance_account: Bilanzkonto
         biller: "Zugunsten von:"
@@ -94,7 +94,7 @@ de:
         remarks: "Interne Bemerkungen"
         text: Rechnungstext
         value_date: Rechnungsdatum
-      line_item: 
+      line_item:
         accounted_amount: Betrag
         price: Betrag
         quantity: Einheit
@@ -104,12 +104,12 @@ de:
         vat_rate: MWSt.
       booking_import_attachment:
       mt940_import:
-      note: 
+      note:
         content: Notiz
         created_at: "Erfasst am"
         updated_at: "Letzte Änderung"
         user: Verfasser
-      person: 
+      person:
         civil_status: Zivilstand
         country_name: Land
         date_of_birth: Geburtsdatum
@@ -124,14 +124,14 @@ de:
         sex: Geschlecht
         street_address: Strasse
         type: Typ
-      salary: 
+      salary:
         amount: Bruttolohn
         bvg_amount: BVG
         company: Arbeitnehmer
         customer: Arbeitgeber
         net_amount: Nettolohn
         social_amount: AHV/IV/EO/ALV/NBU
-      tenant: 
+      tenant:
         ahv_number: "AHV Abrechnungsnr."
         company: Firma
         fiscal_year_ends_on: "Ende des 1. Fiskaljahres"
@@ -142,7 +142,7 @@ de:
         use_vesr: "VESR für Debitoren-Rechnungen"
         users: Benutzer
         vat_number: MwSt.-Nummer
-      user: 
+      user:
         country_name: Land
         created_at: "Registriert seit"
         current_password: "Aktuelles Passwort"
@@ -164,9 +164,9 @@ de:
         roles: Rollen
         sex: Geschlecht
         street_address: Strasse
-      vcard: 
+      vcard:
         full_name: Name
-    models: 
+    models:
       attachment: Anhang
       booking_import: Bankdaten
       booking_template: Buchungsvorlage
@@ -192,14 +192,14 @@ de:
       setting: Einstellungen
       tenant: Mandant
       user: Benutzer
-  alerts: 
+  alerts:
     empty: "Keine Einträge vorhanden."
-  application: 
+  application:
     title: Bookyt
-  attachments: 
-    list: 
+  attachments:
+    list:
       title: Dokumente
-  attributes: 
+  attributes:
     amount: Betrag
     comments: Bemerkungen
     date: Datum
@@ -207,22 +207,22 @@ de:
     remarks: Bemerkungen
     state: Status
     title: Titel
-  booking_imports: 
-    new: 
+  booking_imports:
+    new:
       title: "Buchungen importieren"
-  booking_template: 
-    relation: 
+  booking_template:
+    relation:
       reference_amount: "Ursprünglicher Betrag"
       reference_amount_minus_balance: "Differenz Betrag"
       reference_balance: "Aktueller Saldo"
-  bookings: 
-    BookingTemplate: 
+  bookings:
+    BookingTemplate:
       title: "Neue Buchung"
-    index: 
+    index:
       title: Journal
-    new: 
+    new:
       title: "Buchung erfassen"
-  bookyt: 
+  bookyt:
     all: Alle
     assets: Aktiva
     back: Zurück
@@ -239,10 +239,10 @@ de:
     edit: Editieren
     equity_capital: Eigenkapital
     greetings: "Mit freundlichen Grüssen,"
-    invoices: 
+    invoices:
       invoicing_party: Rechnungssteller
       payment_no: "Rechnung Nr. %{payment_no}"
-    main_navigation: 
+    main_navigation:
       account_types: Kontenarten
       accounting: Buchhaltung
       accounts: Konten
@@ -267,7 +267,7 @@ de:
       profit: Erfolgsrechnung
       settings: Einstellungen
       store: Laden
-      tooltip: 
+      tooltip:
         account_types: "Zeigt eine Liste aller Kontentypen (Anlagevermögen, Umlaufvermögen, ...)"
         accounting: "Hier finden Sie sämtliche Funktionen für die Finanzbuchhaltung"
         accounts: "Hier finden Sie eine Liste aller Konten der Finanzbuchhaltung"
@@ -296,49 +296,39 @@ de:
         tenant_index: "Zeigt eine Liste aller Mandanten"
         user_index: "Zeigt eine Liste aller Benutzer"
     outside_capital: Fremdkapital
-    overview: 
+    overview:
       title: Übersicht
     profit_report_for: "Erfolgsrechnung für %{company} per %{per}"
-    settings: 
-      account_types: 
-        title: Kontonarten
-      book_keeping: 
+    settings:
+      book_keeping:
         title: Buchhaltung
-      booking_templates: 
+      booking_templates:
         title: Buchungsvorlagen
-      charge_booking_templates: 
-        title: "Bedingte Buchungsvorlagen"
-      charge_rates: 
-        title: Abgabesätze
-      due: 
+      due:
         title: Fälligkeiten
-      project_states: 
-        title: Projektstati
-      tenant: 
+      tenant:
         title: Mandant
-      user: 
-        title: Benutzereinstellungen
-      users: 
+      users:
         title: Benutzerverwaltung
     show: Anzeigen
     total: Total
-  by_period: 
+  by_period:
     title: Periode
-  by_value_period: 
+  by_value_period:
     all: Alle
     title: Buchungsfilter
-  cancan: 
-    roles: 
+  cancan:
+    roles:
       accountant: Buchhalter
       admin: Administrator
-  companies: 
-    index: 
+  companies:
+    index:
       title: Firmen
-  credit_invoices: 
-    index: 
+  credit_invoices:
+    index:
       title: Kreditoren
-  crud: 
-    action: 
+  crud:
+    action:
       all_bookings: "Alle Buchungen"
       balance_sheet: Bilanz
       book_manual: "Manuell buchen"
@@ -355,9 +345,9 @@ de:
       profit_sheet: Erfolgsrechnung
       search: Suche
       statistics: Statistiken
-    flash: 
+    flash:
       created_html: "%{message} angelegt"
-    title: 
+    title:
       balance_sheet: Bilanz
       copy: "%{model} kopieren"
       import: "%{model} importieren"
@@ -369,42 +359,42 @@ de:
       select_booking_template: "%{model} anlegen"
       statistics: Statistiken
       write_downs: Abschreibungen
-  customers: 
-    index: 
+  customers:
+    index:
       title: Kunden
-  debit_invoices: 
-    index: 
+  debit_invoices:
+    index:
       title: Debitoren
-  employees: 
-    index: 
+  employees:
+    index:
       title: Mitarbeiter
-  expenses: 
-    labels: 
+  expenses:
+    labels:
       amount: "Betrag inkl. MwSt."
       credit_account: Aufwandskonto
       debit_account: Bezahlkonto
       vat_account: Vorsteuerkonto
-  flash: 
-    actions: 
-      create: 
+  flash:
+    actions:
+      create:
         notice_html: "%{resource_name} wurde erfasst. %{resource_link}"
-  form: 
-    bank: 
+  form:
+    bank:
       money_transfer: Bankverbindung
-    company: 
+    company:
       address: Adresse
       book_keeping: Buchhaltung
       invoicing: Rechnungseinstellungen
-    person: 
+    person:
       address: Adresse
       civil: Personalien
-  helpers: 
-    submit: 
+  helpers:
+    submit:
       create: "%{model} anlegen"
       submit: "%{model} speichern"
       update: "%{model} aktualisieren"
-  invoice: 
-    state: 
+  invoice:
+    state:
       2xreminded: "2x gemahnt"
       3xreminded: "3x gemahnt"
       all: Alle
@@ -416,7 +406,7 @@ de:
       reactivated: reaktiviert
       reminded: "1x gemahnt"
       written_off: abgeschrieben
-    state_noun: 
+    state_noun:
       2xreminded: "2. Mahnung"
       3xreminded: "3. Mahnung"
       booked: "Verbuchte Rechnung"
@@ -427,7 +417,7 @@ de:
       reactivated: "Reaktivierte Rechnung"
       reminded: "1. Mahnung"
       written_off: "Abgeschriebene Rechnung"
-  invoice_state: 
+  invoice_state:
     2xreminded: "2x gemahnt"
     3xreminded: "3x gemahnt"
     all: Alle
@@ -440,16 +430,16 @@ de:
     reminded: "1x gemahnt"
     title: Rechnungsfilter
     written_off: abgeschrieben
-  invoices: 
-    list: 
+  invoices:
+    list:
       title: Rechnungen
-  letters: 
-    debit_invoice: 
+  letters:
+    debit_invoice:
       closing: "Bitte begleichen Sie diese Rechnung bis zum %{due_date} mit beiliegendem Einzahlungsschein oder per E-Banking."
       greetings: "Vielen Dank für die Zusammenarbeit und freundliche Grüsse."
     greetings: "Freundliche Grüsse"
-  line_items: 
-    quantity: 
+  line_items:
+    quantity:
       ? "%"
       : "%"
       hours: h
@@ -461,30 +451,30 @@ de:
   booking_import_attachments:
     new:
       title: Bankdaten importieren
-  people: 
-    index: 
+  people:
+    index:
       title: Adressen
-  placeholder: 
+  placeholder:
     search: Suche
-  sessions: 
-    new: 
+  sessions:
+    new:
       title: Anmelden
-  settings: 
-    vesr: 
+  settings:
+    vesr:
       title: "VESR Einstellungen"
-  sex: 
+  sex:
     female: Frau
     male: Mann
-  tenants: 
-    bookings: 
+  tenants:
+    bookings:
       title: Buchhaltung
-    tenant: 
+    tenant:
       title: Mandant
-    user: 
+    user:
       title: Benutzer
-    vesr: 
+    vesr:
       title: VESR
-  title: 
+  title:
     attachments: Anhänge
     bookings: Buchungen
     invoices: Belege
@@ -493,11 +483,11 @@ de:
     paid_invoices: "Bezahlte Rechnungen"
     period: Periode
     profit: Gewinn
-  vat_rates: 
-    code: 
+  vat_rates:
+    code:
       excluded: Befreit
       full: Normal
       reduced: Reduziert
       special: Spezial
-  years: 
+  years:
     title: Periode
