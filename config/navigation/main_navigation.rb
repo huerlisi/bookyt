@@ -1,5 +1,8 @@
 # Configures your navigation
 SimpleNavigation::Configuration.run do |navigation|
+  navigation.selected_class = 'active'
+  navigation.autogenerate_item_ids = false
+
   def account_item(parent, code)
     account = Account.find_by_code(code)
     return unless account
