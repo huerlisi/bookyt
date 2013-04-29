@@ -5,7 +5,7 @@ de:
     edit_bookings:
       title: Buchungen
     index:
-      title: Konten
+      title: Kontenplan
     info:
       title: Kontodaten
     journal:
@@ -245,7 +245,6 @@ de:
     main_navigation:
       account_types: Kontenarten
       accounting: Buchhaltung
-      accounts: Konten
       all: Alle
       balance: Bilanz
       bookings: Journal
@@ -258,8 +257,6 @@ de:
       invoices: Rechnungen
       invoicing: Rechnungen
       new_booking: "Neue Buchung"
-      new_credit_invoice: "Neue Kreditoren Rechnung"
-      new_debit_invoice: "Neue Debitoren Rechnung"
       new_esr_file: "VESR verbuchen"
       new_expense: "Neue Ausgabe"
       new_user_session: Anmelden
@@ -327,6 +324,8 @@ de:
   credit_invoices:
     index:
       title: Kreditoren
+    new:
+      title: Neue Rechnung
   crud:
     action:
       all_bookings: "Alle Buchungen"
@@ -365,6 +364,8 @@ de:
   debit_invoices:
     index:
       title: Debitoren
+    new:
+      title: Neue Rechnung
   employees:
     index:
       title: Mitarbeiter

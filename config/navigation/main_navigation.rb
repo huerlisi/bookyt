@@ -20,9 +20,7 @@ SimpleNavigation::Configuration.run do |navigation|
                       :highlights_on => /\/bookings\/.*$/
       accounting.item :booking, t('bookyt.main_navigation.new_expense'), new_expense_path
       accounting.item :accounting_divider, "", :class => 'divider'
-      accounting.item :accounts, t('bookyt.main_navigation.accounts'), accounts_path,
-                      :tooltip => t('bookyt.main_navigation.tooltip.accounts'),
-                      :highlights_on => /\/accounts/
+      accounting.item :accounts, t_title(:index, Account), accounts_path
       accounting.item :bookings, t('bookyt.main_navigation.bookings'), bookings_path,
                       :tooltip => t('bookyt.main_navigation.tooltip.bookings'),
                       :highlights_on => /\/bookings($|\?)/
@@ -38,7 +36,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
     primary.item :debit_invoices, t_title(:index, DebitInvoice), '#',
                  :if => Proc.new { user_signed_in? } do |invoicing|
-      invoicing.item :new_debit_invoice, t('bookyt.main_navigation.new_debit_invoice'), new_debit_invoice_path
+      invoicing.item :new_debit_invoice, t_title(:new, DebitInvoice), new_debit_invoice_path
       invoicing.item :debit_invoices, t('bookyt.main_navigation.debit_invoices'), debit_invoices_path
       invoicing.item :divider, "", :class => 'divider'
       invoicing.item :new_esr_file, t('bookyt.main_navigation.new_esr_file'), new_esr_file_path
@@ -47,7 +45,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
     primary.item :credit_invoices, t_title(:index, CreditInvoice), '#',
                  :if => Proc.new { user_signed_in? } do |invoicing|
-      invoicing.item :new_credit_invoice, t('bookyt.main_navigation.new_credit_invoice'), new_credit_invoice_path
+      invoicing.item :new_credit_invoice, t_title(:new, CreditInvoice), new_credit_invoice_path
       invoicing.item :credit_invoices, t('bookyt.main_navigation.credit_invoices'), credit_invoices_path
     end
 
