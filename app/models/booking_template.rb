@@ -19,7 +19,7 @@ class BookingTemplate < ActiveRecord::Base
         debit_account ? debit_account.to_s(:short) : '?',
         amount ? "%0.2f" % amount.to_f : '?',
       ]
-    else
+    when :long
       "%s an %s %s, %s (%s)" % [
         credit_account ? credit_account.to_s : '?',
         debit_account ? debit_account.to_s : '?',
@@ -27,6 +27,8 @@ class BookingTemplate < ActiveRecord::Base
         title.present? ? title : '?',
         comments.present? ? comments : '?'
       ]
+    else
+      title
     end
   end
 
