@@ -35,11 +35,11 @@
       - if alert
         = boot_alert(alert, 'error')
       .row-fluid
+        .span2
+          .sidebar.well= render_sidebars
         .span10
           .content
             = yield
-        .span2
-          .sidebar.well= render_sidebars
 
     #footer
       .container
