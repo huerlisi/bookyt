@@ -35,8 +35,9 @@
       - if alert
         = boot_alert(alert, 'error')
       .row-fluid
-        .span2
-          .sidebar.well= render_sidebars
+        #sidebar.span2
+          = render 'sidebar'
+          .sidebar= render_sidebars
         .span10
           .content
             = yield
