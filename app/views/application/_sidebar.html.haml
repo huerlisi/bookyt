@@ -3,9 +3,6 @@
   - BookingTemplate.limit(5).each do |template|
     %li= link_to template, [:new_booking, template]
 
-  %li.nav-header Infos
-  %li= link_to t_title(:index, Account), accounts_path
-
   %li.nav-header= t_title(:index, DebitInvoice)
   %li= link_to t_title(:new, DebitInvoice), new_debit_invoice_path
   %li= link_to 'Offene Posten', debit_invoices_path
@@ -13,3 +10,6 @@
   %li.nav-header= t_title(:index, CreditInvoice)
   %li= link_to t_title(:new, CreditInvoice), new_credit_invoice_path
   %li= link_to 'Offene Posten', credit_invoices_path
+
+  %li.nav-header Infos
+  %li= link_to t_title(:index, Account), accounts_path
