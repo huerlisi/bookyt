@@ -28,6 +28,7 @@
           - if user_signed_in?
             = form_tag "/search", :method => :get, :class => "navbar-search pull-left" do
               = text_field_tag "query", params[:query], :placeholder => t('placeholder.search'), :class => "search-query"
+          .brand(style="margin-left: 30m")= current_tenant.to_s
           %div= render 'users/user_bar'
 
     #content.container-fluid
