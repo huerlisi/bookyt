@@ -1,5 +1,6 @@
 .contextual
-  = icon_link_to :profit_sheet, :action => :profit_sheet, :by_value_period => params[:by_value_period]
+  = icon_link_to :profit_sheet, :action => :profit_sheet, :by_value_period => params[:by_value_period], :years => params[:years]
+  = icon_link_to :print, :format => :pdf, :by_value_period => params[:by_value_period], :years => params[:years]
   = contextual_links_for
 
 %h1= t('bookyt.balance_report_for', :company => @company)
