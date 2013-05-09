@@ -3,7 +3,7 @@
   = icon_link_to :print, :format => :pdf, :by_value_period => params[:by_value_period], :years => params[:years]
   = contextual_links_for
 
-%h1= t('bookyt.profit_report_for', :company => @company, :per => @end_date)
+%h1= t('bookyt.profit_report', :dates => @dates.map{|date| date.first.to_s + '-' + date.last.to_s}.join(", "))
 
 %table.table.table-striped.collection{:width => "100%"}
   %thead

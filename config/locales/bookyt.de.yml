@@ -227,7 +227,7 @@ de:
     assets: Aktiva
     back: Zurück
     back_to: "Zurück zu %{name}"
-    balance_report_for: "Bilanz für %{company}"
+    balance_report: "Bilanz %{dates}"
     capital: Passiva
     capital_assets: Anlagevermögen
     carry_booking: Übertrag
@@ -295,7 +295,7 @@ de:
     outside_capital: Fremdkapital
     overview:
       title: Übersicht
-    profit_report_for: "Erfolgsrechnung für %{company} per %{per}"
+    profit_report: "Erfolgsrechnung %{dates}"
     settings:
       book_keeping:
         title: Buchhaltung
