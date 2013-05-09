@@ -86,8 +86,8 @@ de:
         customer: Kunde
         direct_account: Konto
         due_date: Fälligkeit
-        duration_from: Von
-        duration_to: Bis
+        duration_from: Periode von
+        duration_to: Periode bis
         invoice: Invoice
         open_amount: "Offener Betrag"
         profit_account: Erfolgskonto
