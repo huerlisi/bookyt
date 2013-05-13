@@ -40,13 +40,15 @@
       - if alert
         = boot_alert(alert, 'error')
       .row-fluid
-        #sidebar.span2
-          - if user_signed_in?
+        - if user_signed_in?
+          #sidebar.span2
             = render 'application/sidebar'
             .sidebar= render_sidebars
-        .span10
-          .content
-            = yield
+          .span10
+            .content
+              = yield
+        - else
+          .offset3.span6= yield
 
     #footer
       .container
