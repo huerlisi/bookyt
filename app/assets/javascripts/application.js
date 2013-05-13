@@ -11,6 +11,7 @@
 //= require select2
 //= require accounting
 //= require accounting-jquery
+//= require bootstrap.datepicker
 //= require_tree .
 
 // Application specific behaviour
