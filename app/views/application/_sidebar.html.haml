@@ -1,7 +1,7 @@
 %ul.nav.nav-list
   %li.nav-header= t('bookyt.main_navigation.accounting')
   %li= link_to t_title(:new, Booking), new_booking_path
-  - BookingTemplate.limit(5).each do |template|
+  - BookingTemplate.where(:type => nil).limit(5).each do |template|
     %li= link_to template, [:new_booking, template]
 
   %li.nav-header= t_title(:index, DebitInvoice)
