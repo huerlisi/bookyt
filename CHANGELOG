@@ -7,6 +7,7 @@
 * Add tenant info to header.
 * Only use show tenant info in header if logged in.
 * Nicer login dialog.
+* Fix sidebar booking templates when salary module is enabled.
 
 
 1.5.4
