@@ -5,7 +5,7 @@ describe BookingTemplate do
     subject { BookingTemplate.new }
 
     specify { should be_valid }
-    its(:to_s) { should == "? an ? ?, ? (?)" }
+    its(:to_s) { should be_nil }
     context "to_s(:short)" do
       it "should == \"? / ? ?\"" do
         subject.to_s(:short).should == "? / ? ?"
@@ -27,7 +27,7 @@ describe BookingTemplate do
   context "with blank title" do
     subject { BookingTemplate.new(:title => "")}
 
-    its(:to_s) { should == "? an ? ?, ? (?)" }
+    its(:to_s) { should == "" }
     context "to_s(:short)" do
       it "should == \"? / ? ?\"" do
         subject.to_s(:short).should == "? / ? ?"
@@ -50,7 +50,7 @@ describe BookingTemplate do
     }
     subject { BookingTemplate.new(:credit_account => credit_account, :debit_account => debit_account)}
 
-    its(:to_s) { should == "Credit Account (1000) an Debit Account (2000) ?, ? (?)" }
+    its(:to_s) { should be_nil }
     context "to_s(:short)" do
       it "should == \"1000 / 2000 ?\"" do
         subject.to_s(:short).should == "1000 / 2000 ?"
