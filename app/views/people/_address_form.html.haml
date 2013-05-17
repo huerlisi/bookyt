@@ -1,7 +1,7 @@
 .row-fluid
   .span6
     %h3= t('form.person.address')
-    = render 'vcards/form', :f => f
+    = render 'vcards/form', :f => f, :full_vcard => true
 
   .span6
     %h3= t_model(PhoneNumber)

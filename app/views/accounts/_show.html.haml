@@ -2,6 +2,7 @@
   = icon_link_to 'only_credit_bookings', url_for(:only_credit_bookings => true) unless params[:only_credit_bookings]
   = icon_link_to 'only_debit_bookings', url_for(:only_debit_bookings => true) unless params[:only_debit_bookings]
   = icon_link_to 'all_bookings', @account if params[:only_credit_bookings] || params[:only_debit_bookings]
+  = icon_link_to :print, :format => :pdf, :by_value_period => params[:by_value_period], :years => params[:years], :per_page => 10000
   = contextual_links_for
 
 = boot_page_title
