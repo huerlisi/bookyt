@@ -2,6 +2,7 @@
 =====
 
 * Add PDF links to fiscal statements booking journal.
+* Add print/pdf link for accounts view.
 * Bigger button for invoice forms; move duration fields more to the top in invoice form.
 * Fix print stylesheets.
 * Add tenant info to header.
