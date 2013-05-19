@@ -12,8 +12,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
   # Define the primary navigation
   navigation.items do |primary|
-    primary.item :accounting, t('bookyt.main_navigation.accounting'), '#',
-                 :if => Proc.new { user_signed_in? } do |accounting|
+    primary.item :accounting, t('bookyt.main_navigation.accounting'), '#' do |accounting|
       accounting.item :booking, t('bookyt.main_navigation.new_booking'), new_booking_path,
                       :highlights_on => /\/bookings\/.*$/
       accounting.item :booking, t('bookyt.main_navigation.new_expense'), new_expense_path
@@ -29,8 +28,7 @@ SimpleNavigation::Configuration.run do |navigation|
       accounting.item :mt940_import, t_title(:import, BookingImportAttachment), new_booking_import_attachment_path
     end
 
-    primary.item :debit_invoices, t_title(:index, DebitInvoice), '#',
-                 :if => Proc.new { user_signed_in? } do |invoicing|
+    primary.item :debit_invoices, t_title(:index, DebitInvoice), '#' do |invoicing|
       invoicing.item :new_debit_invoice, t_title(:new, DebitInvoice), new_debit_invoice_path
       invoicing.item :debit_invoices, t('bookyt.main_navigation.debit_invoices'), debit_invoices_path
       invoicing.item :divider, "", :class => 'divider'
@@ -38,14 +36,12 @@ SimpleNavigation::Configuration.run do |navigation|
       invoicing.item :esr_files, t('bookyt.main_navigation.esr_files'), esr_files_path
     end
 
-    primary.item :credit_invoices, t_title(:index, CreditInvoice), '#',
-                 :if => Proc.new { user_signed_in? } do |invoicing|
+    primary.item :credit_invoices, t_title(:index, CreditInvoice), '#' do |invoicing|
       invoicing.item :new_credit_invoice, t_title(:new, CreditInvoice), new_credit_invoice_path
       invoicing.item :credit_invoices, t('bookyt.main_navigation.credit_invoices'), credit_invoices_path
     end
 
-    primary.item :contacts, t('bookyt.main_navigation.contacts'), '#',
-                 :if => Proc.new { user_signed_in? } do |contacts|
+    primary.item :contacts, t('bookyt.main_navigation.contacts'), '#' do |contacts|
       contacts.item :people, t_title(:index, Person), people_path,
                              :highlights_on => /\/people($|\?|\/[0-9]*($|\?|\/.*))/
       contacts.item :employees, t_title(:index, Employee), employees_path,
