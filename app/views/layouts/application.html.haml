@@ -29,9 +29,7 @@
             = form_tag "/search", :method => :get, :class => "navbar-search pull-left" do
               = text_field_tag "query", params[:query], :placeholder => t('placeholder.search'), :class => "search-query"
           .brand(style="margin-left: 1em")
-            - if signed_in?
-              = current_tenant.to_s
-              %span.small(style="font-size: 60%")= current_tenant.person.vcard.address
+            = current_tenant.to_s if signed_in?
           %div= render 'users/user_bar'
 
     #content.container-fluid
