@@ -9,7 +9,8 @@
 * Only use show tenant info in header if logged in.
 * Nicer login dialog.
 * Fix sidebar booking templates when salary module is enabled.
-
+* Use fullname field in vcard forms.
+* Add datepicker add-on.
 
 1.5.4
 =====
