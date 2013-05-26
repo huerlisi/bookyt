@@ -6,8 +6,8 @@
       %hr{:style => "height: 1px; margin: 0"}/
       %i= @booking.comments
   %td= link_to @booking.reference.to_s(:reference), @booking.reference unless @booking.reference.nil?
-  %td.currency= (@booking.credit_account == @account) ? currency_fmt(@booking.amount) : content_tag('i', link_to(@booking.credit_account.code, account_path(@booking.credit_account), :title => @booking.credit_account.title))
-  %td.currency= (@booking.debit_account == @account) ? currency_fmt(@booking.amount) : content_tag('i', link_to(@booking.debit_account.code, account_path(@booking.debit_account), :title => @booking.debit_account.title))
+  %td.currency=  currency_fmt(@booking.amount) if (@booking.credit_account == @account)
+  %td.currency= (currency_fmt(@booking.amount) if @booking.debit_account == @account)
   %td.currency= currency_fmt(@saldo)
   %td.action-links
     = list_link_for(:edit, [@account, @booking])
