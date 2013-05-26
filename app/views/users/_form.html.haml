@@ -1,13 +1,20 @@
 = simple_form_for @user do |f|
-  = f.input :email
-  = f.input :password, :hint => !f.object.new_record?, :input_html => {:autocomplete => "off"}
-  = f.input :password_confirmation
-  = f.input :current_password, :required => true unless can?(:manage, User)
-  = f.input :role_texts, :as => :select, :collection => Ability.roles_for_collection, :include_blank => false, :input_html => {:multiple => 'multiple'}, :required => true if can?(:manage, Role)
+  .row-fluid
+    .span6= f.input :login if @user.respond_to? :login
+    .span6= f.input :email
+  .row-fluid
+    .span6= f.input :password, :hint => !f.object.new_record?, :input_html => {:autocomplete => "off"}
+    .span6= f.input :password_confirmation
+  - unless can?(:manage, User)
+    .row-fluid
+      .span6= f.input :current_password, :required => true
+  .row-fluid
+    .span6= f.input :role_texts, :as => :select, :collection => Ability.roles_for_collection, :include_blank => false, :input_html => {:multiple => 'multiple', :class => 'span select2'}, :required => true if can?(:manage, Role)
 
   - f.object.build_person unless f.object.person
   %h3= t('form.person.address')
   = f.fields_for :person do |p|
     = render 'vcards/form', :f => p, :full_vcard => true
 
-  = f.button :submit
+  .form-actions
+    = f.button :submit
