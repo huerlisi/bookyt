@@ -6,7 +6,8 @@ Bookyt::Application.routes.draw do
   filter 'locale'
 
   # Authorization
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+
   resources :users do
     collection do
       get :current

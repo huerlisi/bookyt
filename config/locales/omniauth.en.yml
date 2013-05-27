@@ -1,0 +1,6 @@
+en:
+  devise:
+    omniauth_callbacks:
+      success: "Successfully authenticated from %{kind} account."
+      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
+      failure_reason: "your user could not be found."

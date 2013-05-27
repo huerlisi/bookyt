@@ -1,0 +1,6 @@
+de:
+  devise:
+    omniauth_callbacks:
+      success: "Sie haben sich erfolgreich mit Ihrem %{kind}-Account angemeldet."
+      failure: "Sie konnten nicht mit Ihrem %{kind}-Account angemeldet werden: %{reason}"
+      failure_reason: "Ihr Benutzer wurde nicht gefunden."
