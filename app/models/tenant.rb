@@ -24,6 +24,7 @@ class Tenant < ActiveRecord::Base
   attr_accessible :user_ids
 
   # Company
+  attr_accessible :company
   belongs_to :company, :foreign_key => :person_id
   validates_presence_of :company
   accepts_nested_attributes_for :company
@@ -32,6 +33,8 @@ class Tenant < ActiveRecord::Base
   # ======
 
   # Fiscal Years
+  attr_accessible :fiscal_year_ends_on
+  attr_accessible :incorporated_on
   validates_date :fiscal_year_ends_on
   validates_date :incorporated_on
 
