@@ -19,7 +19,6 @@ group :assets do
   gem 'coffee-rails'
   gem 'uglifier'
   gem 'compass-rails'
-  gem 'fancy-buttons'
 end
 
 gem 'jquery-rails'
