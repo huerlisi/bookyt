@@ -1,0 +1,7 @@
+%tr[booking]
+  %td= best_in_place booking, :value_date
+  %td= best_in_place booking, :code
+  %td= best_in_place booking, :title
+  %td= best_in_place booking.credit_account, :code
+  %td= best_in_place booking.debit_account, :code
+  %td.currency= best_in_place booking, :amount

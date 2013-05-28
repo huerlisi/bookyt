@@ -130,6 +130,9 @@ gem 'has_vcards'
 # Uploads
 gem 'carrierwave'
 
+# In-Place Edit
+gem 'best_in_place'
+
 # PDF generation
 gem 'pdfkit', :git => 'http://github.com/huerlisi/PDFKit.git'
 gem 'wkhtmltopdf-binary'
