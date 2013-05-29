@@ -6,6 +6,7 @@ source 'http://rubygems.org'
 # =====
 gem 'rails'
 gem 'unicorn'
+gem 'thin'
 
 # Database
 gem 'mysql2'
@@ -103,8 +104,10 @@ gem 'responders'
 gem 'devise'
 gem 'cancan'
 gem 'lyb_devise_admin'
+gem 'devise_ocra', :path => '../devise_ocra'
 gem 'rocra'
 gem 'rqrcode'
+gem 'rqrcode_to_svg'
 
 # Date/Time handling
 gem 'validates_timeliness'
