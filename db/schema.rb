@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130426234011) do
+ActiveRecord::Schema.define(:version => 20130528104012) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -504,6 +504,8 @@ ActiveRecord::Schema.define(:version => 20130426234011) do
     t.integer  "tenant_id"
     t.string   "authentication_token"
     t.datetime "reset_password_sent_at"
+    t.string   "challenge"
+    t.string   "shared_secret"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token"

@@ -259,8 +259,10 @@ GEM
     responders (0.9.3)
       railties (~> 3.1)
     riddle (1.5.2)
+    rocra (0.0.1)
     routing-filter (0.3.1)
       actionpack
+    rqrcode (0.4.2)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -401,7 +403,9 @@ DEPENDENCIES
   rcov
   rdoc
   responders
+  rocra
   routing-filter
+  rqrcode
   rspec-rails
   ruby-debug
   ruby_parser

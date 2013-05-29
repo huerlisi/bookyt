@@ -1,0 +1,16 @@
+- if user = User.find_user(params)
+  - challenge = user.challenge
+  - url = root_url(:uuid => 'dc1ac443-0f71-48a9-a740-803cf3768925', :challenge => challenge, :protocol => 'ocra')
+
+  %h3 Challenge
+  %p= challenge
+
+  - @qr = RQRCode::QRCode.new(url, :size => 9, :level => :h )
+  %table
+    - @qr.modules.each_index do |x|
+      %tr
+        - @qr.modules.each_index do |y|
+          - if @qr.dark?(x,y)
+            %td.black
+          - else
+            %td.white

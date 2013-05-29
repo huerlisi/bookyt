@@ -103,6 +103,8 @@ gem 'responders'
 gem 'devise'
 gem 'cancan'
 gem 'lyb_devise_admin'
+gem 'rocra'
+gem 'rqrcode'
 
 # Date/Time handling
 gem 'validates_timeliness'
