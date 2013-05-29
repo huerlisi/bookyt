@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
 
   # Associations
   belongs_to :person
-  validates_presence_of :person
+  #validates_presence_of :person
   accepts_nested_attributes_for :person
   attr_accessible :person, :person_id, :person_attributes
 
