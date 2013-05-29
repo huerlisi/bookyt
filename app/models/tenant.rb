@@ -31,6 +31,7 @@ class Tenant < ActiveRecord::Base
 
   # Bookyt
   # ======
+  attr_accessible :code
 
   # Fiscal Years
   attr_accessible :fiscal_year_ends_on

@@ -484,6 +484,7 @@ ActiveRecord::Schema.define(:version => 20130620221230) do
     t.boolean  "print_payment_for"
     t.string   "uid_number"
     t.string   "ahv_number"
+    t.string   "code"
   end
 
   add_index "tenants", ["person_id"], :name => "index_tenants_on_person_id"
