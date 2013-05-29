@@ -1,4 +1,3 @@
-require 'warden-ocra'
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -212,8 +211,8 @@ Devise.setup do |config|
   #
   config.warden do |manager|
   #   manager.intercept_401 = false
-    manager.default_strategies(:scope => :user).unshift :ocra, :ocra_challenge
-    Devise.add_module :ocra, :strategy => true
+    # manager.default_strategies(:scope => :user).unshift :ocra, :ocra_challenge
+    # Devise.add_module :ocra, :strategy => true
   end
 end
 
