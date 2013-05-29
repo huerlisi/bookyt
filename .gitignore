@@ -47,3 +47,8 @@ public/booking_imports
 config/initializers/bookyt.rb
 coverage/*
 .rvmrc
+
+*~
+\#*
+.\#*
+ git status
