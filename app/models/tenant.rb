@@ -24,7 +24,7 @@ class Tenant < ActiveRecord::Base
   attr_accessible :user_ids
 
   # Company
-  attr_accessible :company
+  attr_accessible :company, :company_attributes
   belongs_to :company, :foreign_key => :person_id
   validates_presence_of :company
   accepts_nested_attributes_for :company
@@ -55,11 +55,14 @@ class Tenant < ActiveRecord::Base
   end
 
   # Vat
+  attr_accessible :vat_number, :uid_number, :ahv_number
   def vat_obligation?
     vat_number.present?
   end
 
-  # Settings
+  # Invoicing
+  attr_accessible :payment_period, :print_payment_for, :use_vesr
+
   def payment_period
     settings.payment_period / 24 / 3600
   end
