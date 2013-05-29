@@ -15,14 +15,6 @@ user.roles.create(:name => 'admin')
 company_vcard = Vcard.new(:full_name => 'Beispiel GmbH', :street_address => 'Balkonweg 17', :postal_code => '8888', :locality => 'Zürich')
 company = Company.create(:vcard => company_vcard)
 
-# Tenant
-user.create_tenant(
-  :company => company,
-  :incorporated_on => '2009-06-01',
-  :fiscal_year_ends_on => '2009-12-31'
-)
-user.save
-
 # Accounts
 #bank = Bank.create!(
 #  :full_name => "General Bank", :street_address => "Hauptstrasse 1", :postal_code => "8000", :locality => "Zürich"

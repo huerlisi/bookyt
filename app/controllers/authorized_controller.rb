@@ -26,11 +26,6 @@ class AuthorizedController < InheritedResources::Base
   # Responders
   respond_to :html, :js, :json
 
-  # Flash messages
-  def interpolation_options
-    { :resource_link => render_to_string(:partial => 'layouts/flash_new').html_safe }
-  end
-
   # Set the user locale
   before_filter :set_locale
   def set_locale

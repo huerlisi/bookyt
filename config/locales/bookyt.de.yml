@@ -133,6 +133,7 @@ de:
         social_amount: AHV/IV/EO/ALV/NBU
       tenant:
         ahv_number: "AHV Abrechnungsnr."
+        code: Code
         company: Firma
         fiscal_year_ends_on: "Ende des 1. Fiskaljahres"
         incorporated_on: Gründung

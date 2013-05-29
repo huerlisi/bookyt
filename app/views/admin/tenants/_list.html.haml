@@ -1,9 +1,8 @@
-%table.table.table-striped.tenants.collection
+%table.table.table-striped.tenants
   %thead
     %tr
-      %th= t_attr :code, Tenant
       %th= t_attr :company, Tenant
       %th= t_attr :users, Tenant
       %th.action-links
   %tbody
-    = render @tenants
+    = render collection

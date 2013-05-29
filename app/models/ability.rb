@@ -23,6 +23,12 @@ class Ability
     alias_action :index, :to => :list
     alias_action :current, :to => :show
 
+    # Sysadmin roles
+    if user.is_a? AdminUser
+      can :manage, [Tenant, AdminUser]
+      return
+    end
+
     # Load the abilities for all roles.
     user.roles.each do |role|
       self.send(role.name, user)

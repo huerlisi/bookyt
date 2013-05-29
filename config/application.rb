@@ -70,5 +70,7 @@ module Bookyt
     # Engines
     config.bookyt = ActiveSupport::OrderedOptions.new
     config.bookyt.engines = []
+
+    config.middleware.use 'Apartment::Elevators::Subdomain'
   end
 end

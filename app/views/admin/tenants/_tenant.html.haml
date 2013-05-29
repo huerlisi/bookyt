@@ -1,0 +1,5 @@
+%tr[tenant]
+  %td= link_to tenant.code, [:admin, tenant], {'data-href-container' => 'tr'}
+  %td= tenant.company
+  %td
+    = tenant.users.map{|user| link_to user, user}.join(', ').html_safe

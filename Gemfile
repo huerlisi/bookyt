@@ -111,6 +111,7 @@ gem 'omniauth-google-oauth2'
 gem 'faraday'
 gem 'cancan'
 gem 'lyb_devise_admin'
+gem 'apartment'
 
 # Date/Time handling
 gem 'validates_timeliness'

@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
     cookies[:locale] = locale unless (cookies[:locale] && cookies[:locale] == locale.to_s)
   end
 
+  # Flash messages
+  def interpolation_options
+    { :resource_link => render_to_string(:partial => 'layouts/flash_new').html_safe }
+  end
+
   # Mail
   before_filter :set_email_host
   def set_email_host

@@ -1,0 +1,14 @@
+= simple_form_for [:admin, resource] do |f|
+  .row-fluid
+    .span6= f.input :code, :input_html => {'data-autofocus' => true}
+  = simple_fields_for :user do |u|
+    = u.input :role_texts, :as => :hidden
+    .row-fluid
+      .span6= u.input :email
+      .span6= u.input :login if u.object.respond_to? :login
+    .row-fluid
+      .span6= u.input :password, :input_html => {:autocomplete => "off"}
+      .span6= u.input :password_confirmation
+
+  .form-actions
+    = f.button :submit

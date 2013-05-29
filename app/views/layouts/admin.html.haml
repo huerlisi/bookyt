@@ -19,30 +19,26 @@
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
-        .container-fluid
+        .container
           = link_to root_path, :class => 'brand' do
             = t('application.title')
 
-          - if user_signed_in?
-            = render_navigation(:context => :main, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
-            = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
-            = form_tag search_path, :method => :get, :class => "navbar-search pull-left" do
-              = text_field_tag "query", params[:query], :placeholder => t('placeholder.search'), :class => "search-query"
-          .brand(style="margin-left: 1em")
-            = current_tenant.to_s if user_signed_in?
-          %div= render 'users/user_bar'
+          .btn-group.pull-right
+            = link_to '#', :class => 'btn dropdown-toggle', 'data-toggle' => 'dropdown' do
+              %i.icon-user
+              = current_admin_user
+              %span.caret
+            %ul.dropdown-menu
+              %li= link_to t('devise.sign_out'), destroy_admin_user_session_path, :method => :delete
 
-    #content.container-fluid
+    #content.container
       - if notice
         = boot_alert(notice, 'success')
       - if alert
         = boot_alert(alert, 'error')
       .row-fluid
-        - if user_signed_in?
-          #sidebar.span2
-            = render 'application/sidebar'
-            .sidebar= render_sidebars
-          .span10
+        - if admin_user_signed_in?
+          .span12
             .content
               = yield
         - else
