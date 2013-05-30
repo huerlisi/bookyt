@@ -1,6 +1,10 @@
 = simple_form_for [:admin, resource] do |f|
   .row-fluid
-    .span6= f.input :code, :input_html => {'data-autofocus' => true}
+    .span6
+      = f.input :code, :wrapper => :append, :class => 'inline' do
+        = f.input_field :code, 'data-autofocus' => true, :class => 'span6'
+        .add-on .bookyt.ch
+
   = simple_fields_for :user do |u|
     = u.input :role_texts, :as => :hidden
     .row-fluid
