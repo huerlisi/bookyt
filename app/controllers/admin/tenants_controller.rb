@@ -18,17 +18,20 @@ class Admin::TenantsController < ApplicationController
 
   def create
     @tenant = Tenant.new(params[:tenant])
-    @user = @tenant.users.build(params[:user])
-    @user.role_texts = ['admin']
-
-    if @tenant.valid? && @user.valid?
+    if @tenant.valid?
       Apartment::Database.create(@tenant.code)
       Apartment::Database.switch(@tenant.code)
-
       load "db/seeds.rb"
 
-      @tenant.save!
-      redirect_to [:admin, @tenant]
+      @user = @tenant.users.build(params[:user])
+      @user.role_texts = ['admin']
+
+      if @user.valid?
+        @tenant.save!
+        redirect_to [:admin, @tenant]
+      else
+        render 'new'
+      end
     else
       render 'new'
     end
