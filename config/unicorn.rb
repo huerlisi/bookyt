@@ -10,7 +10,7 @@ working_directory app_path
 # http://unicorn.bogomips.org/Unicorn/Configurator.html
 preload_app true
 
-timeout 30
+timeout 120
 
 # This is where we specify the socket.
 # We will point the upstream Nginx module to this socket later on
@@ -48,7 +48,7 @@ before_fork do |server, worker|
     end
   end
 end
-  
+
 after_fork do |server, worker|
   # Here we are establishing the connection after forking worker
   # processes
