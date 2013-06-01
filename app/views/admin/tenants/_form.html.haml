@@ -2,7 +2,7 @@
   .row-fluid
     .span6
       = f.input :code, :wrapper => :append, :class => 'inline' do
-        = f.input_field :code, 'data-autofocus' => true, :class => 'span6'
+        = f.input_field :code, 'data-autofocus' => true, :class => 'span6', :style => 'text-align: right'
         .add-on .bookyt.ch
 
   = simple_fields_for :user do |u|
