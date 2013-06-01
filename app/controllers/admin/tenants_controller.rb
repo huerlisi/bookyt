@@ -12,27 +12,27 @@ class Admin::TenantsController < ApplicationController
   # Actions
   # =======
   def new
-    @tenant = Tenant.new(params[:tenant])
-    @user = @tenant.users.build(params[:user])
+    @tenant = Admin::Tenant.new(params[:admin_tenant])
+    @user = User.new(params[:user])
   end
 
   def create
-    @tenant = Tenant.new(params[:tenant])
+    @tenant = Admin::Tenant.new(params[:admin_tenant])
+    @tenant.db_name ||= @tenant.subdomain
+    @user = User.new(params[:user])
+    @user.role_texts = ['admin']
+
     if @tenant.valid?
-      Apartment::Database.create(@tenant.code)
-      Apartment::Database.switch(@tenant.code)
+      @tenant.save
+      Apartment::Database.create(@tenant.db_name)
+      Apartment::Database.switch(@tenant.db_name)
       load "db/seeds.rb"
 
-      @user = @tenant.users.build(params[:user])
-      @user.role_texts = ['admin']
-
-      if @user.valid?
-        @tenant.save!
-        redirect_to [:admin, @tenant]
-      else
-        render 'new'
-      end
+      @user.save
+      redirect_to @tenant
     else
+      raise @tenant.errors.inspect + @user.errors.inspect
+
       render 'new'
     end
   end

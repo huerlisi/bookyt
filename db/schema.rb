@@ -78,6 +78,14 @@ ActiveRecord::Schema.define(:version => 20130620221230) do
 
   add_index "addresses", ["vcard_id"], :name => "addresses_vcard_id_index"
 
+  create_table "admin_tenants", :force => true do |t|
+    t.string   "subdomain"
+    t.string   "db_name"
+    t.boolean  "active"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
