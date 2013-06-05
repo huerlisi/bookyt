@@ -103,6 +103,7 @@ gem 'responders'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'faraday'
 gem 'cancan'
 gem 'lyb_devise_admin'
 

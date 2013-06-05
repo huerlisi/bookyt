@@ -123,6 +123,8 @@ GEM
     factory_girl_rails (1.7.0)
       factory_girl (~> 2.6.0)
       railties (>= 3.0.0)
+    faraday (0.8.7)
+      multipart-post (~> 1.1)
     fastercsv (1.5.5)
     ffi (1.0.11)
     formatador (0.2.4)
@@ -394,6 +396,7 @@ DEPENDENCIES
   devise
   factory_girl (< 3.0.0)
   factory_girl_rails
+  faraday
   fastercsv
   guard-rspec
   guard-zeus
