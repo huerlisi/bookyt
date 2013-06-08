@@ -1,6 +1,6 @@
 class ChangeBookingsCommentsToText < ActiveRecord::Migration
   def self.up
-    change_column :bookings, :comments, :text
+    change_column :bookings, :comments, :text, :default => nil, :null => true
   end
 
   def self.down
