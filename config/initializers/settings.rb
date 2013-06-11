@@ -1,1 +1,1 @@
-Settings.defaults[:payment_period] = 30.days
+Settings.defaults = {  :payment_period => 30.days}
