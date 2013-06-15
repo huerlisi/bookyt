@@ -236,10 +236,10 @@ en:
       user: User
   alerts:
     empty: "No Entries to print"
-  application: 
-    title: bookyt
-  attachments: 
-    list: 
+  application:
+    title: Bookyt
+  attachments:
+    list:
       title: Attachments
   attributes:
     amount: Amount
