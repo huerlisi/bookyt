@@ -148,6 +148,9 @@ class Invoice < ActiveRecord::Base
   accepts_nested_attributes_for :bookings, :allow_destroy => true
 
   def direct_account_factor
+    # Guard
+    return 0 unless direct_account
+
     direct_account.is_asset_account? ? 1 : -1
   end
 
