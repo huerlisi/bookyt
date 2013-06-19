@@ -121,7 +121,8 @@ gem 'ledermann-rails-settings', :require => 'rails-settings'
 # Bookyt
 # ======
 # Accounting
-gem 'has_accounts'
+gem 'has_accounts', '~> 1.0'
+gem 'has_accounts_engine', '~> 1.0'
 
 # Addresses
 gem 'has_vcards'
