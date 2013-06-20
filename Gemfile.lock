@@ -147,15 +147,15 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
-    has_accounts (1.0.1)
+    has_accounts (1.0.2)
       acts-as-taggable-on
       has_vcards
       inherited_resources
       rails (~> 3.1)
       validates_timeliness
-    has_accounts_engine (1.0.3)
+    has_accounts_engine (1.0.4)
       acts-as-taggable-on
-      has_accounts (>= 1.0.1)
+      has_accounts (>= 1.0.2)
       has_vcards
       i18n_rails_helpers
       inherited_resources
@@ -411,8 +411,8 @@ DEPENDENCIES
   guard-zeus
   haml
   haml-rails
-  has_accounts (~> 1.0.1)
-  has_accounts_engine (~> 1.0.3)
+  has_accounts (~> 1.0.2)
+  has_accounts_engine (~> 1.0.4)
   has_scope
   has_vcards
   hpricot
