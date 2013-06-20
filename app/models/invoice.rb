@@ -161,7 +161,7 @@ class Invoice < ActiveRecord::Base
 
   def direct_account_factor
     # Guard
-    return 0 unless direct_account
+    return 1 unless direct_account
 
     direct_account.is_asset_account? ? 1 : -1
   end
