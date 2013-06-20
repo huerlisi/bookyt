@@ -1,16 +1,25 @@
 1.5.5 (unreleased)
 =====
-
+Enhancements:
 * Add PDF links to fiscal statements booking journal.
 * Add print/pdf link for accounts view.
 * Bigger button for invoice forms; move duration fields more to the top in invoice form.
-* Fix print stylesheets.
 * Add tenant info to header.
-* Only use show tenant info in header if logged in.
 * Nicer login dialog.
-* Fix sidebar booking templates when salary module is enabled.
 * Use fullname field in vcard forms.
-* Add datepicker add-on.
+* Nicer Datepicker.
+* Added Omniauth for Devise with Google Apps.
+* Use common UI Styles for Tenant form.
+* Use title cased Bookyt as application title for en locale.
+* Implement tags for accounts.
+* Allow user to select accounts used for invoices.
+
+Bugfixes:
+* Fix print stylesheets.
+* Fix sidebar booking templates when salary module is enabled.
+* Fixed missing attr_accessible in Tenant to make demo seed working.
+* Exclude assets from log.
+* Bump unicorn timeout to 120s.
 
 1.5.4
 =====
