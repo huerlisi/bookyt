@@ -41,8 +41,8 @@ class InvoicesController < AuthorizedController
         :times          => 1,
         :quantity       => 'x',
         :include_in_saldo_list => ['vat:full'],
-        :credit_account => resource_class.default_credit_account,
-        :debit_account  => resource_class.default_debit_account
+        :credit_account => resource_class.credit_account,
+        :debit_account  => resource_class.debit_account
       )
     end
 
