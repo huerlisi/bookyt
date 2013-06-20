@@ -1,5 +1,9 @@
 # encoding: utf-8
 
+# Master Data
+# ===========
+# Nederlands
+
 # Account Types
 # =============
 current_assets, capital_assets, outside_capital, equity_capital, costs, earnings =
