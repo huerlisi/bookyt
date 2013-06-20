@@ -49,10 +49,4 @@ class DebitInvoicesController < InvoicesController
 
     create!
   end
-
-  def update
-    @debit_invoice = DebitInvoice.find(params[:id])
-
-    update!
-  end
 end
