@@ -253,6 +253,12 @@ function initializeBehaviours() {
   $('.select2').select2({
       allowClear: true
   });
+  $('.select2-tags').each(function(index, element) {
+    $(element).select2({
+      tags: $(element).data('tags'),
+      tokenSeparators: [","]
+    })
+  })
 }
 
 // Loads functions after DOM is ready

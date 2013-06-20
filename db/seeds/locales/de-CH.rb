@@ -20,8 +20,8 @@ AccountType.create!([
 # Basic Accounts
 Account.create!([
   {:code => "1000", :title => "Kasse", :account_type => current_assets},
-  {:code => "1100", :title => "Debitoren", :account_type => current_assets},
-  {:code => "3200", :title => "Waren-/Dienstleistungsertrag", :account_type => earnings},
+  {:code => "1100", :title => "Debitoren", :account_type => current_assets, :tag_list => 'invoice:debit'},
+  {:code => "3200", :title => "Waren-/Dienstleistungsertrag", :account_type => earnings, :tag_list => 'invoice:earnings, vat:credit'},
 ])
 
 BankAccount.create!([
@@ -37,8 +37,8 @@ BookingTemplate.create!([
 
 # Credit Invoices
 Account.create!([
-  {:code => "2000", :title => "Kreditoren", :account_type => outside_capital},
-  {:code => "4000", :title => "Materialaufwand", :account_type => costs},
+  {:code => "2000", :title => "Kreditoren", :account_type => outside_capital, :tag_list => 'invoice:credit'},
+  {:code => "4000", :title => "Materialaufwand", :account_type => costs, :tag_list => 'invoice:costs, vat:debit'},
 ])
 
 BookingTemplate.create!([

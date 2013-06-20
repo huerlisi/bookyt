@@ -21,20 +21,19 @@ class DebitInvoicesController < InvoicesController
       :times          => 1,
       :quantity       => 'x',
       :include_in_saldo_list  => ['vat:full'],
-      :credit_account => DebitInvoice.default_credit_account,
-      :debit_account  => DebitInvoice.default_debit_account
+      :credit_account => resource_class.balance_account,
+      :debit_account  => resource_class.profit_account
     )
 
     # Add vat line item at second last position
-    # TODO: debit account should not be hard coded
     if current_tenant.vat_obligation?
       @debit_invoice.line_items.build(
         :title          => 'MWSt.',
         :times          => 8,
         :quantity       => '%',
         :reference_code => 'vat:full',
-        :credit_account => DebitInvoice.default_credit_account,
-        :debit_account  => Account.find_by_code('2200')
+        :credit_account => resource_class.credit_account,
+        :debit_account  => Account.tagged_with('vat:credit').first
       )
     end
 
@@ -49,11 +48,5 @@ class DebitInvoicesController < InvoicesController
     @debit_invoice = DebitInvoice.new(invoice_params)
 
     create!
-  end
-
-  def update
-    @debit_invoice = DebitInvoice.find(params[:id])
-
-    update!
   end
 end
