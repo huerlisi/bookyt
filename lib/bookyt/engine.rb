@@ -1,6 +1,9 @@
 module Bookyt
   class Engine
     def self.engines
+      # Guard
+      return [] unless Tenant.first
+
       Tenant.first.settings['modules.enabled']
     end
 
