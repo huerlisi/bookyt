@@ -1,5 +1,11 @@
 1.5.5 (unreleased)
 =====
+Main Features:
+* Implement tagging for accounts.
+* Refactor invoice/line_item accounts to use tagged accounts.
+* Add migration to set default account tags.
+* Use modules settings from db instead of config file.
+
 Enhancements:
 * Add PDF links to fiscal statements booking journal.
 * Add print/pdf link for accounts view.
@@ -20,6 +26,10 @@ Bugfixes:
 * Fixed missing attr_accessible in Tenant to make demo seed working.
 * Exclude assets from log.
 * Bump unicorn timeout to 120s.
+* Make invoice form views robust against missing accounts.
+* Fix migrations to make db:migrate run on fresh database.
+* Do not fail on login if no Tenant exists.
+
 
 1.5.4
 =====
