@@ -16,13 +16,17 @@ module Banana
         account_type: AccountType.find_by_name('balance_sheet_account')
       )
 
+      # set year of first booking as start of balance sheet year
+      first_booking_date = xml.css('Table[@ID="Transactions"] RowList Row').first.css('Date').text
+      balance_sheet_opening_date = Date.parse(first_booking_date).beginning_of_year
+
       xml.css('Table[@ID="Accounts"] RowList Row').each do |row|
         banana_account = row.css('Account').text
+        banana_description = row.css('Description').text
+        banana_bclass = row.css('BClass').text
+        banana_opening = row.css('Opening').text
 
         if banana_account.present?
-          banana_description = row.css('Description').text
-          banana_bclass = row.css('BClass').text
-
           type_name = convert_banana_bclass_to_bookyt_account_type(banana_account: banana_account.to_i, banana_bclass: banana_bclass.to_i)
           account_type = AccountType.find_by_name(type_name)
 
@@ -31,8 +35,6 @@ module Banana
             code: banana_account,
             account_type: account_type
           )
-
-          banana_opening = row.css('Opening').text
 
           # set opening_balance_sheet_accout on soll or haben
           if banana_opening.present?
@@ -52,8 +54,8 @@ module Banana
               title: "Eröffnungsbuchung - #{banana_description}",
               amount: banana_opening,
               debit_account_id: credit_account_id,    # TODO: why stands credit_account_id for 'soll'?
-              credit_account_id: debit_account_id,   # TODO: why stands debit_account_id for 'haben'?
-              value_date: DateTime.new(2012,01,01),  # TODO: set current balance sheet year
+              credit_account_id: debit_account_id,    # TODO: why stands debit_account_id for 'haben'?
+              value_date: balance_sheet_opening_date,
               comments: ''
             )
           end
@@ -72,5 +74,9 @@ module Banana
       return 'costs'           if banana_bclass == 3
       return 'earnings'        if banana_bclass == 4
     end
+
+    # def self.asset_account
+    # end
+
   end
 end
