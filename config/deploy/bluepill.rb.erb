@@ -27,16 +27,6 @@ Bluepill.application(application, :log_file => "#{shared_dir}/log/bluepill.log")
       child_process.checks :cpu_usage, :every => 30.seconds, :below => 40, :times => [3,4], :fires => :stop
     end
   end
-
-  app.process("#{application}: sphinx") do |process|
-    process.pid_file = "#{shared_dir}/pids/searchd.#{environment}.pid"
-
-    process.start_command = "/usr/local/bin/bundle exec rake ts:start"
-
-    process.start_grace_time = 30.seconds
-    process.stop_grace_time = 30.seconds
-    process.restart_grace_time = 30.seconds
-  end
 end
 
 

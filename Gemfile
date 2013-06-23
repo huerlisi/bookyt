@@ -156,7 +156,7 @@ gem 'aasm'
 gem 'vesr'
 
 # Search
-gem 'thinking-sphinx'
+gem 'pg_search'
 
 # Tagging
 gem 'acts-as-taggable-on'

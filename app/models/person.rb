@@ -36,7 +36,9 @@ class Person < ActiveRecord::Base
   accepts_nested_attributes_for :vcard
 
   # Search
-  default_scope includes(:vcard).order("COALESCE(vcards.full_name, CONCAT(vcards.family_name, ' ', vcards.given_name))")
+  include PgSearch
+  #default_scope includes(:vcard).order("COALESCE(vcards.full_name, CONCAT(vcards.family_name, ' ', vcards.given_name))")
+  pg_search_scope :by_text, :associated_against => { :vcards => [:full_name, :family_name, :given_name] }, :using => {:tsearch => {:prefix => true}}
 
   scope :by_name, lambda {|value|
     includes(:vcard).where("(vcards.given_name LIKE :query) OR (vcards.family_name LIKE :query) OR (vcards.full_name LIKE :query)", :query => "%#{value}%")
@@ -76,24 +78,4 @@ class Person < ActiveRecord::Base
   # bookyt_projects
   # ===============
   include BookytProjects::Person
-
-  # Sphinx Search
-  # =============
-  define_index do
-    # Delta index
-    set_property :delta => true
-
-    indexes social_security_nr
-    indexes social_security_nr_12
-    indexes date_of_birth
-    indexes date_of_death
-
-    indexes vcards.full_name, :sortable => true
-    indexes vcards.nickname
-    indexes vcards.family_name, :sortable => true
-    indexes vcards.given_name, :sortable => true
-    indexes vcards.additional_name
-
-    indexes "IFNULL(vcards.full_name, vcards.family_name + ' ' + vcards.given_name)", :as => :sort_name, :sortable => true
-  end
 end

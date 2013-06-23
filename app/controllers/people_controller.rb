@@ -1,12 +1,4 @@
 class PeopleController < AuthorizedController
-  def index
-    set_collection_ivar resource_class.search(
-      params[:by_text],
-      :star => true,
-      :page => params[:page]
-    )
-  end
-
   def show
     # Invoice scoping by state
     @invoices = resource.invoices.where("type != 'Salary'").invoice_state(params[:invoice_state])

@@ -56,7 +56,3 @@ RSpec.configure do |config|
   config.extend ControllerMacros, :type => :controller
   config.extend ControllerMacros, :type => :helper
 end
-
-# Thinking Sphinx integration
-require 'thinking_sphinx/test'
-ThinkingSphinx::Test.init
