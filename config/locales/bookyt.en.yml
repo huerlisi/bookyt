@@ -1,38 +1,38 @@
 # Translation file for Bookyt.
---- 
-en: 
-  accounts: 
-    edit_bookings: 
+---
+en:
+  accounts:
+    edit_bookings:
       title: Bookings
-    index: 
+    index:
       title: Accounts
-    info: 
+    info:
       title: Account Data
-    journal: 
+    journal:
       title: Journal
-  activerecord: 
-    attributes: 
+  activerecord:
+    attributes:
       account:
         saldo: "Balance"
-      attachment: 
+      attachment:
         code: "Use as"
-        code_enum: 
+        code_enum:
           DebitInvoiceDocument: Invoice template
           LetterDocument: Letter template
         file: Filename
       booking:
         valuta: "Value date"
-      booking_import: 
+      booking_import:
         created_at: "imported at"
         csv: csv
-      booking_template: 
+      booking_template:
         amount_relates_to: "Amount Relates to"
         charge_rate_code: "charge rate code"
         credit_account: Credit
         debit_account: Debit
         reference: Reference
         value_date: "Value date"
-      charge_rate: 
+      charge_rate:
         code: code
         duration: Duration
         duration_from: "valid from"
@@ -40,7 +40,7 @@ en:
         person: Person
         rate: "rate (%)"
         relative: Relative
-      day: 
+      day:
         calculate: calculate
         card_turnover: "card turnover"
         cash: "cash turnover"
@@ -53,11 +53,11 @@ en:
         net_turnover: "net turnover"
         product_count: "products sold"
         total: total
-      employee: 
+      employee:
         social_security_nr: "Social Security no."
         social_security_nr_12: "Old Social Security no."
         ssn: SSN-No.
-      employment: 
+      employment:
         daily_workload: "Daily working time (h)"
         duration_from: Beginning
         duration_to: End
@@ -103,8 +103,8 @@ en:
         invalid_bookings: Invalid Bookings
         missing_bookings: Missing Bookings
         total_amount: Total (incl. faulty)
-        uploaded_data: File        
-      invoice: 
+        uploaded_data: File
+      invoice:
         balance: Balance
         balance_account: "balance account"
         biller: "Favor of:"
@@ -122,7 +122,7 @@ en:
         remarks: "Internal remarks"
         text: text
         value_date: "Value date"
-      line_item: 
+      line_item:
         accounted_amount: Amount
         price: Price
         quantity: Quantity
@@ -130,12 +130,12 @@ en:
         title: Text
         total_amount: Total
         vat_rate: "VAT rate"
-      note: 
+      note:
         content: Content
         created_at: "Created at"
         updated_at: "Updated at"
         user: User
-      person: 
+      person:
         civil_status: Civil Status
         country_name: Land
         date_of_birth: "Date of birth"
@@ -151,14 +151,14 @@ en:
         type: type
       phone_number:
         website: Website
-      salary: 
+      salary:
         amount: "gross amount"
         bvg_amount: BVG
         company: employee
         customer: employer
         net_amount: "net amount"
         social_amount: AHV/IV/EO/ALV/NBU
-      tenant: 
+      tenant:
         ahv_number: "AHV Billing No."
         company: company
         fiscal_year_ends_on: "end of first fiscal year"
@@ -169,7 +169,7 @@ en:
         use_vesr: "VESR for accounts receivable invoices"
         users: users
         vat_number: VAT No.
-      user: 
+      user:
         country_name: Country
         created_at: "created at"
         current_password: "current password"
@@ -191,7 +191,7 @@ en:
         roles: roles
         sex: sex
         street_address: "street address"
-      vcard: 
+      vcard:
         full_name: "Full name"
         extended_address: "Address"
       address:
@@ -208,7 +208,7 @@ en:
         number:           Number
         phone_number_type: Number Type
 
-    models: 
+    models:
       attachment: Attachment
       booking_import: "Booking import"
       booking_template: "Booking template"
@@ -234,14 +234,14 @@ en:
       setting: Settings
       tenant: Tenant
       user: User
-  alerts: 
+  alerts:
     empty: "No Entries to print"
-  application: 
+  application:
     title: bookyt
-  attachments: 
-    list: 
+  attachments:
+    list:
       title: Attachments
-  attributes: 
+  attributes:
     amount: Amount
     comments: Comments
     date: Date
@@ -249,22 +249,22 @@ en:
     remarks: Remarks
     state: Status
     title: Title
-  booking_imports: 
-    new: 
+  booking_imports:
+    new:
       title: "Import bookings"
-  booking_template: 
-    relation: 
+  booking_template:
+    relation:
       reference_amount: "original amount"
       reference_amount_minus_balance: "open amount"
       reference_balance: balance
-  bookings: 
-    BookingTemplate: 
+  bookings:
+    BookingTemplate:
       title: "New Booking"
-    index: 
+    index:
       title: Journal
-    new: 
+    new:
       title: "Booking record"
-  bookyt: 
+  bookyt:
     all: all
     assets: Assets
     back: back
@@ -281,10 +281,10 @@ en:
     edit: edit
     equity_capital: "Owner's equity"
     greetings: "Kind regards,"
-    invoices: 
+    invoices:
       invoicing_party: "invoicing party"
       payment_no: "payment no. %{payment_no}"
-    main_navigation: 
+    main_navigation:
       account_types: "account types"
       accounting: Accounting
       accounts: Accounts
@@ -309,7 +309,7 @@ en:
       profit: "Profit sheet"
       settings: Settings
       store: Store
-      tooltip: 
+      tooltip:
         account_types: "list all account types (current assets, equity capital, ...)"
         accounting: "find all functions for accounting here"
         accounts: "you will find a list of all accounts here"
@@ -338,51 +338,51 @@ en:
         tenant_index: "list all tentants"
         user_index: "list all users"
     outside_capital: Liabilities
-    overview: 
+    overview:
       title: Overview
     profit_report_for: "Profit sheet for %{company} as of %{per}"
-    settings: 
-      account_types: 
+    settings:
+      account_types:
         title: "Account types"
-      book_keeping: 
+      book_keeping:
         title: "Book keeping"
-      booking_templates: 
+      booking_templates:
         title: "Booking templates"
-      charge_booking_templates: 
+      charge_booking_templates:
         title: "Conditional booking templates"
-      charge_rates: 
+      charge_rates:
         title: "Levy rates"
-      due: 
+      due:
         title: Maturities
-      project_states: 
+      project_states:
         title: "Project status"
-      tenant: 
+      tenant:
         title: Client
-      user: 
+      user:
         title: "User preferences"
-      users: 
+      users:
         title: "User management"
     show: show
     total: Total
-  by_period: 
+  by_period:
     title: Period
-  by_value_period: 
+  by_value_period:
     all: All
     title: Booking Filter
-  cancan: 
-    roles: 
+  cancan:
+    roles:
       accountant: accountant
       admin: administrator
-  companies: 
-    index: 
+  companies:
+    index:
       title: Companies
-  credit_invoices: 
-    index: 
+  credit_invoices:
+    index:
       title: Payable
     new:
       title: New Credit invoice
-  crud: 
-    action: 
+  crud:
+    action:
       all_bookings: "All Bookings"
       balance_sheet: "Balance sheet"
       book_manual: "Book Manually"
@@ -398,9 +398,9 @@ en:
       profit_sheet: "Profit sheet"
       search: find
       statistics: statistics
-    flash: 
+    flash:
       created_html: "created %{message}"
-    title: 
+    title:
       balance_sheet: "balance sheet"
       copy: "copy %{model}"
       current: "current %{model}"
@@ -411,8 +411,8 @@ en:
       select_booking_template: "new %{model}"
       statistics: statistics
       write_downs: "write downs"
-  customers: 
-    index: 
+  customers:
+    index:
       title: Customers
   date:
     formats:
@@ -425,7 +425,7 @@ en:
     abbr_day_names: [Su, Mo, Tu, We, Th, Fr, Sa]
     month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
     abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
-    order: 
+    order:
       - :day
       - :month
       - :year
@@ -472,41 +472,41 @@ en:
       day: "Day"
       month: "Month"
       year: "Year"
-  debit_invoices: 
-    index: 
+  debit_invoices:
+    index:
       title: Debit invoices
-  employees: 
-    index: 
+  employees:
+    index:
       title: Employees
     new:
       title: "New ESR File"
-  expenses: 
-    labels: 
+  expenses:
+    labels:
       amount: "Amount of sales tax."
       credit_account: Credit account
       debit_account: Debit account
       vat_account: VAT account
-  flash: 
-    actions: 
-      create: 
+  flash:
+    actions:
+      create:
         notice_html: "%{resource_name} recorded. %{resource_link}"
-  form: 
-    bank: 
+  form:
+    bank:
       money_transfer: Bank
-    company: 
+    company:
       address: address
       book_keeping: "book keeping"
       invoicing: Billing preferences
-    person: 
+    person:
       address: Address
       civil: Particulars
-  helpers: 
-    submit: 
+  helpers:
+    submit:
       create: "%{model} create"
       submit: "%{model} submit"
       update: "%{model} update"
-  invoice: 
-    state: 
+  invoice:
+    state:
       2xreminded: "Reminded twice"
       3xreminded: "3x reminded"
       all: All
@@ -518,7 +518,7 @@ en:
       reactivated: Reactivated
       reminded: "Reminded once"
       written_off: Written off
-    state_noun: 
+    state_noun:
       2xreminded: "2. reminded"
       3xreminded: "3. reminded"
       booked: "Recorded statement"
@@ -529,7 +529,7 @@ en:
       reactivated: "Reactivated account"
       reminded: "1. reminded"
       written_off: "Written-off accounts"
-  invoice_state: 
+  invoice_state:
     2xreminded: "2x reminded"
     3xreminded: "3x reminded"
     all: All
@@ -542,16 +542,16 @@ en:
     reminded: "1x reminded"
     title: Invoice filter
     written_off: Depreciated
-  invoices: 
-    list: 
+  invoices:
+    list:
       title: Invoices
-  letters: 
-    debit_invoice: 
+  letters:
+    debit_invoice:
       closing: "It was a pleasure working together. Please pay this invoice up to %{due_date} using the payment slip or by e-banking to below account."
       greetings: "Thank you for the cooperation and friendly greetings."
     greetings: "kind regards,"
-  line_items: 
-    quantity: 
+  line_items:
+    quantity:
       ? "%"
       : "%"
       hours: h
@@ -569,8 +569,8 @@ en:
       format:
         unit: '$'
         format: '%u %n'
-        separator: 
-        delimiter: 
+        separator:
+        delimiter:
         precision:
     percentage:
       format:
@@ -594,18 +594,18 @@ en:
           mb: "MB"
           gb: "GB"
           tb: "TB"
-  people: 
-    index: 
+  people:
+    index:
       title: Addresses
-  placeholder: 
+  placeholder:
     search: Search
-  sessions: 
-    new: 
+  sessions:
+    new:
       title: Login
-  settings: 
-    vesr: 
+  settings:
+    vesr:
       title: "VESR settings"
-  sex: 
+  sex:
     female: Mrs.
     male: Mr.
   support:
@@ -615,14 +615,14 @@ en:
       last_word_connector: " and "
     select:
       prompt: "Please select:"
-  tenants: 
-    bookings: 
+  tenants:
+    bookings:
       title: Bookings
-    tenant: 
+    tenant:
       title: Tenant
-    user: 
+    user:
       title: User
-    vesr: 
+    vesr:
       title: VESR
   time:
     formats:
@@ -633,7 +633,7 @@ en:
 
     am: "in the morning"
     pm: "in the afternoon"
-  title: 
+  title:
     attachments: attachments
     bookings: bookings
     invoices: invoices
@@ -642,13 +642,13 @@ en:
     paid_invoices: "paid invoices"
     period: Period
     profit: profit
-  vat_rates: 
-    code: 
+  vat_rates:
+    code:
       excluded: excluded
       full: normal
       reduced: reduced
       special: special
-  vcards: 
+  vcards:
     tel_private: 'Tel. private'
-  years: 
+  years:
     title: Period

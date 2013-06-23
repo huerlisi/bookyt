@@ -228,6 +228,7 @@ de:
     back: Zurück
     back_to: "Zurück zu %{name}"
     balance_report: "Bilanz %{dates}"
+    balance_sheet_account: "Bilanzkonto"
     capital: Passiva
     capital_assets: Anlagevermögen
     carry_booking: Übertrag
@@ -292,6 +293,7 @@ de:
         store: "Hier finden Sie alle Funktionen welche Sie im Laden brauchen"
         tenant_index: "Zeigt eine Liste aller Mandanten"
         user_index: "Zeigt eine Liste aller Benutzer"
+    opening_balance_sheet_account: "Eröffnungsbilanzkonto"
     outside_capital: Fremdkapital
     overview:
       title: Übersicht

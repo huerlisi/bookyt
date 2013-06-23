@@ -1,20 +1,62 @@
+# encoding: utf-8
+
 module Banana
   class Account
+    @balance_sheet_account_code = 9100
+
     def self.import(xml)
+      ::AccountType.create!(
+        name: 'balance_sheet_account',
+        title: I18n.t('bookyt.balance_sheet_account')
+      )
+
+      balance_sheet_account = ::Account.create!(
+        title: I18n.t('bookyt.balance_sheet_account'),
+        code: @balance_sheet_account_code,
+        account_type: AccountType.find_by_name('balance_sheet_account')
+      )
+
       xml.css('Table[@ID="Accounts"] RowList Row').each do |row|
         banana_account = row.css('Account').text
-        banana_description = row.css('Description').text
-        banana_bclass = row.css('BClass').text
 
         if banana_account.present?
+          banana_description = row.css('Description').text
+          banana_bclass = row.css('BClass').text
+
           type_name = convert_banana_bclass_to_bookyt_account_type(banana_account: banana_account.to_i, banana_bclass: banana_bclass.to_i)
           account_type = AccountType.find_by_name(type_name)
 
-          a = ::Account.create!(
+          account = ::Account.create!(
             title: banana_description,
             code: banana_account,
             account_type: account_type
           )
+
+          banana_opening = row.css('Opening').text
+
+          # set opening_balance_sheet_accout on soll or haben
+          if banana_opening.present?
+            if ['current_assets', 'capital_assets'].include? account_type.name
+              debit_account_id = account.id
+              credit_account_id = balance_sheet_account.id
+            elsif ['outside_capital', 'equity_capital'].include? account_type.name
+              debit_account_id = balance_sheet_account.id
+              credit_account_id = account.id
+            end
+
+            # banana uses minus numbers for liability accounts
+            banana_opening = banana_opening.to_f
+            banana_opening *= -1 if ['outside_capital', 'equity_capital'].include? account_type.name
+
+            b = ::Booking.create!(
+              title: "Eröffnungsbuchung - #{banana_description}",
+              amount: banana_opening,
+              debit_account_id: credit_account_id,    # TODO: why stands credit_account_id for 'soll'?
+              credit_account_id: debit_account_id,   # TODO: why stands debit_account_id for 'haben'?
+              value_date: DateTime.new(2012,01,01),  # TODO: set current balance sheet year
+              comments: ''
+            )
+          end
         end
       end
     end
