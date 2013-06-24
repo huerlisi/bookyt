@@ -12,14 +12,17 @@ module Banana
         banana_amount = row.css('Amount').text
 
         if banana_account_debit.present? && banana_account_credit.present?
-          debit_account_id = ::Account.find_by_code(banana_account_debit.to_i).id
-          credit_account_id = ::Account.find_by_code(banana_account_credit.to_i).id
+          debit_account = ::Account.find_by_code(banana_account_debit.to_i)
+          credit_account = ::Account.find_by_code(banana_account_credit.to_i)
+
+          # TODO: log and show message
+          next unless debit_account && credit_account
 
           b = ::Booking.create!(
             title: banana_description,
             amount: banana_amount,
-            debit_account_id: credit_account_id, # TODO: why stands credit_account_id for 'soll'?
-            credit_account_id: debit_account_id, # TODO: why stands debit_account_id for 'haben'?
+            debit_account: credit_account, # TODO: why stands credit_account_id for 'soll'?
+            credit_account: debit_account, # TODO: why stands debit_account_id for 'haben'?
             value_date: banana_date,
             comments: banana_doc
           )
