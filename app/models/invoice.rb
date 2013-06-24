@@ -34,6 +34,19 @@ class Invoice < ActiveRecord::Base
     end
   end
 
+  # Ident
+  # =====
+  def ident
+    date_ident = updated_at.strftime("%y%m")
+    date_ident += "%03i" % id
+
+    date_ident
+  end
+
+  def long_ident
+    "#{ident} - #{customer.vcard.full_name} #{title}"
+  end
+
   # Copying
   # =======
   def copy
@@ -134,7 +147,22 @@ class Invoice < ActiveRecord::Base
 
   accepts_nested_attributes_for :bookings, :allow_destroy => true
 
+  def self.direct_account
+    balance_account
+  end
+
+  def balance_account
+    self.class.balance_account
+  end
+
+  def profit_account
+    self.class.profit_account
+  end
+
   def direct_account_factor
+    # Guard
+    return 1 unless direct_account
+
     direct_account.is_asset_account? ? 1 : -1
   end
 
@@ -188,19 +216,6 @@ class Invoice < ActiveRecord::Base
     return 0.0 unless line_item
 
     line_item.accounted_amount
-  end
-
-  # Ident
-  # =====
-  def ident
-    date_ident = updated_at.strftime("%y%m")
-    date_ident += "%03i" % id
-
-    date_ident
-  end
-
-  def long_ident
-    "#{ident} - #{customer.vcard.full_name} #{title}"
   end
 
   # bookyt_stock

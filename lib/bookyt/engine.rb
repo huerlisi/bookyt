@@ -1,7 +1,10 @@
 module Bookyt
   class Engine
     def self.engines
-      Bookyt::Application.config.bookyt.engines
+      # Guard
+      return [] unless Tenant.first
+
+      Tenant.first.settings['modules.enabled']
     end
 
     def self.setup_navigation(navigation, item)

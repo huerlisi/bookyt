@@ -36,7 +36,7 @@ class Person < ActiveRecord::Base
   accepts_nested_attributes_for :vcard
 
   # Search
-  default_scope includes(:vcard).order('IFNULL(vcards.full_name, vcards.family_name + ' ' + vcards.given_name)')
+  default_scope includes(:vcard).order("COALESCE(vcards.full_name, vcards.family_name + ' ' + vcards.given_name)")
 
   scope :by_name, lambda {|value|
     includes(:vcard).where("(vcards.given_name LIKE :query) OR (vcards.family_name LIKE :query) OR (vcards.full_name LIKE :query)", :query => "%#{value}%")
@@ -54,7 +54,7 @@ class Person < ActiveRecord::Base
   # ========
   has_many :credit_invoices, :class_name => 'Invoice', :foreign_key => :customer_id, :order => 'value_date DESC'
   has_many :debit_invoices, :class_name => 'Invoice', :foreign_key => :company_id, :order => 'value_date DESC'
-  
+
   def invoices
     Invoice.order('value_date DESC').where("invoices.customer_id = :id OR invoices.company_id = :id", :id => self.id)
   end

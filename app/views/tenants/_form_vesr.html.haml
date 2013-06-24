@@ -2,4 +2,5 @@
 %h3= t('settings.vesr.title')
 = render :partial => 'settings/form_fields', :locals => {:form => f}
 
-= f.button :submit
+.form-actions
+  = f.button :submit

@@ -1,5 +1,9 @@
 # encoding: utf-8
 
+# Master Data
+# ===========
+# Nederlands
+
 # Account Types
 # =============
 current_assets, capital_assets, outside_capital, equity_capital, costs, earnings =
@@ -17,8 +21,8 @@ AccountType.create!([
 # Basic Accounts
 Account.create!([
   {:code => "1000", :title => "kasboek", :account_type => current_assets},
-  {:code => "1100", :title => "debiteuren", :account_type => current_assets},
-  {:code => "3200", :title => "inkomsten uit producten en diensten", :account_type => earnings},
+  {:code => "1100", :title => "debiteuren", :account_type => current_assets, :tag_list => 'invoice:debit'},
+  {:code => "3200", :title => "inkomsten uit producten en diensten", :account_type => earnings, :tag_list => 'invoice:earnings, vat:credit'},
 ])
 
 BankAccount.create!([
@@ -34,8 +38,8 @@ BookingTemplate.create!([
 
 # Credit Invoices
 Account.create!([
-  {:code => "2000", :title => "crediteuren", :account_type => outside_capital},
-  {:code => "4000", :title => "voorraad", :account_type => costs},
+  {:code => "2000", :title => "crediteuren", :account_type => outside_capital, :tag_list => 'invoice:credit'},
+  {:code => "4000", :title => "voorraad", :account_type => costs, :tag_list => 'invoice:costs, vat:debit'},
 ])
 
 BookingTemplate.create!([

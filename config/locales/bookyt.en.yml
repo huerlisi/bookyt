@@ -237,7 +237,7 @@ en:
   alerts:
     empty: "No Entries to print"
   application:
-    title: bookyt
+    title: Bookyt
   attachments:
     list:
       title: Attachments
