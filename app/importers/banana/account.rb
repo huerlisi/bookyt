@@ -27,7 +27,11 @@ module Banana
         banana_opening = row.css('Opening').text
 
         if banana_account.present?
-          type_name = convert_banana_bclass_to_bookyt_account_type(banana_account: banana_account.to_i, banana_bclass: banana_bclass.to_i)
+          type_name = convert_banana_bclass_to_bookyt_account_type(banana_account: banana_account, banana_bclass: banana_bclass.to_i)
+
+          # TODO: log and show message
+          next unless type_name
+
           account_type = AccountType.find_by_name(type_name)
 
           account = ::Account.create!(
@@ -67,12 +71,18 @@ module Banana
       banana_account = args[:banana_account]
       banana_bclass  = args[:banana_bclass]
 
-      return 'current_assets'  if banana_bclass == 1 && banana_account.between?(1000, 1399)
-      return 'capital_assets'  if banana_bclass == 1 && banana_account.between?(1400, 1799)
-      return 'outside_capital' if banana_bclass == 2 && banana_account.between?(2000, 2799)
-      return 'equity_capital'  if banana_bclass == 2 && banana_account.between?(2800, 2999)
-      return 'costs'           if banana_bclass == 3
-      return 'earnings'        if banana_bclass == 4
+      # If banana account name starts with a number
+      if banana_account.match /^\d/
+        return 'current_assets'  if banana_bclass == 1 && banana_account.to_i.between?(1000, 1399)
+        return 'capital_assets'  if banana_bclass == 1 && banana_account.to_i.between?(1400, 1799)
+        return 'outside_capital' if banana_bclass == 2 && banana_account.to_i.between?(2000, 2799)
+        return 'equity_capital'  if banana_bclass == 2 && banana_account.to_i.between?(2800, 2999)
+        return 'costs'           if banana_bclass == 3
+        return 'earnings'        if banana_bclass == 4
+      end
+
+      return 'current_assets' if banana_bclass == 1 && banana_account.starts_with?('D.')
+      return 'outside_capital' if banana_bclass == 1 && banana_account.starts_with?('K.')
     end
 
     # def self.asset_account
