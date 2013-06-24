@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class SeedChargeRates < ActiveRecord::Migration
   def self.up
     # Salaries

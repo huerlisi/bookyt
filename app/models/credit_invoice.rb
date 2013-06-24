@@ -20,31 +20,27 @@ class CreditInvoice < Invoice
 
   # Accounts
   # ========
-  def self.direct_account
-    Account.find_by_code("2000")
+  def self.profit_account
+    Account.tagged_with('invoice:costs').first
+  end
+
+  def self.balance_account
+    Account.tagged_with('invoice:credit').first
   end
 
   def self.available_credit_accounts
     Account.by_type(['costs', 'current_assets', 'capital_assets'])
   end
 
-  def self.default_credit_account
-    Account.find_by_code('4000')
-  end
-
   def self.available_debit_accounts
     Account.by_type(['outside_capital'])
   end
 
-  def self.default_debit_account
-    self.direct_account
+  def self.credit_account
+    profit_account
   end
 
-  def balance_account
-    bookings.first.try(:debit_account)
-  end
-
-  def profit_account
-    bookings.first.try(:credit_account)
+  def self.debit_account
+    balance_account
   end
 end

@@ -1,32 +1,30 @@
+# encoding: utf-8
+
 class DebitInvoice < Invoice
   # Accounts
   # ========
-  def self.direct_account
-    Account.find_by_code("1100")
+  def self.profit_account
+    Account.tagged_with('invoice:earnings').first
+  end
+
+  def self.balance_account
+    Account.tagged_with('invoice:debit').first
   end
 
   def self.available_credit_accounts
     Account.by_type('current_assets')
   end
 
-  def self.default_credit_account
-    self.direct_account
-  end
-
   def self.available_debit_accounts
     Account.by_type(['earnings', 'outside_capital'])
   end
 
-  def self.default_debit_account
-    Account.find_by_code('3200')
+  def self.credit_account
+    balance_account
   end
 
-  def balance_account
-    bookings.first.try(:credit_account)
-  end
-
-  def profit_account
-    bookings.first.try(:debit_account)
+  def self.debit_account
+    profit_account
   end
 
   # Code

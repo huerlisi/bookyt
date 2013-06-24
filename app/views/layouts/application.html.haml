@@ -26,7 +26,7 @@
           - if user_signed_in?
             = render_navigation(:context => :main, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
             = render_navigation(:context => :user, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
-            = form_tag "/search", :method => :get, :class => "navbar-search pull-left" do
+            = form_tag search_path, :method => :get, :class => "navbar-search pull-left" do
               = text_field_tag "query", params[:query], :placeholder => t('placeholder.search'), :class => "search-query"
           .brand(style="margin-left: 1em")
             = current_tenant.to_s if signed_in?

@@ -21,15 +21,6 @@ class InvoicesController < AuthorizedController
     index!
   end
 
-  # Actions
-  def new
-    invoice_params = params[:invoice] || {}
-    invoice_params.merge!(:company_id => current_tenant.company.id)
-    @invoice = Invoice.new(invoice_params)
-
-    new!
-  end
-
   def letter
     show!
   end
@@ -50,8 +41,8 @@ class InvoicesController < AuthorizedController
         :times          => 1,
         :quantity       => 'x',
         :include_in_saldo_list => ['vat:full'],
-        :credit_account => resource_class.default_credit_account,
-        :debit_account  => resource_class.default_debit_account
+        :credit_account => resource_class.credit_account,
+        :debit_account  => resource_class.debit_account
       )
     end
 

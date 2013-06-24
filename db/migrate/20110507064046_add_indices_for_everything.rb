@@ -29,8 +29,6 @@ class AddIndicesForEverything < ActiveRecord::Migration
     add_index :roles_users, :role_id
     add_index :roles_users, :user_id
 
-    add_index :tenants, :person_id
-
     add_index :users, :person_id
     add_index :users, :tenant_id
 

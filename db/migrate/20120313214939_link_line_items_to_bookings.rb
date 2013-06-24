@@ -1,14 +1,13 @@
+# Monkey patch Invoice to adjust for new model
+class Invoice
+  def calculate_amount ; end
+  def update_amount ; end
+  def calculate_due_amount ; end
+  def update_due_amount ; end
+end
 
 class LinkLineItemsToBookings < ActiveRecord::Migration
   def up
-    # Monkey patch Invoice to adjust for new model
-    class Invoice
-      def calculate_amount ; end
-      def update_amount ; end
-      def calculate_due_amount ; end
-      def update_due_amount ; end
-    end
-
     # Cleanup
     say_with_time "Destroy stray line items" do
       LineItem.all.select{|li| li.invoice.nil?}.map(&:destroy)

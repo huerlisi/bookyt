@@ -1,3 +1,0 @@
-# Enable/disable bookyt extensions
-# Currently available: 'bookyt_salary', 'bookyt_projects', 'bookyt_stock'
-Bookyt::Application.config.bookyt.engines = []
