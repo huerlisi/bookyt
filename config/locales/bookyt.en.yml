@@ -290,6 +290,7 @@ en:
       accounts: Accounts
       all: All
       balance: "Balance sheet"
+      banana_data_import: "Banana-Data Import"
       bookings: "Journal"
       contacts: Contacts
       credit_invoices: "Credit invoices"
