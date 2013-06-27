@@ -55,8 +55,7 @@ module Banana
               amount: banana_opening,
               debit_account_id: credit_account_id,    # TODO: why stands credit_account_id for 'soll'?
               credit_account_id: debit_account_id,    # TODO: why stands debit_account_id for 'haben'?
-              value_date: balance_sheet_opening_date,
-              comments: ''
+              value_date: balance_sheet_opening_date
             )
           end
         end
