@@ -1,7 +1,4 @@
 class BananaImportsController < ApplicationController
-	def new
-	end
-
 	def create
 		xml = Nokogiri.XML(params[:upload][:file])
 
