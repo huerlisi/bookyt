@@ -196,6 +196,11 @@ nl:
     remarks: opmerkingen
     state: status
     title: titel
+  banana_import:
+    title: "Banana-Daten importieren"
+    flash:
+      success: "Banana-Daten wurden erfolgreich importiert."
+      file_missing: "Dateiname muss ausgefüllt werden."
   booking_imports: 
     new: 
       title: "Buchungen importieren"

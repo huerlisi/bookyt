@@ -1,6 +1,3 @@
-%p
-  Import xml-File from Bananas.
+= boot_page_title t('banana_import.title')
 
-= form_tag banana_imports_path, multipart: true do
-  = file_field_tag :file
-  = submit_tag "Import"
+= render 'form'

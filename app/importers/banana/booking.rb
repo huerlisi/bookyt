@@ -20,8 +20,7 @@ module Banana
             amount: banana_amount,
             debit_account_id: credit_account_id, # TODO: why stands credit_account_id for 'soll'?
             credit_account_id: debit_account_id, # TODO: why stands debit_account_id for 'haben'?
-            value_date: banana_date,
-            comments: banana_doc
+            value_date: banana_date
           )
         end
 
