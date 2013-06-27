@@ -1,4 +1,4 @@
-= simple_form_for :upload, { url: banana_imports_path, multipart: true } do |f|  
+= simple_form_for BananaImport.new, { url: banana_imports_path, multipart: true } do |f|  
   .row-fluid
     .span6
       = f.input :file, :as => :file

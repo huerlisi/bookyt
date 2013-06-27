@@ -253,6 +253,7 @@ en:
     title: "Import Banana-Data"
     flash:
       success: "Banana-Data have been successfully imported."
+      file_missing: "Filename must be completed."
   booking_imports:
     new:
       title: "Import bookings"
