@@ -4,6 +4,7 @@ class Admin::Tenant < ActiveRecord::Base
   attr_accessible :active, :db_name, :subdomain
 
   validates :subdomain, :uniqueness => true, :presence => true
+  validates :db_name, :uniqueness => true, :presence => true, :format => /^\w*$/
 
   def to_s
     subdomain
