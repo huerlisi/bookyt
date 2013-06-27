@@ -196,6 +196,10 @@ nl:
     remarks: opmerkingen
     state: status
     title: titel
+  banana_import:
+    title: "Banana-Daten importieren"
+    flash:
+      success: "Banana-Daten wurden erfolgreich importiert."  
   booking_imports: 
     new: 
       title: "Buchungen importieren"
@@ -237,7 +241,6 @@ nl:
       accounts: Konten
       all: Alle
       balance: Bilanz
-      banana_data_import: "Banana-Daten importieren"
       bookings: Journal
       contacts: Adressen
       credit_invoices: Kreditoren

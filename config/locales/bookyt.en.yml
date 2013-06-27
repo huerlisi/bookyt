@@ -249,6 +249,10 @@ en:
     remarks: Remarks
     state: Status
     title: Title
+  banana_import:
+    title: "Import Banana-Data"
+    flash:
+      success: "Banana-Data have been successfully imported."
   booking_imports:
     new:
       title: "Import bookings"
@@ -290,7 +294,6 @@ en:
       accounts: Accounts
       all: All
       balance: "Balance sheet"
-      banana_data_import: "Banana-Data Import"
       bookings: "Journal"
       contacts: Contacts
       credit_invoices: "Credit invoices"

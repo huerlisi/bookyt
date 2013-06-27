@@ -207,6 +207,10 @@ de:
     remarks: Bemerkungen
     state: Status
     title: Titel
+  banana_import:
+    title: "Banana-Daten importieren"
+    flash:
+      success: "Banana-Daten wurden erfolgreich importiert."  
   booking_imports:
     new:
       title: "Buchungen importieren"
@@ -248,7 +252,6 @@ de:
       accounting: Buchhaltung
       all: Alle
       balance: Bilanz
-      banana_data_import: "Banana-Daten importieren"
       bookings: Journal
       contacts: Adressen
       credit_invoices: Kreditoren
@@ -454,7 +457,7 @@ de:
     new_subtotal: "Neue Zwischensumme"
   booking_import_attachments:
     new:
-      title: Bankdaten importieren
+      title: Bankdaten importieren    
   people:
     index:
       title: Adressen
