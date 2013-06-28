@@ -26,7 +26,7 @@ class Tenant < ActiveRecord::Base
   # Company
   attr_accessible :company, :company_attributes
   belongs_to :company, :foreign_key => :person_id
-  validates_presence_of :company
+  validates_presence_of :company, :on => :update
   accepts_nested_attributes_for :company
 
   # Bookyt
@@ -34,8 +34,8 @@ class Tenant < ActiveRecord::Base
   # Fiscal Years
   attr_accessible :fiscal_year_ends_on
   attr_accessible :incorporated_on
-  validates_date :fiscal_year_ends_on
-  validates_date :incorporated_on
+  validates_date :fiscal_year_ends_on, :on => :update
+  validates_date :incorporated_on, :on => :update
 
   def fiscal_period(year)
     final_day_of_fiscal_year = Date.new(year, fiscal_year_ends_on.month, fiscal_year_ends_on.day)

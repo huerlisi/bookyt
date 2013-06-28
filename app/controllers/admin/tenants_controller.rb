@@ -28,6 +28,9 @@ class Admin::TenantsController < ApplicationController
       Apartment::Database.switch(@tenant.db_name)
       load "db/seeds.rb"
 
+      @instance_tenant = ::Tenant.create
+      @user.tenant = @instance_tenant
+
       @user.save
       redirect_to @tenant
     else
