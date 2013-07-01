@@ -5,6 +5,8 @@ Bookyt::Application.routes.draw do
   # I18n
   filter 'locale'
 
+  get "setup" => "setup#tenant"
+
   # Authorization
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
