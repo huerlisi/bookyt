@@ -18,24 +18,26 @@ class Admin::TenantsController < ApplicationController
 
   def create
     @tenant = Admin::Tenant.new(params[:admin_tenant])
-    @tenant.db_name ||= @tenant.subdomain
+    @tenant.db_name = @tenant.subdomain if @tenant.db_name.blank?
     @user = User.new(params[:user])
     @user.role_texts = ['admin']
+    @instance_tenant = ::Tenant.new(:admin_tenant => @tenant)
+    @user.tenant = @instance_tenant
 
-    if @tenant.valid?
-      @tenant.save
+    @tenant.valid?
+    @user.valid?
+
+    if @instance_tenant.valid? && @user.valid? && @tenant.save
       Apartment::Database.create(@tenant.db_name)
       Apartment::Database.switch(@tenant.db_name)
       load "db/seeds.rb"
 
-      @instance_tenant = ::Tenant.create
-      @user.tenant = @instance_tenant
+      @instance_tenant.save!
+      @user.save!
 
-      @user.save
+      Apartment::Database.switch('public')
       redirect_to @tenant
     else
-      raise @tenant.errors.inspect + @user.errors.inspect
-
       render 'new'
     end
   end

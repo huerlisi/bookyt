@@ -25,7 +25,7 @@ class Ability
 
     # Sysadmin roles
     if user.is_a? AdminUser
-      can :manage, [Tenant, AdminUser]
+      can :manage, :all
       return
     end
 
@@ -33,6 +33,9 @@ class Ability
     user.roles.each do |role|
       self.send(role.name, user)
     end
+
+    # Disable all access to admin resources
+    cannot :all, [AdminUser, Admin::Tenant]
   end
 
   # Admin abilities

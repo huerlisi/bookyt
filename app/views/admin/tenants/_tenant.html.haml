@@ -1,2 +1,4 @@
 %tr[tenant]
   %td= link_to tenant.subdomain, tenant, {'data-href-container' => 'tr'}
+  %td= link_to tenant.domain, "https://#{tenant.domain}"
+  %td= tenant.db_name

@@ -1,4 +1,9 @@
 class Tenant < ActiveRecord::Base
+  # Admin Tenant
+  # ============
+  belongs_to :admin_tenant, :class_name => 'Admin::Tenant'
+  attr_accessible :admin_tenant
+
   # Person
   # ======
   belongs_to :person

@@ -1,7 +1,6 @@
 .contextual
   = contextual_link_to :index, [:admin, :tenants]
-  = contextual_link_to :delete, @tenant
 
 = boot_page_title
 
-= render "show"
+= render 'form'
