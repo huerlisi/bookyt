@@ -4,5 +4,6 @@ class SetupController < ApplicationController
   def tenant
     # We only have one tenant
     @tenant = Tenant.first
+    @tenant.build_company
   end
 end

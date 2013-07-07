@@ -377,6 +377,10 @@ de:
       credit_account: Aufwandskonto
       debit_account: Bezahlkonto
       vat_account: Vorsteuerkonto
+  setup:
+    tenant:
+      title: Mandant einrichten
+
   flash:
     actions:
       create:

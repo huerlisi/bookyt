@@ -14,6 +14,7 @@ Bookyt::Application.routes.draw do
   end
 
   get "setup" => "setup#tenant"
+  get "setup/accounting" => "setup#accounting"
 
   # Authorization
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
