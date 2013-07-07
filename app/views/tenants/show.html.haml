@@ -3,7 +3,7 @@
   = icon_link_to :balance_sheet
   = contextual_links_for
 
-%h1= link_to @tenant.company, @tenant.company
+= boot_page_title @tenant.company.to_s
 
 .tabbable
   %ul.nav.nav-tabs
