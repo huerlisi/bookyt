@@ -255,8 +255,10 @@ function initializeBehaviours() {
       allowClear: true
   });
   $('.select2-tags').each(function(index, element) {
+    var tags = $(element).data('tags') || '';
+
     $(element).select2({
-      tags: $(element).data('tags'),
+      tags: tags,
       tokenSeparators: [","]
     })
   })
