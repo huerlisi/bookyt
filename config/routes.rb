@@ -82,6 +82,7 @@ Bookyt::Application.routes.draw do
 
   # Invoices
   resources :invoices do
+    resources :simple_bookings
     resources :attachments
     member do
       get :copy

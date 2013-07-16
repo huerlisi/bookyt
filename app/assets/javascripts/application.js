@@ -227,6 +227,7 @@ function initializeBehaviours() {
   addLinkifyContainersBehaviour();
   addIconTooltipBehaviour();
   addTimeCheckBehaviour();
+  addModalBehaviour();
 
   // application
   addAlternateTableBehaviour();
