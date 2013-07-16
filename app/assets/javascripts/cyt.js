@@ -90,3 +90,32 @@ function addIconTooltipBehaviour() {
 function addTimeCheckBehaviour() {
   $('*[data-check-hours=true]').setMask();
 }
+
+// Modal dialog support
+function setupSubmitButtons() {
+  $("body").on('click', '.modal-footer .submit-button', function() {
+    var form = $(this).parents('.modal').find('.modal-body form');
+    form.submit();
+  });
+}
+
+// Cancel button support
+function setupCancelButtons() {
+  // Key handler
+  $(document).keydown(function(e) {
+    var cancel_button = $('.cancel-button:visible')
+    // No action if no visible cancel button present
+    if (cancel_button.length == 0) {
+      return;
+    }
+
+    if (e.which == 27) {
+      cancel_button.click();
+    }
+  })
+}
+
+function addModalBehaviour() {
+  setupSubmitButtons();
+  setupCancelButtons();
+}

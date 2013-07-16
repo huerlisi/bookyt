@@ -1,0 +1,7 @@
+$('.modal').remove();
+$('body').append('<%=j render "show_modal" %>');
+$('.modal').modal('show');
+
+addComboboxBehaviour();
+addAutofocusBehaviour();
+$('.modal .select2').select2();
