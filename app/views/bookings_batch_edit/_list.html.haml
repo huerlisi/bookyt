@@ -1,2 +1,10 @@
 %table.table
+  %tr
+    %th(style="width: 15%")= t_attr :value_date, Booking
+    %th(style="width: 15%")= t_attr :code, Booking
+    %th(style="width: 15%")= t_attr :title, Booking
+    %th= t_attr :credit_account, Booking
+    %th(style="width: 15%")= t_attr :debit_account, Booking
+    %th(style="width: 15%")= t_attr :amount, Booking
+
   = render :partial => 'booking', :collection => collection
