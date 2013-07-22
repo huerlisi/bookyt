@@ -5,6 +5,9 @@ Main Features:
 * Refactor invoice/line_item accounts to use tagged accounts.
 * Add migration to set default account tags.
 * Use modules settings from db instead of config file.
+* Prepare to run on PostgreSQL.
+* Basic/Hidden batch edit mode for bookings.
+* Support for manual bookings in debit invoices.
 
 Enhancements:
 * Add PDF links to fiscal statements booking journal.
@@ -19,6 +22,12 @@ Enhancements:
 * Use title cased Bookyt as application title for en locale.
 * Implement tags for accounts.
 * Allow user to select accounts used for invoices.
+* Fix title for tenant#show.
+* Add bootstrap action button markup to some more forms.
+* Start implementing a setup wizard.
+* Drop user tab from tenant view.
+* Mark some user form fields as required.
+* Drop tenant sidebar.
 
 Bugfixes:
 * Fix print stylesheets.
