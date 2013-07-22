@@ -1,3 +1,12 @@
+.contextual
+  .btn-group
+    %button.btn= t_action(:book_manual)
+    %button.btn.dropdown-toggle{'data-toggle' => 'dropdown'}
+      %span.caret
+    %ul.dropdown-menu.pull-right
+      - BookingTemplate.tagged_with('use:credit_invoice').each do |template|
+        %li= link_to template.title, new_invoice_simple_booking_path(resource, :booking_template_id => template.id), 'data-remote' => true
+
 =  simple_form_for resource do |f|
   = f.input :customer_id, :as => :hidden
   .row-fluid
