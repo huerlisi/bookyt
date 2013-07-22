@@ -9,3 +9,7 @@
  *= require vesr
  *= require screen
 */
+
+.td .best_in_place input {
+  margin: 0px;
+}
