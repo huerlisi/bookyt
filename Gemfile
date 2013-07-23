@@ -42,6 +42,10 @@ group :development do
 
   # Debugger
   gem 'ruby-debug', :platforms => :ruby_18
+
+  # Console
+  gem 'pry-rails'
+  gem 'pry-doc'
 end
 
 group :test, :development do
