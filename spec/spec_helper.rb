@@ -17,6 +17,9 @@ require "capybara/rails"
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+# TODO: not sure why this is needed, it's not using the default locale otherwise
+I18n.locale = 'de-CH'
+
 RSpec.configure do |config|
   # == Mock Framework
   #
