@@ -150,7 +150,7 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
-    has_accounts (1.1.1)
+    has_accounts (1.1.2)
       acts-as-taggable-on
       has_vcards
       inherited_resources
