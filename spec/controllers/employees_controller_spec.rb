@@ -5,14 +5,6 @@ describe EmployeesController do
 
   login_admin
 
-  before(:all) do
-    ThinkingSphinx::Test.start
-  end
-
-  after(:all) do
-    ThinkingSphinx::Test.stop
-  end
-
   def mock_employee(stubs={})
     @mock_employee ||= mock_model(Employee, stubs).as_null_object
   end
