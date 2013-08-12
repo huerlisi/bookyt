@@ -14,6 +14,6 @@ FactoryGirl.define do
     title "MWSt."
     rate "8.7"
     duration_from "2011-11-11"
-    duration_to "2011-11-11"
+    duration_to nil
   end
 end
