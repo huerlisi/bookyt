@@ -21,6 +21,10 @@ group :assets do
   gem 'uglifier'
   gem 'compass-rails'
 end
+group :production do
+  gem 'therubyracer'
+  gem 'libv8'
+end
 
 gem 'jquery-rails'
 
