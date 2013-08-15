@@ -40,6 +40,7 @@ group :development do
 
   # Capistrano
   gem 'capones_recipes'
+  gem 'capistrano-rbenv'
 
   # Debugger
   gem 'ruby-debug', :platforms => :ruby_18
