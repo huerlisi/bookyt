@@ -1,7 +1,14 @@
 # encoding: UTF-8
 
-Settings.defaults = {
-  'payment_period' => 30.days,
+begin
+  Settings.defaults = {
+    'payment_period' => 30.days,
 
-  'modules.enabled'   => []
-}
+    'modules.enabled'   => []
+  }
+rescue
+  Settings = {
+    'payment.period' => 30.days,
+    'modules.enabled' => []
+  }
+end
