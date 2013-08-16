@@ -227,7 +227,6 @@ function initializeBehaviours() {
   addSortableBehaviour();
   addLinkifyContainersBehaviour();
   addIconTooltipBehaviour();
-  addTimeCheckBehaviour();
   addModalBehaviour();
 
   // application

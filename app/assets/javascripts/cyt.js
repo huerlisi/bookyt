@@ -87,10 +87,6 @@ function addIconTooltipBehaviour() {
   });
 };
 
-function addTimeCheckBehaviour() {
-  $('*[data-check-hours=true]').setMask();
-}
-
 // Modal dialog support
 function setupSubmitButtons() {
   $("body").on('click', '.modal-footer .submit-button', function() {
