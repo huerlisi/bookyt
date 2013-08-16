@@ -12,6 +12,13 @@ require 'rspec/rails'
 
 # Configure capybara for integration testing
 require "capybara/rails"
+require 'capybara/poltergeist'
+
+Capybara.configure do |config|
+  config.default_driver    = :rack_test
+  config.javascript_driver = ENV['JS_DRIVER'] ? ENV['JS_DRIVER'].to_sym : :poltergeist
+  config.default_wait_time = ENV['CI'] ? 5 : 5
+end
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

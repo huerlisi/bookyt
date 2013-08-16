@@ -68,6 +68,7 @@ group :test, :development do
   # Browser
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'poltergeist'
 
   # Code coverage
   gem 'rcov', :platforms => :ruby_18

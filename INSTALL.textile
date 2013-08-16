@@ -17,6 +17,10 @@ Then some gems:
 sudo gem install rake bundler
 </pre>
 
+h2. Testing
+
+You currently need phantomjs version 1.8.1 or newer. You can get this on Ubuntu 13.10.
+
 h2. Install Bookyt
 
 Install current Bookyt from git repository. We'll use this checkout as working directory from now on:
