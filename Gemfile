@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 
 # Rails
 # =====
-gem 'rails'
+gem 'rails', '~> 3.2.14' # Because it makes sense, and bundler fails otherwise
 gem 'unicorn'
 
 # Database
@@ -22,7 +22,7 @@ group :assets do
   gem 'compass-rails'
 end
 group :production do
-  gem 'therubyracer'
+  gem 'therubyracer', '= 0.11.4' # Fix build problems
   gem 'libv8'
 end
 
@@ -111,7 +111,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'faraday'
-gem 'cancan'
+gem 'cancan', '1.6.8' # issue regarding alias and real action name
 gem 'lyb_devise_admin'
 gem 'apartment'
 
@@ -124,7 +124,7 @@ gem 'show_for'
 gem 'routing-filter'
 
 # Application Settings
-gem 'ledermann-rails-settings', :require => 'rails-settings'
+gem 'ledermann-rails-settings', '~> 1.1.0', :require => 'rails-settings' # incompatible changes
 
 # Bookyt
 # ======
