@@ -1,6 +1,6 @@
 namespace :bookyt do
-  desc "Set up a fresh cloned git repo for operation"
-  task :setup do
+  desc "Set up database.yml on travis"
+  task :travis do
     ['database'].each do |file|
       example_file = Rails.root.join('config',"#{file}.yml.travis-ci")
       real_file    = Rails.root.join('config',"#{file}.yml")
