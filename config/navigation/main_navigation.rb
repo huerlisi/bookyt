@@ -20,12 +20,14 @@ SimpleNavigation::Configuration.run do |navigation|
       accounting.item :accounts, t_title(:index, Account), accounts_path
       accounting.item :bookings, t('bookyt.main_navigation.bookings'), bookings_path,
                       :highlights_on => /\/bookings($|\?)/
-      accounting.item :balance, t('bookyt.main_navigation.balance'), balance_sheet_tenant_path(current_user.tenant, :by_value_period => params[:by_value_period]),
-                      :highlights_on => /#{Regexp.escape(balance_sheet_tenant_path(current_user.tenant))}($|\?)/
-      accounting.item :profit, t('bookyt.main_navigation.profit'), profit_sheet_tenant_path(current_user.tenant, :by_value_period => params[:by_value_period]),
-                      :highlights_on => /#{Regexp.escape(profit_sheet_tenant_path(current_user.tenant))}($|\?)/
-      accounting.item :divider, "", :class => 'divider'
-      accounting.item :mt940_import, t_title(:import, BookingImportAttachment), new_booking_import_attachment_path
+      if current_tenant
+        accounting.item :balance, t('bookyt.main_navigation.balance'), balance_sheet_tenant_path(current_tenant, :by_value_period => params[:by_value_period]),
+                        :highlights_on => /#{Regexp.escape(balance_sheet_tenant_path(current_tenant))}($|\?)/
+        accounting.item :profit, t('bookyt.main_navigation.profit'), profit_sheet_tenant_path(current_tenant, :by_value_period => params[:by_value_period]),
+                        :highlights_on => /#{Regexp.escape(profit_sheet_tenant_path(current_tenant))}($|\?)/
+        accounting.item :divider, "", :class => 'divider'
+        accounting.item :mt940_import, t_title(:import, BookingImportAttachment), new_booking_import_attachment_path
+      end
     end
 
     primary.item :debit_invoices, t_title(:index, DebitInvoice), '#' do |invoicing|

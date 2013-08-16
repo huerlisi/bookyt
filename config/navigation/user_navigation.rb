@@ -6,7 +6,9 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :settings, t('bookyt.main_navigation.settings'), '#',
                  :if => Proc.new { user_signed_in? } do |settings|
       settings.item :users_settings,            t('bookyt.settings.users.title'), users_path
-      settings.item :tentant,                   t('bookyt.settings.tenant.title'), tenant_path(current_tenant)
+      if current_tenant
+        settings.item :tentant,                   t('bookyt.settings.tenant.title'), tenant_path(current_tenant)
+      end
       settings.item :divider_two,               "", :class => 'divider'
       settings.item :vesr_settings,             t('settings.vesr.title'), vesr_settings_path
       settings.item :divider_three,             "", :class => 'divider'
