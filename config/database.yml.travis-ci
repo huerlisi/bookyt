@@ -3,13 +3,13 @@ mysql: &mysql
   adapter:  mysql2
   encoding: utf8
   host:     localhost
-  user:     root
+  username: root
 
 postgresql: &postgresql
   adapter:  postgresql
   encoding: utf8
   host:     localhost
-  user:     postgres
+  username: postgres
 
 # Environments
 # ============
