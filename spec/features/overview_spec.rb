@@ -14,4 +14,10 @@ feature "Welcome Screen" do
     visit '/'
     expect(page).to have_text("Bookyt")
   end
+
+  scenario "When logged in as admin I should see the page title", :js => true do
+    log_in
+    visit '/'
+    expect(page).to have_text("Bookyt")
+  end
 end
