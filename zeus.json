@@ -11,7 +11,8 @@
           "generate": ["g"]
         },
         "test_environment": {
-          "test_helper": {"test": ["rspec"]}
+          "test_helper": {"test": ["rspec"]},
+          "guard": []
         }
       }
     }
