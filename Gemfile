@@ -76,9 +76,6 @@ group :test, :development do
 end
 
 group :tools do
-  # Zeus
-  gem 'zeus'
-
   # Guard
   gem 'guard-rspec'
   gem 'guard-zeus'

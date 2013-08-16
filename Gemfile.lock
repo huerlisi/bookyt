@@ -486,4 +486,3 @@ DEPENDENCIES
   vesr
   will_paginate
   wkhtmltopdf-binary
-  zeus
