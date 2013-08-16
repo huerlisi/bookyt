@@ -36,7 +36,7 @@ function addDirtyForm() {
 }
 
 function addNestedFormBehaviour() {
-  $(".delete-nested-form-item").live("click", function(event) {
+  $('body').on('click', '.delete-nested-form-item', function(event) {
     var item = $(this).parents('.nested-form-item');
     // Hide item
     item.hide();
