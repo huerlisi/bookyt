@@ -152,7 +152,7 @@ class Invoice < ActiveRecord::Base
   accepts_nested_attributes_for :bookings, :allow_destroy => true
 
   def self.direct_account
-    balance_account
+    nil
   end
 
   def balance_account
