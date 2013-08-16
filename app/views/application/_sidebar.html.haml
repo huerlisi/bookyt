@@ -1,8 +1,9 @@
 %ul.nav.nav-list
   %li.nav-header= t('bookyt.main_navigation.accounting')
   %li= link_to t_title(:new, Booking), new_booking_path
-  - BookingTemplate.where(:type => nil).limit(5).each do |template|
-    %li= link_to template, [:new_booking, template]
+  - BookingTemplate.where(:type => nil).limit(5).find_each do |template|
+    -# TODO: quick fix for leftover booking template in feature spec
+    %li= link_to template, [:new_booking, template] unless template.to_s.nil?
 
   %li.nav-header= t_title(:index, DebitInvoice)
   %li= link_to t_title(:new, DebitInvoice), new_debit_invoice_path
