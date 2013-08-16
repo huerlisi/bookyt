@@ -21,7 +21,7 @@ module ApplicationHelper
 
   # Tenancy
   def current_tenant
-    current_user.tenant
+    current_user.try(:tenant)
   end
 
   include ActionView::Helpers::NumberHelper
