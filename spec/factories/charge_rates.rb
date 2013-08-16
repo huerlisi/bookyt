@@ -5,7 +5,7 @@ FactoryGirl.define do
     title "Title"
     rate "9.99"
     duration_from "2011-04-14"
-    duration_to "2011-04-14"
+    duration_to nil
     association :person
   end
 
