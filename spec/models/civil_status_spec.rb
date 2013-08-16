@@ -10,7 +10,7 @@ describe CivilStatus do
 
   context "when existing" do
     it "to_s returns the title" do
-      civil_status = Factory.build(:civil_status)
+      civil_status = FactoryGirl.build(:civil_status)
       civil_status.to_s.should_not be_empty
     end
   end

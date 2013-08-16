@@ -22,7 +22,7 @@ describe AccountsController do
 
     describe "GET show" do
       it "assigns the requested account as @account" do
-        @account = Factory.create(:account)
+        @account = FactoryGirl.create(:account)
 
         get :show, :id => @account.id
 
@@ -32,7 +32,7 @@ describe AccountsController do
       end
 
       it "assigns the requested account as @account only credit bookings" do
-        @account = Factory.create(:account)
+        @account = FactoryGirl.create(:account)
 
         get :show, {:id => @account.id, :only_credit_bookings => true}
 
@@ -42,7 +42,7 @@ describe AccountsController do
       end
 
       it "assigns the requested account as @account only debit bookings" do
-        @account = Factory.create(:account)
+        @account = FactoryGirl.create(:account)
 
         get :show, {:id => @account.id, :only_debit_bookings => true}
 
@@ -54,7 +54,7 @@ describe AccountsController do
 
     describe "GET csv_bookings" do
       it "exports the bookings as csv file." do
-        @account_booking = Factory.create(:account_booking)
+        @account_booking = FactoryGirl.create(:account_booking)
         get :csv_bookings, {:id => @account_booking.credit_account.id}
         assigns(:account).should_not be_nil
         assigns(:account).should == @account_booking.credit_account
@@ -77,7 +77,7 @@ describe AccountsController do
 
     describe "GET show" do
       it "assigns the requested account as @account" do
-        @account = Factory.create(:account)
+        @account = FactoryGirl.create(:account)
 
         get :show, :id => @account.id
 
@@ -86,7 +86,7 @@ describe AccountsController do
       end
 
       it "assigns the requested account as @account only credit bookings" do
-        @account = Factory.create(:account)
+        @account = FactoryGirl.create(:account)
 
         get :show, {:id => @account.id, :only_credit_bookings => true}
 
@@ -96,7 +96,7 @@ describe AccountsController do
       end
 
       it "assigns the requested account as @account only debit bookings" do
-        @account = Factory.create(:account)
+        @account = FactoryGirl.create(:account)
 
         get :show, {:id => @account.id, :only_debit_bookings => true}
 

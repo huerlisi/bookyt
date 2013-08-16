@@ -10,7 +10,7 @@ describe UsersController do
       login_admin
 
       it "can update other users password without current password" do
-        user = Factory.create(:accountant_user)
+        user = FactoryGirl.create(:accountant_user)
         new_password = '1234567890'
         put :update, {:id => user.id, :user => {:password => new_password, :password_confirmation => new_password}}
 
@@ -22,8 +22,8 @@ describe UsersController do
       end
 
       it "can update other users person without password" do
-        user = Factory.create(:accountant_user)
-        person = Factory.create(:person)
+        user = FactoryGirl.create(:accountant_user)
+        person = FactoryGirl.create(:person)
         put :update, {:id => user.id, :user => {:person_id => person.id}}
 
         user = assigns(:user)
@@ -34,7 +34,7 @@ describe UsersController do
       end
 
       it "cannot update other users if confirmation does not match" do
-        user = Factory.create(:accountant_user)
+        user = FactoryGirl.create(:accountant_user)
         new_password = '1234567890'
         put :update, {:id => user.id, :user => {:password => new_password, :password_confirmation => 'wrong'}}
 
@@ -46,7 +46,7 @@ describe UsersController do
       end
 
       it "should redirect to user view if successfull" do
-        user = Factory.create(:accountant_user)
+        user = FactoryGirl.create(:accountant_user)
         new_password = '1234567890'
         put :update, {:id => user.id, :user => {:password => new_password, :password_confirmation => new_password}}
 
@@ -56,7 +56,7 @@ describe UsersController do
       end
 
       it "should re-render edit if password and confirmation do not match" do
-        user = Factory.create(:accountant_user)
+        user = FactoryGirl.create(:accountant_user)
         new_password = '1234567890'
         put :update, {:id => user.id, :user => {:password => new_password, :password_confirmation => 'wrong'}}
 
@@ -70,7 +70,7 @@ describe UsersController do
       login_accountant
 
       it "cannot update another user" do
-        user = Factory.create(:accountant_user)
+        user = FactoryGirl.create(:accountant_user)
         new_password = '1234567890'
         current_password = user.current_password
         put :update, {:id => user.id, :user => {:password => new_password, :password_confirmation => new_password, :current_password => current_password}}

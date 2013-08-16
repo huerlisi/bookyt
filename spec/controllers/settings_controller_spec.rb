@@ -4,7 +4,7 @@ describe SettingsController do
   login_admin
 
   before(:each) do
-    @bank_account = Factory.create(:bank_account)
+    @bank_account = FactoryGirl.create(:bank_account)
   end
 
   describe "vesr setting" do
@@ -37,7 +37,7 @@ describe SettingsController do
 
     context "with attachment" do
       it "updates the values" do
-        attachment = Factory.create(:attachment)
+        attachment = FactoryGirl.create(:attachment)
         attachment_title = '2cb'
         post :update_vesr, {:vesr => {:tenant => {:id => @current_user.tenant.id},
                                       :bank_account => {:id => @bank_account.id},

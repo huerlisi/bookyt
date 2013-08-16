@@ -8,14 +8,14 @@ describe Role do
   end
 
   context "admin role" do
-    subject { Factory(:admin_role) }
+    subject { FactoryGirl.build(:admin_role) }
 
     its(:name) { should =~ /admin/ }
     its(:to_s) { should =~ /Administrator/ }
   end
 
   context "user role" do
-    subject { Factory(:user_role) }
+    subject { FactoryGirl.build(:user_role) }
 
     its(:name) { should =~ /accountant/ }
   end

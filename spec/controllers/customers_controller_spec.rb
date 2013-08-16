@@ -13,7 +13,7 @@ end
 
 describe CustomersController do
   before(:all) do
-    Factory.create(:customer, :id => 20000)
+    FactoryGirl.create(:customer, :id => 20000)
   end
 
   context "as admin" do

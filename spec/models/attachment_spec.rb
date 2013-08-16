@@ -18,7 +18,7 @@ describe Attachment do
   end
 
   context "when properly initialized" do
-    subject { Factory.build :attachment }
+    subject { FactoryGirl.build :attachment }
 
     its(:to_s) { should =~ /MyString/ }
   end

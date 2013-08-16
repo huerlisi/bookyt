@@ -15,8 +15,8 @@ shared_examples "booking template" do
       title = 'Kreditkarten Einnahmen'
       code = 'day:card turnover'
       matcher = 'test'
-      credit_account = Factory.create(:eft_account)
-      debit_account = Factory.create(:service_account)
+      credit_account = FactoryGirl.create(:eft_account)
+      debit_account = FactoryGirl.create(:service_account)
       post :create, {:booking_template => {:title => title,
                                            :code => code,
                                            :matcher => matcher,
@@ -29,7 +29,7 @@ shared_examples "booking template" do
 
   describe "update" do
     it "a booking template successfully" do
-      booking_template = Factory.create(:invoice_booking_template)
+      booking_template = FactoryGirl.create(:invoice_booking_template)
       new_title = 'title'
       put :update, {:id => booking_template.id, :booking_template => {:title => new_title}}
       response.should redirect_to('/booking_templates')
@@ -40,7 +40,7 @@ end
 
 describe BookingTemplatesController do
   before(:all) do
-    Factory.create(:booking_template)
+    FactoryGirl.create(:booking_template)
   end
 
   context "as admin" do

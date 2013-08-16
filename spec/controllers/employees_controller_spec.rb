@@ -11,7 +11,7 @@ describe EmployeesController do
 
   describe "GET index" do
     before(:all) do
-      Factory.create(:employee)
+      FactoryGirl.create(:employee)
     end
 
     pending "assigns all employees as @employees" do

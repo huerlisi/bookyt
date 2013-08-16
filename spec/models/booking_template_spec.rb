@@ -74,7 +74,7 @@ describe BookingTemplate do
     end
 
     context "on :cash record" do
-      let(:cash) { Factory.build(:cash) }
+      let(:cash) { FactoryGirl.build(:cash) }
       subject { booking } # Expects let(:booking) calls in nested contexts
 
       context "when called with no parameters" do

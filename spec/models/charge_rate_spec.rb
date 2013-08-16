@@ -14,7 +14,7 @@ describe ChargeRate do
 
   context "when properly initialized" do
     it "should return as string the title" do
-      @charge_rate = Factory.build(:charge_rate)
+      @charge_rate = FactoryGirl.build(:charge_rate)
 
       @charge_rate.to_s.should == "Title (9.99)"
       @charge_rate.to_s(:long).should == "Title: 9.99 (14.04.2011 - )"

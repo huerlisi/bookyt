@@ -11,7 +11,7 @@ describe Person do
   end
 
   context "when existing" do
-    @person = Factory.create(:person)
+    @person = FactoryGirl.create(:person)
 
     @person.to_s.should =="Muster Peter"
     @person.to_s(:default).should =="Muster Peter"

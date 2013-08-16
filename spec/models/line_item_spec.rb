@@ -10,7 +10,7 @@ describe LineItem do
     it { should have_one :booking }
 
     describe "#update_booking" do
-      let(:banana) { Factory.build(:banana) }
+      let(:banana) { FactoryGirl.build(:banana) }
 
       it "should return nil if credit_account is empty" do
         banana.credit_account = nil

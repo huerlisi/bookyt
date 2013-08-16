@@ -13,11 +13,11 @@ describe BookingTemplateHelper do
 
   describe "#amount_to_s(booking_template)" do
     it "returns the amount as string when amount_relates_to is present" do
-      helper.amount_to_s(Factory.build(:invoice_booking_template)).should eq("100.00%")
+      helper.amount_to_s(FactoryGirl.build(:invoice_booking_template)).should eq("100.00%")
     end
 
     it "returns the amount as string when amount_relates_to is not present" do
-      helper.amount_to_s(Factory.build(:invoice_without_amount_relates_to)).should eq("1.00")
+      helper.amount_to_s(FactoryGirl.build(:invoice_without_amount_relates_to)).should eq("1.00")
     end
   end
 end

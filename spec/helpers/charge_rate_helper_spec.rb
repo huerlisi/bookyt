@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ChargeRateHelper do
   before do
-    Factory.create(:charge_rate)
+    FactoryGirl.create(:charge_rate)
   end
   describe "#codes_as_collection" do
     it "returns code collection" do

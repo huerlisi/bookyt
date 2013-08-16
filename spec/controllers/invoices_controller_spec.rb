@@ -3,7 +3,7 @@ require 'spec_helper'
 shared_examples "invoice actions" do
   describe "should create an invoice" do
     it "duplicates an invoice" do
-      invoice = Factory.create(:invoice)
+      invoice = FactoryGirl.create(:invoice)
       get :copy, :id => invoice.id
       response.should render_template('edit')
       assigns(:invoice).state.should eq('booked')

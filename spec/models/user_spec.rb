@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
   before(:all) do
     [:admin_role, :user_role].each do |role|
-      Factory.create(role)
+      FactoryGirl.create(role)
     end
   end
 
@@ -14,7 +14,7 @@ describe User do
   end
 
   describe "as admin" do
-    subject { Factory.create :admin_user }
+    subject { FactoryGirl.create :admin_user }
 
     describe "should be valid" do
       specify { should be_valid }
@@ -23,7 +23,7 @@ describe User do
     end
 
     it "should add it to the accountant role" do
-      admin = Factory.create(:admin_user)
+      admin = FactoryGirl.create(:admin_user)
       admin.role_texts = ['accountant', 'admin']
       admin.save!
       admin.should be_valid
@@ -33,7 +33,7 @@ describe User do
   end
 
   describe "as accountant" do
-    subject { Factory.create(:accountant_user) }
+    subject { FactoryGirl.create(:accountant_user) }
 
     describe "should be valid" do
       specify { should be_valid }
@@ -42,7 +42,7 @@ describe User do
     end
 
     it "should add it to the admin role" do
-      accountant = Factory.create(:accountant_user)
+      accountant = FactoryGirl.create(:accountant_user)
       accountant.role_texts = ['admin', 'accountant']
       accountant.save!
       accountant.should be_valid

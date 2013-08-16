@@ -4,7 +4,7 @@ describe Tenant do
   it { should belong_to :company }
 
   context "on update" do
-    subject { Factory.create :tenant }
+    subject { FactoryGirl.create :tenant }
 
     it { should validate_presence_of :company }
     pending { should validate_date :incorporated_on } # TODO: This validations can be checked at the moment
@@ -15,7 +15,7 @@ describe Tenant do
   end
 
   context "when properly initialized" do
-    subject { Factory.build :tenant }
+    subject { FactoryGirl.build :tenant }
 
     its(:to_s) { should =~ /Muster Peter/ }
   end

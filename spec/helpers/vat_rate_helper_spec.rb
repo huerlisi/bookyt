@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe VatRateHelper do
   before do
-    Factory.create(:vat_rate)
+    FactoryGirl.create(:vat_rate)
   end
 
   describe "#vat_rates_as_collection" do

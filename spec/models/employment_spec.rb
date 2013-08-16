@@ -7,7 +7,7 @@ describe Employment do
   end
 
   before(:all) do
-    Factory.create(:employment)
+    FactoryGirl.create(:employment)
   end
 
   context "class methods" do
