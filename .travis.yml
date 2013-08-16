@@ -6,7 +6,7 @@ env:
   - DB=mysql
   - DB=postgresql
 
-script: "bundle exec rake bookyt:travis db:schema:load spec"
+script: "bundle exec rake bookyt:travis db:schema:load db:test:prepare spec"
 
 # whitelist
 branches:
