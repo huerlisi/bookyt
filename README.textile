@@ -34,6 +34,8 @@ h2. Documentation
 
 h2. Contributing
 
+!https://travis-ci.org/huerlisi/bookyt.png!:https://travis-ci.org/huerlisi/bookyt
+
 Code is available at "github":https://github.com/huerlisi/bookyt.
 
 Issue tracking is done using "Redmine":https://redmine.cyt.ch/projects/bookyt/issues.
