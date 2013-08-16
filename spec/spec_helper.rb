@@ -30,6 +30,11 @@ RSpec.configure do |config|
   # config.mock_with :rr
   config.mock_with :rspec
 
+  # Increase log level on CI
+  if ENV['CI'] || ENV['TRAVIS']
+    Rails.logger.level = 4
+  end
+
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
