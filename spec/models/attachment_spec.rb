@@ -12,7 +12,7 @@ describe Attachment do
   end
 
   context "when file is nil" do
-    before(:all) { subject.file = nil }
+    before { subject.file = nil }
 
     its(:to_s) { should == "Anhang ()" }
   end
