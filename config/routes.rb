@@ -193,10 +193,5 @@ Bookyt::Application.routes.draw do
   end
 
   resources :charge_rates
-  resources :booking_templates do
-    member do
-      get :new_booking
-    end
-  end
   resources :charge_booking_templates
 end
