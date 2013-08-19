@@ -14,7 +14,7 @@ describe User do
   end
 
   describe "as admin" do
-    subject { FactoryGirl.create :admin_user }
+    subject { FactoryGirl.create :user_admin }
 
     describe "should be valid" do
       specify { should be_valid }
@@ -23,7 +23,7 @@ describe User do
     end
 
     it "should add it to the accountant role" do
-      admin = FactoryGirl.create(:admin_user)
+      admin = FactoryGirl.create(:user_admin)
       admin.role_texts = ['accountant', 'admin']
       admin.save!
       admin.should be_valid
@@ -33,7 +33,7 @@ describe User do
   end
 
   describe "as accountant" do
-    subject { FactoryGirl.create(:accountant_user) }
+    subject { FactoryGirl.create(:user_accountant) }
 
     describe "should be valid" do
       specify { should be_valid }
@@ -42,7 +42,7 @@ describe User do
     end
 
     it "should add it to the admin role" do
-      accountant = FactoryGirl.create(:accountant_user)
+      accountant = FactoryGirl.create(:user_accountant)
       accountant.role_texts = ['admin', 'accountant']
       accountant.save!
       accountant.should be_valid
