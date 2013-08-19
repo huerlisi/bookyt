@@ -39,6 +39,9 @@ uploads/
 # guard
 tmp/rspec_guard_result
 
+# Capistrano
+config/deploy/*.rb
+
 # Bookyt Data
 # ===========
 public/booking_imports
