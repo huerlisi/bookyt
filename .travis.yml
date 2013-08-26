@@ -15,7 +15,7 @@ branches:
   only:
     - master
     - stable
-    - tenancy
+    - staging
 
 rvm:
   - 1.9.3
