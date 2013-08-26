@@ -16,6 +16,7 @@ branches:
     - master
     - stable
     - staging
+    - api
 
 rvm:
   - 1.9.3
