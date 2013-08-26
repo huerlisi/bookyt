@@ -1,4 +1,6 @@
 class AccountSerializer < ActiveModel::Serializer
   attributes :id, :type
-  attributes :title, :account_type_id, :number, :code
+  attributes :title, :account_type_id, :code
+
+  attributes :saldo
 end

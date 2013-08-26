@@ -1,4 +1,4 @@
-class BankAccountSerializer < ActiveModel::Serializer
-  attributes :id, :type
-  attributes :title, :account_type_id, :number, :code
+class BankAccountSerializer < AccountSerializer
+  attributes :number
+  has_one :bank
 end
