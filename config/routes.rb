@@ -28,6 +28,13 @@ Bookyt::Application.routes.draw do
     end
   end
 
+  # API
+  namespace :api, :defaults => { :format => :json } do
+    api_version :module => 'V1', :path => {:value => 'v1'} do
+      resources :accounts
+    end
+  end
+
   # Search
   get "search" => "search#search"
 

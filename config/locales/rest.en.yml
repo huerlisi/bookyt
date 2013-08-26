@@ -1,0 +1,24 @@
+en:
+  rest:
+    unauthenticated: "Access denied, please log in first."
+    stale_object: "Another user has changed the data already."
+    not_acceptable: "The data is not valid."
+    message:
+      actions:
+        create:
+          unprocessable_entity:
+            one: "One error prohibited this %{resource_name} from being saved."
+            other: "%{count} errors prohibited this %{resource_name} from being saved."
+        update:
+          unprocessable_entity:
+            one: "One error prohibited this %{resource_name} from being saved."
+            other: "%{count} errors prohibited this %{resource_name} from being saved."
+      authentications:
+        create:
+          unauthorized: "The email or password is not valid."
+          created: "You have been logged in."
+        show:
+          unauthorized: "You need to login again."
+          ok: "You have been logged in."
+    not_found:
+      default: "The resource was not found."

@@ -79,4 +79,7 @@ RSpec.configure do |config|
   config.extend ControllerMacros, :type => :controller
   config.extend ControllerMacros, :type => :helper
   config.extend RequestMacros, :type => :request
+
+  # JSON spec
+  config.include JsonSpec::Helpers
 end
