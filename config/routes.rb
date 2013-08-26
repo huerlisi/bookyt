@@ -35,6 +35,10 @@ Bookyt::Application.routes.draw do
     end
   end
 
+  if Rails.env.development?
+    mount ApiTaster::Engine => "/api_taster"
+  end
+
   # Search
   get "search" => "search#search"
 

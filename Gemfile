@@ -119,9 +119,11 @@ gem 'cancan', '1.6.8' # issue regarding alias and real action name
 gem 'lyb_devise_admin'
 gem 'apartment'
 
-# API versioning
+# API
 gem 'versionist'
 gem 'active_model_serializers'
+
+gem 'api_taster', '0.6.0'
 
 # Date/Time handling
 gem 'validates_timeliness'

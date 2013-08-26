@@ -1,4 +1,1 @@
-jQuery ->
-  $("a[rel=popover]").popover()
-  $(".tooltip").tooltip()
-  $("a[rel=tooltip]").tooltip()
+# TODO: workaround for api_taster trying to include 'bootstrap.js'
