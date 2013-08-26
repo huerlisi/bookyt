@@ -61,6 +61,7 @@ group :test, :development do
 
   # Matchers/Helpers
   gem 'shoulda-matchers'
+  gem 'json_spec'
 
   # Fixtures
   gem 'factory_girl_rails'
@@ -117,6 +118,10 @@ gem 'faraday'
 gem 'cancan', '1.6.8' # issue regarding alias and real action name
 gem 'lyb_devise_admin'
 gem 'apartment'
+
+# API versioning
+gem 'versionist'
+gem 'active_model_serializers'
 
 # Date/Time handling
 gem 'validates_timeliness'

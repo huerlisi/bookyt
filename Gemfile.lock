@@ -28,6 +28,8 @@ GEM
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.2.1)
+    active_model_serializers (0.8.1)
+      activemodel (>= 3.0)
     activemodel (3.2.14)
       activesupport (= 3.2.14)
       builder (~> 3.0.0)
@@ -200,6 +202,9 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.8.0)
+    json_spec (1.1.1)
+      multi_json (~> 1.0)
+      rspec (~> 2.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
     kgio (2.8.0)
@@ -410,6 +415,9 @@ GEM
       raindrops (~> 0.7)
     validates_timeliness (3.0.14)
       timeliness (~> 0.3.6)
+    versionist (1.1.0)
+      rails (>= 3)
+      yard (~> 0.7)
     vesr (0.12.7)
     warden (1.2.3)
       rack (>= 1.0)
@@ -427,6 +435,7 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  active_model_serializers
   acts-as-taggable-on
   anjlab-bootstrap-rails
   apartment
@@ -463,6 +472,7 @@ DEPENDENCIES
   inherited_resources
   jquery-rails
   jquery-ui-rails
+  json_spec
   ledermann-rails-settings (~> 1.1.0)
   libv8
   lyb_devise_admin
@@ -505,6 +515,7 @@ DEPENDENCIES
   uglifier
   unicorn
   validates_timeliness
+  versionist
   vesr
   will_paginate
   wkhtmltopdf-binary
