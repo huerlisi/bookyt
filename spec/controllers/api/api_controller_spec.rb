@@ -119,8 +119,6 @@ describe Api::ApiController do
     let(:user) { FactoryGirl.create(:user) }
 
     before do
-      #TODO: Confirmable is no longer used?
-      #user.confirm!
       sign_in user
       xhr :get, :index
     end
@@ -151,8 +149,6 @@ describe Api::ApiController do
       let(:user) { FactoryGirl.create(:user) }
 
       before do
-        #TODO: Confirmable is no longer used?
-        #user.confirm!
         sign_in user
       end
 
@@ -208,8 +204,6 @@ describe Api::ApiController do
     let(:user) { FactoryGirl.create(:user) }
 
     before do
-      #TODO: Confirmable is no longer used?
-      #user.confirm!
       sign_in user
       xhr :get, :index
     end
@@ -240,8 +234,6 @@ describe Api::ApiController do
       let(:user) { FactoryGirl.create(:user) }
 
       before do
-        #TODO: Confirmable is no longer used?
-        #user.confirm!
         sign_in user
         xhr :get, :index
       end
