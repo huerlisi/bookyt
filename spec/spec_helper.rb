@@ -10,13 +10,19 @@ end
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 
-# Configure capybara for integration testing
+# Capybara
 require "capybara/rails"
-require 'capybara/poltergeist'
 
 Capybara.configure do |config|
   config.default_driver    = :rack_test
-  config.javascript_driver = ENV['JS_DRIVER'] ? ENV['JS_DRIVER'].to_sym : :poltergeist
+
+  # evaluate javascript driver
+  js_driver = (ENV['JS_DRIVER'] || :poltergeist).to_sym
+  if js_driver == :poltergeist
+    require 'capybara/poltergeist'
+  end
+  config.javascript_driver = js_driver
+
   config.default_wait_time = ENV['CI'] ? 5 : 5
 end
 
