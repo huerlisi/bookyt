@@ -203,6 +203,62 @@ Bookyt::Application.routes.draw do
 
   resources :charge_rates
   resources :charge_booking_templates
+
+  # Engine routes
+  # TODO: had to include those routes as they get dropped after calling /api_taster
+  # has_accounts_engine
+  resources :bookings do
+    collection do
+      post :select
+      get :simple_edit
+    end
+    member do
+      get :select_booking
+      get :copy
+    end
+  end
+
+  resources :accounts do
+    member do
+      get :csv_bookings
+      get :edit_bookings
+      post :update_bookings
+    end
+    resources :bookings
+    resources :attachments
+  end
+
+  resources :banks do
+    resources :phone_numbers
+    member do
+      get :new_phone_number
+    end
+    collection do
+      get :new_phone_number
+    end
+  end
+
+  resources :bank_accounts do
+    member do
+      get :csv_bookings
+    end
+    resources :bookings
+    resources :attachments
+  end
+
+  resources :booking_templates do
+    member do
+      get :new_booking
+    end
+  end
+
+  # vesr
+  resources :esr_files
+  resources :esr_records do
+    member do
+      post :write_off, :book_extra_earning, :resolve
+    end
+  end
 end
 
 
