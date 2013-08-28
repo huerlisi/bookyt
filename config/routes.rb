@@ -285,6 +285,7 @@ ApiTaster::ApplicationController.class_eval do
   # Authentication
   before_filter :authenticate_user!
   before_filter do
+    return unless current_user
     ApiTaster.global_params = {
       :auth_token => current_user.authentication_token
     }
