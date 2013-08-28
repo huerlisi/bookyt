@@ -96,7 +96,7 @@ gem 'simple-navigation'
 
 # Styling
 gem 'lyb_sidebar'
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
+gem 'anjlab-bootstrap-rails', '~>2.1.0', :require => 'bootstrap-rails'
 gem 'bootstrap-will_paginate'
 
 # Form framework
