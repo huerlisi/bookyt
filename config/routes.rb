@@ -281,9 +281,7 @@ ApiTaster.routes do
   }
 end
 
-ApiTaster::ApplicationController
-
-class ApiTaster::ApplicationController
+ApiTaster::ApplicationController.class_eval do
   # Authentication
   before_filter :authenticate_user!
   before_filter do
