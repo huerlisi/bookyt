@@ -24,8 +24,6 @@ Capybara.configure do |config|
     require 'capybara/poltergeist'
   end
   config.javascript_driver = js_driver
-
-  config.default_wait_time = ENV['CI'] ? 5 : 5
 end
 
 # Requires supporting ruby files with custom matchers and macros, etc,
