@@ -20,6 +20,11 @@ class AccountsController < AuthorizedController
     @bookings = @bookings.paginate(:page => params['page'], :per_page => params['per_page'], :order => 'value_date, id')
     @carry_booking = @bookings.all.first
     @saldo = @account.saldo(@carry_booking, false)
+
+    if @account.is_profit_account? && params[:by_value_period] && params[:by_value_period][:to]
+      @saldo -= @account.saldo(Date.parse(params[:by_value_period][:from]), false)
+    end
+
     show!
   end
 
