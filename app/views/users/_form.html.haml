@@ -1,6 +1,7 @@
 = simple_form_for @user do |f|
   .row-fluid
-    .span6= f.input :login if @user.respond_to? :login
+    - if @user.respond_to? :login
+      .span6= f.input :login
     .span6= f.input :email, :required => true
   .row-fluid
     .span6= f.input :password, :hint => !f.object.new_record?, :required => f.object.new_record?, :input_html => {:autocomplete => "off"}
