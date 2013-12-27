@@ -1,7 +1,7 @@
 prawn_document(:filename => "#{t_model} #{@debit_invoice.long_ident}.pdf", :renderer => DebitInvoiceDocument) do |pdf|
   receiver = @debit_invoice.customer
   sender = @debit_invoice.company
-  bank_account = BankAccount.find_by_code('1020')
+  bank_account = BankAccount.tagged_with('invoice:vesr').first
 
   # Header
   pdf.letter_header(sender, receiver, @debit_invoice.to_s, @debit_invoice.value_date)
