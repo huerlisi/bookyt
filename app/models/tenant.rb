@@ -47,7 +47,13 @@ class Tenant < ActiveRecord::Base
     return :from => first_day_of_fiscal_year.to_date, :to => final_day_of_fiscal_year.to_date
   end
 
+  # Describe passed fiscal years
+  #
+  # Returns empty array if fiscal_year_ends_on is not set.
   def fiscal_years
+    # Guard
+    return [] unless fiscal_year_ends_on
+
     first_year = fiscal_year_ends_on.year
     final_year = Date.today.year + 1
 

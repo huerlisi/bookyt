@@ -19,4 +19,14 @@ describe Tenant do
 
     its(:to_s) { should =~ /Muster Peter/ }
   end
+
+  describe '#fiscal_years' do
+    let(:tenant) { FactoryGirl.build :tenant }
+
+    it 'should work with unset #fiscal_year_ends_on' do
+      tenant.stub(:fiscal_year_ends_on => nil)
+
+      expect{ tenant.fiscal_years }.to_not raise_exception
+    end
+  end
 end
