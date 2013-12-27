@@ -1,11 +1,18 @@
 = simple_form_for @bank_account do |f|
-  = f.input :code
-  = f.input :iban
-  = f.input :pc_id
-  = f.input :esr_id
-  = f.input :title
-  = f.association :account_type, :label_method => :title
-  = f.association :bank, :as => :combobox
+  .row-fluid
+    .span12= f.input :title
+  .row-fluid
+    .span6= f.input :code
+    .span6= f.association :account_type, :label_method => :title
+  .row-fluid
+    .span12= f.input :tag_list, :input_html => {:class => 'select2-tags span', 'data-tags' => Account.tag_collection.to_json}
+  .row-fluid
+    .span6= f.input :iban
+  .row-fluid
+    .span6= f.input :pc_id
+    .span6= f.input :esr_id
+  .row-fluid
+    .span12= f.association :bank, :as => :combobox
 
   .form-actions
     = f.button :submit
