@@ -39,8 +39,6 @@ class Tenant < ActiveRecord::Base
   # Fiscal Years
   attr_accessible :fiscal_year_ends_on
   attr_accessible :incorporated_on
-  validates_date :fiscal_year_ends_on, :on => :update
-  validates_date :incorporated_on, :on => :update
 
   def fiscal_period(year)
     final_day_of_fiscal_year = Date.new(year, fiscal_year_ends_on.month, fiscal_year_ends_on.day)
