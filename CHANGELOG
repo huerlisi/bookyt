@@ -15,6 +15,7 @@ Main Features:
 * Basic/Hidden batch edit mode for bookings.
 * Support for manual bookings in debit invoices.
 * Add manual booking actions to credit_invoice form.
+* Very basic setup wizard
 
 Enhancements:
 * Add PDF links to fiscal statements booking journal.
