@@ -4,8 +4,10 @@ class DebitInvoicesController < InvoicesController
   # Actions
   def new
     # Allow pre-seeding some parameters
+    # TODO: If current_tenant has no assigned company this won't fail, but the
+    # input field is not show either.
     invoice_params = {
-      :company_id => current_tenant.company.id,
+      :company_id => current_tenant.company.try(:id),
       :state      => 'booked',
       :value_date => Date.today,
       :due_date   => Date.today.in(current_tenant.payment_period.days).to_date,
