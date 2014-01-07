@@ -1,6 +1,12 @@
-1.5.5 (unreleased)
+1.6.0 (unreleased)
 =====
+
 Main Features:
+* Implement multi tenancy.
+* Implement base controller and add basic accounts API endpoint.
+* Enable auth key authentication.
+* Add Api Taster.
+* Use BankAccount tagged_with invoice:vesr instead of hardcoded 1020 for debit invoice PDFs.
 * Implement tagging for accounts.
 * Refactor invoice/line_item accounts to use tagged accounts.
 * Add migration to set default account tags.
@@ -8,6 +14,7 @@ Main Features:
 * Prepare to run on PostgreSQL.
 * Basic/Hidden batch edit mode for bookings.
 * Support for manual bookings in debit invoices.
+* Add manual booking actions to credit_invoice form.
 
 Enhancements:
 * Add PDF links to fiscal statements booking journal.
@@ -28,6 +35,17 @@ Enhancements:
 * Drop user tab from tenant view.
 * Mark some user form fields as required.
 * Drop tenant sidebar.
+* Support AJAX deletion for charge booking templates.
+* Use right aligned text for code field in tenant form.
+* Include pry as console.
+* Add guard command to zeus.
+* Only show tenant related navigation entries if current user has a tenant.
+* Include CI status image
+* Test both postgresql and mysql on travis.
+* Make robust against missing config/application.rb
+* Make current_tenant robust against missing current_user.
+* Add tag list field to BankAccount forms.
+* Only include debit invoice bank footer if bank account is set.
 
 Bugfixes:
 * Fix print stylesheets.
@@ -38,6 +56,14 @@ Bugfixes:
 * Make invoice form views robust against missing accounts.
 * Fix migrations to make db:migrate run on fresh database.
 * Do not fail on login if no Tenant exists.
+* Fix styling for pagination gap element.
+* Add therubyracer and libv8 to production.
+* Add some translations for sysadmin users.
+* Add capistrano deploy stages to git ignores.
+* Fix password reset form and add feature specs.
+* Do not carry saldo for profit accounts in account view.
+* Hide full left column for missing login field in users form, not just the field.
+* Make Tenant#fiscal_years robust against missing fiscal_year_ends_on.
 
 
 1.5.4
