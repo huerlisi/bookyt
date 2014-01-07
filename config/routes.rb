@@ -17,6 +17,8 @@ Bookyt::Application.routes.draw do
   scope 'setup' do
     get "accounting" => "setup#accounting"
     put "accounting" => "setup#accounting"
+    get "select_template" => "setup#select_template"
+    post "load_template" => "setup#load_template"
   end
 
   # Authorization

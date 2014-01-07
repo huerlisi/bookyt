@@ -1,0 +1,7 @@
+= boot_page_title
+
+= simple_form_for :template, :url => '/setup/load_template' do |f|
+  .row
+    .span6= f.input :locale, :collection => %w(de-CH nl-NL)
+  .row.form-actions
+    = f.button :submit

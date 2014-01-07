@@ -9,10 +9,17 @@ SimpleNavigation::Configuration.run do |navigation|
       if current_tenant
         settings.item :tentant,                   t('bookyt.settings.tenant.title'), tenant_path(current_tenant)
       end
-      settings.item :divider_two,               "", :class => 'divider'
+
+      settings.item :divider_2,               "", :class => 'divider'
       settings.item :vesr_settings,             t('settings.vesr.title'), vesr_settings_path
-      settings.item :divider_three,             "", :class => 'divider'
+
+      settings.item :divider_3,             "", :class => 'divider'
       settings.item :booking_templates,         t('bookyt.settings.booking_templates.title'), booking_templates_path
+
+      settings.item :divider_4,             "", :class => 'divider'
+      ['de-CH', 'nl-NL'].each do |locale|
+        settings.item "template_#{locale}", locale, load_template_path(:template => { :locale => locale }), :method => :post
+      end
     end
 
     primary.dom_class = 'nav secondary-nav'

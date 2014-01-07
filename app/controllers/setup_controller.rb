@@ -16,4 +16,18 @@ class SetupController < ApplicationController
       render 'tenant'
     end
   end
+
+  def select_template
+  end
+
+  def load_template
+    locale = params[:template][:locale] if params[:template]
+
+    # Guard
+    redirect_to(setup_path) and return unless %w(de-CH nl-NL).include? locale
+
+    load Rails.root.join('db', 'seeds', 'locales', "#{locale}.rb")
+
+    redirect_to root_path, :notice => 'Template loaded.'
+  end
 end
