@@ -44,8 +44,8 @@ group :development do
   gem 'ruby_parser'
 
   # Capistrano
-  gem 'capones_recipes'
-  gem 'capistrano-rbenv'
+  gem 'capones_recipes', '~> 1.19.1'
+  gem 'capistrano-rbenv', '~> 1.0.5'
 
   # Debugger
   gem 'ruby-debug', :platforms => :ruby_18
