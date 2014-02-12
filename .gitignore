@@ -20,33 +20,25 @@ public/stylesheets/all.css
 app/assets/stylesheets/compiled
 public/assets
 
+# Coverage
+coverage
+
 # Backup
 db/backup
+
+# Data Dumps
+db/data.yml
 
 # Local
 config/database.yml
 
 # Plugins
 # =======
-# Sphinx Freetext Search
-db/sphinx
-config/*.sphinx.conf
-config/sphinx/
-
 # Carrierwave
 uploads/
 
-# guard
+# Guard
 tmp/rspec_guard_result
 
 # Capistrano
 config/deploy/*.rb
-
-# Bookyt Data
-# ===========
-public/booking_imports
-
-# Config
-config/initializers/bookyt.rb
-coverage/*
-.rvmrc
