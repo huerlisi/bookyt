@@ -6,9 +6,7 @@
 = boot_page_title
 
 - bookings = Booking.by_reference(resource)
-- credit_accounts = bookings.unscoped.select('credit_account_id').group('credit_account_id').map{|account| account.credit_account}
-- debit_accounts = bookings.unscoped.select('debit_account_id').group('debit_account_id').map{|account| account.debit_account}
-- accounts = (credit_accounts + debit_accounts).uniq
+- accounts = bookings.accounts
 
 .tabbable
   %ul.nav.nav-tabs

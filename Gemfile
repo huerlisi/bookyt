@@ -44,8 +44,8 @@ group :development do
   gem 'ruby_parser'
 
   # Capistrano
-  gem 'capones_recipes', '~> 1.19.1'
-  gem 'capistrano-rbenv', '~> 1.0.5'
+  gem 'capones_recipes'
+  gem 'capistrano-rbenv'
 
   # Debugger
   gem 'ruby-debug', :platforms => :ruby_18
@@ -65,7 +65,7 @@ group :test, :development do
 
   # Fixtures
   gem 'factory_girl_rails'
-  gem 'factory_girl'
+  gem 'database_cleaner'
 
   # Browser
   gem 'capybara'
@@ -75,8 +75,6 @@ group :test, :development do
   # Code coverage
   gem 'rcov', :platforms => :ruby_18
   gem 'simplecov', :require => false, :platforms => :ruby_19
-
-  gem 'database_cleaner'
 end
 
 group :tools do
@@ -125,6 +123,9 @@ gem 'active_model_serializers'
 
 gem 'api_taster', '0.6.0'
 
+# Data dump/restore
+gem 'yaml_db'
+
 # Date/Time handling
 gem 'validates_timeliness'
 
@@ -172,7 +173,7 @@ gem 'vesr'
 gem 'pg_search'
 
 # Tagging
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', '~> 2.4.1'
 
 # Tracking of demo
 group :demo do
