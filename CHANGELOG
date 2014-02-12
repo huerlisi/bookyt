@@ -1,9 +1,17 @@
-1.5.5 (unreleased)
+1.6.0
 =====
+In this release we focused on fixing the small things, but also prepare for the future.
+We implemented tagging of accounts, so it's up to you which account you use for invoices
+or earnings... You can now also directly create bookings in debit invoices.
+
+Another big, but hidden thing is the preparation for multi-tenancy. We added support for
+PostgreSQL and moved settings into the database.
+
+All in all, a small, but important release:-)
+
 Main Features:
 * Implement tagging for accounts.
 * Refactor invoice/line_item accounts to use tagged accounts.
-* Add migration to set default account tags.
 * Use modules settings from db instead of config file.
 * Prepare to run on PostgreSQL.
 * Basic/Hidden batch edit mode for bookings.
