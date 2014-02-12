@@ -137,6 +137,16 @@ There's lots of minor bugs fixed and features implemented:
 * Fix default locale fallback.
 * Only delete bookings generated from line items when destroying invoices.
 
+
+1.4.7
+=====
+This is a security update fixing an extremely critical issue, you should
+update as soon as possible!
+
+If you do not update, attackers might gain full access to your data, get
+password hashes, implement keylogger, and even run code as the user your
+webserver runs. Take it seriously!
+
 1.4.6
 =====
 This is a security update fixing a critical issue, you should update
