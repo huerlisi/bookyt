@@ -13,6 +13,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+<<<<<<< HEAD
     Ascii85 (1.0.2)
     aasm (3.1.0)
     actionmailer (3.2.16)
@@ -21,6 +22,25 @@ GEM
     actionpack (3.2.16)
       activemodel (= 3.2.16)
       activesupport (= 3.2.16)
+=======
+    Ascii85 (1.0.1)
+    aasm (3.0.8)
+<<<<<<< HEAD
+    actionmailer (3.2.13)
+      actionpack (= 3.2.13)
+      mail (~> 2.5.3)
+    actionpack (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
+=======
+    actionmailer (3.2.12)
+      actionpack (= 3.2.12)
+      mail (~> 2.4.4)
+    actionpack (3.2.12)
+      activemodel (= 3.2.12)
+      activesupport (= 3.2.12)
+>>>>>>> origin/stable-1-4
+>>>>>>> staging
       builder (~> 3.0.0)
       erubis (~> 2.7.0)
       journey (~> 1.0.4)
@@ -28,21 +48,50 @@ GEM
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.2.1)
+<<<<<<< HEAD
     active_model_serializers (0.8.1)
       activemodel (>= 3.0)
     activemodel (3.2.16)
       activesupport (= 3.2.16)
+=======
+<<<<<<< HEAD
+    activemodel (3.2.13)
+      activesupport (= 3.2.13)
+>>>>>>> staging
       builder (~> 3.0.0)
     activerecord (3.2.16)
       activemodel (= 3.2.16)
       activesupport (= 3.2.16)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
+<<<<<<< HEAD
     activeresource (3.2.16)
       activemodel (= 3.2.16)
       activesupport (= 3.2.16)
     activesupport (3.2.16)
       i18n (~> 0.6, >= 0.6.4)
+=======
+    activeresource (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
+    activesupport (3.2.13)
+      i18n (= 0.6.1)
+=======
+    activemodel (3.2.12)
+      activesupport (= 3.2.12)
+      builder (~> 3.0.0)
+    activerecord (3.2.12)
+      activemodel (= 3.2.12)
+      activesupport (= 3.2.12)
+      arel (~> 3.0.2)
+      tzinfo (~> 0.3.29)
+    activeresource (3.2.12)
+      activemodel (= 3.2.12)
+      activesupport (= 3.2.12)
+    activesupport (3.2.12)
+      i18n (~> 0.6)
+>>>>>>> origin/stable-1-4
+>>>>>>> staging
       multi_json (~> 1.0)
     acts-as-taggable-on (3.0.1)
       rails (>= 3, < 5)
@@ -206,6 +255,7 @@ GEM
       has_scope (~> 0.5.0)
       responders (~> 0.9)
     journey (1.0.4)
+<<<<<<< HEAD
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -218,6 +268,19 @@ GEM
     jwt (0.1.11)
       multi_json (>= 1.5)
     kgio (2.9.1)
+=======
+    jquery-rails (2.0.2)
+      railties (>= 3.2.0, < 5.0)
+      thor (~> 0.14)
+<<<<<<< HEAD
+    json (1.8.0)
+    jwt (0.1.8)
+      multi_json (>= 1.5)
+=======
+    json (1.7.7)
+>>>>>>> origin/stable-1-4
+    kgio (2.7.4)
+>>>>>>> staging
     ledermann-rails-settings (1.1.0)
       activerecord (>= 2.3)
     libv8 (3.11.8.17)
@@ -234,6 +297,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+<<<<<<< HEAD
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.5.2)
@@ -255,6 +319,31 @@ GEM
       jwt (~> 0.1.8)
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
+=======
+<<<<<<< HEAD
+    method_source (0.8.1)
+    mime-types (1.23)
+    multi_json (1.7.7)
+    multipart-post (1.2.0)
+=======
+    mime-types (1.21)
+    multi_json (1.6.0)
+>>>>>>> origin/stable-1-4
+    mysql2 (0.3.11)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.6.3)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
+    nokogiri (1.5.5)
+    oauth2 (0.8.1)
+      faraday (~> 0.8)
+      httpauth (~> 0.1)
+      jwt (~> 0.1.4)
+      multi_json (~> 1.0)
+>>>>>>> staging
       rack (~> 1.2)
     omniauth (1.2.1)
       hashie (>= 1.2, < 3)
@@ -291,6 +380,7 @@ GEM
       ttfunk (~> 1.0.3)
     prawn_rails (0.0.11)
       prawn (>= 0.11.1)
+<<<<<<< HEAD
       railties (>= 3.0.0)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -301,6 +391,16 @@ GEM
       yard (>= 0.8)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+=======
+      rails (>= 3.0.0)
+<<<<<<< HEAD
+    pry (0.9.12.1)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+=======
+>>>>>>> origin/stable-1-4
+>>>>>>> staging
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -310,6 +410,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+<<<<<<< HEAD
     rails (3.2.16)
       actionmailer (= 3.2.16)
       actionpack (= 3.2.16)
@@ -319,13 +420,47 @@ GEM
       bundler (~> 1.0)
       railties (= 3.2.16)
     rails-erd (1.1.0)
+=======
+<<<<<<< HEAD
+    rails (3.2.13)
+      actionmailer (= 3.2.13)
+      actionpack (= 3.2.13)
+      activerecord (= 3.2.13)
+      activeresource (= 3.2.13)
+      activesupport (= 3.2.13)
+      bundler (~> 1.0)
+      railties (= 3.2.13)
+=======
+    rails (3.2.12)
+      actionmailer (= 3.2.12)
+      actionpack (= 3.2.12)
+      activerecord (= 3.2.12)
+      activeresource (= 3.2.12)
+      activesupport (= 3.2.12)
+      bundler (~> 1.0)
+      railties (= 3.2.12)
+>>>>>>> origin/stable-1-4
+    rails-erd (1.0.0)
+>>>>>>> staging
       activerecord (>= 3.0)
       activesupport (>= 3.0)
       choice (~> 0.1.6)
       ruby-graphviz (~> 1.0.4)
+<<<<<<< HEAD
     railties (3.2.16)
       actionpack (= 3.2.16)
       activesupport (= 3.2.16)
+=======
+<<<<<<< HEAD
+    railties (3.2.13)
+      actionpack (= 3.2.13)
+      activesupport (= 3.2.13)
+=======
+    railties (3.2.12)
+      actionpack (= 3.2.12)
+      activesupport (= 3.2.12)
+>>>>>>> origin/stable-1-4
+>>>>>>> staging
       rack-ssl (~> 1.3.2)
       rake (>= 0.8.7)
       rdoc (~> 3.4)
@@ -337,7 +472,11 @@ GEM
       ffi (>= 0.5.0)
     rbx-require-relative (0.0.9)
     rcov (1.0.0)
+<<<<<<< HEAD
     rdoc (3.12.2)
+=======
+    rdoc (3.12.1)
+>>>>>>> origin/stable-1-4
       json (~> 1.4)
     recurrence (1.2.0)
       activesupport (>= 2.3.0)
