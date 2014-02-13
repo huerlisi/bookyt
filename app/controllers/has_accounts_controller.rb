@@ -1,0 +1,2 @@
+class HasAccountsController < AuthorizedController
+end
