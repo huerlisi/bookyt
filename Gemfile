@@ -47,13 +47,6 @@ group :development do
   gem 'capones_recipes'
   gem 'capistrano-rbenv'
 
-  # Debugger
-  gem 'ruby-debug', :platforms => :ruby_18
-
-  # Console
-  gem 'pry-rails'
-  gem 'pry-doc'
-
   # Development Server
   gem 'webrick'
   gem 'quiet_assets'
@@ -79,6 +72,11 @@ group :test, :development do
   # Code coverage
   gem 'rcov', :platforms => :ruby_18
   gem 'simplecov', :require => false, :platforms => :ruby_19
+
+  # Console
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-debugger'
 end
 
 group :tools do
