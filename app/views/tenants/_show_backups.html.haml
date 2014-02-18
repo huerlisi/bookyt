@@ -1,0 +1,9 @@
+- backups = resource.backups
+- if backups.empty?
+  = boot_no_entry_alert
+  .backups.collection
+- else
+  = render 'backups/list', :collection => backups
+
+.form-actions
+  = icon_link_to :backup, tenant_backups_path(resource), :method => :post, :remote => true
