@@ -170,6 +170,7 @@ de:
     models:
       admin_user: Systemadministrator
       attachment: Anhang
+      backup: Backup
       booking_import: Bankdaten
       booking_template: Buchungsvorlage
       charge_booking_template: "Bedingte Buchungsvorlage"
@@ -201,6 +202,9 @@ de:
   attachments:
     list:
       title: Dokumente
+  backups:
+    list:
+      title: Backups
   attributes:
     amount: Betrag
     comments: Bemerkungen
@@ -346,6 +350,8 @@ de:
       profit_sheet: Erfolgsrechnung
       search: Suche
       statistics: Statistiken
+      backup: Backup
+      restore: Zurücksetzen
     flash:
       created_html: "%{message} angelegt"
     title:

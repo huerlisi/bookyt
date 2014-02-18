@@ -4,6 +4,7 @@
     %li= link_to t_title(:bookings), '#tab-bookings', {:data => {:toggle => 'tab'}}
     %li= link_to t_title(:vesr), '#tab-vesr', {:data => {:toggle => 'tab'}}
     %li= link_to t_title(:list, Attachment), '#tab-attachments', {:data => {:toggle => 'tab'}}
+    %li= link_to t_title(:list, Backup), '#tab-backups', {:data => {:toggle => 'tab'}}
 
 = simple_form_for @tenant do |f|
   .tab-content
@@ -11,3 +12,4 @@
     #tab-bookings.tab-pane= render "form_bookings", :f => f
     #tab-vesr.tab-pane= render "form_vesr", :f => f
     #tab-attachments.tab-pane= render 'show_attachments'
+    #tab-backups.tab-pane= render 'show_backups'
