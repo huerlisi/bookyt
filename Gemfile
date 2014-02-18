@@ -53,6 +53,10 @@ group :development do
   # Console
   gem 'pry-rails'
   gem 'pry-doc'
+
+  # Development Server
+  gem 'webrick'
+  gem 'quiet_assets'
 end
 
 group :test, :development do
