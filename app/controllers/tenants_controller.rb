@@ -12,6 +12,7 @@ class TenantsController < AuthorizedController
 
     # use current date if not specified otherwise
     if params[:by_value_period]
+      # TODO: check on :to and :from to not be nil
       @end_date = Date.parse(params[:by_value_period][:to])
       @start_date = Date.parse(params[:by_value_period][:from])
       @dates = [@start_date..@end_date]
