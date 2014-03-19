@@ -177,11 +177,6 @@ gem 'pg_search'
 # Tagging
 gem 'acts-as-taggable-on', '~> 2.4.1'
 
-# Tracking of demo
-group :demo do
-  gem 'rack-google_analytics'
-end
-
 # Plugins
 # =======
 # Uncomment to enable plugins
