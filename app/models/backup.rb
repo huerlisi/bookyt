@@ -27,14 +27,24 @@ class Backup < Attachment
     self.title = title
   end
 
-  # Import Data from YAML
+  # Import Data from a Backup record
   #
-  # This method loas a YAML file out of all the records in the database.
+  # This method restores a backup from a Backup record
+  # This record is normaly attached to a Tenant record.
+  #
+  # Use this method to restore.
+  def import
+    self.class.import_file(file.current_path)
+  end
+
+  # Import Data from a file
+  #
+  # This method loads a backup YAML file and creates records in the database.
   # This file is normaly attached to a Tenant record.
   #
   # Use this method for restore or migrations.
-  def import
-    yaml_file = File.new(file.current_path, "r")
+  def self.import_file(path)
+    yaml_file = File.new(path, "r")
 
     old_level = ActiveRecord::Base.logger.level
     ActiveRecord::Base.logger.level = 2 # don't log debug or info
