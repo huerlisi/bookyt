@@ -5,7 +5,7 @@
  *= require_self
  *= require app_bootstrap
  *= require select2
- *= require bootstrap.datepicker
+ *= require bootstrap-datepicker
  *= require vesr
  *= require screen
 */
