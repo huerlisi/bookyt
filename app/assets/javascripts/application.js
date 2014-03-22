@@ -12,7 +12,7 @@
 //= require best_in_place
 //= require accounting
 //= require accounting-jquery
-//= require bootstrap.datepicker
+//= require bootstrap-datepicker
 //= require_tree .
 
 // Application specific behaviour
