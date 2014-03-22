@@ -9,7 +9,6 @@ Install packages needed:
 <pre>
 sudo apt-get install rubygems irb libruby-extras sqlite3 libsqlite3-dev libmysqlclient-dev libxml2-dev libxslt-dev ruby-dev build-essential
 sudo apt-get install git
-sudo apt-get install sphinxsearch
 </pre>
 
 Then some gems:
@@ -51,11 +50,6 @@ Initialize the database:
 bundle exec rake db:setup
 </pre>
 
-Inititalize the sphinx freetext search index:
-
-<pre>
-bundle exec rake ts:rebuild
-</pre>
 
 h2. Setup admin user
 
@@ -64,6 +58,15 @@ There's a rake task to setup an admin user:
 <pre>
 bundle exec rake users:admin
 </pre>
+
+
+h2. Create account types
+
+Account types need to be named correctly for calculation of the balance sheet
+and profit sheet.
+
+See db/seeds/locales for your convenience.
+
 
 h3. Run
 
