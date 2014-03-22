@@ -18,7 +18,10 @@ function addDatePickerBehaviour() {
     if ($(this).hasClass('date')) {
       $(this).data('date', new Date().toISOString());
     }
-    $(this).datepicker({ format: 'dd.mm.yyyy' });
+    $(this).datepicker({
+      format: 'dd.mm.yyyy',
+      orientation: "auto"
+    });
   });
 };
 
