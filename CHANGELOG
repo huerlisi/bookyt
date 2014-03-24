@@ -6,7 +6,8 @@ Main Features:
 * Enable auth key authentication.
 * Add Api Taster.
 * Use BankAccount tagged_with invoice:vesr instead of hardcoded 1020 for debit invoice PDFs.
-* Very basic setup wizard
+* Very basic setup wizard.
+* Implement basic backup/restore.
 
 Enhancements:
 * Support AJAX deletion for charge booking templates.
@@ -20,6 +21,10 @@ Enhancements:
 * Make current_tenant robust against missing current_user.
 * Add tag list field to BankAccount forms.
 * Only include debit invoice bank footer if bank account is set.
+* Add .gitkeep to tmp/sockets.
+* Better placement of datepicker.
+* Drop well styling for forms.
+* Include company name in balance and profit sheet titles.
 
 Bugfixes:
 * Fix styling for pagination gap element.
