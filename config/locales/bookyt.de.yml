@@ -386,6 +386,8 @@ de:
   setup:
     tenant:
       title: Mandant einrichten
+    accounting:
+      title: Buchhaltung einrichten
 
   flash:
     actions:
