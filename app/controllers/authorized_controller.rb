@@ -30,7 +30,7 @@ class AuthorizedController < InheritedResources::Base
   before_filter :set_locale
   def set_locale
     locale = params[:locale] || cookies[:locale]
-    I18n.locale = locale.to_s
+    I18n.locale = locale.to_s if locale.present?
     cookies[:locale] = locale unless (cookies[:locale] && cookies[:locale] == locale)
   end
 
