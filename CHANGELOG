@@ -30,6 +30,7 @@ Bugfixes:
 * Do not carry saldo for profit accounts in account view.
 * Hide full left column for missing login field in users form, not just the field.
 * Make Tenant#fiscal_years robust against missing fiscal_year_ends_on.
+* Do not set an empty locale in the controller.
 
 1.5.5
 =====
