@@ -388,6 +388,8 @@ de:
       title: Mandant einrichten
     accounting:
       title: Buchhaltung einrichten
+    select_template:
+      title: Sprache/Land einrichten
 
   flash:
     actions:
