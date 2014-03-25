@@ -44,9 +44,13 @@ function addLinkifyContainersBehaviour() {
 
     container.delegate('*', 'click', {href: href}, function(event) {
       // Don't override original link behaviour
-      if (event.target.nodeName != 'A' && $(event.target).parents('a').length == 0) {
-        document.location.href = href;
+      if (event.target.nodeName == 'A' || $(event.target).parents('a').length > 0) {
+        return;
+      } else if ($(event.target).hasClass('best_in_place')) {
+        return;
       };
+
+      document.location.href = href;
     });
   });
 };
