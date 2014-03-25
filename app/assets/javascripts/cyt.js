@@ -15,9 +15,6 @@ function addAutofocusBehaviour() {
 // Add datepicker
 function addDatePickerBehaviour() {
   $('.date-picker').each(function(){
-    if ($(this).hasClass('date')) {
-      $(this).data('date', new Date().toISOString());
-    }
     $(this).datepicker({
       format: 'dd.mm.yyyy',
       orientation: "auto"
