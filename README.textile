@@ -35,6 +35,7 @@ h2. Documentation
 h2. Contributing
 
 !https://travis-ci.org/huerlisi/bookyt.png!:https://travis-ci.org/huerlisi/bookyt
+!https://codeclimate.com/github/huerlisi/bookyt.png!:https://codeclimate.com/github/huerlisi/bookyt
 
 Code is available at "github":https://github.com/huerlisi/bookyt.
 
