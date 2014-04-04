@@ -13,5 +13,4 @@
 #= require accounting
 #= require accounting-jquery
 #= require bootstrap-datepicker
-#= require bookyt/table_select
 #= require_tree .
