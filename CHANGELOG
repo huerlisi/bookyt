@@ -25,6 +25,7 @@ Enhancements:
 * Better placement of datepicker.
 * Drop well styling for forms.
 * Include company name in balance and profit sheet titles.
+* Use twitter bootstrap styled list link action icons
 
 Bugfixes:
 * Fix styling for pagination gap element.
