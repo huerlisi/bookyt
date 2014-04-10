@@ -9,11 +9,11 @@ module InvoiceHelper
 
   def suggested_invoices_for_booking(booking, include_all = false)
     # Explicit loading (.all) as .uniq whould clear the added in booking.reference
-    invoices = Invoice.open_balance.where(:amount => booking.amount).all
+    invoices = Invoice.includes(:customer => :vcard, :company => :vcard).open_balance.where(:amount => booking.amount).all
 
     if include_all
       # Include all invoice
-      invoices += Invoice.all
+      invoices += Invoice.includes(:customer => :vcard, :company => :vcard).all
     else
       # Include currently referenced invoice
       invoices << booking.reference if booking.reference
