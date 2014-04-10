@@ -1,0 +1,10 @@
+/* Table selection */
+tbody tr.marked td, .table-striped tbody tr.marked td {
+  background-color: #F2DEDE;
+  border-color: #EED3D7;
+}
+
+tbody tr.selected td, .table-striped tbody tr.selected td {
+  background-color: #D9EDF7;
+  border-color: #BCE8F1;
+}

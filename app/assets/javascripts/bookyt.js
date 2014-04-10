@@ -248,9 +248,6 @@ function initializeBehaviours() {
 
   // best_in_place
   $(".best_in_place").best_in_place();
-
-  // table selection
-  setupTableSelect();
 }
 
 // Loads functions after DOM is ready

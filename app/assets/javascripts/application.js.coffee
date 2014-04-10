@@ -13,4 +13,8 @@
 #= require accounting
 #= require accounting-jquery
 #= require bootstrap-datepicker
+#= require_self
+#= require bookyt/table_select
 #= require_tree .
+
+@Bookyt = {}
