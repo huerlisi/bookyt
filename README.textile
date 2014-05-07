@@ -35,6 +35,7 @@ h2. Documentation
 h2. Contributing
 
 !https://travis-ci.org/huerlisi/bookyt.png!:https://travis-ci.org/huerlisi/bookyt
+!https://codeclimate.com/github/huerlisi/bookyt.png!:https://codeclimate.com/github/huerlisi/bookyt
 
 Code is available at "github":https://github.com/huerlisi/bookyt.
 
@@ -42,7 +43,7 @@ Issue tracking is done using "Redmine":https://redmine.cyt.ch/projects/bookyt/is
 
 h2. License
 
-Copyright 2007-2013 Simon Hürlimann <simon.huerlimann@cyt.ch>
+Copyright 2007-2014 Simon Hürlimann <simon.huerlimann@cyt.ch>
 Copyright 2010-2012 Ramon Egloff <ramon.egloff@cyt.ch>
 Copyright 2010-2012 Roman Simecek <roman.simecek@cyt.ch>
 Copyright 2011-2013 Andi Staub <andi.staub@cyt.ch>

@@ -69,7 +69,7 @@ GEM
     bookyt_projects (1.1.0)
       rails (~> 3.1)
       recurrence
-    bookyt_salary (0.20.2)
+    bookyt_salary (0.20.3)
       rails (~> 3.1)
       recurrence
     bookyt_stock (0.6.0)
@@ -184,7 +184,7 @@ GEM
     has_accounts (2.0.0)
       rails (~> 3.1)
       validates_timeliness
-    has_accounts_engine (2.0.1)
+    has_accounts_engine (3.0.0.beta0)
       acts-as-taggable-on
       anjlab-bootstrap-rails (~> 2.1.0)
       has_accounts (>= 1.0.2)
@@ -209,7 +209,7 @@ GEM
     http_parser.rb (0.5.3)
     httpauth (0.2.0)
     i18n (0.6.9)
-    i18n_rails_helpers (1.2.0)
+    i18n_rails_helpers (1.3.0)
     inherited_resources (1.4.0)
       has_scope (~> 0.5.0)
       responders (~> 0.9)
@@ -485,7 +485,7 @@ DEPENDENCIES
   haml
   haml-rails
   has_accounts
-  has_accounts_engine
+  has_accounts_engine (= 3.0.0.beta0)
   has_scope
   has_vcards
   hpricot

@@ -8,8 +8,26 @@
  *= require bootstrap-datepicker
  *= require vesr
  *= require screen
+ *= require table_select
 */
 
-.td .best_in_place input {
+td .best_in_place input {
   margin: 0px;
+}
+
+table.bookings {
+  th.valute_date {
+    width: 15ex;
+  }
+  th.amount {
+    width: 8ex;
+  }
+
+  input#booking_value_date {
+    width: 10ex;
+  }
+
+  textarea#booking_comments {
+    height: 3em;
+  }
 }

@@ -25,6 +25,7 @@ Enhancements:
 * Better placement of datepicker.
 * Drop well styling for forms.
 * Include company name in balance and profit sheet titles.
+* Use twitter bootstrap styled list link action icons
 
 Bugfixes:
 * Fix styling for pagination gap element.
@@ -36,6 +37,11 @@ Bugfixes:
 * Hide full left column for missing login field in users form, not just the field.
 * Make Tenant#fiscal_years robust against missing fiscal_year_ends_on.
 * Do not set an empty locale in the controller.
+
+
+1.5.6
+=====
+A minor issue regarding date on salary payslips got fixed.
 
 1.5.5
 =====
