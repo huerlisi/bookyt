@@ -48,6 +48,7 @@ class BookingsController < AuthorizedController
         redirect_to new_booking_path
       end
       failure.html {render 'edit'}
+      failure.js {render 'new'}
     end
   end
 

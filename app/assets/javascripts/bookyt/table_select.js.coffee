@@ -69,6 +69,8 @@ class Bookyt.Table
     @enterNavigate()
 
   unselectRow: (row) ->
+    $('.old-selected').removeClass('old-selected')
+    @currentRow().addClass('old-selected')
     @currentRow().removeClass('selected')
     @currentRow().popover('hide')
 

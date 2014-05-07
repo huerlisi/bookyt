@@ -1,3 +1,4 @@
-$('#new_<%= resource_class.model_name.underscore %>').remove();
-$('.<%= resource_class.model_name.tableize %>.collection tr:first-child').after('<%=j render resource %>');
+$('#<%= resource_class.model_name.underscore %>_new').remove();
+var selected = $('tr.<%= resource.class.name.underscore %>.old-selected')
+selected.after('<%=j render resource %>');
 initializeBehaviours();

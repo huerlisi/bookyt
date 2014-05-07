@@ -108,7 +108,7 @@ gem 'select2-rails'
 gem 'will_paginate'
 gem 'inherited_resources'
 gem 'has_scope'
-gem 'i18n_rails_helpers'
+gem 'i18n_rails_helpers', path: '../i18n_rails_helpers'
 gem 'responders'
 
 # Access Control
@@ -144,7 +144,7 @@ gem 'ledermann-rails-settings', '~> 1.1.0', :require => 'rails-settings' # incom
 # ======
 # Accounting
 gem 'has_accounts'
-gem 'has_accounts_engine', '3.0.0.beta0'
+gem 'has_accounts_engine', path: '../has_accounts_engine'
 
 # Addresses
 gem 'has_vcards'
