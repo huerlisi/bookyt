@@ -112,7 +112,7 @@ gem 'i18n_rails_helpers'
 gem 'responders'
 
 # Access Control
-gem 'devise'
+gem 'devise', '~>3.0.4'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'faraday'
