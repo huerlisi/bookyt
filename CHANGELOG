@@ -38,6 +38,11 @@ Bugfixes:
 * Make Tenant#fiscal_years robust against missing fiscal_year_ends_on.
 * Do not set an empty locale in the controller.
 
+
+1.5.6
+=====
+A minor issue regarding date on salary payslips got fixed.
+
 1.5.5
 =====
 In this release we focused on fixing the small things, but also prepare for the future.

@@ -63,7 +63,9 @@ class LetterDocument < Prawn::Document
     move_down 3.5.cm
 
     # Place'n'Date
-    text [sender.vcard.try(:locality), I18n.l(date, :format => :long)].compact.join(', ')
+    sender_locality = sender.vcard.try(:locality)
+    sender_date = date ? I18n.l(date, :format => :long) : nil
+    text [sender_locality, sender_date].compact.join(', ')
 
     # Subject
     move_down 35
