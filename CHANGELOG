@@ -1,3 +1,8 @@
+1.5.7 (unreleased)
+=====
+We now support an internal backup functionality. It backs up all data but the files. While
+this is a valuable extension by itself, it is also targeted towards a simple upgrade path.
+
 1.5.6
 =====
 A minor issue regarding date on salary payslips got fixed.
