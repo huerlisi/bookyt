@@ -50,8 +50,22 @@ class Invoice < ActiveRecord::Base
 
   # Copying
   # =======
-  def copy
-    dup
+  def copy(payment_period)
+    new_invoice = dup
+
+    # Rebuild positions
+    new_invoice.line_items = line_items.map{ |line_item| line_item.copy }
+
+    # Override some fields
+    new_invoice.attributes = {
+      :state         => 'booked',
+      :value_date    => Date.today,
+      :due_date      => Date.today.in(payment_period).to_date,
+      :duration_from => nil,
+      :duration_to   => nil
+    }
+
+    new_invoice
   end
 
   # Search
