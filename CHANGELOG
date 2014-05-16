@@ -8,6 +8,7 @@ Main Features:
 * Use BankAccount tagged_with invoice:vesr instead of hardcoded 1020 for debit invoice PDFs.
 * Very basic setup wizard.
 * Implement basic backup/restore.
+* Guess period when copying invoices.
 
 Enhancements:
 * Support AJAX deletion for charge booking templates.

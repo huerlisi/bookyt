@@ -56,13 +56,23 @@ class Invoice < ActiveRecord::Base
     # Rebuild positions
     new_invoice.line_items = line_items.map{ |line_item| line_item.copy }
 
+    new_invoice.duration_from = duration_to.tomorrow if duration_to
+    if duration_to && duration_from
+      if duration_from == duration_from.beginning_of_month && duration_to == duration_to.end_of_month
+        months = duration_to.month - duration_from.month
+        duration = (months + 1).months - 1.days
+      else
+        duration = duration_to.to_time - duration_from.to_time - 1.days
+      end
+
+      new_invoice.duration_to = new_invoice.duration_from.in(duration).to_date
+    end
+
     # Override some fields
     new_invoice.attributes = {
       :state         => 'booked',
       :value_date    => Date.today,
       :due_date      => Date.today.in(payment_period).to_date,
-      :duration_from => nil,
-      :duration_to   => nil
     }
 
     new_invoice
