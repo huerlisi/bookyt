@@ -7,6 +7,8 @@
 #= require jquery
 #= require jquery_ujs
 #= require jquery.ui.all
+#= require URI
+#= require jquery.URI
 #= require twitter/bootstrap
 #= require select2
 #= require best_in_place
