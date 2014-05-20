@@ -9,6 +9,7 @@ Main Features:
 * Very basic setup wizard.
 * Implement basic backup/restore.
 * Guess period when copying invoices.
+* Backup/restore now handles restoring from older versions.
 
 Enhancements:
 * Support AJAX deletion for charge booking templates.
