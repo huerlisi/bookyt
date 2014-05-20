@@ -12,18 +12,41 @@ class Backup < Attachment
   #
   # Use this method for backup or migrations.
   def export
-    temp = Tempfile.open('export')
-    temp.binmode
+    dir = Dir.mktmpdir 'bookyt.backup'
+
+    data = Tempfile.new('data.yml', dir)
+    data.binmode
 
     old_level = ActiveRecord::Base.logger.level
     ActiveRecord::Base.logger.level = 2 # don't log debug or info
-    YamlDb::Helper.dumper.dump(temp)
+    YamlDb::Helper.dumper.dump(data)
     ActiveRecord::Base.logger.level = old_level
 
-    temp.close
-    title = "Backup %s.yaml" % DateTime.now.to_s(:db)
+    data.close
 
-    self.file = temp
+    schema = Tempfile.new('schema.rb', dir)
+    schema.binmode
+
+    ActiveRecord::SchemaDumper.dump(ActiveRecord::Base.connection, schema)
+    schema.close
+
+    zip = Pathname.new(dir).join('backup-v1.zip')
+    Zip::File.open(zip, Zip::File::CREATE) do |zipfile|
+      zipfile.add('schema.rb', schema.path)
+      zipfile.add('data.yml', data.path)
+    end
+
+    data.unlink
+    schema.unlink
+
+    title = "Backup %s" % DateTime.now.to_s(:db)
+
+    zip_file = File.new(zip, 'r')
+    # TODO: test if we can remove the directory before finishing reading
+    # a file it contains on Windows.
+    FileUtils.rmdir(dir)
+
+    self.file = zip_file
     self.title = title
   end
 
@@ -34,7 +57,20 @@ class Backup < Attachment
   #
   # Use this method to restore.
   def import
-    self.class.import_file(file.current_path)
+    dir = Dir.mktmpdir 'bookyt.backup'
+    dirname = Pathname.new(dir)
+
+    Zip::File.open(file.current_path) do |zipfile|
+      schema = zipfile.glob('schema.rb').first
+      schema.extract(dirname.join('schema.rb'))
+      data = zipfile.glob('data.yml').first
+      data.extract(dirname.join('data.yml'))
+    end
+
+    load(dirname.join('schema.rb'))
+    ActiveRecord::Migrator.migrate(ActiveRecord::Migrator.migrations_paths, nil)
+
+    self.class.import_file(dirname.join('data.yml'))
   end
 
   # Import Data from a file
