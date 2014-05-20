@@ -31,7 +31,7 @@ Bookyt::Application.routes.draw do
       get :balance_sheet, :profit_sheet
     end
     resources :attachments
-    resources :backups, :only => [:destroy] do
+    resources :backups do
       collection do
         post :dump
       end
