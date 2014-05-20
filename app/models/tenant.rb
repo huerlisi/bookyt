@@ -102,7 +102,4 @@ class Tenant < ActiveRecord::Base
 
     backup
   end
-
-  def import
-  end
 end
