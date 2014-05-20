@@ -2,6 +2,9 @@
 #
 # A backup model is a subclass of an Attachment. It actually is a YAML file
 # that contains all the database records.
+
+require 'zip'
+
 class Backup < Attachment
   alias tenant object
 

@@ -444,6 +444,7 @@ DEPENDENCIES
   rspec-rails
   ruby-debug
   ruby_parser
+  rubyzip
   sass-rails
   select2-rails
   settingslogic

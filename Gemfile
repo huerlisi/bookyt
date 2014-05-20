@@ -109,7 +109,7 @@ gem 'lyb_devise_admin'
 
 # Data dump/restore
 gem 'yaml_db'
-
+gem 'rubyzip'
 
 # Date/Time handling
 gem 'validates_timeliness'
