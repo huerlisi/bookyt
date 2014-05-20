@@ -3,5 +3,4 @@
     = link_to backup, download_attachment_url(backup), {'data-href-container' => 'tr'}
     = boot_label(backup.code(:text))
   %td.action-links
-    = link_to t_action(:delete), attachment_url(backup), :method => :delete, :class => 'btn btn-mini'
     = link_to t_action(:restore), restore_tenant_backup_url(current_tenant, backup), :method => :post, :class => 'btn btn-mini'
