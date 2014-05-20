@@ -352,6 +352,7 @@ de:
       statistics: Statistiken
       backup: Backup
       restore: Zurücksetzen
+      import: Einlesen
     flash:
       created_html: "%{message} angelegt"
     title:
