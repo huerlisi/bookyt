@@ -15,7 +15,11 @@ class ApplicationController < ActionController::Base
 
   # Flash messages
   def interpolation_options
-    { :resource_link => render_to_string(:partial => 'layouts/flash_new').html_safe }
+    begin
+      { :resource_link => render_to_string(:partial => 'layouts/flash_new').html_safe }
+    rescue
+      {}
+    end
   end
 
   # Mail
