@@ -54,7 +54,10 @@ Bookyt::Application.routes.draw do
       get :balance_sheet, :profit_sheet
     end
     resources :attachments
-    resources :backups, :only => [:create, :destroy] do
+    resources :backups, :only => [:destroy] do
+      collection do
+        post :dump
+      end
       member do
         post :restore
       end

@@ -11,7 +11,7 @@ class Backup < Attachment
   # This file is normaly attached to a Tenant record.
   #
   # Use this method for backup or migrations.
-  def export
+  def dump
     dir = Dir.mktmpdir 'bookyt.backup'
 
     data = Tempfile.new('data.yml', dir)

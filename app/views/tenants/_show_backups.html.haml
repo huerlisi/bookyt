@@ -6,4 +6,4 @@
   = render 'backups/list', :collection => backups
 
 .form-actions
-  = icon_link_to :backup, tenant_backups_path(resource), :icon => 'download-alt', :method => :post, :remote => true
+  = icon_link_to :backup, dump_tenant_backups_path(resource), :icon => 'download-alt', :method => :post

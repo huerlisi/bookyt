@@ -2,8 +2,12 @@
 class BackupsController < AttachmentsController
   defaults :resource_class => Backup
 
-  def create
-    @backup = current_tenant.export
+  def dump
+    tenant = Tenant.find(params[:tenant_id])
+
+    @backup = tenant.backups.build
+    @backup.dump
+    @backup.save!
     redirect_to current_tenant
   end
 
