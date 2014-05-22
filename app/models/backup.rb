@@ -13,7 +13,7 @@ class Backup < Attachment
   # Dump data to file
   #
   # We use YAML to dump data to a file.
-  def dump_data(temp)
+  def self.dump_data(temp)
     temp.binmode
 
     old_level = ActiveRecord::Base.logger.level
@@ -28,7 +28,7 @@ class Backup < Attachment
   #
   # We persist the schema.rb to provide the YAML loader with the same database
   # structure as on dump.
-  def dump_schema(temp)
+  def self.dump_schema(temp)
     temp.binmode
 
     ActiveRecord::SchemaDumper.dump(ActiveRecord::Base.connection, temp)
@@ -39,7 +39,7 @@ class Backup < Attachment
   #
   # To save some space and include all relevant data in a single file, we use a
   # zip file.
-  def build_zip(zip, schema, data)
+  def self.build_zip(zip, schema, data)
     Zip::File.open(zip, Zip::File::CREATE) do |zipfile|
       zipfile.add('schema.rb', schema.path)
       zipfile.add('data.yml', data.path)
@@ -52,8 +52,10 @@ class Backup < Attachment
   # Backup models file attribute.
   #
   # Use this method for backup or migrations.
-  def dump
+  def self.dump(zip_path = nil)
     dir = Dir.mktmpdir 'bookyt.backup'
+
+    zip = zip_path || Pathname.new(dir).join('backup-v1.zip')
 
     data = Tempfile.new('data.yml', dir)
     dump_data(data)
@@ -61,7 +63,6 @@ class Backup < Attachment
     schema = Tempfile.new('schema.rb', dir)
     dump_schema(schema)
 
-    zip = Pathname.new(dir).join('backup-v1.zip')
     build_zip(zip, schema, data)
 
     data.unlink
@@ -69,19 +70,25 @@ class Backup < Attachment
 
     title = "Backup %s" % DateTime.now.to_s(:db)
 
-    zip_file = File.new(zip, 'r')
+    # Return a file instance so we can unlink the directory now so the
+    # responsibility to cleanup is not on the caller.
     # TODO: test if we can remove the directory before finishing reading
     # a file it contains on Windows.
+    zip_file = File.new(zip, 'r')
     FileUtils.rmdir(dir)
 
-    self.file = zip_file
+    zip_file
+  end
+
+  def dump
+    self.file = self.class.dump
     self.title = title
   end
 
   # Extract data from zip
   #
   # Extract schema.rb and data.yml from the zip file.
-  def extract_zip(zip, schema_path, data_path)
+  def self.extract_zip(zip, schema_path, data_path)
     Zip::File.open(zip) do |zipfile|
       schema = zipfile.glob('schema.rb').first
       schema.extract(schema_path)
@@ -93,14 +100,14 @@ class Backup < Attachment
   # Restore database schema
   #
   # Simply load the passed in schema.rb file.
-  def restore_schema(path)
+  def self.restore_schema(path)
     load(path)
   end
 
   # Import Data from a file
   #
   # This method loads a backup YAML file and creates records in the database.
-  def restore_data(path)
+  def self.restore_data(path)
     yaml_file = File.new(path, "r")
 
     old_level = ActiveRecord::Base.logger.level
@@ -115,16 +122,20 @@ class Backup < Attachment
   # This record is normaly attached to a Tenant record.
   #
   # Use this method for restore or migrations.
-  def restore
+  def self.restore(path)
     dir = Dir.mktmpdir 'bookyt.backup'
     dirname = Pathname.new(dir)
 
-    extract_zip file.current_path, dirname.join('schema.rb'), dirname.join('data.yml')
+    extract_zip path, dirname.join('schema.rb'), dirname.join('data.yml')
 
     restore_schema(dirname.join('schema.rb'))
 
     restore_data(dirname.join('data.yml'))
 
     ActiveRecord::Migrator.migrate(ActiveRecord::Migrator.migrations_paths, nil)
+  end
+
+  def restore
+    self.class.restore file.current_path
   end
 end
