@@ -1,6 +1,7 @@
 # Backup Model
 #
-# A backup model is a subclass of an Attachment. It actually is a YAML file
+# A backup model is a subclass of an Attachment. The attached file is a zip file
+# containing the data and schema. The first actually is a YAML file
 # that contains all the database records. It also includes the schema.rb to
 # allow restoring backups on newer versions.
 class Backup < Attachment
