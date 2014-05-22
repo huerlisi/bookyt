@@ -6,35 +6,59 @@
 class Backup < Attachment
   alias tenant object
 
-  # Dump data and schema as zip file
+  # Dump data to file
   #
-  # This file is normaly attached to a Tenant record.
+  # We use YAML to dump data to a file.
+  def dump_data(temp)
+    temp.binmode
+
+    old_level = ActiveRecord::Base.logger.level
+    ActiveRecord::Base.logger.level = 2 # don't log debug or info
+    YamlDb::Helper.dumper.dump(temp)
+    ActiveRecord::Base.logger.level = old_level
+
+    temp.close
+  end
+
+  # Dump schema to file
+  #
+  # We persist the schema.rb to provide the YAML loader with the same database
+  # structure as on dump.
+  def dump_schema(temp)
+    temp.binmode
+
+    ActiveRecord::SchemaDumper.dump(ActiveRecord::Base.connection, temp)
+    temp.close
+  end
+
+  # Build ZIP out of schema and data
+  #
+  # To save some space and include all relevant data in a single file, we use a
+  # zip file.
+  def build_zip(zip, schema, data)
+    Zip::File.open(zip, Zip::File::CREATE) do |zipfile|
+      zipfile.add('schema.rb', schema.path)
+      zipfile.add('data.yml', data.path)
+    end
+  end
+
+  # Create backup and attach to this record
+  #
+  # We create a zip containing all backup information and attach it to a
+  # Backup models file attribute.
   #
   # Use this method for backup or migrations.
   def dump
     dir = Dir.mktmpdir 'bookyt.backup'
 
     data = Tempfile.new('data.yml', dir)
-    data.binmode
-
-    old_level = ActiveRecord::Base.logger.level
-    ActiveRecord::Base.logger.level = 2 # don't log debug or info
-    YamlDb::Helper.dumper.dump(data)
-    ActiveRecord::Base.logger.level = old_level
-
-    data.close
+    dump_data(data)
 
     schema = Tempfile.new('schema.rb', dir)
-    schema.binmode
-
-    ActiveRecord::SchemaDumper.dump(ActiveRecord::Base.connection, schema)
-    schema.close
+    dump_schema(schema)
 
     zip = Pathname.new(dir).join('backup-v1.zip')
-    Zip::File.open(zip, Zip::File::CREATE) do |zipfile|
-      zipfile.add('schema.rb', schema.path)
-      zipfile.add('data.yml', data.path)
-    end
+    build_zip(zip, schema, data)
 
     data.unlink
     schema.unlink
