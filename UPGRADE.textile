@@ -1,0 +1,47 @@
+h1. Upgrade from Bookyt 1.5 to 2.0
+
+Bookyt 2.0 uses a different database system and supports multi tenancy. This
+makes some manual steps necessary. Follow these instruction to enjoy all the
+new features of Bookyt 2.0.
+
+If you do not yet run the latest Bookyt 1 release, please first upgrade to
+release 1.5. It is available on github in the stable-1-5 branch.
+
+h2. Backup Data
+
+<pre>
+bundle exec rails runner 'Backup.dump("upgrade-to-2.0.zip")'
+</pre>
+
+h2. Create PostgreSQL database
+
+This is how it's done on Debian/Ubuntu. Please submit a patch if you've
+figured out the steps on another system.
+
+<pre>
+sudo apt-get install postgresql
+</pre>
+
+<pre>
+sed 's/\*mysql/*postgres/' -i 'config/database.yml'
+</pre>
+
+Lookup current username, password and database from config/database.yml
+and use them in the following commands.
+
+<pre>
+sudo -u postgres -i
+createuser $USER_NAME --no-createdb --no-createrole --no-superuser --pwprompt
+createdb --owner $USER_NAME $DATABASE_NAME
+</pre>
+
+On a development system, you probably also want to do the steps for both
+the development and test databases.
+
+h2. Restore Data
+
+Now import the data again.
+
+<pre>
+Backup.restore 'upgrade-to-2.0.zip'
+</pre>
