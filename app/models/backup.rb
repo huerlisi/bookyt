@@ -79,31 +79,43 @@ class Backup < Attachment
   # This method restores a backup from a Backup record
   # This record is normaly attached to a Tenant record.
   #
-  # Use this method to restore.
+  # Use this method for restore or migrations.
   def import
     dir = Dir.mktmpdir 'bookyt.backup'
     dirname = Pathname.new(dir)
 
-    Zip::File.open(file.current_path) do |zipfile|
-      schema = zipfile.glob('schema.rb').first
-      schema.extract(dirname.join('schema.rb'))
-      data = zipfile.glob('data.yml').first
-      data.extract(dirname.join('data.yml'))
-    end
+    extract_zip file.current_path, dirname.join('schema.rb'), dirname.join('data.yml')
 
-    load(dirname.join('schema.rb'))
+    restore_schema(dirname.join('schema.rb'))
+
+    restore_data(dirname.join('data.yml'))
+
     ActiveRecord::Migrator.migrate(ActiveRecord::Migrator.migrations_paths, nil)
+  end
 
-    self.class.import_file(dirname.join('data.yml'))
+  # Extract data from zip
+  #
+  # Extract schema.rb and data.yml from the zip file.
+  def extract_zip(zip, schema_path, data_path)
+    Zip::File.open(zip) do |zipfile|
+      schema = zipfile.glob('schema.rb').first
+      schema.extract(schema_path)
+      data = zipfile.glob('data.yml').first
+      data.extract(data_path)
+    end
+  end
+
+  # Restore database schema
+  #
+  # Simply load the passed in schema.rb file.
+  def restore_schema(path)
+    load(path)
   end
 
   # Import Data from a file
   #
   # This method loads a backup YAML file and creates records in the database.
-  # This file is normaly attached to a Tenant record.
-  #
-  # Use this method for restore or migrations.
-  def self.import_file(path)
+  def restore_data(path)
     yaml_file = File.new(path, "r")
 
     old_level = ActiveRecord::Base.logger.level
