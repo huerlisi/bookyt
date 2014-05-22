@@ -43,5 +43,5 @@ h2. Restore Data
 Now import the data again.
 
 <pre>
-Backup.restore 'upgrade-to-2.0.zip'
+bundle exec rails runner 'Backup.restore "upgrade-to-2.0.zip"'
 </pre>
