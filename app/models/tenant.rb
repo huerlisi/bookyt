@@ -78,20 +78,4 @@ class Tenant < ActiveRecord::Base
   # Import/Export
   # =============
   has_many :backups, :as => :object
-
-  # Export Data as YAML
-  #
-  # This method creates a YAML file out of all the records in the database.
-  # This file is then attached to the Tenant record.
-  #
-  # Use this method for backup or migrations.
-  #
-  # @returns backup
-  def export
-    backup = backups.build
-    backup.export
-    backup.save!
-
-    backup
-  end
 end
