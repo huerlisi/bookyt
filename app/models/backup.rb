@@ -78,25 +78,6 @@ class Backup < Attachment
     self.title = title
   end
 
-  # Restore Data from a Backup record
-  #
-  # This method restores a backup from a Backup record
-  # This record is normaly attached to a Tenant record.
-  #
-  # Use this method for restore or migrations.
-  def restore
-    dir = Dir.mktmpdir 'bookyt.backup'
-    dirname = Pathname.new(dir)
-
-    extract_zip file.current_path, dirname.join('schema.rb'), dirname.join('data.yml')
-
-    restore_schema(dirname.join('schema.rb'))
-
-    restore_data(dirname.join('data.yml'))
-
-    ActiveRecord::Migrator.migrate(ActiveRecord::Migrator.migrations_paths, nil)
-  end
-
   # Extract data from zip
   #
   # Extract schema.rb and data.yml from the zip file.
@@ -126,5 +107,24 @@ class Backup < Attachment
     ActiveRecord::Base.logger.level = 2 # don't log debug or info
     YamlDb::Helper.loader.load(yaml_file, true)
     ActiveRecord::Base.logger.level = old_level
+  end
+
+  # Restore Data from a Backup record
+  #
+  # This method restores a backup from a Backup record
+  # This record is normaly attached to a Tenant record.
+  #
+  # Use this method for restore or migrations.
+  def restore
+    dir = Dir.mktmpdir 'bookyt.backup'
+    dirname = Pathname.new(dir)
+
+    extract_zip file.current_path, dirname.join('schema.rb'), dirname.join('data.yml')
+
+    restore_schema(dirname.join('schema.rb'))
+
+    restore_data(dirname.join('data.yml'))
+
+    ActiveRecord::Migrator.migrate(ActiveRecord::Migrator.migrations_paths, nil)
   end
 end
