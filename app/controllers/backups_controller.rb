@@ -26,7 +26,7 @@ class BackupsController < AttachmentsController
   def restore
     # TODO: access validation
     @backup = Backup.find(params[:id])
-    @backup.import
+    @backup.restore
 
     redirect_to current_tenant
   end

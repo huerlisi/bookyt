@@ -75,13 +75,13 @@ class Backup < Attachment
     self.title = title
   end
 
-  # Import Data from a Backup record
+  # Restore Data from a Backup record
   #
   # This method restores a backup from a Backup record
   # This record is normaly attached to a Tenant record.
   #
   # Use this method for restore or migrations.
-  def import
+  def restore
     dir = Dir.mktmpdir 'bookyt.backup'
     dirname = Pathname.new(dir)
 
