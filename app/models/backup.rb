@@ -1,16 +1,16 @@
 # Backup Model
 #
 # A backup model is a subclass of an Attachment. It actually is a YAML file
-# that contains all the database records.
+# that contains all the database records. It also includes the schema.rb to
+# allow restoring backups on newer versions.
 
 require 'zip'
 
 class Backup < Attachment
   alias tenant object
 
-  # Export Data as YAML
+  # Dump data and schema as zip file
   #
-  # This method creates a YAML file out of all the records in the database.
   # This file is normaly attached to a Tenant record.
   #
   # Use this method for backup or migrations.
