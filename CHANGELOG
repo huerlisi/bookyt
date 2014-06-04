@@ -29,6 +29,11 @@ Enhancements:
 * Include company name in balance and profit sheet titles.
 * Use twitter bootstrap styled list link action icons.
 * Use sendmail for production environments.
+* Validate presence of file when creating a new esr_file.
+* Implement detection of duplicated ESR records.
+* Drop remarks field from esr file upload.
+* Use proper bootstrap markup for esr file upload form.
+* Proper currency value alignment in tables.
 
 Bugfixes:
 * Fix styling for pagination gap element.
