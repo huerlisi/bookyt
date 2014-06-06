@@ -18,7 +18,14 @@ class Backup < Attachment
 
     old_level = ActiveRecord::Base.logger.level
     ActiveRecord::Base.logger.level = 2 # don't log debug or info
+
+    old_date_format = Date::DATE_FORMATS[:default]
+    Date::DATE_FORMATS[:default] = '%Y-%m-%d'
+
     YamlDb::Helper.dumper.dump(temp)
+
+    Date::DATE_FORMATS[:default] = old_date_format
+
     ActiveRecord::Base.logger.level = old_level
 
     temp.close
