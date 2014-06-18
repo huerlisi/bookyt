@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140324213736) do
+ActiveRecord::Schema.define(:version => 20140617120712) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -61,22 +61,6 @@ ActiveRecord::Schema.define(:version => 20140324213736) do
   add_index "activities", ["person_id"], :name => "index_activities_on_person_id"
   add_index "activities", ["project_id"], :name => "index_activities_on_project_id"
   add_index "activities", ["work_day_id"], :name => "index_activities_on_work_day_id"
-
-  create_table "addresses", :force => true do |t|
-    t.string   "post_office_box",  :limit => 50
-    t.string   "extended_address", :limit => 50
-    t.string   "street_address",   :limit => 50
-    t.string   "locality",         :limit => 50
-    t.string   "region",           :limit => 50
-    t.string   "postal_code",      :limit => 50
-    t.string   "country_name",     :limit => 50
-    t.integer  "vcard_id"
-    t.string   "address_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "addresses", ["vcard_id"], :name => "addresses_vcard_id_index"
 
   create_table "admin_tenants", :force => true do |t|
     t.string   "subdomain"
@@ -277,11 +261,59 @@ ActiveRecord::Schema.define(:version => 20140324213736) do
   add_index "esr_records", ["esr_file_id"], :name => "index_esr_records_on_esr_file_id"
   add_index "esr_records", ["invoice_id"], :name => "index_esr_records_on_invoice_id"
 
-  create_table "honorific_prefixes", :force => true do |t|
+  create_table "has_vcards_addresses", :force => true do |t|
+    t.string   "post_office_box",  :limit => 50
+    t.string   "extended_address", :limit => 50
+    t.string   "street_address",   :limit => 50
+    t.string   "locality",         :limit => 50
+    t.string   "region",           :limit => 50
+    t.string   "postal_code",      :limit => 50
+    t.string   "country_name",     :limit => 50
+    t.integer  "vcard_id"
+    t.string   "address_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "has_vcards_addresses", ["vcard_id"], :name => "addresses_vcard_id_index"
+
+  create_table "has_vcards_honorific_prefixes", :force => true do |t|
     t.integer "sex"
     t.string  "name"
     t.integer "position"
   end
+
+  create_table "has_vcards_phone_numbers", :force => true do |t|
+    t.string   "number",            :limit => 50
+    t.string   "phone_number_type", :limit => 50
+    t.integer  "vcard_id"
+    t.integer  "object_id"
+    t.string   "object_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "has_vcards_phone_numbers", ["object_id", "object_type"], :name => "index_phone_numbers_on_object_id_and_object_type"
+  add_index "has_vcards_phone_numbers", ["phone_number_type"], :name => "index_phone_numbers_on_phone_number_type"
+  add_index "has_vcards_phone_numbers", ["vcard_id"], :name => "phone_numbers_vcard_id_index"
+
+  create_table "has_vcards_vcards", :force => true do |t|
+    t.string   "full_name",        :limit => 50
+    t.string   "nickname",         :limit => 50
+    t.string   "family_name",      :limit => 50
+    t.string   "given_name",       :limit => 50
+    t.string   "additional_name",  :limit => 50
+    t.string   "honorific_prefix", :limit => 50
+    t.string   "honorific_suffix", :limit => 50
+    t.boolean  "active",                         :default => true
+    t.integer  "object_id"
+    t.string   "object_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "has_vcards_vcards", ["active"], :name => "index_vcards_on_active"
+  add_index "has_vcards_vcards", ["object_id", "object_type"], :name => "index_vcards_on_object_id_and_object_type"
 
   create_table "invoices", :force => true do |t|
     t.integer  "customer_id"
@@ -365,20 +397,6 @@ ActiveRecord::Schema.define(:version => 20140324213736) do
   add_index "people", ["civil_status_id"], :name => "index_people_on_civil_status_id"
   add_index "people", ["religion_id"], :name => "index_people_on_religion_id"
   add_index "people", ["type"], :name => "index_people_on_type"
-
-  create_table "phone_numbers", :force => true do |t|
-    t.string   "number",            :limit => 50
-    t.string   "phone_number_type", :limit => 50
-    t.integer  "vcard_id"
-    t.integer  "object_id"
-    t.string   "object_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "phone_numbers", ["object_id", "object_type"], :name => "index_phone_numbers_on_object_id_and_object_type"
-  add_index "phone_numbers", ["phone_number_type"], :name => "index_phone_numbers_on_phone_number_type"
-  add_index "phone_numbers", ["vcard_id"], :name => "phone_numbers_vcard_id_index"
 
   create_table "products", :force => true do |t|
   end
@@ -538,24 +556,6 @@ ActiveRecord::Schema.define(:version => 20140324213736) do
   add_index "users", ["person_id"], :name => "index_users_on_person_id"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["tenant_id"], :name => "index_users_on_tenant_id"
-
-  create_table "vcards", :force => true do |t|
-    t.string   "full_name",        :limit => 50
-    t.string   "nickname",         :limit => 50
-    t.string   "family_name",      :limit => 50
-    t.string   "given_name",       :limit => 50
-    t.string   "additional_name",  :limit => 50
-    t.string   "honorific_prefix", :limit => 50
-    t.string   "honorific_suffix", :limit => 50
-    t.boolean  "active",                         :default => true
-    t.integer  "object_id"
-    t.string   "object_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "vcards", ["active"], :name => "index_vcards_on_active"
-  add_index "vcards", ["object_id", "object_type"], :name => "index_vcards_on_object_id_and_object_type"
 
   create_table "work_days", :force => true do |t|
     t.integer  "person_id"
