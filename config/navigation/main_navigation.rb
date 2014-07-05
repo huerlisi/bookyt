@@ -48,14 +48,12 @@ SimpleNavigation::Configuration.run do |navigation|
                              :highlights_on => /\/people($|\?|\/[0-9]*($|\?|\/.*))/
       contacts.item :employees, t_title(:index, Employee), employees_path,
                              :highlights_on => /\/employees($|\?|\/[0-9]*($|\?|\/.*))/
-      contacts.item :new_employee, t_title(:new, Employee), new_employee_path,
-                             :highlights_on => /\/employees\/new$/
       contacts.item :customers, t_title(:index, Customer), customers_path,
                              :highlights_on => /\/customers($|\?|\/[0-9]*($|\?|\/.*))/
-      contacts.item :new_customer, t_title(:new, Customer), new_customer_path,
-                             :highlights_on => /\/customers\/new$/
       contacts.item :companies, t_title(:index, Company), companies_path,
                              :highlights_on => /\/companies($|\?|\/[0-9]*($|\?|\/.*))/
+      contacts.item :banks, t_title(:index, Bank), banks_path,
+                             :highlights_on => /\/banks($|\?|\/[0-9]*($|\?|\/.*))/
     end
 
     # Hack to get engine navigations included

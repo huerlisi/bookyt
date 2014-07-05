@@ -1,7 +1,4 @@
 class Bank < Person
-  # Access restrictions
-  attr_accessible :swift, :clearing
-
   has_many :bank_accounts
 
   def to_s
