@@ -31,9 +31,9 @@ BankAccount.create!([
 
 # Basic Booking Templates
 BookingTemplate.create!([
-  {:code => "", :title => "aankoop in contanten", :debit_account => Account.find_by_code("1000"), :credit_account => Account.find_by_code("4000")},
-  {:code => "", :title => "aankoop via bankrekening", :debit_account => Account.find_by_code("1020"), :credit_account => Account.find_by_code("4000")},
-  {:code => "", :title => "geld opnemen voor kas", :debit_account => Account.find_by_code("1020"), :credit_account => Account.find_by_code("1000")},
+  {:code => "", :title => "aankoop in contanten", :credit__account => Account.find_by_code("1000"), :debit_account => Account.find_by_code("4000")},
+  {:code => "", :title => "aankoop via bankrekening", :credit__account => Account.find_by_code("1020"), :debit_account => Account.find_by_code("4000")},
+  {:code => "", :title => "geld opnemen voor kas", :credit__account => Account.find_by_code("1020"), :debit_account => Account.find_by_code("1000")},
 ])
 
 # Credit Invoices
@@ -43,12 +43,12 @@ Account.create!([
 ])
 
 BookingTemplate.create!([
-  {:code => "credit_invoice:invoice", :title => "factuur leverancier (crediteur)", :debit_account => Account.find_by_code("2000"), :credit_account => Account.find_by_code("4000"), :amount => 1, :amount_relates_to => 'reference_amount'},
-  {:code => "credit_invoice:reminder", :title => "herinnering", :debit_account => Account.find_by_code("2000"), :credit_account => Account.find_by_code("4000")},
-  {:code => "credit_invoice:cancel", :title => "annulering", :debit_account => Account.find_by_code("4000"), :credit_account => Account.find_by_code("2000"), :amount => 1, :amount_relates_to => 'reference_amount'},
+  {:code => "credit_invoice:invoice", :title => "factuur leverancier (crediteur)", :credit__account => Account.find_by_code("2000"), :debit_account => Account.find_by_code("4000"), :amount => 1, :amount_relates_to => 'reference_amount'},
+  {:code => "credit_invoice:reminder", :title => "herinnering", :credit__account => Account.find_by_code("2000"), :debit_account => Account.find_by_code("4000")},
+  {:code => "credit_invoice:cancel", :title => "annulering", :credit__account => Account.find_by_code("4000"), :debit_account => Account.find_by_code("2000"), :amount => 1, :amount_relates_to => 'reference_amount'},
 
-  {:code => "credit_invoice:cash_payment", :title => "betaling in contanten", :debit_account => Account.find_by_code("1000"), :credit_account => Account.find_by_code("2000"), :amount => 1, :amount_relates_to => 'reference_balance'},
-  {:code => "credit_invoice:bank_payment", :title => "betaling op bankrekening", :debit_account => Account.find_by_code("1020"), :credit_account => Account.find_by_code("2000"), :amount => 1, :amount_relates_to => 'reference_balance'},
+  {:code => "credit_invoice:cash_payment", :title => "betaling in contanten", :credit__account => Account.find_by_code("1000"), :debit_account => Account.find_by_code("2000"), :amount => 1, :amount_relates_to => 'reference_balance'},
+  {:code => "credit_invoice:bank_payment", :title => "betaling op bankrekening", :credit__account => Account.find_by_code("1020"), :debit_account => Account.find_by_code("2000"), :amount => 1, :amount_relates_to => 'reference_balance'},
 ])
 
 # DebitInvoice
@@ -57,10 +57,10 @@ Account.create!([
 ])
 
 BookingTemplate.create!([
-  {:code => "debit_invoice:invoice", :title => "factuur klant (debiteur)", :debit_account => Account.find_by_code("3200"), :credit_account => Account.find_by_code("1100"), :amount => 1, :amount_relates_to => 'reference_amount'},
-  {:code => "debit_invoice:reminder", :title => "herinnering", :debit_account => Account.find_by_code("3200"), :credit_account => Account.find_by_code("1100")},
-  {:code => "debit_invoice:cancel", :title => "annulering", :debit_account => Account.find_by_code("1100"), :credit_account => Account.find_by_code("3200"), :amount => 1, :amount_relates_to => 'reference_amount'},
+  {:code => "debit_invoice:invoice", :title => "factuur klant (debiteur)", :credit__account => Account.find_by_code("3200"), :debit_account => Account.find_by_code("1100"), :amount => 1, :amount_relates_to => 'reference_amount'},
+  {:code => "debit_invoice:reminder", :title => "herinnering", :credit__account => Account.find_by_code("3200"), :debit_account => Account.find_by_code("1100")},
+  {:code => "debit_invoice:cancel", :title => "annulering", :credit__account => Account.find_by_code("1100"), :debit_account => Account.find_by_code("3200"), :amount => 1, :amount_relates_to => 'reference_amount'},
 
-  {:code => "debit_invoice:cash_payment", :title => "betaling in contanten", :debit_account => Account.find_by_code("1100"), :credit_account => Account.find_by_code("1000"), :amount => 1, :amount_relates_to => 'reference_balance'},
-  {:code => "debit_invoice:bank_payment", :title => "betaling op bankrekening", :debit_account => Account.find_by_code("1100"), :credit_account => Account.find_by_code("1020"), :amount => 1, :amount_relates_to => 'reference_balance'},
+  {:code => "debit_invoice:cash_payment", :title => "betaling in contanten", :credit__account => Account.find_by_code("1100"), :debit_account => Account.find_by_code("1000"), :amount => 1, :amount_relates_to => 'reference_balance'},
+  {:code => "debit_invoice:bank_payment", :title => "betaling op bankrekening", :credit__account => Account.find_by_code("1100"), :debit_account => Account.find_by_code("1020"), :amount => 1, :amount_relates_to => 'reference_balance'},
 ])

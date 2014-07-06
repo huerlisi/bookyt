@@ -30,9 +30,9 @@ BankAccount.create!([
 
 # Basic Booking Templates
 BookingTemplate.create!([
-  {:code => "", :title => "Barkauf", :debit_account => Account.find_by_code("1000"), :credit_account => Account.tagged_with("invoice:costs").first},
-  {:code => "", :title => "EC-Zahlung", :debit_account => Account.find_by_code("1020"), :credit_account => Account.tagged_with("invoice:costs").first},
-  {:code => "", :title => "Barbezug für Kasse", :debit_account => Account.find_by_code("1020"), :credit_account => Account.find_by_code("1000")},
+  {:code => "", :title => "Barkauf", :credit__account => Account.find_by_code("1000"), :debit_account => Account.tagged_with("invoice:costs").first},
+  {:code => "", :title => "EC-Zahlung", :credit__account => Account.find_by_code("1020"), :debit_account => Account.tagged_with("invoice:costs").first},
+  {:code => "", :title => "Barbezug für Kasse", :credit__account => Account.find_by_code("1020"), :debit_account => Account.find_by_code("1000")},
 ])
 
 # Credit Invoices
@@ -42,12 +42,12 @@ Account.create!([
 ])
 
 BookingTemplate.create!([
-  {:tag_list => "use:credit_invoice", :title => "Kreditoren Rechnung", :debit_account => Account.tagged_with("invoice:credit").first, :credit_account => Account.tagged_with("invoice:costs").first, :amount => 1, :amount_relates_to => 'reference_amount'},
-  {:tag_list => "use:credit_invoice", :title => "Mahnung", :debit_account => Account.tagged_with("invoice:credit").first, :credit_account => Account.tagged_with("invoice:costs").first},
-  {:tag_list => "use:credit_invoice", :title => "Storno", :debit_account => Account.tagged_with("invoice:costs").first, :credit_account => Account.tagged_with("invoice:credit").first, :amount => 1, :amount_relates_to => 'reference_amount'},
+  {:tag_list => "use:credit_invoice", :title => "Kreditoren Rechnung", :credit__account => Account.tagged_with("invoice:credit").first, :debit_account => Account.tagged_with("invoice:costs").first, :amount => 1, :amount_relates_to => 'reference_amount'},
+  {:tag_list => "use:credit_invoice", :title => "Mahnung", :credit__account => Account.tagged_with("invoice:credit").first, :debit_account => Account.tagged_with("invoice:costs").first},
+  {:tag_list => "use:credit_invoice", :title => "Storno", :credit__account => Account.tagged_with("invoice:costs").first, :debit_account => Account.tagged_with("invoice:credit").first, :amount => 1, :amount_relates_to => 'reference_amount'},
 
-  {:tag_list => "use:credit_invoice", :title => "Barzahlung", :debit_account => Account.find_by_code("1000"), :credit_account => Account.tagged_with("invoice:credit").first, :amount => 1, :amount_relates_to => 'reference_balance'},
-  {:tag_list => "use:credit_invoice", :title => "Bankzahlung", :debit_account => Account.find_by_code("1020"), :credit_account => Account.tagged_with("invoice:credit").first, :amount => 1, :amount_relates_to => 'reference_balance'},
+  {:tag_list => "use:credit_invoice", :title => "Barzahlung", :credit__account => Account.find_by_code("1000"), :debit_account => Account.tagged_with("invoice:credit").first, :amount => 1, :amount_relates_to => 'reference_balance'},
+  {:tag_list => "use:credit_invoice", :title => "Bankzahlung", :credit__account => Account.find_by_code("1020"), :debit_account => Account.tagged_with("invoice:credit").first, :amount => 1, :amount_relates_to => 'reference_balance'},
 ])
 
 # DebitInvoice
@@ -56,12 +56,12 @@ Account.create!([
 ])
 
 BookingTemplate.create!([
-  {:tag_list => "use:debit_invoice", :title => "Debitoren Rechnung", :debit_account => Account.tagged_with("invoice:earnings").first, :credit_account => Account.tagged_with("invoice:debit").first, :amount => 1, :amount_relates_to => 'reference_amount'},
-  {:tag_list => "use:debit_invoice", :title => "Mahnung", :debit_account => Account.tagged_with("invoice:earnings").first, :credit_account => Account.tagged_with("invoice:debit").first},
-  {:tag_list => "use:debit_invoice", :title => "Storno", :debit_account => Account.tagged_with("invoice:debit").first, :credit_account => Account.tagged_with("invoice:earnings").first, :amount => 1, :amount_relates_to => 'reference_amount'},
+  {:tag_list => "use:debit_invoice", :title => "Debitoren Rechnung", :credit__account => Account.tagged_with("invoice:earnings").first, :debit_account => Account.tagged_with("invoice:debit").first, :amount => 1, :amount_relates_to => 'reference_amount'},
+  {:tag_list => "use:debit_invoice", :title => "Mahnung", :credit__account => Account.tagged_with("invoice:earnings").first, :debit_account => Account.tagged_with("invoice:debit").first},
+  {:tag_list => "use:debit_invoice", :title => "Storno", :credit__account => Account.tagged_with("invoice:debit").first, :debit_account => Account.tagged_with("invoice:earnings").first, :amount => 1, :amount_relates_to => 'reference_amount'},
 
-  {:tag_list => "use:debit_invoice", :title => "Barzahlung", :debit_account => Account.tagged_with("invoice:debit").first, :credit_account => Account.find_by_code("1000"), :amount => 1, :amount_relates_to => 'reference_balance'},
-  {:tag_list => "use:debit_invoice", :title => "Bankzahlung", :debit_account => Account.tagged_with("invoice:debit").first, :credit_account => Account.find_by_code("1020"), :amount => 1, :amount_relates_to => 'reference_balance'},
+  {:tag_list => "use:debit_invoice", :title => "Barzahlung", :credit__account => Account.tagged_with("invoice:debit").first, :debit_account => Account.find_by_code("1000"), :amount => 1, :amount_relates_to => 'reference_balance'},
+  {:tag_list => "use:debit_invoice", :title => "Bankzahlung", :credit__account => Account.tagged_with("invoice:debit").first, :debit_account => Account.find_by_code("1020"), :amount => 1, :amount_relates_to => 'reference_balance'},
 ])
 
 

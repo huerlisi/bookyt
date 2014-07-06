@@ -81,8 +81,8 @@ class LineItem < ActiveRecord::Base
 
   def accounted_amount
     factor = 0
-    factor = 1 if credit_account == invoice.direct_account
-    factor = -1 if debit_account == invoice.direct_account
+    factor = 1 if debit_account == invoice.direct_account
+    factor = -1 if credit_account == invoice.direct_account
 
     return factor * total_amount * invoice.direct_account_factor
   end
