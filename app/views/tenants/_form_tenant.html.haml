@@ -1,4 +1,3 @@
-- f.object.build_company unless f.object.company
 %h3= t('form.company.address')
 = f.fields_for :company do |p|
   = render 'has_vcards/vcards/form', :f => p, :full_vcard => true

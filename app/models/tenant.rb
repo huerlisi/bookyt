@@ -4,24 +4,10 @@ class Tenant < ActiveRecord::Base
   belongs_to :admin_tenant, :class_name => 'Admin::Tenant'
   attr_accessible :admin_tenant
 
-  # Person
-  # ======
-  belongs_to :person
-  accepts_nested_attributes_for :person
-  attr_accessible :person_attributes
-  def person_with_autobuild
-    person_without_autobuild || build_person
-  end
-  alias_method_chain :person, :autobuild
-
   # Settings
   # ========
   has_settings
   attr_accessible :settings
-
-  def to_s
-    person.to_s
-  end
 
   # User
   # ====
@@ -29,10 +15,19 @@ class Tenant < ActiveRecord::Base
   attr_accessible :user_ids
 
   # Company
+  # =======
   attr_accessible :company, :company_attributes
-  belongs_to :company, :foreign_key => :person_id
-  validates_presence_of :company, :on => :update
+  belongs_to :company, :foreign_key => :person_id, :autosave => true
+  validates_presence_of :company
   accepts_nested_attributes_for :company
+
+  def company
+    super || build_company
+  end
+
+  def to_s
+    company.to_s
+  end
 
   # Bookyt
   # ======
