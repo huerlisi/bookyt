@@ -6,6 +6,10 @@
     - if booking_template.comments.present?
       %hr{:style => "height: 1px; margin: 0"}/
       %i= booking_template.comments
+  %td
+    - booking_template.tags.each do |tag|
+      = boot_label(tag)
+
   %td= link_to booking_template.credit_account.code, account_path(booking_template.credit_account), :title => booking_template.credit_account.title unless booking_template.credit_account.nil?
   %td= link_to booking_template.debit_account.code, account_path(booking_template.debit_account), :title => booking_template.debit_account.title unless booking_template.debit_account.nil?
   %td.currency= amount_to_s(booking_template)
