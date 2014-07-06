@@ -108,7 +108,7 @@ gem 'select2-rails'
 gem 'will_paginate'
 gem 'inherited_resources'
 gem 'has_scope'
-gem 'i18n_rails_helpers'
+gem 'i18n_rails_helpers', '~> 2.0.0.beta0'
 gem 'responders'
 
 # Access Control
@@ -147,7 +147,7 @@ gem 'has_accounts', github: 'huerlisi/has_accounts'
 gem 'has_accounts_engine', github: 'huerlisi/has_accounts_engine'
 
 # Addresses
-gem 'has_vcards', github: 'huerlisi/has_vcards'
+gem 'has_vcards', '~> 1.0.0.rc0'
 
 # Uploads
 gem 'carrierwave'

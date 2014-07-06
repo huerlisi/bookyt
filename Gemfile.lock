@@ -23,16 +23,6 @@ GIT
       validates_timeliness
 
 GIT
-  remote: git://github.com/huerlisi/has_vcards.git
-  revision: 14376248771e711c22a5fafbcecd9602c7605c95
-  specs:
-    has_vcards (1.0.0.rc0)
-      i18n_rails_helpers
-      inherited_resources
-      rails (> 3.2.0)
-      simple_form
-
-GIT
   remote: http://github.com/CyTeam/mt940_parser.git
   revision: 0f4125b4956761ce1b7e01b53fbccd3239a2f29a
   specs:
@@ -219,6 +209,12 @@ GEM
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
     has_scope (0.5.1)
+    has_vcards (1.0.0.rc0)
+      haml
+      i18n_rails_helpers
+      inherited_resources
+      rails (> 3.2.0)
+      simple_form
     hashery (2.1.0)
     hashie (2.0.5)
     highline (1.6.19)
@@ -227,7 +223,8 @@ GEM
     http_parser.rb (0.5.3)
     httpauth (0.2.0)
     i18n (0.6.9)
-    i18n_rails_helpers (1.4.12)
+    i18n_rails_helpers (2.0.0.beta0)
+      rails (> 3.0.0)
     inherited_resources (1.4.0)
       has_scope (~> 0.5.0)
       responders (~> 0.9)
@@ -505,9 +502,9 @@ DEPENDENCIES
   has_accounts!
   has_accounts_engine!
   has_scope
-  has_vcards!
+  has_vcards (~> 1.0.0.rc0)
   hpricot
-  i18n_rails_helpers
+  i18n_rails_helpers (~> 2.0.0.beta0)
   inherited_resources
   jquery-rails
   jquery-ui-rails
