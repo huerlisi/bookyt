@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   end
 
   def role_texts
-    roles.map{|role| role.name}
+    roles.pluck(:name)
   end
 
   def role_texts=(role_names)

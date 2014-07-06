@@ -3,21 +3,6 @@ function addAlternateTableBehaviour() {
   $("table.list tr:odd").addClass("odd");
 }
 
-// Dirty Form
-function makeEditForm(form) {
-  var buttons = form.find("fieldset.buttons");
-  buttons.animate({opacity: 1}, 1000);
-}
-
-function addDirtyForm() {
-  $(".form-view form").dirty_form()
-    .dirty(function(event, data){
-      makeEditForm($(this));
-    })
-
-  $(".form-view").focusin(function() {makeEditForm($(this))});
-}
-
 function addNestedFormBehaviour() {
   $('body').on('click', '.delete-nested-form-item', function(event) {
     var item = $(this).parents('.nested-form-item');
@@ -214,7 +199,6 @@ function initializeBehaviours() {
 
   // application
   addAlternateTableBehaviour();
-  addDirtyForm();
   addNestedFormBehaviour();
 
   addCalculateTotalAmountBehaviour();

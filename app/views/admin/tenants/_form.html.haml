@@ -4,6 +4,7 @@
       = f.input :subdomain, :wrapper => :append, :class => 'inline' do
         = f.input_field :subdomain, 'data-autofocus' => true, :class => 'span6', :style => 'text-align: right'
         .add-on .bookyt.ch
+    .span6
       = f.input :db_name, :readonly => !@tenant.new_record?, :placeholder => 'wie subdomain'
 
   - if @tenant.new_record?

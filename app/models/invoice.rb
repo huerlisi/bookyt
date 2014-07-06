@@ -191,7 +191,7 @@ class Invoice < ActiveRecord::Base
     # Guard
     return 1 unless direct_account
 
-    direct_account.is_asset_account? ? 1 : -1
+    direct_account.asset_account? ? 1 : -1
   end
 
   # Line Items

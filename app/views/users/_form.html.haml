@@ -15,7 +15,7 @@
   - f.object.build_person unless f.object.person
   %h3= t('form.person.address')
   = f.fields_for :person do |p|
-    = render 'vcards/form', :f => p, :full_vcard => true
+    = render 'has_vcards/vcards/form', :f => p, :full_vcard => true
 
   .form-actions
     = f.button :submit

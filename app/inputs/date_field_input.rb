@@ -1,6 +1,8 @@
 class DateFieldInput < SimpleForm::Inputs::StringInput
   # Normalizes to localized date
   def date_value
+    return unless object
+
     value = object.send(attribute_name)
 
     return nil unless value.present?
