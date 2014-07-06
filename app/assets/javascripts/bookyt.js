@@ -82,10 +82,10 @@ function calculateLineItemTotalAmount(lineItem) {
   var direct_account_factor = $('#line_items').data('direct-account-factor');
 
   var factor = 0;
-  if (lineItem.find(":input[name$='[credit_account_id]']").val() == direct_account_id) {
+  if (lineItem.find(":input[name$='[debit_account_id]']").val() == direct_account_id) {
     factor = 1;
   };
-  if (lineItem.find(":input[name$='[debit_account_id]']").val() == direct_account_id) {
+  if (lineItem.find(":input[name$='[credit_account_id]']").val() == direct_account_id) {
     factor = -1;
   };
 

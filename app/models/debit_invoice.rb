@@ -20,11 +20,11 @@ class DebitInvoice < Invoice
   end
 
   def self.credit_account
-    balance_account
+    profit_account
   end
 
   def self.debit_account
-    profit_account
+    balance_account
   end
 
   # Code
