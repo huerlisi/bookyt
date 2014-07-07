@@ -204,7 +204,7 @@ class Invoice < ActiveRecord::Base
   before_save :calculate_amount
   def calculate_amount
     # Need to use to_a as not all line items are persisted for sure
-    value = line_items.non_saldo_items.to_a.sum(&:accounted_amount)
+    value = line_items.to_a.sum(&:accounted_amount)
 
     if value
       self.amount = value.currency_round
