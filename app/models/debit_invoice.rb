@@ -11,6 +11,11 @@ class DebitInvoice < Invoice
     Account.tagged_with('invoice:debit').first
   end
 
+  def self.payment_account
+    Account.tagged_with('invoice:vesr').first ||
+      Account.tagged_with('invoice:payment').first
+  end
+
   def self.available_credit_accounts
     Account.by_type('current_assets')
   end
