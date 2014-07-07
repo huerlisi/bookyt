@@ -45,10 +45,10 @@ class DebitInvoiceDocument < LetterDocument
                               bank_account.bank.swift.present? ? "SWIFT: #{bank_account.bank.swift}" : nil,
                               bank_account.bank.clearing.present? ? "Clearing: #{bank_account.bank.clearing}" : nil,
                               bank_account.pc_id.present? ? "PC-Konto: #{bank_account.pc_id}" : nil
-                            ].compact.join(" – ")  
+                            ].compact.join(" – ")
           text bank_text_line
 
-          company_text_line = [  
+          company_text_line = [
                                 vat_number.present? ? "MWSt.-Nr.: #{vat_number}" : nil,
                                 uid_number.present? ? "UID: #{uid_number}" : nil
                               ].compact.join(" – ")
