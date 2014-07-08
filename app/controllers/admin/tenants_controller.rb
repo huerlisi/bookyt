@@ -38,6 +38,8 @@ class Admin::TenantsController < ApplicationController
       load "db/seeds.rb"
 
       @instance_tenant.save!
+      # Assign roles again, as we need to assign the roles in this db.
+      @user.role_texts = ['admin']
       @user.save!
 
       Apartment::Database.switch('public')
