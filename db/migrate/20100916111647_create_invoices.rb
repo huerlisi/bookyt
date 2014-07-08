@@ -3,7 +3,7 @@ class CreateInvoices < ActiveRecord::Migration
     create_table :invoices do |t|
       t.references :customer
       t.references :company
-      t.integer :due_date
+      t.date :due_date
       t.string :state
 
       t.timestamps
