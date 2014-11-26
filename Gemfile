@@ -143,8 +143,8 @@ gem 'ledermann-rails-settings', '~> 1.1.0', :require => 'rails-settings' # incom
 # Bookyt
 # ======
 # Accounting
-gem 'has_accounts', github: 'huerlisi/has_accounts'
-gem 'has_accounts_engine', github: 'huerlisi/has_accounts_engine'
+gem 'has_accounts', '~> 2.0.1'
+gem 'has_accounts_engine', '~> 3.0.0.beta1'
 
 # Addresses
 gem 'has_vcards', '~> 1.0.0.rc0'
