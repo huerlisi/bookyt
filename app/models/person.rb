@@ -31,8 +31,8 @@ class Person < ActiveRecord::Base
 
   # VCards
   # ======
-  has_many :vcards, :as => :object, :class_name => 'HasVcards::Vcard'
-  has_one :vcard, :as => :object, :class_name => 'HasVcards::Vcard'
+  has_many :vcards, :as => :reference, :class_name => 'HasVcards::Vcard'
+  has_one :vcard, :as => :reference, :class_name => 'HasVcards::Vcard'
   accepts_nested_attributes_for :vcard
 
   # Search
