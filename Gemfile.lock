@@ -201,7 +201,7 @@ GEM
     guard-zeus (0.0.1)
       guard
       zeus
-    haml (4.0.3)
+    haml (4.0.5)
       tilt
     haml-rails (0.4)
       actionpack (>= 3.1, < 4.1)
@@ -414,7 +414,7 @@ GEM
       activemodel (~> 3.0)
     simple-navigation (3.11.0)
       activesupport (>= 2.3.2)
-    simple_form (2.1.1)
+    simple_form (2.1.2)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
     simplecov (0.7.1)
