@@ -33,8 +33,8 @@ class Admin::TenantsController < ApplicationController
     @user.valid?
 
     if @instance_tenant.valid? && @user.valid? && @tenant.save
-      Apartment::Database.create(@tenant.db_name)
-      Apartment::Database.switch(@tenant.db_name)
+      Apartment::Tenant.create(@tenant.db_name)
+      Apartment::Tenant.switch!(@tenant.db_name)
       load "db/seeds.rb"
 
       @instance_tenant.save!
@@ -42,7 +42,7 @@ class Admin::TenantsController < ApplicationController
       @user.role_texts = ['admin']
       @user.save!
 
-      Apartment::Database.switch('public')
+      Apartment::Tenant.switch!('public')
       redirect_to @tenant
     else
       render 'new'
