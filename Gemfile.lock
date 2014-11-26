@@ -223,7 +223,7 @@ GEM
     http_parser.rb (0.5.3)
     httpauth (0.2.0)
     i18n (0.6.11)
-    i18n_rails_helpers (2.0.0.beta0)
+    i18n_rails_helpers (2.0.0.beta1)
       rails (> 3.0.0)
     inherited_resources (1.4.0)
       has_scope (~> 0.5.0)
