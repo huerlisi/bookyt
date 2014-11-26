@@ -24,6 +24,11 @@ class LetterDocument < Prawn::Document
     return result
   end
 
+  # PDF compatible HTML helper wrappers
+  def currency_fmt(value)
+    CGI.unescapeHTML(super(value).to_str)
+  end
+
   def initialize_fonts
     font 'Helvetica'
     font_size 9.5
