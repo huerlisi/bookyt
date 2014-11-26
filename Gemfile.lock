@@ -71,7 +71,7 @@ GEM
     bookyt_projects (1.1.0)
       rails (~> 3.1)
       recurrence
-    bookyt_salary (0.20.3)
+    bookyt_salary (0.20.4)
       rails (~> 3.1)
       recurrence
     bookyt_stock (0.6.0)
@@ -489,7 +489,7 @@ DEPENDENCIES
   guard-zeus
   haml
   haml-rails
-  has_accounts (~> 2.0.1)
+  has_accounts
   has_accounts_engine (~> 3.0.0.beta1)
   has_scope
   has_vcards (~> 1.0.0.rc0)
