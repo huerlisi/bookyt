@@ -352,8 +352,8 @@ GEM
     rcov (1.0.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    recurrence (1.2.0)
-      activesupport (>= 2.3.0)
+    recurrence (1.3.0)
+      activesupport
       i18n
     redcarpet (3.0.0)
     ref (1.0.5)
