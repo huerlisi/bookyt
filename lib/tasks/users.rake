@@ -13,7 +13,7 @@ namespace :users do
     password = ask('Password (at least 6 chars): ')
     given_name = ask('Given name: ')
     family_name = ask('Family name: ')
-    person = Person.create(:vcard => Vcard.new(:given_name => given_name, :family_name => family_name))
+    person = Person.create(:vcard => HasVcards::Vcard.new(:given_name => given_name, :family_name => family_name))
 
     # Create user
     user = User.create({
@@ -37,7 +37,7 @@ namespace :users do
     # Create Company
     puts "Please give company credentials:"
     full_name = ask('Name: ')
-    company = Company.create(:vcard => Vcard.new(:full_name => full_name))
+    company = Company.create(:vcard => HasVcards::Vcard.new(:full_name => full_name))
 
     # Create tenant
     tenant = Tenant.create(:company => company, :incorporated_on => Date.today, :fiscal_year_ends_on => Date.today.end_of_year)

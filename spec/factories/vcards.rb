@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :vcard do
+  factory :vcard, :class => HasVcards::Vcard do
     given_name      'Peter'
     family_name     'Muster'
     street_address 'Teststr. 1'
