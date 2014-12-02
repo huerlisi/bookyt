@@ -26,4 +26,4 @@
         %th.right
           %h3= currency_fmt(Account.by_type('earnings').saldo(@date) - Account.by_type('costs').saldo(@date))
 
-= render 'fiscal_year_filter'
+= render 'filters/by_fiscal_year'
