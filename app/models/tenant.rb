@@ -57,6 +57,25 @@ class Tenant < ActiveRecord::Base
     }
   end
 
+  # Describe passed calendar years
+  #
+  # Returns empty array if incorporated_on is not set.
+  def calendar_years
+    # Guard
+    return [] unless incorporated_on
+
+    first_year = incorporated_on.year
+    final_year = Date.today.year
+
+    (first_year..final_year).map{ |year|
+      {
+        :from => Date.new(year, 1, 1),
+        :to => Date.new(year, 12, 31)
+      }
+    }
+
+  end
+
   # Vat
   attr_accessible :vat_number, :uid_number, :ahv_number
   def vat_obligation?
