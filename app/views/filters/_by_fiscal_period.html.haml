@@ -3,5 +3,5 @@
   - filters = current_tenant.fiscal_years.reverse.map do |period|
     - value = {"from" => period[:from].to_s(:db), "to" => period[:to].to_s(:db)}
     - {:value => value, :title => period[:to].year}
-  = boot_nav_filter(filter_name, [{:title => :all, :value => nil}] + filters)
+  = boot_nav_filter(filter_name, [{:title => t('bookyt.all'), :value => nil}] + filters)
 
