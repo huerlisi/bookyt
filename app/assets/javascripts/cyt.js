@@ -17,7 +17,10 @@ function addDatePickerBehaviour() {
   $('.date-picker').each(function(){
     $(this).datepicker({
       format: 'dd.mm.yyyy',
-      orientation: "auto"
+      orientation: "auto",
+      autoclose: true,
+      clearBtn: true,
+      keyboardNavigation: false
     });
   });
 };
