@@ -317,6 +317,8 @@ de:
     total: Total
   by_period:
     title: Periode
+  by_employee:
+    title: Mitarbeiter
   by_value_period:
     all: Alle
     title: Buchungsfilter

@@ -1,0 +1,5 @@
+- filter_name = :by_employee
+- define_filter filter_name do
+  - filters = Employee.all.map do |employee|
+    - { :value => employee.id, :title => employee.to_s }
+  = boot_nav_filter(filter_name, [{:title => :all, :value => nil}] + filters)
