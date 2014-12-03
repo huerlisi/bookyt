@@ -21,9 +21,9 @@
   %table.table.table-striped.table-condensed
     = f.fields_for :bookings do |b|
       %tr[b.object]
-        %td.value_date= b.input :value_date, :as => :string, :wrapper => :inline
-        %td.amount.currency= b.input :amount, :as => :string, :wrapper => :inline
-        %td.title= b.input :title, :wrapper => :inline
+        %td.value_date= b.input :value_date, :as => :string, :wrapper => :inline, :readonly => true, :input_html => { :tabindex => -1 }
+        %td.amount.currency= b.input :amount, :as => :string, :wrapper => :inline, :readonly => true, :input_html => { :tabindex => -1 }
+        %td.title= b.input :title, :wrapper => :inline, :readonly => true, :input_html => { :tabindex => -1 }
         %td.comments= b.input :comments, :wrapper => :inline, :input_html => {:rows => 2}
         %td.debit_account= b.association :debit_account, :wrapper => :inline
         %td.credit_account= b.association :credit_account, :wrapper => :inline
