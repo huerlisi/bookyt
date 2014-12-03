@@ -24,12 +24,12 @@ class DebitInvoice < Invoice
     Account.by_type(['earnings', 'outside_capital'])
   end
 
-  def self.credit_account
-    profit_account
-  end
-
   def self.debit_account
     balance_account
+  end
+
+  def self.credit_account
+    profit_account
   end
 
   # Code

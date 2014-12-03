@@ -36,11 +36,11 @@ class CreditInvoice < Invoice
     Account.by_type(['outside_capital'])
   end
 
-  def self.credit_account
+  def self.debit_account
     profit_account
   end
 
-  def self.debit_account
+  def self.credit_account
     balance_account
   end
 end

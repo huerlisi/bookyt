@@ -20,8 +20,8 @@ class CreditInvoicesController < InvoicesController
       :times          => 1,
       :quantity       => 'x',
       :include_in_saldo_list => ['vat:full'],
-      :credit_account => resource_class.credit_account,
-      :debit_account  => resource_class.debit_account
+      :debit_account  => resource_class.profit_account,
+      :credit_account => resource_class.balance_account
     )
 
     new!

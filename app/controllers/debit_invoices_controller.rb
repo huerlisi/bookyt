@@ -23,8 +23,8 @@ class DebitInvoicesController < InvoicesController
       :times          => 1,
       :quantity       => 'x',
       :include_in_saldo_list  => ['vat:full'],
-      :debit_account  => resource_class.debit_account,
-      :credit_account => resource_class.credit_account
+      :debit_account  => resource_class.balance_account,
+      :credit_account => resource_class.profit_account
     )
 
     # Add vat line item at second last position
@@ -34,8 +34,8 @@ class DebitInvoicesController < InvoicesController
         :times          => 8,
         :quantity       => '%',
         :reference_code => 'vat:full',
-        :credit_account => resource_class.credit_account,
-        :debit_account  => Account.tagged_with('vat:credit').first
+        :debit_account  => resource_class.balance_account,
+        :credit_account => Account.tagged_with('vat:credit').first
       )
     end
 
