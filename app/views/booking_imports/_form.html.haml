@@ -25,5 +25,5 @@
         %td.amount.currency= b.input :amount, :as => :string, :wrapper => :inline
         %td.title= b.input :title, :wrapper => :inline
         %td.comments= b.input :comments, :wrapper => :inline, :input_html => {:rows => 2}
-        %td.credit_account= b.association :credit_account, :wrapper => :inline
         %td.debit_account= b.association :debit_account, :wrapper => :inline
+        %td.credit_account= b.association :credit_account, :wrapper => :inline

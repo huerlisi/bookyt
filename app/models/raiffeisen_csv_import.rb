@@ -42,13 +42,13 @@ class RaiffeisenCsvImport < BookingImport
 
         if booking.amount < 0
           # Outgoing payment
-          booking.credit_account = todo_account
-          booking.debit_account = account
+          booking.debit_account = todo_account
+          booking.credit_account = account
           booking.amount = -booking.amount
         else
           # Incomming payment
-          booking.credit_account = account
-          booking.debit_account = todo_account
+          booking.debit_account = account
+          booking.credit_account = todo_account
         end
       else
         booking.comments = row['Text']
