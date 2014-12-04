@@ -31,3 +31,9 @@ table.bookings {
     height: 3em;
   }
 }
+
+th, td {
+  &.action-links {
+    white-space: nowrap;
+  }
+}
