@@ -187,7 +187,7 @@ GEM
     has_accounts (2.0.1)
       rails (~> 3.1)
       validates_timeliness
-    has_accounts_engine (3.0.0.beta1)
+    has_accounts_engine (3.0.0.beta2)
       acts-as-taggable-on
       anjlab-bootstrap-rails (~> 2.1.0)
       has_accounts (>= 1.0.2)
@@ -490,7 +490,7 @@ DEPENDENCIES
   haml
   haml-rails
   has_accounts
-  has_accounts_engine (~> 3.0.0.beta1)
+  has_accounts_engine (~> 3.0.0.beta2)
   has_scope
   has_vcards (~> 1.0.0.rc0)
   hpricot

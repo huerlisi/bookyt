@@ -144,7 +144,7 @@ gem 'ledermann-rails-settings', '~> 1.1.0', :require => 'rails-settings' # incom
 # ======
 # Accounting
 gem 'has_accounts'
-gem 'has_accounts_engine', '~> 3.0.0.beta1'
+gem 'has_accounts_engine', '~> 3.0.0.beta2'
 
 # Addresses
 gem 'has_vcards', '~> 1.0.0.rc0'
