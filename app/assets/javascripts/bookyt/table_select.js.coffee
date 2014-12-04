@@ -8,6 +8,9 @@ class Bookyt.Table
     $(document).on 'click click.rails', '[data-table-key=13]', () ->
       $(this).trigger('submit.rails') if @state == 'edit'
 
+    $(document).on 'click', 'form[data-table-select]', @enterNavigate
+    $(document).on 'focus', ':not(form[data-table-select] *)', @exitNavigate
+
     @enterNavigate()
     @selectFirstRow()
 
@@ -17,6 +20,9 @@ class Bookyt.Table
 
   enterNavigate: () =>
     @state = 'navigate'
+
+  exitNavigate: () =>
+    @state = ''
 
   navigationKeyHandler: (e) =>
     switch e.which
