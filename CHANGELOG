@@ -1,5 +1,5 @@
-2.0.0 (unreleased)
-=====
+2.0.0.beta0 (unreleased)
+===========
 Main Features:
 * Implement multi tenancy.
 * Implement base controller and add basic accounts API endpoint.
@@ -10,6 +10,8 @@ Main Features:
 * Implement basic backup/restore.
 * Guess period when copying invoices.
 * Backup/restore now handles restoring from older versions.
+* Better Salary statistics.
+* Keyboard navigation in booking journal including quick fix.
 
 Enhancements:
 * Support AJAX deletion for charge booking templates.
@@ -34,6 +36,14 @@ Enhancements:
 * Drop remarks field from esr file upload.
 * Use proper bootstrap markup for esr file upload form.
 * Proper currency value alignment in tables.
+* Drop menu item to directly create employees and customers.
+* Add menu navigation for banks.
+* Include booking_template tags in list.
+* Move logic to determine BankAccount from view to model; support invoice:payment tag.
+* Assign roles after creating database when creating new tenant.
+* Update bookyt_salary to new minor version.
+* Improve usability of datepicker.
+* Make most fields readonly and out of tabindex in booking import form.
 
 Bugfixes:
 * Fix styling for pagination gap element.
@@ -45,6 +55,16 @@ Bugfixes:
 * Hide full left column for missing login field in users form, not just the field.
 * Make Tenant#fiscal_years robust against missing fiscal_year_ends_on.
 * Do not set an empty locale in the controller.
+* Proper form button markup for banks form.
+* Fix colspan for action items in line_item lists.
+* Switch credit and debit accounts in all bookings.
+* Fix some migrations to allow a full migration from an empty database.
+* Fix dangling dash in balance and profit sheet titles.
+* Configure capistrano to share tmp/sockets.
+* Factor out fiscal period filter from bookings/sidebar to filters partial.
+* Factor out fiscal year filter into filters partial.
+* New filter by_calendar_year, used in bookyt_salaries.
+* Prevent wrapping in action-links.
 
 1.5.7
 =====
