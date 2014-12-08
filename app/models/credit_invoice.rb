@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 class CreditInvoice < Invoice
+  has_many :vcards, :through => :company
+
   # String
   def to_s(format = :default)
     return "" if amount.nil?
