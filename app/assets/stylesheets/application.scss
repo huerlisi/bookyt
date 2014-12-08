@@ -35,5 +35,6 @@ table.bookings {
 th, td {
   &.action-links {
     white-space: nowrap;
+    width: 1px;
   }
 }
