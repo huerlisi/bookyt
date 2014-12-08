@@ -83,25 +83,6 @@ class Invoice < ActiveRecord::Base
   include PgSearch
   pg_search_scope :by_text, :against => [:code, :title, :remarks, :text], :associated_against => { :vcards => [:full_name, :family_name, :given_name] }, :using => {:tsearch => {:prefix => true}}
 
-  scope :basic_by_text, lambda {|value|
-    text   = '%' + value + '%'
-
-    amount = value.delete("'").to_f
-    if amount == 0.0
-      amount = nil unless value.match(/^[0.]*$/)
-    end
-
-    date   = nil
-    begin
-      date = Date.parse(value)
-    rescue ArgumentError
-    end
-
-    people = Person.by_name(value)
-
-    where("title LIKE :text OR code LIKE :text OR remarks LIKE :text OR amount = :amount OR date(value_date) = :date OR date(due_date) = :date OR company_id IN (:people) OR customer_id IN (:people)", :text => text, :amount => amount, :date => date, :people => people)
-  }
-
   # Attachments
   # ===========
   has_many :attachments, :as => :object
