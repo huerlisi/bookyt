@@ -143,7 +143,7 @@ gem 'ledermann-rails-settings', '~> 1.1.0', :require => 'rails-settings' # incom
 # Bookyt
 # ======
 # Accounting
-gem 'has_accounts'
+gem 'has_accounts', github: 'huerlisi/has_accounts'
 gem 'has_accounts_engine', '~> 3.0.0.beta2'
 
 # Addresses
@@ -182,7 +182,7 @@ gem 'acts-as-taggable-on', '~> 2.4.1'
 # =======
 # Uncomment to enable plugins
 gem 'bookyt_pos'
-gem 'bookyt_salary'
+gem 'bookyt_salary', github: 'huerlisi/bookyt_salary'
 gem 'bookyt_stock'
 gem 'bookyt_projects'
 

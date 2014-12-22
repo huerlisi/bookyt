@@ -1,4 +1,20 @@
 GIT
+  remote: git://github.com/huerlisi/bookyt_salary.git
+  revision: 19332cd09a8efc60e5c36c3c05d5075327fd0dca
+  specs:
+    bookyt_salary (0.22.0)
+      rails (~> 3.1)
+      recurrence
+
+GIT
+  remote: git://github.com/huerlisi/has_accounts.git
+  revision: 0f52dfea87bea7a049875bbb7e147346f1682459
+  specs:
+    has_accounts (2.0.2)
+      rails (~> 3.1)
+      validates_timeliness
+
+GIT
   remote: http://github.com/CyTeam/mt940_parser.git
   revision: 0f4125b4956761ce1b7e01b53fbccd3239a2f29a
   specs:
@@ -69,9 +85,6 @@ GEM
       rails (~> 3.1)
     bookyt_pos (0.2.0)
     bookyt_projects (1.1.1)
-      rails (~> 3.1)
-      recurrence
-    bookyt_salary (0.22.0)
       rails (~> 3.1)
       recurrence
     bookyt_stock (0.6.0)
@@ -184,9 +197,6 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
-    has_accounts (2.0.2)
-      rails (~> 3.1)
-      validates_timeliness
     has_accounts_engine (3.0.0.beta2)
       acts-as-taggable-on
       anjlab-bootstrap-rails (~> 2.1.0)
@@ -468,7 +478,7 @@ DEPENDENCIES
   best_in_place
   bookyt_pos
   bookyt_projects
-  bookyt_salary
+  bookyt_salary!
   bookyt_stock
   bootstrap-datepicker-rails
   bootstrap-will_paginate
@@ -489,7 +499,7 @@ DEPENDENCIES
   guard-zeus
   haml
   haml-rails
-  has_accounts
+  has_accounts!
   has_accounts_engine (~> 3.0.0.beta2)
   has_scope
   has_vcards (~> 1.0.0.rc0)
