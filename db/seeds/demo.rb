@@ -4,7 +4,7 @@
 # =========
 
 # User
-user_vcard = Vcard.new(:given_name => 'Peter', :family_name => 'Admin', :street_address => 'Gartenstr. 199c', :postal_code => '8888', :locality => 'Zürich')
+user_vcard = HasVcards::Vcard.new(:given_name => 'Peter', :family_name => 'Admin', :street_address => 'Gartenstr. 199c', :postal_code => '8888', :locality => 'Zürich')
 user_person = Person.new(:vcard => user_vcard, :sex => Person::MALE)
 user = User.new(:email => 'admin@example.com', :password => 'demo1234', :password_confirmation => 'demo1234')
 user.person = user_person
@@ -12,7 +12,7 @@ user.save
 user.roles.create(:name => 'admin')
 
 # Company
-company_vcard = Vcard.new(:full_name => 'Beispiel GmbH', :street_address => 'Balkonweg 17', :postal_code => '8888', :locality => 'Zürich')
+company_vcard = HasVcards::Vcard.new(:full_name => 'Beispiel GmbH', :street_address => 'Balkonweg 17', :postal_code => '8888', :locality => 'Zürich')
 company = Company.create(:vcard => company_vcard)
 
 # Accounts
