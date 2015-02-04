@@ -36,6 +36,10 @@ group :development do
 
   # Deployment
   gem 'capones_recipes'
+
+  # Debugging
+  gem 'better_errors'
+  gem 'binding_of_caller' # Needed by binding_of_caller to enable html console
 end
 
 group :test, :development do

@@ -55,6 +55,12 @@ GEM
     best_in_place (3.1.0)
       actionpack (>= 3.2)
       railties (>= 3.2)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bookyt_projects (1.1.2)
       rails (~> 3.1)
       recurrence
@@ -129,6 +135,7 @@ GEM
     csv-mapper (0.5.1)
       fastercsv
     database_cleaner (1.5.1)
+    debug_inspector (0.0.2)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (3.5.6)
@@ -459,6 +466,8 @@ DEPENDENCIES
   anjlab-bootstrap-rails (~> 2.1.0)
   apartment
   best_in_place
+  better_errors
+  binding_of_caller
   bookyt_projects
   bookyt_salary
   bookyt_stock
