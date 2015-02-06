@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141127093746) do
+ActiveRecord::Schema.define(:version => 20150206174357) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -89,17 +89,17 @@ ActiveRecord::Schema.define(:version => 20141127093746) do
   create_table "attachments", :force => true do |t|
     t.string   "title"
     t.string   "file"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "object_id"
-    t.string   "object_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "reference_id"
+    t.string   "reference_type"
     t.string   "code"
     t.string   "type"
     t.string   "encoding"
   end
 
   add_index "attachments", ["code"], :name => "index_attachments_on_code"
-  add_index "attachments", ["object_id", "object_type"], :name => "index_attachments_on_object_id_and_object_type"
+  add_index "attachments", ["reference_id", "reference_type"], :name => "index_attachments_on_object_id_and_object_type"
 
   create_table "booking_imports", :force => true do |t|
     t.date     "start_date"

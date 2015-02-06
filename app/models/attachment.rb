@@ -3,7 +3,7 @@ class Attachment < ActiveRecord::Base
   default_scope order('updated_at DESC')
 
   # Association
-  belongs_to :object, :polymorphic => true
+  belongs_to :reference, :polymorphic => true
 
   # Carrier Wave
   validates_presence_of :file

@@ -5,7 +5,7 @@
 # that contains all the database records. It also includes the schema.rb to
 # allow restoring backups on newer versions.
 class Backup < Attachment
-  alias tenant object
+  alias tenant reference
 
   # Dump data to file
   #

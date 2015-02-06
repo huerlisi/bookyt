@@ -94,10 +94,10 @@ class Tenant < ActiveRecord::Base
 
   # Attachments
   # ===========
-  has_many :attachments, :as => :object
+  has_many :attachments, :as => :reference
   accepts_nested_attributes_for :attachments, :reject_if => proc { |attributes| attributes['file'].blank? }
 
   # Import/Export
   # =============
-  has_many :backups, :as => :object
+  has_many :backups, :as => :reference
 end
