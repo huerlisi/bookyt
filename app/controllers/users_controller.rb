@@ -42,8 +42,4 @@ class UsersController < AuthorizedController
       render "edit"
     end
   end
-
-  def current
-    redirect_to current_user
-  end
 end

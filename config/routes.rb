@@ -24,11 +24,7 @@ Bookyt::Application.routes.draw do
   # Authorization
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
-  resources :users do
-    collection do
-      get :current
-    end
-  end
+  resources :users
 
   # API
   namespace :api, :defaults => { :format => :json } do
@@ -47,9 +43,6 @@ Bookyt::Application.routes.draw do
   resources :banks
 
   resources :tenants do
-    collection do
-      get :current
-    end
     member do
       get :balance_sheet, :profit_sheet
     end

@@ -1,9 +1,5 @@
 class TenantsController < AuthorizedController
   # Actions
-  def current
-    redirect_to current_user.tenant
-  end
-
   def profit_sheet
     @company = current_tenant.company
 

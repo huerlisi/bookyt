@@ -21,7 +21,6 @@ class Ability
     user ||= User.new # guest user
 
     alias_action :index, :to => :list
-    alias_action :current, :to => :show
 
     # Sysadmin roles
     if user.is_a? AdminUser
