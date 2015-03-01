@@ -8,8 +8,6 @@ gem 'rails', '~> 3.2.14' # Because it makes sense, and bundler fails otherwise
 gem 'unicorn'
 
 # Database
-gem 'mysql2'
-gem 'sqlite3'
 gem 'pg'
 
 # Gems used only for assets and not required

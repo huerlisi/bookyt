@@ -1,11 +1,9 @@
 before_script:
-  - mysql -e 'create database bookyt_test;'
   - psql -c 'create database bookyt_test' -U postgres
   - bundle exec rake bookyt:travis
   - bundle exec rake db:schema:load
 
 env:
-  - DB=mysql
   - DB=postgresql
 
 script: "bundle exec rake spec"

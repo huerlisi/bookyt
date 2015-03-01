@@ -40,8 +40,6 @@ depend :remote, :gem, 'bluepill', ''
 # Headers for gem compilation
 depend :remote, :deb, "build-essential", ''
 depend :remote, :deb, "ruby1.9.1-dev", ''
-depend :remote, :deb, "libmysqlclient-dev", ''
 depend :remote, :deb, "libpq-dev", ''
-depend :remote, :deb, "libsqlite3-dev", ''
 depend :remote, :deb, "libxml2-dev", ''
 depend :remote, :deb, "libxslt1-dev", ''

@@ -1,18 +1,8 @@
-# MySQL
-mysql: &mysql
-  adapter:  mysql2
-  encoding: utf8
-  host:     localhost
-  username: root
-
-postgresql: &postgresql
+# Environments
+# ============
+test:
   adapter:  postgresql
   encoding: utf8
   host:     localhost
   username: postgres
-
-# Environments
-# ============
-test:
-  <<: *<%= ENV['DB'] %>
   database: bookyt_test
