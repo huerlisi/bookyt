@@ -131,7 +131,6 @@ GEM
       json (>= 1.7)
     childprocess (0.4.0)
       ffi (~> 1.0, >= 1.0.11)
-    choice (0.1.6)
     chunky_png (1.3.1)
     coderay (1.0.9)
     coffee-rails (3.2.2)
@@ -319,11 +318,6 @@ GEM
       activesupport (= 3.2.21)
       bundler (~> 1.0)
       railties (= 3.2.21)
-    rails-erd (1.1.0)
-      activerecord (>= 3.0)
-      activesupport (>= 3.0)
-      choice (~> 0.1.6)
-      ruby-graphviz (~> 1.0.4)
     railties (3.2.21)
       actionpack (= 3.2.21)
       activesupport (= 3.2.21)
@@ -361,7 +355,6 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
-    ruby-graphviz (1.0.9)
     ruby-rc4 (0.1.5)
     rubyzip (1.1.0)
     sass (3.2.19)
@@ -493,7 +486,6 @@ DEPENDENCIES
   quiet_assets
   rack-google_analytics
   rails (~> 3.2.14)
-  rails-erd
   rcov
   rdoc
   responders

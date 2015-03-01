@@ -34,9 +34,6 @@ group :development do
   # RDoc
   gem 'rdoc'
 
-  # UML documentation
-  gem 'rails-erd'
-
   # Capistrano
   gem 'capones_recipes'
   gem 'capistrano-rbenv'
