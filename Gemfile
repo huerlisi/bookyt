@@ -58,10 +58,6 @@ group :test, :development do
   gem 'selenium-webdriver'
   gem 'poltergeist'
 
-  # Code coverage
-  gem 'rcov', :platforms => :ruby_18
-  gem 'simplecov', :require => false, :platforms => :ruby_19
-
   # Console
   gem 'pry-rails'
   gem 'pry-doc'

@@ -327,7 +327,6 @@ GEM
       thor (>= 0.14.6, < 2.0)
     raindrops (0.13.0)
     rake (10.4.2)
-    rcov (1.0.0)
     rdoc (3.12.2)
       json (~> 1.4)
     recurrence (1.3.0)
@@ -381,10 +380,6 @@ GEM
     simple_form (2.1.2)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
-    simplecov (0.7.1)
-      multi_json (~> 1.0)
-      simplecov-html (~> 0.7.1)
-    simplecov-html (0.7.1)
     slop (3.4.6)
     sprockets (2.2.3)
       hike (~> 1.2)
@@ -485,7 +480,6 @@ DEPENDENCIES
   quiet_assets
   rack-google_analytics
   rails (~> 3.2.14)
-  rcov
   rdoc
   responders
   routing-filter
@@ -498,7 +492,6 @@ DEPENDENCIES
   show_for
   simple-navigation
   simple_form
-  simplecov
   sprockets
   sqlite3
   therubyracer
