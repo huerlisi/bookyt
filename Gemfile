@@ -37,11 +37,6 @@ group :development do
   # UML documentation
   gem 'rails-erd'
 
-  # Haml generators
-  gem 'haml-rails'
-  gem 'hpricot'
-  gem 'ruby_parser'
-
   # Capistrano
   gem 'capones_recipes'
   gem 'capistrano-rbenv'
@@ -80,7 +75,7 @@ end
 
 # Standard helpers
 # ================
-gem 'haml'
+gem 'haml-rails'
 
 # Navigation
 gem 'simple-navigation'

@@ -175,7 +175,7 @@ GEM
       eventmachine (>= 0.12.0)
     ffi (1.9.3)
     fssm (0.2.10)
-    haml (4.0.5)
+    haml (4.0.6)
       tilt
     haml-rails (0.4)
       actionpack (>= 3.1, < 4.1)
@@ -204,7 +204,6 @@ GEM
     hashie (2.0.5)
     highline (1.7.2)
     hike (1.2.3)
-    hpricot (0.8.6)
     http_parser.rb (0.5.3)
     httpauth (0.2.0)
     i18n (0.7.0)
@@ -220,7 +219,7 @@ GEM
     jquery-ui-rails (4.0.4)
       jquery-rails
       railties (>= 3.1.0)
-    json (1.8.1)
+    json (1.8.2)
     json_spec (1.1.1)
       multi_json (~> 1.0)
       rspec (~> 2.0)
@@ -364,8 +363,6 @@ GEM
       rspec-mocks (~> 2.14.0)
     ruby-graphviz (1.0.9)
     ruby-rc4 (0.1.5)
-    ruby_parser (3.2.2)
-      sexp_processor (~> 4.1)
     rubyzip (1.1.0)
     sass (3.2.19)
     sass-rails (3.2.6)
@@ -381,7 +378,6 @@ GEM
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
     settingslogic (2.0.9)
-    sexp_processor (4.2.1)
     shoulda-matchers (2.3.0)
       activesupport (>= 3.0.0)
     show_for (0.2.6)
@@ -468,13 +464,11 @@ DEPENDENCIES
   factory_girl_rails
   faraday
   fastercsv
-  haml
   haml-rails
   has_accounts!
   has_accounts_engine (~> 3.0.0.beta2)
   has_scope
   has_vcards (~> 1.0.0.rc0)
-  hpricot
   i18n_rails_helpers (~> 2.0.0.beta0)
   inherited_resources
   jquery-rails
@@ -505,7 +499,6 @@ DEPENDENCIES
   responders
   routing-filter
   rspec-rails
-  ruby_parser
   sass-rails
   select2-rails
   selenium-webdriver
