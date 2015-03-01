@@ -75,7 +75,7 @@ group :test, :development do
   # Console
   gem 'pry-rails'
   gem 'pry-doc'
-  gem 'pry-debugger'
+  gem 'pry-byebug'
 end
 
 group :tools do
