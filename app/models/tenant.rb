@@ -6,8 +6,11 @@ class Tenant < ActiveRecord::Base
 
   # Settings
   # ========
-  has_settings
-  attr_accessible :settings
+
+  has_settings do |s|
+    s.key :payment, :defaults => { :period => 30.days }
+    s.key :modules, :defaults => { :active => [] }
+  end
 
   # User
   # ====
@@ -83,13 +86,14 @@ class Tenant < ActiveRecord::Base
   end
 
   # Invoicing
-  attr_accessible :payment_period, :print_payment_for, :use_vesr
+  attr_accessible :print_payment_for, :use_vesr
 
   def payment_period
-    settings.payment_period / 24 / 3600
+    settings(:payment).period / 24 / 3600
   end
+
   def payment_period=(value)
-    settings.payment_period = value.to_i.days
+    settings(:payment).period = value.to_i.days
   end
 
   # Attachments

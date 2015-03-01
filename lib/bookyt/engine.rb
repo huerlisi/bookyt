@@ -4,7 +4,7 @@ module Bookyt
       # Guard
       return [] unless Tenant.first
 
-      Tenant.first.settings['modules.enabled']
+      Tenant.first.settings(:modules).active
     end
 
     def self.setup_navigation(navigation, item)
