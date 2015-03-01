@@ -78,14 +78,6 @@ group :test, :development do
   gem 'pry-byebug'
 end
 
-group :tools do
-  # Guard
-  gem 'guard-rspec'
-  gem 'guard-zeus'
-
-  gem 'rb-inotify'
-end
-
 # Standard helpers
 # ================
 gem 'haml'
