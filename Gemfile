@@ -32,10 +32,6 @@ group :development do
   # RDoc
   gem 'rdoc'
 
-  # Capistrano
-  gem 'capones_recipes'
-  gem 'capistrano-rbenv'
-
   gem 'quiet_assets'
 end
 
