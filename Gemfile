@@ -79,11 +79,11 @@ gem 'select2-rails'
 gem 'will_paginate'
 gem 'inherited_resources'
 gem 'has_scope'
-gem 'i18n_rails_helpers', '~> 2.0.0.beta0'
+gem 'i18n_rails_helpers'
 gem 'responders'
 
 # Access Control
-gem 'devise', '~>3.0.4'
+gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'faraday'
 gem 'cancancan'
@@ -94,7 +94,7 @@ gem 'apartment'
 gem 'versionist'
 gem 'active_model_serializers'
 
-gem 'api_taster', '0.6.0'
+gem 'api_taster'
 
 # Data dump/restore
 gem 'yaml_db'
@@ -108,16 +108,16 @@ gem 'show_for'
 gem 'routing-filter'
 
 # Application Settings
-gem 'ledermann-rails-settings', '~> 1.1.0', :require => 'rails-settings' # incompatible changes
+gem 'ledermann-rails-settings', :require => 'rails-settings'
 
 # Bookyt
 # ======
 # Accounting
-gem 'has_accounts', github: 'huerlisi/has_accounts'
-gem 'has_accounts_engine', '~> 3.0.0.beta2'
+gem 'has_accounts'
+gem 'has_accounts_engine', '~> 3.0.0.beta5'
 
 # Addresses
-gem 'has_vcards', '~> 1.0.0.rc0'
+gem 'has_vcards'
 
 # Uploads
 gem 'carrierwave'
@@ -132,7 +132,7 @@ gem 'prawn_rails'
 # Raiffeisen BookingImport
 gem 'csv-mapper'
 
-gem 'mt940_parser', :git => 'http://github.com/CyTeam/mt940_parser.git', :require => 'mt940'
+gem 'mt940_parser', :require => 'mt940'
 
 # ESR support
 gem 'aasm'
@@ -142,13 +142,13 @@ gem 'vesr'
 gem 'pg_search'
 
 # Tagging
-gem 'acts-as-taggable-on', '~> 2.4.1'
+gem 'acts-as-taggable-on'
 
 # Plugins
 # =======
 # Uncomment to enable plugins
 gem 'bookyt_pos'
-gem 'bookyt_salary', github: 'huerlisi/bookyt_salary'
+gem 'bookyt_salary'
 gem 'bookyt_stock'
 gem 'bookyt_projects'
 
