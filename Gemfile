@@ -38,8 +38,6 @@ group :development do
   gem 'capones_recipes'
   gem 'capistrano-rbenv'
 
-  # Development Server
-  gem 'webrick'
   gem 'quiet_assets'
 end
 
