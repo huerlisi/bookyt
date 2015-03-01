@@ -98,7 +98,7 @@ GEM
     byebug (2.7.0)
       columnize (~> 0.3)
       debugger-linecache (~> 1.2)
-    cancan (1.6.8)
+    cancancan (1.10.1)
     cap-recipes (0.3.39)
     capistrano (2.15.5)
       highline
@@ -438,7 +438,7 @@ DEPENDENCIES
   bookyt_stock
   bootstrap-datepicker-rails
   bootstrap-will_paginate
-  cancan (= 1.6.8)
+  cancancan
   capistrano-rbenv
   capones_recipes
   capybara

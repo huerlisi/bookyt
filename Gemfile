@@ -93,7 +93,7 @@ gem 'devise', '~>3.0.4'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'faraday'
-gem 'cancan', '1.6.8' # issue regarding alias and real action name
+gem 'cancancan'
 gem 'lyb_devise_admin'
 gem 'apartment'
 
