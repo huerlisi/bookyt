@@ -450,7 +450,6 @@ DEPENDENCIES
   devise (~> 3.0.4)
   factory_girl_rails
   faraday
-  fastercsv
   haml-rails
   has_accounts!
   has_accounts_engine (~> 3.0.0.beta2)

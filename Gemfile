@@ -140,7 +140,6 @@ gem 'prawn'
 gem 'prawn_rails'
 
 # Raiffeisen BookingImport
-gem 'fastercsv', :platforms => :ruby_18
 gem 'csv-mapper'
 
 gem 'mt940_parser', :git => 'http://github.com/CyTeam/mt940_parser.git', :require => 'mt940'
