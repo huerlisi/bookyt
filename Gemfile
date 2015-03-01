@@ -131,9 +131,6 @@ gem 'carrierwave'
 gem 'best_in_place'
 
 # PDF generation
-gem 'pdfkit', :git => 'http://github.com/huerlisi/PDFKit.git'
-gem 'wkhtmltopdf-binary'
-
 gem 'prawn'
 gem 'prawn_rails'
 
