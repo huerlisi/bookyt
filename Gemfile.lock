@@ -244,7 +244,7 @@ GEM
     kgio (2.8.0)
     ledermann-rails-settings (1.1.0)
       activerecord (>= 2.3)
-    libv8 (3.11.8.17)
+    libv8 (3.16.14.7)
     listen (1.3.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -428,8 +428,8 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.7)
-    therubyracer (0.11.4)
-      libv8 (~> 3.11.8.12)
+    therubyracer (0.12.1)
+      libv8 (~> 3.16.14.0)
       ref
     thor (0.19.1)
     tilt (1.4.1)
@@ -510,7 +510,6 @@ DEPENDENCIES
   jquery-ui-rails
   json_spec
   ledermann-rails-settings (~> 1.1.0)
-  libv8
   lyb_devise_admin
   lyb_sidebar
   mt940_parser!
@@ -548,7 +547,7 @@ DEPENDENCIES
   simplecov
   sprockets
   sqlite3
-  therubyracer (= 0.11.4)
+  therubyracer
   uglifier
   unicorn
   validates_timeliness

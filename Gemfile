@@ -22,8 +22,7 @@ group :assets do
   gem 'compass-rails'
 end
 group :production do
-  gem 'therubyracer', '= 0.11.4' # Fix build problems
-  gem 'libv8'
+  gem 'therubyracer'
 end
 
 gem 'jquery-rails'
