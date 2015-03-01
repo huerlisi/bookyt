@@ -455,7 +455,6 @@ DEPENDENCIES
   lyb_devise_admin
   lyb_sidebar
   mt940_parser!
-  omniauth
   omniauth-google-oauth2
   pg
   pg_search

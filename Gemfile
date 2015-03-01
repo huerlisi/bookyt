@@ -88,7 +88,6 @@ gem 'responders'
 
 # Access Control
 gem 'devise', '~>3.0.4'
-gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'faraday'
 gem 'cancancan'
