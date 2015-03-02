@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # API
-  devise :token_authenticatable
   before_save :ensure_authentication_token
 
   # Setup accessible (or protected) attributes for your model
@@ -47,5 +46,21 @@ class User < ActiveRecord::Base
   # Helpers
   def to_s
     person.try(:to_s) || ""
+  end
+
+  # https://gist.github.com/josevalim/fb706b1e933ef01e4fb6#file-1_unsafe_token_authenticatable-rb-L20
+  def ensure_authentication_token
+    if authentication_token.blank?
+      self.authentication_token = generate_authentication_token
+    end
+  end
+
+  private
+
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.where(authentication_token: token).first
+    end
   end
 end
