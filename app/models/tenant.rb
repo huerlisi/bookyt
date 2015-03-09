@@ -88,6 +88,7 @@ class Tenant < ActiveRecord::Base
   # Invoicing
   attr_accessible :print_payment_for, :use_vesr
 
+  attr_accessible :payment_period
   def payment_period
     settings(:payment).period / 24 / 3600
   end
