@@ -6,15 +6,16 @@
     = render :partial => 'form_fields', :locals => {:form => f}
 
   %h3= 'Konto'
-  = form.fields_for @bank_account do |f|
-    = f.input :id, :as => :hidden
+  - if @bank_account
+    = form.fields_for @bank_account do |f|
+      = f.input :id, :as => :hidden
 
-    .row-fluid
-      .span6= f.input :number
-      .span6= f.input :iban
-    .row-fluid
-      .span6= f.input :pc_id
-      .span6= f.input :esr_id, :input_html => { :maxlength => 21 }
+      .row-fluid
+        .span6= f.input :number
+        .span6= f.input :iban
+      .row-fluid
+        .span6= f.input :pc_id
+        .span6= f.input :esr_id, :input_html => { :maxlength => 21 }
 
   %h3= 'Vorlage'
   = form.fields_for @letter_template do |f|
