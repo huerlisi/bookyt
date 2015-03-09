@@ -4,6 +4,12 @@ GIT
   specs:
     mt940_parser (1.1.0)
 
+GIT
+  remote: http://github.com/huerlisi/PDFKit.git
+  revision: e4a8a67a69394be211358b04235bb3ce28a33d52
+  specs:
+    pdfkit (0.5.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -392,6 +398,7 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     will_paginate (3.0.7)
+    wkhtmltopdf-binary (0.9.9.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
     yaml_db (0.3.0)
@@ -441,6 +448,7 @@ DEPENDENCIES
   lyb_sidebar
   mt940_parser!
   omniauth-google-oauth2
+  pdfkit!
   pg
   pg_search
   poltergeist
@@ -472,4 +480,5 @@ DEPENDENCIES
   versionist
   vesr
   will_paginate
+  wkhtmltopdf-binary
   yaml_db
