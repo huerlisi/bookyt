@@ -83,7 +83,7 @@ gem 'i18n_rails_helpers'
 gem 'responders'
 
 # Access Control
-gem 'devise'
+gem 'devise', '~>3.0.4' # Config changes
 gem 'omniauth-google-oauth2'
 gem 'faraday'
 gem 'cancancan'
@@ -108,7 +108,7 @@ gem 'show_for'
 gem 'routing-filter'
 
 # Application Settings
-gem 'ledermann-rails-settings', :require => 'rails-settings'
+gem 'ledermann-rails-settings'
 
 # Bookyt
 # ======
@@ -126,16 +126,16 @@ gem 'carrierwave'
 gem 'best_in_place'
 
 # PDF generation
-gem 'prawn'
+gem 'prawn', '~> 0.12' # API incompatible
 gem 'prawn_rails'
 
 # Raiffeisen BookingImport
 gem 'csv-mapper'
 
-gem 'mt940_parser', :require => 'mt940'
+gem 'mt940_parser', :git => 'http://github.com/CyTeam/mt940_parser.git', :require => 'mt940'
 
 # ESR support
-gem 'aasm'
+gem 'aasm', '~> 3.0' # API incompatible
 gem 'vesr'
 
 # Search
