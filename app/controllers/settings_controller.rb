@@ -5,7 +5,7 @@ class SettingsController < ApplicationController
 
   def vesr
     @tenant          = current_tenant
-    @bank_account    = BankAccount.find_by_code('1020')
+    @bank_account    = BankAccount.tagged_with('invoice:vesr').first
     @letter_template = Attachment.find_by_code('Prawn::LetterDocument') || Attachment.new
   end
 

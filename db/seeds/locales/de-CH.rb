@@ -25,7 +25,7 @@ Account.create!([
 ])
 
 BankAccount.create!([
-  {:code => "1020", :title => "Bankkonto", :account_type => current_assets, :tag_list => 'invoice:payment'},
+  {:code => "1020", :title => "Bankkonto", :account_type => current_assets, :tag_list => 'invoice:payment, invoice:vesr '},
 ])
 
 # Basic Booking Templates
