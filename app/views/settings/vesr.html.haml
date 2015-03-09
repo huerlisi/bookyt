@@ -1,4 +1,4 @@
-= boot_page_title
+= boot_page_title t_title(:vesr)
 
 .form-view
   = simple_form_for :vesr do |form|
@@ -10,12 +10,12 @@
     %h3= 'Konto'
     = form.fields_for @bank_account do |f|
       = f.input :id, :as => :hidden
-     
+
       = f.input :number
       = f.input :iban
       = f.input :pc_id
       = f.input :esr_id, :input_html => { :maxlength => 21 }
-      
+
     %h3= 'Vorlage'
     = form.fields_for @letter_template do |f|
       = f.input :id, :as => :hidden
