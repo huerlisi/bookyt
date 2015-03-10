@@ -1,3 +1,0 @@
-%td.action-links
-  = link_to image_tag('16x16/edit.png', :title => t_action(:edit)), send("edit_#{model_name}_path", resource), :method => :get
-  = link_to image_tag('16x16/delete.png', :title => t_action(:delete)), send("#{model_name}_path", resource), :remote => true, :method => :delete, :confirm => t_confirm_delete(resource)

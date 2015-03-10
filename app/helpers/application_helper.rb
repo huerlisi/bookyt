@@ -32,21 +32,6 @@ module ApplicationHelper
     number = number_with_precision(value, :precision => 2, :separator => '.', :delimiter => "'")
   end
 
-  # CRUD helpers
-  def icon_edit_link_to(path)
-    link_to t('bookyt.edit'), path, :method => :get, :class => 'icon-edit-text', :title => t('bookyt.edit')
-  end
-
-  def icon_delete_link_to(model, path)
-    link_to t('bookyt.destroy'), path, :remote => true, :method => :delete, :confirm => t_confirm_delete(model), :class => 'icon-delete-text', :title => t('bookyt.destroy')
-  end
-
-  def list_item_actions_for(resource)
-    model_name = resource.class.to_s.underscore
-
-    render 'layouts/list_item_actions_for', :model_name => model_name, :resource => resource
-  end
-
   # Nested form helpers
   def show_new_form(model)
     model_name = model.to_s.underscore
