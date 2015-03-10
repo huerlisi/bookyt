@@ -12,4 +12,4 @@
   %td= t(charge_booking_template.amount_relates_to, :scope => 'booking_template.relation') if charge_booking_template.amount_relates_to.present?
   %td.action-links
     = list_link_for(:edit, charge_booking_template)
-    = list_link_for(:delete, charge_booking_template, :remote => true)
+    = list_link_for(:delete, charge_booking_template)
