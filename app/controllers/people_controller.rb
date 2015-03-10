@@ -1,4 +1,6 @@
 class PeopleController < AuthorizedController
+  has_scope :by_text
+
   def show
     # Invoice scoping by state
     @invoices = resource.invoices.where("type != 'Salary'").invoice_state(params[:invoice_state])
