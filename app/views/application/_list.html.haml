@@ -1,9 +1,9 @@
-- @attributes ||= collection.first.attribute_names - ['id', 'created_at', 'updated_at']
-%table.table.table-striped{:class => "#{collection.first.class.to_s.downcase.pluralize} collection"}
+- @attributes ||= resource_class.attribute_names - ['id', 'created_at', 'updated_at']
+%table.table.table-striped{:class => "#{resource_class.to_s.downcase.pluralize} collection"}
   %thead
     %tr
       - @attributes.each do |field|
-        %th= t_attr field, collection.first.class
+        %th= t_attr field, resource_class
       %th.action-links
   %tbody
     - collection.each do |r|
