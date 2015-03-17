@@ -204,7 +204,7 @@ GEM
     ledermann-rails-settings (2.3.0)
       activerecord (>= 3.1)
     libv8 (3.16.14.7)
-    lyb_devise_admin (0.3.6)
+    lyb_devise_admin (0.4.0)
     lyb_sidebar (0.1.1)
       rails (~> 3.1)
     mail (2.5.4)
