@@ -1,6 +1,12 @@
+1.5.9 (unreleased)
+=====
+* Explicit setting of default date format to fix YAML backup data.
+* Update some gems to build on Ubuntu 14.10.
+* Fix title detection in MT940 importer.
+* Fix MT940 importer to work with Valiant files.
+
 1.5.8
 =====
-FIXES:
 * Explicit setting of default date format to fix YAML backup data.
 
 1.5.7
