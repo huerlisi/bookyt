@@ -35,19 +35,12 @@ class Mt940Import < BookingImport
     mt940.each do |line|
       if line.class == MT940::StatementLine
         booking = bookings.build
-        title = line.transaction_description.gsub(/^NONREF/, '')
-        booking.title = title
         booking.amount = line.amount / 100.0
         booking.value_date = line.value_date
         case line.funds_code
         when :credit
           booking.credit_account = account
-          # VESR handling
-          if booking.title =~ /[0-9]{27}/
-            booking.debit_account  = Account.find_by_code('1100')
-          else
-            booking.debit_account  = todo_account
-          end
+          booking.debit_account  = todo_account
         when :debit
           booking.credit_account = todo_account
           booking.debit_account  = account
@@ -55,11 +48,14 @@ class Mt940Import < BookingImport
       end
 
       if line.class == MT940::InformationToAccountOwner
-        narrative = line.narrative
-        narrative[0].match(/REMI\/(.*)/)
-        booking.comments = $1
-        narrative[0].match(/BENM\/(.*)/)
-        booking.comments ||= $1
+        booking.title = line.narrative.first
+
+        entries = line.narrative[1..-1].join()
+        entries.gsub!(/--/, "\n---\n")
+        entries.gsub!(/,/, "\n")
+        comments = entries.lines.map(&:strip!).join("\n")
+
+        booking.comments = comments
       end
     end
   end
