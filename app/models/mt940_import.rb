@@ -35,7 +35,8 @@ class Mt940Import < BookingImport
     mt940.each do |line|
       if line.class == MT940::StatementLine
         booking = bookings.build
-        booking.title = line.transaction_description[16..-1]
+        title = line.transaction_description.gsub(/^NONREF/, '')
+        booking.title = title
         booking.amount = line.amount / 100.0
         booking.value_date = line.value_date
         case line.funds_code
