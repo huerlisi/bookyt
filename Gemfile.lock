@@ -4,12 +4,6 @@ GIT
   specs:
     mt940_parser (1.1.0)
 
-GIT
-  remote: http://github.com/huerlisi/PDFKit.git
-  revision: e4a8a67a69394be211358b04235bb3ce28a33d52
-  specs:
-    pdfkit (0.5.2)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -242,6 +236,7 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
+    pdfkit (0.6.2)
     pg (0.18.1)
     pg_search (0.7.9)
       activerecord (>= 3.1)
@@ -448,7 +443,7 @@ DEPENDENCIES
   lyb_sidebar
   mt940_parser!
   omniauth-google-oauth2
-  pdfkit!
+  pdfkit
   pg
   pg_search
   poltergeist
