@@ -66,7 +66,7 @@ GEM
     builder (3.0.4)
     cancan (1.6.8)
     cap-recipes (0.3.39)
-    capistrano (2.14.1)
+    capistrano (2.15.5)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -75,9 +75,9 @@ GEM
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
     capistrano_colors (0.5.5)
-    capones_recipes (1.18.0)
+    capones_recipes (1.20.1)
       cap-recipes
-      capistrano
+      capistrano (~> 2.0)
       capistrano-ext
       capistrano_colors
     capybara (1.1.2)
