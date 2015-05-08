@@ -5,7 +5,7 @@ class BackupsController < AttachmentsController
   def create
     @backup = Backup.new(params[:backup])
     if @backup.save
-      @backup.import
+      @backup.restore
 
       redirect_to current_tenant
     else
