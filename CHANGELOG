@@ -1,4 +1,4 @@
-1.5.9 (unreleased)
+1.5.9
 =====
 * Explicit setting of default date format to fix YAML backup data.
 * Update some gems to build on Ubuntu 14.10.
@@ -7,7 +7,6 @@
 * Fix .line endings in MT940 files before parsing.
 * Update capones_recipes.
 * Update rails.
-
 
 1.5.8
 =====
