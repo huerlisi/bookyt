@@ -4,7 +4,7 @@ Bookyt 2.0 uses a different database system and supports multi tenancy. This
 makes some manual steps necessary. Follow these instruction to enjoy all the
 new features of Bookyt 2.0.
 
-If you do not yet run the latest Bookyt 1 release, please first upgrade to
+If you do not yet run the latest Bookyt 1.x release, please first upgrade to
 release 1.5. It is available on github in the stable-1-5 branch.
 
 h2. Backup Data
