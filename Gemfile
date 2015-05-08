@@ -145,7 +145,7 @@ gem 'vesr'
 gem 'pg_search'
 
 # Tagging
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', '~> 2.4.1'
 
 # Plugins
 # =======

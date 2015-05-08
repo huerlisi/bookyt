@@ -44,8 +44,8 @@ GEM
     activesupport (3.2.21)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
-    acts-as-taggable-on (3.5.0)
-      activerecord (>= 3.2, < 5)
+    acts-as-taggable-on (2.4.1)
+      rails (>= 3, < 5)
     afm (0.2.2)
     anjlab-bootstrap-rails (2.1.1.1)
       railties (>= 3.0)
@@ -376,7 +376,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     ttfunk (1.0.3)
-    tzinfo (0.3.43)
+    tzinfo (0.3.44)
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -412,7 +412,7 @@ PLATFORMS
 DEPENDENCIES
   aasm (~> 3.0)
   active_model_serializers
-  acts-as-taggable-on
+  acts-as-taggable-on (~> 2.4.1)
   anjlab-bootstrap-rails (~> 2.1.0)
   apartment
   api_taster
