@@ -105,6 +105,11 @@ class Backup < Attachment
   #
   # Simply load the passed in schema.rb file.
   def self.restore_schema(path)
+    connection = ActiveRecord::Base.connection
+    connection.tables.each do |table|
+      connection.drop_table(table)
+    end
+
     load(path)
   end
 
@@ -132,11 +137,13 @@ class Backup < Attachment
 
     extract_zip path, dirname.join('schema.rb'), dirname.join('data.yml')
 
-    restore_schema(dirname.join('schema.rb'))
+    ActiveRecord::Base.transaction do
+      restore_schema(dirname.join('schema.rb'))
 
-    restore_data(dirname.join('data.yml'))
+      restore_data(dirname.join('data.yml'))
 
-    ActiveRecord::Migrator.migrate(ActiveRecord::Migrator.migrations_paths, nil)
+      ActiveRecord::Migrator.migrate(ActiveRecord::Migrator.migrations_paths, nil)
+    end
   end
 
   def restore
