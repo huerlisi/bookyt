@@ -65,6 +65,18 @@ Bugfixes:
 * Factor out fiscal year filter into filters partial.
 * New filter by_calendar_year, used in bookyt_salaries.
 * Prevent wrapping in action-links.
+* Add .ruby-version file and pin it to 2.0.0 something.
+* Fix page title for vesr settings update.
+* Fix form markup for vesr settings.
+* Handle case of no vesr account configured in vesr settings.
+* Fix generic index views with no entries.
+* Do not use AJAX for charge booking template list deletion.
+* Use common list action conventions for attachment list partial.
+* Rename agpl license file to LICENSE.
+* Update lyb_devise_admin for more consistent user list.
+* Fix direct restore after backup upload.
+* Make backup restore more robust.
+
 
 1.5.9 (unreleased)
 =====
