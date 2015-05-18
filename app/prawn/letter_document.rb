@@ -91,7 +91,6 @@ class LetterDocument < Prawn::Document
     else
       text ""
     end
-
   end
 
   # Draws the full address of a vcard

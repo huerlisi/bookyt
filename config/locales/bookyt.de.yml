@@ -455,7 +455,7 @@ de:
       title: Rechnungen
   letters:
     debit_invoice:
-      closing: "Bitte begleichen Sie diese Rechnung bis zum %{due_date} mit beiliegendem Einzahlungsschein oder per E-Banking."
+      closing: "Bitte begleichen Sie diese Rechnung mit beiliegendem Einzahlungsschein oder per E-Banking."
       greetings: "Vielen Dank für die Zusammenarbeit und freundliche Grüsse."
     greetings: "Freundliche Grüsse"
   line_items:

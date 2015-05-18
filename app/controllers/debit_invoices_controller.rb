@@ -11,7 +11,13 @@ class DebitInvoicesController < InvoicesController
       :state      => 'booked',
       :value_date => Date.today,
       :due_date   => Date.today.in(current_tenant.payment_period.days).to_date,
-      :title      => "Rechnung Nr."
+      :title      => "Rechnung Nr.",
+      :text       =>
+        t('letters.debit_invoice.closing') +
+        "\n\n" + t('letters.debit_invoice.greetings') +
+        "\n" + current_user.person.vcard.full_name +
+        "\n" + current_user.person.vcard.contacts.first.to_s(:label) +
+        "\n"*3
     }
 
     # Set default parameters
