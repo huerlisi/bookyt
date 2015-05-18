@@ -23,7 +23,6 @@ class Invoice < ActiveRecord::Base
     return "" if amount.nil?
 
     identifier = title
-    identifier += " / #{code}" if code.present?
 
     case format
       when :reference
