@@ -114,7 +114,7 @@ gem 'ledermann-rails-settings'
 # ======
 # Accounting
 gem 'has_accounts'
-gem 'has_accounts_engine', '~> 3.0.0.beta5'
+gem 'has_accounts_engine', '~> 3.0.0.beta6'
 
 # Addresses
 gem 'has_vcards'
