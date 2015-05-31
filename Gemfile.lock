@@ -524,6 +524,7 @@ DEPENDENCIES
   routing-filter
   rspec-rails
   ruby_parser
+  rubyzip
   sass-rails
   select2-rails
   selenium-webdriver
