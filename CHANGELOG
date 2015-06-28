@@ -1,3 +1,4 @@
+
 2.0.0.beta0 (unreleased)
 ===========
 Main Features:
@@ -12,6 +13,7 @@ Main Features:
 * Backup/restore now handles restoring from older versions.
 * Better Salary statistics.
 * Keyboard navigation in booking journal including quick fix.
+* Improved Booking journal filtering.
 
 Enhancements:
 * Support AJAX deletion for charge booking templates.
@@ -44,6 +46,13 @@ Enhancements:
 * Update bookyt_salary to new minor version.
 * Improve usability of datepicker.
 * Make most fields readonly and out of tabindex in booking import form.
+* Port docs to markdown with some updates.
+* do not add "/ {code}" in invoice titles
+* allow invoice text to be edited
+* replace language seeding with setup in navigation
+* add filter support for booking index
+* speed up bookings journal filter
+* add filters to booking journal
 
 Bugfixes:
 * Fix styling for pagination gap element.
