@@ -366,7 +366,7 @@ en:
     total: Total
   by_period:
     title: Period
-  by_value_period:
+  by_date:
     all: All
     title: Booking Filter
   cancan:

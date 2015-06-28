@@ -21,14 +21,14 @@ nl:
       booking_import:
         created_at: "Importiert am"
         csv: CSV-Datei
-      booking_template: 
+      booking_template:
         amount_relates_to: "Relativ zu"
         charge_rate_code: Abgabesatz
         credit_account: Soll
         debit_account: Haben
         reference: Referenz
         value_date: Valutadatum
-      charge_rate: 
+      charge_rate:
         code: Code
         duration: Gültigkeit
         duration_from: "Gültig ab"
@@ -313,7 +313,7 @@ nl:
     total: Total
   by_period:
     title: Periode
-  by_value_period:
+  by_date:
     all: Alle
     title: Buchungsfilter
   cancan:

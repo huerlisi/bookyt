@@ -28,7 +28,7 @@ shared_examples "it does all controller actions" do
     it "of a custom period" do
       end_date = Date.today
       start_date = end_date.to_time.advance(:days => -14).to_date
-      get :profit_sheet, {:id => @current_user.tenant.id, :by_value_period => {:from => start_date, :to => end_date}}
+      get :profit_sheet, {:id => @current_user.tenant.id, :by_date => {:from => start_date, :to => end_date}}
       response.should render_template('profit_sheet')
       assigns(:company).should eq(@current_user.tenant.company)
       assigns(:end_date).should eq(end_date)
@@ -56,7 +56,7 @@ shared_examples "it does all controller actions" do
 
     it "of a custom period" do
       to_date = Date.today
-      get :balance_sheet,{:id => @current_user.tenant.id, :by_value_period => {:to => to_date}}
+      get :balance_sheet,{:id => @current_user.tenant.id, :by_date => {:to => to_date}}
       response.should render_template('balance_sheet')
       assigns(:company).should eq(@current_user.tenant.company)
       assigns(:dates).should eq([to_date])

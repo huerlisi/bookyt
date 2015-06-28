@@ -21,9 +21,9 @@ SimpleNavigation::Configuration.run do |navigation|
       accounting.item :bookings, t('bookyt.main_navigation.bookings'), bookings_path,
                       :highlights_on => /\/bookings($|\?)/
       if current_tenant
-        accounting.item :balance, t('bookyt.main_navigation.balance'), balance_sheet_tenant_path(current_tenant, :by_value_period => params[:by_value_period]),
+        accounting.item :balance, t('bookyt.main_navigation.balance'), balance_sheet_tenant_path(current_tenant, :by_date => params[:by_date]),
                         :highlights_on => /#{Regexp.escape(balance_sheet_tenant_path(current_tenant))}($|\?)/
-        accounting.item :profit, t('bookyt.main_navigation.profit'), profit_sheet_tenant_path(current_tenant, :by_value_period => params[:by_value_period]),
+        accounting.item :profit, t('bookyt.main_navigation.profit'), profit_sheet_tenant_path(current_tenant, :by_date => params[:by_date]),
                         :highlights_on => /#{Regexp.escape(profit_sheet_tenant_path(current_tenant))}($|\?)/
         accounting.item :divider, "", :class => 'divider'
         accounting.item :mt940_import, t_title(:import, BookingImportAttachment), new_booking_import_attachment_path

@@ -319,7 +319,7 @@ de:
     title: Periode
   by_employee:
     title: Mitarbeiter
-  by_value_period:
+  by_date:
     all: Alle
     title: Buchungsfilter
   cancan:

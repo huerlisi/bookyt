@@ -6,4 +6,4 @@
 
   - for date in @dates
     %td.right
-      = link_to currency_fmt(account.saldo(date)), account_path(account, :by_value_period => date.respond_to?(:first) ? {:from => date.first.to_s(:db), :to => date.last.to_s(:db)} : {:to => date.to_s(:db)}), 'data-href-container' => 'tr'
+      = link_to currency_fmt(account.saldo(date)), account_path(account, :by_date => date.respond_to?(:first) ? {:from => date.first.to_s(:db), :to => date.last.to_s(:db)} : {:to => date.to_s(:db)}), 'data-href-container' => 'tr'
