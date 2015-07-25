@@ -336,7 +336,6 @@ de:
       title: Neue Rechnung
   crud:
     action:
-      all_bookings: "Alle Buchungen"
       balance_sheet: Bilanz
       book_manual: "Manuell buchen"
       copy: Kopieren
@@ -344,8 +343,6 @@ de:
       import: Importieren
       letter: Rechnung
       more: Mehr
-      only_credit_bookings: "Nur Soll"
-      only_debit_bookings: "Nur Haben"
       payslip: Lohnabrechnung
       pdf: PDF
       print: Drucken
