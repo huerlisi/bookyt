@@ -6,7 +6,6 @@ describe Tenant do
   context "on update" do
     subject { FactoryGirl.create :tenant }
 
-    it { should validate_presence_of :company }
     pending { should validate_date :incorporated_on } # TODO: This validations can be checked at the moment
   end
 

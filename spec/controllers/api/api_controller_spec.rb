@@ -173,7 +173,7 @@ describe Api::ApiController do
       context 'with a specific not found message' do
         before do
           I18n.should_receive(:t).with('rest.not_found.default').and_return 'Default message'
-          I18n.should_receive(:t).with('rest.not_found.anonymous.index', { default: 'Default message' }).and_return 'Custom message'
+          I18n.should_receive(:t).with('rest.not_found.api.index', { default: 'Default message' }).and_return 'Custom message'
           xhr :get, :index
         end
 

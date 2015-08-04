@@ -95,6 +95,9 @@ module Api
     #  { :success => false, :message => "The user is not authenticated."}
     #
     def authenticate!
+      user = auth_token && User.find_by_authentication_token(auth_token.to_s)
+      sign_in user, store: false if user
+
       unless current_user
         render json: { success: false, message: I18n.t('rest.unauthenticated') }, status: :unauthorized, text: ''
         false
