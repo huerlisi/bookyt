@@ -56,6 +56,24 @@ Contributing
 
 Code is available at [github](https://github.com/huerlisi/bookyt).
 
+Contributors
+------------
+
+Bookyt would not be what it is without contributions from other coders.
+
+You're help is very appreciated! Thank you!
+
+* Roman Simecek
+* Andi Staub
+* Ramon Egloff
+* Severin Ulrich
+* Munen Alain M. Lafon
+* Praveen Rachabathuni
+* Egbert Pot
+* Raffael Schmid
+* Gabe Tonon
+* Phil Hofmann
+
 License
 -------
 
