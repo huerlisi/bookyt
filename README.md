@@ -51,8 +51,8 @@ Documentation
 Contributing
 ------------
 
-- [Travis CI](https://travis-ci.org/huerlisi/bookyt.png)
-- [CodeClimate](https://codeclimate.com/github/huerlisi/bookyt.png)
+[![Build Status](https://travis-ci.org/huerlisi/bookyt.svg?branch=master)](https://travis-ci.org/huerlisi/bookyt)
+[![Code Climate](https://codeclimate.com/github/huerlisi/bookyt/badges/gpa.svg)](https://codeclimate.com/github/huerlisi/bookyt)
 
 Code is available at [github](https://github.com/huerlisi/bookyt).
 
