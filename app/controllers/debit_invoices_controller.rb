@@ -16,7 +16,7 @@ class DebitInvoicesController < InvoicesController
         t('letters.debit_invoice.closing') +
         "\n\n" + t('letters.debit_invoice.greetings') +
         "\n" + current_user.person.vcard.full_name +
-        "\n" + current_user.person.vcard.contacts.first.to_s(:label) +
+        "\n" + current_user.person.vcard.contacts.first.to_s() +
         "\n"*3
     }
 
