@@ -4,7 +4,7 @@ describe SettingsController do
   login_admin
 
   before(:each) do
-    @bank_account = FactoryGirl.create(:bank_account)
+    @bank_account = FactoryGirl.create(:bank_account, tag_list: %w(invoice:vesr))
   end
 
   describe "vesr setting" do
