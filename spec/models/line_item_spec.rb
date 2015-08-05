@@ -6,6 +6,10 @@ describe LineItem do
   it { should belong_to :debit_account }
   it { should belong_to :credit_account }
 
+  it { should validate_presence_of(:invoice) }
+  it { should validate_presence_of(:times) }
+  it { should validate_presence_of(:title) }
+
   context "bookings" do
     it { should have_one :booking }
 
