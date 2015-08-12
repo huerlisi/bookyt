@@ -383,12 +383,15 @@ en:
       title: New Credit invoice
   crud:
     action:
+      all_bookings: "All Bookings"
       balance_sheet: "Balance sheet"
       book_manual: "Book Manually"
       copy: copy
       filter: Filter
       letter: letter
       more: more
+      only_credit_bookings: "Only Credit"
+      only_debit_bookings: "Only Debit"
       payslip: payslip
       pdf: pdf
       print: print
