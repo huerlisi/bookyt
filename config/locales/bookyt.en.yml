@@ -236,8 +236,6 @@ en:
       user: User
   alerts:
     empty: "No Entries to print"
-  application:
-    title: Bookyt
   attachments:
     list:
       title: Attachments

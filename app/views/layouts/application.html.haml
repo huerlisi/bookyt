@@ -12,16 +12,16 @@
     = csrf_meta_tag
     %title
       - if current_user
-        = "#{current_user.tenant}: #{content_for :page_title} - #{t('application.title')}"
+        = "#{current_user.tenant}: #{content_for :page_title} - #{Settings.title}"
       - else
-        = "#{content_for :page_title} - #{t('application.title')}"
+        = "#{content_for :page_title} - #{Settings.title}"
 
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
         .container-fluid
           = link_to root_path, :class => 'brand' do
-            = t('application.title')
+            = Settings.title
 
           - if user_signed_in?
             = render_navigation(:context => :main, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
