@@ -34,6 +34,7 @@ db/data.yml
 
 # Local
 config/database.yml
+config/database.yml
 
 # Gems
 # ====
