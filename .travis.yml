@@ -1,5 +1,8 @@
 sudo: false
 
+language: ruby
+cache: bundler
+
 before_script:
   - psql -c 'create database bookyt_test' -U postgres
   - bundle exec rake bookyt:travis
