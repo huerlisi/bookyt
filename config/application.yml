@@ -1,3 +1,20 @@
+defaults: &defaults
+  title: Swagbooking
+  footer:
+
 demo:
+  <<: *defaults
   google_analytics:
-    api_key: 
+    api_key:
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults

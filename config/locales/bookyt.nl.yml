@@ -183,8 +183,6 @@ nl:
       user: gebruiker
   alerts:
     empty: "Keine Einträge vorhanden."
-  application:
-    title: Bookyt
   attachments:
     list:
       title: Dokumente
@@ -267,7 +265,7 @@ nl:
         current_tenant: "Zeigt die Details des aktiven Mandanten"
         current_user: "Zeigt die Details des aktuell angemeldeten Benutzers"
         customers: "Hier finden Sie eine Liste aller Kunden"
-        destroy_user_session: "Hier können Sie sich von Bookyt abmelden"
+        destroy_user_session: "Hier können Sie sich abmelden"
         employees: "Hier finden Sie eine Liste aller Mitarbeiter"
         importer: "Importiert Buchungsdaten aus einer .csv Datei"
         invoices: "Listet alle Rechnungen auf"
@@ -276,11 +274,11 @@ nl:
         new_customer: "Erstellt einen neuen Kunden"
         new_employee: "Erstellt einen neuen Mitarbeiter"
         new_invoice: "Erstellt eine neue Rechnung"
-        new_user_session: "Hier können Sie sich bei Bookyt anmelden"
+        new_user_session: "Hier können Sie sich anmelden"
         overview: "Gibt Ihnen eine Übersicht über die Funktionen"
         people: "Hier finden Sie eine Liste aller Kontakte"
         profit: "Hier können Sie die Erfolgsrechnung aufrufen"
-        settings: "Hier können die nötigen Einstellungen für Bookyt gemacht werden"
+        settings: "Hier können die nötigen Einstellungen gemacht werden"
         store: "Hier finden Sie alle Funktionen welche Sie im Laden brauchen"
         tenant_index: "Zeigt eine Liste aller Mandanten"
         user_index: "Zeigt eine Liste aller Benutzer"
@@ -480,3 +478,13 @@ nl:
       special: Spezial
   years:
     title: Periode
+
+  static_pages:
+    imprint:
+      title: Impressum
+      built_by_html: Bookyt wird von <a href="http://cyt.ch" target="_blank">CyT GmbH</a> gepflegt.
+      built_by_aka_html: '%{name}, auch als Bookyt bekannt, wird von <a href="http://cyt.ch" target="_blank">CyT GmbH</a> gepflegt.'
+      licence_html: Der Code ist unter <a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank">GNU AGPL 3</a> lizensiert.
+
+  application:
+    imprint: Impressum

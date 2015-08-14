@@ -236,8 +236,6 @@ en:
       user: User
   alerts:
     empty: "No Entries to print"
-  application:
-    title: Bookyt
   attachments:
     list:
       title: Attachments
@@ -652,3 +650,13 @@ en:
     tel_private: 'Tel. private'
   years:
     title: Period
+
+  static_pages:
+    imprint:
+      title: Imprint
+      built_by_html: Bookyt is built by <a href="http://cyt.ch" target="_blank">CyT GmbH</a>.
+      built_by_aka_html: '%{name}, also known as Bookyt, is built by <a href="http://cyt.ch" target="_blank">CyT GmbH</a>.'
+      licence_html: Code licensed under the <a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank">GNU AGPL 3</a>.
+
+  application:
+    imprint: Imprint

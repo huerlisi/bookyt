@@ -12,16 +12,16 @@
     = csrf_meta_tag
     %title
       - if current_user
-        = "#{current_user.tenant}: #{content_for :page_title} - #{t('application.title')}"
+        = "#{current_user.tenant}: #{content_for :page_title} - #{Settings.title}"
       - else
-        = "#{content_for :page_title} - #{t('application.title')}"
+        = "#{content_for :page_title} - #{Settings.title}"
 
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
         .container-fluid
           = link_to root_path, :class => 'brand' do
-            = t('application.title')
+            = Settings.title
 
           - if user_signed_in?
             = render_navigation(:context => :main, :level => 1..2, :renderer => BootstrapTopbarList, :expand_all => true)
@@ -51,8 +51,7 @@
     #footer
       .container
         %p.pull-right
+          = link_to t('application.imprint'), imprint_path
           = link_to "Deutsch", :locale => 'de-CH'
           = link_to "English", :locale => 'en'
-        %p
-          Bookyt is built by <a href="http://cyt.ch" target="_blank">CyT GmbH</a>.
-          Code licensed under the <a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank">GNU AGPL 3</a>.
+        %p= raw Settings.footer
