@@ -21,6 +21,9 @@ Bookyt::Application.routes.draw do
     post "load_template" => "setup#load_template"
   end
 
+  # static pages
+  get 'imprint' => 'static_pages#imprint'
+
   # Authorization
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 

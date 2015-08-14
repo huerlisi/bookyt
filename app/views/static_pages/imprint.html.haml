@@ -1,0 +1,9 @@
+.page-header
+  %h1= t('.title')
+
+- if Settings.title == 'Bookyt'
+  %div= t('.built_by_html')
+- else
+  %div= t('.built_by_aka_html', name: Settings.title)
+
+%div= t('.licence_html')

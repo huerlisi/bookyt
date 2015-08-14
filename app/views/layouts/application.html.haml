@@ -51,6 +51,7 @@
     #footer
       .container
         %p.pull-right
+          = link_to t('application.imprint'), imprint_path
           = link_to "Deutsch", :locale => 'de-CH'
           = link_to "English", :locale => 'en'
         %p= raw Settings.footer
