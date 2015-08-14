@@ -159,6 +159,10 @@ class Invoice < ActiveRecord::Base
     balance_account
   end
 
+  def self.balance_account
+    nil # will be overloaded by subclass
+  end
+
   def balance_account
     self.class.balance_account
   end

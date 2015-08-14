@@ -11,10 +11,10 @@ class LineItem < ActiveRecord::Base
   belongs_to :credit_account, :class_name => 'Account'
 
   # Validations
-  validate :invoice, :presence => true
-  validate :times, :presence => true, :numericality => true
-  validate :price, :presence => true, :numericality => true
-  validate :title, :presence => true
+  validates :invoice, :presence => true
+  validates :times, :presence => true, :numericality => true
+  validates :price, :presence => true, :numericality => true
+  validates :title, :presence => true
 
   # String
   def to_s

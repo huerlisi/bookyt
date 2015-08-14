@@ -51,10 +51,28 @@ Documentation
 Contributing
 ------------
 
-- [Travis CI](https://travis-ci.org/huerlisi/bookyt.png)
-- [CodeClimate](https://codeclimate.com/github/huerlisi/bookyt.png)
+[![Build Status](https://travis-ci.org/huerlisi/bookyt.svg?branch=master)](https://travis-ci.org/huerlisi/bookyt)
+[![Code Climate](https://codeclimate.com/github/huerlisi/bookyt/badges/gpa.svg)](https://codeclimate.com/github/huerlisi/bookyt)
 
 Code is available at [github](https://github.com/huerlisi/bookyt).
+
+Contributors
+------------
+
+Bookyt would not be what it is without contributions from other coders.
+
+You're help is very appreciated! Thank you!
+
+* Roman Simecek
+* Andi Staub
+* Ramon Egloff
+* Severin Ulrich
+* Munen Alain M. Lafon
+* Praveen Rachabathuni
+* Egbert Pot
+* Raffael Schmid
+* Gabe Tonon
+* Phil Hofmann
 
 License
 -------

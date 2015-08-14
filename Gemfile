@@ -57,6 +57,9 @@ group :test, :development do
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-byebug'
+
+  gem 'rspec-its'
+  gem 'rspec-activemodel-mocks'
 end
 
 # Standard helpers

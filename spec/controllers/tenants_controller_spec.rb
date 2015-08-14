@@ -1,18 +1,6 @@
 require 'spec_helper'
 
 shared_examples "it does all controller actions" do
-  describe "get the current tenant" do
-    it "should have a current_user" do
-      subject.current_user.should_not be_nil
-    end
-
-    it "redirects to the current tenant" do
-      controller.stub(:current_user).and_return(@current_user)
-      get :current
-      response.should redirect_to(@current_user.tenant)
-    end
-  end
-
   describe "get the profit sheet" do
     it "without params" do
       end_date = Date.today

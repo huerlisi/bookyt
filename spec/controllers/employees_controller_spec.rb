@@ -14,9 +14,8 @@ describe EmployeesController do
       FactoryGirl.create(:employee)
     end
 
-    pending "assigns all employees as @employees" do
+    it "assigns all employees as @employees" do
       get :index
-      puts assigns(:employees).inspect
       assigns(:employees).should_not be_empty
       assigns(:employees).first.should be_a_kind_of(Employee)
     end

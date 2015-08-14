@@ -42,7 +42,7 @@ describe UsersController do
         user.errors[:password].should be_present
 
         user.reload
-        user.valid_password?(new_password).should be_false
+        user.valid_password?(new_password).should eq(false)
       end
 
       it "should redirect to user view if successfull" do
@@ -87,7 +87,7 @@ describe UsersController do
         user.errors[:current_password].should be_empty
 
         user.reload
-        user.valid_password?(new_password).should be_true
+        user.valid_password?(new_password).should eq(true)
       end
 
       it "cannot update roles" do
@@ -111,7 +111,7 @@ describe UsersController do
         user.errors[:current_password].should be_present
 
         user.reload
-        user.valid_password?(new_password).should be_false
+        user.valid_password?(new_password).should eq(false)
       end
 
       it "cannot update itself with wrong current_password" do
@@ -123,7 +123,7 @@ describe UsersController do
         user.errors[:current_password].should be_present
 
         user.reload
-        user.valid_password?(new_password).should be_false
+        user.valid_password?(new_password).should eq(false)
       end
     end
   end

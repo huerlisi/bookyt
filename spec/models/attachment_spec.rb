@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Attachment do
-  it { should belong_to(:object) }
+  it { should belong_to(:reference) }
 
   it { should validate_presence_of(:file) }
 
