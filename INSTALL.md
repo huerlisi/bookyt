@@ -44,6 +44,16 @@ Initialize the database:
 
     bundle exec rake db:setup
 
+Configure
+---------
+
+There's some settings that are done on an application level like application title and API
+keys for external services. These are configured in config/application.yml.
+
+To get started copy the example:
+
+    cp config/application.yml config/application.yml.example
+
 Setup admin user
 ----------------
 
