@@ -1,5 +1,6 @@
 defaults: &defaults
   title: Swagbooking
+  footer:
 
 demo:
   <<: *defaults
