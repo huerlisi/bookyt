@@ -26,10 +26,4 @@ class CreditInvoicesController < InvoicesController
 
     new!
   end
-
-  def create
-    @credit_invoice = CreditInvoice.new(params[:credit_invoice])
-
-    create!
-  end
 end
