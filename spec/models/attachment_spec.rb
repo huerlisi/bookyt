@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe Attachment do
-  it { should belong_to(:reference) }
+  it { is_expected.to belong_to(:reference) }
 
-  it { should validate_presence_of(:file) }
+  it { is_expected.to validate_presence_of(:file) }
 
   context "when new" do
-    specify { should_not be_valid }
+    specify { is_expected.not_to be_valid }
 
     its(:to_s) { should == "Anhang ()" }
   end

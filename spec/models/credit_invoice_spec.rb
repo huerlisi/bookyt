@@ -7,9 +7,9 @@ describe CreditInvoice do
     end
 
     it "should return an empty string" do
-      @invoice.to_s.should eq("")
-      @invoice.to_s(:long).should eq("")
-      @invoice.to_s(:reference).should eq("")
+      expect(@invoice.to_s).to eq("")
+      expect(@invoice.to_s(:long)).to eq("")
+      expect(@invoice.to_s(:reference)).to eq("")
     end
   end
 end

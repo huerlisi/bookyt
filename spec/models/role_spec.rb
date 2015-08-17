@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Role do
   context "when new" do
-    specify { should_not be_valid }
+    specify { is_expected.not_to be_valid }
 
     its(:to_s) { should == "" }
   end

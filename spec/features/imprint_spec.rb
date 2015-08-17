@@ -7,9 +7,9 @@ feature "Imprint Page" do
     visit "/"
     click_on 'Imprint'
 
-    page.should have_content('Impressum')
-    page.should have_content('Bookyt')
-    page.should have_content('AGPL')
-    page.should have_content('CyT')
+    expect(page).to have_content('Impressum')
+    expect(page).to have_content('Bookyt')
+    expect(page).to have_content('AGPL')
+    expect(page).to have_content('CyT')
   end
 end

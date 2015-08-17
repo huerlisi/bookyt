@@ -16,7 +16,7 @@ describe AccountsController do
       it "assigns all accounts as @accounts" do
         get :index
 
-        response.should render_template(:index)
+        expect(response).to render_template(:index)
       end
     end
 
@@ -26,9 +26,9 @@ describe AccountsController do
 
         get :show, :id => @account.id
 
-        response.should render_template(:show)
-        assigns(:account).should == @account
-        assigns(:bookings).should_not be_nil
+        expect(response).to render_template(:show)
+        expect(assigns(:account)).to eq(@account)
+        expect(assigns(:bookings)).not_to be_nil
       end
 
       it "assigns the requested account as @account only credit bookings" do
@@ -36,9 +36,9 @@ describe AccountsController do
 
         get :show, {:id => @account.id, :only_credit_bookings => true}
 
-        response.should render_template(:show)
-        assigns(:account).should == @account
-        assigns(:bookings).should_not be_nil
+        expect(response).to render_template(:show)
+        expect(assigns(:account)).to eq(@account)
+        expect(assigns(:bookings)).not_to be_nil
       end
 
       it "assigns the requested account as @account only debit bookings" do
@@ -46,9 +46,9 @@ describe AccountsController do
 
         get :show, {:id => @account.id, :only_debit_bookings => true}
 
-        response.should render_template(:show)
-        assigns(:account).should == @account
-        assigns(:bookings).should_not be_nil
+        expect(response).to render_template(:show)
+        expect(assigns(:account)).to eq(@account)
+        expect(assigns(:bookings)).not_to be_nil
       end
     end
 
@@ -56,10 +56,10 @@ describe AccountsController do
       it "exports the bookings as csv file." do
         @account_booking = FactoryGirl.create(:account_booking)
         get :csv_bookings, {:id => @account_booking.credit_account.id}
-        assigns(:account).should_not be_nil
-        assigns(:account).should == @account_booking.credit_account
-        assigns(:bookings).should_not be_nil
-        assigns(:bookings).should_not be_empty
+        expect(assigns(:account)).not_to be_nil
+        expect(assigns(:account)).to eq(@account_booking.credit_account)
+        expect(assigns(:bookings)).not_to be_nil
+        expect(assigns(:bookings)).not_to be_empty
       end
     end
   end
@@ -71,7 +71,7 @@ describe AccountsController do
       it "assigns all accounts as @accounts" do
         get :index
 
-        response.should render_template(:index)
+        expect(response).to render_template(:index)
       end
     end
 
@@ -81,8 +81,8 @@ describe AccountsController do
 
         get :show, :id => @account.id
 
-        response.should render_template(:show)
-        assigns(:account).should == @account
+        expect(response).to render_template(:show)
+        expect(assigns(:account)).to eq(@account)
       end
 
       it "assigns the requested account as @account only credit bookings" do
@@ -90,9 +90,9 @@ describe AccountsController do
 
         get :show, {:id => @account.id, :only_credit_bookings => true}
 
-        response.should render_template(:show)
-        assigns(:account).should == @account
-        assigns(:bookings).should_not be_nil
+        expect(response).to render_template(:show)
+        expect(assigns(:account)).to eq(@account)
+        expect(assigns(:bookings)).not_to be_nil
       end
 
       it "assigns the requested account as @account only debit bookings" do
@@ -100,9 +100,9 @@ describe AccountsController do
 
         get :show, {:id => @account.id, :only_debit_bookings => true}
 
-        response.should render_template(:show)
-        assigns(:account).should == @account
-        assigns(:bookings).should_not be_nil
+        expect(response).to render_template(:show)
+        expect(assigns(:account)).to eq(@account)
+        expect(assigns(:bookings)).not_to be_nil
       end
     end
   end

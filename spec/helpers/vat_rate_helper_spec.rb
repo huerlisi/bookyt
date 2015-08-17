@@ -7,7 +7,7 @@ describe VatRateHelper do
 
   describe "#vat_rates_as_collection" do
     it "returns the VAT rates" do
-      helper.vat_rates_as_collection.should eq({"8.7" => "vat:normal"})
+      expect(helper.vat_rates_as_collection).to eq({"8.7" => "vat:normal"})
     end
   end
 end

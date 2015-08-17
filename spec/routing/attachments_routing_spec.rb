@@ -7,9 +7,9 @@ describe AttachmentsController do
     end
 
     it "recognizes and generates #download" do
-      {
+      expect({
         :get => "/attachments/#{@attachment.id}/download"
-      }.should route_to(:controller =>  "attachments",
+      }).to route_to(:controller =>  "attachments",
                         :action =>      "download",
                         :id =>          @attachment.id.to_s)
     end

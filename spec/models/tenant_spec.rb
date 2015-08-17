@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Tenant do
-  it { should belong_to :company }
+  it { is_expected.to belong_to :company }
 
   context "when new" do
     its(:to_s) { should == "" }
@@ -17,7 +17,7 @@ describe Tenant do
     let(:tenant) { FactoryGirl.build :tenant }
 
     it 'should work with unset #fiscal_year_ends_on' do
-      tenant.stub(:fiscal_year_ends_on => nil)
+      allow(tenant).to receive_messages(:fiscal_year_ends_on => nil)
 
       expect{ tenant.fiscal_years }.to_not raise_exception
     end

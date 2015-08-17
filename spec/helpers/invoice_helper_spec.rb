@@ -3,7 +3,7 @@ require 'spec_helper'
 describe InvoiceHelper do
   describe "#invoice_states_as_collection" do
     it "returns invoice states" do
-      helper.invoice_states_as_collection.should eq({"storniert" => "canceled",
+      expect(helper.invoice_states_as_collection).to eq({"storniert" => "canceled",
                                                      "offen" => "booked",
                                                      "3x gemahnt" => "3xreminded",
                                                      "abgeschrieben" => "written_off",

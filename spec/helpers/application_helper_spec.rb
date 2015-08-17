@@ -3,7 +3,7 @@ require 'spec_helper'
 shared_examples "current_tenant" do
   context "current_tenant" do
     it "returns the current tenant" do
-      helper.current_tenant.should eq(@current_user.tenant)
+      expect(helper.current_tenant).to eq(@current_user.tenant)
     end
   end
 end
