@@ -6,57 +6,57 @@ shared_examples "it does all controller actions" do
       end_date = Date.today
       start_date = end_date.to_time.advance(:years => -1, :days => 1).to_date
       get :profit_sheet, :id => @current_user.tenant.id
-      response.should render_template('profit_sheet')
-      assigns(:company).should eq(@current_user.tenant.company)
-      assigns(:end_date).should eq(end_date)
-      assigns(:start_date).should eq(start_date)
-      assigns(:dates).should eq([start_date..end_date])
+      expect(response).to render_template('profit_sheet')
+      expect(assigns(:company)).to eq(@current_user.tenant.company)
+      expect(assigns(:end_date)).to eq(end_date)
+      expect(assigns(:start_date)).to eq(start_date)
+      expect(assigns(:dates)).to eq([start_date..end_date])
     end
 
     it "of a custom period" do
       end_date = Date.today
       start_date = end_date.to_time.advance(:days => -14).to_date
       get :profit_sheet, {:id => @current_user.tenant.id, :by_date => {:from => start_date, :to => end_date}}
-      response.should render_template('profit_sheet')
-      assigns(:company).should eq(@current_user.tenant.company)
-      assigns(:end_date).should eq(end_date)
-      assigns(:start_date).should eq(start_date)
-      assigns(:dates).should eq([start_date..end_date])
+      expect(response).to render_template('profit_sheet')
+      expect(assigns(:company)).to eq(@current_user.tenant.company)
+      expect(assigns(:end_date)).to eq(end_date)
+      expect(assigns(:start_date)).to eq(start_date)
+      expect(assigns(:dates)).to eq([start_date..end_date])
     end
 
     it "of a fiscal year" do
       years = [Date.today.year]
       period = @current_user.tenant.fiscal_period(Date.today.year.to_i)
       get :profit_sheet, {:id => @current_user.tenant.id, :years => years}
-      response.should render_template('profit_sheet')
-      assigns(:company).should eq(@current_user.tenant.company)
-      assigns(:dates).should eq([period[:from]..period[:to]])
+      expect(response).to render_template('profit_sheet')
+      expect(assigns(:company)).to eq(@current_user.tenant.company)
+      expect(assigns(:dates)).to eq([period[:from]..period[:to]])
     end
   end
 
   describe "get blance sheet" do
     it "without params" do
       get :balance_sheet, :id => @current_user.tenant.id
-      response.should render_template('balance_sheet')
-      assigns(:company).should eq(@current_user.tenant.company)
-      assigns(:dates).should eq([Date.today])
+      expect(response).to render_template('balance_sheet')
+      expect(assigns(:company)).to eq(@current_user.tenant.company)
+      expect(assigns(:dates)).to eq([Date.today])
     end
 
     it "of a custom period" do
       to_date = Date.today
       get :balance_sheet,{:id => @current_user.tenant.id, :by_date => {:to => to_date}}
-      response.should render_template('balance_sheet')
-      assigns(:company).should eq(@current_user.tenant.company)
-      assigns(:dates).should eq([to_date])
+      expect(response).to render_template('balance_sheet')
+      expect(assigns(:company)).to eq(@current_user.tenant.company)
+      expect(assigns(:dates)).to eq([to_date])
     end
 
     it "of a fiscal year" do
       to_date = Date.today
       years = [@current_user.tenant.fiscal_period(Date.today.year.to_i)[:to]]
       get :balance_sheet,{:id => @current_user.tenant.id, :years => [Date.today.year]}
-      response.should render_template('balance_sheet')
-      assigns(:company).should eq(@current_user.tenant.company)
-      assigns(:dates).should eq(years)
+      expect(response).to render_template('balance_sheet')
+      expect(assigns(:company)).to eq(@current_user.tenant.company)
+      expect(assigns(:dates)).to eq(years)
     end
   end
 end

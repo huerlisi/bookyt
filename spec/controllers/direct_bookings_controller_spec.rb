@@ -5,8 +5,8 @@ shared_examples "direct booking actions" do
     it "creates a new direct booking" do
       booking_template = FactoryGirl.create(:invoice_booking_template)
       xhr :get, :new, {:direct_booking => {:booking_template_id => booking_template.id}}
-      response.should render_template('new')
-      assigns(:direct_booking).value_date.should eq(Date.today)
+      expect(response).to render_template('new')
+      expect(assigns(:direct_booking).value_date).to eq(Date.today)
     end
 
     it "creates a direct booking" do
@@ -22,11 +22,11 @@ shared_examples "direct booking actions" do
                                               :value_date => Date.today,
                                               :amount => 20.0,
                                               :comments => comment}
-      response.should render_template('list')
-      assigns(:direct_booking).should_not be_nil
-      assigns(:direct_booking).comments.should eq(comment)
-      assigns(:direct_account).should_not be_nil
-      assigns(:direct_account).should eq(assigns(:direct_booking).balance_account)
+      expect(response).to render_template('list')
+      expect(assigns(:direct_booking)).not_to be_nil
+      expect(assigns(:direct_booking).comments).to eq(comment)
+      expect(assigns(:direct_account)).not_to be_nil
+      expect(assigns(:direct_account)).to eq(assigns(:direct_booking).balance_account)
     end
   end
 end

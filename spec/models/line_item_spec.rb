@@ -1,29 +1,29 @@
 require 'spec_helper'
 
 describe LineItem do
-  it { should belong_to :item }
-  it { should belong_to :invoice }
-  it { should belong_to :debit_account }
-  it { should belong_to :credit_account }
+  it { is_expected.to belong_to :item }
+  it { is_expected.to belong_to :invoice }
+  it { is_expected.to belong_to :debit_account }
+  it { is_expected.to belong_to :credit_account }
 
-  it { should validate_presence_of(:invoice) }
-  it { should validate_presence_of(:times) }
-  it { should validate_presence_of(:title) }
+  it { is_expected.to validate_presence_of(:invoice) }
+  it { is_expected.to validate_presence_of(:times) }
+  it { is_expected.to validate_presence_of(:title) }
 
   context "bookings" do
-    it { should have_one :booking }
+    it { is_expected.to have_one :booking }
 
     describe "#update_booking" do
       let(:banana) { FactoryGirl.build(:banana) }
 
       it "should return nil if credit_account is empty" do
         banana.credit_account = nil
-        banana.update_booking.should be_nil
+        expect(banana.update_booking).to be_nil
       end
 
       it "should return nil if debit_account is empty" do
         banana.debit_account = nil
-        banana.update_booking.should be_nil
+        expect(banana.update_booking).to be_nil
       end
 
       subject { banana.update_booking }

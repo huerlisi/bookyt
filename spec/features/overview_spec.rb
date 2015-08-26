@@ -6,7 +6,7 @@ feature "Welcome Screen" do
   scenario "When not logged in I should see the login form" do
     visit "/"
 
-    page.should have_content('Anmelden')
+    expect(page).to have_content('Anmelden')
   end
 
   scenario "When logged in as admin I should see the page title" do

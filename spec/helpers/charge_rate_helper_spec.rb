@@ -6,9 +6,9 @@ describe ChargeRateHelper do
   end
   describe "#codes_as_collection" do
     it "returns code collection" do
-      helper.codes_as_collection.should_not be_nil
-      helper.codes_as_collection.should_not be_empty
-      helper.codes_as_collection.first.should eq(["Title (Muster Peter)", "MyString"])
+      expect(helper.codes_as_collection).not_to be_nil
+      expect(helper.codes_as_collection).not_to be_empty
+      expect(helper.codes_as_collection.first).to eq(["Title (Muster Peter)", "MyString"])
     end
   end
 end

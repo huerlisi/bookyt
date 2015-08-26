@@ -4,9 +4,9 @@ shared_examples "customer actions" do
   describe "show" do
     it "the customer" do
       get :show, :id => 20000
-      response.should render_template('show')
-      assigns(:customer).should_not be_nil
-      assigns(:customer).should be_an_instance_of(Customer)
+      expect(response).to render_template('show')
+      expect(assigns(:customer)).not_to be_nil
+      expect(assigns(:customer)).to be_an_instance_of(Customer)
     end
   end
 end

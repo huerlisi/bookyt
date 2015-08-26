@@ -5,7 +5,7 @@ describe Api::V1::AccountsController do
     context 'when not authenticated' do
       it 'returns with unauthorized' do
         xhr :get, :index, :format => :json
-        should respond_with(:unauthorized)
+        is_expected.to respond_with(:unauthorized)
       end
     end
 
@@ -21,18 +21,18 @@ describe Api::V1::AccountsController do
       end
 
       it 'returns success' do
-        response.status.should == 200
+        expect(response.status).to eq(200)
       end
 
       it 'returns 2 records' do
-        parse_json(response.body, 'accounts').count.should == 2
+        expect(parse_json(response.body, 'accounts').count).to eq(2)
       end
 
       it 'returns records with account ids' do
         id_1 = parse_json(response.body, 'accounts/0/id')
         id_2 = parse_json(response.body, 'accounts/1/id')
 
-        [id_1, id_2].sort.should == [bank_account.id, cash_account.id].sort
+        expect([id_1, id_2].sort).to eq([bank_account.id, cash_account.id].sort)
       end
     end
   end

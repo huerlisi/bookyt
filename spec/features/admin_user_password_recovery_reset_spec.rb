@@ -12,7 +12,7 @@ feature 'Reset the password' do
   end
 
   scenario 'Set a new password' do
-    page.should have_content 'Passwort ändern'
+    expect(page).to have_content 'Passwort ändern'
 
     fill_in 'admin_user[password]', with: 'dont-forget-again'
     click_on 'Passwort ändern'

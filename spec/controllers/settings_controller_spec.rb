@@ -10,14 +10,14 @@ describe SettingsController do
   describe "vesr setting" do
     it "returns the values" do
       get :vesr
-      response.should be_success
-      assigns(:tenant).should_not be_nil
-      assigns(:tenant).should be_a_kind_of(Tenant)
-      assigns(:tenant).should eq(@current_user.tenant)
-      assigns(:bank_account).should_not be_nil
-      assigns(:bank_account).should be_a_kind_of(BankAccount)
-      assigns(:letter_template).should_not be_nil
-      assigns(:letter_template).should be_a_kind_of(Attachment)
+      expect(response).to be_success
+      expect(assigns(:tenant)).not_to be_nil
+      expect(assigns(:tenant)).to be_a_kind_of(Tenant)
+      expect(assigns(:tenant)).to eq(@current_user.tenant)
+      expect(assigns(:bank_account)).not_to be_nil
+      expect(assigns(:bank_account)).to be_a_kind_of(BankAccount)
+      expect(assigns(:letter_template)).not_to be_nil
+      expect(assigns(:letter_template)).to be_a_kind_of(Attachment)
     end
 
     context "without attachment" do
@@ -25,13 +25,13 @@ describe SettingsController do
         post :update_vesr, {:vesr => {:tenant => {:id => @current_user.tenant.id},
                                       :bank_account => {:id => @bank_account.id},
                                       :attachment => {}}}
-        assigns(:tenant).should_not be_nil
-        assigns(:tenant).should be_a_kind_of(Tenant)
-        assigns(:tenant).should eq(@current_user.tenant)
-        assigns(:bank_account).should_not be_nil
-        assigns(:bank_account).should be_a_kind_of(BankAccount)
-        assigns(:letter_template).should_not be_nil
-        assigns(:letter_template).should be_a_kind_of(Attachment)
+        expect(assigns(:tenant)).not_to be_nil
+        expect(assigns(:tenant)).to be_a_kind_of(Tenant)
+        expect(assigns(:tenant)).to eq(@current_user.tenant)
+        expect(assigns(:bank_account)).not_to be_nil
+        expect(assigns(:bank_account)).to be_a_kind_of(BankAccount)
+        expect(assigns(:letter_template)).not_to be_nil
+        expect(assigns(:letter_template)).to be_a_kind_of(Attachment)
       end
     end
 
@@ -43,14 +43,14 @@ describe SettingsController do
                                       :bank_account => {:id => @bank_account.id},
                                       :attachment => {:id => attachment.id},
                                       :letter_template => {:title => attachment_title}}}
-        assigns(:tenant).should_not be_nil
-        assigns(:tenant).should be_a_kind_of(Tenant)
-        assigns(:tenant).should eq(@current_user.tenant)
-        assigns(:bank_account).should_not be_nil
-        assigns(:bank_account).should be_a_kind_of(BankAccount)
-        assigns(:letter_template).should_not be_nil
-        assigns(:letter_template).should be_a_kind_of(Attachment)
-        assigns(:letter_template).title.should eq(attachment_title)
+        expect(assigns(:tenant)).not_to be_nil
+        expect(assigns(:tenant)).to be_a_kind_of(Tenant)
+        expect(assigns(:tenant)).to eq(@current_user.tenant)
+        expect(assigns(:bank_account)).not_to be_nil
+        expect(assigns(:bank_account)).to be_a_kind_of(BankAccount)
+        expect(assigns(:letter_template)).not_to be_nil
+        expect(assigns(:letter_template)).to be_a_kind_of(Attachment)
+        expect(assigns(:letter_template).title).to eq(attachment_title)
       end
     end
   end

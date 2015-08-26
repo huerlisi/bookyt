@@ -22,11 +22,11 @@ describe Api::ApiController do
       end
 
       it 'should be ok' do
-        should respond_with(:ok)
+        is_expected.to respond_with(:ok)
       end
 
       it 'returns the normal response' do
-        response.body.should eql 'ok'
+        expect(response.body).to eql 'ok'
       end
     end
 
@@ -47,12 +47,12 @@ describe Api::ApiController do
       context 'without a logged in user' do
         it 'index should be ok' do
           xhr :get, :index
-          should respond_with(:ok)
+          is_expected.to respond_with(:ok)
         end
 
         it 'show returns unauthenticated' do
           xhr :get, :show, id: 1
-          response.status.should eq(401)
+          expect(response.status).to eq(401)
         end
       end
     end
@@ -75,11 +75,11 @@ describe Api::ApiController do
     end
 
     it 'should be authorized' do
-      should respond_with(:ok)
+      is_expected.to respond_with(:ok)
     end
 
     it 'sets the current user from the token' do
-      parse_json(response.body, 'email').should eq 'admin@test.com'
+      expect(parse_json(response.body, 'email')).to eq 'admin@test.com'
     end
   end
 
@@ -95,15 +95,15 @@ describe Api::ApiController do
     before { xhr :get, :index }
 
     it 'should be unauthorized' do
-      should respond_with(:unauthorized)
+      is_expected.to respond_with(:unauthorized)
     end
 
     it 'returns a negative success' do
-      parse_json(response.body, 'success').should eql false
+      expect(parse_json(response.body, 'success')).to eql false
     end
 
     it 'returns a meaningful message' do
-      parse_json(response.body, 'message').should eql 'Access denied, please log in first.'
+      expect(parse_json(response.body, 'message')).to eql 'Access denied, please log in first.'
     end
   end
 
@@ -124,15 +124,15 @@ describe Api::ApiController do
     end
 
     it 'should be forbidden' do
-      should respond_with(:forbidden)
+      is_expected.to respond_with(:forbidden)
     end
 
     it 'returns a negative success' do
-      parse_json(response.body, 'success').should eql false
+      expect(parse_json(response.body, 'success')).to eql false
     end
 
     it 'returns a meaningful message' do
-      parse_json(response.body, 'message').should eql 'Access denied'
+      expect(parse_json(response.body, 'message')).to eql 'Access denied'
     end
   end
 
@@ -158,35 +158,35 @@ describe Api::ApiController do
         end
 
         it 'should be not found' do
-          should respond_with(:not_found)
+          is_expected.to respond_with(:not_found)
         end
 
         it 'returns a negative success' do
-          parse_json(response.body, 'success').should eql false
+          expect(parse_json(response.body, 'success')).to eql false
         end
 
         it 'returns a meaningful message' do
-          parse_json(response.body, 'message').should eql 'The resource was not found.'
+          expect(parse_json(response.body, 'message')).to eql 'The resource was not found.'
         end
       end
 
       context 'with a specific not found message' do
         before do
-          I18n.should_receive(:t).with('rest.not_found.default').and_return 'Default message'
-          I18n.should_receive(:t).with('rest.not_found.api.index', { default: 'Default message' }).and_return 'Custom message'
+          expect(I18n).to receive(:t).with('rest.not_found.default').and_return 'Default message'
+          expect(I18n).to receive(:t).with('rest.not_found.api.index', { default: 'Default message' }).and_return 'Custom message'
           xhr :get, :index
         end
 
         it 'should be not found' do
-          should respond_with(:not_found)
+          is_expected.to respond_with(:not_found)
         end
 
         it 'returns a negative success' do
-          parse_json(response.body, 'success').should eql false
+          expect(parse_json(response.body, 'success')).to eql false
         end
 
         it 'returns a meaningful message' do
-          parse_json(response.body, 'message').should eql 'Custom message'
+          expect(parse_json(response.body, 'message')).to eql 'Custom message'
         end
       end
     end
@@ -209,15 +209,15 @@ describe Api::ApiController do
     end
 
     it 'should be conflict' do
-      should respond_with(:conflict)
+      is_expected.to respond_with(:conflict)
     end
 
     it 'returns a negative success' do
-      parse_json(response.body, 'success').should eql false
+      expect(parse_json(response.body, 'success')).to eql false
     end
 
     it 'returns a meaningful message' do
-      parse_json(response.body, 'message').should eql 'Another user has changed the data already.'
+      expect(parse_json(response.body, 'message')).to eql 'Another user has changed the data already.'
     end
   end
 
@@ -239,15 +239,15 @@ describe Api::ApiController do
       end
 
       it 'should be not found' do
-        should respond_with(:not_acceptable)
+        is_expected.to respond_with(:not_acceptable)
       end
 
       it 'returns a negative success' do
-        parse_json(response.body, 'success').should eql false
+        expect(parse_json(response.body, 'success')).to eql false
       end
 
       it 'returns a meaningful message' do
-        parse_json(response.body, 'message').should eql 'The data is not valid.'
+        expect(parse_json(response.body, 'message')).to eql 'The data is not valid.'
       end
     end
   end

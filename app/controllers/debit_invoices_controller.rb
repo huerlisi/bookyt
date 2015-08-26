@@ -48,14 +48,4 @@ class DebitInvoicesController < InvoicesController
 
     new!
   end
-
-  def create
-    invoice_params = {}
-
-    invoice_params.merge!(params[:debit_invoice]) if params[:debit_invoice]
-
-    @debit_invoice = DebitInvoice.new(invoice_params)
-
-    create!
-  end
 end
