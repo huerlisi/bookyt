@@ -1,7 +1,0 @@
-%tr[tenant]
-  %td= link_to tenant.company, tenant, {'data-href-container' => 'tr'}
-  %td
-    = tenant.users.map{|user| link_to user, user}.join(', ').html_safe
-  %td.action-links
-    = list_link_for(:edit, tenant)
-    = list_link_for(:delete, tenant)
