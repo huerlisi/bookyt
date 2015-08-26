@@ -1,10 +1,13 @@
 require 'spec_helper'
 
 describe Ability do
-  context "as singleton" do
-    roles = Ability.roles
-    roles_collection = Ability.roles_for_collection
-    roles.should == ['admin', 'accountant']
-    roles_collection.should == [['Administrator', 'admin'], ['Buchhalter', 'accountant']]
+  describe '.roles' do
+    it 'supports "admin" and "accountant"' do
+      expect(Ability.roles).to match_array ['admin', 'accountant']
+    end
+
+    it 'maps roles to translations' do
+      expect(Ability.roles_for_collection).to match_array [['Administrator', 'admin'], ['Buchhalter', 'accountant']]
+    end
   end
 end
