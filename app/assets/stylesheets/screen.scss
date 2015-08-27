@@ -14,17 +14,17 @@
 
 .label.disabled {
   background-color: transparent;
-  color:            #404040;
+  color: #404040;
 }
 
 .label.disabled:hover {
   background-color: #BFBFBF;
-  color:            white;
+  color: white;
 }
 
 // Styles
 .page-header {
-  margin-top:        0;
+  margin-top: 0;
 }
 
 // Tabs
@@ -34,8 +34,8 @@
 
 // Buttons
 .btn input {
-	float: none;
-	clear: both;
+  float: none;
+  clear: both;
 }
 
 .content > a {
@@ -52,7 +52,7 @@
 }
 
 .pagination ul {
-    float: right;
+  float: right;
 }
 
 .pagination ul .gap {
@@ -62,12 +62,12 @@
 
 // Form
 .search-form {
-    float: left;
+  float: left;
 }
 
 .well .form-actions {
   background-color: inherit;
-  padding-bottom:   0px;
+  padding-bottom: 0px;
 }
 
 // Sidebar
