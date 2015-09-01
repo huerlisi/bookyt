@@ -1,0 +1,39 @@
+# Database configuration
+# ======================
+# This file can be use as a template for the database.yml file.
+#
+# If you're using the SQLite3 file-based database, all you have
+# to do is copy this file to database.yml.
+#
+# While you may use the SQLite3 database, it has some issues
+# with date handling. It's sometimes giving strange amounts
+# in account views for opening balance etc.
+#
+# For production environments MySQL is a better fit. In this
+# case you need to setup the databases and adapt this file:
+#
+# 1. create the database and grant access
+# 3. set username and password and possibly host settings in
+#    the environment config.
+
+# Common settings
+# ===============
+# SQLite3
+sqlite: &sqlite
+  adapter: sqlite3
+  pool:    5
+  timeout: 5000
+
+# MySQL
+mysql: &mysql
+  adapter:  mysql2
+  encoding: utf8
+
+# Environments
+# ============
+<%= rails_env %>:
+  <<: *mysql
+  host:     <%= db_host %>
+  database: <%= db_database %>
+  username: <%= db_username %>
+  password: <%= db_password %>

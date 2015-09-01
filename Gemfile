@@ -33,6 +33,9 @@ group :development do
   gem 'rdoc'
 
   gem 'quiet_assets'
+
+  # Deployment
+  gem 'capones_recipes'
 end
 
 group :test, :development do
