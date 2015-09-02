@@ -5,5 +5,6 @@
     %span.caret
   %ul.dropdown-menu
     %li= link_to_by_year controller.by_date_all
+    %li.divider
     - current_tenant.fiscal_years.reverse.each do |period|
       %li= link_to_by_year period
