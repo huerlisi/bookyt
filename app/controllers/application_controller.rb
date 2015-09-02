@@ -37,9 +37,14 @@ class ApplicationController < ActionController::Base
 
     return if params[:years]
 
-    by_date = params[:by_date].presence || by_date_all
+    # Use all if no session yet
+    session[:by_date] ||= by_date_all
 
-    session[:by_date] = by_date
+    # Get by_date override
+    by_date = params[:by_date].presence
+    session[:by_date] = by_date if by_date
+
+    # Ensure we always have by_date
     params[:by_date] = session[:by_date]
   end
 
