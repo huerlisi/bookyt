@@ -46,4 +46,40 @@ EOF
 
     return output.html_safe
   end
+
+  def try_parse_date(date)
+    begin
+      date.is_a?(Date) ? date : Date.parse(date)
+    rescue
+    end
+  end
+
+  def link_to_by_year(period)
+    from = try_parse_date(period[:from])
+    to = try_parse_date(period[:to])
+
+    title = by_year_to_s(from.year, to.year)
+
+    link_to title, url_for(by_date: {from: from.to_s(:db), to: to.to_s(:db)})
+  end
+
+  # Date helper
+  def get_by_year
+    # Guard
+    return unless by_date = session[:by_date].presence
+
+    #raise by_date[:from].inspect
+    from = Date.parse(by_date[:from])
+    to = Date.parse(by_date[:to])
+
+    by_year_to_s(from.year, to.year)
+  end
+
+  def by_year_to_s(from, to)
+    if from == to
+      to
+    else
+      "#{from} - #{to}"
+    end
+  end
 end

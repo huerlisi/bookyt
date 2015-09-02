@@ -1,10 +1,16 @@
 class TenantsController < AuthorizedController
   # Actions
   def profit_sheet
-    @company = current_tenant.company
+    prepare_sheet
+  end
 
-    # use current date if not specified otherwise
-    params[:profit] ||= {}
+  def balance_sheet
+    prepare_sheet
+  end
+
+  private
+  def prepare_sheet
+    @company = current_tenant.company
 
     # use current date if not specified otherwise
     if params[:by_date]
@@ -18,19 +24,6 @@ class TenantsController < AuthorizedController
       @end_date = Date.today
       @start_date = @end_date.to_time.advance(:years => -1, :days => 1).to_date
       @dates = [@start_date..@end_date]
-    end
-  end
-
-  def balance_sheet
-    @company = current_tenant.company
-
-    # use current date if not specified otherwise
-    if params[:by_date]
-      @dates = [Date.parse(params[:by_date][:to])]
-    elsif params[:years]
-      @dates = params[:years].map{|year| current_tenant.fiscal_period(year.to_i)[:to]}
-    else
-      @dates = [Date.today]
     end
   end
 end

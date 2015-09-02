@@ -2,8 +2,9 @@
   %tr
     %th{:colspan => "2"}
       %h3= t(group, :scope => 'bookyt')
-    -for @date in @dates
+    -for date in @dates
+      - date_range = action_name == 'balance_sheet' ? date.last : date
       %th.right
-        %h3= currency_fmt(Account.by_type(group).saldo(@date))
+        %h3= currency_fmt(Account.by_type(group).saldo(date_range))
 %tbody
   = render :partial => 'account', :collection => Account.by_type(group)
