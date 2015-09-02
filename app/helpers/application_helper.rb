@@ -68,11 +68,13 @@ EOF
     # Guard
     return unless by_date = session[:by_date].presence
 
-    #raise by_date[:from].inspect
-    from = Date.parse(by_date[:from])
-    to = Date.parse(by_date[:to])
+    begin
+      from = Date.parse(by_date[:from])
+      to = Date.parse(by_date[:to])
 
-    by_year_to_s(from.year, to.year)
+      by_year_to_s(from.year, to.year)
+    rescue
+    end
   end
 
   def by_year_to_s(from, to)
