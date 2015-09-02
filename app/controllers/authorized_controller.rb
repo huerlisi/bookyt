@@ -37,6 +37,6 @@ class AuthorizedController < InheritedResources::Base
   # Resource setup
   protected
     def collection
-      instance_eval("@#{controller_name.pluralize} ||= end_of_association_chain.accessible_by(current_ability, :list).paginate(:page => params[:page], :per_page => params[:per_page])")
+      instance_eval("@#{controller_name.pluralize} ||= end_of_association_chain.accessible_by(current_ability, :list).paginate(:page => params[:page], :per_page => params[:per_page] || 1000)")
     end
 end
