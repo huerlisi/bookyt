@@ -42,10 +42,10 @@ class ApplicationController < ActionController::Base
 
     # Get by_date override
     by_date = params[:by_date].presence
-    session[:by_date] = by_date if by_date
+    session[:by_date] = by_date if by_date && params[:set_by_date]
 
     # Ensure we always have by_date
-    params[:by_date] = session[:by_date]
+    params[:by_date] ||= session[:by_date]
   end
 
   def get_by_date

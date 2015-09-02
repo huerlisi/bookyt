@@ -60,7 +60,7 @@ EOF
 
     title = by_year_to_s(from.year, to.year)
 
-    link_to title, url_for(by_date: {from: from.to_s(:db), to: to.to_s(:db)})
+    link_to title, url_for(by_date: {from: from.to_s(:db), to: to.to_s(:db)}, set_by_date: true)
   end
 
   # Date helper
