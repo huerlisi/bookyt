@@ -81,7 +81,7 @@ EOF
     if from == to
       to
     else
-      "#{from} - #{to}"
+      "#{from}-#{to}"
     end
   end
 end
