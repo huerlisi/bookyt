@@ -30,9 +30,10 @@
               = text_field_tag "query", params[:query], :placeholder => t('placeholder.search'), :class => "search-query"
           .brand(style="margin-left: 1em")
             = current_tenant.to_s if user_signed_in?
-          - if user_signed_in?
-            = render 'fiscal_year_filter'
-          %div= render 'users/user_bar'
+          %ul.nav.pull-right
+            - if user_signed_in?
+              %li= render 'fiscal_year_filter'
+              %li= render 'users/user_bar'
 
     #content.container-fluid
       - if notice
