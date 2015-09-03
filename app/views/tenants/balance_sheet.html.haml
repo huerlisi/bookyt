@@ -9,15 +9,16 @@
   %thead
     %tr
       %th{:colspan => "2"}
-      -for @date in @dates
+      -for date in @dates
         %th.right
-          %h2= @date.year
+          %h2= date.last.year
     %tr
       %th{:colspan => "2"}
         %h2= t('bookyt.assets')
-      -for @date in @dates
+      -for date in @dates
+        - date_range = action_name == 'balance_sheet' ? date.last : date
         %th.right
-          %h2= currency_fmt(Account.by_type('current_assets').saldo(@date) + Account.by_type('capital_assets').saldo(@date))
+          %h2= currency_fmt(Account.by_type('current_assets').saldo(date_range) + Account.by_type('capital_assets').saldo(date_range))
 
   = render 'account_group_sheet', :group => 'current_assets'
   = render 'account_group_sheet', :group => 'capital_assets'
@@ -25,9 +26,10 @@
     %tr
       %th{:colspan => "2"}
         %h2= t('bookyt.capital')
-      -for @date in @dates
+      -for date in @dates
+        - date_range = action_name == 'balance_sheet' ? date.last : date
         %th.right
-          %h2= currency_fmt(Account.by_type('outside_capital').saldo(@date) + Account.by_type('equity_capital').saldo(@date))
+          %h2= currency_fmt(Account.by_type('outside_capital').saldo(date_range) + Account.by_type('equity_capital').saldo(date_range))
 
   %tbody
     = render 'account_group_sheet', :group => 'outside_capital'
@@ -38,8 +40,9 @@
       %th{:colspan => "2"}
         %h3= t('bookyt.difference')
 
-      - for @date in @dates
+      - for date in @dates
+        - date_range = action_name == 'balance_sheet' ? date.last : date
         %th{:style => "text-align: right"}
-          %h3= currency_fmt(Account.by_type('current_assets').saldo(@date) + Account.by_type('capital_assets').saldo(@date) - Account.by_type('outside_capital').saldo(@date) - Account.by_type('equity_capital').saldo(@date))
+          %h3= currency_fmt(Account.by_type('current_assets').saldo(date_range) + Account.by_type('capital_assets').saldo(date_range) - Account.by_type('outside_capital').saldo(date_range) - Account.by_type('equity_capital').saldo(date_range))
 
 = render 'filters/by_fiscal_year'

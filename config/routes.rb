@@ -163,17 +163,6 @@ Bookyt::Application.routes.draw do
   get "expenses/new_vat" => "expenses#new_vat", :as => :new_vat_expense
   post "expenses" => "expenses#create", :as => :create_expense
 
-  # Bookings
-  resources :bookings do
-    collection do
-      post :select
-      get :simple_edit
-    end
-    member do
-      get :select_booking
-      get :copy
-    end
-  end
   resources :bookings_batch_edit, :only => [:index, :update]
 
   resources :direct_bookings
