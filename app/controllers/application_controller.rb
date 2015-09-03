@@ -48,10 +48,6 @@ class ApplicationController < ActionController::Base
     params[:by_date] ||= session[:by_date]
   end
 
-  def get_by_date
-    Date.parse(session[:by_date][:to])
-  end
-
   def by_date_all
     {
       from: current_tenant.fiscal_years.first[:from].to_s(:db),
