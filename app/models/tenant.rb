@@ -39,7 +39,9 @@ class Tenant < ActiveRecord::Base
   attr_accessible :incorporated_on
 
   def fiscal_period(year)
-    final_day_of_fiscal_year = Date.new(year, fiscal_year_ends_on.month, fiscal_year_ends_on.day)
+    month = fiscal_year_ends_on.try(:month) || 12
+    day = fiscal_year_ends_on.try(:day) || 31
+    final_day_of_fiscal_year = Date.new(year, month, day)
     first_day_of_fiscal_year = final_day_of_fiscal_year.ago(1.year).in(1.day)
 
     return :from => first_day_of_fiscal_year.to_date, :to => final_day_of_fiscal_year.to_date
@@ -50,10 +52,16 @@ class Tenant < ActiveRecord::Base
   # Returns empty array if fiscal_year_ends_on is not set.
   def fiscal_years
     # Guard
-    return [] unless fiscal_year_ends_on
-
-    first_year = fiscal_year_ends_on.year
-    final_year = Date.today.year + 1
+    if fiscal_year_ends_on.blank?
+      if Booking.count == 0
+        first_year = Date.today.year
+      else
+        first_year = Booking.order(:value_date).first.value_date.year
+      end
+    else
+      first_year = fiscal_year_ends_on.year
+    end
+      final_year = Date.today.year + 1
 
     (first_year..final_year).map{|year|
       fiscal_period(year)
