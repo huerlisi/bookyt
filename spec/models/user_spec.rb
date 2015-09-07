@@ -10,7 +10,7 @@ describe User do
   describe "when new" do
     specify { is_expected.not_to be_valid }
     its(:to_s) { should == "" }
-    its(:current_company) { should be_nil }
+    its(:person) { should be_present }
   end
 
   describe "as admin" do

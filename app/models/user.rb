@@ -39,11 +39,6 @@ class User < ActiveRecord::Base
     super || build_person
   end
 
-  # Shortcuts
-  def current_company
-    person.try(:employers).try(:first)
-  end
-
   # Locale
   attr_accessible :locale
 
