@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :person
   attr_accessible :person, :person_id, :person_attributes
 
+  def person
+    super || build_person
+  end
+
   # Shortcuts
   def current_company
     person.try(:employers).try(:first)
