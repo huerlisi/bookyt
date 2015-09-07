@@ -1,6 +1,6 @@
 # Settings
 # ========
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 # Rails
 # =====
