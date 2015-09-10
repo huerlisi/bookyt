@@ -10,8 +10,6 @@ class TenantsController < AuthorizedController
 
   private
   def prepare_sheet
-    @company = current_tenant.company
-
     # use current date if not specified otherwise
     if params[:by_date]
       # TODO: check on :to and :from to not be nil

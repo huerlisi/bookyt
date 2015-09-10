@@ -35,9 +35,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :person
   attr_accessible :person, :person_id, :person_attributes
 
-  # Shortcuts
-  def current_company
-    person.try(:employers).try(:first)
+  def person
+    super || build_person
   end
 
   # Locale
