@@ -5,7 +5,7 @@ GIT
     mt940_parser (1.1.0)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     Ascii85 (1.0.2)
     aasm (3.4.0)
