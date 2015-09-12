@@ -145,7 +145,7 @@ gem 'csv-mapper'
 gem 'mt940_parser', :git => 'http://github.com/CyTeam/mt940_parser.git', :require => 'mt940'
 
 # ESR support
-gem 'aasm', '~> 3.0' # API incompatible
+gem 'aasm'
 gem 'vesr'
 
 # Search
