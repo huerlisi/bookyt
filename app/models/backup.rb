@@ -7,6 +7,8 @@
 class Backup < Attachment
   alias tenant reference
 
+  require "zip"
+
   # Dump data to file
   #
   # We use YAML to dump data to a file.

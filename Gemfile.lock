@@ -496,6 +496,7 @@ DEPENDENCIES
   rspec-activemodel-mocks
   rspec-its
   rspec-rails
+  rubyzip
   sass-rails
   select2-rails
   selenium-webdriver
