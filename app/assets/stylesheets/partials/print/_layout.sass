@@ -1,26 +1,32 @@
 // Media print specific styles ****
 
+body
+  padding-top: 0
+  font-size: 10pt
+  line-height: 1.2
+
+.page-header
+  margin: 0
+  padding: 0
+
+h1
+  font-size: 14pt
+
+
 // Navigation elements
 .navbar,
 #sidebar,
 .pagination,
 .search-form,
-#footer
+#footer,
+.form-actions
   display: none
 
 // Sidebar fix
-.row-fluid
-  width: 150%
-.row-fluid .row-fluid
+#content > .row-fluid > .span10
   width: 100%
-
-.tab-content
-  table
-    width: 60%
-
-// Content
-.container-fluid .content
-  margin-right: 20px
+  padding: 0
+  margin: 0
 
 // Alerts
 .alert
@@ -45,8 +51,7 @@ ul.nav.nav-tabs li
   a
     border:      none
     outline:     none
-    font-size:   24px
-    line-height: 36px
+    font-size:   12pt
     color:       #333
     font-weight: bold
     margin:      0
@@ -64,3 +69,31 @@ select
 
 .ui-widget-content
   border: none
+
+form
+  .container-fluid
+    padding-left: 0
+    padding-right: 0
+
+.form-horizontal
+  .control-group
+    margin-bottom: 0
+
+    label
+      width: auto
+      margin-bottom: 0
+
+    .controls
+      margin-left: 0
+      input
+        border-style: none
+        border-bottom-style: solid
+        border-radius: 0
+        box-shadow: none
+        -webkit-box-shadow: none
+        outline-style: none
+        padding: 0
+
+tbody tr.selected td, .table-striped tbody tr.selected td
+  background-color: #f9f9f9
+  border-color: #ddd
