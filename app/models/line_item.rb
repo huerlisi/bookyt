@@ -12,7 +12,7 @@ class LineItem < ActiveRecord::Base
 
   # Validations
   validates :invoice, :presence => true
-  validates :times, :presence => true, :numericality => true
+  validates :times, :presence => true, :numericality => true, :unless => :is_a_saldo_line_item?
   validates :price, :presence => true, :numericality => true
   validates :title, :presence => true
 
@@ -130,8 +130,10 @@ class LineItem < ActiveRecord::Base
   # Booking templates
   belongs_to :booking_template
 
-  before_save :set_type
-private
+  before_validation :set_type
+
+  private
+
   def set_type
     if self.quantity == 'saldo_of'
       self.type = "SaldoLineItem"
@@ -139,4 +141,9 @@ private
       self.type = "LineItem"
     end
   end
+
+  def is_a_saldo_line_item?
+    self.type == "SaldoLineItem"
+  end
+
 end
