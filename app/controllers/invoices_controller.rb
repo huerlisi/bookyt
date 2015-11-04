@@ -20,7 +20,9 @@ class InvoicesController < AuthorizedController
 
     case params[:klass]
     when 'SaldoLineItem'
-      @line_item = SaldoLineItem.new
+      @line_item = SaldoLineItem.new(
+        :title => t('saldo_line_item', :scope => 'activerecord.models')
+      )
     else
       @line_item = LineItem.new(
         :times          => 1,

@@ -225,6 +225,7 @@ en:
       expense: Expense
       invoice: Invoice
       line_item: "Line Item"
+      saldo_line_item: "Subtotal"
       note: Note
       overview: Overview
       person: Person
