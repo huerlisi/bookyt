@@ -185,6 +185,7 @@ de:
       expense: Ausgabe
       invoice: Rechnung
       line_item: Position
+      saldo_line_item: Zwischentotal
       booking_import_attachment: Bankdaten
       mt940_import: MT940 Bankdaten
       note: Notizen
