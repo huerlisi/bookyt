@@ -1,7 +1,8 @@
 // Combobox
 function addComboboxBehaviour() {
   $("select.combobox").select2({
-    allowClear: true
+    allowClear: true,
+    width: 'resolve'
   });
 }
 
