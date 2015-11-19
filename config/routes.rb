@@ -245,4 +245,6 @@ Bookyt::Application.routes.draw do
       post :write_off, :book_extra_earning, :resolve
     end
   end
+
+  mount Bookyt::API => '/api'
 end
