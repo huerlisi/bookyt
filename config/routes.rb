@@ -29,15 +29,6 @@ Bookyt::Application.routes.draw do
 
   resources :users
 
-  # API
-  namespace :api, :defaults => { :format => :json } do
-    api_version :module => 'V1', :path => {:value => 'v1'} do
-      resources :accounts
-    end
-  end
-
-  mount ApiTaster::Engine => "/api_taster"
-
   # Search
   get "search" => "search#search"
 
@@ -253,36 +244,5 @@ Bookyt::Application.routes.draw do
     member do
       post :write_off, :book_extra_earning, :resolve
     end
-  end
-end
-
-
-ApiTaster.routes do
-  desc 'Get list of accounts'
-  get '/api/v1/accounts'
-
-  desc 'Get account details'
-  get '/api/v1/accounts/:id', {
-    :id => Account.first.id
-  }
-
-  desc 'Create account'
-  post '/api/v1/accounts', {
-    :account => {
-      :title => 'Account A',
-      :code  => '2000',
-      :account_type_id => AccountType.first.id
-    }
-  }
-end
-
-ApiTaster::ApplicationController.class_eval do
-  # Authentication
-  before_filter :authenticate_user!
-  before_filter do
-    return unless current_user
-    ApiTaster.global_params = {
-      :auth_token => current_user.authentication_token
-    }
   end
 end
