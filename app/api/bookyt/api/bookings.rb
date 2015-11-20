@@ -35,6 +35,20 @@ module Bookyt
             error!({ error: error.to_s }, 422)
           end
         end
+
+        route_param :id do
+          desc 'Fetch a booking'
+          get do
+            booking = Booking.find(params[:id])
+            present booking, with: Bookyt::Entities::Booking
+          end
+
+          desc 'Delete a booking'
+          delete do
+            Booking.find(params[:id]).destroy
+            status 204
+          end
+        end
       end
     end
   end

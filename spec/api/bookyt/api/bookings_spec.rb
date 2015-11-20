@@ -73,4 +73,38 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
       end
     end
   end
+
+  describe 'GET /api/bookings/:id' do
+    let(:params) { {} }
+    let!(:booking) { FactoryGirl.create(:account_booking) }
+
+    context 'accounts present' do
+      it 'returns the booking' do
+        get "/api/bookings/#{booking.id}", params, headers
+        expect(JSON.parse(response.body)).to be_instance_of(Hash)
+        expect(response.status).to eq(200)
+      end
+
+      it 'uses Bookyt::Entities::Booking to display the Booking' do
+        expect(Bookyt::Entities::Booking).to receive(:represent)
+        get "/api/bookings/#{booking.id}", params, headers
+      end
+    end
+  end
+
+  describe 'DELETE /api/bookings/:id' do
+    let(:params) { {} }
+    let!(:booking) { FactoryGirl.create(:account_booking) }
+
+    it 'removes the booking' do
+      delete "/api/bookings/#{booking.id}", params, headers
+      expect(response.body).to eq('')
+      expect(response.status).to eq(204)
+    end
+
+    it 'creates a new booking' do
+      expect { delete "/api/bookings/#{booking.id}", params, headers }.
+        to change(Booking, :count).from(1).to(0)
+    end
+  end
 end
