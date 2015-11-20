@@ -40,6 +40,15 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
       end
     end
 
+    context 'too many accounts found' do
+      it 'returns an error' do
+        expect(Account).to receive(:find_by_tag).and_raise(Account::AmbiguousTag.new('asd', 2))
+        post '/api/bookings', params, headers
+        expect(JSON.parse(response.body)).to be_instance_of(Hash)
+        expect(response.status).to eq(422)
+      end
+    end
+
     context 'an account cannot be found' do
       it 'returns an error' do
         post '/api/bookings', params, headers
