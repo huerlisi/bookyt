@@ -27,5 +27,6 @@ module Bookyt
     end
 
     mount Bookyt::API::Bookings
+    mount Bookyt::API::Customers
   end
 end
