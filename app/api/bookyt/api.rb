@@ -12,6 +12,15 @@ module Bookyt
       error!({ error: 'Unauthorized' }, 401) unless current_user
     end
 
+    before do
+      @previous_locale = I18n.locale
+      I18n.locale = :en
+    end
+
+    after do
+      I18n.locale = @previous_locale
+    end
+
     rescue_from ActiveRecord::RecordInvalid do |error|
       message = { 'error' => error.record.errors.full_messages }
       Rack::Response.new(message.to_json, 422)
