@@ -2,7 +2,7 @@ module Bookyt
   module Entities
     class Customer < Bookyt::Entities::Base
       expose :id
-      expose :full_name
+      expose :name
       expose :street
       expose :zip
       expose :city
@@ -10,7 +10,7 @@ module Bookyt
       expose :extended_address
       expose :phone_numbers, using: Bookyt::Entities::PhoneNumber
 
-      def full_name
+      def name
         object.vcard.full_name
       end
 

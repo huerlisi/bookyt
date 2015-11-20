@@ -7,7 +7,7 @@ module Bookyt
         'Handy' => 'mobile',
       }
 
-      expose :phone_number_type do |phone_number|
+      expose :type do |phone_number|
         PHONE_TYPE_MAPPING[phone_number.phone_number_type]
       end
       expose :number
