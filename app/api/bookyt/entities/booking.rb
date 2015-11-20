@@ -1,6 +1,7 @@
 module Bookyt
   module Entities
     class Booking < Bookyt::Entities::Base
+      expose :id
       expose :title
       expose :credit_account_id
       expose :debit_account_id

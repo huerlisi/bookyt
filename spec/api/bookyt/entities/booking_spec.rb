@@ -14,6 +14,7 @@ RSpec.describe Bookyt::Entities::Booking do
 
   it 'matches the api specification' do
     expect(subject).to eq(
+      'id' => booking.id,
       'title' => 'Test',
       'amount' => 13.37,
       'value_date' => '2015-11-19',
