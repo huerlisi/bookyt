@@ -6,6 +6,22 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
     { 'Auth-Token' => auth_token }
   end
 
+  describe 'GET /api/bookings' do
+    let(:params) { {} }
+    let!(:booking) { FactoryGirl.create(:account_booking) }
+
+    it 'returns the bookings' do
+      get '/api/bookings', params, headers
+      expect(JSON.parse(response.body)).to be_instance_of(Array)
+      expect(response.status).to eq(200)
+    end
+
+    it 'uses Bookyt::Entities::Booking to display the created Booking' do
+      expect(Bookyt::Entities::Booking).to receive(:represent)
+      get '/api/bookings', params, headers
+    end
+  end
+
   describe 'POST /api/bookings' do
     let(:params) do
       {

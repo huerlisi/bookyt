@@ -2,6 +2,12 @@ module Bookyt
   class API
     class Bookings < Grape::API
       resource :bookings do
+        desc 'Fetch all the bookings'
+        get do
+          bookings = Booking.all
+          present bookings, with: Bookyt::Entities::Booking
+        end
+
         desc 'Create a new booking'
         params do
           requires :title, type: String, desc: 'Title of the booking'
