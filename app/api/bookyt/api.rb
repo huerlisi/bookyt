@@ -6,6 +6,10 @@ module Bookyt
       def current_user
         User.find_by_authentication_token(env['Auth-Token'] || headers['Auth-Token'])
       end
+
+      def current_tenant
+        current_user.tenant
+      end
     end
 
     before do
@@ -28,5 +32,6 @@ module Bookyt
 
     mount Bookyt::API::Bookings
     mount Bookyt::API::Customers
+    mount Bookyt::API::DebitInvoices
   end
 end

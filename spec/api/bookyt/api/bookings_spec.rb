@@ -16,7 +16,7 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
       expect(response.status).to eq(200)
     end
 
-    it 'uses Bookyt::Entities::Booking to display the created Booking' do
+    it 'uses Bookyt::Entities::Booking to display the Booking' do
       expect(Bookyt::Entities::Booking).to receive(:represent)
       get '/api/bookings', params, headers
     end
