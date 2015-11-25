@@ -111,7 +111,7 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
         FactoryGirl.create(:account, tag_list: 'incoming:test:debit')
       end
 
-      it 'returns the created booking' do
+      it 'returns the booking' do
         put "/api/bookings/#{booking.id}", params, headers
         expect(JSON.parse(response.body)).to be_instance_of(Hash)
         expect(response.status).to eq(200)
@@ -121,7 +121,7 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
         expect { put "/api/bookings/#{booking.id}", params, headers }.to change { booking.reload.amount }
       end
 
-      it 'uses Bookyt::Entities::Booking to display the created Booking' do
+      it 'uses Bookyt::Entities::Booking to display the Booking' do
         expect(Bookyt::Entities::Booking).to receive(:represent)
         put "/api/bookings/#{booking.id}", params, headers
       end
