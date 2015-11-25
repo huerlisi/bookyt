@@ -98,10 +98,8 @@ gem 'lyb_devise_admin'
 gem 'apartment'
 
 # API
-gem 'versionist'
-gem 'active_model_serializers'
-
-gem 'api_taster'
+gem 'grape'
+gem 'grape-entity'
 
 # Data dump/restore
 gem 'yaml_db'
