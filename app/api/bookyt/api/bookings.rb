@@ -11,7 +11,7 @@ module Bookyt
         desc 'Create a new booking'
         params do
           requires :title, type: String, desc: 'Title of the booking'
-          requires :amount, type: Float, desc: 'Amount to be booked'
+          requires :amount, type: BigDecimal, desc: 'Amount to be booked'
           requires :value_date, type: Date, desc: 'Date of the booking'
           requires :credit_account_tag, type: String, desc: 'Tag of the credit account'
           requires :debit_account_tag, type: String, desc: 'Tag of the debit account'

@@ -43,7 +43,7 @@ module Bookyt
             requires :title, type: String, desc: 'Title/Description of the line item'
             requires :times, type: Integer, default: 1, desc: 'Price multiplier'
             requires :quantity, type: String, default: 'x', values: %w(x hours overall %), desc: 'Quantity'
-            requires :price, type: Float, desc: 'Price of the line item, without modifiers applied'
+            requires :price, type: BigDecimal, desc: 'Price of the line item, without modifiers applied'
             requires :credit_account_tag, type: String, desc: 'Tag of the credit account'
             requires :debit_account_tag, type: String, desc: 'Tag of the debit account'
 
@@ -79,7 +79,7 @@ module Bookyt
               requires :title, type: String, desc: 'Title/Description of the line item'
               requires :times, type: Integer, default: 1, desc: 'Price multiplier'
               requires :quantity, type: String, default: 'x', values: %w(x hours overall %), desc: 'Quantity'
-              requires :price, type: Float, desc: 'Price of the line item, without modifiers applied'
+              requires :price, type: BigDecimal, desc: 'Price of the line item, without modifiers applied'
               requires :credit_account_tag, type: String, desc: 'Tag of the credit account'
               requires :debit_account_tag, type: String, desc: 'Tag of the debit account'
 
