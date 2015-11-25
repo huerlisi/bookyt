@@ -10,7 +10,7 @@ module Bookyt
         expose :date
       end
 
-      with_options(format_with: :float) do
+      with_options(format_with: :string) do
         expose :price
         expose :total_amount
         expose :times

@@ -16,7 +16,7 @@ RSpec.describe Bookyt::Entities::Booking do
     expect(subject).to eq(
       'id' => booking.id,
       'title' => 'Test',
-      'amount' => 13.37,
+      'amount' => '13.37',
       'value_date' => '2015-11-19',
       'comments' => 'Comment',
       'credit_account_id' => booking.credit_account_id,

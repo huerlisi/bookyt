@@ -11,7 +11,7 @@ module Bookyt
         expose :value_date
       end
 
-      with_options(format_with: :float) do
+      with_options(format_with: :string) do
         expose :amount
       end
     end
