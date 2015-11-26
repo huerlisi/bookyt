@@ -62,6 +62,16 @@ module Bookyt
             present debit_invoice, with: Bookyt::Entities::DebitInvoice
           end
 
+          desc 'Fetch a debit_invoice as pdf'
+          get 'pdf' do
+            debit_invoice = DebitInvoice.find(params[:id])
+            pdf = DebitInvoicePDF.new(debit_invoice, current_tenant)
+            content_type Mime::Type.lookup_by_extension('pdf').to_s
+            env['api.format'] = :binary
+            header 'Content-Disposition', "attachment; filename=#{URI.escape(pdf.filename)}"
+            pdf.call
+          end
+
           desc 'Update a debit_invoice'
           params do
             requires :title, type: String, desc: 'Title of the invoice'
