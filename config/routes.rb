@@ -34,7 +34,6 @@ Bookyt::Application.routes.draw do
 
   # Accounting
   resources :account_types
-  resources :banks
 
   resources :tenants, only: [:show, :update] do
     member do
