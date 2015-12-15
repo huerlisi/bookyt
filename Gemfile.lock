@@ -203,7 +203,7 @@ GEM
     highline (1.7.2)
     hike (1.2.3)
     i18n (0.7.0)
-    i18n_rails_helpers (2.0.0)
+    i18n_rails_helpers (2.0.1)
       rails (> 3.0.0)
     ice_nine (0.11.1)
     inherited_resources (1.6.0)
