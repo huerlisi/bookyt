@@ -27,7 +27,7 @@ module Bookyt
 
     rescue_from ActiveRecord::RecordInvalid do |error|
       message = { 'error' => error.record.errors.full_messages }
-      Rack::Response.new(message.to_json, 422)
+      error!(message, 422)
     end
 
     mount Bookyt::API::Bookings
