@@ -60,7 +60,7 @@ GEM
     bookyt_projects (1.1.1)
       rails (~> 3.1)
       recurrence
-    bookyt_salary (0.22.0)
+    bookyt_salary (0.23.2)
       rails (~> 3.1)
       recurrence
     bookyt_stock (0.6.0)
@@ -203,7 +203,7 @@ GEM
     highline (1.7.2)
     hike (1.2.3)
     i18n (0.7.0)
-    i18n_rails_helpers (2.0.0)
+    i18n_rails_helpers (2.0.1)
       rails (> 3.0.0)
     ice_nine (0.11.1)
     inherited_resources (1.6.0)
@@ -419,7 +419,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     ttfunk (1.0.3)
-    tzinfo (0.3.45)
+    tzinfo (0.3.46)
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
