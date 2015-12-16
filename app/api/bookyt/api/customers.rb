@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 module Bookyt
   class API
     class Customers < Grape::API

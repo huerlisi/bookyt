@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 module Bookyt
   module Entities
     class PhoneNumber < Bookyt::Entities::Base

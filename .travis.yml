@@ -13,14 +13,6 @@ env:
 
 script: "bundle exec rake spec"
 
-# whitelist
-branches:
-  only:
-    - master
-    - stable
-    - staging
-    - api
-
 rvm:
   - 2.2.2
 
