@@ -419,7 +419,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     ttfunk (1.0.3)
-    tzinfo (0.3.45)
+    tzinfo (0.3.46)
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
