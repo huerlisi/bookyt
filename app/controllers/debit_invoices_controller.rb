@@ -1,6 +1,14 @@
 class DebitInvoicesController < InvoicesController
   defaults :resource_class => DebitInvoice
 
+  def letter
+    pdf = DebitInvoicePDF.new(@debit_invoice, current_tenant)
+    filename = pdf.filename
+    data = pdf.call
+    type = :pdf
+    send_data data, filename: filename, type: type
+  end
+
   # Actions
   def new
     # Allow pre-seeding some parameters

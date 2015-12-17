@@ -6,10 +6,6 @@ class InvoicesController < AuthorizedController
 
   respond_to :html, :pdf
 
-  def letter
-    show!
-  end
-
   # has_many :line_items
   def new_line_item
     if invoice_id = params[:id]

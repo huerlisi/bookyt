@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe Bookyt::API::DebitInvoices, type: :request do
-  let(:auth_token) { FactoryGirl.create(:user).authentication_token }
+  let(:user) { FactoryGirl.create(:user) }
+  let(:auth_token) { user.authentication_token }
   let(:headers) do
     { 'Auth-Token' => auth_token }
   end
@@ -81,6 +82,21 @@ RSpec.describe Bookyt::API::DebitInvoices, type: :request do
       it 'uses Bookyt::Entities::DebitInvoice to display the DebitInvoice' do
         expect(Bookyt::Entities::DebitInvoice).to receive(:represent)
         get "/api/debit_invoices/#{debit_invoice.id}", params, headers
+      end
+    end
+  end
+
+  describe 'GET /api/debit_invoices/:id/pdf' do
+    let(:params) { {} }
+    let!(:debit_invoice) { FactoryGirl.create(:debit_invoice) }
+    let!(:payment_account) { FactoryGirl.create(:bank_account, tag_list: %w(invoice:payment)) }
+
+    context 'accounts present' do
+      it 'returns the debit_invoice as pdf' do
+        get "/api/debit_invoices/#{debit_invoice.id}/pdf", params, headers
+        expect(response.content_type).to eq('application/pdf')
+        expect(response.headers['Content-Disposition']).to match(/\Aattachment; filename=.+\.pdf/)
+        expect(response.status).to eq(200)
       end
     end
   end
