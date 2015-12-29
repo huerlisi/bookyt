@@ -19,23 +19,23 @@ module Invoice::Actions
                        :value_date => Date.today)
       end
     end
-    
+
     self.state = 'reactivated'
 
     for session in sessions
       session.reactivate
     end
-    
+
     return self
   end
-  
+
   def write_off(comments = nil)
     if balance > 0
-      bookings.build(:title => "Debitorenverlust",
+      bookings.create!(:title => "Debitorenverlust",
                      :comments => comments || "Abgeschrieben",
                      :amount => balance,
-                     :credit_account => profit_account,
-                     :debit_account => balance_account,
+                     :credit_account => balance_account,
+                     :debit_account => write_off_account,
                      :value_date => Date.today)
     end
 

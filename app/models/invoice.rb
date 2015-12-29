@@ -171,6 +171,10 @@ class Invoice < ActiveRecord::Base
     self.class.profit_account
   end
 
+  def write_off_account
+    self.class.write_off_account
+  end
+
   def direct_account_factor
     # Guard
     return 1 unless direct_account
