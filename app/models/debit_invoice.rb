@@ -16,6 +16,10 @@ class DebitInvoice < Invoice
       Account.tagged_with('invoice:payment').first
   end
 
+  def self.write_off_account
+    Account.find_by_tag('invoice:write_off')
+  end
+
   def self.available_credit_accounts
     Account.by_type('current_assets')
   end
