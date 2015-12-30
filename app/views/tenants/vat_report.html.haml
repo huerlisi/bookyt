@@ -17,4 +17,4 @@
     #tab-q3.tab-pane= render :partial => 'vat_report', :locals => { :accounts => @accounts, :range => @quarters[2] }
     #tab-q4.tab-pane= render :partial => 'vat_report', :locals => { :accounts => @accounts, :range => @quarters[3] }
 
-= render :partial => 'filters/by_calendar_year', :hide_all => true
+= render :partial => 'filters/by_calendar_year', locals: { :hide_all => true }
