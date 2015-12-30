@@ -1,6 +1,8 @@
 - filter_name = :by_date
+- hide_all ||= false
 - define_filter filter_name do
   - filters = current_tenant.calendar_years.reverse.map do |period|
     - value = {"from" => period[:from].to_s(:db), "to" => period[:to].to_s(:db)}
     - {:value => value, :title => period[:to].year}
-  = boot_nav_filter(filter_name, [{:title => :all, :value => nil}] + filters)
+  - filters = hide_all ? filters : [{:title => :all, :value => nil}] + filters
+  = boot_nav_filter(filter_name, filters)

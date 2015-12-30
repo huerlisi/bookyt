@@ -1,0 +1,10 @@
+%table.table.table-striped
+  %tbody
+    - accounts.each do |account|
+      %tr
+        %td= account.title
+        %td= currency_fmt account.saldo(range)
+  %tfoot
+    %tr
+      %th= t('bookyt.total')
+      %th= currency_fmt accounts.inject(&:+).saldo(range)

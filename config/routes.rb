@@ -37,7 +37,7 @@ Bookyt::Application.routes.draw do
 
   resources :tenants, only: [:show, :update] do
     member do
-      get :balance_sheet, :profit_sheet
+      get :balance_sheet, :profit_sheet, :vat_report
     end
     resources :attachments
     resources :backups do

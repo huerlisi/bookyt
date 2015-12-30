@@ -283,6 +283,12 @@ en:
     invoices:
       invoicing_party: "invoicing party"
       payment_no: "payment no. %{payment_no}"
+    vat_report:
+      title: "VAT Accounting %{year}"
+      q1: Quarter 1
+      q2: Quarter 2
+      q3: Quarter 3
+      q4: Quarter 4
     main_navigation:
       account_types: "account types"
       accounting: Accounting
@@ -410,6 +416,7 @@ en:
       select_booking_template: "new %{model}"
       statistics: statistics
       write_downs: "write downs"
+      vat_report: VAT accounting
   customers:
     index:
       title: Customers

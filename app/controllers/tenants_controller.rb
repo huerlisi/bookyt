@@ -8,6 +8,21 @@ class TenantsController < AuthorizedController
     prepare_sheet
   end
 
+  def vat_report
+    @accounts = Account.tagged_with('vat')
+    if from = params.fetch(:by_date, {}).fetch(:from, nil)
+      @year = Date.parse(from).year
+    else
+      @year = Date.today.year
+    end
+    @quarters = [
+      Date.new(@year, 1)..Date.new(@year, 3, -1),
+      Date.new(@year, 4)..Date.new(@year, 6, -1),
+      Date.new(@year, 7)..Date.new(@year, 9, -1),
+      Date.new(@year, 10)..Date.new(@year, 12, -1)
+    ]
+  end
+
   private
   def prepare_sheet
     # use current date if not specified otherwise
