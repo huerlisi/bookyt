@@ -468,6 +468,8 @@ nl:
       title: Benutzer
     vesr:
       title: VESR
+    vat_report:
+      no_vat_accounts_found: Es kann keine MwSt. Abrechnung angezeigt werden da keine Konten mit dem "vat" Tag gefunden wurden.
   title:
     attachments: Anhänge
     bookings: Buchungen

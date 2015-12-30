@@ -1,4 +1,8 @@
 %table.table.table-striped
+  %thead
+    %tr
+      %th= Account.human_attribute_name :title
+      %th= Account.human_attribute_name :saldo
   %tbody
     - accounts.each do |account|
       %tr
@@ -7,4 +11,4 @@
   %tfoot
     %tr
       %th= t('bookyt.total')
-      %th= currency_fmt accounts.inject(&:+).saldo(range)
+      %th= currency_fmt accounts.inject(0) { |sum, account| sum + account.saldo(range) }

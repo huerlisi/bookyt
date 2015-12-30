@@ -630,6 +630,8 @@ en:
       title: User
     vesr:
       title: VESR
+    vat_report:
+      no_vat_accounts_found: Unable to show the VAT Accounting as there are no accounts with the "vat" tag.
   time:
     formats:
       default: "%A, %d. %B %Y, %H:%M"

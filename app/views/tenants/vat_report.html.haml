@@ -1,7 +1,7 @@
 %h2= t 'bookyt.vat_report.title', :year => @year
 
 - unless @accounts.any?
-  %p Sorry, keine MwSt. Konten gefunden
+  %p= t '.no_vat_accounts_found'
 
 - else
   .tabbable
