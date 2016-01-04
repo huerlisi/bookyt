@@ -1,0 +1,20 @@
+%h2= t 'bookyt.vat_report.title', :year => @year
+
+- unless @accounts.any?
+  %p= t '.no_vat_accounts_found'
+
+- else
+  .tabbable
+    %ul.nav.nav-tabs
+      %li.active= link_to t('bookyt.vat_report.q1'), '#tab-q1', {:data => {:toggle => 'tab'}}
+      %li= link_to t('bookyt.vat_report.q2'), '#tab-q2', {:data => {:toggle => 'tab'}}
+      %li= link_to t('bookyt.vat_report.q3'), '#tab-q3', {:data => {:toggle => 'tab'}}
+      %li= link_to t('bookyt.vat_report.q4'), '#tab-q4', {:data => {:toggle => 'tab'}}
+
+  .tab-content
+    #tab-q1.tab-pane.active= render :partial => 'vat_report', :locals => { :accounts => @accounts, :range => @quarters[0] }
+    #tab-q2.tab-pane= render :partial => 'vat_report', :locals => { :accounts => @accounts, :range => @quarters[1] }
+    #tab-q3.tab-pane= render :partial => 'vat_report', :locals => { :accounts => @accounts, :range => @quarters[2] }
+    #tab-q4.tab-pane= render :partial => 'vat_report', :locals => { :accounts => @accounts, :range => @quarters[3] }
+
+= render :partial => 'filters/by_calendar_year', locals: { :hide_all => true }

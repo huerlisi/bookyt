@@ -140,3 +140,20 @@ tr.booking {
     text-align: right;
   }
 }
+
+// VAT report
+.vat-report {
+  table-layout: fixed;
+
+  td:first-child,
+  th:first-child,
+  td:last-child,
+  th:last-child {
+    width: 50%;
+  }
+
+  td:last-child,
+  th:last-child {
+    text-align: right;
+  }
+}
