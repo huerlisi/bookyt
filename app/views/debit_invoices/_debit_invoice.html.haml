@@ -11,3 +11,4 @@
   %td.action-links
     = list_link_for(:edit, debit_invoice)
     = list_link_for(:copy, debit_invoice)
+    = list_link_to(:print, letter_debit_invoice_path(debit_invoice, :format => :pdf))
