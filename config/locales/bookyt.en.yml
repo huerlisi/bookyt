@@ -151,6 +151,7 @@ en:
         type: type
         clearing: Clearing Number
         bank_account: Bank Account
+        direct_debit_enabled: Enable debit direct for invoices
       phone_number:
         website: Website
       salary:

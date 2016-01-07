@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160107150443) do
+ActiveRecord::Schema.define(:version => 20160107151516) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -369,8 +369,8 @@ ActiveRecord::Schema.define(:version => 20160107150443) do
   add_index "line_items", ["type"], :name => "index_line_items_on_type"
 
   create_table "people", :force => true do |t|
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.string   "type"
     t.date     "date_of_birth"
     t.date     "date_of_death"
@@ -379,11 +379,12 @@ ActiveRecord::Schema.define(:version => 20160107150443) do
     t.string   "social_security_nr_12"
     t.integer  "civil_status_id"
     t.integer  "religion_id"
-    t.boolean  "delta",                 :default => true, :null => false
+    t.boolean  "delta",                 :default => true,  :null => false
     t.string   "nationality"
     t.string   "swift"
     t.string   "clearing"
     t.string   "bank_account"
+    t.boolean  "direct_debit_enabled",  :default => false
   end
 
   add_index "people", ["civil_status_id"], :name => "index_people_on_civil_status_id"

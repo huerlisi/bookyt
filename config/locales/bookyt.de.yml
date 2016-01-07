@@ -126,6 +126,7 @@ de:
         type: Typ
         clearing: Clearing Nummer
         bank_account: Bank Konto
+        direct_debit_enabled: Rechnungen via LSV stellen
       salary:
         amount: Bruttolohn
         bvg_amount: BVG

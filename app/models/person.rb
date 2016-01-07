@@ -3,6 +3,8 @@ class Person < ActiveRecord::Base
   validates_date :date_of_birth, :date_of_death, :allow_nil => true, :allow_blank => true
   validates_presence_of :vcard
 
+  validates_presence_of :clearing, :bank_account, if: :direct_debit_enabled?
+
   # sex enumeration
   MALE   = 1
   FEMALE = 2
