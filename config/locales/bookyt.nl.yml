@@ -115,6 +115,8 @@ nl:
         sex: Geschlecht
         street_address: Strasse
         type: Typ
+        clearing: Clearing Nummer
+        bank_account: Bank Konto
       salary:
         amount: Bruttolohn
         bvg_amount: BVG

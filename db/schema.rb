@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150309165055) do
+ActiveRecord::Schema.define(:version => 20160107150443) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -383,6 +383,7 @@ ActiveRecord::Schema.define(:version => 20150309165055) do
     t.string   "nationality"
     t.string   "swift"
     t.string   "clearing"
+    t.string   "bank_account"
   end
 
   add_index "people", ["civil_status_id"], :name => "index_people_on_civil_status_id"

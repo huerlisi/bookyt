@@ -149,6 +149,8 @@ en:
         religion: Religion
         sex: Sex
         type: type
+        clearing: Clearing Number
+        bank_account: Bank Account
       phone_number:
         website: Website
       salary:
