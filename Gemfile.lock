@@ -8,7 +8,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     Ascii85 (1.0.2)
-    aasm (4.3.0)
+    aasm (4.5.2)
     actionmailer (3.2.22)
       actionpack (= 3.2.22)
       mail (~> 2.5.4)
@@ -429,7 +429,7 @@ GEM
       raindrops (~> 0.7)
     validates_timeliness (3.0.14)
       timeliness (~> 0.3.6)
-    vesr (1.0.0)
+    vesr (1.0.1)
       aasm (~> 4.1)
     virtus (1.0.5)
       axiom-types (~> 0.1)
