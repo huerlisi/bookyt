@@ -178,7 +178,7 @@ GEM
     has_accounts (3.0.0.beta3)
       rails (~> 3.1)
       validates_timeliness
-    has_accounts_engine (3.0.0.beta13)
+    has_accounts_engine (3.0.0.beta14)
       acts-as-taggable-on
       anjlab-bootstrap-rails (~> 2.1.0)
       has_accounts (~> 3.0.0.beta0)
@@ -481,7 +481,7 @@ DEPENDENCIES
   grape-entity
   haml-rails
   has_accounts
-  has_accounts_engine (= 3.0.0.beta13)
+  has_accounts_engine
   has_scope
   has_vcards
   i18n_rails_helpers
