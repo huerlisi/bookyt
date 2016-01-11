@@ -93,12 +93,22 @@ RSpec.describe Bookyt::API::Customers, type: :request do
 
     it 'updates the customer' do
       expect { put "/api/customers/#{customer.id}", params, headers }.
-        to change { customer.reload.vcard }
+        to change { customer.vcard.reload.full_name }
     end
 
     it 'uses Bookyt::Entities::Customer to display the updated Customer' do
       expect(Bookyt::Entities::Customer).to receive(:represent)
       put "/api/customers/#{customer.id}", params, headers
+    end
+
+    it 'does not create a new VCard' do
+      expect { put "/api/customers/#{customer.id}", params, headers }.
+        to_not change { customer.reload.vcard.id }
+    end
+
+    it 'does create a new PhoneNumber' do
+      expect { put "/api/customers/#{customer.id}", params, headers }.
+        to change { HasVcards::PhoneNumber.count }.from(0).to(1)
     end
   end
 
