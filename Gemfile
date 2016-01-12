@@ -106,7 +106,7 @@ gem 'yaml_db'
 gem 'rubyzip'
 
 # Date/Time handling
-gem 'validates_timeliness'
+gem 'validates_timeliness', '~> 3.0.14'
 
 gem 'show_for'
 
@@ -120,7 +120,7 @@ gem 'ledermann-rails-settings'
 # ======
 # Accounting
 gem 'has_accounts'
-gem 'has_accounts_engine'
+gem 'has_accounts_engine', '~> 3.0.0.beta13'
 
 # Addresses
 gem 'has_vcards'
