@@ -3,31 +3,10 @@
 module Bookyt
   class API
     class Customers < Grape::API
-      # https://github.com/huerlisi/has_vcards/blob/master/app/models/has_vcards/vcard.rb#L37
-      PHONE_TYPE_MAPPING = {
-        'office' => 'Tel. geschäft',
-        'home' => 'Tel. privat',
-        'mobile' => 'Handy',
-      }
 
       helpers do
         def customer_params
-          contacts_attributes = params[:phone_numbers].map do |phone_number|
-            contacts_attributes = {
-              phone_number_type: PHONE_TYPE_MAPPING[phone_number[:type]],
-              number: phone_number[:number],
-            }
-          end
-          attributes = {
-            full_name: params[:name],
-            extended_address: params[:extended_address],
-            street_address: params[:street],
-            post_office_box: params[:post_office_box],
-            postal_code: params[:zip],
-            locality: params[:city],
-            contacts_attributes: contacts_attributes
-          }
-          { vcard_attributes: attributes }
+          CustomerParams.new(params).to_h
         end
       end
 
