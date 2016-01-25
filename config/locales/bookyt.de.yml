@@ -102,6 +102,8 @@ de:
         title: Bezeichnung
         total_amount: Total
         vat_rate: MWSt.
+        credit_account: Soll
+        debit_account: Haben
       booking_import_attachment:
       mt940_import:
       note:
