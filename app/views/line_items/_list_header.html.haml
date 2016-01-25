@@ -1,9 +1,10 @@
-%tr
-  %th{:style => 'padding: 2px; width: 80px'}= t_attr(:date, LineItem)
-  %th{:style => 'padding: 2px'}= t_attr(:title, LineItem)
-  %th{:style => 'padding: 2px; width: 3em'}= t_attr(:times, LineItem)
-  %th{:style => 'padding: 0px; width: 6em'}= t_attr(:quantity, LineItem)
-  %th{:style => 'padding: 2px; width: 3em'}= t_attr(:price, LineItem)
-  %th.currency{:style => 'padding: 2px; width: 6em'}= t_attr(:total_amount, LineItem)
-  %th
-  %th.action_links
+.row-fluid.head
+  .span1= t_attr(:date, LineItem)
+  .span2= t_attr(:title, LineItem)
+  .span1= t_attr(:times, LineItem)
+  .span1= t_attr(:quantity, LineItem)
+  .span1= t_attr(:price, LineItem)
+  .span2= t_attr(:debit_account, LineItem)
+  .span1= t_attr(:credit_account, LineItem)
+  .span1= t_attr(:total, LineItem)
+  .span1.currency= t_attr(:total_amount, LineItem)

@@ -1,25 +1,20 @@
-%tr.nested-form-item[line_item.object]
-  %td
-  %td= line_item.text_field :title, :required => true, :style => 'width: 30em'
-  %td
-  %td
-  %td
-  %td.currency.total_amount= currency_fmt(line_item.object.accounted_amount)
-  %td{:colspan => 2}
-    .clearfix
-      .input-prepend
-        .add-on Σ
-        = line_item.text_field :reference_code, :style => 'width: auto'
-
-  %td.action_links
-    = line_item.hidden_field :position
-    = line_item.hidden_field :code
-    = line_item.hidden_field :reference_code
-    = line_item.hidden_field :booking_template_id
-    = line_item.hidden_field :include_in_saldo_list
-    = line_item.hidden_field :date
-    = line_item.hidden_field :quantity, :value => 'saldo_of'
-    = line_item.hidden_field :times
-    = line_item.hidden_field :price
-    = line_item.hidden_field :_destroy
-    = list_link_to :delete, '#', :class => 'delete-nested-form-item'
+.row-fluid.nested-form-item[line_item.object]
+  .row-fluid
+    .span2.offset1= line_item.input :title
+    .span1.offset7.currency.total_amount
+      .clearfix
+        .input-prepend
+          .add-on Σ
+          = line_item.text_field :reference_code, :style => 'width: auto'
+    .span1.action_links
+      = line_item.hidden_field :position
+      = line_item.hidden_field :code
+      = line_item.hidden_field :reference_code
+      = line_item.hidden_field :booking_template_id
+      = line_item.hidden_field :include_in_saldo_list
+      = line_item.hidden_field :date
+      = line_item.hidden_field :quantity, :value => 'saldo_of'
+      = line_item.hidden_field :times
+      = line_item.hidden_field :price
+      = line_item.hidden_field :_destroy
+      = list_link_to :delete, '#', :class => 'delete-nested-form-item'
