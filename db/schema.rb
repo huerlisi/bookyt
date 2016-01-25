@@ -203,6 +203,12 @@ ActiveRecord::Schema.define(:version => 20160125103141) do
     t.decimal  "discount",        :precision => 10, :scale => 2, :default => 0.0
   end
 
+  create_table "debit_direct_files", :force => true do |t|
+    t.text     "content",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "employments", :force => true do |t|
     t.date     "duration_from"
     t.date     "duration_to"
@@ -329,6 +335,7 @@ ActiveRecord::Schema.define(:version => 20160125103141) do
     t.decimal  "used_leave_days",          :precision => 4,  :scale => 2
     t.decimal  "amount",                   :precision => 10, :scale => 2
     t.decimal  "due_amount",               :precision => 10, :scale => 2
+    t.integer  "debit_direct_file_id"
   end
 
   add_index "invoices", ["company_id"], :name => "index_invoices_on_company_id"
