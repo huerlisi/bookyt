@@ -138,6 +138,7 @@ de:
         ahv_number: "AHV Abrechnungsnr."
         code: Code
         company: Firma
+        debit_direct_identification: 'BDD/LSV+ Teilnehmer Nummer'
         fiscal_year_ends_on: "Ende des 1. Fiskaljahres"
         incorporated_on: Gründung
         payment_period: "Zahlungsfrist in Tagen"
@@ -360,6 +361,7 @@ de:
       backup: Backup
       restore: Zurücksetzen
       import: Einlesen
+      list-alt: LSV+ Datei erstellen
     flash:
       created_html: "%{message} angelegt"
     title:
@@ -494,6 +496,8 @@ de:
   tenants:
     bookings:
       title: Buchhaltung
+    debit_direct:
+      title: 'BDD/LSV+'
     tenant:
       title: Mandant
     user:

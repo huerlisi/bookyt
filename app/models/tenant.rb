@@ -113,4 +113,10 @@ class Tenant < ActiveRecord::Base
   # Import/Export
   # =============
   has_many :backups, :as => :reference
+
+
+  # Debit Direct
+  # ============
+  attr_accessible :debit_direct_identification
+  validates_format_of :debit_direct_identification, with: /\A[A-Z0-9]{5}\z/, allow_blank: true
 end

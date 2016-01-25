@@ -164,6 +164,7 @@ en:
       tenant:
         ahv_number: "AHV Billing No."
         company: company
+        debit_direct_identification: 'Debit Direct identification'
         fiscal_year_ends_on: "end of first fiscal year"
         incorporated_on: "incorporation date"
         payment_period: "Payment term in days"
@@ -627,6 +628,8 @@ en:
   tenants:
     bookings:
       title: Bookings
+    debit_direct:
+      title: 'Debit Direct'
     tenant:
       title: Tenant
     user:
