@@ -18,6 +18,7 @@ class DebitDirectFileCreator
 
   def debit_invoices
     @debit_invoices ||= DebitInvoice.
+                          invoice_state(:booked).
                           joins(:customer).
                           where(:debit_direct_file_id => nil).
                           where(:people => { :direct_debit_enabled => true })

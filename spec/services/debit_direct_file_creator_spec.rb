@@ -24,10 +24,12 @@ RSpec.describe DebitDirectFileCreator do
     it 'returns invoices without a debit direct file, but with a customer with direct debit' do
       invoice2 = FactoryGirl.create :debit_invoice, :debit_direct_file => FactoryGirl.create(:debit_direct_file), :customer => customer
       invoice3 = FactoryGirl.create :debit_invoice
+      invoice4 = FactoryGirl.create :debit_invoice, :customer => customer, :state => 'paid'
 
       expect(subject).to include(invoice)
       expect(subject).to_not include(invoice2)
       expect(subject).to_not include(invoice3)
+      expect(subject).to_not include(invoice4)
     end
   end
 
