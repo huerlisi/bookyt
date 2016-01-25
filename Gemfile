@@ -145,7 +145,10 @@ gem 'mt940_parser', :git => 'http://github.com/CyTeam/mt940_parser.git', :requir
 
 # ESR support
 gem 'aasm'
-gem 'vesr'
+gem 'vesr', github: 'luxflux/vesr', branch: 'make-esr-number-generation-public'
+
+# LSV+ support
+gem 'lsv-plus'
 
 # Search
 gem 'pg_search'

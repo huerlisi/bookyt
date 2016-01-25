@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/luxflux/vesr.git
+  revision: 70f17d14f1420b8a74473d83e93f9ea4ee57563d
+  branch: make-esr-number-generation-public
+  specs:
+    vesr (1.0.1)
+      aasm (~> 4.1)
+
+GIT
   remote: http://github.com/CyTeam/mt940_parser.git
   revision: 0f4125b4956761ce1b7e01b53fbccd3239a2f29a
   specs:
@@ -226,6 +234,7 @@ GEM
     ledermann-rails-settings (2.3.0)
       activerecord (>= 3.1)
     libv8 (3.16.14.13)
+    lsv-plus (1.0.2)
     lyb_devise_admin (0.4.0)
     lyb_sidebar (0.1.1)
       rails (~> 3.1)
@@ -429,8 +438,6 @@ GEM
       raindrops (~> 0.7)
     validates_timeliness (3.0.14)
       timeliness (~> 0.3.6)
-    vesr (1.0.0)
-      aasm (~> 4.1)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -490,6 +497,7 @@ DEPENDENCIES
   jquery-ui-rails
   json_spec
   ledermann-rails-settings
+  lsv-plus
   lyb_devise_admin
   lyb_sidebar
   mt940_parser!
@@ -527,7 +535,7 @@ DEPENDENCIES
   uglifier
   unicorn
   validates_timeliness
-  vesr
+  vesr!
   will_paginate
   wkhtmltopdf-binary
   yaml_db
