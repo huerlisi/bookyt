@@ -27,12 +27,14 @@ class DebitInvoicePDF
     # Line Items
     pdf.line_items_table(@invoice, @invoice.line_items)
 
-    if bank_account.bank
+    case
+    when @invoice.customer.direct_debit_enabled?
+      pdf.free_text 'Der oben aufgeführte Betrag wird Ihnen mittels Lastschriftverfahren belastet.'
+    when bank_account.bank
       pdf.footer(sender, bank_account, @tenant.vat_number, @tenant.uid_number, @tenant.use_vesr?)
     end
 
-    # Footer
-    if @tenant.use_vesr?
+    if @tenant.use_vesr? && !@invoice.customer.direct_debit_enabled?
       pdf.draw_esr(@invoice, bank_account, sender, @tenant.print_payment_for?)
     end
 
