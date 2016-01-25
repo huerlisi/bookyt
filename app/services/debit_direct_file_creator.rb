@@ -13,7 +13,7 @@ class DebitDirectFileCreator
   end
 
   def call
-    DebitDirectFile.create content: content, debit_invoices: debit_invoices
+    DebitDirectFile.create content: content, debit_invoice_ids: debit_invoices.pluck(:id)
   end
 
   def debit_invoices

@@ -18,6 +18,20 @@ RSpec.describe DebitDirectFileCreator do
     end
   end
 
+  describe '#call' do
+    it 'creates a new DebitDirectFile' do
+      expect { instance.call }.to change(DebitDirectFile, :count).from(0).to(1)
+    end
+
+    it 'assigns the included DebitInvoices to new DebitDirectFile' do
+      expect { instance.call }.to change { invoice.reload.debit_direct_file_id }.from(nil)
+    end
+
+    it 'returns the newly created DebitDirectFile' do
+      expect(instance.call).to be_a(DebitDirectFile)
+    end
+  end
+
   describe '#debit_invoices' do
     subject { instance.debit_invoices }
 
