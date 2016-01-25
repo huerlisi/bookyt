@@ -43,6 +43,10 @@ de:
         person: Person
         rate: Satz
         relative: Relativ
+      debit_direct_file:
+        id: Nummer
+        name: Name
+        debit_invoices_count: Anzahl Rechnungen
       day:
         calculate: Ausrechnen
         card_turnover: Kreditkartenumsatz
@@ -184,6 +188,7 @@ de:
       customer: Kunde
       day: Tagesabschluss
       debit_invoice: "Debitoren Rechnung"
+      debit_direct_file: 'LSV+ Datei'
       employee: Mitarbeiter
       employment: Anstellung
       expense: Ausgabe

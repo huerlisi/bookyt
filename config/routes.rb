@@ -182,5 +182,7 @@ Bookyt::Application.routes.draw do
   resources :charge_rates
   resources :charge_booking_templates
 
+  resources :debit_direct_files, :only => [:create, :show, :index]
+
   mount Bookyt::API => '/api'
 end

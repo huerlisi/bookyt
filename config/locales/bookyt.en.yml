@@ -40,6 +40,10 @@ en:
         person: Person
         rate: "rate (%)"
         relative: Relative
+      debit_direct_file:
+        id: Number
+        name: Name
+        debit_invoices_count: Debit invoices count
       day:
         calculate: calculate
         card_turnover: "card turnover"
@@ -223,6 +227,7 @@ en:
       customer: Customer
       day: "Daily balance"
       debit_invoice: "Debit invoice"
+      debit_direct_file: 'Debit Direct file'
       employee: Employee
       employment: Employment
       esr_file: ESR-File
