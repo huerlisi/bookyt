@@ -1,7 +1,7 @@
 %h3= t('title.line_items')
-%div#line_items{'data-direct-account-id' => resource.direct_account.try(:id), 'data-direct-account-factor' => resource.direct_account_factor}
+#line_items{'data-direct-account-id' => resource.direct_account.try(:id), 'data-direct-account-factor' => resource.direct_account_factor}
   = render 'line_items/list_header', :invoice => invoice
-  %div.list.sortable
+  .list.sortable
     = f.simple_fields_for :line_items, :wrapper => :inline do |line_item|
       = render "#{line_item.object.class.name.underscore.pluralize}/form", :line_item => line_item
   .row-fluid.line_item
