@@ -25,7 +25,8 @@ RSpec.describe Bookyt::API::DebitDirectFiles, type: :request do
 
   describe 'POST /api/debit_direct_files' do
     let(:customer) { FactoryGirl.create :customer }
-    let(:params) { {} }
+    let(:invoice) { FactoryGirl.create :debit_invoice, customer: customer }
+    let(:params) { { invoices: [invoice.id] } }
     let(:debit_direct_file) { FactoryGirl.create :debit_direct_file }
     let!(:bank_account) { FactoryGirl.create :bank_account, tag_list: 'invoice:vesr' }
 
@@ -40,8 +41,8 @@ RSpec.describe Bookyt::API::DebitDirectFiles, type: :request do
     end
 
     it 'calls DebitDirectFileCreator' do
-      allow(DebitDirectFileCreator).
-        to receive(:call).with(instance_of(Tenant), bank_account).and_return(debit_direct_file)
+      expect(DebitDirectFileCreator).
+        to receive(:call).with(instance_of(Tenant), bank_account, [invoice.id]).and_return(debit_direct_file)
       post '/api/debit_direct_files', params, headers
     end
 

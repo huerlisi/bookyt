@@ -5,16 +5,17 @@ RSpec.describe DebitDirectFileCreator do
   let(:bank_account) { FactoryGirl.create :bank_account, esr_id: '12000000' }
   let(:customer) { FactoryGirl.create(:customer, :direct_debit) }
   let!(:invoice) { FactoryGirl.create :debit_invoice, :customer => customer }
-  let(:instance) { described_class.new(tenant, bank_account) }
+  let(:ids) { nil }
+  let(:instance) { described_class.new(tenant, bank_account, ids) }
 
   describe '.call' do
     let(:debit_direct_file_creator_double) { instance_double(described_class) }
 
     it 'initializes a new instance and calls `#call`' do
       expect(described_class).
-        to receive(:new).with(tenant, bank_account).and_return(debit_direct_file_creator_double)
+        to receive(:new).with(tenant, bank_account, ids).and_return(debit_direct_file_creator_double)
       expect(debit_direct_file_creator_double).to receive(:call)
-      described_class.call(tenant, bank_account)
+      described_class.call(tenant, bank_account, ids)
     end
   end
 
@@ -33,17 +34,35 @@ RSpec.describe DebitDirectFileCreator do
   end
 
   describe '#debit_invoices' do
+    let!(:invoice2) { FactoryGirl.create :debit_invoice, :debit_direct_file => FactoryGirl.create(:debit_direct_file), :customer => customer }
+    let!(:invoice3) { FactoryGirl.create :debit_invoice }
+    let!(:invoice4) { FactoryGirl.create :debit_invoice, :customer => customer, :state => 'paid' }
+    let!(:invoice5) { FactoryGirl.create :debit_invoice, :customer => customer }
+
     subject { instance.debit_invoices }
 
-    it 'returns invoices without a debit direct file, but with a customer with direct debit' do
-      invoice2 = FactoryGirl.create :debit_invoice, :debit_direct_file => FactoryGirl.create(:debit_direct_file), :customer => customer
-      invoice3 = FactoryGirl.create :debit_invoice
-      invoice4 = FactoryGirl.create :debit_invoice, :customer => customer, :state => 'paid'
+    context 'no ids provided' do
+      let(:ids) { nil }
 
-      expect(subject).to include(invoice)
-      expect(subject).to_not include(invoice2)
-      expect(subject).to_not include(invoice3)
-      expect(subject).to_not include(invoice4)
+      it 'returns invoices without a debit direct file, but with a customer with direct debit' do
+        expect(subject).to include(invoice)
+        expect(subject).to_not include(invoice2)
+        expect(subject).to_not include(invoice3)
+        expect(subject).to_not include(invoice4)
+        expect(subject).to include(invoice5)
+      end
+    end
+
+    context 'ids provided' do
+      let(:ids) { [invoice.id, invoice2.id] }
+
+      it 'returns invoices without a debit direct file, but with a customer with direct debit' do
+        expect(subject).to include(invoice)
+        expect(subject).to_not include(invoice2)
+        expect(subject).to_not include(invoice3)
+        expect(subject).to_not include(invoice4)
+        expect(subject).to_not include(invoice5)
+      end
     end
   end
 

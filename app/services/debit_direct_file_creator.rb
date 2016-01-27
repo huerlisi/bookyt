@@ -1,15 +1,16 @@
 class DebitDirectFileCreator
   ESR_REFERENCE = 'A'
 
-  attr_reader :tenant, :bank_account
+  attr_reader :tenant, :bank_account, :ids
 
-  def self.call(tenant, bank_account)
-    new(tenant, bank_account).call
+  def self.call(tenant, bank_account, ids = nil)
+    new(tenant, bank_account, ids).call
   end
 
-  def initialize(tenant, bank_account)
+  def initialize(tenant, bank_account, ids = nil)
     @tenant = tenant
     @bank_account = bank_account
+    @ids = ids
   end
 
   def call
@@ -17,11 +18,14 @@ class DebitDirectFileCreator
   end
 
   def debit_invoices
-    @debit_invoices ||= DebitInvoice.
-                          invoice_state(:booked).
-                          joins(:customer).
-                          where(:debit_direct_file_id => nil).
-                          where(:people => { :direct_debit_enabled => true })
+    return @debit_invoices if @debit_invoices
+    @debit_invoices = DebitInvoice.
+                        invoice_state(:booked).
+                        joins(:customer).
+                        where(:debit_direct_file_id => nil).
+                        where(:people => { :direct_debit_enabled => true })
+    @debit_invoices = @debit_invoices.where(id: ids) if ids
+    @debit_invoices
   end
 
   def content
