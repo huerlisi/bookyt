@@ -1,13 +1,13 @@
-%tr.nested-form-item[line_item.object]
-  %td= line_item.input :date, as: :date_field, :input_html => {:style => 'width: 6em'}
-  %td= line_item.input :title, :input_html => {:style => 'width: 20em'}
-  %td= line_item.input :times, :input_html => {:style => 'width: 4em', :autocomplete => "off"}
-  %td= line_item.input :quantity, :collection => ['x', 'hours', 'overall', '%'].map{|quantity| [t(quantity, :scope => 'line_items.quantity'), quantity]}, :input_html => {:style => 'width: 4em'}
-  %td= line_item.input :price, :input_html => {:style => 'width: 5em', :autocomplete => "off"}
-  %td.currency.total_amount= currency_fmt(line_item.object.accounted_amount)
-  %td= line_item.association :debit_account, :as => :combobox, :label_method => lambda {|option| option.to_s(:select)}, :input_html => {:style => 'width: 7em; max-width: 9em'}
-  %td= line_item.association :credit_account, :as => :combobox, :label_method => lambda {|option| option.to_s(:select)}, :input_html => {:style => 'width: 7em; max-width: 9em'}
-  %td.action_links
+.row-fluid.nested-form-item[line_item.object]
+  .span1.date= line_item.input :date, as: :date_field
+  .span2= line_item.input :title
+  .span1= line_item.input :times, :input_html => {:autocomplete => "off"}, as: :string
+  .span1= line_item.input :quantity, :collection => ['x', 'hours', 'overall', '%'].map{|quantity| [t(quantity, :scope => 'line_items.quantity'), quantity]}
+  .span1= line_item.input :price, :input_html => {:autocomplete => "off"}, as: :string
+  .span2= line_item.association :debit_account, :as => :combobox, :label_method => lambda {|option| option.to_s(:select)}
+  .span2= line_item.association :credit_account, :as => :combobox, :label_method => lambda {|option| option.to_s(:select)}
+  .span1.currency.total_amount= currency_fmt(line_item.object.accounted_amount)
+  .span1.action_links
     = line_item.hidden_field :position
     = line_item.hidden_field :code
     = line_item.hidden_field :reference_code
