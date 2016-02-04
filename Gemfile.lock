@@ -4,6 +4,23 @@ GIT
   specs:
     mt940_parser (1.1.0)
 
+GIT
+  remote: https://github.com/huerlisi/has_accounts_engine
+  revision: 9f9a4684883f6385169ececa4625430ea125329f
+  branch: bookings-timeframe
+  specs:
+    has_accounts_engine (3.0.0.beta14)
+      acts-as-taggable-on
+      anjlab-bootstrap-rails (~> 2.1.0)
+      has_accounts (~> 3.0.0.beta0)
+      has_scope
+      has_vcards
+      i18n_rails_helpers
+      inherited_resources
+      rails (~> 3.2)
+      simple_form
+      validates_timeliness
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -177,17 +194,6 @@ GEM
       railties (>= 3.1, < 4.1)
     has_accounts (3.0.0.beta3)
       rails (~> 3.1)
-      validates_timeliness
-    has_accounts_engine (3.0.0.beta14)
-      acts-as-taggable-on
-      anjlab-bootstrap-rails (~> 2.1.0)
-      has_accounts (~> 3.0.0.beta0)
-      has_scope
-      has_vcards
-      i18n_rails_helpers
-      inherited_resources
-      rails (~> 3.2)
-      simple_form
       validates_timeliness
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
@@ -481,7 +487,7 @@ DEPENDENCIES
   grape-entity
   haml-rails
   has_accounts
-  has_accounts_engine (~> 3.0.0.beta13)
+  has_accounts_engine (~> 3.0.0.beta13)!
   has_scope
   has_vcards
   i18n_rails_helpers
