@@ -551,6 +551,12 @@ en:
   invoices:
     list:
       title: Invoices
+    search:
+      by_text: Content
+      by_value_date_from: Value date from
+      by_value_date_to: Value date to
+      by_due_date_from: Due date from
+      by_due_date_to: Due date to
   letters:
     debit_invoice:
       closing: "It was a pleasure working together. Please pay this invoice up to %{due_date} using the payment slip or by e-banking to below account."
