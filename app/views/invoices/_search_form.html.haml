@@ -1,0 +1,13 @@
+= simple_form_for '', :method => :get do |f|
+  .container-fluid
+    .row-fluid
+      .span6= f.input :by_text, label: t(:by_text, scope: 'invoices.search'), required: false, input_html: { value: params[:by_text] }
+    .row-fluid
+      .span6= f.input 'by_value_date[from]', label: t(:by_value_date_from, scope: 'invoices.search'), required: false, input_html: { value: try_parse_date(@search.by_value_date.from), class: 'date-picker' }
+      .span6= f.input 'by_value_date[to]', label: t(:by_value_date_to, scope: 'invoices.search'), required: false, input_html: { value: try_parse_date(@search.by_value_date.to), class: 'date-picker' }
+    .row-fluid
+      .span6= f.input 'by_due_date[from]', label: t(:by_due_date_from, scope: 'invoices.search'), required: false, input_html: { value: try_parse_date(@search.by_due_date.from), class: 'date-picker' }
+      .span6= f.input 'by_due_date[to]', label: t(:by_due_date_to, scope: 'invoices.search'), required: false, input_html: { value: try_parse_date(@search.by_due_date.to), class: 'date-picker' }
+
+  .form-actions
+    = f.button :submit, t_action(:search)
