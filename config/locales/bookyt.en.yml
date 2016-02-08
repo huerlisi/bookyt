@@ -169,6 +169,7 @@ en:
         use_vesr: "VESR for accounts receivable invoices"
         users: users
         vat_number: VAT No.
+        webhook: Webhook
       user:
         country_name: Country
         created_at: "created at"
@@ -628,6 +629,8 @@ en:
       title: Tenant
     user:
       title: User
+    webhook:
+      title: Webhook
     vesr:
       title: VESR
     vat_report:
