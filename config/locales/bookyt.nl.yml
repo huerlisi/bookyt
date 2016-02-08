@@ -469,7 +469,7 @@ nl:
     vesr:
       title: VESR
     vat_report:
-      no_vat_accounts_found: Es kann keine MwSt. Abrechnung angezeigt werden da keine entsprechenden Konten mit dem gefunden wurden.
+      no_vat_accounts_found: Es kann keine MwSt. Abrechnung angezeigt werden da keine entsprechenden Konten gefunden wurden.
       balance_owed: An Staat geschuldeter Betrag
       owed_to_state: Folgende Beträge wurden eingenommen und werden dem Staat geschuldet.
       state_owes_to_you: Folgende Beträge wurden gezahlt und werden vom Staat vergütet.
