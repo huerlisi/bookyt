@@ -9,7 +9,8 @@ class TenantsController < AuthorizedController
   end
 
   def vat_report
-    @accounts = Account.tagged_with('vat')
+    @current_assets_accounts = Account.tagged_with('vat').by_type('current_assets')
+    @outside_capital_accounts = Account.tagged_with('vat').by_type('outside_capital')
     if from = params.fetch(:by_date, {}).fetch(:from, nil)
       @year = Date.parse(from).year
     else
