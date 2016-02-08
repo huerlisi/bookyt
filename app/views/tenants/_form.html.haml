@@ -3,6 +3,7 @@
     %li.active= link_to t_title(:tenant), '#tab-tenant', {:data => {:toggle => 'tab'}}
     %li= link_to t_title(:bookings), '#tab-bookings', {:data => {:toggle => 'tab'}}
     %li= link_to t_title(:vesr), '#tab-vesr', {:data => {:toggle => 'tab'}}
+    %li= link_to t_title(:webhook), '#tab-webhook', {:data => {:toggle => 'tab'}}
     - if @tenant.persisted?
       %li= link_to t_title(:list, Attachment), '#tab-attachments', {:data => {:toggle => 'tab'}}
       %li= link_to t_title(:list, Backup), '#tab-backups', {:data => {:toggle => 'tab'}}
@@ -12,6 +13,7 @@
     #tab-tenant.tab-pane.active= render "form_tenant", :f => f
     #tab-bookings.tab-pane= render "form_bookings", :f => f
     #tab-vesr.tab-pane= render "form_vesr", :f => f
+    #tab-webhook.tab-pane= render "form_webhook", :f => f
     - if @tenant.persisted?
       #tab-attachments.tab-pane= render 'show_attachments'
       #tab-backups.tab-pane= render 'show_backups'

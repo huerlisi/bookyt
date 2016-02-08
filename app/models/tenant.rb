@@ -113,4 +113,8 @@ class Tenant < ActiveRecord::Base
   # Import/Export
   # =============
   has_many :backups, :as => :reference
+
+  # Webhook
+  # =======
+  attr_accessible :webhook
 end
