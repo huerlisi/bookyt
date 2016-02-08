@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-RSpec.describe Webhook do
+RSpec.describe WebhookNotifier do
   let(:invoice) { FactoryGirl.create :debit_invoice }
   let(:event) { :paid }
-  let(:instance) { Webhook.new(invoice, event) }
+  let(:instance) { WebhookNotifier.new(invoice, event) }
   before do
     FactoryGirl.create :tenant
   end

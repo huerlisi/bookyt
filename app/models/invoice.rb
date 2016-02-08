@@ -244,6 +244,6 @@ class Invoice < ActiveRecord::Base
   def call_webhooks
     return unless state_was.to_s != 'paid'
     return unless state.to_s == 'paid'
-    Webhook.call(self, :paid)
+    WebhookNotifier.call(self, :paid)
   end
 end

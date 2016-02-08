@@ -65,8 +65,8 @@ describe Invoice do
     context 'state changes to paid' do
       let(:instance) { FactoryGirl.create(:invoice, state: :booked) }
 
-      it 'calls webhook' do
-        expect(Webhook).to receive(:call).with(instance, :paid)
+      it 'calls WebhookNotifier' do
+        expect(WebhookNotifier).to receive(:call).with(instance, :paid)
         instance.update_attributes state: :paid
       end
     end
@@ -74,8 +74,8 @@ describe Invoice do
     context 'state does not change to paid' do
       let(:instance) { FactoryGirl.create(:invoice, state: :paid) }
 
-      it 'calls webhook' do
-        expect(Webhook).to_not receive(:call)
+      it 'does not call WebhookNotifier' do
+        expect(WebhookNotifier).to_not receive(:call)
         instance.update_attributes title: 'Something new'
       end
     end

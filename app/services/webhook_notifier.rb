@@ -1,4 +1,4 @@
-class Webhook
+class WebhookNotifier
   attr_reader :model, :event
 
   def self.call(model, event)
