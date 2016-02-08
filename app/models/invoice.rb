@@ -240,10 +240,16 @@ class Invoice < ActiveRecord::Base
 
   # Webhooks
   # ========
-  after_update :call_webhooks
-  def call_webhooks
+  after_update :schedule_paid_webhook
+  def schedule_paid_webhook
     return unless state_was.to_s != 'paid'
     return unless state.to_s == 'paid'
-    WebhookNotifier.call(self, :paid)
+    @pending_webhooks ||= []
+    @pending_webhooks << ->{ WebhookNotifier.call(self, :paid) }
+  end
+
+  after_commit :call_webhooks
+  def call_webhooks
+    (@pending_webhooks || []).each(&:call)
   end
 end
