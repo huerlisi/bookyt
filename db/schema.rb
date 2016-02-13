@@ -203,12 +203,6 @@ ActiveRecord::Schema.define(:version => 20160208103101) do
     t.decimal  "discount",        :precision => 10, :scale => 2, :default => 0.0
   end
 
-  create_table "debit_direct_files", :force => true do |t|
-    t.text     "content",    :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "employments", :force => true do |t|
     t.date     "duration_from"
     t.date     "duration_to"
@@ -335,7 +329,6 @@ ActiveRecord::Schema.define(:version => 20160208103101) do
     t.decimal  "used_leave_days",          :precision => 4,  :scale => 2
     t.decimal  "amount",                   :precision => 10, :scale => 2
     t.decimal  "due_amount",               :precision => 10, :scale => 2
-    t.integer  "debit_direct_file_id"
   end
 
   add_index "invoices", ["company_id"], :name => "index_invoices_on_company_id"
@@ -376,8 +369,8 @@ ActiveRecord::Schema.define(:version => 20160208103101) do
   add_index "line_items", ["type"], :name => "index_line_items_on_type"
 
   create_table "people", :force => true do |t|
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.string   "type"
     t.date     "date_of_birth"
     t.date     "date_of_death"
@@ -386,12 +379,10 @@ ActiveRecord::Schema.define(:version => 20160208103101) do
     t.string   "social_security_nr_12"
     t.integer  "civil_status_id"
     t.integer  "religion_id"
-    t.boolean  "delta",                 :default => true,  :null => false
+    t.boolean  "delta",                 :default => true, :null => false
     t.string   "nationality"
     t.string   "swift"
     t.string   "clearing"
-    t.string   "bank_account"
-    t.boolean  "direct_debit_enabled",  :default => false
   end
 
   add_index "people", ["civil_status_id"], :name => "index_people_on_civil_status_id"
@@ -517,8 +508,8 @@ ActiveRecord::Schema.define(:version => 20160208103101) do
 
   create_table "tenants", :force => true do |t|
     t.integer  "person_id"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.date     "incorporated_on"
     t.date     "fiscal_year_ends_on"
     t.string   "vat_number"
@@ -528,7 +519,6 @@ ActiveRecord::Schema.define(:version => 20160208103101) do
     t.string   "ahv_number"
     t.string   "code"
     t.integer  "admin_tenant_id"
-    t.string   "debit_direct_identification"
     t.string   "webhook"
   end
 
