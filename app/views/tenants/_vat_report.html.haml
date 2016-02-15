@@ -1,14 +1,54 @@
+- total_current_assets_accounts = total_over_range(@current_assets_accounts, range)
+- total_outside_capital_accounts = total_over_range(@outside_capital_accounts, range)
+
+%h2= t('bookyt.outside_capital')
+%p= t('.owed_to_state')
 %table.table.table-striped.vat-report
   %thead
     %tr
       %th= Account.human_attribute_name :title
       %th= Account.human_attribute_name :saldo
   %tbody
-    - accounts.each do |account|
+    - @outside_capital_accounts.each do |account|
       %tr
         %td= account.title
         %td= currency_fmt account.saldo(range)
   %tfoot
     %tr
       %th= t('bookyt.total')
-      %th= currency_fmt accounts.inject(0) { |sum, account| sum + account.saldo(range) }
+      %th= currency_fmt total_outside_capital_accounts
+
+%h2= t('bookyt.current_assets')
+%p= t('.state_owes_to_you')
+%table.table.table-striped.vat-report
+  %thead
+    %tr
+      %th= Account.human_attribute_name :title
+      %th= Account.human_attribute_name :saldo
+  %tbody
+    - @current_assets_accounts.each do |account|
+      %tr
+        %td= account.title
+        %td= currency_fmt account.saldo(range)
+  %tfoot
+    %tr
+      %th= t('bookyt.total')
+      %th= currency_fmt total_current_assets_accounts
+
+%h2= t('bookyt.total')
+%table.table.table-striped.vat-report
+  %thead
+    %tr
+      %th= Account.human_attribute_name :title
+      %th= Account.human_attribute_name :saldo
+  %tbody
+    %tr
+      %td= t('bookyt.outside_capital')
+      %td= currency_fmt total_outside_capital_accounts
+    %tr
+      %td= t('bookyt.current_assets')
+      %td= currency_fmt total_current_assets_accounts * -1
+  %tfoot
+    %tr
+      %th= t('.balance_owed')
+      %th= currency_fmt total_outside_capital_accounts - total_current_assets_accounts
