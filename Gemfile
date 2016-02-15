@@ -65,6 +65,10 @@ group :test, :development do
   gem 'rspec-activemodel-mocks'
 end
 
+group :test do
+  gem 'test_after_commit'
+end
+
 # Standard helpers
 # ================
 gem 'haml-rails'

@@ -133,6 +133,7 @@ nl:
         use_vesr: "VESR für Debitoren-Rechnungen"
         users: Benutzer
         vat_number: MwSt.-Nummer
+        webhook: Webhook
       user:
         country_name: Land
         created_at: "Registriert seit"
@@ -466,6 +467,8 @@ nl:
       title: Mandant
     user:
       title: Benutzer
+    webhook:
+      title: Webhook
     vesr:
       title: VESR
     vat_report:

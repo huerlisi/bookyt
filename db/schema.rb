@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150309165055) do
+ActiveRecord::Schema.define(:version => 20160208103101) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -519,6 +519,7 @@ ActiveRecord::Schema.define(:version => 20150309165055) do
     t.string   "ahv_number"
     t.string   "code"
     t.integer  "admin_tenant_id"
+    t.string   "webhook"
   end
 
   add_index "tenants", ["admin_tenant_id"], :name => "index_tenants_on_admin_tenant_id"
