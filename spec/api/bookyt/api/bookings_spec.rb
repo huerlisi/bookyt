@@ -23,6 +23,7 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
   end
 
   describe 'POST /api/bookings' do
+    let(:invoice) { FactoryGirl.create(:debit_invoice) }
     let(:params) do
       {
         title: 'Test',
@@ -31,6 +32,7 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
         credit_account_tag: 'incoming:test:credit',
         debit_account_tag: 'incoming:test:debit',
         comments: 'This is a loooooooooooong comment',
+        invoice_id: invoice.id,
       }
     end
 
@@ -53,6 +55,10 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
       it 'uses Bookyt::Entities::Booking to display the created Booking' do
         expect(Bookyt::Entities::Booking).to receive(:represent)
         post '/api/bookings', params, headers
+      end
+
+      it 'assigns the booking to the given invoice' do
+        expect { post '/api/bookings', params, headers }.to change { invoice.bookings.count }.from(0).to(1)
       end
     end
 
@@ -93,6 +99,7 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
   end
 
   describe 'PUT /api/bookings/:id' do
+    let(:invoice) { FactoryGirl.create(:debit_invoice) }
     let(:params) do
       {
         title: 'Test',
@@ -101,6 +108,7 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
         credit_account_tag: 'incoming:test:credit',
         debit_account_tag: 'incoming:test:debit',
         comments: 'This is a loooooooooooong comment',
+        invoice_id: invoice.id,
       }
     end
     let!(:booking) { FactoryGirl.create :account_booking }
@@ -124,6 +132,10 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
       it 'uses Bookyt::Entities::Booking to display the Booking' do
         expect(Bookyt::Entities::Booking).to receive(:represent)
         put "/api/bookings/#{booking.id}", params, headers
+      end
+
+      it 'assigns the booking to the given invoice' do
+        expect { post '/api/bookings', params, headers }.to change { invoice.bookings.count }.from(0).to(1)
       end
     end
 
