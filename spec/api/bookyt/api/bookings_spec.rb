@@ -60,6 +60,23 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
       it 'assigns the booking to the given invoice' do
         expect { post '/api/bookings', params, headers }.to change { invoice.bookings.count }.from(0).to(1)
       end
+
+      context 'invoice id does not exist' do
+        it 'validates presence of the invoice id' do
+          params[:invoice_id] = 'asd'
+          post '/api/bookings', params, headers
+          expect(JSON.parse(response.body)).to be_instance_of(Hash)
+          expect(response.status).to eq(400)
+        end
+      end
+
+      context 'invoice id is nil' do
+        it 'does not care about a nil value' do
+          params[:invoice_id] = nil
+          post '/api/bookings', params, headers
+          expect(response.status).to eq(201)
+        end
+      end
     end
 
     context 'too many accounts found' do
@@ -136,6 +153,23 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
 
       it 'assigns the booking to the given invoice' do
         expect { post '/api/bookings', params, headers }.to change { invoice.bookings.count }.from(0).to(1)
+      end
+
+      context 'invoice id does not exist' do
+        it 'validates presence of the invoice id' do
+          params[:invoice_id] = 'asd'
+          put "/api/bookings/#{booking.id}", params, headers
+          expect(JSON.parse(response.body)).to be_instance_of(Hash)
+          expect(response.status).to eq(400)
+        end
+      end
+
+      context 'invoice id is nil' do
+        it 'does not care about a nil value' do
+          params[:invoice_id] = nil
+          put "/api/bookings/#{booking.id}", params, headers
+          expect(response.status).to eq(200)
+        end
       end
     end
 

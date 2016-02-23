@@ -16,7 +16,7 @@ module Bookyt
           requires :credit_account_tag, type: String, desc: 'Tag of the credit account'
           requires :debit_account_tag, type: String, desc: 'Tag of the debit account'
           optional :comments, type: String, desc: 'Additional comments'
-          optional :invoice_id, type: Fixnum, desc: 'ID of invoice to reference'
+          optional :invoice_id, type: Fixnum, desc: 'ID of invoice to reference', values: -> { Invoice.pluck(:id) }
         end
         post do
           begin
@@ -53,7 +53,7 @@ module Bookyt
             requires :credit_account_tag, type: String, desc: 'Tag of the credit account'
             requires :debit_account_tag, type: String, desc: 'Tag of the debit account'
             optional :comments, type: String, desc: 'Additional comments'
-            optional :invoice_id, type: Fixnum, desc: 'ID of invoice to reference'
+            optional :invoice_id, type: Fixnum, desc: 'ID of invoice to reference', values: -> { Invoice.pluck(:id) }
           end
           put do
             begin
