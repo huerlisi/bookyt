@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/luxflux/vesr.git
-  revision: 70f17d14f1420b8a74473d83e93f9ea4ee57563d
-  branch: make-esr-number-generation-public
-  specs:
-    vesr (1.0.1)
-      aasm (~> 4.1)
-
-GIT
   remote: http://github.com/CyTeam/mt940_parser.git
   revision: 0f4125b4956761ce1b7e01b53fbccd3239a2f29a
   specs:
@@ -16,7 +8,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     Ascii85 (1.0.2)
-    aasm (4.7.0)
+    aasm (4.9.0)
     actionmailer (3.2.22)
       actionpack (= 3.2.22)
       mail (~> 2.5.4)
@@ -440,6 +432,8 @@ GEM
       raindrops (~> 0.7)
     validates_timeliness (3.0.15)
       timeliness (~> 0.3.7)
+    vesr (1.1.0)
+      aasm (~> 4.1)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -538,10 +532,10 @@ DEPENDENCIES
   uglifier
   unicorn
   validates_timeliness (~> 3.0.14)
-  vesr!
+  vesr
   will_paginate
   wkhtmltopdf-binary
   yaml_db
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
