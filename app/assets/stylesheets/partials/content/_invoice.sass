@@ -2,9 +2,32 @@
   width: 3em
 
 // LineItems
-table.line_items
-  td, th
-    padding: 0.5em
+#line_items
+  .head
+    font-weight: bold
 
-tr.saldo_line_item
+.line_item
+  padding-top: 0.8em
+  padding-bottom: 0.8em
+  border-bottom: 1px solid #e5e5e5
+
+  .row-fluid + .row-fluid
+    margin-top: 0.6em
+
+  .date input
+    width: calc(100% - 1.5em)
+
+  .action_links
+    text-align: right
+
+  input
+    padding-left: 0.1em
+    padding-right: 0.1em
+
+.saldo_line_item
+  padding-top: 0.8em
+  padding-bottom: 0.8em
   background-color: #F9F9F9
+
+  .action_links
+    text-align: right

@@ -114,9 +114,12 @@ class Tenant < ActiveRecord::Base
   # =============
   has_many :backups, :as => :reference
 
-
   # Debit Direct
   # ============
   attr_accessible :debit_direct_identification
   validates_format_of :debit_direct_identification, with: /\A[A-Z0-9]{5}\z/, allow_blank: true
+
+  # Webhook
+  # =======
+  attr_accessible :webhook
 end

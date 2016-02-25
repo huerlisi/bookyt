@@ -16,6 +16,7 @@ module Bookyt
           requires :credit_account_tag, type: String, desc: 'Tag of the credit account'
           requires :debit_account_tag, type: String, desc: 'Tag of the debit account'
           optional :comments, type: String, desc: 'Additional comments'
+          optional :invoice_id, type: Fixnum, desc: 'ID of invoice to reference', values: -> { Invoice.pluck(:id) }
         end
         post do
           begin
@@ -29,6 +30,7 @@ module Bookyt
               debit_account: debit_account,
               comments: params[:comments],
             }
+            attributes.merge!(reference: Invoice.find(params[:invoice_id])) if params[:invoice_id]
             booking = Booking.create!(attributes)
             present booking, with: Bookyt::Entities::Booking
           rescue Account::AmbiguousTag => error
@@ -51,6 +53,7 @@ module Bookyt
             requires :credit_account_tag, type: String, desc: 'Tag of the credit account'
             requires :debit_account_tag, type: String, desc: 'Tag of the debit account'
             optional :comments, type: String, desc: 'Additional comments'
+            optional :invoice_id, type: Fixnum, desc: 'ID of invoice to reference', values: -> { Invoice.pluck(:id) }
           end
           put do
             begin
@@ -64,6 +67,7 @@ module Bookyt
                 debit_account: debit_account,
                 comments: params[:comments],
               }
+              attributes.merge!(reference: Invoice.find(params[:invoice_id])) if params[:invoice_id]
               booking = Booking.find(params[:id])
               booking.update_attributes!(attributes)
               present booking, with: Bookyt::Entities::Booking

@@ -177,6 +177,7 @@ en:
         use_vesr: "VESR for accounts receivable invoices"
         users: users
         vat_number: VAT No.
+        webhook: Webhook
       user:
         country_name: Country
         created_at: "created at"
@@ -639,10 +640,17 @@ en:
       title: Tenant
     user:
       title: User
+    webhook:
+      title: Webhook
     vesr:
       title: VESR
     vat_report:
-      no_vat_accounts_found: Unable to show the VAT Accounting as there are no accounts with the "vat" tag.
+      no_vat_accounts_found: Es kann keine MwSt. Abrechnung angezeigt werden da keine entsprechenden Konten gefunden wurden.
+      balance_owed: An Staat geschuldeter Betrag
+      owed_to_state: Folgende Beträge wurden eingenommen und werden dem Staat geschuldet.
+      state_owes_to_you: Folgende Beträge wurden gezahlt und werden vom Staat vergütet.
+      explanation: Die MwSt. Abrechnung vergleicht die eingenommene und bezahlte MwSt. und errechnet einem so das Guthaben oder die Schulden beim Staat.
+      howto: Damit Konten in der MwSt. Abrechnung erscheinen müssen sie den Tag "vat" zugewiesen haben und den Typ Eigenkaptial oder Fremdkapital haben.
   time:
     formats:
       default: "%A, %d. %B %Y, %H:%M"
