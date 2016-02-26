@@ -413,6 +413,7 @@ en:
       profit_sheet: "Profit sheet"
       search: find
       statistics: statistics
+      download: Download
     flash:
       created_html: "created %{message}"
     title:
@@ -689,3 +690,8 @@ en:
 
   application:
     imprint: Imprint
+  pdf:
+    debit_invoice:
+      due: 'Payment due: %{date}'
+      invoice_number: 'Invoicenumber: %{number}'
+      lsv_message: The amount will be charged by direct debit.

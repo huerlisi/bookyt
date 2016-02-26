@@ -67,7 +67,7 @@ class DebitDirectFileCreator
   end
 
   def processing_date
-    Date.today + 1
+    Date.tomorrow
   end
 
   def creditor_bank_clearing_number

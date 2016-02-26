@@ -18,8 +18,8 @@ class DebitInvoicePDF
 
     # Period
     pdf.period(@invoice.duration_from.to_s, @invoice.duration_to.to_s)
-    pdf.text "Zahlbar bis: #{@invoice.due_date}"
-    pdf.text "Rechnungsnr.: #{@invoice.code}"
+    pdf.text I18n.t('pdf.debit_invoice.due', date: @invoice.due_date.to_s)
+    pdf.text I18n.t('pdf.debit_invoice.invoice_number', number: @invoice.code)
 
     # Free text
     pdf.free_text(@invoice.text)
@@ -29,7 +29,7 @@ class DebitInvoicePDF
 
     case
     when @invoice.customer.direct_debit_enabled?
-      pdf.free_text 'Der oben aufgeführte Betrag wird Ihnen mittels Lastschriftverfahren belastet.'
+      pdf.free_text I18n.t('pdf.debit_invoice.lsv_message')
     when bank_account.bank
       pdf.footer(sender, bank_account, @tenant.vat_number, @tenant.uid_number, @tenant.use_vesr?)
     end

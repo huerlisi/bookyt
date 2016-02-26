@@ -1,7 +1,7 @@
 .contextual
-  = icon_link_to :print, {:format => :text}, {:target => '_blank'}
+  = icon_link_to :download, {:format => :text}
   = contextual_link_to :index
 
 = boot_page_title
 
-= render partial: 'debit_invoices/list', :locals => { :debit_invoices => @debit_direct_file.debit_invoices }
+= render 'debit_invoices/list', :debit_invoices => @debit_direct_file.debit_invoices

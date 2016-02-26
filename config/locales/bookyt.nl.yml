@@ -354,6 +354,7 @@ nl:
       profit_sheet: Erfolgsrechnung
       search: Suche
       statistics: Statistiken
+      download: Herunterladen
     flash:
       created_html: "%{message} angelegt"
     title:
@@ -516,3 +517,8 @@ nl:
 
   application:
     imprint: Impressum
+  pdf:
+    debit_invoice:
+      due: 'Zahlbar bis: %{date}'
+      invoice_number: 'Rechnungsnr.: %{number}'
+      lsv_message: Der oben aufgeführte Betrag wird Ihnen mittels Lastschriftverfahren belastet.
