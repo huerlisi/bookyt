@@ -18,8 +18,8 @@ class DebitInvoicePDF
 
     # Period
     pdf.period(@invoice.duration_from.to_s, @invoice.duration_to.to_s)
-    pdf.text "Zahlbar bis: #{@invoice.due_date}"
-    pdf.text "Rechnungsnr.: #{@invoice.code}"
+    pdf.text I18n.t('pdf.debit_invoice.due', date: @invoice.due_date.to_s)
+    pdf.text I18n.t('pdf.debit_invoice.invoice_number', number: @invoice.code)
 
     # Free text
     pdf.free_text(@invoice.text)
@@ -27,12 +27,14 @@ class DebitInvoicePDF
     # Line Items
     pdf.line_items_table(@invoice, @invoice.line_items)
 
-    if bank_account.bank
+    case
+    when @invoice.customer.direct_debit_enabled?
+      pdf.free_text I18n.t('pdf.debit_invoice.lsv_message')
+    when bank_account.bank
       pdf.footer(sender, bank_account, @tenant.vat_number, @tenant.uid_number, @tenant.use_vesr?)
     end
 
-    # Footer
-    if @tenant.use_vesr?
+    if @tenant.use_vesr? && !@invoice.customer.direct_debit_enabled?
       pdf.draw_esr(@invoice, bank_account, sender, @tenant.print_payment_for?)
     end
 

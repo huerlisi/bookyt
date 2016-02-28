@@ -8,7 +8,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     Ascii85 (1.0.2)
-    aasm (4.7.0)
+    aasm (4.9.0)
     actionmailer (3.2.22)
       actionpack (= 3.2.22)
       mail (~> 2.5.4)
@@ -226,6 +226,7 @@ GEM
     ledermann-rails-settings (2.3.0)
       activerecord (>= 3.1)
     libv8 (3.16.14.13)
+    lsv-plus (1.0.3)
     lyb_devise_admin (0.4.0)
     lyb_sidebar (0.1.1)
       rails (~> 3.1)
@@ -431,7 +432,7 @@ GEM
       raindrops (~> 0.7)
     validates_timeliness (3.0.15)
       timeliness (~> 0.3.7)
-    vesr (1.0.1)
+    vesr (1.1.0)
       aasm (~> 4.1)
     virtus (1.0.5)
       axiom-types (~> 0.1)
@@ -492,6 +493,7 @@ DEPENDENCIES
   jquery-ui-rails
   json_spec
   ledermann-rails-settings
+  lsv-plus
   lyb_devise_admin
   lyb_sidebar
   mt940_parser!
@@ -536,4 +538,4 @@ DEPENDENCIES
   yaml_db
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

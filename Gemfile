@@ -151,6 +151,9 @@ gem 'mt940_parser', :git => 'http://github.com/CyTeam/mt940_parser.git', :requir
 gem 'aasm'
 gem 'vesr'
 
+# LSV+ support
+gem 'lsv-plus'
+
 # Search
 gem 'pg_search'
 

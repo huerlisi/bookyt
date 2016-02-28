@@ -1,5 +1,15 @@
 = simple_form_for resource do |f|
   = render 'address_form', :f => f
 
+  %h3= t('form.bank.money_transfer')
+  .row-fluid
+    .span12
+      = f.input :direct_debit_enabled
+  .row-fluid
+    .span6
+      = f.input :clearing
+    .span6
+      = f.input :bank_account
+
   .form-actions
     = f.button :submit

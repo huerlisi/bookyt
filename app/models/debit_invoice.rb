@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 class DebitInvoice < Invoice
+  belongs_to :debit_direct_file
+
   # Accounts
   # ========
   def self.profit_account

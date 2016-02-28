@@ -43,6 +43,10 @@ de:
         person: Person
         rate: Satz
         relative: Relativ
+      debit_direct_file:
+        id: Nummer
+        name: Name
+        debit_invoices_count: Anzahl Rechnungen
       day:
         calculate: Ausrechnen
         card_turnover: Kreditkartenumsatz
@@ -126,6 +130,9 @@ de:
         sex: Geschlecht
         street_address: Strasse
         type: Typ
+        clearing: Clearing Nummer
+        bank_account: Bank Konto
+        direct_debit_enabled: Rechnungen via LSV stellen
       salary:
         amount: Bruttolohn
         bvg_amount: BVG
@@ -137,6 +144,7 @@ de:
         ahv_number: "AHV Abrechnungsnr."
         code: Code
         company: Firma
+        debit_direct_identification: 'BDD/LSV+ Teilnehmer Nummer'
         fiscal_year_ends_on: "Ende des 1. Fiskaljahres"
         incorporated_on: Gründung
         payment_period: "Zahlungsfrist in Tagen"
@@ -183,6 +191,7 @@ de:
       customer: Kunde
       day: Tagesabschluss
       debit_invoice: "Debitoren Rechnung"
+      debit_direct_file: 'LSV+ Datei'
       employee: Mitarbeiter
       employment: Anstellung
       expense: Ausgabe
@@ -360,6 +369,8 @@ de:
       backup: Backup
       restore: Zurücksetzen
       import: Einlesen
+      list-alt: LSV+ Datei erstellen
+      download: Herunterladen
     flash:
       created_html: "%{message} angelegt"
     title:
@@ -494,6 +505,8 @@ de:
   tenants:
     bookings:
       title: Buchhaltung
+    debit_direct:
+      title: 'BDD/LSV+'
     tenant:
       title: Mandant
     user:
@@ -541,3 +554,8 @@ de:
 
   application:
     imprint: Imprint
+  pdf:
+    debit_invoice:
+      due: 'Zahlbar bis: %{date}'
+      invoice_number: 'Rechnungsnr.: %{number}'
+      lsv_message: Der oben aufgeführte Betrag wird Ihnen mittels Lastschriftverfahren belastet.

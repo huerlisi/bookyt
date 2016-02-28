@@ -21,6 +21,7 @@ FactoryGirl.define do
     title 'Bank'
     code '1020'
     association :account_type, :factory => :current_assets
+    association :bank, :factory => :bank
   end
 
   factory :cash_account, :class => Account do

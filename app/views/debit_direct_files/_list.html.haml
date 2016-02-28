@@ -1,0 +1,15 @@
+%table.table.table-striped.people.collection
+  %thead
+    %tr
+      %th= t_attr :id
+      %th= t_attr :name
+      %th= t_attr :debit_invoices_count
+
+  %tbody
+    - @debit_direct_files.each do |debit_direct_file|
+      %tr
+        %td= debit_direct_file.id
+        %td
+          = link_to debit_direct_file, {'data-href-container' => 'tr'} do
+            = debit_direct_file.to_s
+        %td= debit_direct_file.debit_invoices.count

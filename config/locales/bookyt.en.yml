@@ -40,6 +40,10 @@ en:
         person: Person
         rate: "rate (%)"
         relative: Relative
+      debit_direct_file:
+        id: Number
+        name: Name
+        debit_invoices_count: Debit invoices count
       day:
         calculate: calculate
         card_turnover: "card turnover"
@@ -149,6 +153,9 @@ en:
         religion: Religion
         sex: Sex
         type: type
+        clearing: Clearing Number
+        bank_account: Bank Account
+        direct_debit_enabled: Enable debit direct for invoices
       phone_number:
         website: Website
       salary:
@@ -161,6 +168,7 @@ en:
       tenant:
         ahv_number: "AHV Billing No."
         company: company
+        debit_direct_identification: 'Debit Direct identification'
         fiscal_year_ends_on: "end of first fiscal year"
         incorporated_on: "incorporation date"
         payment_period: "Payment term in days"
@@ -220,6 +228,7 @@ en:
       customer: Customer
       day: "Daily balance"
       debit_invoice: "Debit invoice"
+      debit_direct_file: 'Debit Direct file'
       employee: Employee
       employment: Employment
       esr_file: ESR-File
@@ -404,6 +413,7 @@ en:
       profit_sheet: "Profit sheet"
       search: find
       statistics: statistics
+      download: Download
     flash:
       created_html: "created %{message}"
     title:
@@ -625,6 +635,8 @@ en:
   tenants:
     bookings:
       title: Bookings
+    debit_direct:
+      title: 'Debit Direct'
     tenant:
       title: Tenant
     user:
@@ -678,3 +690,8 @@ en:
 
   application:
     imprint: Imprint
+  pdf:
+    debit_invoice:
+      due: 'Payment due: %{date}'
+      invoice_number: 'Invoicenumber: %{number}'
+      lsv_message: The amount will be charged by direct debit.
