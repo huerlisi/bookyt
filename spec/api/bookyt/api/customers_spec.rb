@@ -50,6 +50,14 @@ RSpec.describe Bookyt::API::Customers, type: :request do
       expect(Bookyt::Entities::Customer).to receive(:represent)
       post '/api/customers', params, headers
     end
+
+    it 'allows setting the lsv attributes' do
+      params.merge!(:direct_debit_enabled => true, :bank_clearing_number => '12', :bank_account_number => 'a')
+      post '/api/customers', params, headers
+      expect(Customer.last.direct_debit_enabled).to eq(true)
+      expect(Customer.last.clearing).to eq('12')
+      expect(Customer.last.bank_account).to eq('a')
+    end
   end
 
   describe 'GET /api/customers/:id' do
@@ -109,6 +117,15 @@ RSpec.describe Bookyt::API::Customers, type: :request do
     it 'does create a new PhoneNumber' do
       expect { put "/api/customers/#{customer.id}", params, headers }.
         to change { HasVcards::PhoneNumber.count }.from(0).to(1)
+    end
+
+    it 'allows setting the lsv attributes' do
+      params.merge!(:direct_debit_enabled => true, :bank_clearing_number => '12', :bank_account_number => 'a')
+      put "/api/customers/#{customer.id}", params, headers
+      customer.reload
+      expect(customer.direct_debit_enabled).to eq(true)
+      expect(customer.clearing).to eq('12')
+      expect(customer.bank_account).to eq('a')
     end
   end
 

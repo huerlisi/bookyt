@@ -25,6 +25,9 @@ module Bookyt
           requires :city, type: String, desc: 'City of the customers address'
           optional :post_office_box, type: String, desc: 'Postoffice box'
           optional :extended_address, type: String, desc: 'Extended address data'
+          optional :direct_debit_enabled, type: Boolean, desc: 'Enable direct debit'
+          optional :bank_clearing_number, type: String, desc: 'Clearing number of customers bank'
+          optional :bank_account_number, type: String, desc: 'Bank account number'
           optional :phone_numbers, type: Array, default: [] do
             requires :type, type: String, values: %w(office home mobile)
             requires :number, type: String
@@ -50,6 +53,9 @@ module Bookyt
             requires :city, type: String, desc: 'City of the customers address'
             optional :post_office_box, type: String, desc: 'Postoffice box'
             optional :extended_address, type: String, desc: 'Extended address data'
+            optional :direct_debit_enabled, type: Boolean, desc: 'Enable direct debit'
+            optional :bank_clearing_number, type: String, desc: 'Clearing number of customers bank'
+            optional :bank_account_number, type: String, desc: 'Bank account number'
             optional :phone_numbers, type: Array, default: [] do
               requires :type, type: String, values: %w(office home mobile)
               requires :number, type: String

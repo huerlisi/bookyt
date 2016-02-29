@@ -24,6 +24,9 @@ RSpec.describe CustomerParams do
       let(:customer) { FactoryGirl.create(:customer) }
       let(:hash) do
         {
+          direct_debit_enabled: nil,
+          bank_account: nil,
+          clearing: nil,
           vcard_attributes: {
             id: customer.id,
             full_name: 'Bruce Lee',
@@ -66,6 +69,9 @@ RSpec.describe CustomerParams do
     context 'customer does not exist' do
       let(:hash) do
         {
+          direct_debit_enabled: nil,
+          bank_account: nil,
+          clearing: nil,
           vcard_attributes: {
             full_name: 'Bruce Lee',
             address_attributes: {
