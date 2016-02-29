@@ -31,6 +31,7 @@ module Bookyt
     end
 
     mount Bookyt::API::Bookings
+    mount Bookyt::API::Companies
     mount Bookyt::API::Customers
     mount Bookyt::API::DebitInvoices
     mount Bookyt::API::DebitDirectFiles

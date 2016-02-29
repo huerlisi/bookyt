@@ -1,4 +1,4 @@
-class CustomerParams
+class PeopleParams
   # https://github.com/huerlisi/has_vcards/blob/master/app/models/has_vcards/vcard.rb#L37
   PHONE_TYPE_MAPPING = {
     'office' => 'Tel. geschäft',

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe Bookyt::Entities::Customer do
+RSpec.describe Bookyt::Entities::Person do
   let(:customer) { FactoryGirl.create(:customer) }
-  let(:instance) { Bookyt::Entities::Customer.represent(customer) }
+  let(:instance) { described_class.represent(customer) }
 
   subject { JSON.parse(instance.to_json) }
 
