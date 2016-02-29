@@ -39,8 +39,13 @@ class Tenant < ActiveRecord::Base
   attr_accessible :incorporated_on
 
   def fiscal_period(year)
-    month = fiscal_year_ends_on.try(:month) || 12
-    day = fiscal_year_ends_on.try(:day) || 31
+    if fiscal_year_ends_on && fiscal_year_ends_on.year == year
+      month = fiscal_year_ends_on.month
+      day = fiscal_year_ends_on.day
+    else
+      month = 12
+      day = 31
+    end
     final_day_of_fiscal_year = Date.new(year, month, day)
     first_day_of_fiscal_year = final_day_of_fiscal_year.ago(1.year).in(1.day)
 

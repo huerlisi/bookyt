@@ -21,5 +21,13 @@ describe Tenant do
 
       expect{ tenant.fiscal_years }.to_not raise_exception
     end
+
+    context 'leap year' do
+      let(:tenant) { FactoryGirl.build :tenant, fiscal_year_ends_on: Date.new(2016, 2, 29) }
+
+      it 'does not raise an error' do
+        expect { tenant.fiscal_years }.to_not raise_exception
+      end
+    end
   end
 end
