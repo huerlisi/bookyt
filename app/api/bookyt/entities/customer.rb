@@ -8,6 +8,9 @@ module Bookyt
       expose :city
       expose :post_office_box
       expose :extended_address
+      expose :direct_debit_enabled
+      expose :clearing, as: :bank_clearing_number
+      expose :bank_account, as: :bank_account_number
       expose :phone_numbers, using: Bookyt::Entities::PhoneNumber
 
       def name

@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 RSpec.describe Bookyt::Entities::Customer do
-  let(:customer) { FactoryGirl.create(:customer) }
+  let(:customer) do
+    FactoryGirl.create(:customer, direct_debit_enabled: true, bank_account: 1, clearing: 2)
+  end
   let(:instance) { Bookyt::Entities::Customer.represent(customer) }
 
   subject { JSON.parse(instance.to_json) }
@@ -16,6 +18,9 @@ RSpec.describe Bookyt::Entities::Customer do
       'post_office_box' => nil,
       'street' => 'Teststr. 1',
       'zip' => '9999',
+      'direct_debit_enabled' => true,
+      'bank_account_number' => 1,
+      'bank_clearing_number' => 2,
     )
   end
 end
