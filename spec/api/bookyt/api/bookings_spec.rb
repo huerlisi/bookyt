@@ -29,8 +29,8 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
         title: 'Test',
         amount: 13.37,
         value_date: Date.today,
-        credit_account_tag: 'incoming:test:credit',
-        debit_account_tag: 'incoming:test:debit',
+        credit_account_code: '1100',
+        debit_account_code: '3200',
         comments: 'This is a loooooooooooong comment',
         invoice_id: invoice.id,
       }
@@ -38,8 +38,8 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
 
     context 'accounts present' do
       before do
-        FactoryGirl.create(:account, tag_list: 'incoming:test:credit')
-        FactoryGirl.create(:account, tag_list: 'incoming:test:debit')
+        FactoryGirl.create(:account, code: '1100')
+        FactoryGirl.create(:account, code: '3200')
       end
 
       it 'returns the created booking' do
@@ -78,23 +78,6 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
         end
       end
     end
-
-    context 'too many accounts found' do
-      it 'returns an error' do
-        expect(Account).to receive(:find_by_tag).and_raise(Account::AmbiguousTag.new('asd', 2))
-        post '/api/bookings', params, headers
-        expect(JSON.parse(response.body)).to be_instance_of(Hash)
-        expect(response.status).to eq(422)
-      end
-    end
-
-    context 'an account cannot be found' do
-      it 'returns an error' do
-        post '/api/bookings', params, headers
-        expect(JSON.parse(response.body)).to be_instance_of(Hash)
-        expect(response.status).to eq(422)
-      end
-    end
   end
 
   describe 'GET /api/bookings/:id' do
@@ -122,8 +105,8 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
         title: 'Test',
         amount: 13.37,
         value_date: Date.today,
-        credit_account_tag: 'incoming:test:credit',
-        debit_account_tag: 'incoming:test:debit',
+        credit_account_code: '1100',
+        debit_account_code: '3200',
         comments: 'This is a loooooooooooong comment',
         invoice_id: invoice.id,
       }
@@ -132,8 +115,8 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
 
     context 'accounts present' do
       before do
-        FactoryGirl.create(:account, tag_list: 'incoming:test:credit')
-        FactoryGirl.create(:account, tag_list: 'incoming:test:debit')
+        FactoryGirl.create(:account, code: '1100')
+        FactoryGirl.create(:account, code: '3200')
       end
 
       it 'returns the booking' do
@@ -170,23 +153,6 @@ RSpec.describe Bookyt::API::Bookings, type: :request do
           put "/api/bookings/#{booking.id}", params, headers
           expect(response.status).to eq(200)
         end
-      end
-    end
-
-    context 'too many accounts found' do
-      it 'returns an error' do
-        expect(Account).to receive(:find_by_tag).and_raise(Account::AmbiguousTag.new('asd', 2))
-        put "/api/bookings/#{booking.id}", params, headers
-        expect(JSON.parse(response.body)).to be_instance_of(Hash)
-        expect(response.status).to eq(422)
-      end
-    end
-
-    context 'an account cannot be found' do
-      it 'returns an error' do
-        put "/api/bookings/#{booking.id}", params, headers
-        expect(JSON.parse(response.body)).to be_instance_of(Hash)
-        expect(response.status).to eq(422)
       end
     end
   end

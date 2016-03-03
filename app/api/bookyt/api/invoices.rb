@@ -30,9 +30,9 @@ module Bookyt
 
         def line_items_attributes
           declared(params)[:line_items].map do |line_item|
-            item = line_item.except(:credit_account_tag, :debit_account_tag)
-            item[:credit_account] = Account.find_by_tag(line_item[:credit_account_tag])
-            item[:debit_account] = Account.find_by_tag(line_item[:debit_account_tag])
+            item = line_item.except(:credit_account_code, :debit_account_code)
+            item[:credit_account] = Account.find_by_code(line_item[:credit_account_code])
+            item[:debit_account] = Account.find_by_code(line_item[:debit_account_code])
             item
           end
         end
@@ -45,6 +45,9 @@ module Bookyt
           present invoices, with: Bookyt::Entities::Invoice
         end
 
+        before do
+          Rails.logger.info params.inspect
+        end
         desc 'Create a new invoice'
         params do
           requires :title, type: String, desc: 'Title of the invoice'
@@ -64,8 +67,8 @@ module Bookyt
             requires :times, type: Integer, default: 1, desc: 'Price multiplier'
             requires :quantity, type: String, default: 'x', values: %w(x hours overall %), desc: 'Quantity'
             requires :price, type: BigDecimal, desc: 'Price of the line item, without modifiers applied'
-            requires :credit_account_tag, type: String, desc: 'Tag of the credit account'
-            requires :debit_account_tag, type: String, desc: 'Tag of the debit account'
+            requires :credit_account_code, type: String, values: -> { Account.pluck(:code) }, desc: 'Code of the credit account'
+            requires :debit_account_code, type: String,  values: -> { Account.pluck(:code) }, desc: 'Code of the debit account'
 
             optional :date, type: Date, desc: 'Date of the line item'
           end
@@ -110,8 +113,8 @@ module Bookyt
               requires :times, type: Integer, default: 1, desc: 'Price multiplier'
               requires :quantity, type: String, default: 'x', values: %w(x hours overall %), desc: 'Quantity'
               requires :price, type: BigDecimal, desc: 'Price of the line item, without modifiers applied'
-              requires :credit_account_tag, type: String, desc: 'Tag of the credit account'
-              requires :debit_account_tag, type: String, desc: 'Tag of the debit account'
+              requires :credit_account_code, type: String, values: -> { Account.pluck(:code) }, desc: 'Code of the credit account'
+              requires :debit_account_code, type: String, values: -> { Account.pluck(:code) }, desc: 'Code of the debit account'
 
               optional :date, type: Date, desc: 'Date of the line item'
             end

@@ -44,15 +44,15 @@ RSpec.describe Bookyt::API::Invoices, type: :request do
           times: 5,
           quantity: 'x',
           price: 42.00,
-          credit_account_tag: 'subscription:swag:full:credit',
-          debit_account_tag: 'subscription:swag:full:debit',
+          credit_account_code: '1100',
+          debit_account_code: '3200',
         ],
       }
     end
 
     before do
-      FactoryGirl.create(:account, tag_list: 'subscription:swag:full:credit')
-      FactoryGirl.create(:account, tag_list: 'subscription:swag:full:debit')
+      FactoryGirl.create(:account, code: '1100')
+      FactoryGirl.create(:account, code: '3200')
     end
 
     it 'returns the created invoice' do
@@ -149,16 +149,16 @@ RSpec.describe Bookyt::API::Invoices, type: :request do
           times: 5,
           quantity: 'x',
           price: 42.00,
-          credit_account_tag: 'subscription:swag:full:credit',
-          debit_account_tag: 'subscription:swag:full:debit',
+          credit_account_code: '1100',
+          debit_account_code: '3200',
         ],
       }
     end
 
     let!(:invoice) { FactoryGirl.create(:debit_invoice) }
     before do
-      FactoryGirl.create(:account, tag_list: 'subscription:swag:full:credit')
-      FactoryGirl.create(:account, tag_list: 'subscription:swag:full:debit')
+      FactoryGirl.create(:account, code: '1100')
+      FactoryGirl.create(:account, code: '3200')
     end
 
     it 'returns the updated invoice' do
