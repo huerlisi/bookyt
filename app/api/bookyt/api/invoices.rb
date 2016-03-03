@@ -80,7 +80,7 @@ module Bookyt
 
           requires :line_items, type: Array do
             requires :title, type: String, desc: 'Title/Description of the line item'
-            requires :times, type: Integer, default: 1, desc: 'Price multiplier'
+            requires :times, type: BigDecimal, default: 1, desc: 'Price multiplier'
             requires :quantity, type: String, default: 'x', values: %w(x hours overall %), desc: 'Quantity'
             requires :price, type: BigDecimal, desc: 'Price of the line item, without modifiers applied'
             requires :credit_account_code, type: String, values: -> { Account.pluck(:code) }, desc: 'Code of the credit account'
@@ -127,7 +127,7 @@ module Bookyt
             requires :line_items, type: Array do
               optional :id, type: Integer, desc: 'The ID of the line item'
               requires :title, type: String, desc: 'Title/Description of the line item'
-              requires :times, type: Integer, default: 1, desc: 'Price multiplier'
+              requires :times, type: BigDecimal, default: 1, desc: 'Price multiplier'
               requires :quantity, type: String, default: 'x', values: %w(x hours overall %), desc: 'Quantity'
               requires :price, type: BigDecimal, desc: 'Price of the line item, without modifiers applied'
               requires :credit_account_code, type: String, values: -> { Account.pluck(:code) }, desc: 'Code of the credit account'
