@@ -13,7 +13,7 @@ class CustomerParams
   end
 
   def to_h
-    { vcard_attributes: vcard_attributes }
+    direct_debit_attributes.merge(vcard_attributes: vcard_attributes)
   end
 
   def vcard_attributes
@@ -28,6 +28,14 @@ class CustomerParams
 
   def full_name
     params[:name]
+  end
+
+  def direct_debit_attributes
+    {
+      direct_debit_enabled: params[:direct_debit_enabled],
+      clearing: params[:bank_clearing_number],
+      bank_account: params[:bank_account_number],
+    }
   end
 
   def address_attributes
