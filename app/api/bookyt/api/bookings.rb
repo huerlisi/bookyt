@@ -50,8 +50,8 @@ module Bookyt
             requires :title, type: String, desc: 'Title of the booking'
             requires :amount, type: BigDecimal, desc: 'Amount to be booked'
             requires :value_date, type: Date, desc: 'Date of the booking'
-          requires :credit_account_code, type: String, values: -> { Account.pluck(:code) }, desc: 'Code of the credit account'
-          requires :debit_account_code, type: String,  values: -> { Account.pluck(:code) }, desc: 'Code of the debit account'
+            requires :credit_account_code, type: String, values: -> { Account.pluck(:code) }, desc: 'Code of the credit account'
+            requires :debit_account_code, type: String,  values: -> { Account.pluck(:code) }, desc: 'Code of the debit account'
             optional :comments, type: String, desc: 'Additional comments'
             optional :invoice_id, type: Fixnum, desc: 'ID of invoice to reference', values: -> { Invoice.pluck(:id) }
           end
