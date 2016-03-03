@@ -1,6 +1,7 @@
 module Bookyt
   module Entities
     class LineItem < Bookyt::Entities::Base
+      expose :id
       expose :title
       expose :quantity
       expose :credit_account_code

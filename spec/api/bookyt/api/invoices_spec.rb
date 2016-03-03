@@ -66,6 +66,10 @@ RSpec.describe Bookyt::API::Invoices, type: :request do
       post '/api/invoices', params, headers
     end
 
+    it 'creates new line items' do
+      expect { post '/api/invoices', params, headers }.to change(LineItem, :count).from(0).to(1)
+    end
+
     context 'DebitInvoice' do
       before do
         params[:address_id] = customer.id
@@ -145,21 +149,38 @@ RSpec.describe Bookyt::API::Invoices, type: :request do
         text: 'Thank you for your money',
         remarks: 'Hopefully the customer never sees this remark',
         line_items: [
-          title: 'SWAG subscription FULL',
-          times: 5,
-          quantity: 'x',
-          price: 42.00,
-          credit_account_code: '1100',
-          debit_account_code: '3200',
+          {
+            id: banana.id,
+            title: 'SWAG subscription FULL',
+            times: 5,
+            quantity: 'x',
+            price: 42.00,
+            credit_account_code: '1101',
+            debit_account_code: '3201',
+          },
+          {
+            title: 'New Item',
+            times: 2,
+            quantity: 'x',
+            price: 1337.00,
+            credit_account_code: '1100',
+            debit_account_code: '3200',
+          },
         ],
       }
     end
 
     let!(:invoice) { FactoryGirl.create(:debit_invoice) }
-    before do
-      FactoryGirl.create(:account, code: '1100')
-      FactoryGirl.create(:account, code: '3200')
+    let!(:banana) do
+      FactoryGirl.create :banana, invoice: invoice,
+                                  credit_account: credit_account,
+                                  debit_account: debit_account
     end
+    let!(:to_be_removed_banana) { FactoryGirl.create :banana, invoice: invoice }
+    let(:credit_account) { FactoryGirl.create(:account, code: '1100') }
+    let(:debit_account) { FactoryGirl.create(:account, code: '3200') }
+    let!(:new_credit_account) { FactoryGirl.create(:account, code: '1101') }
+    let!(:new_debit_account) { FactoryGirl.create(:account, code: '3201') }
 
     it 'returns the updated invoice' do
       put "/api/invoices/#{invoice.id}", params, headers
@@ -193,6 +214,26 @@ RSpec.describe Bookyt::API::Invoices, type: :request do
       params[:type] = 'credit'
       expect { put "/api/invoices/#{invoice.id}", params, headers }.
         to_not change { Invoice.find(invoice.id).class }
+    end
+
+    it 'creates new line items' do
+      expect { put "/api/invoices/#{invoice.id}", params, headers }.to_not change(LineItem, :count).from(2)
+    end
+
+    it 'updates the old line items' do
+      put "/api/invoices/#{invoice.id}", params, headers
+      banana.reload
+      expect(banana.title).to eq('SWAG subscription FULL')
+      expect(banana.times).to eq(5)
+      expect(banana.quantity).to eq('x')
+      expect(banana.price).to eq(42)
+      expect(banana.credit_account).to eq(new_credit_account)
+      expect(banana.debit_account).to eq(new_debit_account)
+    end
+
+    it 'removes the missing line items' do
+      put "/api/invoices/#{invoice.id}", params, headers
+      expect { to_be_removed_banana.reload }.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 

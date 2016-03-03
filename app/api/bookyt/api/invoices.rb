@@ -29,12 +29,28 @@ module Bookyt
         end
 
         def line_items_attributes
-          declared(params)[:line_items].map do |line_item|
+          persistable_line_items_attributes | removable_line_items_attributes
+        end
+
+        def persistable_line_items_attributes
+          line_items_param.map do |line_item|
             item = line_item.except(:credit_account_code, :debit_account_code)
             item[:credit_account] = Account.find_by_code(line_item[:credit_account_code])
             item[:debit_account] = Account.find_by_code(line_item[:debit_account_code])
             item
           end
+        end
+
+        def removable_line_items_attributes
+          return [] unless params[:id]
+          Invoice.find(params[:id]).line_items.map do |line_item|
+            next if line_items_param.detect { |item| item[:id] == line_item.id }
+            { id: line_item.id, _destroy: true }
+          end.compact
+        end
+
+        def line_items_param
+          declared(params)[:line_items]
         end
       end
 
@@ -109,6 +125,7 @@ module Bookyt
             optional :remarks, type: String, desc: 'Internal remarks, not visible to customer'
 
             requires :line_items, type: Array do
+              optional :id, type: Integer, desc: 'The ID of the line item'
               requires :title, type: String, desc: 'Title/Description of the line item'
               requires :times, type: Integer, default: 1, desc: 'Price multiplier'
               requires :quantity, type: String, default: 'x', values: %w(x hours overall %), desc: 'Quantity'
