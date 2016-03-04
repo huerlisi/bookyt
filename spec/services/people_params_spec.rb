@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe CustomerParams do
+RSpec.describe PeopleParams do
   let(:params) do
     {
       name: 'Bruce Lee',

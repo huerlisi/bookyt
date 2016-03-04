@@ -1,6 +1,6 @@
 module Bookyt
   module Entities
-    class Customer < Bookyt::Entities::Base
+    class Person < Bookyt::Entities::Base
       expose :id
       expose :name
       expose :street
