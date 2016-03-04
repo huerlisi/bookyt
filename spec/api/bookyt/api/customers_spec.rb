@@ -16,8 +16,8 @@ RSpec.describe Bookyt::API::Customers, type: :request do
       expect(response.status).to eq(200)
     end
 
-    it 'uses Bookyt::Entities::Customer to display the Customer' do
-      expect(Bookyt::Entities::Customer).to receive(:represent)
+    it 'uses Bookyt::Entities::Person to display the Customer' do
+      expect(Bookyt::Entities::Person).to receive(:represent)
       get '/api/customers', params, headers
     end
   end
@@ -46,8 +46,8 @@ RSpec.describe Bookyt::API::Customers, type: :request do
       expect { post '/api/customers', params, headers }.to change(Customer, :count).from(0).to(1)
     end
 
-    it 'uses Bookyt::Entities::Customer to display the created Customer' do
-      expect(Bookyt::Entities::Customer).to receive(:represent)
+    it 'uses Bookyt::Entities::Person to display the created Customer' do
+      expect(Bookyt::Entities::Person).to receive(:represent)
       post '/api/customers', params, headers
     end
 
@@ -71,8 +71,8 @@ RSpec.describe Bookyt::API::Customers, type: :request do
         expect(response.status).to eq(200)
       end
 
-      it 'uses Bookyt::Entities::Customer to display the Customer' do
-        expect(Bookyt::Entities::Customer).to receive(:represent)
+      it 'uses Bookyt::Entities::Person to display the Customer' do
+        expect(Bookyt::Entities::Person).to receive(:represent)
         get "/api/customers/#{customer.id}", params, headers
       end
     end
@@ -104,8 +104,8 @@ RSpec.describe Bookyt::API::Customers, type: :request do
         to change { customer.vcard.reload.full_name }
     end
 
-    it 'uses Bookyt::Entities::Customer to display the updated Customer' do
-      expect(Bookyt::Entities::Customer).to receive(:represent)
+    it 'uses Bookyt::Entities::Person to display the updated Customer' do
+      expect(Bookyt::Entities::Person).to receive(:represent)
       put "/api/customers/#{customer.id}", params, headers
     end
 

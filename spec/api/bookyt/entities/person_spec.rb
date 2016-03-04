@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-RSpec.describe Bookyt::Entities::Customer do
+RSpec.describe Bookyt::Entities::Person do
   let(:customer) do
     FactoryGirl.create(:customer, direct_debit_enabled: true, bank_account: 1, clearing: 2)
   end
-  let(:instance) { Bookyt::Entities::Customer.represent(customer) }
+  let(:instance) { described_class.represent(customer) }
 
   subject { JSON.parse(instance.to_json) }
 

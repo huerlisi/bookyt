@@ -1,4 +1,4 @@
-class CustomerParams
+class PeopleParams
   # https://github.com/huerlisi/has_vcards/blob/master/app/models/has_vcards/vcard.rb#L37
   PHONE_TYPE_MAPPING = {
     'office' => 'Tel. geschäft',
@@ -64,22 +64,22 @@ class CustomerParams
   end
 
   def update?
-    !!customer_id
+    !!person_id
   end
 
-  def customer_id
+  def person_id
     params[:id]
   end
 
-  def customer
-    @customer ||= Customer.find(customer_id)
+  def person
+    @person ||= Person.find(person_id)
   end
 
   def vcard_address_id
-    customer.vcard.id
+    person.vcard.id
   end
 
   def phone_number_id(type)
-    customer.vcard.contacts.find_by_phone_number_type(type).try(:id)
+    person.vcard.contacts.find_by_phone_number_type(type).try(:id)
   end
 end
