@@ -16,7 +16,7 @@ SimpleNavigation::Configuration.run do |navigation|
       accounting.item :booking, t('bookyt.main_navigation.new_booking'), new_booking_path,
                       :highlights_on => /\/bookings\/.*$/
       accounting.item :booking, t('bookyt.main_navigation.new_expense'), new_expense_path
-      accounting.item :accounting_divider, "", :class => 'divider'
+      accounting.item :accounting_divider, "", '#', :html => { :class => 'divider' }
       accounting.item :accounts, t_title(:index, Account), accounts_path
       accounting.item :bookings, t('bookyt.main_navigation.bookings'), bookings_path,
                       :highlights_on => /\/bookings($|\?)/
@@ -25,7 +25,7 @@ SimpleNavigation::Configuration.run do |navigation|
                         :highlights_on => /#{Regexp.escape(balance_sheet_tenant_path(current_tenant))}($|\?)/
         accounting.item :profit, t('bookyt.main_navigation.profit'), profit_sheet_tenant_path(current_tenant, :by_date => params[:by_date]),
                         :highlights_on => /#{Regexp.escape(profit_sheet_tenant_path(current_tenant))}($|\?)/
-        accounting.item :divider, "", :class => 'divider'
+        accounting.item :divider, "", '#', :html => {:class => 'divider' }
         accounting.item :mt940_import, t_title(:import, BookingImportAttachment), new_booking_import_attachment_path
       end
     end
@@ -33,7 +33,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :debit_invoices, t_title(:index, DebitInvoice), '#' do |invoicing|
       invoicing.item :new_debit_invoice, t_title(:new, DebitInvoice), new_debit_invoice_path
       invoicing.item :debit_invoices, t('bookyt.main_navigation.debit_invoices'), debit_invoices_path
-      invoicing.item :divider, "", :class => 'divider'
+      invoicing.item :divider, "", '#', :html => {:class => 'divider' }
       invoicing.item :new_esr_file, t('bookyt.main_navigation.new_esr_file'), new_esr_file_path
       invoicing.item :esr_files, t('bookyt.main_navigation.esr_files'), esr_files_path
     end

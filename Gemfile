@@ -74,7 +74,7 @@ end
 gem 'haml-rails'
 
 # Navigation
-gem 'simple-navigation', '~> 3.14' # Changed API
+gem 'simple-navigation'
 
 # Styling
 gem 'lyb_sidebar'

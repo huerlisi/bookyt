@@ -393,7 +393,7 @@ GEM
     show_for (0.4.0)
       actionpack (>= 3.2, < 5)
       activemodel (>= 3.2, < 5)
-    simple-navigation (3.14.0)
+    simple-navigation (4.0.3)
       activesupport (>= 2.3.2)
     simple_form (2.1.3)
       actionpack (~> 3.0)
@@ -520,7 +520,7 @@ DEPENDENCIES
   settingslogic
   shoulda-matchers
   show_for
-  simple-navigation (~> 3.14)
+  simple-navigation
   simple_form
   sprockets
   test-unit
