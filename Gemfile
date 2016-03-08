@@ -94,7 +94,7 @@ gem 'i18n_rails_helpers'
 gem 'responders'
 
 # Access Control
-gem 'devise', '~> 3.0.4' # Config changes, dropped support for tokens
+gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'faraday'
 gem 'cancancan'
