@@ -79,6 +79,7 @@ module Bookyt
           desc 'Delete a booking'
           delete do
             Booking.find(params[:id]).destroy
+            body false
             status 204
           end
         end

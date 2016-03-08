@@ -102,7 +102,7 @@ gem 'lyb_devise_admin'
 gem 'apartment'
 
 # API
-gem 'grape', '~> 0.13.0' # Changed response for 204 responses
+gem 'grape'
 gem 'grape-entity'
 
 # Data dump/restore

@@ -145,6 +145,7 @@ module Bookyt
           desc 'Delete a invoice'
           delete do
             Invoice.find(params[:id]).destroy
+            body false
             status 204
           end
         end

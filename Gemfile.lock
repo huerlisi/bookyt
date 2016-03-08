@@ -152,7 +152,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     fastercsv (1.5.5)
     ffi (1.9.10)
-    grape (0.13.0)
+    grape (0.15.0)
       activesupport
       builder
       hashie (>= 2.1.0)
@@ -477,7 +477,7 @@ DEPENDENCIES
   devise (~> 3.0.4)
   factory_girl_rails
   faraday
-  grape (~> 0.13.0)
+  grape
   grape-entity
   haml-rails
   has_accounts
