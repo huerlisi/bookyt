@@ -74,11 +74,11 @@ end
 gem 'haml-rails'
 
 # Navigation
-gem 'simple-navigation'
+gem 'simple-navigation', '~> 3.14' # Changed API
 
 # Styling
 gem 'lyb_sidebar'
-gem 'anjlab-bootstrap-rails', '~>2.1.0', :require => 'bootstrap-rails'
+gem 'anjlab-bootstrap-rails', '~> 2.1.0', :require => 'bootstrap-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-will_paginate'
 
@@ -94,7 +94,7 @@ gem 'i18n_rails_helpers'
 gem 'responders'
 
 # Access Control
-gem 'devise', '~>3.0.4' # Config changes
+gem 'devise', '~> 3.0.4' # Config changes, dropped support for tokens
 gem 'omniauth-google-oauth2'
 gem 'faraday'
 gem 'cancancan'
@@ -102,7 +102,7 @@ gem 'lyb_devise_admin'
 gem 'apartment'
 
 # API
-gem 'grape'
+gem 'grape', '~> 0.13.0' # Changed response for 204 responses
 gem 'grape-entity'
 
 # Data dump/restore
@@ -139,7 +139,7 @@ gem 'best_in_place'
 gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 
-gem 'prawn', '~> 0.12' # API incompatible
+gem 'prawn', '~> 0.12.0' # API incompatible, missing templating
 gem 'prawn_rails'
 
 # Raiffeisen BookingImport
