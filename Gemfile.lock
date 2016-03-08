@@ -55,7 +55,6 @@ GEM
     best_in_place (3.1.0)
       actionpack (>= 3.2)
       railties (>= 3.2)
-    bookyt_pos (0.2.0)
     bookyt_projects (1.1.1)
       rails (~> 3.1)
       recurrence
@@ -460,7 +459,6 @@ DEPENDENCIES
   anjlab-bootstrap-rails (~> 2.1.0)
   apartment
   best_in_place
-  bookyt_pos
   bookyt_projects
   bookyt_salary
   bookyt_stock

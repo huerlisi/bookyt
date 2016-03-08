@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160208103101) do
+ActiveRecord::Schema.define(:version => 20160308215619) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -186,21 +186,6 @@ ActiveRecord::Schema.define(:version => 20160208103101) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "days", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.date     "date"
-    t.decimal  "cash",            :precision => 10, :scale => 2
-    t.decimal  "card_turnover",   :precision => 10, :scale => 2
-    t.decimal  "gross_turnover",  :precision => 10, :scale => 2
-    t.decimal  "net_turnover",    :precision => 10, :scale => 2
-    t.integer  "client_count"
-    t.integer  "product_count"
-    t.decimal  "expenses",        :precision => 10, :scale => 2
-    t.decimal  "credit_turnover", :precision => 10, :scale => 2, :default => 0.0
-    t.decimal  "discount",        :precision => 10, :scale => 2, :default => 0.0
   end
 
   create_table "debit_direct_files", :force => true do |t|
