@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-RSpec.describe Bookyt::Entities::DebitInvoice do
+RSpec.describe Bookyt::Entities::Invoice do
   let(:invoice) do
     FactoryGirl.create(:debit_invoice, due_date: '2015-10-10'.to_date, value_date: '2015-10-01'.to_date)
   end
-  let(:instance) { Bookyt::Entities::DebitInvoice.represent(invoice) }
+  let(:instance) { Bookyt::Entities::Invoice.represent(invoice) }
 
   subject { JSON.parse(instance.to_json) }
 
@@ -13,6 +13,7 @@ RSpec.describe Bookyt::Entities::DebitInvoice do
       'id' => invoice.id,
       'title' => invoice.title,
       'customer_id' => invoice.customer.id,
+      'company_id' => invoice.company.id,
       'state' => invoice.state,
       'value_date' => '2015-10-01',
       'due_date' => '2015-10-10',

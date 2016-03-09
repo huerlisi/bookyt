@@ -30,10 +30,15 @@ module Bookyt
       error!(message, 422)
     end
 
+    rescue_from ActiveRecord::RecordNotFound do |error|
+      message = { 'error' => 'Not Found' }
+      error!(message, 404)
+    end
+
     mount Bookyt::API::Bookings
     mount Bookyt::API::Companies
     mount Bookyt::API::Customers
-    mount Bookyt::API::DebitInvoices
     mount Bookyt::API::DebitDirectFiles
+    mount Bookyt::API::Invoices
   end
 end

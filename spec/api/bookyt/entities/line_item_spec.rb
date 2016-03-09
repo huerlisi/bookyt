@@ -8,10 +8,11 @@ RSpec.describe Bookyt::Entities::LineItem do
 
   it 'matches the api specification' do
     expect(subject).to eq(
+      'id' => line_item.id,
       'title' => line_item.title,
       'price' => line_item.price.to_s,
-      'credit_account_id' => line_item.credit_account_id,
-      'debit_account_id' => line_item.debit_account_id,
+      'credit_account_code' => line_item.credit_account.code,
+      'debit_account_code' => line_item.debit_account.code,
       'date' => line_item.date,
       'quantity' => line_item.quantity,
       'times' => line_item.times.to_s,

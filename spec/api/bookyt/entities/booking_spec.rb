@@ -19,8 +19,8 @@ RSpec.describe Bookyt::Entities::Booking do
       'amount' => '13.37',
       'value_date' => '2015-11-19',
       'comments' => 'Comment',
-      'credit_account_id' => booking.credit_account_id,
-      'debit_account_id' => booking.debit_account_id,
+      'credit_account_code' => booking.credit_account.code,
+      'debit_account_code' => booking.debit_account.code,
     )
   end
 end

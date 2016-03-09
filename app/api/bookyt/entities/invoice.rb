@@ -1,9 +1,10 @@
 module Bookyt
   module Entities
-    class DebitInvoice < Bookyt::Entities::Base
+    class Invoice < Bookyt::Entities::Base
       expose :id
       expose :title
       expose :customer_id
+      expose :company_id
       expose :state
       expose :text
       expose :remarks
