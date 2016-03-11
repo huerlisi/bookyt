@@ -40,6 +40,7 @@ module Bookyt
         desc 'Delete an address'
         delete do
           model.find(params[:id]).destroy
+          body false
           status 204
         end
       end

@@ -167,10 +167,6 @@ Devise.setup do |config|
   # REST_AUTH_SITE_KEY to pepper)
   # config.encryptor = :sha512
 
-  # ==> Configuration for :token_authenticatable
-  # Defines name of the authentication token params key
-  config.token_authentication_key = :auth_token
-
   # ==> Scopes configuration
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
@@ -199,6 +195,11 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
+
+  # ==> Secret
+  # Currently this key will be used on all Bookyt instances. This will be changes when
+  # updating to Rails > 4 where we use it's token infrastructure
+  config.secret_key = 'e3c5de432fa7cd3f80c28a2ec71cc30fc04a7c980e5a2f1ebea620c7eff842905252a7254a67f77db75527abeb0c9d5958ce30e4cf97cc43cb651d68183b9f25'
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting

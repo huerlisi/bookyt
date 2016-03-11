@@ -78,7 +78,7 @@ gem 'simple-navigation'
 
 # Styling
 gem 'lyb_sidebar'
-gem 'anjlab-bootstrap-rails', '~>2.1.0', :require => 'bootstrap-rails'
+gem 'anjlab-bootstrap-rails', '~> 2.1.0', :require => 'bootstrap-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-will_paginate'
 
@@ -94,7 +94,7 @@ gem 'i18n_rails_helpers'
 gem 'responders'
 
 # Access Control
-gem 'devise', '~>3.0.4' # Config changes
+gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'faraday'
 gem 'cancancan'
@@ -139,7 +139,7 @@ gem 'best_in_place'
 gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 
-gem 'prawn', '~> 0.12' # API incompatible
+gem 'prawn', '~> 0.12.0' # API incompatible, missing templating
 gem 'prawn_rails'
 
 # Raiffeisen BookingImport
@@ -163,7 +163,6 @@ gem 'acts-as-taggable-on', '~> 2.4.1' # API incompatible
 # Plugins
 # =======
 # Uncomment to enable plugins
-gem 'bookyt_pos'
 gem 'bookyt_salary'
 gem 'bookyt_stock'
 gem 'bookyt_projects'
