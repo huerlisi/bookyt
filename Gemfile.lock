@@ -428,7 +428,7 @@ GEM
       raindrops (~> 0.7)
     validates_timeliness (3.0.15)
       timeliness (~> 0.3.7)
-    vesr (1.1.0)
+    vesr (1.1.1)
       aasm (~> 4.1)
     virtus (1.0.5)
       axiom-types (~> 0.1)
