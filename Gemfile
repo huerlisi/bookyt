@@ -84,7 +84,7 @@ gem 'bootstrap-will_paginate'
 
 # Form framework
 gem 'simple_form'
-gem 'select2-rails'
+gem 'select2-rails', '~> 3.5' # incompatible
 
 # CRUD
 gem 'will_paginate'
