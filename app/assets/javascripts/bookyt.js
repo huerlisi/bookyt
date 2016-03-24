@@ -39,7 +39,12 @@ function updateLineItemPrice(lineItem) {
   var list = lineItem.parent();
   var reference_code = lineItem.find(":input[name$='[reference_code]']").val();
   var quantity = lineItem.find(":input[name$='[quantity]']").val();
-  if (quantity == '%' || quantity == 'saldo_of') {
+  var after_saldo_line_item = lineItem.prev().hasClass('saldo_line_item');
+  var is_saldo_line_item = lineItem.hasClass('saldo_line_item');
+  var is_relative_item = (quantity == '%' || quantity == 'saldo_of');
+  var no_previous_saldo_line_item = (lineItem.prevAll().find('.saldo_line_item').size() === 0);
+
+  if (is_relative_item && (after_saldo_line_item || is_saldo_line_item || no_previous_saldo_line_item)) {
     var included_items;
     if (reference_code == '') {
       included_items = lineItem.prevAll('.line_item');
