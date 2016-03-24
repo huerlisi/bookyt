@@ -21,11 +21,11 @@ class DebitInvoicePDF
     pdf.text I18n.t('pdf.debit_invoice.due', date: @invoice.due_date.to_s)
     pdf.text I18n.t('pdf.debit_invoice.invoice_number', number: @invoice.code)
 
-    # Free text
-    pdf.free_text(@invoice.text)
-
     # Line Items
     pdf.line_items_table(@invoice, @invoice.line_items)
+
+    # Free text
+    pdf.free_text(@invoice.text)
 
     case
     when @invoice.customer.direct_debit_enabled?
