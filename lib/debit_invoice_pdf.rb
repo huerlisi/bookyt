@@ -24,6 +24,12 @@ class DebitInvoicePDF
     # Line Items
     pdf.line_items_table(@invoice, @invoice.line_items)
 
+    # If we do not use the vesr part, we have some space and can make
+    # the invoice look cleaner
+    unless @tenant.use_vesr?
+      pdf.text "\n" * 5
+    end
+
     # Free text
     pdf.free_text(@invoice.text)
 
