@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160308215619) do
+ActiveRecord::Schema.define(:version => 20160421185126) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -253,13 +253,13 @@ ActiveRecord::Schema.define(:version => 20160308215619) do
   add_index "esr_records", ["invoice_id"], :name => "index_esr_records_on_invoice_id"
 
   create_table "has_vcards_addresses", :force => true do |t|
-    t.string   "post_office_box",  :limit => 50
-    t.string   "extended_address", :limit => 50
-    t.string   "street_address",   :limit => 50
-    t.string   "locality",         :limit => 50
-    t.string   "region",           :limit => 50
-    t.string   "postal_code",      :limit => 50
-    t.string   "country_name",     :limit => 50
+    t.string   "post_office_box"
+    t.string   "extended_address"
+    t.string   "street_address"
+    t.string   "locality"
+    t.string   "region"
+    t.string   "postal_code"
+    t.string   "country_name"
     t.integer  "vcard_id"
     t.string   "address_type"
     t.datetime "created_at"
@@ -269,8 +269,8 @@ ActiveRecord::Schema.define(:version => 20160308215619) do
   add_index "has_vcards_addresses", ["vcard_id"], :name => "addresses_vcard_id_index"
 
   create_table "has_vcards_phone_numbers", :force => true do |t|
-    t.string   "number",            :limit => 50
-    t.string   "phone_number_type", :limit => 50
+    t.string   "number"
+    t.string   "phone_number_type"
     t.integer  "vcard_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -280,14 +280,14 @@ ActiveRecord::Schema.define(:version => 20160308215619) do
   add_index "has_vcards_phone_numbers", ["vcard_id"], :name => "phone_numbers_vcard_id_index"
 
   create_table "has_vcards_vcards", :force => true do |t|
-    t.string   "full_name",        :limit => 50
-    t.string   "nickname",         :limit => 50
-    t.string   "family_name",      :limit => 50
-    t.string   "given_name",       :limit => 50
-    t.string   "additional_name",  :limit => 50
-    t.string   "honorific_prefix", :limit => 50
-    t.string   "honorific_suffix", :limit => 50
-    t.boolean  "active",                         :default => true
+    t.string   "full_name"
+    t.string   "nickname"
+    t.string   "family_name"
+    t.string   "given_name"
+    t.string   "additional_name"
+    t.string   "honorific_prefix"
+    t.string   "honorific_suffix"
+    t.boolean  "active",           :default => true
     t.integer  "reference_id"
     t.string   "reference_type"
     t.datetime "created_at"
