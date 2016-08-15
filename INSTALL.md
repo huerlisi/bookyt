@@ -4,7 +4,7 @@ systems.
 Install Ruby’n’Rails
 --------------------
 
-Bookyt is developed and tested using Rails 3.2 and Ruby 2.2.
+Bookyt is developed and tested using Rails 3.2 and Ruby 2.3.
 
 Install packages needed:
 
