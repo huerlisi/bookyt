@@ -15,8 +15,8 @@ class LineItem < ActiveRecord::Base
   validates :times, :presence => true, :numericality => true, :unless => :is_a_saldo_line_item?
   validates :price, :presence => true, :numericality => true
   validates :title, :presence => true
-  validates :credit_account, :presence => true
-  validates :debit_account, :presence => true
+  validates :credit_account, :presence => true, :unless => :is_a_saldo_line_item?
+  validates :debit_account, :presence => true, :unless => :is_a_saldo_line_item?
 
   # String
   def to_s
