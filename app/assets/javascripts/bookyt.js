@@ -217,9 +217,6 @@ function initializeBehaviours() {
     $("*[rel=popover]").popover({
       offset: 10
     });
-    $('.small-tooltip').tooltip({
-      placement: 'right'
-    });
   })
 
   // select2
