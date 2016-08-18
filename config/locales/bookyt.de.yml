@@ -271,7 +271,7 @@ de:
       all: Alle
       balance: Bilanz
       bookings: Journal
-      contacts: Adressen
+      contacts: Kontakte
       credit_invoices: Kreditoren
       debit_invoices: Debitoren
       destroy_user_session: Abmelden
