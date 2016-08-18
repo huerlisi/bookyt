@@ -12,16 +12,16 @@
     = csrf_meta_tag
     %title
       - if current_user
-        = "#{current_user.tenant}: #{content_for :page_title} - #{t('application.title')}"
+        = "#{current_user.tenant}: #{content_for :page_title} - #{Settings.title}"
       - else
-        = "#{content_for :page_title} - #{t('application.title')}"
+        = "#{content_for :page_title} - #{Settings.title}"
 
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
           = link_to root_path, :class => 'brand' do
-            = t('application.title')
+            = Settings.title
 
           .btn-group.pull-right
             = link_to '#', :class => 'btn dropdown-toggle', 'data-toggle' => 'dropdown' do
