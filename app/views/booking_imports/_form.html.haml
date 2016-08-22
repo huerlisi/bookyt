@@ -25,5 +25,5 @@
         %td.amount.currency= b.input :amount, :as => :string, :wrapper => :inline, :readonly => true, :input_html => { :tabindex => -1 }
         %td.title= b.input :title, :wrapper => :inline, :readonly => true, :input_html => { :tabindex => -1 }
         %td.comments= b.input :comments, :wrapper => :inline, :input_html => {:rows => 2}
-        %td.debit_account= b.association :debit_account, :wrapper => :inline
-        %td.credit_account= b.association :credit_account, :wrapper => :inline
+        %td.debit_account.span2= b.association :debit_account, :collection => accounts_as_collection(Account.all), :as => :combobox, :wrapper => :inline
+        %td.credit_account.span2= b.association :credit_account, :collection => accounts_as_collection(Account.all), :as => :combobox, :wrapper => :inline
