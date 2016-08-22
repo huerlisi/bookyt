@@ -42,9 +42,12 @@ group :development do
   gem 'binding_of_caller' # Needed by binding_of_caller to enable html console
 end
 
+# TODO:
+# should go into :test group, workaround for old rails version
+gem 'test-unit'
+
 group :test, :development do
   # Framework
-  gem 'test-unit'
   gem 'rspec-rails'
 
   # Matchers/Helpers
