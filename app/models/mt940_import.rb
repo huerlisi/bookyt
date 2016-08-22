@@ -38,10 +38,10 @@ class Mt940Import < BookingImport
         booking.amount = line.amount / 100.0
         booking.value_date = line.value_date
         case line.funds_code
-        when :credit
+        when :debit
           booking.credit_account = account
           booking.debit_account  = todo_account
-        when :debit
+        when :credit
           booking.credit_account = todo_account
           booking.debit_account  = account
         end
