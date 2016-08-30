@@ -52,7 +52,7 @@ keys for external services. These are configured in config/application.yml.
 
 To get started copy the example:
 
-    cp config/application.yml config/application.yml.example
+    cp config/application.yml.example config/application.yml
 
 Setup admin user
 ----------------
