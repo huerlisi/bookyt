@@ -42,10 +42,6 @@ class Person < ActiveRecord::Base
   #default_scope includes(:vcard).order("COALESCE(vcards.full_name, CONCAT(vcards.family_name, ' ', vcards.given_name))")
   pg_search_scope :by_text, :associated_against => { :vcards => [:full_name, :family_name, :given_name] }, :using => {:tsearch => {:prefix => true}}
 
-  scope :by_name, lambda {|value|
-    includes(:vcard).where("(vcards.given_name LIKE :query) OR (vcards.family_name LIKE :query) OR (vcards.full_name LIKE :query)", :query => "%#{value}%")
-  }
-
   # Constructor
   def initialize(attributes = nil, options = {})
     super
