@@ -11,7 +11,8 @@
 = simple_form_for resource do |f|
   = f.input :company_id, :as => :hidden
   .row-fluid
-    .span12= f.input :title
+    .span8= f.input :title
+    .span4= f.input :code, :readonly => true
   .row-fluid
     .span6= f.association :customer, :as => :combobox, :input_html => {'data-autofocus' => true}
     .span6= f.input :state, :collection => invoice_states_as_collection

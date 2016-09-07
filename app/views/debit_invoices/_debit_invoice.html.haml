@@ -1,5 +1,6 @@
 %tr[debit_invoice]
   %td= debit_invoice.value_date
+  %td= debit_invoice.code
   %td
     = link_to debit_invoice, {'data-href-container' => 'tr'} do
       = debit_invoice.to_s
