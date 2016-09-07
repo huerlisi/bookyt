@@ -4,6 +4,7 @@
   %thead
     %tr
       %th= t_attr :value_date, Invoice
+      %th= t_attr :code, Invoice
       %th= t_attr :title, Invoice
       %th= t_attr :customer, Invoice
       %th= t_attr :due_date, Invoice
@@ -15,7 +16,7 @@
   %tfoot
     %tr#invoices_list_footer
       %th{:style => "width: 10em"}= l Date.today
-      %th{:colspan => 3}= t('bookyt.total')
+      %th{:colspan => 4}= t('bookyt.total')
       %th.currency= currency_fmt(@debit_invoices.to_a.sum(&:amount))
       %th.currency= currency_fmt(@debit_invoices.to_a.sum(&:balance))
       %th

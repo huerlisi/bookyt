@@ -1,5 +1,6 @@
 %tr[credit_invoice]
   %td= credit_invoice.value_date
+  %td= credit_invoice.code
   %td
     = link_to credit_invoice, {'data-href-container' => 'tr'} do
       = credit_invoice.to_s
