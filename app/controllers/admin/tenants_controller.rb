@@ -35,7 +35,7 @@ class Admin::TenantsController < ApplicationController
     if @instance_tenant.valid? && @user.valid? && @tenant.save
       Apartment::Tenant.create(@tenant.db_name)
       Apartment::Tenant.switch(@tenant.db_name)
-      load "db/seeds.rb"
+      load "#{Rails.root}/db/seeds.rb"
 
       @instance_tenant.save!
       # Assign roles again, as we need to assign the roles in this db.
