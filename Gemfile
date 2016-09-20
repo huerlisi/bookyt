@@ -144,7 +144,7 @@ gem 'best_in_place'
 
 # PDF generation
 gem 'pdfkit'
-gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary', '~> 0.9.9.3' # Page break problems
 
 gem 'prawn', '~> 0.12.0' # API incompatible, missing templating
 gem 'prawn_rails'
