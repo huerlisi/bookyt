@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160818000000) do
+ActiveRecord::Schema.define(:version => 20161018195226) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   add_index "accounts", ["bank_id"], :name => "index_accounts_on_bank_id"
   add_index "accounts", ["code"], :name => "index_accounts_on_code"
   add_index "accounts", ["holder_id", "holder_type"], :name => "index_accounts_on_holder_id_and_holder_type"
+  add_index "accounts", ["parent_id"], :name => "index_accounts_on_parent_id"
   add_index "accounts", ["type"], :name => "index_accounts_on_type"
 
   create_table "activities", :force => true do |t|
@@ -154,7 +155,7 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
     t.datetime "updated_at"
     t.integer  "reference_id"
     t.string   "reference_type"
-    t.integer  "code"
+    t.decimal  "code",                             :precision => 100, :scale => 0
     t.integer  "template_id"
     t.string   "template_type"
   end
