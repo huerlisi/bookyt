@@ -15,7 +15,7 @@ development:
 
 test:
   <<: *defaults
-
+  devise_backend: 'database_authenticatable'
 staging:
   <<: *defaults
 
