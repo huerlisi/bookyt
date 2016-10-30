@@ -146,6 +146,9 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise_cas_authenticatable (1.9.2)
+      devise (>= 1.2.0)
+      rubycas-client (>= 2.2.1)
     diff-lcs (1.2.5)
     enumerable-lazy (0.0.1)
     equalizer (0.0.11)
@@ -385,6 +388,8 @@ GEM
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
     ruby-rc4 (0.1.5)
+    rubycas-client (2.3.9)
+      activesupport
     rubyzip (1.2.0)
     sass (3.4.22)
     sass-rails (3.2.6)
@@ -484,6 +489,7 @@ DEPENDENCIES
   csv-mapper
   database_cleaner
   devise
+  devise_cas_authenticatable
   factory_girl_rails
   faraday
   grape
@@ -544,4 +550,4 @@ DEPENDENCIES
   yaml_db
 
 BUNDLED WITH
-   1.11.2
+   1.13.6

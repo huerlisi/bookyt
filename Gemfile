@@ -107,6 +107,7 @@ gem 'faraday'
 gem 'cancancan'
 gem 'lyb_devise_admin'
 gem 'apartment'
+gem 'devise_cas_authenticatable'
 
 # API
 gem 'grape'
