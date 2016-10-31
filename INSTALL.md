@@ -54,14 +54,19 @@ To get started copy the example:
 
     cp config/application.yml.example config/application.yml
     
-### CAS authentication configuration
+### Authentcation
 
-It could be configurable between `database_authenticatable` and `cas_authenticatable`.
-If `cas_authenticatable` being used as `devise_backend`, `cas_base_url` must have to be defined.
+You can decide between two authentication mechanisms: Database Authentication, `database_authenticatable` (default) and CAS Authentication `cas_authenticatable`.
 
-For `extra-attribute` configuration Please add `CASExtraAttributesMapper` class in `lib/cas_extra_attributes_mapper.rb`.
+##### Database Authentication
 
-**Example:**
+For Database Authentication, no changes are needed.
+
+##### CAS Authentication
+
+If you go for CAS Authentication, set `devise_backend` to `cas_authenticatable` and make sure to set `cas_base_url`.
+
+To handle the extra attributes, add a class named `CASExtraAttributesMapper` which responds to `.call`. For example:
 
 ```ruby
 class CASExtraAttributesMapper
@@ -69,7 +74,6 @@ class CASExtraAttributesMapper
     extra_attributes.each do |name, value|
       case name.to_sym
       when :full_name
-        # .find_by not works in Rails 3
         user.fullname = value
       when :roles
         user.role_texts = [value.split(',')].flatten
