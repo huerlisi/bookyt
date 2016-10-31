@@ -54,7 +54,7 @@ To get started copy the example:
 
     cp config/application.yml.example config/application.yml
     
-## CAS authentication configuration
+### CAS authentication configuration
 
 It could be configurable between `database_authenticatable` and `cas_authenticatable`.
 If `cas_authenticatable` being used as `devise_backend`, `cas_base_url` must have to be defined.
