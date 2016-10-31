@@ -53,6 +53,32 @@ keys for external services. These are configured in config/application.yml.
 To get started copy the example:
 
     cp config/application.yml.example config/application.yml
+    
+## CAS authentication configuration
+
+It could be configurable between `database_authenticatable` and `cas_authenticatable`.
+If `cas_authenticatable` being used as `devise_backend`, `cas_base_url` must have to be defined.
+
+For `extra-attribute` configuration Please add `CASExtraAttributesMapper` class in `lib/cas_extra_attributes_mapper.rb`.
+
+Example:
+
+```ruby
+class CASExtraAttributesMapper
+  def self.call(extra_attributes, user)
+    extra_attributes.each do |name, value|
+      case name.to_sym
+      when :full_name
+        # .find_by not works in Rails 3
+        user.fullname = value
+      when :roles
+        user.role_texts = [value.split(',')].flatten
+      end
+      # And so on for other attributes
+    end
+  end
+end
+```
 
 Setup admin user
 ----------------
