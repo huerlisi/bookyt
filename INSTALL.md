@@ -61,7 +61,7 @@ If `cas_authenticatable` being used as `devise_backend`, `cas_base_url` must hav
 
 For `extra-attribute` configuration Please add `CASExtraAttributesMapper` class in `lib/cas_extra_attributes_mapper.rb`.
 
-Example:
+**Example:**
 
 ```ruby
 class CASExtraAttributesMapper
