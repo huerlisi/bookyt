@@ -231,7 +231,7 @@ GEM
     kgio (2.10.0)
     ledermann-rails-settings (2.4.2)
       activerecord (>= 3.1)
-    libv8 (3.16.14.15)
+    libv8 (3.16.14.17)
     lsv-plus (1.0.3)
     lyb_devise_admin (0.4.0)
     lyb_sidebar (0.1.1)
@@ -418,8 +418,8 @@ GEM
       power_assert
     test_after_commit (1.1.0)
       activerecord (>= 3.2)
-    therubyracer (0.12.2)
-      libv8 (~> 3.16.14.0)
+    therubyracer (0.12.3)
+      libv8 (~> 3.16.14.15)
       ref
     thor (0.19.1)
     thread_safe (0.3.5)
@@ -544,4 +544,4 @@ DEPENDENCIES
   yaml_db
 
 BUNDLED WITH
-   1.11.2
+   1.13.7
