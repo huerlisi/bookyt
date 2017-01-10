@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  devise Settings.devise_backend.to_sym, :recoverable, :rememberable, :trackable, :omniauthable
+  devise :validatable unless Settings.devise_backend == 'cas_authenticatable'
 
   # API
   before_save :ensure_authentication_token
@@ -16,6 +17,11 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :roles, :autosave => true
   scope :by_role, lambda{|role| include(:roles).where(:name => role)}
   attr_accessible :role_texts
+
+  def cas_extra_attributes=(extra_attributes)
+    return unless defined?(CASExtraAttributesMapper)
+    CASExtraAttributesMapper.call(extra_attributes, self)
+  end
 
   def role?(role)
     !!self.roles.find_by_name(role.to_s)

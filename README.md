@@ -36,6 +36,7 @@ appreciated.
 - Employee expense voucher
 - Depreciation
 - Setting up tax tables
+- Optional CAS authentication
 
 Find more information about Bookyt on its [homepage](http://bookyt.ch)
 
