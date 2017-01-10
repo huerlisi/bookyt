@@ -15,6 +15,7 @@ script: "bundle exec rake spec"
 
 rvm:
   - 2.2.2
+  - 2.3.3
 
 bundler_args: "--binstubs --without development"
 
