@@ -4,8 +4,8 @@
   .span1= line_item.input :times, :input_html => {:autocomplete => "off"}, as: :string
   .span1= line_item.input :quantity, :collection => ['x', 'hours', 'overall', '%'].map{|quantity| [t(quantity, :scope => 'line_items.quantity'), quantity]}
   .span1= line_item.input :price, :input_html => {:autocomplete => "off"}, as: :string
-  .span2= line_item.association :debit_account, :as => :combobox, :label_method => lambda {|option| option.to_s(:select)}
   .span2= line_item.association :credit_account, :as => :combobox, :label_method => lambda {|option| option.to_s(:select)}
+  .span2= line_item.association :debit_account, :as => :combobox, :label_method => lambda {|option| option.to_s(:select)}
   .span1.currency.total_amount= currency_fmt(line_item.object.accounted_amount)
   .span1.action_links
     = line_item.hidden_field :position
