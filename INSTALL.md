@@ -83,6 +83,7 @@ class CASExtraAttributesMapper
   end
 end
 ```
+**And this class must have to contained by the file named `cas_extra_attributes_mapper.rb` in `/lib` directory.**
 
 Setup admin user
 ----------------
