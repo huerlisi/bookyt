@@ -83,6 +83,10 @@ class CASExtraAttributesMapper
   end
 end
 ```
+**And this class must have to contained by the file named `cas_extra_attributes_mapper.rb` in `/lib` directory.**
+###### Why? 
+
+Because it has to map the user to a tenant
 
 Setup admin user
 ----------------
