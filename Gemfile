@@ -187,4 +187,6 @@ group :demo do
 
   # Exceptions
   #gem 'airbrake'
+  # Install App for Searching
+  gem 'thinking-sphinx'
 end
