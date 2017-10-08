@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 # Rails
 # =====
-gem 'rails', '~> 3.2.14' # Because it makes sense, and bundler fails otherwise
+gem 'rails', '~> 3.2.22.5' # Because it makes sense, and bundler fails otherwise
 gem 'unicorn'
 
 # Database
