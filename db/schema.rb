@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160818000000) do
+ActiveRecord::Schema.define(:version => 20190220113807) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name",       :limit => 100
@@ -24,15 +24,15 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
 
   create_table "accounts", :force => true do |t|
     t.string   "title",           :limit => 100
-    t.integer  "parent_id"
-    t.integer  "account_type_id"
+    t.integer  "parent_id",       :limit => 8
+    t.integer  "account_type_id", :limit => 8
     t.string   "number"
     t.string   "code"
     t.string   "type"
-    t.integer  "holder_id"
+    t.integer  "holder_id",       :limit => 8
     t.string   "holder_type"
-    t.integer  "bank_id"
-    t.integer  "esr_id"
+    t.integer  "bank_id",         :limit => 8
+    t.integer  "esr_id",          :limit => 8
     t.string   "pc_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -47,14 +47,14 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
 
   create_table "activities", :force => true do |t|
     t.date     "date"
-    t.integer  "person_id"
-    t.integer  "project_id"
+    t.integer  "person_id",   :limit => 8
+    t.integer  "project_id",  :limit => 8
     t.text     "remarks"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
-    t.decimal  "duration",    :precision => 4,  :scale => 2
-    t.integer  "work_day_id"
-    t.decimal  "hours_due",   :precision => 10, :scale => 2
+    t.datetime "created_at",                                              :null => false
+    t.datetime "updated_at",                                              :null => false
+    t.decimal  "duration",                 :precision => 4,  :scale => 2
+    t.integer  "work_day_id", :limit => 8
+    t.decimal  "hours_due",                :precision => 10, :scale => 2
   end
 
   add_index "activities", ["date"], :name => "index_activities_on_date"
@@ -89,9 +89,9 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   create_table "attachments", :force => true do |t|
     t.string   "title"
     t.string   "file"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.integer  "reference_id"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.integer  "reference_id",   :limit => 8
     t.string   "reference_type"
     t.string   "code"
     t.string   "type"
@@ -105,10 +105,10 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
     t.date     "start_date"
     t.date     "end_date"
     t.string   "reference"
-    t.integer  "booking_import_attachment_id"
-    t.integer  "account_id"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.integer  "booking_import_attachment_id", :limit => 8
+    t.integer  "account_id",                   :limit => 8
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "type"
   end
 
@@ -119,11 +119,11 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   create_table "booking_templates", :force => true do |t|
     t.string   "title"
     t.string   "amount"
-    t.integer  "credit_account_id"
-    t.integer  "debit_account_id"
+    t.integer  "credit_account_id",       :limit => 8
+    t.integer  "debit_account_id",        :limit => 8
     t.text     "comments"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.string   "code"
     t.string   "matcher"
     t.string   "amount_relates_to"
@@ -142,8 +142,8 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   create_table "bookings", :force => true do |t|
     t.string   "title",             :limit => 100
     t.decimal  "amount",                           :precision => 10, :scale => 2
-    t.integer  "credit_account_id"
-    t.integer  "debit_account_id"
+    t.integer  "credit_account_id", :limit => 8
+    t.integer  "debit_account_id",  :limit => 8
     t.date     "value_date"
     t.text     "comments",                                                        :default => ""
     t.string   "scan"
@@ -152,10 +152,10 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
     t.float    "exchange_rate",                                                   :default => 1.0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "reference_id"
+    t.integer  "reference_id",      :limit => 8
     t.string   "reference_type"
     t.integer  "code"
-    t.integer  "template_id"
+    t.integer  "template_id",       :limit => 8
     t.string   "template_type"
   end
 
@@ -168,12 +168,12 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   create_table "charge_rates", :force => true do |t|
     t.string   "title"
     t.string   "code"
-    t.decimal  "rate",          :precision => 10, :scale => 2
+    t.decimal  "rate",                       :precision => 10, :scale => 2
     t.date     "duration_from"
     t.date     "duration_to"
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
-    t.integer  "person_id"
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
+    t.integer  "person_id",     :limit => 8
     t.boolean  "relative"
   end
 
@@ -199,15 +199,15 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
     t.date     "duration_to"
     t.boolean  "temporary"
     t.boolean  "hourly_paid"
-    t.decimal  "daily_workload",   :precision => 10, :scale => 2
-    t.integer  "employee_id"
-    t.integer  "employer_id"
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.decimal  "daily_workload",                :precision => 10, :scale => 2
+    t.integer  "employee_id",      :limit => 8
+    t.integer  "employer_id",      :limit => 8
+    t.datetime "created_at",                                                   :null => false
+    t.datetime "updated_at",                                                   :null => false
     t.text     "remarks"
-    t.decimal  "salary_amount",    :precision => 10, :scale => 2
+    t.decimal  "salary_amount",                 :precision => 10, :scale => 2
     t.integer  "kids"
-    t.decimal  "workload",         :precision => 10, :scale => 2
+    t.decimal  "workload",                      :precision => 10, :scale => 2
     t.decimal  "overtime_premium"
     t.decimal  "holiday_premium"
     t.decimal  "sunday_premium"
@@ -230,7 +230,7 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   create_table "esr_records", :force => true do |t|
     t.string   "bank_pc_id"
     t.string   "reference"
-    t.decimal  "amount",            :precision => 8, :scale => 2
+    t.decimal  "amount",                         :precision => 8, :scale => 2
     t.string   "payment_reference"
     t.date     "payment_date"
     t.date     "transaction_date"
@@ -241,11 +241,11 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
     t.string   "payment_tax"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "esr_file_id"
-    t.integer  "booking_id"
-    t.integer  "invoice_id"
-    t.text     "remarks",                                         :default => ""
-    t.string   "state",                                                           :null => false
+    t.integer  "esr_file_id",       :limit => 8
+    t.integer  "booking_id",        :limit => 8
+    t.integer  "invoice_id",        :limit => 8
+    t.text     "remarks",                                                      :default => ""
+    t.string   "state",                                                                        :null => false
   end
 
   add_index "esr_records", ["booking_id"], :name => "index_esr_records_on_booking_id"
@@ -260,7 +260,7 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
     t.string   "region"
     t.string   "postal_code"
     t.string   "country_name"
-    t.integer  "vcard_id"
+    t.integer  "vcard_id",         :limit => 8
     t.string   "address_type"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -271,7 +271,7 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   create_table "has_vcards_phone_numbers", :force => true do |t|
     t.string   "number"
     t.string   "phone_number_type"
-    t.integer  "vcard_id"
+    t.integer  "vcard_id",          :limit => 8
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -287,8 +287,8 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
     t.string   "additional_name"
     t.string   "honorific_prefix"
     t.string   "honorific_suffix"
-    t.boolean  "active",           :default => true
-    t.integer  "reference_id"
+    t.boolean  "active",                        :default => true
+    t.integer  "reference_id",     :limit => 8
     t.string   "reference_type"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -298,12 +298,12 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   add_index "has_vcards_vcards", ["reference_id", "reference_type"], :name => "index_vcards_on_object_id_and_object_type"
 
   create_table "invoices", :force => true do |t|
-    t.integer  "customer_id"
-    t.integer  "company_id"
+    t.integer  "customer_id",              :limit => 8
+    t.integer  "company_id",               :limit => 8
     t.date     "due_date"
     t.string   "state"
-    t.datetime "created_at",                                                                :null => false
-    t.datetime "updated_at",                                                                :null => false
+    t.datetime "created_at",                                                                             :null => false
+    t.datetime "updated_at",                                                                             :null => false
     t.string   "title"
     t.text     "remarks"
     t.date     "value_date"
@@ -315,12 +315,12 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
     t.date     "reminder_due_date"
     t.date     "second_reminder_due_date"
     t.date     "third_reminder_due_date"
-    t.boolean  "delta",                                                   :default => true, :null => false
-    t.decimal  "leave_days_balance",       :precision => 4,  :scale => 2
-    t.decimal  "used_leave_days",          :precision => 4,  :scale => 2
-    t.decimal  "amount",                   :precision => 10, :scale => 2
-    t.decimal  "due_amount",               :precision => 10, :scale => 2
-    t.integer  "debit_direct_file_id"
+    t.boolean  "delta",                                                                :default => true, :null => false
+    t.decimal  "leave_days_balance",                    :precision => 4,  :scale => 2
+    t.decimal  "used_leave_days",                       :precision => 4,  :scale => 2
+    t.decimal  "amount",                                :precision => 10, :scale => 2
+    t.decimal  "due_amount",                            :precision => 10, :scale => 2
+    t.integer  "debit_direct_file_id",     :limit => 8
   end
 
   add_index "invoices", ["company_id"], :name => "index_invoices_on_company_id"
@@ -330,22 +330,22 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   add_index "invoices", ["value_date"], :name => "index_invoices_on_value_date"
 
   create_table "line_items", :force => true do |t|
-    t.decimal  "times",               :precision => 10, :scale => 6
-    t.decimal  "price",               :precision => 10, :scale => 2
+    t.decimal  "times",                            :precision => 10, :scale => 6
+    t.decimal  "price",                            :precision => 10, :scale => 2
     t.string   "code"
     t.string   "title"
     t.string   "description"
-    t.integer  "item_id"
+    t.integer  "item_id",             :limit => 8
     t.string   "item_type"
     t.string   "type"
-    t.integer  "invoice_id"
-    t.datetime "created_at",                                                          :null => false
-    t.datetime "updated_at",                                                          :null => false
+    t.integer  "invoice_id",          :limit => 8
+    t.datetime "created_at",                                                                       :null => false
+    t.datetime "updated_at",                                                                       :null => false
     t.date     "date"
-    t.string   "quantity",                                           :default => "x"
-    t.integer  "credit_account_id"
-    t.integer  "debit_account_id"
-    t.integer  "booking_template_id"
+    t.string   "quantity",                                                        :default => "x"
+    t.integer  "credit_account_id",   :limit => 8
+    t.integer  "debit_account_id",    :limit => 8
+    t.integer  "booking_template_id", :limit => 8
     t.integer  "position"
     t.string   "reference_code"
   end
@@ -361,22 +361,22 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   add_index "line_items", ["type"], :name => "index_line_items_on_type"
 
   create_table "people", :force => true do |t|
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.datetime "created_at",                                            :null => false
+    t.datetime "updated_at",                                            :null => false
     t.string   "type"
     t.date     "date_of_birth"
     t.date     "date_of_death"
     t.integer  "sex"
     t.string   "social_security_nr"
     t.string   "social_security_nr_12"
-    t.integer  "civil_status_id"
-    t.integer  "religion_id"
-    t.boolean  "delta",                 :default => true,  :null => false
+    t.integer  "civil_status_id",       :limit => 8
+    t.integer  "religion_id",           :limit => 8
+    t.boolean  "delta",                              :default => true,  :null => false
     t.string   "nationality"
     t.string   "swift"
     t.string   "clearing"
     t.string   "bank_account"
-    t.boolean  "direct_debit_enabled",  :default => false
+    t.boolean  "direct_debit_enabled",               :default => false
   end
 
   add_index "people", ["civil_status_id"], :name => "index_people_on_civil_status_id"
@@ -397,10 +397,10 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
     t.text     "remarks"
     t.date     "duration_from"
     t.date     "duration_to"
-    t.integer  "project_state_id"
-    t.integer  "client_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer  "project_state_id", :limit => 8
+    t.integer  "client_id",        :limit => 8
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   add_index "projects", ["client_id"], :name => "index_projects_on_client_id"
@@ -421,25 +421,25 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "roles_users", :id => false, :force => true do |t|
-    t.integer "role_id"
-    t.integer "user_id"
+    t.integer "role_id", :limit => 8
+    t.integer "user_id", :limit => 8
   end
 
   add_index "roles_users", ["role_id"], :name => "index_roles_users_on_role_id"
   add_index "roles_users", ["user_id"], :name => "index_roles_users_on_user_id"
 
   create_table "salary_booking_templates_salary_templates", :id => false, :force => true do |t|
-    t.integer "salary_template_id"
-    t.integer "salary_booking_template_id"
+    t.integer "salary_template_id",         :limit => 8
+    t.integer "salary_booking_template_id", :limit => 8
   end
 
   create_table "salary_items", :force => true do |t|
-    t.integer  "salary_booking_template_id"
-    t.integer  "salary_template_id"
-    t.decimal  "times",                      :precision => 10, :scale => 2
-    t.decimal  "price",                      :precision => 10, :scale => 2
-    t.datetime "created_at",                                                :null => false
-    t.datetime "updated_at",                                                :null => false
+    t.integer  "salary_booking_template_id", :limit => 8
+    t.integer  "salary_template_id",         :limit => 8
+    t.decimal  "times",                                   :precision => 10, :scale => 2
+    t.decimal  "price",                                   :precision => 10, :scale => 2
+    t.datetime "created_at",                                                             :null => false
+    t.datetime "updated_at",                                                             :null => false
     t.integer  "position"
   end
 
@@ -448,9 +448,9 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   add_index "salary_items", ["salary_template_id"], :name => "index_salary_items_on_salary_template_id"
 
   create_table "salary_templates", :force => true do |t|
-    t.integer  "person_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "person_id",  :limit => 8
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.string   "title"
     t.text     "remarks"
   end
@@ -460,7 +460,7 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   create_table "settings", :force => true do |t|
     t.string   "var",                       :null => false
     t.text     "value"
-    t.integer  "target_id"
+    t.integer  "target_id",   :limit => 8
     t.string   "target_type", :limit => 30
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
@@ -471,12 +471,12 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   create_table "stocks", :force => true do |t|
     t.string   "title"
     t.text     "remarks"
-    t.decimal  "amount",              :precision => 10, :scale => 2
+    t.decimal  "amount",                           :precision => 10, :scale => 2
     t.string   "state"
-    t.integer  "purchase_invoice_id"
-    t.datetime "created_at",                                         :null => false
-    t.datetime "updated_at",                                         :null => false
-    t.integer  "selling_invoice_id"
+    t.integer  "purchase_invoice_id", :limit => 8
+    t.datetime "created_at",                                                      :null => false
+    t.datetime "updated_at",                                                      :null => false
+    t.integer  "selling_invoice_id",  :limit => 8
   end
 
   add_index "stocks", ["purchase_invoice_id"], :name => "index_assets_on_purchase_invoice_id"
@@ -484,10 +484,10 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   add_index "stocks", ["state"], :name => "index_assets_on_state"
 
   create_table "taggings", :force => true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
+    t.integer  "tag_id",        :limit => 8
+    t.integer  "taggable_id",   :limit => 8
     t.string   "taggable_type"
-    t.integer  "tagger_id"
+    t.integer  "tagger_id",     :limit => 8
     t.string   "tagger_type"
     t.string   "context"
     t.datetime "created_at"
@@ -501,9 +501,9 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   end
 
   create_table "tenants", :force => true do |t|
-    t.integer  "person_id"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.integer  "person_id",                   :limit => 8
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.date     "incorporated_on"
     t.date     "fiscal_year_ends_on"
     t.string   "vat_number"
@@ -512,7 +512,7 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
     t.string   "uid_number"
     t.string   "ahv_number"
     t.string   "code"
-    t.integer  "admin_tenant_id"
+    t.integer  "admin_tenant_id",             :limit => 8
     t.string   "debit_direct_identification"
     t.string   "webhook"
   end
@@ -521,19 +521,19 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   add_index "tenants", ["person_id"], :name => "index_tenants_on_person_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                               :default => "", :null => false
+    t.string   "encrypted_password",                  :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.integer  "person_id"
-    t.integer  "tenant_id"
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
+    t.integer  "person_id",              :limit => 8
+    t.integer  "tenant_id",              :limit => 8
     t.string   "authentication_token"
     t.datetime "reset_password_sent_at"
   end
@@ -545,12 +545,12 @@ ActiveRecord::Schema.define(:version => 20160818000000) do
   add_index "users", ["tenant_id"], :name => "index_users_on_tenant_id"
 
   create_table "work_days", :force => true do |t|
-    t.integer  "person_id"
+    t.integer  "person_id",    :limit => 8
     t.date     "date"
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
-    t.decimal  "hours_due",    :precision => 10, :scale => 2
-    t.decimal  "hours_worked", :precision => 10, :scale => 2
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
+    t.decimal  "hours_due",                 :precision => 10, :scale => 2
+    t.decimal  "hours_worked",              :precision => 10, :scale => 2
   end
 
   add_index "work_days", ["date"], :name => "index_work_days_on_date"
