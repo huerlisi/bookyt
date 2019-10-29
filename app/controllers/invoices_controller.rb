@@ -3,8 +3,12 @@ class InvoicesController < AuthorizedController
   has_scope :invoice_state, :default => proc {|controller| 'booked' if controller.params[:by_text].nil?}, :only => :index
   has_scope :by_text
   has_scope :overdue, :type => :boolean
+  has_scope :by_value_date, :using => [:from, :to], :default => proc { |c| c.session[:has_scope] }
+  has_scope :by_due_date, :using => [:from, :to], :default => proc { |c| c.session[:has_scope] }
 
   respond_to :html, :pdf
+
+  before_filter :set_search, :only => [:index]
 
   # has_many :line_items
   def new_line_item
@@ -42,5 +46,18 @@ class InvoicesController < AuthorizedController
     set_resource_ivar invoice
 
     render 'edit'
+  end
+
+  def set_search
+    by_text = params[:by_text]
+    by_value_date = OpenStruct.new(
+      :from => params.fetch(:by_value_date, {}).fetch(:from, ''),
+      :to => params.fetch(:by_value_date, {}).fetch(:to, ''),
+    )
+    by_due_date = OpenStruct.new(
+      :from => params.fetch(:by_due_date, {}).fetch(:from, ''),
+      :to => params.fetch(:by_due_date, {}).fetch(:to, ''),
+    )
+    @search = OpenStruct.new(:by_text => by_text, :by_value_date => by_value_date, :by_due_date => by_due_date)
   end
 end

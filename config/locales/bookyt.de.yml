@@ -470,6 +470,12 @@ de:
   invoices:
     list:
       title: Rechnungen
+    search:
+      by_text: Inhalt
+      by_value_date_from: Rechnungsdatum Von
+      by_value_date_to: Rechnungsdatum Bis
+      by_due_date_from: Fälligkeit Von
+      by_due_date_to: Fälligkeit Bis
   letters:
     debit_invoice:
       closing: "Bitte begleichen Sie diese Rechnung mit beiliegendem Einzahlungsschein oder per E-Banking."

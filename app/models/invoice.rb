@@ -18,6 +18,27 @@ class Invoice < ActiveRecord::Base
   validates_date :due_date, :value_date
   validates_presence_of :customer, :company, :title, :state
 
+  # Scope filter for date range
+  scope :by_period_of_field, lambda {|field, date_from, date_to|
+    date_from = date_from.to_date rescue nil
+    date_to = date_to.to_date rescue nil
+
+    if date_from.present? && date_to.present?
+      where(field => date_from..date_to)
+    elsif date_from.present?
+      where("#{field} >= ?", date_from)
+    elsif date_to.present?
+      where("#{field} <= ?", date_to)
+    end
+  }
+
+  scope :by_value_date, lambda { |date_from, date_to|
+    by_period_of_field :value_date, date_from, date_to
+  }
+  scope :by_due_date, lambda { |date_from, date_to|
+    by_period_of_field :due_date, date_from, date_to
+  }
+
   # String
   def to_s(format = :default)
     return "" if amount.nil?
