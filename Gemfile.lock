@@ -244,7 +244,9 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
-    mimemagic (0.3.2)
+    mimemagic (0.4.3)
+      nokogiri (~> 1)
+      rake
     mini_portile2 (2.1.0)
     multi_json (1.12.2)
     multi_xml (0.5.5)
@@ -434,7 +436,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     ttfunk (1.0.3)
-    tzinfo (0.3.53)
+    tzinfo (0.3.61)
     uglifier (3.0.1)
       execjs (>= 0.3.0, < 3)
     unicorn (5.1.0)
